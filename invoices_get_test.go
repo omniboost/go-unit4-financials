@@ -6,9 +6,8 @@ import (
 	"testing"
 )
 
-func TestAccountGet(t *testing.T) {
-	req := client.NewAccountGetRequest()
-	req.QueryParams().Account = "FLD"
+func TestInvoicesGet(t *testing.T) {
+	req := client.NewInvoicesGetRequest()
 	resp, err := req.Do()
 	if err != nil {
 		t.Error(err)

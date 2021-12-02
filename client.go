@@ -26,7 +26,7 @@ const (
 )
 
 var (
-	BaseURL string = "https://{{.account_id}}.suitetalk.api.netsuite.com/services/rest/record/v1"
+	BaseURL string = "https://{{.account_id}}.suitetalk.api.netsuite.com/services/rest"
 )
 
 // NewClient returns a new Exact Globe Client client
@@ -57,7 +57,8 @@ type Client struct {
 	baseURL string
 
 	// credentials
-	companyID string
+	companyID       string
+	contentLanguage string
 
 	// User agent for client
 	userAgent string
@@ -94,6 +95,14 @@ func (c Client) CompanyID() string {
 
 func (c *Client) SetCompanyID(companyID string) {
 	c.companyID = companyID
+}
+
+func (c Client) ContentLanguage() string {
+	return c.contentLanguage
+}
+
+func (c *Client) SetContentLanguage(contentLanguage string) {
+	c.contentLanguage = contentLanguage
 }
 
 func (c Client) BaseURL() (*url.URL, error) {
@@ -218,6 +227,11 @@ func (c *Client) NewRequest(ctx context.Context, req Request) (*http.Request, er
 	r.Header.Add("Content-Type", fmt.Sprintf("%s; charset=%s", c.MediaType(), c.Charset()))
 	r.Header.Add("Accept", c.MediaType())
 	r.Header.Add("User-Agent", c.UserAgent())
+
+	if c.ContentLanguage() != "" {
+		r.Header.Add("Accept-Language", c.ContentLanguage())
+		r.Header.Add("Content-Language", c.ContentLanguage())
+	}
 
 	return r, nil
 }

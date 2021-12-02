@@ -6,9 +6,8 @@ import (
 	"testing"
 )
 
-func TestAccountGet(t *testing.T) {
-	req := client.NewAccountGetRequest()
-	req.QueryParams().Account = "FLD"
+func TestJournalEntriesGet(t *testing.T) {
+	req := client.NewJournalEntriesGetRequest()
 	resp, err := req.Do()
 	if err != nil {
 		t.Error(err)

@@ -40,8 +40,8 @@ type AccountGetRequestQueryParams struct {
 
 func (p AccountGetRequestQueryParams) ToURLValues() (url.Values, error) {
 	encoder := utils.NewSchemaEncoder()
-	// encoder.RegisterEncoder(Date{}, utils.EncodeSchemaMarshaler)
-	// encoder.RegisterEncoder(DateTime{}, utils.EncodeSchemaMarshaler)
+	encoder.RegisterEncoder(Date{}, utils.EncodeSchemaMarshaler)
+	encoder.RegisterEncoder(DateTime{}, utils.EncodeSchemaMarshaler)
 	params := url.Values{}
 
 	err := encoder.Encode(p, params)

@@ -20,6 +20,7 @@ func TestMain(m *testing.M) {
 	refreshToken := os.Getenv("REFRESH_TOKEN")
 	tokenURL := os.Getenv("TOKEN_URL")
 	companyID := os.Getenv("COMPANY_ID")
+	contentLanguage := os.Getenv("CONTENT_LANGUAGE")
 	debug := os.Getenv("DEBUG")
 
 	oauthConfig := netsuite.NewOauth2Config(companyID)
@@ -50,6 +51,7 @@ func TestMain(m *testing.M) {
 		client.SetBaseURL(baseURL)
 	}
 
+	client.SetContentLanguage(contentLanguage)
 	client.SetDisallowUnknownFields(true)
 	m.Run()
 }
