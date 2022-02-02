@@ -128,6 +128,18 @@ func (r SuiteqlPostResponseBody) ToCustomers() ([]Customer, error) {
 	return customers, err
 }
 
+func (r *SuiteqlPostResponseBody) ToClassifications() (Classifications, error) {
+	items := Classifications{}
+	err := json.Unmarshal(r.Items, &items)
+	return items, err
+}
+
+func (r *SuiteqlPostResponseBody) ToDepartments() (Departments, error) {
+	items := Departments{}
+	err := json.Unmarshal(r.Items, &items)
+	return items, err
+}
+
 func (r *SuiteqlPostRequest) URL() (*url.URL, error) {
 	u, err := r.client.GetEndpointURL("/query/v1/suiteql", r.PathParams())
 	return &u, err

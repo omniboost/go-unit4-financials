@@ -34,7 +34,7 @@ func (r AccountGetRequest) NewQueryParams() *AccountGetRequestQueryParams {
 }
 
 type AccountGetRequestQueryParams struct {
-	// Account string `schema:"Account"`
+	Account string `schema:"Account"`
 	// PageSize       int    `schema:"PageSize"`
 }
 

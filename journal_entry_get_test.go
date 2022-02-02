@@ -8,7 +8,7 @@ import (
 
 func TestJournalEntryGet(t *testing.T) {
 	req := client.NewJournalEntryGetRequest()
-	req.PathParams().ID = 1083
+	req.PathParams().ID = 3856
 	// req.QueryParams().Fields = netsuite.Fields{"line"}
 	req.QueryParams().ExpandSubResources = false
 	resp, err := req.Do()

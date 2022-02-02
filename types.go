@@ -129,15 +129,17 @@ func (c CustomForm) IsEmpty() bool {
 type JournalEntryLineElements []JournalEntryLineElement
 
 type JournalEntryLineElement struct {
-	Links               Links   `json:"links,omitempty"`
-	Account             Account `json:"Account,omitempty"`
-	Cleared             Bool    `json:"cleared,omitempty"`
-	Credit              float64 `json:"credit,omitempty"`
-	Custcol2663Isperson Bool    `json:"custcol_2663_isperson,omitempty"`
-	Eliminate           Bool    `json:"eliminate,omitempty"`
-	Line                int     `json:"line,omitempty"`
-	Debit               float64 `json:"debit,omitempty"`
-	Memo                string  `json:"memo"`
+	Links               Links     `json:"links,omitempty"`
+	Account             Account   `json:"Account,omitempty"`
+	Cleared             Bool      `json:"cleared,omitempty"`
+	Credit              float64   `json:"credit,omitempty"`
+	Custcol2663Isperson Bool      `json:"custcol_2663_isperson,omitempty"`
+	Eliminate           Bool      `json:"eliminate,omitempty"`
+	Line                int       `json:"line,omitempty"`
+	Debit               float64   `json:"debit,omitempty"`
+	Memo                string    `json:"memo"`
+	Department          RecordRef `json:"Department,omitempty"`
+	Class               RecordRef `json:"Class,omitempty"`
 }
 
 func (j JournalEntryLineElement) MarshalJSON() ([]byte, error) {
@@ -149,6 +151,7 @@ type Account struct {
 	ID         int    `json:"id,omitempty"`
 	RefName    string `json:"refName,omitempty"`
 	AcctNumber string `json:"acctNumber,omitempty"`
+	ExternalID string `json:"externalId,omitempty"`
 }
 
 func (a Account) IsEmpty() bool {
@@ -532,4 +535,51 @@ type InvoiceLocation struct {
 	Links   Links  `json:"links"`
 	ID      int    `json:"id"`
 	RefName string `json:"refName"`
+}
+
+type RecordRef struct {
+	// ID         string `json:"id"`
+	ExternalID string `json:"externalId"`
+	InternalID string `json:"id"`
+}
+
+func (r RecordRef) IsEmpty() bool {
+	return zero.IsZero(r)
+}
+
+type Classifications []Classification
+
+type Classification struct {
+	Links            []interface{} `json:"links"`
+	Fullname         string        `json:"fullname"`
+	ID               string        `json:"id"`
+	Includechildren  string        `json:"includechildren"`
+	Isinactive       string        `json:"isinactive"`
+	Lastmodifieddate string        `json:"lastmodifieddate"`
+	Name             string        `json:"name"`
+	Parent           string        `json:"parent"`
+	Subsidiary       string        `json:"subsidiary"`
+}
+
+func (c Classification) IsEmpty() bool {
+	return zero.IsZero(c)
+}
+
+type Departments []Department
+
+type Department struct {
+	Links            []interface{} `json:"links"`
+	Fullname         string        `json:"fullname"`
+	ID               string        `json:"id"`
+	Includechildren  string        `json:"includechildren"`
+	Isinactive       string        `json:"isinactive"`
+	Lastmodifieddate string        `json:"lastmodifieddate"`
+	Name             string        `json:"name"`
+	Subsidiary       string        `json:"subsidiary"`
+	Custrecord1      string        `json:"custrecord1,omitempty"`
+	Parent           string        `json:"parent,omitempty"`
+}
+
+func (d Department) IsEmpty() bool {
+	return zero.IsZero(d)
 }

@@ -8,7 +8,7 @@ import (
 
 func TestJournalEntryLineGet(t *testing.T) {
 	req := client.NewJournalEntryLineGetRequest()
-	req.PathParams().JournalEntryID = 2248
+	req.PathParams().JournalEntryID = 3856
 
 	for _, i := range []int{0, 1} {
 		req.PathParams().JournalEntryLineNo = i
