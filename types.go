@@ -61,6 +61,7 @@ type JournalEntry struct {
 	TranDate               Date             `json:"tranDate,omitempty"`
 	TranID                 string           `json:"tranId,omitempty"`
 	Void                   Bool             `json:"void,omitempty"`
+	// CustBody4              string           `json:"custbody4"`
 }
 
 func (j JournalEntry) MarshalJSON() ([]byte, error) {
@@ -140,15 +141,19 @@ type JournalEntryLineElement struct {
 	Memo                string    `json:"memo"`
 	Department          RecordRef `json:"Department,omitempty"`
 	Class               RecordRef `json:"Class,omitempty"`
+	CustCol2            string    `json:"custcol2"`
+	CustCol3            string    `json:"custcol3"`
 }
 
 func (j JournalEntryLineElement) MarshalJSON() ([]byte, error) {
 	return omitempty.MarshalJSON(j)
 }
 
+type Accounts []Account
+
 type Account struct {
 	Links      Links  `json:"links,omitempty"`
-	ID         int    `json:"id,omitempty"`
+	ID         string `json:"id,omitempty"`
 	RefName    string `json:"refName,omitempty"`
 	AcctNumber string `json:"acctNumber,omitempty"`
 	ExternalID string `json:"externalId,omitempty"`
@@ -277,8 +282,10 @@ type Invoice struct {
 	// Total                float64 `json:"total"`
 	// TotalAfterTaxes      float64 `json:"totalAfterTaxes"`
 	// TotalCostEstimate    float64 `json:"totalCostEstimate"`
-	TranDate Date   `json:"tranDate"`
-	TranID   string `json:"tranId"`
+	TranDate   Date      `json:"tranDate"`
+	TranID     string    `json:"tranId"`
+	Department RecordRef `json:"Department,omitempty"`
+	Class      RecordRef `json:"Class,omitempty"`
 }
 
 type Address struct {
@@ -496,9 +503,11 @@ type InvoiceItemItem struct {
 	// } `json:"price"`
 	// PrintItems          Bool    `json:"printItems"`
 	// Quantity            float64 `json:"quantity"`
-	// TaxAmount           float64 `json:"taxAmount"`
-	// TaxDetailsReference string  `json:"taxDetailsReference"`
+	TaxAmount           float64 `json:"taxAmount"`
+	TaxDetailsReference string  `json:"taxDetailsReference"`
 	// Units               string  `json:"units"`
+	CustCol2 string `json:"custcol2"`
+	CustCol3 string `json:"custcol3"`
 }
 
 type InvoiceTaxDetails struct {

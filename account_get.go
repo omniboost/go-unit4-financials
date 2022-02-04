@@ -109,7 +109,7 @@ func (r *AccountGetRequest) NewResponseBody() *AccountGetResponseBody {
 type AccountGetResponseBody struct{}
 
 func (r *AccountGetRequest) URL() (*url.URL, error) {
-	u, err := r.client.GetEndpointURL("/account", r.PathParams())
+	u, err := r.client.GetEndpointURL("/record/v1/account/3509", r.PathParams())
 	return &u, err
 }
 

@@ -12,6 +12,7 @@ func TestSuiteqlPost(t *testing.T) {
 	req.RequestBody().Q = "SELECT * FROM customer where customer.firstName = 'Pieter' and lastName = 'Baecke' and customer.subsidiary.id = 46"
 	req.RequestBody().Q = "SELECT * FROM department where name like '%196%'"
 	req.RequestBody().Q = "SELECT * FROM department"
+	req.RequestBody().Q = "SELECT * FROM account"
 	// req.RequestBody().Q = "SELECT * FROM classification where name like '%196%'"
 	resp, err := req.Do()
 	if err != nil {

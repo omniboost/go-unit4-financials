@@ -8,7 +8,7 @@ import (
 
 func TestAccountGet(t *testing.T) {
 	req := client.NewAccountGetRequest()
-	req.QueryParams().Account = "FLD"
+	// req.QueryParams().Account = "FLD"
 	resp, err := req.Do()
 	if err != nil {
 		t.Error(err)
