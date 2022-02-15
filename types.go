@@ -46,21 +46,21 @@ type JournalEntry struct {
 	// CustbodySiiNotReportedInTime    Bool   `json:"custbody_sii_not_reported_in_time"`
 	// CustbodyVatrepTaxperiodTrn      string `json:"custbody_vatrep_taxperiod_trn"`
 	// CustbodyVatrepTrnenabled        Bool   `json:"custbody_vatrep_trnenabled"`
-	CustomForm             CustomForm       `json:"customForm,omitempty"`
-	ExchangeRate           float64          `json:"exchangeRate,omitempty"`
-	ExcludeFromGLNumbering Bool             `json:"excludeFromGLNumbering,omitempty"`
-	ID                     string           `json:"id,omitempty"`
-	IsReversal             Bool             `json:"isReversal,omitempty"`
-	LastModifiedDate       Date             `json:"lastModifiedDate,omitempty"`
-	Lines                  JournalEntryLine `json:"line"`
-	Memo                   string           `json:"memo"`
-	PostingPeriod          PostingPeriod    `json:"postingPeriod,omitempty"`
-	RefName                string           `json:"refName,omitempty"`
-	ReversalDefer          Bool             `json:"reversalDefer,omitempty"`
-	Subsidiary             Subsidiary       `json:"subsidiary,omitempty"`
-	TranDate               Date             `json:"tranDate,omitempty"`
-	TranID                 string           `json:"tranId,omitempty"`
-	Void                   Bool             `json:"void,omitempty"`
+	CustomForm             CustomForm `json:"customForm,omitempty"`
+	ExchangeRate           float64    `json:"exchangeRate,omitempty"`
+	ExcludeFromGLNumbering Bool       `json:"excludeFromGLNumbering,omitempty"`
+	ID                     string     `json:"id,omitempty"`
+	IsReversal             Bool       `json:"isReversal,omitempty"`
+	// LastModifiedDate       Date             `json:"lastModifiedDate,omitempty"`
+	Lines         JournalEntryLine `json:"line"`
+	Memo          string           `json:"memo"`
+	PostingPeriod PostingPeriod    `json:"postingPeriod,omitempty"`
+	RefName       string           `json:"refName,omitempty"`
+	ReversalDefer Bool             `json:"reversalDefer,omitempty"`
+	Subsidiary    Subsidiary       `json:"subsidiary,omitempty"`
+	TranDate      Date             `json:"tranDate,omitempty"`
+	TranID        string           `json:"tranId,omitempty"`
+	Void          Bool             `json:"void,omitempty"`
 	// CustBody4              string           `json:"custbody4"`
 }
 
@@ -373,7 +373,7 @@ type Customer struct {
 	// 	ID      string `json:"id"`
 	// 	RefName string `json:"refName"`
 	// } `json:"customForm"`
-	DateCreated *Date `json:"dateCreated,omitempty"`
+	// DateCreated *Date `json:"dateCreated,omitempty"`
 	// DaysOverdue     int       `json:"daysOverdue"`
 	// DefaultTaxReg   string    `json:"defaultTaxReg"`
 	// DepositBalance  float64   `json:"depositBalance"`
@@ -413,8 +413,8 @@ type Customer struct {
 	// 	ID      string `json:"id"`
 	// 	RefName string `json:"refName"`
 	// } `json:"language"`
-	LastModifiedDate *Date  `json:"lastModifiedDate,omitempty"`
-	LastName         string `json:"lastName"`
+	// LastModifiedDate *Date  `json:"lastModifiedDate,omitempty"`
+	LastName string `json:"lastName"`
 	// OverdueBalance     float64    `json:"overdueBalance"`
 	// PrintTransactions  Bool       `json:"printTransactions"`
 	// ReceivablesAccount struct {
