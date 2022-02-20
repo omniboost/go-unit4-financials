@@ -228,14 +228,11 @@ type Invoice struct {
 	// 	ID      string `json:"id"`
 	// 	RefName string `json:"refName"`
 	// } `json:"custbody_ste_transaction_type"`
-	// CustomForm struct {
-	// 	ID      string `json:"id"`
-	// 	RefName string `json:"refName"`
-	// } `json:"customForm"`
-	DueDate Date `json:"dueDate"`
-	Entity  struct {
+	CustomForm CustomForm `json:"customForm"`
+	DueDate    Date       `json:"dueDate"`
+	Entity     struct {
 		Links   Links  `json:"links,omitempty"`
-		ID      int    `json:"id"`
+		ID      string `json:"id"`
 		RefName string `json:"refName,omitempty"`
 	} `json:"entity"`
 	// EstGrossProfit         float64     `json:"estGrossProfit"`
@@ -245,8 +242,8 @@ type Invoice struct {
 	ID   string      `json:"id"`
 	Item InvoiceItem `json:"item"`
 	// LastModifiedDate       Date        `json:"lastModifiedDate"`
-	Location InvoiceLocation `json:"location"`
-	Memo     string          `json:"memo"`
+	// Location InvoiceLocation `json:"location"`
+	Memo string `json:"memo"`
 	// Nexus struct {
 	// 	Links   Links  `json:"links"`
 	// 	ID      string `json:"id"`
@@ -285,7 +282,7 @@ type Invoice struct {
 	TranDate   Date      `json:"tranDate"`
 	TranID     string    `json:"tranId"`
 	Department RecordRef `json:"Department,omitempty"`
-	Class      RecordRef `json:"Class,omitempty"`
+	// Class      RecordRef `json:"Class,omitempty"`
 }
 
 type Address struct {
@@ -506,8 +503,8 @@ type InvoiceItemItem struct {
 	TaxAmount           float64 `json:"taxAmount"`
 	TaxDetailsReference string  `json:"taxDetailsReference"`
 	// Units               string  `json:"units"`
-	CustCol2 string `json:"custcol2"`
-	CustCol3 string `json:"custcol3"`
+	// CustCol2 string `json:"custcol2"`
+	// CustCol3 string `json:"custcol3"`
 }
 
 type InvoiceTaxDetails struct {
@@ -547,9 +544,9 @@ type InvoiceLocation struct {
 }
 
 type RecordRef struct {
-	// ID         string `json:"id"`
-	ExternalID string `json:"externalId"`
-	InternalID string `json:"id"`
+	ID string `json:"id"`
+	// ExternalID string `json:"externalId"`
+	// InternalID string `json:"id"`
 }
 
 func (r RecordRef) IsEmpty() bool {
