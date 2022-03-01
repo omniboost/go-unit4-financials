@@ -141,8 +141,11 @@ type JournalEntryLineElement struct {
 	Memo                string    `json:"memo"`
 	Department          RecordRef `json:"Department,omitempty"`
 	Class               RecordRef `json:"Class,omitempty"`
-	CustCol2            string    `json:"custcol2"`
-	CustCol3            string    `json:"custcol3"`
+	CustCol1            string    `json:"custcol1,omitempty"`
+	CustCol2            string    `json:"custcol2,omitempty"`
+	CustCol3            string    `json:"custcol3,omitempty"`
+	CustCol4            string    `json:"custcol4,omitempty"`
+	CustCol5            string    `json:"custcol5,omitempty"`
 }
 
 func (j JournalEntryLineElement) MarshalJSON() ([]byte, error) {
