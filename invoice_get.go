@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/omniboost/go-netsuite-rest/utils"
+	"github.com/omniboost/go-netsuite-soap/utils"
 )
 
 func (c *Client) NewInvoiceGetRequest() InvoiceGetRequest {

@@ -2,7 +2,7 @@ package netsuite
 
 import (
 	"github.com/cydev/zero"
-	"github.com/omniboost/go-netsuite-rest/omitempty"
+	"github.com/omniboost/go-netsuite-soap/omitempty"
 )
 
 type JournalEntry struct {

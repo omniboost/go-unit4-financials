@@ -1,4 +1,4 @@
-module github.com/omniboost/go-netsuite-rest
+module github.com/omniboost/go-netsuite-soap
 
 go 1.16
 

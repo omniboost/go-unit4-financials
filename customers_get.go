@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/omniboost/go-netsuite-rest/utils"
+	"github.com/omniboost/go-netsuite-soap/utils"
 )
 
 func (c *Client) NewCustomersGetRequest() CustomersGetRequest {

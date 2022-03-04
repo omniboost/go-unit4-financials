@@ -20,7 +20,7 @@ import (
 
 const (
 	libraryVersion = "0.0.1"
-	userAgent      = "go-netsuite-rest/" + libraryVersion
+	userAgent      = "go-netsuite-soap/" + libraryVersion
 	mediaType      = "application/json"
 	charset        = "utf-8"
 )

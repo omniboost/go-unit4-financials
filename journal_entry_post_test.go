@@ -5,7 +5,7 @@ import (
 	"log"
 	"testing"
 
-	netsuite "github.com/omniboost/go-netsuite-rest"
+	netsuite "github.com/omniboost/go-netsuite-soap"
 )
 
 func TestJournalEntryPost(t *testing.T) {
