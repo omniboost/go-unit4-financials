@@ -5,7 +5,7 @@ import (
 	"log"
 	"testing"
 
-	netsuite "github.com/omniboost/go-netsuite"
+	netsuite "github.com/omniboost/go-netsuite-rest"
 )
 
 func TestJournalEntryPost(t *testing.T) {
@@ -15,7 +15,7 @@ func TestJournalEntryPost(t *testing.T) {
 		Items: netsuite.JournalEntryLineElements{
 			{
 				Account: netsuite.Account{
-					ID: 213,
+					ID: "213",
 					// RefName: "722280 Other Exp. : IntExp : IntExp Loan Borrowings (IC)",
 					// AcctNumber: "121110",
 				},
@@ -24,7 +24,7 @@ func TestJournalEntryPost(t *testing.T) {
 			},
 			{
 				Account: netsuite.Account{
-					ID: 213,
+					ID: "213",
 					// RefName: "722280 Other Exp. : IntExp : IntExp Loan Borrowings (IC)",
 					// AcctNumber: "121110",
 				},

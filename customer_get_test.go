@@ -8,7 +8,7 @@ import (
 
 func TestCustomerGet(t *testing.T) {
 	req := client.NewCustomerGetRequest()
-	req.PathParams().ID = 161
+	req.PathParams().ID = 70202
 	// req.QueryParams().Fields = netsuite.Fields{"line"}
 	req.QueryParams().ExpandSubResources = true
 	resp, err := req.Do()

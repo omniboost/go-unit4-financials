@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/omniboost/go-netsuite/utils"
+	"github.com/omniboost/go-netsuite-rest/utils"
 )
 
 func (c *Client) NewJournalEntryLineGetRequest() JournalEntryLineGetRequest {

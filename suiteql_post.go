@@ -1,12 +1,13 @@
 package netsuite
 
 import (
+	"bytes"
 	"encoding/json"
 	"net/http"
 	"net/url"
 	"strconv"
 
-	"github.com/omniboost/go-netsuite/utils"
+	"github.com/omniboost/go-netsuite-rest/utils"
 )
 
 func (c *Client) NewSuiteqlPostRequest() SuiteqlPostRequest {
@@ -122,26 +123,50 @@ type SuiteqlPostResponseBody struct {
 	TotalResults int             `json:"totalResults"`
 }
 
-func (r SuiteqlPostResponseBody) ToCustomers() ([]Customer, error) {
-	customers := []Customer{}
-	err := json.Unmarshal(r.Items, &customers)
-	return customers, err
+func (r SuiteqlPostResponseBody) ToCustomers(client *Client) ([]Customer, error) {
+	items := []Customer{}
+
+	reader := bytes.NewReader(r.Items)
+	dec := json.NewDecoder(reader)
+	if client.disallowUnknownFields {
+		dec.DisallowUnknownFields()
+	}
+	err := dec.Decode(&items)
+	return items, err
 }
 
-func (r *SuiteqlPostResponseBody) ToClassifications() (Classifications, error) {
+func (r *SuiteqlPostResponseBody) ToClassifications(client *Client) (Classifications, error) {
 	items := Classifications{}
-	err := json.Unmarshal(r.Items, &items)
+
+	reader := bytes.NewReader(r.Items)
+	dec := json.NewDecoder(reader)
+	if client.disallowUnknownFields {
+		dec.DisallowUnknownFields()
+	}
+	err := dec.Decode(&items)
 	return items, err
 }
 
-func (r *SuiteqlPostResponseBody) ToDepartments() (Departments, error) {
+func (r *SuiteqlPostResponseBody) ToDepartments(client *Client) (Departments, error) {
 	items := Departments{}
+
+	reader := bytes.NewReader(r.Items)
+	dec := json.NewDecoder(reader)
+	if client.disallowUnknownFields {
+		dec.DisallowUnknownFields()
+	}
+	err := dec.Decode(&items)
+	return items, err
+}
+
+func (r *SuiteqlPostResponseBody) ToAccounts(client *Client) (Accounts, error) {
+	items := Accounts{}
 	err := json.Unmarshal(r.Items, &items)
 	return items, err
 }
 
-func (r *SuiteqlPostResponseBody) ToAccounts() (Accounts, error) {
-	items := Accounts{}
+func (r *SuiteqlPostResponseBody) ToAddresses(client *Client) (Addresses, error) {
+	items := Addresses{}
 	err := json.Unmarshal(r.Items, &items)
 	return items, err
 }

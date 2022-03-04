@@ -2,7 +2,7 @@ package netsuite
 
 import (
 	"github.com/cydev/zero"
-	"github.com/omniboost/go-netsuite/omitempty"
+	"github.com/omniboost/go-netsuite-rest/omitempty"
 )
 
 type JournalEntry struct {
@@ -288,22 +288,12 @@ type Invoice struct {
 	// Class      RecordRef `json:"Class,omitempty"`
 }
 
-type Address struct {
-	Links    Links  `json:"links"`
-	AddrText string `json:"addrText"`
-	Country  struct {
-		ID      string `json:"id"`
-		RefName string `json:"refName"`
-	} `json:"country"`
-	Override Bool `json:"override"`
-}
-
 type Customer struct {
-	// AddressBook struct {
-	// 	Links        Links         `json:"links"`
-	// 	Items        []interface{} `json:"items"`
-	// 	TotalResults int           `json:"totalResults"`
-	// } `json:"addressBook"`
+	AddressBook struct {
+		Links        Links     `json:"links"`
+		Items        []Address `json:"items"`
+		TotalResults int       `json:"totalResults"`
+	} `json:"addressBook"`
 	// Aging  float64 `json:"aging"`
 	// Aging1 float64 `json:"aging1"`
 	// Aging2 float64 `json:"aging2"`
@@ -373,7 +363,7 @@ type Customer struct {
 	// 	ID      string `json:"id"`
 	// 	RefName string `json:"refName"`
 	// } `json:"customForm"`
-	// DateCreated *Date `json:"dateCreated,omitempty"`
+	DateCreated *Date `json:"dateCreated,omitempty"`
 	// DaysOverdue     int       `json:"daysOverdue"`
 	// DefaultTaxReg   string    `json:"defaultTaxReg"`
 	// DepositBalance  float64   `json:"depositBalance"`
@@ -413,8 +403,8 @@ type Customer struct {
 	// 	ID      string `json:"id"`
 	// 	RefName string `json:"refName"`
 	// } `json:"language"`
-	// LastModifiedDate *Date  `json:"lastModifiedDate,omitempty"`
-	LastName string `json:"lastName"`
+	LastModifiedDate *Date  `json:"lastModifiedDate,omitempty"`
+	LastName         string `json:"lastName"`
 	// OverdueBalance     float64    `json:"overdueBalance"`
 	// PrintTransactions  Bool       `json:"printTransactions"`
 	// ReceivablesAccount struct {
@@ -447,8 +437,12 @@ type Customer struct {
 	// 	TotalResults int `json:"totalResults"`
 	// } `json:"taxRegistration"`
 	// UnbilledOrders float64 `json:"unbilledOrders"`
-	Email string `json:"email"`
-	Phone string `json:"phone"`
+	Email                  string `json:"email"`
+	Phone                  string `json:"phone"`
+	DefaultBillingAddress  string `json:"defaultbillingaddress"`
+	DefaultShippingAddress string `json:"defaultshippingaddress"`
+	Parent                 string `json:"parent"`
+	CustomerNumber         string `json:"custentity_nch_customer_number"`
 }
 
 type InvoiceItem struct {
@@ -559,15 +553,15 @@ func (r RecordRef) IsEmpty() bool {
 type Classifications []Classification
 
 type Classification struct {
-	Links            []interface{} `json:"links"`
-	Fullname         string        `json:"fullname"`
-	ID               string        `json:"id"`
-	Includechildren  string        `json:"includechildren"`
-	Isinactive       string        `json:"isinactive"`
-	Lastmodifieddate string        `json:"lastmodifieddate"`
-	Name             string        `json:"name"`
-	Parent           string        `json:"parent"`
-	Subsidiary       string        `json:"subsidiary"`
+	Links            Links  `json:"links"`
+	Fullname         string `json:"fullname"`
+	ID               string `json:"id"`
+	Includechildren  string `json:"includechildren"`
+	Isinactive       string `json:"isinactive"`
+	Lastmodifieddate string `json:"lastmodifieddate"`
+	Name             string `json:"name"`
+	Parent           string `json:"parent"`
+	Subsidiary       string `json:"subsidiary"`
 }
 
 func (c Classification) IsEmpty() bool {
@@ -577,18 +571,37 @@ func (c Classification) IsEmpty() bool {
 type Departments []Department
 
 type Department struct {
-	Links            []interface{} `json:"links"`
-	Fullname         string        `json:"fullname"`
-	ID               string        `json:"id"`
-	Includechildren  string        `json:"includechildren"`
-	Isinactive       string        `json:"isinactive"`
-	Lastmodifieddate string        `json:"lastmodifieddate"`
-	Name             string        `json:"name"`
-	Subsidiary       string        `json:"subsidiary"`
-	Custrecord1      string        `json:"custrecord1,omitempty"`
-	Parent           string        `json:"parent,omitempty"`
+	Links            Links  `json:"links"`
+	Fullname         string `json:"fullname"`
+	ID               string `json:"id"`
+	Includechildren  string `json:"includechildren"`
+	Isinactive       string `json:"isinactive"`
+	Lastmodifieddate string `json:"lastmodifieddate"`
+	Name             string `json:"name"`
+	Subsidiary       string `json:"subsidiary"`
+	Custrecord1      string `json:"custrecord1,omitempty"`
+	Parent           string `json:"parent,omitempty"`
 }
 
 func (d Department) IsEmpty() bool {
 	return zero.IsZero(d)
+}
+
+type Addresses []Address
+
+type Address struct {
+	Links                    Links  `json:"links"`
+	Addr1                    string `json:"addr1"`
+	Addrtext                 string `json:"addrtext"`
+	Attention                string `json:"attention"`
+	City                     string `json:"city"`
+	Country                  string `json:"country"`
+	CustrecordNchCountrycode string `json:"custrecord_nch_countrycode"`
+	CustrecordNchInvoiceFee  string `json:"custrecord_nch_invoice_fee"`
+	Lastmodifieddate         string `json:"lastmodifieddate"`
+	Nkey                     string `json:"nkey"`
+	Override                 string `json:"override"`
+	Recordowner              string `json:"recordowner"`
+	Zip                      string `json:"zip"`
+	Addressee                string `json:"addressee,omitempty"`
 }

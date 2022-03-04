@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/omniboost/go-netsuite/utils"
+	"github.com/omniboost/go-netsuite-rest/utils"
 )
 
 func (c *Client) NewSubsidiaryGetRequest() SubsidiaryGetRequest {

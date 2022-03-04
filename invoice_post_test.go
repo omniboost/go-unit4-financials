@@ -5,19 +5,19 @@ import (
 	"log"
 	"testing"
 
-	netsuite "github.com/omniboost/go-netsuite"
+	netsuite "github.com/omniboost/go-netsuite-rest"
 )
 
 func TestInvoicePost(t *testing.T) {
 	req := client.NewInvoicePostRequest()
 	req.RequestBody().Subsidiary.ID = "49"
-	req.RequestBody().Entity.ID = 145
-	req.RequestBody().Location.ID = 5
+	// req.RequestBody().Entity.ID = 145
+	// req.RequestBody().Location.ID = 5
 	req.RequestBody().Item = netsuite.InvoiceItem{
 		Items: netsuite.InvoiceItemItems{
 			{
 				Account: netsuite.Account{
-					ID: 635,
+					ID: "635",
 				},
 				Amount: 80000,
 				Item: netsuite.InvoiceItemItemItem{
