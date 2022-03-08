@@ -7,8 +7,8 @@ import (
 type RequestEnvelope struct {
 	XMLName xml.Name
 
-	Header Header `xml:"s:Header"`
-	Body   Body   `xml:"s:Body"`
+	Header Header `xml:"env:Header"`
+	Body   Body   `xml:"env:Body"`
 }
 
 func NewRequestEnvelope() RequestEnvelope {
@@ -25,12 +25,32 @@ type ResponseEnvelope struct {
 }
 
 func (env RequestEnvelope) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	start.Name = xml.Name{Local: "s:Envelope"}
+	start.Name = xml.Name{Local: "env:Envelope"}
 
 	namespaces := []xml.Attr{
-		{Name: xml.Name{Space: "", Local: "xmlns:s"}, Value: "http://schemas.xmlsoap.org/soap/envelope/"},
-		{Name: xml.Name{Space: "", Local: "xmlns:urn"}, Value: "urn:messages_2021_2.platform.webservices.netsuite.com"},
-		{Name: xml.Name{Space: "", Local: "xmlns:urn1"}, Value: "urn:core_2021_2.platform.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:xsd"}, Value: "http://www.w3.org/2001/XMLSchema"},
+		{Name: xml.Name{Space: "", Local: "xmlns:xsi"}, Value: "http://www.w3.org/2001/XMLSchema-instance"},
+		{Name: xml.Name{Space: "", Local: "xmlns:platformMsgs"}, Value: "urn:messages_2021_2.platform.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:env"}, Value: "http://schemas.xmlsoap.org/soap/envelope/"},
+		{Name: xml.Name{Space: "", Local: "xmlns:platformCore"}, Value: "urn:core_2021_2.platform.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:platformCommon"}, Value: "urn:common_2021_2.platform.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:listRel"}, Value: "urn:relationships_2021_2.lists.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:tranSales"}, Value: "urn:sales_2021_2.transactions.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:tranPurch"}, Value: "urn:purchases_2021_2.transactions.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:actSched"}, Value: "urn:scheduling_2021_2.activities.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:setupCustom"}, Value: "urn:customization_2021_2.setup.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:listAcct"}, Value: "urn:accounting_2021_2.lists.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:tranBank"}, Value: "urn:bank_2021_2.transactions.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:tranCust"}, Value: "urn:customers_2021_2.transactions.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:tranEmp"}, Value: "urn:employees_2021_2.transactions.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:tranInvt"}, Value: "urn:inventory_2021_2.transactions.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:listSupport"}, Value: "urn:support_2021_2.lists.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:tranGeneral"}, Value: "urn:general_2021_2.transactions.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:commGeneral"}, Value: "urn:communication_2021_2.general.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:listMkt"}, Value: "urn:marketing_2021_2.lists.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:listWebsite"}, Value: "urn:website_2021_2.lists.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:fileCabinet"}, Value: "urn:filecabinet_2021_2.documents.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:listEmp"}, Value: "urn:employees_2021_2.lists.webservices.netsuite.com"},
 	}
 	for _, ns := range namespaces {
 		start.Attr = append(start.Attr, ns)
@@ -46,7 +66,7 @@ type Body struct {
 }
 
 type Header struct {
-	TokenPassport TokenPassport `xml:"urn:tokenPassport"`
+	TokenPassport TokenPassport `xml:"platformMsgs:tokenPassport"`
 	// DocumentInfo  struct {
 	// 	NSInfo string `xml:"platformMsgs:nsId,omitempty"`
 	// } `xml:"platformMsgs:documentInfo,omitempty"`
@@ -59,14 +79,14 @@ func NewHeader() Header {
 type ActionBody interface{}
 
 type TokenPassport struct {
-	XMLName     xml.Name `xml:"urn:tokenPassport"`
-	Account     string   `xml:"urn:account"`
-	ConsumerKey string   `xml:"urn:consumerKey"`
-	Token       string   `xml:"urn:token"`
-	Nonce       string   `xml:"urn:nonce"`
-	Timestamp   int64    `xml:"urn:timestamp"`
+	XMLName     xml.Name `xml:"platformMsgs:tokenPassport"`
+	Account     string   `xml:"platformMsgs:account"`
+	ConsumerKey string   `xml:"platformMsgs:consumerKey"`
+	Token       string   `xml:"platformMsgs:token"`
+	Nonce       string   `xml:"platformMsgs:nonce"`
+	Timestamp   int64    `xml:"platformMsgs:timestamp"`
 	Signature   struct {
 		Algorithm string `xml:"algorithm,attr"`
 		Text      string `xml:",chardata"`
-	} `xml:"urn:signature"`
+	} `xml:"platformMsgs:signature"`
 }

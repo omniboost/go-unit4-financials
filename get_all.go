@@ -88,6 +88,10 @@ func (r GetAllRequest) NewRequestBody() GetAllRequestBody {
 
 type GetAllRequestBody struct {
 	XMLName xml.Name `xml:"GetAll"`
+
+	Record struct {
+		RecordType string `xml:"recordType,attr"`
+	} `xml:"record"`
 }
 
 func (r *GetAllRequest) RequestBody() *GetAllRequestBody {
@@ -108,6 +112,38 @@ func (r *GetAllRequest) NewResponseBody() *GetAllRequestResponseBody {
 
 type GetAllRequestResponseBody struct {
 	XMLName xml.Name `xml:"GetAllResponse"`
+
+	GetAllResult struct {
+		Text         string `xml:",chardata"`
+		PlatformCore string `xml:"platformCore,attr"`
+		Status       struct {
+			Text      string `xml:",chardata"`
+			IsSuccess string `xml:"isSuccess,attr"`
+		} `xml:"status"`
+		TotalRecords string `xml:"totalRecords"`
+		RecordList   struct {
+			Text   string `xml:",chardata"`
+			Record []struct {
+				Text                   string `xml:",chardata"`
+				InternalId             string `xml:"internalId,attr"`
+				ExternalId             string `xml:"externalId,attr"`
+				Type                   string `xml:"type,attr"`
+				ListAcct               string `xml:"listAcct,attr"`
+				Name                   string `xml:"name"`
+				Symbol                 string `xml:"symbol"`
+				IsBaseCurrency         string `xml:"isBaseCurrency"`
+				IsInactive             string `xml:"isInactive"`
+				OverrideCurrencyFormat string `xml:"overrideCurrencyFormat"`
+				DisplaySymbol          string `xml:"displaySymbol"`
+				SymbolPlacement        string `xml:"symbolPlacement"`
+				Locale                 string `xml:"locale"`
+				FormatSample           string `xml:"formatSample"`
+				ExchangeRate           string `xml:"exchangeRate"`
+				FxRateUpdateTimezone   string `xml:"fxRateUpdateTimezone"`
+				CurrencyPrecision      string `xml:"currencyPrecision"`
+			} `xml:"record"`
+		} `xml:"recordList"`
+	} `xml:"getAllResult"`
 }
 
 func (r *GetAllRequest) URL() (*url.URL, error) {

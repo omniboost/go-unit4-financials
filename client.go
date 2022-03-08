@@ -246,7 +246,7 @@ func (c *Client) NewRequest(ctx context.Context, req Request) (*http.Request, er
 		soapRequest.Header.TokenPassport.Timestamp = g.Timestamp
 
 		enc := xml.NewEncoder(buf)
-		// enc.Indent("", "  ")
+		enc.Indent("", "  ")
 		err = enc.Encode(soapRequest)
 		if err != nil {
 			return nil, err
