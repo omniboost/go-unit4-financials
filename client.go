@@ -3,7 +3,7 @@ package netsuite
 import (
 	"bytes"
 	"context"
-	"encoding/json"
+	"encoding/xml"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -14,6 +14,7 @@ import (
 	"path"
 	"strings"
 	"text/template"
+	"time"
 
 	"github.com/pkg/errors"
 )
@@ -21,16 +22,16 @@ import (
 const (
 	libraryVersion = "0.0.1"
 	userAgent      = "go-netsuite-soap/" + libraryVersion
-	mediaType      = "application/json"
+	mediaType      = "text/xml"
 	charset        = "utf-8"
 )
 
 var (
-	BaseURL string = "https://{{.account_id}}.suitetalk.api.netsuite.com/services/rest"
+	BaseURL string = "https://webservices.netsuite.com/services/NetSuitePort_2021_2"
 )
 
 // NewClient returns a new Exact Globe Client client
-func NewClient(httpClient *http.Client, companyID string) *Client {
+func NewClient(httpClient *http.Client) *Client {
 	if httpClient == nil {
 		httpClient = http.DefaultClient
 	}
@@ -38,7 +39,6 @@ func NewClient(httpClient *http.Client, companyID string) *Client {
 	client := &Client{}
 
 	client.SetHTTPClient(httpClient)
-	client.SetCompanyID(companyID)
 	client.SetBaseURL(BaseURL)
 	client.SetDebug(false)
 	client.SetUserAgent(userAgent)
@@ -57,15 +57,18 @@ type Client struct {
 	baseURL string
 
 	// credentials
-	companyID       string
-	contentLanguage string
+	// applicationID string
+	clientID     string
+	clientSecret string
+	tokenID      string
+	tokenSecret  string
+	accountID    string
 
 	// User agent for client
 	userAgent string
 
-	mediaType             string
-	charset               string
-	disallowUnknownFields bool
+	mediaType string
+	charset   string
 
 	// Optional function called after every successful request made to the DO Clients
 	beforeRequestDo    BeforeRequestDoCallback
@@ -89,20 +92,52 @@ func (c *Client) SetDebug(debug bool) {
 	c.debug = debug
 }
 
-func (c Client) CompanyID() string {
-	return c.companyID
+// func (c Client) ApplicationID() string {
+// 	return c.applicationID
+// }
+
+// func (c *Client) SetApplicationID(applicationID string) {
+// 	c.applicationID = applicationID
+// }
+
+func (c Client) ClientID() string {
+	return c.clientID
 }
 
-func (c *Client) SetCompanyID(companyID string) {
-	c.companyID = companyID
+func (c *Client) SetClientID(clientID string) {
+	c.clientID = clientID
 }
 
-func (c Client) ContentLanguage() string {
-	return c.contentLanguage
+func (c Client) ClientSecret() string {
+	return c.clientSecret
 }
 
-func (c *Client) SetContentLanguage(contentLanguage string) {
-	c.contentLanguage = contentLanguage
+func (c *Client) SetClientSecret(clientSecret string) {
+	c.clientSecret = clientSecret
+}
+
+func (c Client) TokenID() string {
+	return c.tokenID
+}
+
+func (c *Client) SetTokenID(tokenID string) {
+	c.tokenID = tokenID
+}
+
+func (c Client) TokenSecret() string {
+	return c.tokenSecret
+}
+
+func (c *Client) SetTokenSecret(tokenSecret string) {
+	c.tokenSecret = tokenSecret
+}
+
+func (c Client) AccountID() string {
+	return c.accountID
+}
+
+func (c *Client) SetAccountID(accountID string) {
+	c.accountID = accountID
 }
 
 func (c Client) BaseURL() (*url.URL, error) {
@@ -111,7 +146,8 @@ func (c Client) BaseURL() (*url.URL, error) {
 		return &url.URL{}, err
 	}
 	buf := new(bytes.Buffer)
-	err = tmpl.Execute(buf, map[string]interface{}{"account_id": c.companyID})
+	// err = tmpl.Execute(buf, map[string]interface{}{"account_id": c.companyID})
+	err = tmpl.Execute(buf, map[string]interface{}{})
 	if err != nil {
 		return &url.URL{}, err
 	}
@@ -144,10 +180,6 @@ func (c *Client) SetUserAgent(userAgent string) {
 
 func (c Client) UserAgent() string {
 	return userAgent
-}
-
-func (c *Client) SetDisallowUnknownFields(disallowUnknownFields bool) {
-	c.disallowUnknownFields = disallowUnknownFields
 }
 
 func (c *Client) SetBeforeRequestDo(fun BeforeRequestDoCallback) {
@@ -192,10 +224,35 @@ func (c *Client) GetEndpointURL(p string, pathParams PathParams) (url.URL, error
 }
 
 func (c *Client) NewRequest(ctx context.Context, req Request) (*http.Request, error) {
-	// convert body struct to json
+	// convert body struct to xml
 	buf := new(bytes.Buffer)
 	if req.RequestBodyInterface() != nil {
-		err := json.NewEncoder(buf).Encode(req.RequestBodyInterface())
+		soapRequest := NewRequestEnvelope()
+		soapRequest.Body.ActionBody = req.RequestBodyInterface()
+
+		// Add passport header
+		g := c.NewSignatureGenerator()
+		signature, err := g.Generate()
+		if err != nil {
+			return nil, err
+		}
+
+		soapRequest.Header.TokenPassport.Account = c.AccountID()
+		soapRequest.Header.TokenPassport.ConsumerKey = c.ClientID()
+		soapRequest.Header.TokenPassport.Token = c.TokenID()
+		soapRequest.Header.TokenPassport.Nonce = g.Nonce
+		soapRequest.Header.TokenPassport.Signature.Algorithm = g.SignatureMethod.String()
+		soapRequest.Header.TokenPassport.Signature.Text = signature
+		soapRequest.Header.TokenPassport.Timestamp = g.Timestamp
+
+		enc := xml.NewEncoder(buf)
+		// enc.Indent("", "  ")
+		err = enc.Encode(soapRequest)
+		if err != nil {
+			return nil, err
+		}
+
+		err = enc.Flush()
 		if err != nil {
 			return nil, err
 		}
@@ -227,16 +284,35 @@ func (c *Client) NewRequest(ctx context.Context, req Request) (*http.Request, er
 	r.Header.Add("Content-Type", fmt.Sprintf("%s; charset=%s", c.MediaType(), c.Charset()))
 	r.Header.Add("Accept", c.MediaType())
 	r.Header.Add("User-Agent", c.UserAgent())
-
-	if c.ContentLanguage() != "" {
-		r.Header.Add("Accept-Language", c.ContentLanguage())
-		r.Header.Add("Content-Language", c.ContentLanguage())
-	}
+	r.Header.Add("SOAPAction", req.SOAPAction())
 
 	return r, nil
 }
 
-// Do sends an Client request and returns the Client response. The Client response is json decoded and stored in the value
+func (c *Client) NewSignatureGenerator() *SignatureGenerator {
+	return &SignatureGenerator{
+		SignatureMethod: HMACSHA256,
+		ClientID:        c.ClientID(),
+		ClientSecret:    c.ClientSecret(),
+		TokenID:         c.TokenID(),
+		TokenSecret:     c.TokenSecret(),
+		AccountID:       c.AccountID(),
+		Nonce:           GenerateNonce(),
+		Timestamp:       time.Now().Unix(),
+	}
+	// return &SignatureGenerator{
+	// 	SignatureMethod: HMACSHA256,
+	// 	ClientID:        "71cc02b731f05895561ef0862d71553a3ac99498a947c3b7beaf4a1e4a29f7c4",
+	// 	ClientSecret:    "7278da58caf07f5c336301a601203d10a58e948efa280f0618e25fcee1ef2abd",
+	// 	TokenID:         "89e08d9767c5ac85b374415725567d05b54ecf0960ad2470894a52f741020d82",
+	// 	TokenSecret:     "060cd9ab3ffbbe1e3d3918e90165ffd37ab12acc76b4691046e2d29c7d7674c2",
+	// 	AccountID:       "1234567",
+	// 	Nonce:           "6obMKq0tmY8ylVOdEkA1",
+	// 	Timestamp:       1439829974,
+	// }
+}
+
+// Do sends an Client request and returns the Client response. The Client response is xml decoded and stored in the value
 // pointed to by v, or returned as an error if an Client error has occurred. If v implements the io.Writer interface,
 // the raw response will be written to v, without attempting to decode it.
 func (c *Client) Do(req *http.Request, body interface{}) (*http.Response, error) {
@@ -289,14 +365,40 @@ func (c *Client) Do(req *http.Request, body interface{}) (*http.Response, error)
 		return httpResp, nil
 	}
 
-	errResp := &ErrorResponse{Response: httpResp}
-	err = c.Unmarshal(httpResp.Body, body, errResp)
+	soapResponse := &ResponseEnvelope{
+		Header: Header{},
+		Body: Body{
+			ActionBody: body,
+		},
+	}
+
+	soapError := SOAPError{Response: httpResp}
+	errResp := &ResponseEnvelope{
+		Header: Header{},
+		Body: Body{
+			ActionBody: &soapError,
+		},
+	}
+
+	soapFault := SOAPFault{Response: httpResp}
+	faultResp := &ResponseEnvelope{
+		Header: Header{},
+		Body: Body{
+			ActionBody: &soapFault,
+		},
+	}
+
+	err = c.Unmarshal(httpResp.Body, soapResponse, errResp, faultResp)
 	if err != nil {
 		return httpResp, err
 	}
 
-	if errResp.Error() != "" {
-		return httpResp, errResp
+	if soapError.Error() != "" {
+		return httpResp, soapError
+	}
+
+	if soapFault.Error() != "" {
+		return httpResp, soapFault
 	}
 
 	return httpResp, nil
@@ -315,22 +417,19 @@ func (c *Client) Unmarshal(r io.Reader, vv ...interface{}) error {
 	errs := []error{}
 	for _, v := range vv {
 		r := bytes.NewReader(b)
-		dec := json.NewDecoder(r)
-		if c.disallowUnknownFields {
-			dec.DisallowUnknownFields()
-		}
+		dec := xml.NewDecoder(r)
 
 		err := dec.Decode(v)
 		if err != nil && err != io.EOF {
 			errs = append(errs, err)
 		}
-
 	}
 
 	if len(errs) == len(vv) {
 		// Everything errored
 		msgs := make([]string, len(errs))
 		for i, e := range errs {
+			log.Println(e)
 			msgs[i] = fmt.Sprint(e)
 		}
 		return errors.New(strings.Join(msgs, ", "))
@@ -342,7 +441,7 @@ func (c *Client) Unmarshal(r io.Reader, vv ...interface{}) error {
 // CheckResponse checks the Client response for errors, and returns them if
 // present. A response is considered an error if it has a status code outside
 // the 200 range. Client error responses are expected to have either no response
-// body, or a json response body that maps to ErrorResponse. Any other response
+// body, or a xml response body that maps to ErrorResponse. Any other response
 // body will be silently ignored.
 func CheckResponse(r *http.Response) error {
 	errorResponse := &ErrorResponse{Response: r}
@@ -373,9 +472,9 @@ func CheckResponse(r *http.Response) error {
 		return errors.New("response body is empty")
 	}
 
-	// convert json to struct
+	// convert xml to struct
 	if len(data) != 0 {
-		err = json.Unmarshal(data, &errorResponse)
+		err = xml.Unmarshal(data, &errorResponse)
 		if err != nil {
 			return errors.WithStack(err)
 		}
@@ -383,6 +482,16 @@ func CheckResponse(r *http.Response) error {
 
 	if errorResponse.Error() != "" {
 		return errorResponse
+	}
+
+	return nil
+}
+
+func checkContentType(response *http.Response) error {
+	header := response.Header.Get("Content-Type")
+	contentType := strings.Split(header, ";")[0]
+	if contentType != mediaType {
+		return fmt.Errorf("Expected Content-Type \"%s\", got \"%s\"", mediaType, contentType)
 	}
 
 	return nil
@@ -403,46 +512,49 @@ func CheckResponse(r *http.Response) error {
 type ErrorResponse struct {
 	// HTTP response that caused this error
 	Response *http.Response
-
-	Type         string       `json:"type"`
-	Title        interface{}  `json:"title"`
-	Status       int          `json:"status"`
-	ErrorDetails ErrorDetails `json:"o:errorDetails"`
+	Err      string
 }
 
 func (r *ErrorResponse) Error() string {
-	errors := []string{}
-
-	for _, d := range r.ErrorDetails {
-		err := d.Error()
-		if err != "" {
-			errors = append(errors, err)
-		}
-	}
-
-	return strings.Join(errors, "\r\n")
+	return r.Err
 }
 
-type ErrorDetails []ErrorDetail
-
-type ErrorDetail struct {
-	Detail    string `json:"detail"`
-	ErrorCode string `json:"o:errorCode"`
+type SOAPError struct {
+	// HTTP response that caused this error
+	Response *http.Response
 }
 
-func (d *ErrorDetail) Error() string {
-	if d.ErrorCode != "" {
-		return fmt.Sprintf("%s: %s", d.ErrorCode, d.Detail)
-	}
+func (e SOAPError) Error() string {
 	return ""
 }
 
-func checkContentType(response *http.Response) error {
-	header := response.Header.Get("Content-Type")
-	contentType := strings.Split(header, ";")[0]
-	if contentType != "application/vnd.oracle.resource+json" {
-		return fmt.Errorf("Expected Content-Type \"%s\", got \"%s\"", mediaType, contentType)
+type SOAPFault struct {
+	// HTTP response that caused this error
+	Response *http.Response
+
+	XMLName     xml.Name `xml:"Fault"`
+	Faultcode   string   `xml:"faultcode"`
+	Faultstring string   `xml:"faultstring"`
+	Detail      struct {
+		Fault struct {
+			PlatformFaults string `xml:"platformFaults,attr"`
+			Code           string `xml:"code"`
+			Message        string `xml:"message"`
+		} `xml:"any"`
+		Hostname struct {
+			Ns1 string `xml:"ns1,attr"`
+		} `xml:"hostname"`
+	} `xml:"detail"`
+}
+
+func (f SOAPFault) Error() string {
+	l := []string{f.Faultcode, f.Faultstring, f.Detail.Fault.Code, f.Detail.Fault.Message}
+	ll := []string{}
+	for _, v := range l {
+		if v != "" {
+			ll = append(ll, v)
+		}
 	}
 
-	return nil
+	return strings.Join(ll, ", ")
 }

@@ -5,9 +5,10 @@ import "net/url"
 type Request interface {
 	Method() string
 	// QueryParams() QueryParams
-	PathParamsInterface() PathParams
+	PathParams() PathParams
 	RequestBodyInterface() interface{}
 	URL() (*url.URL, error)
+	SOAPAction() string
 }
 
 type QueryParams interface {

@@ -1,84 +1,111 @@
 package netsuite
 
 import (
-	"bytes"
-	"context"
-	"net/http"
-	"net/url"
-	"text/template"
+	"crypto/hmac"
+	"crypto/sha1"
+	"crypto/sha256"
+	"encoding/base64"
+	"hash"
+	"math/rand"
+	"strconv"
 	"time"
 
-	"golang.org/x/oauth2"
+	"github.com/pkg/errors"
 )
+
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
+
+// nonce returns a unique string.
+func GenerateNonce() string {
+	const allowed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	b := make([]byte, 20)
+	for i := range b {
+		b[i] = allowed[rand.Intn(len(allowed))]
+	}
+	return string(b)
+}
+
+// SignatureMethod identifies a signature method.
+type SignatureMethod int
+
+func (sm SignatureMethod) String() string {
+	switch sm {
+	case RSASHA1:
+		return "RSA-SHA1"
+	case RSASHA256:
+		return "RSA-SHA256"
+	case HMACSHA1:
+		return "HMAC-SHA1"
+	case HMACSHA256:
+		return "HMAC-SHA256"
+	case PLAINTEXT:
+		return "PLAINTEXT"
+	default:
+		return "unknown"
+	}
+}
 
 const (
-	scope                = "*"
-	oauthStateString     = ""
-	authorizationTimeout = 60 * time.Second
-	tokenTimeout         = 5 * time.Second
+	HMACSHA1   SignatureMethod = iota // HMAC-SHA1
+	RSASHA1                           // RSA-SHA1
+	PLAINTEXT                         // Plain text
+	HMACSHA256                        // HMAC-256
+	RSASHA256                         // RSA-SHA256
 )
 
-type Oauth2Config struct {
-	CompanyID string
-	oauth2.Config
+type SignatureGenerator struct {
+	// SignatureMethod specifies the method for signing a request.
+	SignatureMethod SignatureMethod
+
+	ClientID     string // ConsumerKey
+	ClientSecret string // ConsumerSecret
+	TokenID      string // Token
+	TokenSecret  string // TokenSecret
+	AccountID    string
+
+	Nonce     string
+	Timestamp int64
 }
 
-func NewOauthRoundTripper(rtp http.RoundTripper, tokenURL, companyID string, params url.Values) *OauthRoundTripper {
-	return &OauthRoundTripper{rtp: rtp, tokenURL: tokenURL, params: params}
-}
+// oauthParams returns the OAuth request parameters for the given credentials,
+// method, URL and application parameters. See
+// http://tools.ietf.org/html/rfc5849#section-3.4 for more information about
+// signatures.
+func (g *SignatureGenerator) Generate() (string, error) {
+	data := g.AccountID + "&" + g.ClientID + "&" + g.TokenID + "&" + g.Nonce + "&" + strconv.Itoa(int(g.Timestamp))
+	key := g.ClientSecret + "&" + g.TokenSecret
 
-type OauthRoundTripper struct {
-	rtp       http.RoundTripper
-	tokenURL  string
-	companyID string
-	params    url.Values
-}
+	var (
+		signature string
+		err       error
+	)
 
-func (t *OauthRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
-	if req.URL.String() == t.tokenURL {
-		tmpl, err := template.New("host").Parse(req.URL.Host)
-		if err != nil {
-			return nil, err
-		}
-		buf := new(bytes.Buffer)
-		err = tmpl.Execute(buf, map[string]interface{}{"account_id": t.companyID})
-		if err != nil {
-			return nil, err
-		}
-		req.URL.Host = buf.String()
-
-		q := req.URL.Query()
-		for k, vv := range t.params {
-			for _, v := range vv {
-				q.Add(k, v)
-			}
-		}
-		req.URL.RawQuery = q.Encode()
+	switch g.SignatureMethod {
+	case HMACSHA1:
+		signature, err = g.hmacSignature(sha1.New, data, key)
+	case HMACSHA256:
+		signature, err = g.hmacSignature(sha256.New, data, key)
+	// case RSASHA1:
+	// 	signature, err = g.rsaSignature(crypto.SHA1, data, key)
+	// case RSASHA256:
+	// 	signature, err = g.rsaSignature(crypto.SHA256, data, key)
+	case PLAINTEXT:
+		signature = g.plainTextSignature(data)
+	default:
+		err = errors.New("oauth: unknown signature method")
 	}
 
-	return http.DefaultTransport.RoundTrip(req)
+	return signature, err
 }
 
-func NewOauth2Config(companyID string) *Oauth2Config {
-	config := &Oauth2Config{
-		CompanyID: companyID,
-		Config: oauth2.Config{
-			RedirectURL:  "",
-			ClientID:     "",
-			ClientSecret: "",
-			Scopes:       []string{scope},
-			Endpoint: oauth2.Endpoint{
-				TokenURL: "https://{{.account_id}}.suitetalk.api.netsuite.com/services/rest/auth/oauth2/v1/token",
-			},
-		},
-	}
-
-	return config
+func (g *SignatureGenerator) plainTextSignature(data string) string {
+	return data
 }
 
-func (c *Oauth2Config) Client(ctx context.Context, t *oauth2.Token) *http.Client {
-	params := url.Values{"company": []string{c.CompanyID}}
-	rtp := NewOauthRoundTripper(http.DefaultTransport, c.Config.Endpoint.TokenURL, c.CompanyID, params)
-	ctx = context.WithValue(ctx, oauth2.HTTPClient, &http.Client{Transport: rtp})
-	return c.Config.Client(ctx, t)
+func (g *SignatureGenerator) hmacSignature(h func() hash.Hash, data, key string) (string, error) {
+	hm := hmac.New(h, []byte(key))
+	_, err := hm.Write([]byte(data))
+	return base64.StdEncoding.EncodeToString((hm.Sum(nil))), err
 }
