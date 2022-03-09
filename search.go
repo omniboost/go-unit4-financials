@@ -1,6 +1,8 @@
 package netsuite
 
 import (
+	"encoding/xml"
+
 	"github.com/cydev/zero"
 )
 
@@ -180,8 +182,38 @@ func (s SearchBooleanField) IsEmpty() bool {
 	return zero.IsZero(s)
 }
 
-type SearchCustomFieldList struct{}
+type SearchCustomFieldList []interface{}
+
+func (s SearchCustomFieldList) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	alias := struct {
+		SearchFields []interface{}
+	}{SearchFields: s}
+
+	return e.EncodeElement(alias, start)
+}
 
 func (s SearchCustomFieldList) IsEmpty() bool {
 	return zero.IsZero(s)
+}
+
+type SearchStringCustomField struct {
+	XMLName xml.Name `xml:"platformCore:customField"`
+
+	// Type        string                    `xml:"xsi:type,attr"`
+	ScriptID    string                    `xml:"platformCore:scriptId,attr,omitempty"`
+	InternalID  string                    `xml:"platformCore:internalId,attr,omitempty"`
+	Operator    SearchStringFieldOperator `xml:"platformCore:operator,attr"`
+	SearchValue string                    `xml:"platformCore:searchValue"`
+}
+
+func (s SearchStringCustomField) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	type alias SearchStringCustomField
+
+	start.Name = xml.Name{Local: "platformCore:customField"}
+	s2 := struct {
+		Type string `xml:"xsi:type,attr"`
+		alias
+	}{Type: "platformCore:SearchStringCustomField", alias: alias(s)}
+
+	return e.EncodeElement(s2, start)
 }

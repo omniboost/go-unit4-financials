@@ -1,18 +1,18 @@
 package netsuite
 
 type RecordRef struct {
-	InternalId string `xml:"internalId,attr"`
+	InternalID string `xml:"internalId,attr"`
 	Name       string `xml:"name"`
 }
 
 type Customers []Customer
 
 type Customer struct {
-	InternalId           string    `xml:"internalId,attr"`
-	ExternalId           string    `xml:"externalId,attr"`
+	InternalID           string    `xml:"internalId,attr"`
+	ExternalID           string    `xml:"externalId,attr"`
 	Type                 string    `xml:"type,attr"`
 	ListRel              string    `xml:"listRel,attr"`
-	EntityId             string    `xml:"entityId"`
+	EntityID             string    `xml:"entityId"`
 	IsPerson             string    `xml:"isPerson"`
 	CompanyName          string    `xml:"companyName"`
 	EntityStatus         RecordRef `xml:"entityStatus"`
@@ -42,21 +42,22 @@ type Customer struct {
 type CustomFields []CustomField
 
 type CustomField struct {
-	InternalId string `xml:"internalId,attr"`
-	ScriptId   string `xml:"scriptId,attr"`
+	InternalID string `xml:"internalId,attr"`
+	ScriptID   string `xml:"scriptId,attr"`
 	Type       string `xml:"type,attr"`
-	Value      struct {
-		InternalId string `xml:"internalId,attr"`
-		TypeId     string `xml:"typeId,attr"`
-		Name       string `xml:"name"`
-	} `xml:"value"`
+	Value      string `xml:"value"`
+	// Value      struct {
+	// 	InternalID string `xml:"internalId,attr"`
+	// 	TypeID     string `xml:"typeId,attr"`
+	// 	Name       string `xml:"name"`
+	// } `xml:"value"`
 }
 
 type Accounts []Account
 
 type Account struct {
-	InternalId      string    `xml:"internalId,attr"`
-	ExternalId      string    `xml:"externalId,attr"`
+	InternalID      string    `xml:"internalId,attr"`
+	ExternalID      string    `xml:"externalId,attr"`
 	Type            string    `xml:"type,attr"`
 	ListAcct        string    `xml:"listAcct,attr"`
 	AcctType        string    `xml:"acctType"`
@@ -74,4 +75,19 @@ type Account struct {
 		CustomFields CustomFields `xml:"customField"`
 	} `xml:"customFieldList"`
 	Currency RecordRef `xml:"currency"`
+}
+
+type Departments []Department
+
+type Department struct {
+	InternalID      string    `xml:"internalId,attr"`
+	Type            string    `xml:"type,attr"`
+	ListAcct        string    `xml:"listAcct,attr"`
+	Name            string    `xml:"name"`
+	IncludeChildren string    `xml:"includeChildren"`
+	IsInactive      string    `xml:"isInactive"`
+	Parent          RecordRef `xml:"parent"`
+	CustomFieldList struct {
+		CustomField CustomFields `xml:"customField"`
+	} `xml:"customFieldList"`
 }
