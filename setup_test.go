@@ -22,7 +22,6 @@ func TestMain(m *testing.M) {
 	debug := os.Getenv("DEBUG")
 
 	client = netsuite.NewClient(nil)
-	// client.SetApplicationID(applicationID)
 	client.SetClientID(clientID)
 	client.SetClientSecret(clientSecret)
 	client.SetTokenID(tokenID)

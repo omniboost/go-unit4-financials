@@ -85,16 +85,17 @@ func (r *ClassificationSearchRequest) Method() string {
 }
 
 func (r ClassificationSearchRequest) NewRequestBody() ClassificationSearchRequestBody {
-	return ClassificationSearchRequestBody{}
+	return ClassificationSearchRequestBody{
+		SearchRecord: SearchRecordBasic{
+			Type: "listAcct:ClassificationSearch",
+		},
+	}
 }
 
 type ClassificationSearchRequestBody struct {
 	XMLName xml.Name `xml:"platformMsgs:search"`
 
-	SearchRecord struct { // SearchRecordBasic
-		Type  string                    `xml:"xsi:type,attr"`
-		Basic ClassificationSearchBasic `xml:"listAcct:basic"`
-	} `xml:"platformMsgs:searchRecord"`
+	SearchRecord SearchRecordBasic `xml:"platformMsgs:searchRecord"`
 }
 
 func (r *ClassificationSearchRequest) RequestBody() *ClassificationSearchRequestBody {
@@ -127,7 +128,7 @@ type ClassificationSearchRequestResponseBody struct {
 		PageIndex    string `xml:"pageIndex"`
 		SearchId     string `xml:"searchId"`
 		RecordList   struct {
-			Record Accounts `xml:"record"`
+			Record Classifications `xml:"record"`
 		} `xml:"recordList"`
 	} `xml:"searchResult"`
 }

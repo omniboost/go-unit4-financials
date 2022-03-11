@@ -45,6 +45,10 @@ func MarshalJSON(obj interface{}) ([]byte, error) {
 
 func MarshalXML(obj interface{}, e *xml.Encoder, start xml.StartElement) error {
 	st := reflect.TypeOf(obj)
+	if st.Kind() != reflect.Struct {
+		return e.EncodeElement(obj, start)
+	}
+
 	fs := []reflect.StructField{}
 	for i := 0; i < st.NumField(); i++ {
 		f := st.Field(i)

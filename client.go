@@ -44,6 +44,7 @@ func NewClient(httpClient *http.Client) *Client {
 	client.SetUserAgent(userAgent)
 	client.SetMediaType(mediaType)
 	client.SetCharset(charset)
+	client.SearchPreferences = &SearchPreferences{}
 
 	return client
 }
@@ -52,6 +53,8 @@ func NewClient(httpClient *http.Client) *Client {
 type Client struct {
 	// HTTP client used to communicate with the Client.
 	http *http.Client
+
+	SearchPreferences *SearchPreferences
 
 	debug   bool
 	baseURL string
@@ -229,6 +232,7 @@ func (c *Client) NewRequest(ctx context.Context, req Request) (*http.Request, er
 	if req.RequestBodyInterface() != nil {
 		soapRequest := NewRequestEnvelope()
 		soapRequest.Body.ActionBody = req.RequestBodyInterface()
+		soapRequest.Header.SearchPreferences = *c.SearchPreferences
 
 		// Add passport header
 		g := c.NewSignatureGenerator()

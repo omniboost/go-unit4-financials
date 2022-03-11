@@ -8,9 +8,8 @@ import (
 
 func TestAccountSearch(t *testing.T) {
 	req := client.NewAccountSearchRequest()
-	req.RequestBody().SearchRecord.Type = "listAcct:AccountSearch"
 	req.RequestBody().SearchRecord.Basic.Number.Operator = "contains"
-	req.RequestBody().SearchRecord.Basic.Number.SearchValue = "100"
+	req.RequestBody().SearchRecord.Basic.Number.SearchValue = "1524"
 	resp, err := req.Do()
 	if err != nil {
 		t.Error(err)

@@ -8,7 +8,6 @@ import (
 
 func TestClassificationSearch(t *testing.T) {
 	req := client.NewClassificationSearchRequest()
-	req.RequestBody().SearchRecord.Type = "listAcct:ClassificationSearch"
 	req.RequestBody().SearchRecord.Basic.Name.Operator = "contains"
 	req.RequestBody().SearchRecord.Basic.Name.SearchValue = "e"
 	resp, err := req.Do()

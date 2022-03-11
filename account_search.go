@@ -85,16 +85,17 @@ func (r *AccountSearchRequest) Method() string {
 }
 
 func (r AccountSearchRequest) NewRequestBody() AccountSearchRequestBody {
-	return AccountSearchRequestBody{}
+	return AccountSearchRequestBody{
+		SearchRecord: SearchRecordBasic{
+			Type: "listAcct:AccountSearch",
+		},
+	}
 }
 
 type AccountSearchRequestBody struct {
 	XMLName xml.Name `xml:"platformMsgs:search"`
 
-	SearchRecord struct { // SearchRecordBasic
-		Type  string             `xml:"xsi:type,attr"`
-		Basic AccountSearchBasic `xml:"listAcct:basic"`
-	} `xml:"platformMsgs:searchRecord"`
+	SearchRecord SearchRecordBasic `xml:"platformMsgs:searchRecord"`
 }
 
 func (r *AccountSearchRequest) RequestBody() *AccountSearchRequestBody {
@@ -119,7 +120,12 @@ type AccountSearchRequestResponseBody struct {
 	SearchResult struct {
 		PlatformCore string `xml:"platformCore,attr"`
 		Status       struct {
-			IsSuccess string `xml:"isSuccess,attr"`
+			IsSuccess    bool `xml:"isSuccess,attr"`
+			StatusDetail struct {
+				Type    string `xml:"type,attr"`
+				Code    string `xml:"code"`
+				Message string `xml:"message"`
+			} `xml:"statusDetail"`
 		} `xml:"status"`
 		TotalRecords string `xml:"totalRecords"`
 		PageSize     string `xml:"pageSize"`
@@ -158,6 +164,11 @@ func (r *AccountSearchRequest) Do() (AccountSearchRequestResponseBody, error) {
 		return *responseBody, errors.WithStack(err)
 	}
 
+	if responseBody.SearchResult.Status.IsSuccess == false {
+		return *responseBody,
+			errors.New(responseBody.SearchResult.Status.StatusDetail.Message)
+	}
+
 	return *responseBody, nil
 }
 
@@ -168,11 +179,11 @@ type AccountSearchBasic struct {
 	Category1099Misc   SearchMultiSelectField     `xml:"category1099Misc,omitempty"`
 	Description        SearchStringField          `xml:"description,omitempty"`
 	DisplayName        SearchStringField          `xml:"displayName,omitempty"`
-	ExternalId         SearchMultiSelectField     `xml:"externalId,omitempty"`
-	ExternalIdString   SearchStringField          `xml:"externalIdString,omitempty"`
+	ExternalID         SearchMultiSelectField     `xml:"externalId,omitempty"`
+	ExternalIDString   SearchStringField          `xml:"externalIdString,omitempty"`
 	GeneralRateType    SearchEnumMultiSelectField `xml:"generalRateType,omitempty"`
-	InternalId         SearchMultiSelectField     `xml:"internalId,omitempty"`
-	InternalIdNumber   SearchLongField            `xml:"internalIdNumber,omitempty"`
+	InternalID         SearchMultiSelectField     `xml:"internalId,omitempty"`
+	InternalIDNumber   SearchLongField            `xml:"internalIdNumber,omitempty"`
 	IsInactive         SearchBooleanField         `xml:"isInactive,omitempty"`
 	LegalName          SearchStringField          `xml:"legalName,omitempty"`
 	Locale             SearchEnumMultiSelectField `xml:"locale,omitempty"`

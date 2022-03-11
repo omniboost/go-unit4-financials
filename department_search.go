@@ -85,16 +85,17 @@ func (r *DepartmentSearchRequest) Method() string {
 }
 
 func (r DepartmentSearchRequest) NewRequestBody() DepartmentSearchRequestBody {
-	return DepartmentSearchRequestBody{}
+	return DepartmentSearchRequestBody{
+		SearchRecord: SearchRecordBasic{
+			Type: "listAcct:DepartmentSearch",
+		},
+	}
 }
 
 type DepartmentSearchRequestBody struct {
 	XMLName xml.Name `xml:"platformMsgs:search"`
 
-	SearchRecord struct { // SearchRecordBasic
-		Type  string                `xml:"xsi:type,attr"`
-		Basic DepartmentSearchBasic `xml:"listAcct:basic"`
-	} `xml:"platformMsgs:searchRecord"`
+	SearchRecord SearchRecordBasic `xml:"platformMsgs:searchRecord"`
 }
 
 func (r *DepartmentSearchRequest) RequestBody() *DepartmentSearchRequestBody {

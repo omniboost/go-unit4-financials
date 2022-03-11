@@ -2,6 +2,9 @@ package netsuite
 
 import (
 	"encoding/xml"
+
+	"github.com/cydev/zero"
+	"github.com/omniboost/go-netsuite-soap/omitempty"
 )
 
 type RequestEnvelope struct {
@@ -70,6 +73,16 @@ type Header struct {
 	// DocumentInfo  struct {
 	// 	NSInfo string `xml:"platformMsgs:nsId,omitempty"`
 	// } `xml:"platformMsgs:documentInfo,omitempty"`
+	Preferences       Preferences       `xml:"platformMsgs:preferences"`
+	SearchPreferences SearchPreferences `xml:"platformMsgs:searchPreferences"`
+}
+
+func (h Header) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	return omitempty.MarshalXML(h, e, start)
+}
+
+func (h Header) IsEmpty() bool {
+	return zero.IsZero(h)
 }
 
 func NewHeader() Header {
@@ -89,4 +102,21 @@ type TokenPassport struct {
 		Algorithm string `xml:"algorithm,attr"`
 		Text      string `xml:",chardata"`
 	} `xml:"platformMsgs:signature"`
+}
+
+type Preferences struct {
+}
+
+type SearchPreferences struct {
+	PageSize            int  `xml:"platformMsgs:pageSize,omitempty"`
+	BodyFieldsOnly      bool `xml:"platformMsgs:bodyFieldsOnly"`
+	ReturnSearchColumns bool `xml:"platformMsgs:returnSearchColumns"`
+}
+
+func (s SearchPreferences) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	return omitempty.MarshalXML(s, e, start)
+}
+
+func (s SearchPreferences) IsEmpty() bool {
+	return zero.IsZero(s)
 }

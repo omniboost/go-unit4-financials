@@ -152,7 +152,10 @@ func (s SearchStringField) IsEmpty() bool {
 
 type SearchStringFieldOperator string
 
-type SearchMultiSelectField struct{}
+type SearchMultiSelectField struct {
+	Operator    SearchStringFieldOperator `xml:"platformCore:operator,attr"`
+	SearchValue []RecordRef               `xml:"platformCore:searchValue"`
+}
 
 func (s SearchMultiSelectField) IsEmpty() bool {
 	return zero.IsZero(s)
@@ -164,7 +167,10 @@ func (s SearchDoubleField) IsEmpty() bool {
 	return zero.IsZero(s)
 }
 
-type SearchEnumMultiSelectField struct{}
+type SearchEnumMultiSelectField struct {
+	Operator    SearchStringFieldOperator `xml:"operator,attr"`
+	SearchValue string                    `xml:"platformCore:searchValue"`
+}
 
 func (s SearchEnumMultiSelectField) IsEmpty() bool {
 	return zero.IsZero(s)
@@ -216,4 +222,33 @@ func (s SearchStringCustomField) MarshalXML(e *xml.Encoder, start xml.StartEleme
 	}{Type: "platformCore:SearchStringCustomField", alias: alias(s)}
 
 	return e.EncodeElement(s2, start)
+}
+
+type SearchRecordBasic struct { // SearchRecordBasic
+	XMLName xml.Name `xml:"platformMsgs:searchRecord"`
+
+	Type  string             `xml:"xsi:type,attr"`
+	Basic AccountSearchBasic `xml:"basic"`
+}
+
+type SearchDateField struct{}
+
+func (s SearchDateField) IsEmpty() bool {
+	return zero.IsZero(s)
+}
+
+type SalesTaxItemSearchRecordBasic struct { // SearchRecordBasic
+	XMLName xml.Name `xml:"platformMsgs:searchRecord"`
+
+	Type  string                  `xml:"xsi:type,attr"`
+	Basic SalesTaxItemSearchBasic `xml:"basic"`
+}
+
+type SearchTextNumberField struct {
+	// Operator    SearchStringFieldOperator `xml:"operator,attr"`
+	// SearchValue string                    `xml:"platformCore:searchValue"`
+}
+
+func (s SearchTextNumberField) IsEmpty() bool {
+	return zero.IsZero(s)
 }
