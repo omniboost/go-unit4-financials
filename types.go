@@ -2,6 +2,7 @@ package netsuite
 
 import (
 	"encoding/xml"
+	"strings"
 
 	"github.com/cydev/zero"
 	"github.com/omniboost/go-netsuite-soap/omitempty"
@@ -62,9 +63,9 @@ func (c Customer) IsEmpty() bool {
 type CustomFields []CustomField
 
 type CustomField struct {
-	InternalID string `xml:"internalId,attr"`
-	ScriptID   string `xml:"scriptId,attr"`
-	Type       string `xml:"type,attr"`
+	InternalID string `xml:"internalId,attr,omitempty"`
+	ScriptID   string `xml:"scriptId,attr,omitempty"`
+	Type       string `xml:"xsi:type,attr,omitempty"`
 	Value      string `xml:"value"`
 	// Value      struct {
 	// 	InternalID string `xml:"internalId,attr"`
@@ -320,4 +321,22 @@ func (i InvoiceItem) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 
 func (i InvoiceItem) IsEmpty() bool {
 	return zero.IsZero(i)
+}
+
+type Status struct {
+	IsSuccess    bool `xml:"isSuccess,attr"`
+	StatusDetail struct {
+		Type    string `xml:"type,attr"`
+		Code    string `xml:"code"`
+		Message string `xml:"message"`
+	} `xml:"statusDetail"`
+}
+
+func (s Status) Error() string {
+	if s.IsSuccess == false && s.StatusDetail.Message != "" {
+		s := []string{s.StatusDetail.Type, s.StatusDetail.Code, s.StatusDetail.Message}
+		return strings.Join(s, ", ")
+	}
+
+	return ""
 }

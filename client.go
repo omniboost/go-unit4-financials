@@ -392,9 +392,21 @@ func (c *Client) Do(req *http.Request, body interface{}) (*http.Response, error)
 		},
 	}
 
-	err = c.Unmarshal(httpResp.Body, soapResponse, errResp, faultResp)
+	statusResponseBody := StatusResponseBody{Response: httpResp}
+	statusResp := &ResponseEnvelope{
+		Header: Header{},
+		Body: Body{
+			ActionBody: &statusResponseBody,
+		},
+	}
+
+	err = c.Unmarshal(httpResp.Body, soapResponse, errResp, faultResp, statusResp)
 	if err != nil {
 		return httpResp, err
+	}
+
+	if statusResponseBody.Node.Status.Error() != "" {
+		return httpResp, statusResponseBody.Node.Status
 	}
 
 	if soapError.Error() != "" {
@@ -561,4 +573,13 @@ func (f SOAPFault) Error() string {
 	}
 
 	return strings.Join(ll, ", ")
+}
+
+type StatusResponseBody struct {
+	// HTTP response that caused this error
+	Response *http.Response
+
+	Node struct {
+		Status Status `xml:"status"`
+	} `xml:",any"`
 }
