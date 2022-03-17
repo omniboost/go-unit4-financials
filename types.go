@@ -63,15 +63,10 @@ func (c Customer) IsEmpty() bool {
 type CustomFields []CustomField
 
 type CustomField struct {
-	InternalID string `xml:"internalId,attr,omitempty"`
-	ScriptID   string `xml:"scriptId,attr,omitempty"`
-	Type       string `xml:"xsi:type,attr,omitempty"`
-	Value      string `xml:"value"`
-	// Value      struct {
-	// 	InternalID string `xml:"internalId,attr"`
-	// 	TypeID     string `xml:"typeId,attr"`
-	// 	Name       string `xml:"name"`
-	// } `xml:"value"`
+	InternalID string           `xml:"internalId,attr,omitempty"`
+	ScriptID   string           `xml:"scriptId,attr,omitempty"`
+	Type       string           `xml:"xsi:type,attr,omitempty"`
+	Value      CustomFieldValue `xml:"value,omitempty"`
 }
 
 type Accounts []Account
@@ -339,4 +334,19 @@ func (s Status) Error() string {
 	}
 
 	return ""
+}
+
+type CustomFieldValue struct {
+	InternalID string `xml:"internalId,attr,omitempty"`
+	TypeID     string `xml:"typeId,attr,omitempty"`
+	Name       string `xml:"name,omitempty"`
+	Text       string `xml:",chardata"`
+}
+
+func (c CustomFieldValue) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	return omitempty.MarshalXML(c, e, start)
+}
+
+func (c CustomFieldValue) IsEmpty() bool {
+	return zero.IsZero(c)
 }
