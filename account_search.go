@@ -119,14 +119,6 @@ type AccountSearchRequestResponseBody struct {
 
 	SearchResult struct {
 		PlatformCore string `xml:"platformCore,attr"`
-		Status       struct {
-			IsSuccess    bool `xml:"isSuccess,attr"`
-			StatusDetail struct {
-				Type    string `xml:"type,attr"`
-				Code    string `xml:"code"`
-				Message string `xml:"message"`
-			} `xml:"statusDetail"`
-		} `xml:"status"`
 		TotalRecords string `xml:"totalRecords"`
 		PageSize     string `xml:"pageSize"`
 		TotalPages   string `xml:"totalPages"`
@@ -162,11 +154,6 @@ func (r *AccountSearchRequest) Do() (AccountSearchRequestResponseBody, error) {
 	_, err = r.client.Do(req, responseBody)
 	if err != nil {
 		return *responseBody, errors.WithStack(err)
-	}
-
-	if responseBody.SearchResult.Status.IsSuccess == false {
-		return *responseBody,
-			errors.New(responseBody.SearchResult.Status.StatusDetail.Message)
 	}
 
 	return *responseBody, nil

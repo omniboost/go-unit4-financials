@@ -119,9 +119,6 @@ type TransactionSearchRequestResponseBody struct {
 
 	SearchResult struct {
 		PlatformCore string `xml:"platformCore,attr"`
-		Status       struct {
-			IsSuccess string `xml:"isSuccess,attr"`
-		} `xml:"status"`
 		TotalRecords string `xml:"totalRecords"`
 		PageSize     string `xml:"pageSize"`
 		TotalPages   string `xml:"totalPages"`
