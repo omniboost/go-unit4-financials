@@ -187,6 +187,7 @@ type JournalEntryLine struct {
 	Department RecordRef `xml:"department,omitempty"`
 	TaxCode    RecordRef `xml:"taxCode,omitempty"`
 	Tax1Amt    float64   `xml:"tax1Amt,omitempty"`
+	Tax1Acct   RecordRef `xml:"tax1Acct,omitempty"`
 }
 
 func (j JournalEntryLine) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
@@ -303,6 +304,7 @@ type InvoiceItem struct {
 	Department      RecordRef `xml:"department,omitempty"`
 	GrossAmt        float64   `xml:"grossAmt,omitempty"`
 	Tax1Amt         float64   `xml:"tax1Amt,omitempty"`
+	Tax1Acct        RecordRef `xml:"tax1Acct,omitempty"`
 	TaxCode         RecordRef `xml:"taxCode,omitempty"`
 	TaxRate1        float64   `xml:"taxRate1,omitempty"`
 	CustomFieldList struct {
