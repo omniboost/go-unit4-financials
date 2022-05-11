@@ -352,3 +352,74 @@ func (c CustomFieldValue) MarshalXML(e *xml.Encoder, start xml.StartElement) err
 func (c CustomFieldValue) IsEmpty() bool {
 	return zero.IsZero(c)
 }
+
+type CreditMemo struct {
+	TranSales             string    `xml:"tranSales,attr,omitempty"`
+	InternalId            string    `xml:"internalId,attr,omitempty"`
+	Type                  string    `xml:"type,attr,omitempty"`
+	ExternalId            string    `xml:"externalId,attr,omitempty"`
+	CreatedDate           Date      `xml:"createdDate,omitempty"`
+	LastModifiedDate      Date      `xml:"lastModifiedDate,omitempty"`
+	Entity                RecordRef `xml:"entity,omitempty"`
+	TranDate              Date      `xml:"tranDate,omitempty"`
+	TranId                string    `xml:"tranId,omitempty"`
+	Department            RecordRef `xml:"department,omitempty"`
+	Terms                 RecordRef `xml:"terms,omitempty"`
+	Subsidiary            RecordRef `xml:"subsidiary,omitempty"`
+	Currency              RecordRef `xml:"currency,omitempty"`
+	DueDate               Date      `xml:"dueDate,omitempty"`
+	OtherRefNum           string    `xml:"otherRefNum,omitempty"`
+	Memo                  string    `xml:"memo,omitempty"`
+	TotalCostEstimate     string    `xml:"totalCostEstimate,omitempty"`
+	EstGrossProfit        string    `xml:"estGrossProfit,omitempty"`
+	EstGrossProfitPercent string    `xml:"estGrossProfitPercent,omitempty"`
+	Account               RecordRef `xml:"account,omitempty"`
+	ExchangeRate          string    `xml:"exchangeRate,omitempty"`
+	CurrencyName          string    `xml:"currencyName,omitempty"`
+	BillingAddress        Address   `xml:"billingAddress,omitempty"`
+	ShippingAddress       Address   `xml:"shippingAddress,omitempty"`
+	ShipIsResidential     string    `xml:"shipIsResidential,omitempty"`
+	SubTotal              string    `xml:"subTotal,omitempty"`
+	CanHaveStackable      string    `xml:"canHaveStackable,omitempty"`
+	TaxTotal              string    `xml:"taxTotal,omitempty"`
+	Total                 string    `xml:"total,omitempty"`
+	Status                string    `xml:"status,omitempty"`
+	Email                 string    `xml:"email,omitempty"`
+	VatRegNum             string    `xml:"vatRegNum,omitempty"`
+	// ItemCostDiscPrint     string         `xml:"itemCostDiscPrint"`
+	// ExpCostDiscPrint     string             `xml:"expCostDiscPrint"`
+	ItemList CreditMemoItemList `xml:"itemList>item"`
+	// OverrideInstallments string             `xml:"overrideInstallments"`
+	CustomFieldList struct {
+		CustomField CustomFields `xml:"customField"`
+	} `xml:"customFieldList"`
+}
+
+type CreditMemoItemList []CreditMemoItem
+
+type CreditMemoItem struct {
+	Item            RecordRef `xml:"item,omitempty"`
+	Line            string    `xml:"line,omitempty"`
+	Description     string    `xml:"description,omitempty"`
+	Amount          float64   `xml:"amount,omitempty"`
+	Quantity        string    `xml:"quantity,omitempty"`
+	Price           RecordRef `xml:"price,omitempty"`
+	Rate            float64   `xml:"rate,omitempty"`
+	Department      RecordRef `xml:"department,omitempty"`
+	GrossAmt        float64   `xml:"grossAmt,omitempty"`
+	Tax1Amt         float64   `xml:"tax1Amt,omitempty"`
+	Tax1Acct        RecordRef `xml:"tax1Acct,omitempty"`
+	TaxCode         RecordRef `xml:"taxCode,omitempty"`
+	TaxRate1        float64   `xml:"taxRate1,omitempty"`
+	CustomFieldList struct {
+		CustomField CustomFields `xml:"customField,omitempty"`
+	} `xml:"customFieldList,omitempty"`
+}
+
+func (i CreditMemoItem) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	return omitempty.MarshalXML(i, e, start)
+}
+
+func (i CreditMemoItem) IsEmpty() bool {
+	return zero.IsZero(i)
+}
