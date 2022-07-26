@@ -26,7 +26,7 @@ type Customer struct {
 	Type                 string    `xml:"type,attr,omitempty"`
 	ListRel              string    `xml:"listRel,attr,omitempty"`
 	EntityID             string    `xml:"entityId,omitempty"`
-	IsPerson             string    `xml:"isPerson,omitempty"`
+	IsPerson             bool      `xml:"isPerson,omitempty"`
 	CompanyName          string    `xml:"companyName,omitempty"`
 	EntityStatus         RecordRef `xml:"entityStatus,omitempty"`
 	Phone                string    `xml:"phone,omitempty"`
@@ -47,6 +47,8 @@ type Customer struct {
 	LastModifiedDate     DateTime  `xml:"lastModifiedDate,omitempty"`
 	Stage                string    `xml:"stage,omitempty"`
 	IsBudgetApproved     string    `xml:"isBudgetApproved,omitempty"`
+	FirstName            string    `xml:"firstName,omitempty"`
+	LastName             string    `xml:"lastName,omitempty"`
 	CustomFieldList      struct {
 		CustomField CustomFields `xml:"customField"`
 	} `xml:"customFieldList"`
