@@ -425,3 +425,63 @@ func (i CreditMemoItem) MarshalXML(e *xml.Encoder, start xml.StartElement) error
 func (i CreditMemoItem) IsEmpty() bool {
 	return zero.IsZero(i)
 }
+
+// https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_1/schema/record/statisticaljournalentry.html
+type StatisticalJournalEntry struct {
+	// Approved        bool `xml:"approved"`
+	CreatedDate     Date `xml:"createdDate,omitempty"`
+	CustomFieldList struct {
+		CustomField CustomFields `xml:"customField,omitempty"`
+	} `xml:"customFieldList,omitempty"`
+	// Select the custom journal entry record, if required.
+	CustomForm         RecordRef                    `xml:"customForm,omitempty"`
+	LastModifiedDate   Date                         `xml:"lastModifiedDate,omitempty"`
+	LineList           StatisticalJournalEntryLines `xml:"lineList>statisticalJournalEntryLine"`
+	Memo               string                       `xml:"memo,omitempty"`
+	ParentExpenseAlloc RecordRef                    `xml:"parentExpenseAlloc,omitempty"`
+	PostingPeriod      RecordRef                    `xml:"postingPeriod,omitempty"`
+	ReversalDate       Date                         `xml:"reversalDate,omitempty"`
+	ReversalDefer      bool                         `xml:"reversalDefer,omitempty"`
+	Subsidiary         RecordRef                    `xml:"subsidiary,omitempty"`
+	TranDate           Date                         `xml:"tranDate,omitempty"`
+	TranID             string                       `xml:"tranId,omitempty"`
+	// This field displays the unit type to associate with this statistical journal entry.
+	UnitsType RecordRef `xml:"unitsType,omitempty"`
+}
+
+func (j StatisticalJournalEntry) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	return omitempty.MarshalXML(j, e, start)
+}
+
+func (j StatisticalJournalEntry) IsEmpty() bool {
+	return zero.IsZero(j)
+}
+
+type StatisticalJournalEntryLines []StatisticalJournalEntryLine
+
+type StatisticalJournalEntryLine struct {
+	XMLName xml.Name `xml:"line"`
+
+	Account         RecordRef `xml:"account"`
+	Class           RecordRef `xml:"class,omitempty"`
+	CustomFieldList struct {
+		CustomField CustomFields `xml:"customField,omitempty"`
+	} `xml:"customFieldList,omitempty"`
+	Debit        float64   `xml:"debit,omitempty"`
+	Department   RecordRef `xml:"department,omitempty"`
+	Entity       RecordRef `xml:"entity,omitempty"`
+	Line         int       `xml:"line,omitempty"`
+	LineUnit     RecordRef `xml:"lineUnit,omitempty"`
+	Location     RecordRef `xml:"location,omitempty"`
+	Memo         string    `xml:"memo,omitempty"`
+	PreviewDebit string    `xml:"previewDebit,omitempty"`
+	ScheduleNum  RecordRef `xml:"scheduleNum,omitempty"`
+}
+
+func (j StatisticalJournalEntryLine) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	return omitempty.MarshalXML(j, e, start)
+}
+
+func (j StatisticalJournalEntryLine) IsEmpty() bool {
+	return zero.IsZero(j)
+}

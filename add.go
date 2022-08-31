@@ -111,37 +111,18 @@ func (r *AddRequest) NewResponseBody() *AddRequestResponseBody {
 type AddRequestResponseBody struct {
 	XMLName xml.Name `xml:"AddResponse"`
 
-	// AddResult struct {
-	// 	Text         string `xml:",chardata"`
-	// 	PlatformCore string `xml:"platformCore,attr"`
-	// 	Status       struct {
-	// 		Text      string `xml:",chardata"`
-	// 		IsSuccess string `xml:"isSuccess,attr"`
-	// 	} `xml:"status"`
-	// 	TotalRecords string `xml:"totalRecords"`
-	// 	RecordList   struct {
-	// 		Text   string `xml:",chardata"`
-	// 		Record []struct {
-	// 			Text                   string `xml:",chardata"`
-	// 			InternalId             string `xml:"internalId,attr"`
-	// 			ExternalId             string `xml:"externalId,attr"`
-	// 			Type                   string `xml:"type,attr"`
-	// 			ListAcct               string `xml:"listAcct,attr"`
-	// 			Name                   string `xml:"name"`
-	// 			Symbol                 string `xml:"symbol"`
-	// 			IsBaseCurrency         string `xml:"isBaseCurrency"`
-	// 			IsInactive             string `xml:"isInactive"`
-	// 			OverrideCurrencyFormat string `xml:"overrideCurrencyFormat"`
-	// 			DisplaySymbol          string `xml:"displaySymbol"`
-	// 			SymbolPlacement        string `xml:"symbolPlacement"`
-	// 			Locale                 string `xml:"locale"`
-	// 			FormatSample           string `xml:"formatSample"`
-	// 			ExchangeRate           string `xml:"exchangeRate"`
-	// 			FxRateUpdateTimezone   string `xml:"fxRateUpdateTimezone"`
-	// 			CurrencyPrecision      string `xml:"currencyPrecision"`
-	// 		} `xml:"record"`
-	// 	} `xml:"recordList"`
-	// } `xml:"addResult"`
+	AddResult struct {
+		Text         string `xml:",chardata"`
+		PlatformCore string `xml:"platformCore,attr"`
+		Status       struct {
+			Text      string `xml:",chardata"`
+			IsSuccess string `xml:"isSuccess,attr"`
+		} `xml:"status"`
+		TotalRecords string `xml:"totalRecords"`
+		RecordList   struct {
+			Record []interface{} `xml:"recordList>record"`
+		} `xml:"recordList"`
+	} `xml:"addResult"`
 }
 
 func (r *AddRequest) URL() (*url.URL, error) {

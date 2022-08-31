@@ -17,7 +17,7 @@ func TestTransactionSearch(t *testing.T) {
 	// req.RequestBody().SearchRecord.Basic.Name.SearchValue = "e"
 	req.RequestBody().SearchRecord.Basic.InternalID.Operator = "anyOf"
 	req.RequestBody().SearchRecord.Basic.InternalID.SearchValue = []netsuite.RecordRef{
-		{InternalID: "1313548"},
+		{InternalID: "1632879"},
 	}
 	// req.RequestBody().SearchRecord.Basic.Type.Operator = "anyOf"
 	// req.RequestBody().SearchRecord.Basic.Type.SearchValue = "_invoice"
