@@ -485,3 +485,18 @@ func (j StatisticalJournalEntryLine) MarshalXML(e *xml.Encoder, start xml.StartE
 func (j StatisticalJournalEntryLine) IsEmpty() bool {
 	return zero.IsZero(j)
 }
+
+type CustomLists []CustomList
+
+type CustomList struct {
+}
+
+type CustomRecords []CustomRecord
+
+type CustomRecord struct {
+}
+
+type CustomFieldTypes []CustomFieldType
+
+type CustomFieldType struct {
+}

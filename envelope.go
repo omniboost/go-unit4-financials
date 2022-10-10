@@ -54,6 +54,7 @@ func (env RequestEnvelope) MarshalXML(e *xml.Encoder, start xml.StartElement) er
 		{Name: xml.Name{Space: "", Local: "xmlns:listWebsite"}, Value: "urn:website_2021_2.lists.webservices.netsuite.com"},
 		{Name: xml.Name{Space: "", Local: "xmlns:fileCabinet"}, Value: "urn:filecabinet_2021_2.documents.webservices.netsuite.com"},
 		{Name: xml.Name{Space: "", Local: "xmlns:listEmp"}, Value: "urn:employees_2021_2.lists.webservices.netsuite.com"},
+		{Name: xml.Name{Space: "", Local: "xmlns:messages"}, Value: "urn:messages_2017_1.platform.webservices.netsuite.com"},
 	}
 	for _, ns := range namespaces {
 		start.Attr = append(start.Attr, ns)
