@@ -238,7 +238,11 @@ func (s SearchEnumMultiSelectField) IsEmpty() bool {
 	return zero.IsZero(s)
 }
 
-type SearchLongField struct{}
+type SearchLongField struct {
+	Operator     SearchLongFieldOperator `xml:"platformCore:operator,attr"`
+	SearchValue  int                     `xml:"platformCore:searchValue"`
+	SearchValue2 int                     `xml:"platformCore:searchValue2,omitempty"`
+}
 
 func (s SearchLongField) IsEmpty() bool {
 	return zero.IsZero(s)
@@ -314,3 +318,5 @@ type SearchTextNumberField struct {
 func (s SearchTextNumberField) IsEmpty() bool {
 	return zero.IsZero(s)
 }
+
+type SearchLongFieldOperator string

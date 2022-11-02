@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"testing"
-
-	"github.com/omniboost/go-netsuite-soap"
 )
 
 func TestTransactionSearch(t *testing.T) {
@@ -15,10 +13,18 @@ func TestTransactionSearch(t *testing.T) {
 	req := client.NewTransactionSearchRequest()
 	// req.RequestBody().SearchRecord.Basic.Name.Operator = "contains"
 	// req.RequestBody().SearchRecord.Basic.Name.SearchValue = "e"
-	req.RequestBody().SearchRecord.Basic.InternalID.Operator = "anyOf"
-	req.RequestBody().SearchRecord.Basic.InternalID.SearchValue = []netsuite.RecordRef{
-		{InternalID: "1639418"},
-	}
+
+	// req.RequestBody().SearchRecord.Basic.Number.Operator = "equalTo"
+	// req.RequestBody().SearchRecord.Basic.Number.SearchValue = 20002200445
+
+	req.RequestBody().SearchRecord.Basic.TranID.Operator = "is"
+	req.RequestBody().SearchRecord.Basic.TranID.SearchValue = "1902023408"
+
+	// req.RequestBody().SearchRecord.Basic.InternalID.Operator = "anyOf"
+	// req.RequestBody().SearchRecord.Basic.InternalID.SearchValue = []netsuite.RecordRef{
+	// 	{InternalID: "1309620"},
+	// }
+
 	// req.RequestBody().SearchRecord.Basic.Type.Operator = "anyOf"
 	// req.RequestBody().SearchRecord.Basic.Type.SearchValue = "_invoice"
 	resp, err := req.Do()

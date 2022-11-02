@@ -27,7 +27,7 @@ const (
 )
 
 var (
-	BaseURL string = "https://webservices.netsuite.com/services/NetSuitePort_2021_2"
+	BaseURL string = "https://webservices.netsuite.com/services/NetSuitePort_2022_2"
 )
 
 // NewClient returns a new Exact Globe Client client

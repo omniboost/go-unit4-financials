@@ -122,26 +122,7 @@ type GetAllRequestResponseBody struct {
 		} `xml:"status"`
 		TotalRecords string `xml:"totalRecords"`
 		RecordList   struct {
-			Text   string `xml:",chardata"`
-			Record []struct {
-				Text                   string `xml:",chardata"`
-				InternalId             string `xml:"internalId,attr"`
-				ExternalId             string `xml:"externalId,attr"`
-				Type                   string `xml:"type,attr"`
-				ListAcct               string `xml:"listAcct,attr"`
-				Name                   string `xml:"name"`
-				Symbol                 string `xml:"symbol"`
-				IsBaseCurrency         string `xml:"isBaseCurrency"`
-				IsInactive             string `xml:"isInactive"`
-				OverrideCurrencyFormat string `xml:"overrideCurrencyFormat"`
-				DisplaySymbol          string `xml:"displaySymbol"`
-				SymbolPlacement        string `xml:"symbolPlacement"`
-				Locale                 string `xml:"locale"`
-				FormatSample           string `xml:"formatSample"`
-				ExchangeRate           string `xml:"exchangeRate"`
-				FxRateUpdateTimezone   string `xml:"fxRateUpdateTimezone"`
-				CurrencyPrecision      string `xml:"currencyPrecision"`
-			} `xml:"record"`
+			Record []byte `xml:",innerxml"`
 		} `xml:"recordList"`
 	} `xml:"getAllResult"`
 }

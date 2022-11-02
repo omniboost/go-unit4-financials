@@ -274,11 +274,158 @@ type Invoice struct {
 
 type Transactions []Transaction
 
-type Transaction struct{}
+type Transaction struct {
+	Text             string `xml:",chardata"`
+	TranSales        string `xml:"tranSales,attr"`
+	InternalID       string `xml:"internalId,attr"`
+	Type             string `xml:"type,attr"`
+	CreatedDate      string `xml:"createdDate"`
+	LastModifiedDate string `xml:"lastModifiedDate"`
+	Entity           struct {
+		Text       string `xml:",chardata"`
+		InternalID string `xml:"internalId,attr"`
+		Name       string `xml:"name"`
+	} `xml:"entity"`
+	TranDate string `xml:"tranDate"`
+	TranID   string `xml:"tranId"`
+	Source   string `xml:"source"`
+	Terms    struct {
+		Text       string `xml:",chardata"`
+		InternalID string `xml:"internalId,attr"`
+		Name       string `xml:"name"`
+	} `xml:"terms"`
+	Subsidiary struct {
+		Text       string `xml:",chardata"`
+		InternalID string `xml:"internalId,attr"`
+		Name       string `xml:"name"`
+	} `xml:"subsidiary"`
+	Currency struct {
+		Text       string `xml:",chardata"`
+		InternalID string `xml:"internalId,attr"`
+		Name       string `xml:"name"`
+	} `xml:"currency"`
+	DueDate               string `xml:"dueDate"`
+	Memo                  string `xml:"memo"`
+	TotalCostEstimate     string `xml:"totalCostEstimate"`
+	EstGrossProfit        string `xml:"estGrossProfit"`
+	EstGrossProfitPercent string `xml:"estGrossProfitPercent"`
+	Account               struct {
+		Text       string `xml:",chardata"`
+		InternalID string `xml:"internalId,attr"`
+		Name       string `xml:"name"`
+	} `xml:"account"`
+	ExchangeRate   string `xml:"exchangeRate"`
+	CurrencyName   string `xml:"currencyName"`
+	BillingAddress struct {
+		Text            string `xml:",chardata"`
+		PlatformCommon  string `xml:"platformCommon,attr"`
+		InternalID      string `xml:"internalId"`
+		Country         string `xml:"country"`
+		Attention       string `xml:"attention"`
+		Addr1           string `xml:"addr1"`
+		City            string `xml:"city"`
+		Zip             string `xml:"zip"`
+		AddrText        string `xml:"addrText"`
+		Override        string `xml:"override"`
+		CustomFieldList struct {
+			Text        string `xml:",chardata"`
+			CustomField []struct {
+				Text       string `xml:",chardata"`
+				InternalID string `xml:"internalId,attr"`
+				ScriptID   string `xml:"scriptId,attr"`
+				Type       string `xml:"type,attr"`
+				Value      string `xml:"value"`
+			} `xml:"customField"`
+		} `xml:"customFieldList"`
+	} `xml:"billingAddress"`
+	BillAddressList struct {
+		Text       string `xml:",chardata"`
+		InternalID string `xml:"internalId,attr"`
+		Name       string `xml:"name"`
+	} `xml:"billAddressList"`
+	ShippingAddress struct {
+		Text            string `xml:",chardata"`
+		PlatformCommon  string `xml:"platformCommon,attr"`
+		InternalID      string `xml:"internalId"`
+		Country         string `xml:"country"`
+		Attention       string `xml:"attention"`
+		Addr1           string `xml:"addr1"`
+		City            string `xml:"city"`
+		Zip             string `xml:"zip"`
+		AddrText        string `xml:"addrText"`
+		Override        string `xml:"override"`
+		CustomFieldList struct {
+			Text        string `xml:",chardata"`
+			CustomField []struct {
+				Text       string `xml:",chardata"`
+				InternalID string `xml:"internalId,attr"`
+				ScriptID   string `xml:"scriptId,attr"`
+				Type       string `xml:"type,attr"`
+				Value      string `xml:"value"`
+			} `xml:"customField"`
+		} `xml:"customFieldList"`
+	} `xml:"shippingAddress"`
+	ShipIsResidential string `xml:"shipIsResidential"`
+	SubTotal          string `xml:"subTotal"`
+	CanHaveStackable  string `xml:"canHaveStackable"`
+	TaxTotal          string `xml:"taxTotal"`
+	Total             string `xml:"total"`
+	Status            string `xml:"status"`
+	VatRegNum         string `xml:"vatRegNum"`
+	ItemCostDiscPrint string `xml:"itemCostDiscPrint"`
+	ExpCostDiscPrint  string `xml:"expCostDiscPrint"`
+	TimeDiscPrint     string `xml:"timeDiscPrint"`
+	ItemList          struct {
+		Text string `xml:",chardata"`
+		Item []struct {
+			Text string `xml:",chardata"`
+			Item struct {
+				Text       string `xml:",chardata"`
+				InternalID string `xml:"internalId,attr"`
+				Name       string `xml:"name"`
+			} `xml:"item"`
+			Line        string `xml:"line"`
+			Description string `xml:"description"`
+			Amount      string `xml:"amount"`
+			Quantity    string `xml:"quantity"`
+			Price       struct {
+				Text       string `xml:",chardata"`
+				InternalID string `xml:"internalId,attr"`
+			} `xml:"price"`
+			Department struct {
+				Text       string `xml:",chardata"`
+				InternalID string `xml:"internalId,attr"`
+				Name       string `xml:"name"`
+			} `xml:"department"`
+			GrossAmt string `xml:"grossAmt"`
+			Tax1Amt  string `xml:"tax1Amt"`
+			TaxCode  struct {
+				Text       string `xml:",chardata"`
+				InternalID string `xml:"internalId,attr"`
+				Name       string `xml:"name"`
+			} `xml:"taxCode"`
+			TaxRate1        string `xml:"taxRate1"`
+			CustomFieldList struct {
+				Text        string `xml:",chardata"`
+				CustomField []struct {
+					Text       string `xml:",chardata"`
+					InternalID string `xml:"internalId,attr"`
+					ScriptID   string `xml:"scriptId,attr"`
+					Type       string `xml:"type,attr"`
+					Value      string `xml:"value"`
+				} `xml:"customField"`
+			} `xml:"customFieldList"`
+		} `xml:"item"`
+	} `xml:"itemList"`
+	OverrideInstallments string `xml:"overrideInstallments"`
+	CustomFieldList      struct {
+		CustomField CustomFields `xml:"customField"`
+	} `xml:"customFieldList"`
+}
 
 type Address struct {
 	PlatformCommon  string `xml:"platformCommon,attr"`
-	InternalId      string `xml:"internalId"`
+	InternalID      string `xml:"internalId"`
 	Country         string `xml:"country"`
 	Attention       string `xml:"attention"`
 	Addressee       string `xml:"addressee"`
@@ -357,14 +504,14 @@ func (c CustomFieldValue) IsEmpty() bool {
 
 type CreditMemo struct {
 	TranSales             string    `xml:"tranSales,attr,omitempty"`
-	InternalId            string    `xml:"internalId,attr,omitempty"`
+	InternalID            string    `xml:"internalId,attr,omitempty"`
 	Type                  string    `xml:"type,attr,omitempty"`
-	ExternalId            string    `xml:"externalId,attr,omitempty"`
+	ExternalID            string    `xml:"externalId,attr,omitempty"`
 	CreatedDate           Date      `xml:"createdDate,omitempty"`
 	LastModifiedDate      Date      `xml:"lastModifiedDate,omitempty"`
 	Entity                RecordRef `xml:"entity,omitempty"`
 	TranDate              Date      `xml:"tranDate,omitempty"`
-	TranId                string    `xml:"tranId,omitempty"`
+	TranID                string    `xml:"tranId,omitempty"`
 	Department            RecordRef `xml:"department,omitempty"`
 	Terms                 RecordRef `xml:"terms,omitempty"`
 	Subsidiary            RecordRef `xml:"subsidiary,omitempty"`
@@ -395,6 +542,15 @@ type CreditMemo struct {
 	CustomFieldList struct {
 		CustomField CustomFields `xml:"customField"`
 	} `xml:"customFieldList"`
+	// Check this box to automatically apply credit to the oldest open
+	// receivable. If you clear this box, the credit amount defaults to
+	// unapplied and you must later apply the credit amount to an open
+	// receivable. Once you check or uncheck the Auto Apply box on a credit memo
+	// and save it, the box retains the setting the next time you enter a credit
+	// memo.
+	AutoApply   bool                `xml:"autoapply"`
+	CreatedFrom int                 `xml:"createdfrom,omitempty"`
+	ApplyList   CreditMemoApplyList `xml:"applyList"`
 }
 
 type CreditMemoItemList []CreditMemoItem
@@ -499,4 +655,43 @@ type CustomRecord struct {
 type CustomFieldTypes []CustomFieldType
 
 type CustomFieldType struct {
+}
+
+type CreditMemoApplyList struct {
+	Apply []CreditMemoApply `xml:"apply"`
+}
+
+type CreditMemoApply struct {
+	Apply     bool     `xml:"apply"`
+	Doc       int      `xml:"doc"`
+	ApplyDate DateTime `xml:"applyDate"`
+	Job       string   `xml:"job"`
+	Type      string   `xml:"type"`
+	RefNum    string   `xml:"refNum"`
+	Total     float64  `xml:"total"`
+	Due       float64  `xml:"due"`
+	Currency  string   `xml:"currency"`
+	Amount    float64  `xml:"amount"`
+	Line      int      `xml:"line"`
+}
+
+type Currencies []Currency
+
+type Currency struct {
+	InternalID             string `xml:"internalId,attr"`
+	ExternalID             string `xml:"externalId,attr"`
+	Type                   string `xml:"type,attr"`
+	ListAcct               string `xml:"listAcct,attr"`
+	Name                   string `xml:"name"`
+	Symbol                 string `xml:"symbol"`
+	IsBaseCurrency         string `xml:"isBaseCurrency"`
+	IsInactive             string `xml:"isInactive"`
+	OverrideCurrencyFormat string `xml:"overrideCurrencyFormat"`
+	DisplaySymbol          string `xml:"displaySymbol"`
+	SymbolPlacement        string `xml:"symbolPlacement"`
+	Locale                 string `xml:"locale"`
+	FormatSample           string `xml:"formatSample"`
+	ExchangeRate           string `xml:"exchangeRate"`
+	FxRateUpdateTimezone   string `xml:"fxRateUpdateTimezone"`
+	CurrencyPrecision      string `xml:"currencyPrecision"`
 }
