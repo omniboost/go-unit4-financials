@@ -548,9 +548,9 @@ type CreditMemo struct {
 	// receivable. Once you check or uncheck the Auto Apply box on a credit memo
 	// and save it, the box retains the setting the next time you enter a credit
 	// memo.
-	AutoApply   bool                `xml:"autoapply"`
-	CreatedFrom int                 `xml:"createdfrom,omitempty"`
-	ApplyList   CreditMemoApplyList `xml:"applyList"`
+	// AutoApply   bool                `xml:"autoapply"`
+	// CreatedFrom int                 `xml:"createdfrom,omitempty"`
+	// ApplyList   CreditMemoApplyList `xml:"applyList"`
 }
 
 type CreditMemoItemList []CreditMemoItem
