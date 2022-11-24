@@ -183,6 +183,7 @@ type AccountSearchBasic struct {
 	Subsidiary         SearchMultiSelectField     `xml:"subsidiary,omitempty"`
 	Type               SearchEnumMultiSelectField `xml:"type,omitempty"`
 	CustomFieldList    SearchCustomFieldList      `xml:"customFieldList,omitempty"`
+	TranID             SearchStringField          `xml:"tranId,omitempty"`
 }
 
 func (c AccountSearchBasic) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
