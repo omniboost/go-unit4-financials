@@ -92,7 +92,7 @@ type GetCustomizationIDRequestBody struct {
 	XMLName xml.Name `xml:"getCustomizationId"`
 
 	CustomizationType struct {
-		GetCustomizationType string `xml:"getCustomizationType,attr"`
+		GetCustomizationType string `xml:"getCustomizationType,attr,omitempty"`
 	} `xml:"customizationType"`
 	IncludeInactives bool `xml:"includeInactives"`
 }
@@ -124,12 +124,7 @@ type GetCustomizationIDRequestResponseBody struct {
 		} `xml:"status"`
 		TotalRecords         string `xml:"totalRecords"`
 		CustomizationRefList struct {
-			CustomizationRef []struct {
-				ScriptID   string `xml:"scriptId,attr"`
-				InternalID string `xml:"internalId,attr"`
-				Type       string `xml:"type,attr"`
-				Name       string `xml:"name"`
-			} `xml:"customizationRef"`
+			CustomizationRef CustomizationRefs `xml:"customizationRef"`
 		} `xml:"customizationRefList"`
 	} `xml:"getCustomizationIdResult"`
 }

@@ -94,17 +94,19 @@ type SearchRequestBody struct {
 		Type  string      `xml:"xsi:type,attr"`
 		Basic interface{} `xml:"listRel:basic"`
 
-		RecType struct {
-			XMLName    xml.Name `xml:"recType"`
-			InternalID string   `xml:"internalId,attr"`
-			ScriptID   string   `xml:"scriptId,attr"`
-			Type       string   `xml:"type,attr"`
-			XSIType    string   `xml:"xsi:type,attr"`
-			Name       struct {
-				Text string `xml:",chardata"`
-				Type string `xml:"type,attr"`
-			} `xml:"name"`
-		} `xml:"recType"`
+		// InternalID SearchMultiSelectField `xml:"internalId"`
+		RecType BaseRef `xml:"recType"`
+		// RecType    struct {
+		// 	XMLName    xml.Name `xml:"recType"`
+		// 	InternalID string   `xml:"internalId,attr"`
+		// 	ScriptID   string   `xml:"scriptId,attr"`
+		// 	Type       string   `xml:"type,attr"`
+		// 	XSIType    string   `xml:"xsi:type,attr"`
+		// 	Name       struct {
+		// 		Text string `xml:",chardata"`
+		// 		Type string `xml:"type,attr"`
+		// 	} `xml:"name"`
+		// } `xml:"recType"`
 	} `xml:"platformMsgs:searchRecord"`
 }
 

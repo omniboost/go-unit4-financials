@@ -643,11 +643,6 @@ func (j StatisticalJournalEntryLine) IsEmpty() bool {
 	return zero.IsZero(j)
 }
 
-type CustomLists []CustomList
-
-type CustomList struct {
-}
-
 type CustomRecords []CustomRecord
 
 type CustomRecord struct {
@@ -695,4 +690,132 @@ type Currency struct {
 	ExchangeRate           string `xml:"exchangeRate"`
 	FxRateUpdateTimezone   string `xml:"fxRateUpdateTimezone"`
 	CurrencyPrecision      string `xml:"currencyPrecision"`
+}
+
+type CustomizationRefs []CustomizationRef
+
+type CustomizationRef struct {
+	ScriptID   string `xml:"scriptId,attr"`
+	InternalID string `xml:"internalId,attr"`
+	Type       string `xml:"type,attr"`
+	Name       string `xml:"name"`
+}
+
+type RecordType struct {
+	InternalID   string `xml:"internalId,attr"`
+	PlatformCore string `xml:"platformCore,attr"`
+	Name         string `xml:"name"`
+}
+
+type BaseRef struct {
+	ScriptID   string `xml:"scriptId,attr,omitempty"`
+	ExternalID string `xml:"externalId,attr,omitempty"`
+	InternalID string `xml:"internalId,attr,omitempty"`
+	Type       string `xml:"type,attr"`
+	XSIType    string `xml:"xsi:type,attr"`
+	TypeID     string `xml:"typeId,attr,omitempty"`
+	// Xmlns      string `xml:"xmlns:q1,attr"`
+}
+
+type TransactionBodyCustomField struct {
+	Text        string `xml:",chardata"`
+	InternalId  string `xml:"internalId,attr"`
+	Type        string `xml:"type,attr"`
+	SetupCustom string `xml:"setupCustom,attr"`
+	Label       string `xml:"label"`
+	Owner       struct {
+		Text         string `xml:",chardata"`
+		InternalId   string `xml:"internalId,attr"`
+		PlatformCore string `xml:"platformCore,attr"`
+		Name         string `xml:"name"`
+	} `xml:"owner"`
+	StoreValue   bool `xml:"storeValue"`
+	ShowInList   bool `xml:"showInList"`
+	GlobalSearch bool `xml:"globalSearch"`
+	IsParent     bool `xml:"isParent"`
+	Subtab       struct {
+		Text         string `xml:",chardata"`
+		InternalId   string `xml:"internalId,attr"`
+		PlatformCore string `xml:"platformCore,attr"`
+		Name         string `xml:"name"`
+	} `xml:"subtab"`
+	DisplayType              string `xml:"displayType"`
+	IsMandatory              bool   `xml:"isMandatory"`
+	CheckSpelling            bool   `xml:"checkSpelling"`
+	DefaultChecked           bool   `xml:"defaultChecked"`
+	IsFormula                bool   `xml:"isFormula"`
+	BodyPurchase             bool   `xml:"bodyPurchase"`
+	BodySale                 bool   `xml:"bodySale"`
+	BodyJournal              bool   `xml:"bodyJournal"`
+	BodyExpenseReport        bool   `xml:"bodyExpenseReport"`
+	BodyTransferOrder        bool   `xml:"bodyTransferOrder"`
+	BodyItemReceipt          bool   `xml:"bodyItemReceipt"`
+	BodyItemReceiptOrder     bool   `xml:"bodyItemReceiptOrder"`
+	BodyItemFulfillment      bool   `xml:"bodyItemFulfillment"`
+	BodyItemFulfillmentOrder bool   `xml:"bodyItemFulfillmentOrder"`
+	BodyInventoryAdjustment  bool   `xml:"bodyInventoryAdjustment"`
+	BodyPrintFlag            bool   `xml:"bodyPrintFlag"`
+	BodyPickingTicket        bool   `xml:"bodyPickingTicket"`
+	BodyOtherTransaction     bool   `xml:"bodyOtherTransaction"`
+	BodyPrintPackingSlip     bool   `xml:"bodyPrintPackingSlip"`
+	BodyCustomerPayment      bool   `xml:"bodyCustomerPayment"`
+	BodyVendorPayment        bool   `xml:"bodyVendorPayment"`
+	BodyDeposit              bool   `xml:"bodyDeposit"`
+	BodyPrintStatement       bool   `xml:"bodyPrintStatement"`
+	AccessLevel              string `xml:"accessLevel"`
+	SearchLevel              string `xml:"searchLevel"`
+	TranslationsList         struct {
+		Text         string   `xml:",chardata"`
+		Translations []string `xml:"translations"`
+	} `xml:"translationsList"`
+	FieldType string `xml:"fieldType"`
+	ScriptId  string `xml:"scriptId"`
+}
+
+type CustomLists []CustomList
+
+type CustomList struct {
+	Name                  string                     `xml:"name"`
+	Owner                 RecordRef                  `xml:"owner"`
+	IsOrdered             bool                       `xml:"isOrdered"`
+	Description           string                     `xml:"description"`
+	IsMatrixOption        bool                       `xml:"isMaxtrixOption"`
+	ScriptID              string                     `xml:"scriptId"`
+	ConvertToCustomRecord bool                       `xml:"convertToCustomRecord"`
+	CustomValueList       CustomListCustomValueList  `xml:"customValueList"`
+	TranslationsList      CustomListTranslationsList `xml:"translationsList>translations"`
+}
+
+type CustomListCustomValueList struct {
+	CustomValue []CustomListCustomValue `xml:"customValue"`
+}
+
+type CustomListCustomValue struct {
+	Value                  string            `xml:"value"`
+	Abbreviation           string            `xml:"abbreviation"`
+	IsInactive             bool              `xml:"isInactive"`
+	ValueID                int               `xml:"valueId"`
+	ValueLanguageValueList LanguageValueList `xml:"valueLanguageValueList"`
+}
+
+type CustomListTranslationsList struct {
+	Translations CustomListTranslations `xml:"translations"`
+}
+
+type CustomListTranslations struct {
+	Locale            Language `xml:"locale"`
+	LocaleDescription string   `xml:"localeDescription"`
+	Name              string   `xml:"name"`
+}
+
+type Language struct {
+}
+
+type LanguageValueList struct {
+	LanguageValue LanguageValue `xml:"languageValue"`
+}
+
+type LanguageValue struct {
+	Locale Language `xml:"locale"`
+	Value  string   `xml:"value"`
 }

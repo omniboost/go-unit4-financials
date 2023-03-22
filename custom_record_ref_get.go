@@ -134,23 +134,18 @@ type CustomRecordRefGetRequestResponseBody struct {
 		} `xml:"status"`
 		Record struct {
 			// Text           string `xml:",chardata"`
-			InternalID     string `xml:"internalId,attr"`
-			Type           string `xml:"type,attr"`
-			SetupCustom    string `xml:"setupCustom,attr"`
-			Label          string `xml:"label"`
-			ScriptID       string `xml:"scriptId"`
-			RecordScriptID string `xml:"recordScriptId"`
-			RecordType     struct {
-				// Text         string `xml:",chardata"`
-				InternalID   string `xml:"internalId,attr"`
-				PlatformCore string `xml:"platformCore,attr"`
-				Name         string `xml:"name"`
-			} `xml:"recordType"`
-			FieldType   string `xml:"fieldType"`
-			IsInactive  string `xml:"isInactive"`
-			ShowInList  string `xml:"showInList"`
-			HasGLImpact string `xml:"hasGLImpact"`
-			IsMandatory string `xml:"isMandatory"`
+			InternalID     string     `xml:"internalId,attr"`
+			Type           string     `xml:"type,attr"`
+			SetupCustom    string     `xml:"setupCustom,attr"`
+			Label          string     `xml:"label"`
+			ScriptID       string     `xml:"scriptId"`
+			RecordScriptID string     `xml:"recordScriptId"`
+			RecordType     RecordType `xml:"recordType"`
+			FieldType      string     `xml:"fieldType"`
+			IsInactive     string     `xml:"isInactive"`
+			ShowInList     string     `xml:"showInList"`
+			HasGLImpact    string     `xml:"hasGLImpact"`
+			IsMandatory    string     `xml:"isMandatory"`
 		} `xml:"record"`
 	} `xml:"readResponse"`
 }

@@ -15,11 +15,26 @@ func TestSearch(t *testing.T) {
 	// req.RequestBody().SearchRecord.Basic.Email.SearchValue = "@ektos.net"
 
 	req.RequestBody().SearchRecord.Type = "platformCommon:CustomRecordSearchBasic"
-	req.RequestBody().SearchRecord.RecType.InternalID = "767"
-	req.RequestBody().SearchRecord.RecType.ScriptID = "cseg_nch_property"
-	req.RequestBody().SearchRecord.RecType.Type = "customRecordType"
+	// req.RequestBody().SearchRecord.RecType.InternalID = "1568"
+	// req.RequestBody().SearchRecord.RecType.ScriptID = "custbody_exp_type_journal"
+	// req.RequestBody().SearchRecord.RecType.Type = "customRecordType"
+	// req.RequestBody().SearchRecord.RecType.XSIType = "platformCore:CustomizationRef"
+	// req.RequestBody().SearchRecord.RecType.Name.Text = "Property"
+
+	// client.SearchPreferences.BodyFieldsOnly = false
+	// req.RequestBody().SearchRecord.Type = "platformCommon:CustomListSearchBasic"
+	// req.RequestBody().SearchRecord.InternalID.Operator = "anyOf"
+	// req.RequestBody().SearchRecord.InternalID.SearchValue = []netsuite.RecordRef{{InternalID: "171"}}
+	// req.RequestBody().SearchRecord.RecType.InternalID = "1568"
+	// req.RequestBody().SearchRecord.RecType.ScriptID = "custbody_exp_type_journal"
+	// req.RequestBody().SearchRecord.RecType.Type = "customRecordType"
+	// req.RequestBody().SearchRecord.RecType.XSIType = "platformCore:CustomizationRef"
+	// req.RequestBody().SearchRecord.RecType.Name.Text = "Property"
+
+	req.RequestBody().SearchRecord.Type = "platformCommon:CustomRecordSearchBasic"
+	req.RequestBody().SearchRecord.RecType.ScriptID = "custbody_journal_memo"
+	req.RequestBody().SearchRecord.RecType.Type = "customTransactionType"
 	req.RequestBody().SearchRecord.RecType.XSIType = "platformCore:CustomizationRef"
-	req.RequestBody().SearchRecord.RecType.Name.Text = "Property"
 	resp, err := req.Do()
 	if err != nil {
 		t.Error(err)

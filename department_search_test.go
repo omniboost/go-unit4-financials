@@ -8,8 +8,8 @@ import (
 
 func TestDepartmentSearch(t *testing.T) {
 	req := client.NewDepartmentSearchRequest()
-	req.RequestBody().SearchRecord.Basic.Name.Operator = "is"
-	req.RequestBody().SearchRecord.Basic.Name.SearchValue = "HTL : 1 : 110"
+	// req.RequestBody().SearchRecord.Basic.Name.Operator = "is"
+	// req.RequestBody().SearchRecord.Basic.Name.SearchValue = "HTL : 1 : 110"
 	// req.RequestBody().SearchRecord.Basic.CustomFieldList = netsuite.SearchCustomFieldList{
 	// 	netsuite.SearchStringCustomField{
 	// 		ScriptID: "custrecord_nch_departmentname",
