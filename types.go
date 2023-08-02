@@ -146,7 +146,7 @@ type JournalEntry struct {
 	CreatedDate      Date              `xml:"createdDate,omitempty"`
 	LastModifiedDate Date              `xml:"lastModifiedDate,omitempty"`
 	LineList         JournalEntryLines `xml:"lineList>line"`
-	Memo             string            `xml:"memo"`
+	Memo             string            `xml:"memo,omitempty"`
 	CustomFieldList  struct {
 		CustomField CustomFields `xml:"customField,omitempty"`
 	} `xml:"customFieldList,omitempty"`
@@ -818,4 +818,9 @@ type LanguageValueList struct {
 type LanguageValue struct {
 	Locale Language `xml:"locale"`
 	Value  string   `xml:"value"`
+}
+
+type Items []Item
+
+type Item struct {
 }
