@@ -826,3 +826,14 @@ type Items []Item
 
 type Item struct {
 }
+
+type ItemSearchRecordBasic struct {
+	XMLName xml.Name `xml:"platformMsgs:searchRecord"`
+
+	Type  string                  `xml:"xsi:type,attr"`
+	Basic SalesTaxItemSearchBasic `xml:"basic"`
+}
+
+type Locations []Location
+
+type Location RecordRef
