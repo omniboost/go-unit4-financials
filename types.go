@@ -147,6 +147,7 @@ type JournalEntry struct {
 	LastModifiedDate Date              `xml:"lastModifiedDate,omitempty"`
 	LineList         JournalEntryLines `xml:"lineList>line"`
 	Memo             string            `xml:"memo,omitempty"`
+	Location         RecordRef         `xml:"location,omitempty"`
 	CustomFieldList  struct {
 		CustomField CustomFields `xml:"customField,omitempty"`
 	} `xml:"customFieldList,omitempty"`
