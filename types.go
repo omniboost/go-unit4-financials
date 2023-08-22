@@ -186,6 +186,7 @@ type JournalEntryLine struct {
 		CustomField CustomFields `xml:"customField,omitempty"`
 	} `xml:"customFieldList,omitempty"`
 	Credit     float64   `xml:"credit,omitempty"`
+	Location   RecordRef `xml:"location,omitempty"`
 	Department RecordRef `xml:"department,omitempty"`
 	Class      RecordRef `xml:"class,omitempty"`
 	TaxCode    RecordRef `xml:"taxCode,omitempty"`
