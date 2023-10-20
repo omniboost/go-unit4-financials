@@ -365,7 +365,7 @@ type TransactionSearchBasic struct {
 	Nexus                        SearchMultiSelectField     `xml:"platformCore:nexus,omitempty"`
 	NoAutoAssignLocation         SearchBooleanField         `xml:"platformCore:noAutoAssignLocation,omitempty"`
 	NonReimbursable              SearchBooleanField         `xml:"platformCore:nonReimbursable,omitempty"`
-	Number                       SearchLongField            `xml:"platformCore:number,omitempty"`
+	Number                       SearchLongField            `xml:"platformCommon:number,omitempty"`
 	OneTimeTotal                 SearchDoubleField          `xml:"platformCore:oneTimeTotal,omitempty"`
 	Opportunity                  SearchMultiSelectField     `xml:"platformCore:opportunity,omitempty"`
 	OrderAllocationStrategy      SearchMultiSelectField     `xml:"platformCore:orderAllocationStrategy,omitempty"`
@@ -490,7 +490,7 @@ type TransactionSearchBasic struct {
 	TranEstGrossProfit             SearchDoubleField          `xml:"platformCore:tranEstGrossProfit,omitempty"`
 	TranEstGrossProfitPct          SearchDoubleField          `xml:"platformCore:tranEstGrossProfitPct,omitempty"`
 	TranFxEstGrossProfit           SearchDoubleField          `xml:"platformCore:tranFxEstGrossProfit,omitempty"`
-	TranID                         SearchStringField          `xml:"platformCore:tranId,omitempty"`
+	TranID                         SearchStringField          `xml:"platformCommon:tranId,omitempty"`
 	TranIsVsoeBundle               SearchBooleanField         `xml:"platformCore:tranIsVsoeBundle,omitempty"`
 	TransactionDiscount            SearchBooleanField         `xml:"platformCore:transactionDiscount,omitempty"`
 	TransactionLineType            SearchEnumMultiSelectField `xml:"platformCore:transactionLineType,omitempty"`
