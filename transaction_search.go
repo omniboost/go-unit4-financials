@@ -160,6 +160,7 @@ func (r *TransactionSearchRequest) Do() (TransactionSearchRequestResponseBody, e
 }
 
 type TransactionSearchBasic struct {
+	Type                         SearchEnumMultiSelectField `xml:"type,omitempty"`
 	Account                      SearchMultiSelectField     `xml:"platformCore:account,omitempty"`
 	AccountType                  SearchEnumMultiSelectField `xml:"platformCore:accountType,omitempty"`
 	AcctCorpCardExp              SearchMultiSelectField     `xml:"platformCore:acctCorpCardExp,omitempty"`
@@ -245,7 +246,7 @@ type TransactionSearchBasic struct {
 	CustomForm                   SearchMultiSelectField     `xml:"platformCore:customForm,omitempty"`
 	CustomGL                     SearchBooleanField         `xml:"platformCore:customGL,omitempty"`
 	CustType                     SearchMultiSelectField     `xml:"platformCore:custType,omitempty"`
-	DateCreated                  SearchDateField            `xml:"platformCore:dateCreated,omitempty"`
+	DateCreated                  SearchDateField            `xml:"platformCommon:dateCreated,omitempty"`
 	DaysOpen                     SearchLongField            `xml:"platformCore:daysOpen,omitempty"`
 	DaysOverdue                  SearchLongField            `xml:"platformCore:daysOverdue,omitempty"`
 	DebitAmount                  SearchDoubleField          `xml:"platformCore:debitAmount,omitempty"`
@@ -312,7 +313,7 @@ type TransactionSearchBasic struct {
 	Incoterm                     SearchMultiSelectField     `xml:"platformCore:incoterm,omitempty"`
 	IntercoStatus                SearchEnumMultiSelectField `xml:"platformCore:intercoStatus,omitempty"`
 	IntercoTransaction           SearchMultiSelectField     `xml:"platformCore:intercoTransaction,omitempty"`
-	InternalId                   SearchMultiSelectField     `xml:"platformCore:internalId,omitempty"`
+	InternalID                   SearchMultiSelectField     `xml:"platformCommon:internalId,omitempty"`
 	InternalIdNumber             SearchLongField            `xml:"platformCore:internalIdNumber,omitempty"`
 	InventoryLocation            SearchMultiSelectField     `xml:"platformCore:inventoryLocation,omitempty"`
 	InventorySubsidiary          SearchMultiSelectField     `xml:"platformCore:inventorySubsidiary,omitempty"`
@@ -350,12 +351,13 @@ type TransactionSearchBasic struct {
 	MainName                     SearchMultiSelectField     `xml:"platformCore:mainName,omitempty"`
 	ManufacturingRouting         SearchMultiSelectField     `xml:"platformCore:manufacturingRouting,omitempty"`
 	MatchBillToReceipt           SearchBooleanField         `xml:"platformCore:matchBillToReceipt,omitempty"`
-	Memo                         SearchStringField          `xml:"platformCore:memo,omitempty"`
-	MemoMain                     SearchStringField          `xml:"platformCore:memoMain,omitempty"`
+	Memo                         SearchStringField          `xml:"platformCommon:memo,omitempty"`
+	MemoMain                     SearchStringField          `xml:"platformCommon:memoMain,omitempty"`
 	Memorized                    SearchBooleanField         `xml:"platformCore:memorized,omitempty"`
 	MerchantAccount              SearchStringField          `xml:"platformCore:merchantAccount,omitempty"`
 	Message                      SearchStringField          `xml:"platformCore:message,omitempty"`
 	MultiSubsidiary              SearchBooleanField         `xml:"platformCore:multiSubsidiary,omitempty"`
+	Name                         SearchStringField          `xml:"name,omitempty"`
 	NameText                     SearchStringField          `xml:"platformCore:nameText,omitempty"`
 	NetAmount                    SearchDoubleField          `xml:"platformCore:netAmount,omitempty"`
 	NextApprover                 SearchMultiSelectField     `xml:"platformCore:nextApprover,omitempty"`
@@ -467,7 +469,7 @@ type TransactionSearchBasic struct {
 	Status                     SearchEnumMultiSelectField `xml:"platformCore:status,omitempty"`
 	Subscription               SearchMultiSelectField     `xml:"platformCore:subscription,omitempty"`
 	SubscriptionLine           SearchMultiSelectField     `xml:"platformCore:subscriptionLine,omitempty"`
-	Subsidiary                 SearchMultiSelectField     `xml:"platformCore:subsidiary,omitempty"`
+	Subsidiary                 SearchMultiSelectField     `xml:"platformCommon:subsidiary,omitempty"`
 	SubsidiaryTaxRegNum        SearchMultiSelectField     `xml:"platformCore:subsidiaryTaxRegNum,omitempty"`
 	TaxItem                    SearchMultiSelectField     `xml:"platformCore:taxItem,omitempty"`
 	TaxLine                    SearchBooleanField         `xml:"platformCore:taxLine,omitempty"`
@@ -484,11 +486,11 @@ type TransactionSearchBasic struct {
 	TotalAmount                    SearchDoubleField          `xml:"platformCore:totalAmount,omitempty"`
 	TrackingNumbers                SearchStringField          `xml:"platformCore:trackingNumbers,omitempty"`
 	TranCostEstimate               SearchDoubleField          `xml:"platformCore:tranCostEstimate,omitempty"`
-	TranDate                       SearchDateField            `xml:"platformCore:tranDate,omitempty"`
+	TranDate                       SearchDateField            `xml:"platformCommon:tranDate,omitempty"`
 	TranEstGrossProfit             SearchDoubleField          `xml:"platformCore:tranEstGrossProfit,omitempty"`
 	TranEstGrossProfitPct          SearchDoubleField          `xml:"platformCore:tranEstGrossProfitPct,omitempty"`
 	TranFxEstGrossProfit           SearchDoubleField          `xml:"platformCore:tranFxEstGrossProfit,omitempty"`
-	TranId                         SearchStringField          `xml:"platformCore:tranId,omitempty"`
+	TranID                         SearchStringField          `xml:"platformCore:tranId,omitempty"`
 	TranIsVsoeBundle               SearchBooleanField         `xml:"platformCore:tranIsVsoeBundle,omitempty"`
 	TransactionDiscount            SearchBooleanField         `xml:"platformCore:transactionDiscount,omitempty"`
 	TransactionLineType            SearchEnumMultiSelectField `xml:"platformCore:transactionLineType,omitempty"`
@@ -513,7 +515,7 @@ type TransactionSearchBasic struct {
 	VsoePermitDiscount SearchEnumMultiSelectField `xml:"platformCore:vsoePermitDiscount,omitempty"`
 	VsoePrice          SearchDoubleField          `xml:"platformCore:vsoePrice,omitempty"`
 	WebSite            SearchMultiSelectField     `xml:"platformCore:webSite,omitempty"`
-	CustomFieldList    SearchCustomFieldList      `xml:"platformCore:customFieldList,omitempty"`
+	CustomFieldList    SearchCustomFieldList      `xml:"platformCommon:customFieldList,omitempty"`
 }
 
 func (c TransactionSearchBasic) MarshalXML(e *xml.Encoder, start xml.StartElement) error {

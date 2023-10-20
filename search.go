@@ -256,6 +256,14 @@ func (s SearchBooleanField) IsEmpty() bool {
 	return zero.IsZero(s)
 }
 
+// type SearchCustomFieldList struct {
+// 	CustomField []SearchCustomField `xml:"platformCore:customField"`
+// }
+
+// func (s SearchCustomFieldList) IsEmpty() bool {
+// 	return zero.IsZero(s)
+// }
+
 type SearchCustomFieldList []interface{}
 
 func (s SearchCustomFieldList) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
@@ -266,8 +274,48 @@ func (s SearchCustomFieldList) MarshalXML(e *xml.Encoder, start xml.StartElement
 	return e.EncodeElement(alias, start)
 }
 
-func (s SearchCustomFieldList) IsEmpty() bool {
-	return zero.IsZero(s)
+type SearchCustomField interface{}
+
+// func (s SearchCustomFieldList) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+// 	alias := struct {
+// 		SearchFields []interface{}
+// 	}{SearchFields: s}
+
+// 	return e.EncodeElement(alias, start)
+// }
+
+type SearchMultiSelectCustomField struct {
+	XMLName xml.Name `xml:"platformCore:customField"`
+
+	ScriptID    string                    `xml:"platformCore:scriptId,attr,omitempty"`
+	InternalID  string                    `xml:"platformCore:internalId,attr,omitempty"`
+	SearchValue ListOrRecordRef           `xml:"platformCore:searchValue"`
+	Operator    SearchStringFieldOperator `xml:"platformCore:operator,attr"`
+}
+
+type SearchMultiSelectFieldOperator struct {
+	Restriction string `xml:"restriction"`
+}
+
+type ListOrRecordRef struct {
+	InternalID string `xml:"platformCore:internalId,attr,omitempty"`
+	TypeID     string `xml:"platformCore:typeId,attr,omitempty"`
+}
+
+func (l ListOrRecordRef) IsEmpty() bool {
+	return zero.IsZero(l)
+}
+
+func (s SearchMultiSelectCustomField) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	type alias SearchMultiSelectCustomField
+
+	start.Name = xml.Name{Local: "platformCore:customField"}
+	s2 := struct {
+		Type string `xml:"xsi:type,attr"`
+		alias
+	}{Type: "platformCore:SearchMultiSelectCustomField", alias: alias(s)}
+
+	return e.EncodeElement(s2, start)
 }
 
 type SearchStringCustomField struct {
@@ -295,11 +343,15 @@ func (s SearchStringCustomField) MarshalXML(e *xml.Encoder, start xml.StartEleme
 type SearchRecordBasic struct { // SearchRecordBasic
 	XMLName xml.Name `xml:"platformMsgs:searchRecord"`
 
-	Type  string             `xml:"xsi:type,attr"`
-	Basic AccountSearchBasic `xml:"basic"`
+	Type string `xml:"xsi:type,attr"`
+	Basic TransactionSearchBasic `xml:"basic"`
 }
 
-type SearchDateField struct{}
+type SearchDateField struct {
+	// Type        string                    `xml:"xsi:type,attr"`
+	Operator    SearchStringFieldOperator `xml:"platformCore:operator,attr"`
+	SearchValue string                    `xml:"platformCore:searchValue"`
+}
 
 func (s SearchDateField) IsEmpty() bool {
 	return zero.IsZero(s)
