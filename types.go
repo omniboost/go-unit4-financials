@@ -420,7 +420,8 @@ type Transaction struct {
 			} `xml:"customFieldList"`
 		} `xml:"item"`
 	} `xml:"itemList"`
-	OverrideInstallments string `xml:"overrideInstallments"`
+	OverrideInstallments string            `xml:"overrideInstallments"`
+	LineList             JournalEntryLines `xml:"lineList>line"`
 	CustomFieldList      struct {
 		CustomField CustomFields `xml:"customField"`
 	} `xml:"customFieldList"`

@@ -293,6 +293,39 @@ type SearchMultiSelectCustomField struct {
 	Operator    SearchStringFieldOperator `xml:"platformCore:operator,attr"`
 }
 
+func (s SearchMultiSelectCustomField) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	type alias SearchMultiSelectCustomField
+
+	start.Name = xml.Name{Local: "platformCore:customField"}
+	s2 := struct {
+		Type string `xml:"xsi:type,attr"`
+		alias
+	}{Type: "platformCore:SearchMultiSelectCustomField", alias: alias(s)}
+
+	return e.EncodeElement(s2, start)
+}
+
+type SearchColumnSelectCustomField struct {
+	XMLName xml.Name `xml:"platformCore:customField"`
+
+	ScriptID    string                    `xml:"platformCore:scriptId,attr,omitempty"`
+	InternalID  string                    `xml:"platformCore:internalId,attr,omitempty"`
+	SearchValue ListOrRecordRef           `xml:"platformCore:searchValue"`
+	Operator    SearchStringFieldOperator `xml:"platformCore:operator,attr"`
+}
+
+func (s SearchColumnSelectCustomField) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	type alias SearchColumnSelectCustomField
+
+	start.Name = xml.Name{Local: "platformCore:customField"}
+	s2 := struct {
+		Type string `xml:"xsi:type,attr"`
+		alias
+	}{Type: "platformCore:SearchColumnSelectCustomField", alias: alias(s)}
+
+	return e.EncodeElement(s2, start)
+}
+
 type SearchMultiSelectFieldOperator struct {
 	Restriction string `xml:"restriction"`
 }
@@ -304,18 +337,6 @@ type ListOrRecordRef struct {
 
 func (l ListOrRecordRef) IsEmpty() bool {
 	return zero.IsZero(l)
-}
-
-func (s SearchMultiSelectCustomField) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
-	type alias SearchMultiSelectCustomField
-
-	start.Name = xml.Name{Local: "platformCore:customField"}
-	s2 := struct {
-		Type string `xml:"xsi:type,attr"`
-		alias
-	}{Type: "platformCore:SearchMultiSelectCustomField", alias: alias(s)}
-
-	return e.EncodeElement(s2, start)
 }
 
 type SearchStringCustomField struct {
@@ -343,7 +364,7 @@ func (s SearchStringCustomField) MarshalXML(e *xml.Encoder, start xml.StartEleme
 type SearchRecordBasic struct { // SearchRecordBasic
 	XMLName xml.Name `xml:"platformMsgs:searchRecord"`
 
-	Type string `xml:"xsi:type,attr"`
+	Type  string                 `xml:"xsi:type,attr"`
 	Basic TransactionSearchBasic `xml:"basic"`
 }
 
