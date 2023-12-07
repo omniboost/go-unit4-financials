@@ -71,6 +71,22 @@ type CustomField struct {
 	Value      CustomFieldValue `xml:"value,omitempty"`
 }
 
+func (c *CustomField) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
+	type Alias CustomField
+	s := struct {
+		Type string `xml:"type,attr,omitempty"`
+		*Alias
+	}{Alias: (*Alias)(c)}
+
+	err := d.DecodeElement(&s, &start)
+	if err != nil {
+		return err
+	}
+
+	c.Type = s.Type
+	return nil
+}
+
 type Accounts []Account
 
 type Account struct {
