@@ -13,20 +13,15 @@ var (
 
 func TestMain(m *testing.M) {
 	baseURL := os.Getenv("BASE_URL")
-	clientID := os.Getenv("CLIENT_ID")
-	clientSecret := os.Getenv("CLIENT_SECRET")
-	tokenID := os.Getenv("TOKEN_ID")
-	tokenSecret := os.Getenv("TOKEN_SECRET")
-	// applicationID := os.Getenv("APPLICATION_ID")
-	accountID := os.Getenv("ACCOUNT_ID")
+	user := os.Getenv("FINANCIALS_USER")
+	password := os.Getenv("FINANCIALS_PASSWORD")
+	companyCode := os.Getenv("FINANCIALS_COMPANY_CODE")
 	debug := os.Getenv("DEBUG")
 
 	client = financials.NewClient(nil)
-	client.SetClientID(clientID)
-	client.SetClientSecret(clientSecret)
-	client.SetTokenID(tokenID)
-	client.SetTokenSecret(tokenSecret)
-	client.SetAccountID(accountID)
+	client.SetUser(user)
+	client.SetPassword(password)
+	client.SetCompanyCode(companyCode)
 	if debug != "" {
 		client.SetDebug(true)
 	}

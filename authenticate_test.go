@@ -6,9 +6,8 @@ import (
 	"testing"
 )
 
-func TestGetAll(t *testing.T) {
-	req := client.NewGetAllRequest()
-	req.RequestBody().Record.RecordType = "platformCore:CustomRecordRef"
+func TestAuthenticate(t *testing.T) {
+	req := client.NewAuthenticateRequest()
 	resp, err := req.Do()
 	if err != nil {
 		t.Error(err)

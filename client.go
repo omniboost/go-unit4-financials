@@ -14,7 +14,6 @@ import (
 	"path"
 	"strings"
 	"text/template"
-	"time"
 
 	"github.com/pkg/errors"
 )
@@ -44,7 +43,6 @@ func NewClient(httpClient *http.Client) *Client {
 	client.SetUserAgent(userAgent)
 	client.SetMediaType(mediaType)
 	client.SetCharset(charset)
-	client.SearchPreferences = &SearchPreferences{}
 
 	return client
 }
@@ -54,18 +52,13 @@ type Client struct {
 	// HTTP client used to communicate with the Client.
 	http *http.Client
 
-	SearchPreferences *SearchPreferences
-
 	debug   bool
 	baseURL string
 
 	// credentials
-	// applicationID string
-	clientID     string
-	clientSecret string
-	tokenID      string
-	tokenSecret  string
-	accountID    string
+	user        string
+	password    string
+	companyCode string
 
 	// User agent for client
 	userAgent string
@@ -103,44 +96,28 @@ func (c *Client) SetDebug(debug bool) {
 // 	c.applicationID = applicationID
 // }
 
-func (c Client) ClientID() string {
-	return c.clientID
+func (c Client) User() string {
+	return c.user
 }
 
-func (c *Client) SetClientID(clientID string) {
-	c.clientID = clientID
+func (c *Client) SetUser(user string) {
+	c.user = user
 }
 
-func (c Client) ClientSecret() string {
-	return c.clientSecret
+func (c Client) Password() string {
+	return c.password
 }
 
-func (c *Client) SetClientSecret(clientSecret string) {
-	c.clientSecret = clientSecret
+func (c *Client) SetPassword(password string) {
+	c.password = password
 }
 
-func (c Client) TokenID() string {
-	return c.tokenID
+func (c Client) CompanyCode() string {
+	return c.companyCode
 }
 
-func (c *Client) SetTokenID(tokenID string) {
-	c.tokenID = tokenID
-}
-
-func (c Client) TokenSecret() string {
-	return c.tokenSecret
-}
-
-func (c *Client) SetTokenSecret(tokenSecret string) {
-	c.tokenSecret = tokenSecret
-}
-
-func (c Client) AccountID() string {
-	return c.accountID
-}
-
-func (c *Client) SetAccountID(accountID string) {
-	c.accountID = accountID
+func (c *Client) SetCompanyCode(companyCode string) {
+	c.companyCode = companyCode
 }
 
 func (c Client) BaseURL() (*url.URL, error) {
@@ -232,26 +209,10 @@ func (c *Client) NewRequest(ctx context.Context, req Request) (*http.Request, er
 	if req.RequestBodyInterface() != nil {
 		soapRequest := NewRequestEnvelope()
 		soapRequest.Body.ActionBody = req.RequestBodyInterface()
-		soapRequest.Header.SearchPreferences = *c.SearchPreferences
-
-		// Add passport header
-		g := c.NewSignatureGenerator()
-		signature, err := g.Generate()
-		if err != nil {
-			return nil, err
-		}
-
-		soapRequest.Header.TokenPassport.Account = c.AccountID()
-		soapRequest.Header.TokenPassport.ConsumerKey = c.ClientID()
-		soapRequest.Header.TokenPassport.Token = c.TokenID()
-		soapRequest.Header.TokenPassport.Nonce = g.Nonce
-		soapRequest.Header.TokenPassport.Signature.Algorithm = g.SignatureMethod.String()
-		soapRequest.Header.TokenPassport.Signature.Text = signature
-		soapRequest.Header.TokenPassport.Timestamp = g.Timestamp
 
 		enc := xml.NewEncoder(buf)
 		enc.Indent("", "  ")
-		err = enc.Encode(soapRequest)
+		err := enc.Encode(soapRequest)
 		if err != nil {
 			return nil, err
 		}
@@ -291,29 +252,6 @@ func (c *Client) NewRequest(ctx context.Context, req Request) (*http.Request, er
 	r.Header.Add("SOAPAction", req.SOAPAction())
 
 	return r, nil
-}
-
-func (c *Client) NewSignatureGenerator() *SignatureGenerator {
-	return &SignatureGenerator{
-		SignatureMethod: HMACSHA256,
-		ClientID:        c.ClientID(),
-		ClientSecret:    c.ClientSecret(),
-		TokenID:         c.TokenID(),
-		TokenSecret:     c.TokenSecret(),
-		AccountID:       c.AccountID(),
-		Nonce:           GenerateNonce(),
-		Timestamp:       time.Now().Unix(),
-	}
-	// return &SignatureGenerator{
-	// 	SignatureMethod: HMACSHA256,
-	// 	ClientID:        "71cc02b731f05895561ef0862d71553a3ac99498a947c3b7beaf4a1e4a29f7c4",
-	// 	ClientSecret:    "7278da58caf07f5c336301a601203d10a58e948efa280f0618e25fcee1ef2abd",
-	// 	TokenID:         "89e08d9767c5ac85b374415725567d05b54ecf0960ad2470894a52f741020d82",
-	// 	TokenSecret:     "060cd9ab3ffbbe1e3d3918e90165ffd37ab12acc76b4691046e2d29c7d7674c2",
-	// 	AccountID:       "1234567",
-	// 	Nonce:           "6obMKq0tmY8ylVOdEkA1",
-	// 	Timestamp:       1439829974,
-	// }
 }
 
 // Do sends an Client request and returns the Client response. The Client response is xml decoded and stored in the value
@@ -405,9 +343,9 @@ func (c *Client) Do(req *http.Request, body interface{}) (*http.Response, error)
 		return httpResp, err
 	}
 
-	if statusResponseBody.Node.Status.Error() != "" {
-		return httpResp, statusResponseBody.Node.Status
-	}
+	// if statusResponseBody.Node.Status.Error() != "" {
+	// 	return httpResp, statusResponseBody.Node.Status
+	// }
 
 	if soapError.Error() != "" {
 		return httpResp, soapError
@@ -580,6 +518,5 @@ type StatusResponseBody struct {
 	Response *http.Response
 
 	Node struct {
-		Status Status `xml:"status"`
 	} `xml:",any"`
 }
