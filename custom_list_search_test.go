@@ -1,4 +1,4 @@
-package netsuite_test
+package financials_test
 
 import (
 	"encoding/json"
@@ -9,7 +9,7 @@ import (
 func TestCustomListSearch(t *testing.T) {
 	req := client.NewCustomListSearchRequest()
 	// req.RequestBody().SearchRecord.Basic.ExternalID.Operator = "anyOf"
-	// req.RequestBody().SearchRecord.Basic.ExternalID.SearchValue = []netsuite.RecordRef{{ExternalID: "70048129"}}
+	// req.RequestBody().SearchRecord.Basic.ExternalID.SearchValue = []financials.RecordRef{{ExternalID: "70048129"}}
 	resp, err := req.Do()
 	if err != nil {
 		t.Error(err)

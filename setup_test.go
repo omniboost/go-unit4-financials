@@ -1,14 +1,14 @@
-package netsuite_test
+package financials_test
 
 import (
 	"os"
 	"testing"
 
-	netsuite "github.com/omniboost/go-netsuite-soap"
+	financials "github.com/omniboost/go-unit4-financials"
 )
 
 var (
-	client *netsuite.Client
+	client *financials.Client
 )
 
 func TestMain(m *testing.M) {
@@ -21,7 +21,7 @@ func TestMain(m *testing.M) {
 	accountID := os.Getenv("ACCOUNT_ID")
 	debug := os.Getenv("DEBUG")
 
-	client = netsuite.NewClient(nil)
+	client = financials.NewClient(nil)
 	client.SetClientID(clientID)
 	client.SetClientSecret(clientSecret)
 	client.SetTokenID(tokenID)

@@ -1,4 +1,4 @@
-package netsuite
+package financials
 
 import (
 	"encoding/xml"
@@ -6,7 +6,7 @@ import (
 	"net/url"
 
 	"github.com/cydev/zero"
-	"github.com/omniboost/go-netsuite-soap/utils"
+	"github.com/omniboost/go-unit4-financials/utils"
 	"github.com/pkg/errors"
 )
 

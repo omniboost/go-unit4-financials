@@ -1,11 +1,11 @@
-package netsuite
+package financials
 
 import (
 	"encoding/xml"
 	"strings"
 
 	"github.com/cydev/zero"
-	"github.com/omniboost/go-netsuite-soap/omitempty"
+	"github.com/omniboost/go-unit4-financials/omitempty"
 )
 
 type RecordRef struct {
@@ -602,7 +602,7 @@ func (i CreditMemoItem) IsEmpty() bool {
 	return zero.IsZero(i)
 }
 
-// https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_1/schema/record/statisticaljournalentry.html
+// https://www.financials.com/help/helpcenter/en_US/srbrowser/Browser2017_1/schema/record/statisticaljournalentry.html
 type StatisticalJournalEntry struct {
 	// Approved        bool `xml:"approved"`
 	CreatedDate     Date `xml:"createdDate,omitempty"`

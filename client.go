@@ -1,4 +1,4 @@
-package netsuite
+package financials
 
 import (
 	"bytes"
@@ -21,13 +21,13 @@ import (
 
 const (
 	libraryVersion = "0.0.1"
-	userAgent      = "go-netsuite-soap/" + libraryVersion
+	userAgent      = "go-unit4-financials/" + libraryVersion
 	mediaType      = "text/xml"
 	charset        = "utf-8"
 )
 
 var (
-	BaseURL string = "https://webservices.netsuite.com/services/NetSuitePort_2022_2"
+	BaseURL string = "https://webservices.financials.com/services/NetSuitePort_2022_2"
 )
 
 // NewClient returns a new Exact Globe Client client

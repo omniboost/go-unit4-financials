@@ -1,4 +1,4 @@
-package netsuite_test
+package financials_test
 
 import (
 	"encoding/json"
@@ -10,8 +10,8 @@ func TestDepartmentSearch(t *testing.T) {
 	req := client.NewDepartmentSearchRequest()
 	// req.RequestBody().SearchRecord.Basic.Name.Operator = "is"
 	// req.RequestBody().SearchRecord.Basic.Name.SearchValue = "HTL : 1 : 110"
-	// req.RequestBody().SearchRecord.Basic.CustomFieldList = netsuite.SearchCustomFieldList{
-	// 	netsuite.SearchStringCustomField{
+	// req.RequestBody().SearchRecord.Basic.CustomFieldList = financials.SearchCustomFieldList{
+	// 	financials.SearchStringCustomField{
 	// 		ScriptID: "custrecord_nch_departmentname",
 	// 		// InternalID:  "2844",
 	// 		Operator:    "is",

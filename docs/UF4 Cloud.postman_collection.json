@@ -1,0 +1,1093 @@
+{
+	"info": {
+		"_postman_id": "97f37423-b630-46db-9033-b743db9a0920",
+		"name": "UF4 Cloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "294370"
+	},
+	"item": [
+		{
+			"name": "0 General",
+			"item": [
+				{
+					"name": "Authenticate Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = xml2Json(responseBody);\r",
+									"var session = response[\"soapenv:Envelope\"][\"soapenv:Body\"][\"AuthenticateResponse\"][\"Session\"];\r",
+									"//pm.collectionVariables.set(\"session\", session);\r",
+									"pm.environment.set(\"session\", session);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/wsadapter/authenticate/Authenticate",
+								"type": "default"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/01.200.0000/wsadapter/authenticate/Authenticate",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope \r\n    xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" \r\n    xmlns=\"http://www.coda.com/wsadapter/schemas/authenticate/authenticate-2.0/webservice\">\r\n    <soapenv:Header>\r\n        <Options locale=\"{{locale}}\" slot=\"{{slot}}\" \r\n     />\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <AuthenticateRequest>\r\n            <SuppressDefaultUser>true</SuppressDefaultUser>\r\n        </AuthenticateRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/services/wsadapter/authenticate/authenticate-2.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"services",
+								"wsadapter",
+								"authenticate",
+								"authenticate-2.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetEnvironment Request",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/finance/AppServer/GetEnvironment",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope \r\n    xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" \r\n    xmlns:web=\"http://www.coda.com/efinance/schemas/appserver/appserver-12.0/webservice\">\r\n   <soapenv:Header>\r\n     <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <web:GetEnvironmentRequest/>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/services/finance/appserver/appserver-12.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"services",
+								"finance",
+								"appserver",
+								"appserver-12.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logoff Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"session\", \"\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/wsadapter/authenticate/Logoff",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope \r\n    xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" \r\n    xmlns:web=\"http://www.coda.com/wsadapter/schemas/authenticate/authenticate-2.0/webservice\">\r\n  <soapenv:Header>\r\n    <web:Options locale=\"{{locale}}\" session=\"{{session}}\" />\r\n  </soapenv:Header>\r\n  <soapenv:Body>\r\n    <web:LogoffRequest/>\r\n  </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/services/wsadapter/authenticate/authenticate-2.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"services",
+								"wsadapter",
+								"authenticate",
+								"authenticate-2.0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Elements",
+			"item": [
+				{
+					"name": "Finders",
+					"item": [
+						{
+							"name": "ElementFinder 1",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "SOAPAction",
+										"value": "uri-coda-webservice/{version}/finance/ElementFinder/Find",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"http://www.coda.com/efinance/schemas/elementmaster/elementfinder-14.0/webservice\" xmlns:elem=\"http://www.coda.com/efinance/schemas/elementmaster\">\r\n   <soapenv:Header>\r\n      <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <web:FindRequest>\r\n         <web:FinderFilter>\r\n            <!-- <elem:NumberRange>\r\n                <elem:Begin>0</elem:Begin>\r\n                <elem:Extent></elem:Extent>\r\n            </elem:NumberRange> -->\r\n            <elem:CompanyCode>{{companycode}}</elem:CompanyCode>\r\n            <elem:Level>1</elem:Level>\r\n            <elem:Code>*</elem:Code>\r\n            <!--<elem:LastModifiedFrom>2000-01-01T00:00:00.000</elem:LastModifiedFrom>\r\n            <elem:LastModifiedTo>2022-12-21T00:00:00.000</elem:LastModifiedTo> -->\r\n         </web:FinderFilter>\r\n      </web:FindRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}/services/finance/elementmaster/elementfinder-14.0",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"services",
+										"finance",
+										"elementmaster",
+										"elementfinder-14.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ElementFinder 2",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "SOAPAction",
+										"value": "uri-coda-webservice/{version}/finance/ElementFinder/Find",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"http://www.coda.com/efinance/schemas/elementmaster/elementfinder-14.0/webservice\" xmlns:elem=\"http://www.coda.com/efinance/schemas/elementmaster\">\r\n   <soapenv:Header>\r\n      <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <web:FindRequest>\r\n         <web:FinderFilter>\r\n            <elem:NumberRange>\r\n                <elem:Begin>0</elem:Begin>\r\n                <elem:Extent></elem:Extent>\r\n            </elem:NumberRange>\r\n            <elem:CompanyCode>{{companycode}}</elem:CompanyCode>\r\n            <elem:Level>2</elem:Level>\r\n            <elem:Code>*</elem:Code>\r\n         </web:FinderFilter>\r\n      </web:FindRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}/services/finance/elementmaster/elementfinder-14.0",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"services",
+										"finance",
+										"elementmaster",
+										"elementfinder-14.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ElementFinder 3",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "SOAPAction",
+										"value": "uri-coda-webservice/{version}/finance/ElementFinder/Find",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"http://www.coda.com/efinance/schemas/elementmaster/elementfinder-14.0/webservice\" xmlns:elem=\"http://www.coda.com/efinance/schemas/elementmaster\">\r\n   <soapenv:Header>\r\n      <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <web:FindRequest>\r\n         <web:FinderFilter>\r\n            <elem:NumberRange>\r\n                <elem:Begin>0</elem:Begin>\r\n                <elem:Extent></elem:Extent>\r\n            </elem:NumberRange>\r\n            <elem:CompanyCode>{{companycode}}</elem:CompanyCode>\r\n            <elem:Level>2</elem:Level>\r\n            <elem:Code>*</elem:Code>\r\n         </web:FinderFilter>\r\n      </web:FindRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}/services/finance/elementmaster/elementfinder-14.0",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"services",
+										"finance",
+										"elementmaster",
+										"elementfinder-14.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ElementFinder 4",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "SOAPAction",
+										"value": "uri-coda-webservice/{version}/finance/ElementFinder/Find",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"http://www.coda.com/efinance/schemas/elementmaster/elementfinder-14.0/webservice\" xmlns:elem=\"http://www.coda.com/efinance/schemas/elementmaster\">\r\n   <soapenv:Header>\r\n      <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <web:FindRequest>\r\n         <web:FinderFilter>\r\n            <elem:NumberRange>\r\n                <elem:Begin>0</elem:Begin>\r\n                <elem:Extent></elem:Extent>\r\n            </elem:NumberRange>\r\n            <elem:CompanyCode>{{companycode}}</elem:CompanyCode>\r\n            <elem:Level>2</elem:Level>\r\n            <elem:Code>*</elem:Code>\r\n         </web:FinderFilter>\r\n      </web:FindRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}/services/finance/elementmaster/elementfinder-14.0",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"services",
+										"finance",
+										"elementmaster",
+										"elementfinder-14.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ElementFinder 5",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "SOAPAction",
+										"value": "uri-coda-webservice/{version}/finance/ElementFinder/Find",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"http://www.coda.com/efinance/schemas/elementmaster/elementfinder-14.0/webservice\" xmlns:elem=\"http://www.coda.com/efinance/schemas/elementmaster\">\r\n   <soapenv:Header>\r\n      <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <web:FindRequest>\r\n         <web:FinderFilter>\r\n            <elem:NumberRange>\r\n                <elem:Begin>0</elem:Begin>\r\n                <elem:Extent></elem:Extent>\r\n            </elem:NumberRange>\r\n            <elem:CompanyCode>{{companycode}}</elem:CompanyCode>\r\n            <elem:Level>5</elem:Level>\r\n            <elem:Code>*</elem:Code>\r\n         </web:FinderFilter>\r\n      </web:FindRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}/services/finance/elementmaster/elementfinder-14.0",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"services",
+										"finance",
+										"elementmaster",
+										"elementfinder-14.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ElementFinder 6",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "SOAPAction",
+										"value": "uri-coda-webservice/{version}/finance/ElementFinder/Find",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"http://www.coda.com/efinance/schemas/elementmaster/elementfinder-14.0/webservice\" xmlns:elem=\"http://www.coda.com/efinance/schemas/elementmaster\">\r\n   <soapenv:Header>\r\n      <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <web:FindRequest>\r\n         <web:FinderFilter>\r\n            <elem:NumberRange>\r\n                <elem:Begin>0</elem:Begin>\r\n                <elem:Extent></elem:Extent>\r\n            </elem:NumberRange>\r\n            <elem:CompanyCode>{{companycode}}</elem:CompanyCode>\r\n            <elem:Level>6</elem:Level>\r\n            <elem:Code>*</elem:Code>\r\n         </web:FinderFilter>\r\n      </web:FindRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}/services/finance/elementmaster/elementfinder-14.0",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"services",
+										"finance",
+										"elementmaster",
+										"elementfinder-14.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ElementFinder 7",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "SOAPAction",
+										"value": "uri-coda-webservice/{version}/finance/ElementFinder/Find",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"http://www.coda.com/efinance/schemas/elementmaster/elementfinder-14.0/webservice\" xmlns:elem=\"http://www.coda.com/efinance/schemas/elementmaster\">\r\n   <soapenv:Header>\r\n      <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <web:FindRequest>\r\n         <web:FinderFilter>\r\n            <elem:NumberRange>\r\n                <elem:Begin>0</elem:Begin>\r\n                <elem:Extent></elem:Extent>\r\n            </elem:NumberRange>\r\n            <elem:CompanyCode>{{companycode}}</elem:CompanyCode>\r\n            <elem:Level>7</elem:Level>\r\n            <elem:Code>*</elem:Code>\r\n         </web:FinderFilter>\r\n      </web:FindRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}/services/finance/elementmaster/elementfinder-14.0",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"services",
+										"finance",
+										"elementmaster",
+										"elementfinder-14.0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ElementFinder 8",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "SOAPAction",
+										"value": "uri-coda-webservice/{version}/finance/ElementFinder/Find",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"http://www.coda.com/efinance/schemas/elementmaster/elementfinder-14.0/webservice\" xmlns:elem=\"http://www.coda.com/efinance/schemas/elementmaster\">\r\n   <soapenv:Header>\r\n      <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <web:FindRequest>\r\n         <web:FinderFilter>\r\n            <!-- <elem:NumberRange>\r\n                <elem:Begin>0</elem:Begin>\r\n                <elem:Extent></elem:Extent>\r\n            </elem:NumberRange> -->\r\n            <elem:CompanyCode>{{companycode}}</elem:CompanyCode>\r\n            <elem:Level>8</elem:Level>\r\n            <elem:Code>*</elem:Code>\r\n         </web:FinderFilter>\r\n      </web:FindRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+									"options": {
+										"raw": {
+											"language": "xml"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}/services/finance/elementmaster/elementfinder-14.0",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"path": [
+										"services",
+										"finance",
+										"elementmaster",
+										"elementfinder-14.0"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ElemtentMaster-Get Request 500",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/finance/ElementMaster/Get",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope \r\nxmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nxmlns:web=\"http://www.coda.com/efinance/schemas/elementmaster/elementmaster-14.0/webservice\"\r\nxmlns:elem=\"http://www.coda.com/efinance/schemas/elementmaster\">\r\n    <soapenv:Header>\r\n        <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <web:GetRequest>\r\n            <web:Key>\r\n                <elem:CmpCode>{{companycode}}</elem:CmpCode>\r\n                <elem:Level>3</elem:Level>\r\n                <elem:Code>W120011A</elem:Code>\r\n            </web:Key>\r\n        </web:GetRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/coda/services/finance/elementmaster/elementmaster-14.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"coda",
+								"services",
+								"finance",
+								"elementmaster",
+								"elementmaster-14.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ElemtentMaster-Get Request 200",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/finance/ElementMaster/Get",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope \r\nxmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nxmlns:web=\"http://www.coda.com/efinance/schemas/elementmaster/elementmaster-14.0/webservice\"\r\nxmlns:elem=\"http://www.coda.com/efinance/schemas/elementmaster\">\r\n    <soapenv:Header>\r\n        <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <web:GetRequest>\r\n            <web:Key>\r\n                <elem:CmpCode>{{companycode}}</elem:CmpCode>\r\n                <elem:Level>3</elem:Level>\r\n                <elem:Code>W120011</elem:Code>\r\n            </web:Key>\r\n        </web:GetRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/coda/services/finance/elementmaster/elementmaster-14.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"coda",
+								"services",
+								"finance",
+								"elementmaster",
+								"elementmaster-14.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ElemtentMaster-Add Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/finance/ElementMaster/Get",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope \r\nxmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nxmlns:web=\"http://www.coda.com/efinance/schemas/elementmaster/elementmaster-14.0/webservice\"\r\nxmlns:elem=\"http://www.coda.com/efinance/schemas/elementmaster\">\r\n    <soapenv:Header>\r\n        <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <web:GetRequest>\r\n            <web:Key>\r\n                <elem:CmpCode>PBCMT</elem:CmpCode>\r\n                <elem:Level>3</elem:Level>\r\n                <elem:Code>W120011</elem:Code>\r\n            </web:Key>\r\n        </web:GetRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/coda/services/finance/elementmaster/elementmaster-14.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"coda",
+								"services",
+								"finance",
+								"elementmaster",
+								"elementmaster-14.0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/common/UserMaster/List",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" \r\n   xmlns:usrws=\"http://www.coda.com/common/schemas/usermaster/usermaster-14.0/webservice\" \r\n   xmlns:usr=\"http://www.coda.com/common/schemas/usermaster\">\r\n    <soapenv:Header>\r\n        <usrws:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <usrws:ListRequest>\r\n            <usr:Filter></usr:Filter>\r\n        </usrws:ListRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/services/common/usermaster/usermaster-14.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"services",
+								"common",
+								"usermaster",
+								"usermaster-14.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListAll",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/common/UserMaster/ListAll",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" \r\n   xmlns:usrws=\"http://www.coda.com/common/schemas/usermaster/usermaster-14.0/webservice\" \r\n   xmlns:usr=\"http://www.coda.com/common/schemas/usermaster\">\r\n    <soapenv:Header>\r\n        <usrws:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <usrws:ListAllRequest>\r\n            <usr:Filter></usr:Filter>\r\n        </usrws:ListAllRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/services/common/usermaster/usermaster-14.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"services",
+								"common",
+								"usermaster",
+								"usermaster-14.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangePassword",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/common/UserMaster/ChangePassword",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" \r\n   xmlns:usrws=\"http://www.coda.com/common/schemas/usermaster/usermaster-14.0/webservice\" \r\n   xmlns:usr=\"http://www.coda.com/common/schemas/usermaster\">\r\n    <soapenv:Header>\r\n        <usrws:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <usrws:ChangePasswordRequest>\r\n            <usr:Code>BIB</usr:Code>\r\n            <usr:NewPassword>02Fbtest</usr:NewPassword>\r\n        </usrws:ChangePasswordRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/services/common/usermaster/usermaster-14.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"services",
+								"common",
+								"usermaster",
+								"usermaster-14.0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Browse",
+			"item": [
+				{
+					"name": "GenericBrowse Request",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/common/GenericBrowse/Select",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope xmlns:soapenv=http://schemas.xmlsoap.org/soap/envelope/ \r\nxmlns:web=http://www.coda.com/common/schemas/genericbrowse/genericbrowse-13.0/webservice \r\nxmlns:sel=http://www.coda.com/efinance/schemas/selectormaster \r\nxmlns:flex=http://www.coda.com/common/schemas/flexifieldmaster \r\nxmlns:gen=http://www.coda.com/common/schemas/genericbrowse>\r\n   <soapenv:Header>\r\n     <web:Options locale=\"{{locale}}\" session=\"{{session}}\" />\r\n   </soapenv:Header>\r\n   <soapenv:Body>\r\n      <web:SelectRequest>\r\n      <web:PresenterCode>DEB-OVZ</web:PresenterCode>\r\n         <web:RunTimeSelector>\r\n            <sel:CmpCode>{{companycode}}</sel:CmpCode>\r\n            <sel:Code>DEB-OVERZ</sel:Code>\r\n            <sel:SelType>\r\n               <sel:DataClass>DETAIL-ALL</sel:DataClass>\r\n               <sel:Books>true</sel:Books>\r\n           </sel:SelType>\r\n            <sel:VocabList>\r\n               <sel:Vocab>\r\n                  <sel:VocabID>CMPCODE</sel:VocabID>\r\n                  <sel:OperatorID>op_eq</sel:OperatorID>\r\n                  <sel:From>{{companycode}}</sel:From>\r\n             </sel:Vocab>\r\n             <sel:Vocab>\r\n                  <sel:Logical>logical_and</sel:Logical>\r\n                  <sel:VocabID>DOCCODE</sel:VocabID>\r\n                  <sel:OperatorID>op_eq</sel:OperatorID>\r\n                  <sel:From>TEST</sel:From>\r\n             </sel:Vocab>\r\n             <sel:Vocab>\r\n                  <sel:Logical>logical_and</sel:Logical>\r\n                  <sel:VocabID>CANCELSTATUS</sel:VocabID>\r\n                  <sel:OperatorID>op_ne</sel:OperatorID>\r\n                  <sel:From>76</sel:From>\r\n             </sel:Vocab>\r\n            </sel:VocabList>\r\n         </web:RunTimeSelector>\r\n         <!--<web:ExtraVocabs>\r\n            <!-- De in de resultaatlijst op te nemen kolommen ->\r\n            <gen:VocabId>CMPCODE</gen:VocabId>\r\n            <gen:VocabId>DOCCODE</gen:VocabId>\r\n            <gen:VocabId>DOCNUM</gen:VocabId>\r\n            <gen:VocabId>DOCLINENUM</gen:VocabId>\r\n            <gen:VocabId>MATCHREF</gen:VocabId>\r\n         </web:ExtraVocabs> -->\r\n      </web:SelectRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/services/common/genericbrowse/genericbrowse-13.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"services",
+								"common",
+								"genericbrowse",
+								"genericbrowse-13.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GenericBrowse-Select Request",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/common/GenericBrowse/Select",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope \r\nxmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nxmlns:web=\"http://www.coda.com/common/schemas/genericbrowse/genericbrowse-13.0/webservice\"\r\nxmlns:gnb=\"http://www.coda.com/common/schemas/genericbrowse\"\r\nxmlns:flex=\"http://www.coda.com/common/schemas/flexifieldmaster\" \r\nxmlns:sel=\"http://www.coda.com/efinance/schemas/selector\"\r\n>\r\n    <soapenv:Header>\r\n        <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <web:SelectRequest>\r\n            <web:PresenterCode>IF_CODA_CM_O</web:PresenterCode>\r\n            <web:RunTimeSelector>\r\n                <sel:CmpCode>{{companycode}}</sel:CmpCode>\r\n                <sel:Code>IF_CODA_CM_O</sel:Code>\r\n                <sel:SelType>\r\n                    <sel:DataClass>IF_CODA_CM</sel:DataClass>\r\n                    <sel:Books>true</sel:Books>\r\n                </sel:SelType>\r\n                <sel:VocabList>\r\n                    <sel:Vocab>\r\n                        <sel:VocabID>CMPCODE</sel:VocabID>\r\n                        <sel:OperatorID>op_eq</sel:OperatorID>\r\n                        <sel:From>{{companycode}}</sel:From> <!-- -->\r\n                        <!-- <sel:From>PBBOV</sel:From> -->\r\n                    </sel:Vocab>\r\n                    <sel:Vocab>\r\n                        <sel:Logical>logical_and</sel:Logical>\r\n                        <sel:VocabID>DOCCODE</sel:VocabID>\r\n                        <sel:OperatorID>op_like</sel:OperatorID>\r\n                        <sel:From>BING*</sel:From>\r\n                        <sel:To></sel:To>\r\n                    </sel:Vocab>\r\n                </sel:VocabList>\r\n            </web:RunTimeSelector>\r\n            <web:ExtraVocabs>\r\n            <gnb:VocabId>ELEMENT2NAME</gnb:VocabId>\r\n                <!-- <gnb:VocabId>REF2</gnb:VocabId> -->\r\n            </web:ExtraVocabs>\r\n        </web:SelectRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/coda/services/common/genericbrowse/genericbrowse-13.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"coda",
+								"services",
+								"common",
+								"genericbrowse",
+								"genericbrowse-13.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GenericBrowse-Select Request Elm-Addr",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/common/GenericBrowse/Select",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope\r\nxmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nxmlns:web=\"http://www.coda.com/common/schemas/genericbrowse/genericbrowse-13.0/webservice\"\r\nxmlns:gen=\"http://www.coda.com/common/schemas/genericbrowse\"\r\nxmlns:flex=\"http://www.coda.com/common/schemas/flexifieldmaster\"\r\nxmlns:sel=\"http://www.coda.com/efinance/schemas/selector\">\r\n    <soapenv:Header>\r\n        <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <web:SelectRequest>\r\n            <web:RunTimeSelector>\r\n                <sel:CmpCode>{{companycode}}</sel:CmpCode>\r\n                <sel:Code />\r\n                <sel:SelType>\r\n                    <sel:DataClass>ELEMENTADDR</sel:DataClass>\r\n                </sel:SelType>\r\n                <sel:VocabList>\r\n                    <sel:Vocab>\r\n                        <sel:VocabID>CMPCODE</sel:VocabID>\r\n                        <sel:OperatorID>op_eq</sel:OperatorID>\r\n                        <sel:From>{{companycode}}</sel:From>\r\n                    </sel:Vocab>\r\n                    <sel:Vocab>\r\n                        <sel:Logical>logical_and</sel:Logical>\r\n                        <sel:VocabID>ELMLEVEL</sel:VocabID>\r\n                        <sel:OperatorID>op_eq</sel:OperatorID>\r\n                        <sel:From>3</sel:From>\r\n                    </sel:Vocab>\r\n                    <sel:Vocab>\r\n                        <sel:Logical>logical_and</sel:Logical>\r\n                        <sel:VocabID>ELMCODE</sel:VocabID>\r\n                        <sel:OperatorID>op_like</sel:OperatorID>\r\n                        <sel:From>W*</sel:From>\r\n                    </sel:Vocab>\r\n                    <sel:Vocab>\r\n                        <sel:Logical>logical_and</sel:Logical>\r\n                        <sel:VocabID>DEFADDR</sel:VocabID>\r\n                        <sel:OperatorID>op_eq</sel:OperatorID>\r\n                        <sel:From>1</sel:From>\r\n                    </sel:Vocab>\r\n                </sel:VocabList>\r\n            </web:RunTimeSelector>\r\n            <web:ExtraVocabs>\r\n                <!-- De in de resultaatlijst op te nemen kolommen -->\r\n                <gen:VocabId>CMPCODE</gen:VocabId>\r\n                <gen:VocabId>ELMCODE</gen:VocabId>\r\n                <gen:VocabId>ELMLEVEL</gen:VocabId>\r\n                <gen:VocabId>TAG</gen:VocabId>\r\n                <gen:VocabId>NAME</gen:VocabId>\r\n                <gen:VocabId>ADD1</gen:VocabId>\r\n                <gen:VocabId>ADD2</gen:VocabId>\r\n                <gen:VocabId>ADD3</gen:VocabId>\r\n                <gen:VocabId>ADD4</gen:VocabId>\r\n                <gen:VocabId>ADD5</gen:VocabId>\r\n                <gen:VocabId>ADD6</gen:VocabId>\r\n                <gen:VocabId>COUNTRY</gen:VocabId>\r\n                <gen:VocabId>POSTCODE</gen:VocabId>\r\n                <gen:VocabId>TEL</gen:VocabId>\r\n                <gen:VocabId>FAX</gen:VocabId>\r\n                <gen:VocabId>EMAILADDR</gen:VocabId>\r\n                <gen:VocabId>DEFADDR</gen:VocabId>\r\n                <gen:VocabId>CATAGORY</gen:VocabId>\r\n            </web:ExtraVocabs>\r\n        </web:SelectRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/coda/services/common/genericbrowse/genericbrowse-13.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"coda",
+								"services",
+								"common",
+								"genericbrowse",
+								"genericbrowse-13.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GenericBrowse-Select Request Elm-Bank Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/common/GenericBrowse/Select",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope\r\nxmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nxmlns:web=\"http://www.coda.com/common/schemas/genericbrowse/genericbrowse-13.0/webservice\"\r\nxmlns:gen=\"http://www.coda.com/common/schemas/genericbrowse\"\r\nxmlns:flex=\"http://www.coda.com/common/schemas/flexifieldmaster\"\r\nxmlns:sel=\"http://www.coda.com/efinance/schemas/selector\">\r\n    <soapenv:Header>\r\n        <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <web:SelectRequest>\r\n            <web:RunTimeSelector>\r\n                <sel:CmpCode>{{companycode}}</sel:CmpCode>\r\n                <sel:Code />\r\n                <sel:SelType>\r\n                    <sel:DataClass>ELEMENTBANK</sel:DataClass>\r\n                </sel:SelType>\r\n                <sel:VocabList>\r\n                    <sel:Vocab>\r\n                        <sel:VocabID>CMPCODE</sel:VocabID>\r\n                        <sel:OperatorID>op_eq</sel:OperatorID>\r\n                        <sel:From>{{companycode}}</sel:From>\r\n                    </sel:Vocab>\r\n                    <sel:Vocab>\r\n                        <sel:Logical>logical_and</sel:Logical>\r\n                        <sel:VocabID>ELMLEVEL</sel:VocabID>\r\n                        <sel:OperatorID>op_eq</sel:OperatorID>\r\n                        <sel:From>3</sel:From>\r\n                    </sel:Vocab>\r\n                    <sel:Vocab>\r\n                        <sel:Logical>logical_and</sel:Logical>\r\n                        <sel:VocabID>ELMCODE</sel:VocabID>\r\n                        <sel:OperatorID>op_like</sel:OperatorID>\r\n                        <sel:From>W*</sel:From>\r\n                    </sel:Vocab>\r\n                    <sel:Vocab>\r\n                        <sel:Logical>logical_and</sel:Logical>\r\n                        <sel:VocabID>DEFBANK</sel:VocabID>\r\n                        <sel:OperatorID>op_eq</sel:OperatorID>\r\n                        <sel:From>1</sel:From>\r\n                    </sel:Vocab>\r\n                </sel:VocabList>\r\n            </web:RunTimeSelector>\r\n            <web:ExtraVocabs>\r\n                <!-- De in de resultaatlijst op te nemen kolommen -->\r\n                <gen:VocabId>CODE</gen:VocabId>\r\n                <gen:VocabId>NAME</gen:VocabId>    \r\n                <gen:VocabId>ADD2</gen:VocabId>\r\n                <gen:VocabId>POSTCODE</gen:VocabId>\r\n                <gen:VocabId>ADD3</gen:VocabId>\r\n                <gen:VocabId>COUNTRY</gen:VocabId>\r\n                <gen:VocabId>BANKNAME</gen:VocabId>\r\n                <gen:VocabId>COUNTRY</gen:VocabId>\r\n                <gen:VocabId>IBAN</gen:VocabId>\r\n                <gen:VocabId>SWIFT</gen:VocabId>\r\n                <gen:VocabId>ACNUM</gen:VocabId>\r\n            </web:ExtraVocabs>\r\n        </web:SelectRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/coda/services/common/genericbrowse/genericbrowse-13.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"coda",
+								"services",
+								"common",
+								"genericbrowse",
+								"genericbrowse-13.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GenericBrowse-Select Request [Presenter added] - Not Paid Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/common/GenericBrowse/Select",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope \r\nxmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nxmlns:web=\"http://www.coda.com/common/schemas/genericbrowse/genericbrowse-13.0/webservice\"\r\nxmlns:gnb=\"http://www.coda.com/common/schemas/genericbrowse\"\r\nxmlns:flex=\"http://www.coda.com/common/schemas/flexifieldmaster\" \r\nxmlns:gsl=\"http://www.coda.com/efinance/schemas/selector\"\r\n>\r\n    <soapenv:Header>\r\n        <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <web:SelectRequest>\r\n            <web:PresenterCode></web:PresenterCode>\r\n            <web:RunTimeSelector>\r\n                <gsl:CmpCode>{{companycode}}</gsl:CmpCode>\r\n                <gsl:Code></gsl:Code>\r\n                <gsl:SelType>\r\n                    <gsl:DataClass>IF_CODA_CM</gsl:DataClass>\r\n                    <gsl:Books>true</gsl:Books>\r\n                </gsl:SelType>\r\n                <gsl:VocabList>\r\n                    <gsl:Vocab>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>CMPCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>PBBOV</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_forced_prompt</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Cmpcode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>left_one_bracket</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>BING*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>DEURW*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>MEMO-A*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>MEMO-BOV</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>MEMO-COMBI</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>MEMO-DEUR</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>MEMO-KVD</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>MEMOKMU</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>MEMO-P*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>MEMOW*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>OPLEG*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>PBR-BOV</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>PBR-COMB</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>PBOETE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>PRENTE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>QAFB</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>QBOETE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>QRENTE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>RBOETE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>RRENTE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>XOAS*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XANW</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XBOETE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XCAV</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>XFAC*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XFVPVR</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XREB</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XRENTE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XVVP</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZAFB</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZAFL</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZBET</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZAOSALG</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZCRGSP</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZFACALG</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZGAFL</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZINC</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>right_one_bracket</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>left_one_bracket</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>P*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>W*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>R*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>right_one_bracket</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>left_one_bracket</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>PSTORNO</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>W000000</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>WDUM</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>WGCMT</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>WGPMT</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>WSTORNO</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>WGWIA</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>right_one_bracket</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>STATPAY</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>paid</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Statpay</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>PAYDATE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_isblank</gsl:OperatorID>\r\n                        <gsl:From/>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Paydate</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                </gsl:VocabList>\r\n            </web:RunTimeSelector>\r\n            <web:ExtraVocabs>\r\n                <gnb:VocabId>CMPCODE</gnb:VocabId>\r\n                <gnb:VocabId>EL3</gnb:VocabId>\r\n                <gnb:VocabId>DOCCODE</gnb:VocabId>\r\n                <gnb:VocabId>DOCNUM</gnb:VocabId>\r\n                <gnb:VocabId>DOCLINENUM</gnb:VocabId>\r\n                <gnb:VocabId>REF1</gnb:VocabId>\r\n                <gnb:VocabId>DOCDATE</gnb:VocabId>\r\n                <gnb:VocabId>DUEDATE</gnb:VocabId>\r\n                <gnb:VocabId>PAYDATE</gnb:VocabId>\r\n                <gnb:VocabId>VALUEDOC</gnb:VocabId>\r\n                <gnb:VocabId>EL2</gnb:VocabId>\r\n                <gnb:VocabId>ELEMENT2NAME</gnb:VocabId>\r\n                <gnb:VocabId>EL4</gnb:VocabId>\r\n                <gnb:VocabId>LETTERSEV</gnb:VocabId>\r\n                <gnb:VocabId>REMDATE</gnb:VocabId>\r\n                <gnb:VocabId>STATUSER</gnb:VocabId>\r\n                <gnb:VocabId>EL1</gnb:VocabId>\r\n                <gnb:VocabId>EL5</gnb:VocabId>\r\n                <gnb:VocabId>EL6</gnb:VocabId>\r\n            </web:ExtraVocabs>\r\n        </web:SelectRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/coda/services/common/genericbrowse/genericbrowse-13.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"coda",
+								"services",
+								"common",
+								"genericbrowse",
+								"genericbrowse-13.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GenericBrowse-Select Request [Presenter added] - Paid Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/common/GenericBrowse/Select",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope \r\nxmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\nxmlns:web=\"http://www.coda.com/common/schemas/genericbrowse/genericbrowse-13.0/webservice\"\r\nxmlns:gnb=\"http://www.coda.com/common/schemas/genericbrowse\"\r\nxmlns:flex=\"http://www.coda.com/common/schemas/flexifieldmaster\" \r\nxmlns:gsl=\"http://www.coda.com/efinance/schemas/selector\"\r\n>\r\n    <soapenv:Header>\r\n        <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <web:SelectRequest>\r\n            <web:PresenterCode></web:PresenterCode>\r\n            <web:RunTimeSelector>\r\n                <gsl:CmpCode>{{companycode}}</gsl:CmpCode>\r\n                <gsl:Code></gsl:Code>\r\n                <gsl:SelType>\r\n                    <gsl:DataClass>IF_CODA_CM</gsl:DataClass>\r\n                    <gsl:Books>true</gsl:Books>\r\n                </gsl:SelType>\r\n                <gsl:VocabList>\r\n                    <gsl:Vocab>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>CMPCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>{{companycode}}</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_forced_prompt</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Cmpcode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>left_one_bracket</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>BING*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>DEURW*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>MEMO-A*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>MEMO-BOV</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>MEMO-COMBI</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>MEMO-DEUR</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>MEMO-KVD</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>MEMOKMU</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>MEMO-P*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>MEMOW*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>OPLEG*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>PBR-BOV</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>PBR-COMB</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>PBOETE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>PRENTE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>QAFB</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>QBOETE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>QRENTE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>RBOETE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>RRENTE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>XOAS*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XANW</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XBOETE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XCAV</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>XFAC*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XFVPVR</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XREB</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XRENTE</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>XVVP</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZAFB</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZAFL</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZBET</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZAOSALG</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZCRGSP</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZFACALG</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZGAFL</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>DOCCODE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>ZINC</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Doccode</gsl:Prompt>\r\n                        <gsl:CloseBracket>right_one_bracket</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>left_one_bracket</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>P*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>W*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_or</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_like</gsl:OperatorID>\r\n                        <gsl:From>R*</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>right_one_bracket</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>left_one_bracket</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>PSTORNO</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>W000000</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>WDUM</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>WGCMT</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>WGPMT</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>WSTORNO</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>EL3</gsl:VocabID>\r\n                        <gsl:OperatorID>op_ne</gsl:OperatorID>\r\n                        <gsl:From>WGWIA</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.El3</gsl:Prompt>\r\n                        <gsl:CloseBracket>right_one_bracket</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>STATPAY</gsl:VocabID>\r\n                        <gsl:OperatorID>op_eq</gsl:OperatorID>\r\n                        <gsl:From>paid</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Statpay</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                    <gsl:Vocab>\r\n                        <gsl:Logical>logical_and</gsl:Logical>\r\n                        <gsl:OpenBracket>none</gsl:OpenBracket>\r\n                        <gsl:VocabID>PAYDATE</gsl:VocabID>\r\n                        <gsl:OperatorID>op_gte</gsl:OperatorID>\r\n                        <gsl:From>+00D-014D</gsl:From>\r\n                        <gsl:To/>\r\n                        <gsl:Modify>gsl_mode_allow</gsl:Modify>\r\n                        <gsl:Prompt>Oas Docline.Paydate</gsl:Prompt>\r\n                        <gsl:CloseBracket>none</gsl:CloseBracket>\r\n                    </gsl:Vocab>\r\n                </gsl:VocabList>\r\n            </web:RunTimeSelector>\r\n            <web:ExtraVocabs>\r\n                <gnb:VocabId>CMPCODE</gnb:VocabId>\r\n                <gnb:VocabId>EL3</gnb:VocabId>\r\n                <gnb:VocabId>DOCCODE</gnb:VocabId>\r\n                <gnb:VocabId>DOCNUM</gnb:VocabId>\r\n                <gnb:VocabId>DOCLINENUM</gnb:VocabId>\r\n                <gnb:VocabId>REF1</gnb:VocabId>\r\n                <gnb:VocabId>DOCDATE</gnb:VocabId>\r\n                <gnb:VocabId>DUEDATE</gnb:VocabId>\r\n                <gnb:VocabId>PAYDATE</gnb:VocabId>\r\n                <gnb:VocabId>VALUEDOC</gnb:VocabId>\r\n                <gnb:VocabId>EL2</gnb:VocabId>\r\n                <gnb:VocabId>ELEMENT2NAME</gnb:VocabId>\r\n                <gnb:VocabId>EL4</gnb:VocabId>\r\n                <gnb:VocabId>LETTERSEV</gnb:VocabId>\r\n                <gnb:VocabId>REMDATE</gnb:VocabId>\r\n                <gnb:VocabId>STATUSER</gnb:VocabId>\r\n                <gnb:VocabId>EL1</gnb:VocabId>\r\n                <gnb:VocabId>EL5</gnb:VocabId>\r\n                <gnb:VocabId>EL6</gnb:VocabId>\r\n            </web:ExtraVocabs>\r\n        </web:SelectRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/coda/services/common/genericbrowse/genericbrowse-13.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"coda",
+								"services",
+								"common",
+								"genericbrowse",
+								"genericbrowse-13.0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Input-CheckPost Request",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/finance/Input/Post",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:web=\"http://www.coda.com/efinance/schemas/inputext/input-14.0/webservice\" xmlns=\"http://www.coda.com/efinance/schemas/transaction\">\r\n\t<soapenv:Header>\r\n\t\t<web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n\t</soapenv:Header>\r\n\t<soapenv:Body>\r\n\t\t<web:PostRequest>\r\n\t\t\t<web:PostOptions postto=\"books\"/>\r\n\t\t\t<web:Transaction>\r\n\t\t\t\t<Header>\r\n\t\t\t\t\t<Key>\r\n\t\t\t\t\t\t<CmpCode>{{companycode}}</CmpCode>\r\n\t\t\t\t\t\t<Code>JOUNALCODE</Code>\r\n\t\t\t\t\t</Key>\r\n\t\t\t\t\t<Period>2022/10</Period>\r\n\t\t\t\t\t<CurCode>EUR</CurCode>\r\n\t\t\t\t\t<Date>2022-10-13T00:00:00.000</Date>\r\n\t\t\t\t\t<Description>XAOSWME</Description>\r\n\t\t\t\t\t<OriginalCompany>{{companycode}}</OriginalCompany>\r\n\t\t\t\t\t<OriginalCode>JOUNALCODE</OriginalCode>\r\n\t\t\t\t</Header>\r\n\t\t\t\t<Lines>\r\n\t\t\t\t\t<Line>\r\n\t\t\t\t\t\t<Number>1</Number>\r\n\t\t\t\t\t\t<AccountCode>104.11004.W136362.LELV.50.WIBO</AccountCode>\r\n\t\t\t\t\t\t<DocValue>2.91</DocValue>\r\n\t\t\t\t\t\t<LineType>summary</LineType>\r\n\t\t\t\t\t\t<LineSense>debit</LineSense>\r\n\t\t\t\t\t\t<Description>JOUNALCODE</Description>\r\n\t\t\t\t\t\t<DueDate>2022-06-28T00:00:00.000</DueDate>\r\n\t\t\t\t\t\t<ExtRef1>10017301</ExtRef1>\r\n\t\t\t\t\t</Line>\r\n\t\t\t\t\t<Line>\r\n\t\t\t\t\t\t<Number>2</Number>\r\n\t\t\t\t\t\t<AccountCode>54310.DUM.WGWIA.ROM ME-V.99.NATO</AccountCode>\r\n\t\t\t\t\t\t<DocValue>2.910</DocValue>\r\n\t\t\t\t\t\t<LineType>analysis</LineType>\r\n\t\t\t\t\t\t<LineSense>credit</LineSense>\r\n\t\t\t\t\t\t<Description>JOUNALCODE</Description>\r\n\t\t\t\t\t\t<DueDate>2022-06-28T00:00:00.000</DueDate>\r\n\t\t\t\t\t\t<ExtRef1>10017301</ExtRef1>\r\n\t\t\t\t\t</Line>\r\n\t\t\t\t</Lines>\r\n\t\t\t</web:Transaction>\r\n\t\t</web:PostRequest>\r\n\t</soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/coda/services/finance/inputext/input-14.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"coda",
+								"services",
+								"finance",
+								"inputext",
+								"input-14.0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Input-Post Request",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "SOAPAction",
+								"value": "uri-coda-webservice/{version}/finance/Input/Post",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<soapenv:Envelope \r\n    xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"  \r\n    xmlns:web=\"http://www.coda.com/efinance/schemas/inputext/input-14.0/webservice\"  \r\n    xmlns:tran=\"http://www.coda.com/efinance/schemas/transaction\" \r\n    xmlns:inp=\"http://www.coda.com/efinance/schemas/inputext\">\r\n    <soapenv:Header>\r\n        <web:Options locale=\"{{locale}}\" session=\"{{session}}\"/>\r\n    </soapenv:Header>\r\n    <soapenv:Body>\r\n        <web:PostRequest>\r\n            <web:PostOptions postto=\"books\"/>\r\n            <web:Transaction>\r\n                <Header>\r\n                    <Key>\r\n                        <CmpCode>{{companycode}}</CmpCode>\r\n                        <Code>JOURNAL</Code>\r\n                    </Key>\r\n                    <Period>2022/12</Period>\r\n                    <CurCode>EUR</CurCode>\r\n                    <Date>2022-11-14T00:00:00.000</Date>\r\n                    <Description>Description</Description>\r\n                    <OriginalCompany>{{companycode}}</OriginalCompany>\r\n                    <OriginalCode>JOURNAL</OriginalCode>\r\n                </Header>\r\n                <Lines>\r\n                    <Line>\r\n                        <Number>1</Number>\r\n                        <AccountCode>13600.OPA01.W193536</AccountCode>\r\n                        <DocValue>1456.16</DocValue>\r\n                        <LineType>summary</LineType>\r\n                        <LineSense>debit</LineSense>\r\n                        <Description>JOURNAL</Description>\r\n                        <DueDate>2022-10-16T00:00:00.000</DueDate>\r\n                        <ExtRef1>7686051</ExtRef1>\r\n                        <MediaCode>SCT</MediaCode>\r\n                    </Line>\r\n                    <Line>\r\n                        <Number>2</Number>\r\n                        <AccountCode>54310</AccountCode>\r\n                        <DocValue>1456.160</DocValue>\r\n                        <LineType>analysis</LineType>\r\n                        <LineSense>credit</LineSense>\r\n                        <Description>JOURNAL</Description>\r\n                        <DueDate>2022-10-16T00:00:00.000</DueDate>\r\n                        <ExtRef1>7686051</ExtRef1>\r\n                        <MediaCode>SCT</MediaCode>\r\n                    </Line>\r\n                </Lines>\r\n            </web:Transaction>\r\n        </web:PostRequest>\r\n    </soapenv:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}/services/finance/inputext/input-14.0",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"services",
+								"finance",
+								"inputext",
+								"input-14.0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{usercode}}\\{{companycode}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

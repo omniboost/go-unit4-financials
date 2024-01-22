@@ -1,11 +1,11 @@
-package netsuite_test
+package financials_test
 
 import (
 	"encoding/json"
 	"fmt"
 	"testing"
 
-	"github.com/omniboost/go-netsuite-soap"
+	"github.com/omniboost/go-unit4-financials"
 )
 
 func TestTransactionSearch(t *testing.T) {
@@ -35,7 +35,7 @@ func TestTransactionSearch(t *testing.T) {
 	// req.RequestBody().SearchRecord.Basic.DateCreated.SearchValue = "2023-09-15T15:00:00.000-00:00"
 
 	// req.RequestBody().SearchRecord.Basic.InternalID.Operator = "anyOf"
-	// req.RequestBody().SearchRecord.Basic.InternalID.SearchValue = []netsuite.RecordRef{
+	// req.RequestBody().SearchRecord.Basic.InternalID.SearchValue = []financials.RecordRef{
 	// 	{InternalID: "4186975"},
 	// }
 
@@ -49,22 +49,22 @@ func TestTransactionSearch(t *testing.T) {
 	req.RequestBody().SearchRecord.Basic.TranDate.SearchValue = "2023-10-17T00:00:00"
 
 	req.RequestBody().SearchRecord.Basic.Subsidiary.Operator = "anyOf"
-	req.RequestBody().SearchRecord.Basic.Subsidiary.SearchValue = []netsuite.RecordRef{
+	req.RequestBody().SearchRecord.Basic.Subsidiary.SearchValue = []financials.RecordRef{
 		{InternalID: "655"},
 	}
 
-	req.RequestBody().SearchRecord.Basic.CustomFieldList = netsuite.SearchCustomFieldList{
-		// netsuite.SearchMultiSelectCustomField{
+	req.RequestBody().SearchRecord.Basic.CustomFieldList = financials.SearchCustomFieldList{
+		// financials.SearchMultiSelectCustomField{
 		// 	ScriptID: "custbody_nch_source",
 		// 	Operator: "anyOf",
-		// 	SearchValue: netsuite.ListOrRecordRef{
+		// 	SearchValue: financials.ListOrRecordRef{
 		// 		InternalID: "1",
 		// 	},
 		// },
-		netsuite.SearchMultiSelectCustomField{
+		financials.SearchMultiSelectCustomField{
 			ScriptID: "cseg_nch_property",
 			Operator: "anyOf",
-			SearchValue: netsuite.ListOrRecordRef{
+			SearchValue: financials.ListOrRecordRef{
 				InternalID: "4",
 			},
 		},

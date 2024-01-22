@@ -1,4 +1,4 @@
-package netsuite_test
+package financials_test
 
 import (
 	"encoding/json"
@@ -24,7 +24,7 @@ func TestSearch(t *testing.T) {
 	// client.SearchPreferences.BodyFieldsOnly = false
 	// req.RequestBody().SearchRecord.Type = "platformCommon:CustomListSearchBasic"
 	// req.RequestBody().SearchRecord.InternalID.Operator = "anyOf"
-	// req.RequestBody().SearchRecord.InternalID.SearchValue = []netsuite.RecordRef{{InternalID: "171"}}
+	// req.RequestBody().SearchRecord.InternalID.SearchValue = []financials.RecordRef{{InternalID: "171"}}
 	// req.RequestBody().SearchRecord.RecType.InternalID = "1568"
 	// req.RequestBody().SearchRecord.RecType.ScriptID = "custbody_exp_type_journal"
 	// req.RequestBody().SearchRecord.RecType.Type = "customRecordType"

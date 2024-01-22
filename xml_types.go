@@ -1,4 +1,4 @@
-package netsuite
+package financials
 
 import (
 	"encoding/json"

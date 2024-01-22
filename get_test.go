@@ -1,4 +1,4 @@
-package netsuite_test
+package financials_test
 
 import (
 	"testing"
@@ -11,7 +11,7 @@ func TestGet(t *testing.T) {
 	// req.RequestBody().BaseRef.Type = "platformCore:CustomRecordRef"
 
 	// // req.RequestBody().BaseRef.XSIType = "platformCore:CustomRecordRef"
-	// // req.RequestBody().BaseRef.Xmlns = "urn:core_2017_1.platform.webservices.netsuite.com"
+	// // req.RequestBody().BaseRef.Xmlns = "urn:core_2017_1.platform.webservices.financials.com"
 
 	// req.RequestBody().BaseRef.InternalID = ""
 	// req.RequestBody().BaseRef.ScriptID = "custbody_exp_type_journal"

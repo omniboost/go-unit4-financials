@@ -1,4 +1,4 @@
-module github.com/omniboost/go-netsuite-soap
+module github.com/omniboost/go-unit4-financials
 
 go 1.16
 

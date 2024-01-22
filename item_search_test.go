@@ -1,4 +1,4 @@
-package netsuite_test
+package financials_test
 
 import (
 	"encoding/json"
