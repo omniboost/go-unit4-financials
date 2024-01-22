@@ -1,0 +1,516 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-LoggingService">
+            <h1>LoggingService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/common/schemas/logging/logging-12.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/common-logging-logging.wsdl" download="">common-logging-logging.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/common/logging/logging-12.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#LoggingService-AppendLines">AppendLines</a></li>
+               <li><a href="#LoggingService-Create">Create</a></li>
+               <li><a href="#LoggingService-Delete">Delete</a></li>
+               <li><a href="#LoggingService-Get">Get</a></li>
+               <li><a href="#LoggingService-GetFilteredLog">GetFilteredLog</a></li>
+               <li><a href="#LoggingService-GetFilteredLogEx">GetFilteredLogEx</a></li>
+               <li><a href="#LoggingService-List">List</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="LoggingService-AppendLines"></a>AppendLines
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>AppendLinesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>The key that identifies a log
+                                 to which log lines should be appended.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Lines</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LineDetailData" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LineDetailData">LineDetailData</a></td>
+                              <td>The log lines to be appended
+                                 to this log.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>AppendLinesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>The key that identifies this log.</td>
+                           </tr>
+                           <tr>
+                              <td>Lines</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LineDetailData" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LineDetailData">LineDetailData</a></td>
+                              <td>The log lines that were appended.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="LoggingService-Create"></a>Create
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CreateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Product</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The application to which the
+                                 log relates.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The process to which the log relates.</td>
+                           </tr>
+                           <tr>
+                              <td>Title</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeLogTitle" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLogTitle">typeLogTitle</a></td>
+                              <td>The log title.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CreateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Product</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The application to which the
+                                 log relates.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The process to which the log relates.</td>
+                           </tr>
+                           <tr>
+                              <td>Title</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeLogTitle" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLogTitle">typeLogTitle</a></td>
+                              <td>The log title.</td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>The key for the log.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="LoggingService-Delete"></a>Delete
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>DeleteRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Contains the key identifying
+                                 the log you want to delete.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>DeleteResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Contains the key identifying
+                                 the log that you attempted to delete.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="LoggingService-Get"></a>Get
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Contains the key identifying
+                                 the log you want to retrieve from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Contains the key identifying
+                                 the log that you attempted to retrieve from
+                                 the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Log</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}Log" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}Log">Log</a></td>
+                              <td>Contains the log that has
+                                 been retrieved from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="LoggingService-GetFilteredLog"></a>GetFilteredLog
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetFilteredLogRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Contains the key identifying
+                                 the log you want to retrieve from the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LineFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LineListFilter" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LineListFilter">LineListFilter</a></td>
+                              <td>Contains the criteria to use
+                                 for filtering the log lines.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetFilteredLogResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Contains the key identifying
+                                 the log that you attempted to retrieve from
+                                 the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>FilteredLog</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}FilteredLog" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}FilteredLog">FilteredLog</a></td>
+                              <td>Contains the filtered log
+                                 that has been retrieved from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="LoggingService-GetFilteredLogEx"></a>GetFilteredLogEx
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetFilteredLogExRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Contains the key identifying
+                                 the log you want to retrieve from the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LineFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LineListFilter" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LineListFilter">LineListFilter</a></td>
+                              <td>Contains the criteria to use
+                                 for filtering the log lines.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetFilteredLogExResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Contains the key identifying
+                                 the log that you attempted to retrieve from
+                                 the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>FilteredLogEx</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}FilteredLogEx" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}FilteredLogEx">FilteredLogEx</a></td>
+                              <td>Contains the filtered log
+                                 that has been retrieved from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="LoggingService-List"></a>List
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ListRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Filter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}ListFilter" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}ListFilter">ListFilter</a></td>
+                              <td>A filter for retrieving logs
+                                 from the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>IncludeTotals</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Specifies whether to include
+                                 total numbers of the different types of log
+                                 lines in the response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ListResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Filter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}ListFilter" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}ListFilter">ListFilter</a></td>
+                              <td>The filter sent with the
+                                 GetListRequest corresponding to this response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Headers</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}HeaderData" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}HeaderData">HeaderData</a></td>
+                              <td>Contains header information
+                                 identifying the logs that are listed.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

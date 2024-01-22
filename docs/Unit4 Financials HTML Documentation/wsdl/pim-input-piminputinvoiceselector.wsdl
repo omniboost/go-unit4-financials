@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/input/piminputinvoiceselector-11.1/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:inpws="http://www.coda.com/pim/schemas/input/piminputinvoiceselector-11.1/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:pimusr="http://www.coda.com/pim/schemas/user"
+    xmlns:inv="http://www.coda.com/pim/schemas/invoice"
+    xmlns:inp="http://www.coda.com/pim/schemas/input"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster"
+    xmlns:presmas="http://www.coda.com/efinance/schemas/presenter"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/pim/schemas/input/piminputinvoiceselector-11.1/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/taxmaster" schemaLocation="pim/taxmaster/taxmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/input" schemaLocation="../wsdl/pim/input/input.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/invoice" schemaLocation="pim/invoice/invoice.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/user" schemaLocation="pim/user/user.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/presenter" schemaLocation="finance/presenter/presenter.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:element name="MaintenanceSelectResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The documents selected by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelSelectResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The documents selected by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelSelectRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector defining the
+                            search criteria for document selection.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterMaster" type="presmas:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The presenter defining the
+                            vocabulary items for document display.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="MaintenanceSelectRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector defining the
+                            search criteria for document selection.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterMaster" type="presmas:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The presenter defining the
+                            vocabulary items for document display.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="MaintenanceSelectRequest">
+    <part name="MaintenanceSelectRequest" element="inpws:MaintenanceSelectRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="inpws:Options"/>
+  </message>
+  <message name="CancelSelectResponse">
+    <part name="CancelSelectResponse" element="inpws:CancelSelectResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="inpws:OptionsResponse"/>
+  </message>
+  <message name="CancelSelectRequest">
+    <part name="CancelSelectRequest" element="inpws:CancelSelectRequest"/>
+  </message>
+  <message name="MaintenanceSelectResponse">
+    <part name="MaintenanceSelectResponse" element="inpws:MaintenanceSelectResponse"/>
+  </message>
+  <portType name="PIMInputInvoiceSelectorServicePortTypes">
+    <operation name="CancelSelect">
+      <input message="inpws:CancelSelectRequest"/>
+      <output message="inpws:CancelSelectResponse"/>
+    </operation>
+    <operation name="MaintenanceSelect">
+      <input message="inpws:MaintenanceSelectRequest"/>
+      <output message="inpws:MaintenanceSelectResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMInputInvoiceSelectorServiceSOAPBinding" type="inpws:PIMInputInvoiceSelectorServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="CancelSelect">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInputInvoiceSelector/CancelSelect" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="MaintenanceSelect">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInputInvoiceSelector/MaintenanceSelect" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMInputInvoiceSelectorService">
+    <port name="PIMInputInvoiceSelectorServicePort" binding="inpws:PIMInputInvoiceSelectorServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/input/piminputinvoiceselector-11.1"/>
+    </port>
+  </service>
+</definitions>

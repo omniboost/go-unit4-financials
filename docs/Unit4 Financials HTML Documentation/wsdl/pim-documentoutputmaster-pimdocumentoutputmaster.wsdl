@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/documentoutputmaster/pimdocumentoutputmaster-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:domws="http://www.coda.com/pim/schemas/documentoutputmaster/pimdocumentoutputmaster-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:pri="http://www.coda.com/common/schemas/printformatmaster"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:dom="http://www.coda.com/pim/schemas/documentoutputmaster"
+    xmlns:odm="http://www.coda.com/common/schemas/outputdevice"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:pimsel="http://www.coda.com/pim/schemas/selector"
+    xmlns:emt="http://www.coda.com/common/schemas/emailtemplatemaster"
+    targetNamespace="http://www.coda.com/pim/schemas/documentoutputmaster/pimdocumentoutputmaster-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/printformatmaster" schemaLocation="common/printformatmaster/printformatmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/selector" schemaLocation="pim/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/documentoutputmaster" schemaLocation="../wsdl/pim/documentoutputmaster/documentoutputmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/emailtemplatemaster" schemaLocation="common/emailtemplatemaster/emailtemplatemaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/outputdevice" schemaLocation="common/outputdevice/outputdevice.xsd"/>
+    <xsd:element name="UpdateDocumentOutputMasterResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="DocumentOutputMaster" type="dom:DocumentOutputMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            updateDocumentOutputMaster function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteDocumentOutputMasterRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentOutputMasterKey" type="dom:DocumentOutputMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            DocumentOutputMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindDocumentOutputMasterResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentOutputMasterList" type="dom:DocumentOutputMasterList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            findDocumentOutputMaster function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindDocumentOutputMasterRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the DocumentOutputMaster
+                            objects that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddDocumentOutputMasterRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="DocumentOutputMaster" type="dom:DocumentOutputMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole
+                            DocumentOutputMaster object that is to be
+                            persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListDocumentOutputMasterResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentOutputMasterItemList" type="dom:DocumentOutputMasterItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            listDocumentOutputMaster function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateDocumentOutputMasterRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="DocumentOutputMaster" type="dom:DocumentOutputMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole
+                            DocumentOutputMaster object that is to be
+                            persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddDocumentOutputMasterResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="DocumentOutputMaster" type="dom:DocumentOutputMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            addDocumentOutputMaster function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentOutputMasterResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentOutputMaster" type="dom:DocumentOutputMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getDocumentOutputMaster function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteDocumentOutputMasterResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListDocumentOutputMasterRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the DocumentOutputMaster
+                            objects that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentOutputMasterRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentOutputMasterKey" type="dom:DocumentOutputMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            DocumentOutputMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetDocumentOutputMasterRequest">
+    <part name="GetDocumentOutputMasterRequest" element="domws:GetDocumentOutputMasterRequest"/>
+  </message>
+  <message name="ListDocumentOutputMasterRequest">
+    <part name="ListDocumentOutputMasterRequest" element="domws:ListDocumentOutputMasterRequest"/>
+  </message>
+  <message name="DeleteDocumentOutputMasterRequest">
+    <part name="DeleteDocumentOutputMasterRequest" element="domws:DeleteDocumentOutputMasterRequest"/>
+  </message>
+  <message name="AddDocumentOutputMasterResponse">
+    <part name="AddDocumentOutputMasterResponse" element="domws:AddDocumentOutputMasterResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="domws:Options"/>
+  </message>
+  <message name="UpdateDocumentOutputMasterResponse">
+    <part name="UpdateDocumentOutputMasterResponse" element="domws:UpdateDocumentOutputMasterResponse"/>
+  </message>
+  <message name="ListDocumentOutputMasterResponse">
+    <part name="ListDocumentOutputMasterResponse" element="domws:ListDocumentOutputMasterResponse"/>
+  </message>
+  <message name="DeleteDocumentOutputMasterResponse">
+    <part name="DeleteDocumentOutputMasterResponse" element="domws:DeleteDocumentOutputMasterResponse"/>
+  </message>
+  <message name="FindDocumentOutputMasterResponse">
+    <part name="FindDocumentOutputMasterResponse" element="domws:FindDocumentOutputMasterResponse"/>
+  </message>
+  <message name="GetDocumentOutputMasterResponse">
+    <part name="GetDocumentOutputMasterResponse" element="domws:GetDocumentOutputMasterResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="domws:OptionsResponse"/>
+  </message>
+  <message name="UpdateDocumentOutputMasterRequest">
+    <part name="UpdateDocumentOutputMasterRequest" element="domws:UpdateDocumentOutputMasterRequest"/>
+  </message>
+  <message name="FindDocumentOutputMasterRequest">
+    <part name="FindDocumentOutputMasterRequest" element="domws:FindDocumentOutputMasterRequest"/>
+  </message>
+  <message name="AddDocumentOutputMasterRequest">
+    <part name="AddDocumentOutputMasterRequest" element="domws:AddDocumentOutputMasterRequest"/>
+  </message>
+  <portType name="PIMDocumentOutputMasterServicePortTypes">
+    <operation name="UpdateDocumentOutputMaster">
+      <input message="domws:UpdateDocumentOutputMasterRequest"/>
+      <output message="domws:UpdateDocumentOutputMasterResponse"/>
+    </operation>
+    <operation name="GetDocumentOutputMaster">
+      <input message="domws:GetDocumentOutputMasterRequest"/>
+      <output message="domws:GetDocumentOutputMasterResponse"/>
+    </operation>
+    <operation name="DeleteDocumentOutputMaster">
+      <input message="domws:DeleteDocumentOutputMasterRequest"/>
+      <output message="domws:DeleteDocumentOutputMasterResponse"/>
+    </operation>
+    <operation name="AddDocumentOutputMaster">
+      <input message="domws:AddDocumentOutputMasterRequest"/>
+      <output message="domws:AddDocumentOutputMasterResponse"/>
+    </operation>
+    <operation name="FindDocumentOutputMaster">
+      <input message="domws:FindDocumentOutputMasterRequest"/>
+      <output message="domws:FindDocumentOutputMasterResponse"/>
+    </operation>
+    <operation name="ListDocumentOutputMaster">
+      <input message="domws:ListDocumentOutputMasterRequest"/>
+      <output message="domws:ListDocumentOutputMasterResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMDocumentOutputMasterServiceSOAPBinding" type="domws:PIMDocumentOutputMasterServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="UpdateDocumentOutputMaster">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMDocumentOutputMaster/UpdateDocumentOutputMaster" style="document"/>
+      <input>
+        <soap:header message="domws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="domws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDocumentOutputMaster">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMDocumentOutputMaster/GetDocumentOutputMaster" style="document"/>
+      <input>
+        <soap:header message="domws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="domws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeleteDocumentOutputMaster">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMDocumentOutputMaster/DeleteDocumentOutputMaster" style="document"/>
+      <input>
+        <soap:header message="domws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="domws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AddDocumentOutputMaster">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMDocumentOutputMaster/AddDocumentOutputMaster" style="document"/>
+      <input>
+        <soap:header message="domws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="domws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FindDocumentOutputMaster">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMDocumentOutputMaster/FindDocumentOutputMaster" style="document"/>
+      <input>
+        <soap:header message="domws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="domws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListDocumentOutputMaster">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMDocumentOutputMaster/ListDocumentOutputMaster" style="document"/>
+      <input>
+        <soap:header message="domws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="domws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMDocumentOutputMasterService">
+    <port name="PIMDocumentOutputMasterServicePort" binding="domws:PIMDocumentOutputMasterServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/documentoutputmaster/pimdocumentoutputmaster-13.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/goodsreceivednote/popgoodsreceivednote-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:grnws="http://www.coda.com/pop/schemas/goodsreceivednote/popgoodsreceivednote-12.0/webservice">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:inputtemplatemaster="http://www.coda.com/pop/schemas/inputtemplatemaster"
+    xmlns:elmmas="http://www.coda.com/pop/schemas/elementmaster"
+    xmlns:popcommon="http://www.coda.com/pop/schemas/popcommon"
+    xmlns:address="http://www.coda.com/pop/schemas/address"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:docmas="http://www.coda.com/pop/schemas/documentmaster"
+    xmlns:grn="http://www.coda.com/pop/schemas/goodsreceivednote"
+    xmlns:poptypes="http://www.coda.com/pop/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:contractmastersvc="http://www.coda.com/pop/schemas/contractmaster"
+    xmlns:popcalloff="http://www.coda.com/pop/schemas/calloff"
+    xmlns:poppurchaseorder="http://www.coda.com/pop/schemas/purchaseorder"
+    xmlns:commbalance="http://www.coda.com/pop/schemas/commitmentbalance"
+    xmlns:datatypes="http://www.coda.com/common/schemas/datatypes"
+    xmlns:ns1="http://www.coda.com/common/schemas/domaingen"
+    xmlns:doc="http://www.coda.com/pop/schemas/document"
+    xmlns:popreqisition="http://www.coda.com/pop/schemas/requisition"
+    targetNamespace="http://www.coda.com/pop/schemas/goodsreceivednote/popgoodsreceivednote-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/common/schemas/datatypes" schemaLocation="common/datatypes/datatypes.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/goodsreceivednote" schemaLocation="../wsdl/pop/goodsreceivednote/goodsreceivednote.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/common" schemaLocation="pop/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/popcommon" schemaLocation="pop/popcommon/popcommon.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/document" schemaLocation="pop/document/document.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/purchaseorder" schemaLocation="pop/purchaseorder/purchaseorder.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/contractmaster" schemaLocation="pop/contractmaster/contractmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/address" schemaLocation="pop/address/address.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/inputtemplatemaster" schemaLocation="pop/inputtemplatemaster/inputtemplatemaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/commitmentbalance" schemaLocation="pop/commitmentbalance/commitmentbalance.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/documentmaster" schemaLocation="pop/documentmaster/documentmaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/elementmaster" schemaLocation="pop/elementmaster/elementmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/calloff" schemaLocation="pop/calloff/calloff.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/requisition" schemaLocation="pop/requisition/requisition.xsd"/>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetOrderFromLRNKeyRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LRNKey" minOccurs="0" type="com:typeText">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AcceptGRNLinesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AcceptResult" minOccurs="0"
+                    maxOccurs="unbounded" type="grn:GRNData">
+                    <xsd:annotation>
+                        <xsd:documentation>The AcceptResult is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateSkeletonGRNsFromOrdersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InputTemplateMaster" type="inputtemplatemaster:InputTemplateMasterKey">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DocumentMaster" minOccurs="0" type="docmas:DocumentMasterKey">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="OrderKeyList" type="poppurchaseorder:PurchaseOrderKeyList">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="CallOffKeyList" type="popcalloff:CallOffKeyList">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RefreshTotalsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RefreshTotals" type="grn:GoodsReceivedNote">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            RefreshTotals function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RefreshTotalsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GoodsReceivedNote" type="grn:GoodsReceivedNote">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the GoodsReceivedNote
+                            objects that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the GoodsReceivedNote
+                            objects that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AcceptGRNLinesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GoodsReceivedNote" type="grn:GoodsReceivedNote">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="AcceptGRNDataList" type="grn:POPGoodsReceivedNoteAcceptGRNLinesAcceptGRNDataList">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="RTSDocCode" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetOrderFromLRNKeyResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Order" minOccurs="0"
+                    maxOccurs="unbounded" type="poppurchaseorder:PurchaseOrder">
+                    <xsd:annotation>
+                        <xsd:documentation>The Order is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SaveResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SaveResult" minOccurs="0"
+                    maxOccurs="unbounded" type="grn:GRNData">
+                    <xsd:annotation>
+                        <xsd:documentation>The SaveResult is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BudgetRejected" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The BudgetRejected is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Budget" minOccurs="0"
+                    maxOccurs="unbounded" type="commbalance:ComBudgetInfo">
+                    <xsd:annotation>
+                        <xsd:documentation>The Budget is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GoodsReceivedNoteList" type="grn:GoodsReceivedNoteList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GrnAccountToAccountDescriptionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GRNAccountAllocation" type="grn:GRNAccountAllocation">
+                    <xsd:annotation>
+                        <xsd:documentation>The GRNAccountAllocation is
+                            an out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AccountDescription" type="com:typeDescriptionf">
+                    <xsd:annotation>
+                        <xsd:documentation>The AccountDescription is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckGRNResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CheckGRN" type="grn:GoodsReceivedNote">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            CheckGRN function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CheckGRNResult" minOccurs="0"
+                    maxOccurs="unbounded" type="grn:GRNData">
+                    <xsd:annotation>
+                        <xsd:documentation>The CheckGRNResult is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RefreshLineTotalsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GoodsReceivedNote" type="grn:GoodsReceivedNote">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Line" type="grn:ReceiptItemLine">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GrnAccountToAccountDescriptionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GRNAccountAllocation" type="grn:GRNAccountAllocation">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GoodsReceivedNote" type="grn:GoodsReceivedNote">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GoodsReceivedNoteItemList" type="grn:GoodsReceivedNoteItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequisitionFromLRNKeyRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LRNKey" minOccurs="0" type="com:typeText">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateSkeletonGRNsFromOrdersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SkeletonGRN" minOccurs="0"
+                    maxOccurs="unbounded" type="grn:GoodsReceivedNote">
+                    <xsd:annotation>
+                        <xsd:documentation>The SkeletonGRN is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UdfDataLost" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The udfDataLost is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckGRNRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GoodsReceivedNote" type="grn:GoodsReceivedNote">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SaveRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GoodsReceivedNoteList" type="grn:GoodsReceivedNoteList">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GoodsReceivedNoteKey" type="grn:GoodsReceivedNoteKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            GoodsReceivedNote object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RefreshLineTotalsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RefreshedLine" type="grn:ReceiptItemLine">
+                    <xsd:annotation>
+                        <xsd:documentation>The RefreshedLine is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequisitionFromLRNKeyResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Requisition" minOccurs="0"
+                    maxOccurs="unbounded" type="popreqisition:Requisition">
+                    <xsd:annotation>
+                        <xsd:documentation>The Requisition is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GoodsReceivedNoteKey" type="grn:GoodsReceivedNoteKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            GoodsReceivedNote object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="RefreshTotalsRequest">
+    <part name="RefreshTotalsRequest" element="grnws:RefreshTotalsRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="grnws:DeleteResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="grnws:DeleteRequest"/>
+  </message>
+  <message name="CreateSkeletonGRNsFromOrdersRequest">
+    <part name="CreateSkeletonGRNsFromOrdersRequest" element="grnws:CreateSkeletonGRNsFromOrdersRequest"/>
+  </message>
+  <message name="RefreshLineTotalsRequest">
+    <part name="RefreshLineTotalsRequest" element="grnws:RefreshLineTotalsRequest"/>
+  </message>
+  <message name="GetOrderFromLRNKeyResponse">
+    <part name="GetOrderFromLRNKeyResponse" element="grnws:GetOrderFromLRNKeyResponse"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="grnws:FindRequest"/>
+  </message>
+  <message name="GetOrderFromLRNKeyRequest">
+    <part name="GetOrderFromLRNKeyRequest" element="grnws:GetOrderFromLRNKeyRequest"/>
+  </message>
+  <message name="CheckGRNResponse">
+    <part name="CheckGRNResponse" element="grnws:CheckGRNResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="grnws:ListRequest"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="grnws:GetResponse"/>
+  </message>
+  <message name="AcceptGRNLinesRequest">
+    <part name="AcceptGRNLinesRequest" element="grnws:AcceptGRNLinesRequest"/>
+  </message>
+  <message name="RefreshLineTotalsResponse">
+    <part name="RefreshLineTotalsResponse" element="grnws:RefreshLineTotalsResponse"/>
+  </message>
+  <message name="SaveResponse">
+    <part name="SaveResponse" element="grnws:SaveResponse"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="grnws:GetRequest"/>
+  </message>
+  <message name="AcceptGRNLinesResponse">
+    <part name="AcceptGRNLinesResponse" element="grnws:AcceptGRNLinesResponse"/>
+  </message>
+  <message name="SaveRequest">
+    <part name="SaveRequest" element="grnws:SaveRequest"/>
+  </message>
+  <message name="GetRequisitionFromLRNKeyResponse">
+    <part name="GetRequisitionFromLRNKeyResponse" element="grnws:GetRequisitionFromLRNKeyResponse"/>
+  </message>
+  <message name="GrnAccountToAccountDescriptionResponse">
+    <part name="GrnAccountToAccountDescriptionResponse" element="grnws:GrnAccountToAccountDescriptionResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="grnws:OptionsResponse"/>
+  </message>
+  <message name="CheckGRNRequest">
+    <part name="CheckGRNRequest" element="grnws:CheckGRNRequest"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="grnws:ListResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="grnws:Options"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="grnws:FindResponse"/>
+  </message>
+  <message name="GrnAccountToAccountDescriptionRequest">
+    <part name="GrnAccountToAccountDescriptionRequest" element="grnws:GrnAccountToAccountDescriptionRequest"/>
+  </message>
+  <message name="RefreshTotalsResponse">
+    <part name="RefreshTotalsResponse" element="grnws:RefreshTotalsResponse"/>
+  </message>
+  <message name="CreateSkeletonGRNsFromOrdersResponse">
+    <part name="CreateSkeletonGRNsFromOrdersResponse" element="grnws:CreateSkeletonGRNsFromOrdersResponse"/>
+  </message>
+  <message name="GetRequisitionFromLRNKeyRequest">
+    <part name="GetRequisitionFromLRNKeyRequest" element="grnws:GetRequisitionFromLRNKeyRequest"/>
+  </message>
+  <portType name="POPGoodsReceivedNoteServicePortTypes">
+    <operation name="GetOrderFromLRNKey">
+      <input message="grnws:GetOrderFromLRNKeyRequest"/>
+      <output message="grnws:GetOrderFromLRNKeyResponse"/>
+    </operation>
+    <operation name="Delete">
+      <input message="grnws:DeleteRequest"/>
+      <output message="grnws:DeleteResponse"/>
+    </operation>
+    <operation name="GrnAccountToAccountDescription">
+      <input message="grnws:GrnAccountToAccountDescriptionRequest"/>
+      <output message="grnws:GrnAccountToAccountDescriptionResponse"/>
+    </operation>
+    <operation name="CreateSkeletonGRNsFromOrders">
+      <input message="grnws:CreateSkeletonGRNsFromOrdersRequest"/>
+      <output message="grnws:CreateSkeletonGRNsFromOrdersResponse"/>
+    </operation>
+    <operation name="CheckGRN">
+      <input message="grnws:CheckGRNRequest"/>
+      <output message="grnws:CheckGRNResponse"/>
+    </operation>
+    <operation name="RefreshTotals">
+      <input message="grnws:RefreshTotalsRequest"/>
+      <output message="grnws:RefreshTotalsResponse"/>
+    </operation>
+    <operation name="RefreshLineTotals">
+      <input message="grnws:RefreshLineTotalsRequest"/>
+      <output message="grnws:RefreshLineTotalsResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="grnws:GetRequest"/>
+      <output message="grnws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="grnws:FindRequest"/>
+      <output message="grnws:FindResponse"/>
+    </operation>
+    <operation name="Save">
+      <input message="grnws:SaveRequest"/>
+      <output message="grnws:SaveResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="grnws:ListRequest"/>
+      <output message="grnws:ListResponse"/>
+    </operation>
+    <operation name="GetRequisitionFromLRNKey">
+      <input message="grnws:GetRequisitionFromLRNKeyRequest"/>
+      <output message="grnws:GetRequisitionFromLRNKeyResponse"/>
+    </operation>
+    <operation name="AcceptGRNLines">
+      <input message="grnws:AcceptGRNLinesRequest"/>
+      <output message="grnws:AcceptGRNLinesResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPGoodsReceivedNoteServiceSOAPBinding" type="grnws:POPGoodsReceivedNoteServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetOrderFromLRNKey">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPGoodsReceivedNote/GetOrderFromLRNKey" style="document"/>
+      <input>
+        <soap:header message="grnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="grnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPGoodsReceivedNote/Delete" style="document"/>
+      <input>
+        <soap:header message="grnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="grnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GrnAccountToAccountDescription">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPGoodsReceivedNote/GrnAccountToAccountDescription" style="document"/>
+      <input>
+        <soap:header message="grnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="grnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CreateSkeletonGRNsFromOrders">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPGoodsReceivedNote/CreateSkeletonGRNsFromOrders" style="document"/>
+      <input>
+        <soap:header message="grnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="grnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckGRN">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPGoodsReceivedNote/CheckGRN" style="document"/>
+      <input>
+        <soap:header message="grnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="grnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RefreshTotals">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPGoodsReceivedNote/RefreshTotals" style="document"/>
+      <input>
+        <soap:header message="grnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="grnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RefreshLineTotals">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPGoodsReceivedNote/RefreshLineTotals" style="document"/>
+      <input>
+        <soap:header message="grnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="grnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPGoodsReceivedNote/Get" style="document"/>
+      <input>
+        <soap:header message="grnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="grnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPGoodsReceivedNote/Find" style="document"/>
+      <input>
+        <soap:header message="grnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="grnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Save">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPGoodsReceivedNote/Save" style="document"/>
+      <input>
+        <soap:header message="grnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="grnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPGoodsReceivedNote/List" style="document"/>
+      <input>
+        <soap:header message="grnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="grnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetRequisitionFromLRNKey">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPGoodsReceivedNote/GetRequisitionFromLRNKey" style="document"/>
+      <input>
+        <soap:header message="grnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="grnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AcceptGRNLines">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPGoodsReceivedNote/AcceptGRNLines" style="document"/>
+      <input>
+        <soap:header message="grnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="grnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPGoodsReceivedNoteService">
+    <port name="POPGoodsReceivedNoteServicePort" binding="grnws:POPGoodsReceivedNoteServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/goodsreceivednote/popgoodsreceivednote-12.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/bulkload/pimbulkload-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:pblws="http://www.coda.com/pim/schemas/bulkload/pimbulkload-12.0/webservice">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:pbl="http://www.coda.com/pim/schemas/bulkload"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote"
+    xmlns:pimusr="http://www.coda.com/pim/schemas/user"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/pim/schemas/bulkload/pimbulkload-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/bulkload" schemaLocation="../wsdl/pim/bulkload/bulkload.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/logicalreceiptnote" schemaLocation="pim/logicalreceiptnote/logicalreceiptnote.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/user" schemaLocation="pim/user/user.xsd"/>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogKey" type="pbl:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The logKey is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogTitle" minOccurs="0" type="com:typeTextB">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="LogDetailLevel" minOccurs="0" type="pimtypes:typePimLogDetailLevel">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="StopOnError" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="InvoiceList" type="pbl:PIMBulkLoadAddInvoiceList">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="LrnList" type="lrn:LRNList">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="pblws:OptionsResponse"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="pblws:AddResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="pblws:Options"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="pblws:AddRequest"/>
+  </message>
+  <portType name="PIMBulkLoadServicePortTypes">
+    <operation name="Add">
+      <input message="pblws:AddRequest"/>
+      <output message="pblws:AddResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMBulkLoadServiceSOAPBinding" type="pblws:PIMBulkLoadServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBulkLoad/Add" style="document"/>
+      <input>
+        <soap:header message="pblws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="pblws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMBulkLoadService">
+    <port name="PIMBulkLoadServicePort" binding="pblws:PIMBulkLoadServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/bulkload/pimbulkload-12.0"/>
+    </port>
+  </service>
+</definitions>

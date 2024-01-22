@@ -1,0 +1,2487 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-AssetService">
+            <h1>AssetService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/eassets/schemas/asset/asset-12.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/assets-asset-asset.wsdl" download="">assets-asset-asset.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/assets/asset/asset-12.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#AssetService-Add">Add</a></li>
+               <li><a href="#AssetService-Addition">Addition</a></li>
+               <li><a href="#AssetService-ApplyCategory">ApplyCategory</a></li>
+               <li><a href="#AssetService-AuditYearEndChange">AuditYearEndChange</a></li>
+               <li><a href="#AssetService-CalculateAssetCurrencies">CalculateAssetCurrencies</a></li>
+               <li><a href="#AssetService-CalculateCategoryCurrencyBookValuesOnDate">CalculateCategoryCurrencyBookValuesOnDate</a></li>
+               <li><a href="#AssetService-CalculateCurrencyBookValuesOnDate">CalculateCurrencyBookValuesOnDate</a></li>
+               <li><a href="#AssetService-CalculateDerivedCurrencyBookRates">CalculateDerivedCurrencyBookRates</a></li>
+               <li><a href="#AssetService-CancelReview">CancelReview</a></li>
+               <li><a href="#AssetService-CancelReviewedLateAdjustment">CancelReviewedLateAdjustment</a></li>
+               <li><a href="#AssetService-Capitalise">Capitalise</a></li>
+               <li><a href="#AssetService-CapitaliseReview">CapitaliseReview</a></li>
+               <li><a href="#AssetService-CheckAssetCreatable">CheckAssetCreatable</a></li>
+               <li><a href="#AssetService-Create">Create</a></li>
+               <li><a href="#AssetService-CreateFromParent">CreateFromParent</a></li>
+               <li><a href="#AssetService-CreateFullAsset">CreateFullAsset</a></li>
+               <li><a href="#AssetService-Delete">Delete</a></li>
+               <li><a href="#AssetService-Get">Get</a></li>
+               <li><a href="#AssetService-LateAdjustment">LateAdjustment</a></li>
+               <li><a href="#AssetService-List">List</a></li>
+               <li><a href="#AssetService-ListChildren">ListChildren</a></li>
+               <li><a href="#AssetService-ListSourceTransactions">ListSourceTransactions</a></li>
+               <li><a href="#AssetService-ListTransactions">ListTransactions</a></li>
+               <li><a href="#AssetService-PostReviewedLateAdjustment">PostReviewedLateAdjustment</a></li>
+               <li><a href="#AssetService-ReviewCapitalisation">ReviewCapitalisation</a></li>
+               <li><a href="#AssetService-ReviewLateAdjustment">ReviewLateAdjustment</a></li>
+               <li><a href="#AssetService-Summary">Summary</a></li>
+               <li><a href="#AssetService-Update">Update</a></li>
+               <li><a href="#AssetService-UpdateWithTransactions">UpdateWithTransactions</a></li>
+               <li><a href="#AssetService-UserFieldClassList">UserFieldClassList</a></li>
+               <li><a href="#AssetService-ValidateAndAdd">ValidateAndAdd</a></li>
+               <li><a href="#AssetService-ValidateAsset">ValidateAsset</a></li>
+               <li><a href="#AssetService-ValidateAssetCategories">ValidateAssetCategories</a></li>
+               <li><a href="#AssetService-ValidateAssetCode">ValidateAssetCode</a></li>
+               <li><a href="#AssetService-ValidateWIPAssets">ValidateWIPAssets</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="AssetService-Add"></a>Add
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>AddRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Asset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>Contains the information for
+                                 the asset you want to create.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>AddResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to add the asset.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCodeB">typeAstCodeB</a></td>
+                              <td>The code for the asset that
+                                 you attempted to add.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>TimeStamp</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeWord" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeWord">typeWord</a></td>
+                              <td>The TimeStamp value for this
+                                 asset in the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-Addition"></a>Addition
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>AdditionRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company
+                                 containing the asset to which you want to
+                                 make an addition.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCodeB">typeAstCodeB</a></td>
+                              <td>The code for the asset to
+                                 which you want to make an addition.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Value</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                              <td>The value of the addition.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>AdditionResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company
+                                 containing the asset to which you attempted
+                                 to make an addition.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCodeB">typeAstCodeB</a></td>
+                              <td>The code for the asset to
+                                 which you attempted to make an addition.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Asset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>Contains the asset, including
+                                 the addition you have made.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-ApplyCategory"></a>ApplyCategory
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ApplyCategoryRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company
+                                 containing the asset to which you want to
+                                 apply a new category.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCode">typeAstCode</a></td>
+                              <td>The code for the asset to
+                                 which you want to apply a new category.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>NewCategory</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code of the category you
+                                 want to apply to the specified asset.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ApplyCategoryResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company
+                                 containing the asset to which you attempted
+                                 to apply a new category.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCodeB">typeAstCodeB</a></td>
+                              <td>The code for the asset to
+                                 which you attempted to apply a new category.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-AuditYearEndChange"></a>AuditYearEndChange
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>AuditYearEndChangeRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LogID</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>Contains a key to the year
+                                 end change audit log.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>NumberOfPeriods</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                              <td>The new number of periods for
+                                 the current year.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>AuditYearEndChangeResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LogKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Contains a key to the year
+                                 end change audit log.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AuditPassed</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Set to FALSE if any assets
+                                 are found which are capitalised subsequent
+                                 to the proposed new year end date or which
+                                 are subject to depreciation rules starting
+                                 after the proposed new year end date.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-CalculateAssetCurrencies"></a>CalculateAssetCurrencies
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CalculateAssetCurrenciesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Asset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>The asset code.</td>
+                           </tr>
+                           <tr>
+                              <td>Date</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                              <td>The date that current
+                                 currency exchange rates will be derived from
+                                 if the Exchange Rate Date on the Financials
+                                 company master is set to Document. (If the
+                                 Exchange Rate Date is set to Input, then
+                                 currency exchange rates will be derived from
+                                 today's date.)
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Value</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                              <td>The value to calculate.</td>
+                           </tr>
+                           <tr>
+                              <td>CurrencyEdits</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetCurrencyDataList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetCurrencyDataList">AssetCurrencyDataList</a></td>
+                              <td>Contains details of the value
+                                 in associated currencies.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CalculateAssetCurrenciesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CurrencyData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetCurrencyDataList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetCurrencyDataList">AssetCurrencyDataList</a></td>
+                              <td>Contains the results of asset
+                                 currency calculation.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-CalculateCategoryCurrencyBookValuesOnDate"></a>CalculateCategoryCurrencyBookValuesOnDate
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CalculateCategoryCurrencyBookValuesOnDateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CategoryCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The category code.</td>
+                           </tr>
+                           <tr>
+                              <td>Date</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                              <td>The date that current
+                                 currency exchange rates will be derived from
+                                 if the Exchange Rate Date on the Financials
+                                 company master is set to Document. (If the
+                                 Exchange Rate Date is set to Input, then
+                                 currency exchange rates will be derived from
+                                 today's date.)
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Value</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                              <td>The value to calculate.</td>
+                           </tr>
+                           <tr>
+                              <td>BookCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The code of the primary book
+                                 or secondary book whose associated currency
+                                 values you want to calculate.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CalculateCategoryCurrencyBookValuesOnDateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CurrencyData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetCurrencyDataList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetCurrencyDataList">AssetCurrencyDataList</a></td>
+                              <td>Contains the results of asset
+                                 currency calculation.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-CalculateCurrencyBookValuesOnDate"></a>CalculateCurrencyBookValuesOnDate
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CalculateCurrencyBookValuesOnDateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Asset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>The asset code.</td>
+                           </tr>
+                           <tr>
+                              <td>Date</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                              <td>The date that current
+                                 currency exchange rates will be derived from
+                                 if the Exchange Rate Date on the Financials
+                                 company master is set to Document. (If the
+                                 Exchange Rate Date is set to Input, then
+                                 currency exchange rates will be derived from
+                                 today's date.)
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Value</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                              <td>The value to recalculate.</td>
+                           </tr>
+                           <tr>
+                              <td>BookCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The code of the primary book
+                                 or secondary book whose associated currency
+                                 values you want to calculate.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CalculateCurrencyBookValuesOnDateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CurrencyData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetCurrencyDataList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetCurrencyDataList">AssetCurrencyDataList</a></td>
+                              <td>Contains the results of asset
+                                 currency calculation.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-CalculateDerivedCurrencyBookRates"></a>CalculateDerivedCurrencyBookRates
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CalculateDerivedCurrencyBookRatesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Asset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>The asset code.</td>
+                           </tr>
+                           <tr>
+                              <td>BookCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The code of the primary book
+                                 or secondary book whose associated currency
+                                 values you want to calculate.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CalculateDerivedCurrencyBookRatesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CurrencyData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetCurrencyDataList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetCurrencyDataList">AssetCurrencyDataList</a></td>
+                              <td>Contains the results of asset
+                                 currency calculation.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-CancelReview"></a>CancelReview
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CancelReviewRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CapitaliseDetails</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}CancelReviewAsset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}CancelReviewAsset">CancelReviewAsset</a></td>
+                              <td>Contains the costs, accounts
+                                 and posting details for the asset review to
+                                 be cancelled.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CancelReviewResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you have cancelled the review of
+                                 specified assets.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNum</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number that uniquely
+                                 identifies this cancel review process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-CancelReviewedLateAdjustment"></a>CancelReviewedLateAdjustment
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CancelReviewedLateAdjustmentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LateAdjustmentDetails</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}PostCancelReviewedLateAdjustmentAsset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}PostCancelReviewedLateAdjustmentAsset">PostCancelReviewedLateAdjustmentAsset</a></td>
+                              <td>Contains posting details for
+                                 the specified late adjustment.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CancelReviewedLateAdjustmentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to cancel a late
+                                 adjustment review.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNum</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number that uniquely
+                                 identifies this late adjustment review process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-Capitalise"></a>Capitalise
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CapitaliseRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CapitaliseDetails</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}CapitaliseAsset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}CapitaliseAsset">CapitaliseAsset</a></td>
+                              <td>Contains the costs, accounts
+                                 and posting details for capitalising the
+                                 specified assets.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CapitaliseResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to capitalise the assets.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AssetKeyList</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKeyList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKeyList">AssetKeyList</a></td>
+                              <td>Contains a list of key
+                                 information for the assets that have been capitalised.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AssetList</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetList">AssetList</a></td>
+                              <td>Contains a list of the assets
+                                 that have been capitalised.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AggregateAsset</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>Contains a single asset that
+                                 has been created from multiple asset lines
+                                 on the Asset Intray.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SavedOnIntray</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Indicates whether the asset
+                                 has been saved to the Intray instead of
+                                 being capitalised.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ReasonSavedOnIntray</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>Explains why the asset was
+                                 saved to the Intray; that is, why it could
+                                 not be capitalised.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-CapitaliseReview"></a>CapitaliseReview
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CapitaliseReviewRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CapitaliseDetails</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}CapitaliseReviewAsset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}CapitaliseReviewAsset">CapitaliseReviewAsset</a></td>
+                              <td>Contains the costs, accounts
+                                 and posting details for capitalising the
+                                 specified assets.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CapitaliseReviewResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to capitalise the
+                                 reviewed assets.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AssetKeyList</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKeyList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKeyList">AssetKeyList</a></td>
+                              <td>Contains a list of key
+                                 information for the specified assets.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AssetList</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetList">AssetList</a></td>
+                              <td>Contains a list of the
+                                 specified assets and their details.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AggregateAsset</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>Contains a single asset that
+                                 has been created from multiple asset lines
+                                 on the Asset Intray.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-CheckAssetCreatable"></a>CheckAssetCreatable
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CheckAssetCreatableRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CreateGeneralDetails</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}CreateGeneralDetails" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}CreateGeneralDetails">CreateGeneralDetails</a></td>
+                              <td>Contains the information that
+                                 you want to check will create an asset.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CheckAssetCreatableResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you checked that an asset can be created.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Passed</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Indicates whether an asset
+                                 can be created from the information provided.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The number of the log
+                                 containing details of this checking process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-Create"></a>Create
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CreateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CreateDetails</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}CreateDetails" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}CreateDetails">CreateDetails</a></td>
+                              <td>Contains parameters for you
+                                 to specify a code for the new asset, the
+                                 company in which the asset is created, and
+                                 the capital cost of the asset.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CreateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to create the asset.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCodeB">typeAstCodeB</a></td>
+                              <td>The code for the asset that
+                                 you attempted to create.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Asset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>Contains the asset you have created.</td>
+                           </tr>
+                           <tr>
+                              <td>PostingDeltas</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>If set, differences between
+                                 asset values in the primary book and the
+                                 corresponding values in secondary books
+                                 (delta values) are posted to Financials.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-CreateFromParent"></a>CreateFromParent
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CreateFromParentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ParentWithOveridesKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}ParentWithOveridesKey" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}ParentWithOveridesKey">ParentWithOveridesKey</a></td>
+                              <td>Contains parameters for you
+                                 to specify the parent asset, the attributes
+                                 that the child asset inherits from its
+                                 parent, and the capital cost of the new
+                                 child asset.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CreateFromParentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to create the asset.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCodeB">typeAstCodeB</a></td>
+                              <td>The code for the asset that
+                                 you attempted to create.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Asset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>Contains the asset you have created.</td>
+                           </tr>
+                           <tr>
+                              <td>PostingDeltas</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>If set, differences between
+                                 asset values in the primary book and the
+                                 corresponding values in secondary books
+                                 (delta values) are posted to Financials.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-CreateFullAsset"></a>CreateFullAsset
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CreateFullAssetRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CreateFullAsset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}CreateFullAsset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}CreateFullAsset">CreateFullAsset</a></td>
+                              <td>Contains the information
+                                 (including document line details) for the
+                                 asset you want to create.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CreateFullAssetResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you have created an asset from
+                                 document lines.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCodeB">typeAstCodeB</a></td>
+                              <td>The asset code.</td>
+                           </tr>
+                           <tr>
+                              <td>Passed</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Indicates whether an asset
+                                 was created from the document lines.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The number of the log
+                                 containing details of this asset creation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Location</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtOneOfN" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtOneOfN">typeCtOneOfN</a></td>
+                              <td>The location of the asset.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-Delete"></a>Delete
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>DeleteRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKey" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKey">AssetKey</a></td>
+                              <td>Contains the key identifying
+                                 the asset you want to delete.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>DeleteResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to delete the asset.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCodeB">typeAstCodeB</a></td>
+                              <td>The code for the asset that
+                                 you attempted to delete.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-Get"></a>Get
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKey" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKey">AssetKey</a></td>
+                              <td>Contains the key identifying
+                                 the asset you want to retrieve from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to retrieve assets.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCodeB">typeAstCodeB</a></td>
+                              <td>The code for the asset that
+                                 you attempted to retrieve.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Asset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>Contains the asset you have
+                                 retrieved from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-LateAdjustment"></a>LateAdjustment
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>LateAdjustmentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LateAdjustmentDetails</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}LateAdjustmentAsset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}LateAdjustmentAsset">LateAdjustmentAsset</a></td>
+                              <td>Contains the value, suspense
+                                 account and posting details for the
+                                 specified late adjustment.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>LateAdjustmentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company
+                                 containing the asset to which you attempted
+                                 to make a late adjustment.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AssetCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCode">typeAstCode</a></td>
+                              <td>The code for the asset to
+                                 which you attempted to make a late adjustment.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-List"></a>List
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ListRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Filter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}ReqKeys" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ReqKeys">ReqKeys</a></td>
+                              <td>A filter that selects the
+                                 assets to be listed.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ListResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Keys</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}KeyData" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}KeyData">KeyData</a></td>
+                              <td>Contains the key information
+                                 for the listed assets.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-ListChildren"></a>ListChildren
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ListChildrenRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKey" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKey">AssetKey</a></td>
+                              <td>Contains the key identifying
+                                 the asset whose children you want to list.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ListChildrenResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>KeyList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKeyList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKeyList">AssetKeyList</a></td>
+                              <td>Contains a list of key
+                                 information for the specified assets.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-ListSourceTransactions"></a>ListSourceTransactions
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ListSourceTransactionsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>AssetKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKey" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKey">AssetKey</a></td>
+                              <td>Contains the key identifying
+                                 the asset whose source transactions will be listed.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ListSourceTransactionsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>TransactionDetailList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/transactiondetails}TransactionDetailList" href="assets/transactiondetails/transactiondetails.html#{http://www.coda.com/eassets/schemas/transactiondetails}TransactionDetailList">TransactionDetailList</a></td>
+                              <td>Contains the details of the
+                                 transactions for the specified asset.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-ListTransactions"></a>ListTransactions
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ListTransactionsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Filter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}ReqKeys" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ReqKeys">ReqKeys</a></td>
+                              <td>A filter that selects the
+                                 assets for which you want to retrieve
+                                 transaction information.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ListTransactionsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>TransactionDetailList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/transactiondetails}TransactionDetailList" href="assets/transactiondetails/transactiondetails.html#{http://www.coda.com/eassets/schemas/transactiondetails}TransactionDetailList">TransactionDetailList</a></td>
+                              <td>Contains the transaction
+                                 details for the listed assets.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-PostReviewedLateAdjustment"></a>PostReviewedLateAdjustment
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostReviewedLateAdjustmentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LateAdjustmentDetails</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}PostCancelReviewedLateAdjustmentAsset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}PostCancelReviewedLateAdjustmentAsset">PostCancelReviewedLateAdjustmentAsset</a></td>
+                              <td>Contains posting details for
+                                 the specified late adjustment.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PostReviewedLateAdjustmentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to post a late adjustment.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AssetCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCode">typeAstCode</a></td>
+                              <td>The code for the asset to
+                                 which you attempted to post a late adjustment.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-ReviewCapitalisation"></a>ReviewCapitalisation
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ReviewCapitalisationRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CapitaliseDetails</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}CapitaliseAsset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}CapitaliseAsset">CapitaliseAsset</a></td>
+                              <td>Contains the costs, accounts
+                                 and posting details that will be used when
+                                 the specified assets are capitalised.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ReviewCapitalisationResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to review capitalisation
+                                 and transaction details.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CapitaliseDetailsList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}CapitaliseDetailsList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}CapitaliseDetailsList">CapitaliseDetailsList</a></td>
+                              <td>Contains details that will be
+                                 stored when the specified assets are capitalised.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ReviewTransactions</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions" href="assets/reviewtransactions/reviewtransactions.html#{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions">ReviewTransactions</a></td>
+                              <td>Contains transaction details
+                                 for the specified assets.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNum</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number that uniquely
+                                 identifies this review capitalisation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AggregateAsset</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>Contains a single asset that
+                                 has been created from multiple asset lines
+                                 on the Asset Intray.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-ReviewLateAdjustment"></a>ReviewLateAdjustment
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ReviewLateAdjustmentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LateAdjustmentDetails</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}LateAdjustmentAsset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}LateAdjustmentAsset">LateAdjustmentAsset</a></td>
+                              <td>Contains the value, suspense
+                                 account and posting details for the
+                                 specified late adjustment.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ReviewLateAdjustmentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to review late
+                                 adjustment details.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AssetCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCode">typeAstCode</a></td>
+                              <td>The code for the asset whose
+                                 late adjustment details you attempted to review.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ReviewTransactions</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions" href="assets/reviewtransactions/reviewtransactions.html#{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions">ReviewTransactions</a></td>
+                              <td>Contains transaction details
+                                 for the specified asset.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNum</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number that uniquely
+                                 identifies this late adjustment review process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-Summary"></a>Summary
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SummaryRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetBookKey" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetBookKey">AssetBookKey</a></td>
+                              <td>A unique identifier for the
+                                 asset book.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SummaryResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The company code.</td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCodeB">typeAstCodeB</a></td>
+                              <td>The asset code.</td>
+                           </tr>
+                           <tr>
+                              <td>BookCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The asset book code.</td>
+                           </tr>
+                           <tr>
+                              <td>AssetSummary</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetSummary" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetSummary">AssetSummary</a></td>
+                              <td>The asset summary.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-Update"></a>Update
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Asset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>Contains the information for
+                                 the asset you want to update.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to update the asset.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCodeB">typeAstCodeB</a></td>
+                              <td>The code for the asset that
+                                 you attempted to update.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>TimeStamp</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeWord" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeWord">typeWord</a></td>
+                              <td>The TimeStamp value for this
+                                 asset in the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-UpdateWithTransactions"></a>UpdateWithTransactions
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateWithTransactionsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Asset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>Contains the information for
+                                 the asset you want to update.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateWithTransactionsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to update the asset with transactions.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCodeB">typeAstCodeB</a></td>
+                              <td>The code for the asset that
+                                 you attempted to update with transactions.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>TimeStamp</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeWord" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeWord">typeWord</a></td>
+                              <td>The TimeStamp value for this
+                                 asset in the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-UserFieldClassList"></a>UserFieldClassList
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UserFieldClassListRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Asset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>Contains the information for
+                                 the asset with the user defined field that
+                                 you want to query.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ExtensionName</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The appropriate user field
+                                 extension providing the list for the
+                                 specified asset.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UserFieldClassListResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>DataList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetUserDataList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetUserDataList">AssetUserDataList</a></td>
+                              <td>Contains the list associated
+                                 with the user defined field identified in
+                                 the request corresponding to this response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-ValidateAndAdd"></a>ValidateAndAdd
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidateAndAddRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Asset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>Contains the information for
+                                 the asset you want to create.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ValidateAndAddResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to add the asset.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCodeB">typeAstCodeB</a></td>
+                              <td>The code for the asset that
+                                 you attempted to add.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>TimeStamp</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeWord" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeWord">typeWord</a></td>
+                              <td>The TimeStamp value for this
+                                 asset in the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-ValidateAsset"></a>ValidateAsset
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidateAssetRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Asset</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                              <td>Contains the information for
+                                 the asset you want to validate.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CapitalisationYearPeriod</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The year/period in which the
+                                 asset will be capitalised.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ValidateAssetResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>AssetValid</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Indicates whether the asset
+                                 is valid.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-ValidateAssetCategories"></a>ValidateAssetCategories
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidateAssetCategoriesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>AssetKeys</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKeyList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKeyList">AssetKeyList</a></td>
+                              <td>Contains a list of keys
+                                 identifying assets and the categories used
+                                 to create them.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ValidateAssetCategoriesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>InvalidAssetKeys</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetCategoryKeyList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetCategoryKeyList">AssetCategoryKeyList</a></td>
+                              <td>Contains a list of assets
+                                 (and their categories) that failed the validation.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-ValidateAssetCode"></a>ValidateAssetCode
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidateAssetCodeRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>AssetKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKey" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKey">AssetKey</a></td>
+                              <td>Contains the key identifying
+                                 the asset code you want to validate.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ValidateAssetCodeResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ValidStatus</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>Indicates whether the asset
+                                 code is valid. This can be one of three values:
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>NumRuleCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>If ValidStatus = 2, this
+                                 element contains the code of the number rule
+                                 master which causes the conflict.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AssetService-ValidateWIPAssets"></a>ValidateWIPAssets
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidateWIPAssetsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>AssetKeys</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKeyList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKeyList">AssetKeyList</a></td>
+                              <td>Contains a list of keys
+                                 identifying WIP assets and the categories
+                                 used to create them.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ValidateWIPAssetsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>InvalidAssetKeys</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKeyList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKeyList">AssetKeyList</a></td>
+                              <td>Contains a list of WIP assets
+                                 (and their categories) that failed the validation.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

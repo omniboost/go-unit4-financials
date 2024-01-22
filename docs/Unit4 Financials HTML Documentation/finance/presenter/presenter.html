@@ -1,0 +1,1341 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/presenter</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/presenter</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>Presenter</h3>
+         <p>This element holds a presenter master.</p>
+         <h3>PresenterRequest</h3>
+         <p>This service allows you to maintain presenter masters.</p>
+         <h3>PresenterResponse</h3>
+         <p>This is the response that is returned when you maintain presenter masters.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/presenter}UserExit"></a><h3>UserExit</h3>
+         <p>This element contains details of a user exit routine which can be invoked from Browse
+            details.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>File</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The path and filename of the DLL to run from this user exit. If a .DLL file is named
+                        here, it MUST NOT be changed by the XMLi programmer, since it is not maintainable
+                        in Financials or XMLi. It is maintained only in the Client/server version, and must
+                        be resent to the server with the .DLL intact, so that future use of this presenter
+                        by a Client/Server user is not adversely affected.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ActionCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The name of the action code argument passed to a user-defined exit routine in a DLL
+                        file. You can leave this blank to pass an empty action code.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Caption</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortName" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortName">typeShortName</a></td>
+                     <td>A label for this user exit routine.</td>
+                  </tr>
+                  <tr>
+                     <td>UserExtension</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}ExtensionRef" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ExtensionRef">ExtensionRef</a></td>
+                     <td>The code of the user extension which will be available to users when this presenter
+                        is used in Browse Details.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}UserExitList"></a><h3>UserExitList</h3>
+         <p>This element contains details of user exit routines which can be invoked from Browse
+            details.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Exit</td>
+                     <td>0</td>
+                     <td>4</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}UserExit" href="#{http://www.coda.com/efinance/schemas/presenter}UserExit">UserExit</a></td>
+                     <td>This element contains details of a user exit routine which can be invoked from Browse
+                        details.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}ManipulateByListItem"></a><h3>ManipulateByListItem</h3>
+         <p>This element contains details of a vocabulary item to sort by.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>VocabID</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtOneOfN" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtOneOfN">typeCtOneOfN</a></td>
+                     <td>The name of a vocabulary item by which the data will be sorted.</td>
+                  </tr>
+                  <tr>
+                     <td>FFMasterCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The flexi-field master code.</td>
+                  </tr>
+                  <tr>
+                     <td>FFColumnName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeFlexiColumnName" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeFlexiColumnName">typeFlexiColumnName</a></td>
+                     <td>The flexi-field column name.</td>
+                  </tr>
+                  <tr>
+                     <td>FFElmLevel</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmLevel" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmLevel">typeElmLevel</a></td>
+                     <td>The flexi-field element level.</td>
+                  </tr>
+                  <tr>
+                     <td>SortOrder</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtBalSortOrder" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtBalSortOrder">typeCtBalSortOrder</a></td>
+                     <td>The sort order.</td>
+                  </tr>
+                  <tr>
+                     <td>SubTotal</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If set, indicates that subtotals are displayed at each break in the sorted list for
+                        this vocabulary item.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>HideDetail</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If set, detail lines are hidden.</td>
+                  </tr>
+                  <tr>
+                     <td>SubColourSet</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If set, subtotal lines are displayed in a different colour.</td>
+                  </tr>
+                  <tr>
+                     <td>SubColour</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The colour of a subtotal line.</td>
+                  </tr>
+                  <tr>
+                     <td>VocabName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The vocabulary item name.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}ManipulateByList"></a><h3>ManipulateByList</h3>
+         <p>This element contains a list of vocabulary items controlling the sort order and presentation
+            of data lines.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ManipulateBy</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}ManipulateByListItem" href="#{http://www.coda.com/efinance/schemas/presenter}ManipulateByListItem">ManipulateByListItem</a></td>
+                     <td>This element contains details of a vocabulary item to sort by. This is still notionally
+                        3 but Workflow needed to use 6. Users can't define more than 3.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}Master"></a><h3>Master</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>TimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The TimeStamp value for this presenter master in the database.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which the presenter master exists.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for this presenter master.</td>
+                  </tr>
+                  <tr>
+                     <td>Name</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeName" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeName">typeName</a></td>
+                     <td>The full name for the presenter master.</td>
+                  </tr>
+                  <tr>
+                     <td>ShortName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The abbreviated name for the presenter master.</td>
+                  </tr>
+                  <tr>
+                     <td>Restrict</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBaseEnumList" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeBaseEnumList">typeBaseEnumList</a></td>
+                     <td>Unused (For future use)</td>
+                  </tr>
+                  <tr>
+                     <td>Exits</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}UserExitList" href="#{http://www.coda.com/efinance/schemas/presenter}UserExitList">UserExitList</a></td>
+                     <td>This element contains details of user exit routines which can be invoked from Browse
+                        details.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ManipulateByList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}ManipulateByList" href="#{http://www.coda.com/efinance/schemas/presenter}ManipulateByList">ManipulateByList</a></td>
+                     <td>This element contains details of how the information will be sorted, and whether monetary
+                        values will be totalled.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>AllowColumnSort</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that sorting on column headings is enabled.</td>
+                  </tr>
+                  <tr>
+                     <td>GrandTotal</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that grand totals are displayed for columns containing monetary
+                        values, quantities, or calculations.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>GrandColourSet</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that the grand total should be a different colour.</td>
+                  </tr>
+                  <tr>
+                     <td>GrandColour</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The colour of the grand total.</td>
+                  </tr>
+                  <tr>
+                     <td>UseAbsoluteNumbers</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that sorting should ignore negative numbers.</td>
+                  </tr>
+                  <tr>
+                     <td>AllowTitleWrap</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that titles can wrap across multiple lines.</td>
+                  </tr>
+                  <tr>
+                     <td>CreateDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDateB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDateB">typeDateB</a></td>
+                     <td>The date the master was created.</td>
+                  </tr>
+                  <tr>
+                     <td>ModifyDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDateB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDateB">typeDateB</a></td>
+                     <td>The date the master was last updated.</td>
+                  </tr>
+                  <tr>
+                     <td>User</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code of the user who last modified the presenter master.</td>
+                  </tr>
+                  <tr>
+                     <td>DataClass</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>Specifies the type of data required and limits the vocabulary items that can be used
+                        to obtain it. If this element is omitted, a default of dataclass_all will be used.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Shared</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that this master is shared.</td>
+                  </tr>
+                  <tr>
+                     <td>FlexiFieldMasterList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}FlexiFieldMasterList" href="#{http://www.coda.com/efinance/schemas/presenter}FlexiFieldMasterList">FlexiFieldMasterList</a></td>
+                     <td>Contains a list of flexi-field masters.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}VocabListItem"></a><h3>VocabListItem</h3>
+         <p>This element contains a vocabulary item used by this presenter master, and its display
+            settings.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>VocabID</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtOneOfN" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtOneOfN">typeCtOneOfN</a></td>
+                     <td>Specifies the vocabulary item to use in this presenter master.</td>
+                  </tr>
+                  <tr>
+                     <td>FFMasterCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The flexi-field master code.</td>
+                  </tr>
+                  <tr>
+                     <td>FFColumnName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeFlexiColumnName" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeFlexiColumnName">typeFlexiColumnName</a></td>
+                     <td>The flexi-field column name.</td>
+                  </tr>
+                  <tr>
+                     <td>FFElmLevel</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmLevel" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmLevel">typeElmLevel</a></td>
+                     <td>The flexi-field element level.</td>
+                  </tr>
+                  <tr>
+                     <td>Protected</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether users may change the vocabulary item at run time. When TRUE, the
+                        value is protected and cannot be changed.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ColTitle</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeText" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeText">typeText</a></td>
+                     <td>Specifies the title to use for this vocabulary item. This defaults to the first 20
+                        characters of the vocabulary name.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DispWidth</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The number of characters (or width) reserved for displaying the information determined
+                        by this vocabulary item.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DispOffset</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The character position where the displayed information will start. The required number
+                        of characters of information, determined by DispWidth, is presented from this position
+                        onwards. The offset is measured from the left. This number cannot be greater than
+                        the DispWidth value.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Cumulative</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that an accumulated value will be displayed. This is only valid
+                        when the VocabID is Document, Dual, Element, or Home value.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ReverseSign</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that the sign on column values is reversed. For example, an original
+                        value of 100 is displayed as -100, and an original value of -100 is displayed as 100.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}VocabList"></a><h3>VocabList</h3>
+         <p>This element contains details of the vocabulary items used by this presenter master.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Vocab</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}VocabListItem" href="#{http://www.coda.com/efinance/schemas/presenter}VocabListItem">VocabListItem</a></td>
+                     <td>This element contains a vocabulary item used by this presenter master, and its display
+                        settings.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}Presenter"></a><h3>Presenter</h3>
+         <p>The Presenter type has <a title="{http://www.coda.com/efinance/schemas/presenter}Master" href="#{http://www.coda.com/efinance/schemas/presenter}Master">Master</a> as its base type.
+         </p>
+         <p>This element holds a presenter master.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>VocabList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}VocabList" href="#{http://www.coda.com/efinance/schemas/presenter}VocabList">VocabList</a></td>
+                     <td>This element contains details of the vocabulary items used by this presenter master.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}PresenterListFilter"></a><h3>PresenterListFilter</h3>
+         <p>The PresenterListFilter type has <a title="{http://www.coda.com/efinance/schemas/common}ReqKeys" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ReqKeys">ReqKeys</a> as its base type.
+         </p>
+         <p>This element contains the selection parameters for the presenters you want to include
+            in a list.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ShortName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The abbreviated name of the presenter master.</td>
+                  </tr>
+                  <tr>
+                     <td>Product</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeApplicationNameb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeApplicationNameb">typeApplicationNameb</a></td>
+                     <td>The product to which the presenter relates.</td>
+                  </tr>
+                  <tr>
+                     <td>ViewType</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGenericOon" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGenericOon">typeGenericOon</a></td>
+                     <td>The type of the objects that vocabulary items can be based on.</td>
+                  </tr>
+                  <tr>
+                     <td>DataView</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextfield" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextfield">typeTextfield</a></td>
+                     <td>The dataview from which the presenter draws its vocabulary items.</td>
+                  </tr>
+                  <tr>
+                     <td>LastModifiedFrom</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDateB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDateB">typeDateB</a></td>
+                     <td>The earliest modification date for masters you want to include in your selection.</td>
+                  </tr>
+                  <tr>
+                     <td>LastModifiedTo</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDateB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDateB">typeDateB</a></td>
+                     <td>The latest modification date for masters you want to include in your selection.</td>
+                  </tr>
+                  <tr>
+                     <td>TableName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextWild" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextWild">typeTextWild</a></td>
+                     <td>The name of a Link table.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}FlexiFieldMasterList"></a><h3>FlexiFieldMasterList</h3>
+         <p>Contains a list of flexi-field masters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Code</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The flexi-field master code.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}AddRequest"></a><h3>AddRequest</h3>
+         <p>The AddRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Presenter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                     <td>Contains the information for the presenter master you want to create.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}AddRequestVerb"></a><h3>AddRequestVerb</h3>
+         <p>The AddRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}MultiCompanyRequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}MultiCompanyRequestVerb">MultiCompanyRequestVerb</a> as its base type.
+         </p>
+         <p>Creates new presenter masters in the database using the information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}AddRequest" href="#{http://www.coda.com/efinance/schemas/presenter}AddRequest">AddRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}AddResponse"></a><h3>AddResponse</h3>
+         <p>The AddResponse type has <a title="{http://www.coda.com/efinance/schemas/common}MultiCompanyResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}MultiCompanyResponse">MultiCompanyResponse</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which you attempted to create the presenter master.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the presenter master that you attempted to create.</td>
+                  </tr>
+                  <tr>
+                     <td>TimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeWord" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeWord">typeWord</a></td>
+                     <td>The TimeStamp value for this presenter master in the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}AddResponseVerb"></a><h3>AddResponseVerb</h3>
+         <p>The AddResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Companies</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Companies" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Companies">Companies</a></td>
+                     <td>Contains the list of additional companies in which you want to create the masters.
+                        This is part of the multi-company functionality for maintaining masters in multiple
+                        companies.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}AddResponse" href="#{http://www.coda.com/efinance/schemas/presenter}AddResponse">AddResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}UpdateRequest"></a><h3>UpdateRequest</h3>
+         <p>The UpdateRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Presenter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                     <td>Contains the information for the presenter master you want to update.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}UpdateRequestVerb"></a><h3>UpdateRequestVerb</h3>
+         <p>The UpdateRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}MultiCompanyRequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}MultiCompanyRequestVerb">MultiCompanyRequestVerb</a> as its base type.
+         </p>
+         <p>Updates presenter masters in the database using the information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}UpdateRequest" href="#{http://www.coda.com/efinance/schemas/presenter}UpdateRequest">UpdateRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}UpdateResponse"></a><h3>UpdateResponse</h3>
+         <p>The UpdateResponse type has <a title="{http://www.coda.com/efinance/schemas/common}MultiCompanyResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}MultiCompanyResponse">MultiCompanyResponse</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the company in which you attempted to update the presenter master.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the presenter master that you attempted to update.</td>
+                  </tr>
+                  <tr>
+                     <td>TimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeWord" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeWord">typeWord</a></td>
+                     <td>The TimeStamp value for this presenter master in the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}UpdateResponseVerb"></a><h3>UpdateResponseVerb</h3>
+         <p>The UpdateResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Companies</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Companies" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Companies">Companies</a></td>
+                     <td>Contains the list of additional companies in which you want to update the masters.
+                        This is part of the multi-company functionality for maintaining masters in multiple
+                        companies.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}UpdateResponse" href="#{http://www.coda.com/efinance/schemas/presenter}UpdateResponse">UpdateResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}GetRequest"></a><h3>GetRequest</h3>
+         <p>The GetRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>Contains the key identifying the presenter masters you want to retrieve from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}GetRequestVerb"></a><h3>GetRequestVerb</h3>
+         <p>The GetRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the specified presenter masters from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}GetRequest" href="#{http://www.coda.com/efinance/schemas/presenter}GetRequest">GetRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}GetResponse"></a><h3>GetResponse</h3>
+         <p>The GetResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which you attempted to retrieve the presenter master.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the presenter master that you attempted to retrieve.</td>
+                  </tr>
+                  <tr>
+                     <td>Presenter</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                     <td>Contains the presenter master you have retrieved from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}GetResponseVerb"></a><h3>GetResponseVerb</h3>
+         <p>The GetResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}GetResponse" href="#{http://www.coda.com/efinance/schemas/presenter}GetResponse">GetResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}DeleteRequest"></a><h3>DeleteRequest</h3>
+         <p>The DeleteRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>Contains the key identifying the presenter master you want to delete.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}DeleteRequestVerb"></a><h3>DeleteRequestVerb</h3>
+         <p>The DeleteRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Deletes the specified presenter master from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}DeleteRequest" href="#{http://www.coda.com/efinance/schemas/presenter}DeleteRequest">DeleteRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}DeleteResponse"></a><h3>DeleteResponse</h3>
+         <p>The DeleteResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which you attempted to delete the presenter master.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the presenter master that you attempted to delete.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}DeleteResponseVerb"></a><h3>DeleteResponseVerb</h3>
+         <p>The DeleteResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}DeleteResponse" href="#{http://www.coda.com/efinance/schemas/presenter}DeleteResponse">DeleteResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}ListRequest"></a><h3>ListRequest</h3>
+         <p>The ListRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}PresenterListFilter" href="#{http://www.coda.com/efinance/schemas/presenter}PresenterListFilter">PresenterListFilter</a></td>
+                     <td>A filter that selects the presenter masters to be listed.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}ListRequestVerb"></a><h3>ListRequestVerb</h3>
+         <p>The ListRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves key information for the specified presenter masters from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}ListRequest" href="#{http://www.coda.com/efinance/schemas/presenter}ListRequest">ListRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}ListResponse"></a><h3>ListResponse</h3>
+         <p>The ListResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}PresenterListFilter" href="#{http://www.coda.com/efinance/schemas/presenter}PresenterListFilter">PresenterListFilter</a></td>
+                     <td>The filter that was used to select the presenter masters to be listed.</td>
+                  </tr>
+                  <tr>
+                     <td>Keys</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}KeyData" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}KeyData">KeyData</a></td>
+                     <td>Contains the key information for the listed presenter masters.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}ListResponseVerb"></a><h3>ListResponseVerb</h3>
+         <p>The ListResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}ListResponse" href="#{http://www.coda.com/efinance/schemas/presenter}ListResponse">ListResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}PresenterRequest"></a><h3>PresenterRequest</h3>
+         <p>The PresenterRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to maintain presenter masters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Add</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}AddRequestVerb" href="#{http://www.coda.com/efinance/schemas/presenter}AddRequestVerb">AddRequestVerb</a></td>
+                     <td>Creates new presenter masters in the database using the information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>Update</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}UpdateRequestVerb" href="#{http://www.coda.com/efinance/schemas/presenter}UpdateRequestVerb">UpdateRequestVerb</a></td>
+                     <td>Updates presenter masters in the database using the information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>Get</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}GetRequestVerb" href="#{http://www.coda.com/efinance/schemas/presenter}GetRequestVerb">GetRequestVerb</a></td>
+                     <td>Retrieves the specified presenter masters from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>Delete</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}DeleteRequestVerb" href="#{http://www.coda.com/efinance/schemas/presenter}DeleteRequestVerb">DeleteRequestVerb</a></td>
+                     <td>Deletes the specified presenter master from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>List</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}ListRequestVerb" href="#{http://www.coda.com/efinance/schemas/presenter}ListRequestVerb">ListRequestVerb</a></td>
+                     <td>Retrieves key information for the specified presenter masters from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/presenter}PresenterResponse"></a><h3>PresenterResponse</h3>
+         <p>The PresenterResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you maintain presenter masters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Add</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}AddResponseVerb" href="#{http://www.coda.com/efinance/schemas/presenter}AddResponseVerb">AddResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Update</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}UpdateResponseVerb" href="#{http://www.coda.com/efinance/schemas/presenter}UpdateResponseVerb">UpdateResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Get</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}GetResponseVerb" href="#{http://www.coda.com/efinance/schemas/presenter}GetResponseVerb">GetResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Delete</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}DeleteResponseVerb" href="#{http://www.coda.com/efinance/schemas/presenter}DeleteResponseVerb">DeleteResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>List</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}ListResponseVerb" href="#{http://www.coda.com/efinance/schemas/presenter}ListResponseVerb">ListResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

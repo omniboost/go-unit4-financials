@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/printing/printing-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:priws="http://www.coda.com/common/schemas/printing/printing-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:pri="http://www.coda.com/common/schemas/printing"
+    xmlns:log="http://www.coda.com/common/schemas/logging"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:pfm="http://www.coda.com/common/schemas/printformatmaster"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/printing/printing-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/common/schemas/printing" schemaLocation="../wsdl/common/printing/printing.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/printformatmaster" schemaLocation="common/printformatmaster/printformatmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/logging" schemaLocation="common/logging/logging.xsd"/>
+    <xsd:element name="TestPrintResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WritePayCollectDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogID" minOccurs="0" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>The ID for the log file
+                            produced during the write stage of the pay process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintPreviewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormat" type="pfm:PrintFormat">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the print format master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Test" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies whether or not this
+                            print preview request uses test data: x for
+                            alphanumeric characters, 9 for numeric
+                            characters and dd/mm/yy for dates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Filter" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of vocabulary which
+                            determines the data to print.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WritePayCollectDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PayCollectData" type="pri:PayCollectWriteData">
+                    <xsd:annotation>
+                        <xsd:documentation>The pay data to write to a file.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="MultiPrintResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SuccessList" type="pri:SuccessList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of the printing
+                            request outcomes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogKey" minOccurs="0" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The log key that identifies
+                            the log for this print run.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormatMasterCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the print format master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Test" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies whether or not this
+                            print request uses test data: x for
+                            alphanumeric characters, 9 for numeric
+                            characters and dd/mm/yy for dates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Filter" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of vocabulary which
+                            determines the data to print.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OutputDeviceMasterCode" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the output
+                            device master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="EmailTemplateMasterCode" type="com:typeGeneralCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for an e-mail
+                            template master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DevicePath" minOccurs="0" type="com:typeLocation">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies the address of the
+                            output device on the local network.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Subject" minOccurs="0" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>The text that is displayed in
+                            the Subject field of the e-mail, if the
+                            output is sent to an e-mail address.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Comment" minOccurs="0" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>The text displayed in the
+                            body of the e-mail, if the output is sent to
+                            an e-mail address.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintPreviewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintPreview" type="pri:PdfFile">
+                    <xsd:annotation>
+                        <xsd:documentation>A preview of the data you
+                            want to print, in PDF format.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="MultiPrintRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormatMasterCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the print format master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Test" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies whether or not this
+                            print preview request uses test data: x for
+                            alphanumeric characters, 9 for numeric
+                            characters and dd/mm/yy for dates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OutputDeviceMasterCode" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the output
+                            device master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PrintContent" maxOccurs="unbounded" type="pri:PrintContent">
+                    <xsd:annotation>
+                        <xsd:documentation>The data to print.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogType" minOccurs="0" type="com:typeGenericOon">
+                    <xsd:annotation>
+                        <xsd:documentation>The type of log to produce.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogTitle" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The title for the log.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Product" minOccurs="0" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The Coda application
+                            requesting the print.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentSplit" minOccurs="0" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies whether multiple
+                            documents for a single customer should be
+                            printed seperately.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="TestPrintRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormat" type="pfm:PrintFormat">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the print format master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Test" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies whether or not this
+                            print request uses test data: x for
+                            alphanumeric characters, 9 for numeric
+                            characters and dd/mm/yy for dates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Filter" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of vocabulary which
+                            determines the data to print.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OutputDeviceMasterCode" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the output
+                            device master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DevicePath" minOccurs="0" type="com:typeLocation">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies the address of the
+                            output device on the local network.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Subject" minOccurs="0" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>The text that is displayed in
+                            the Subject field of the e-mail, if the
+                            output is sent to an e-mail address.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Comment" minOccurs="0" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>The text displayed in the
+                            body of the e-mail, if the output is sent to
+                            an e-mail address.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="PrintResponse">
+    <part name="PrintResponse" element="priws:PrintResponse"/>
+  </message>
+  <message name="PrintPreviewResponse">
+    <part name="PrintPreviewResponse" element="priws:PrintPreviewResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="priws:Options"/>
+  </message>
+  <message name="PrintPreviewRequest">
+    <part name="PrintPreviewRequest" element="priws:PrintPreviewRequest"/>
+  </message>
+  <message name="PrintRequest">
+    <part name="PrintRequest" element="priws:PrintRequest"/>
+  </message>
+  <message name="TestPrintRequest">
+    <part name="TestPrintRequest" element="priws:TestPrintRequest"/>
+  </message>
+  <message name="MultiPrintResponse">
+    <part name="MultiPrintResponse" element="priws:MultiPrintResponse"/>
+  </message>
+  <message name="WritePayCollectDataRequest">
+    <part name="WritePayCollectDataRequest" element="priws:WritePayCollectDataRequest"/>
+  </message>
+  <message name="WritePayCollectDataResponse">
+    <part name="WritePayCollectDataResponse" element="priws:WritePayCollectDataResponse"/>
+  </message>
+  <message name="TestPrintResponse">
+    <part name="TestPrintResponse" element="priws:TestPrintResponse"/>
+  </message>
+  <message name="MultiPrintRequest">
+    <part name="MultiPrintRequest" element="priws:MultiPrintRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="priws:OptionsResponse"/>
+  </message>
+  <portType name="PrintingServicePortTypes">
+    <operation name="Print">
+      <input message="priws:PrintRequest"/>
+      <output message="priws:PrintResponse"/>
+    </operation>
+    <operation name="PrintPreview">
+      <input message="priws:PrintPreviewRequest"/>
+      <output message="priws:PrintPreviewResponse"/>
+    </operation>
+    <operation name="WritePayCollectData">
+      <input message="priws:WritePayCollectDataRequest"/>
+      <output message="priws:WritePayCollectDataResponse"/>
+    </operation>
+    <operation name="TestPrint">
+      <input message="priws:TestPrintRequest"/>
+      <output message="priws:TestPrintResponse"/>
+    </operation>
+    <operation name="MultiPrint">
+      <input message="priws:MultiPrintRequest"/>
+      <output message="priws:MultiPrintResponse"/>
+    </operation>
+  </portType>
+  <binding name="PrintingServiceSOAPBinding" type="priws:PrintingServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Print">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Printing/Print" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PrintPreview">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Printing/PrintPreview" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="WritePayCollectData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Printing/WritePayCollectData" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="TestPrint">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Printing/TestPrint" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="MultiPrint">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Printing/MultiPrint" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PrintingService">
+    <port name="PrintingServicePort" binding="priws:PrintingServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/printing/printing-13.0"/>
+    </port>
+  </service>
+</definitions>

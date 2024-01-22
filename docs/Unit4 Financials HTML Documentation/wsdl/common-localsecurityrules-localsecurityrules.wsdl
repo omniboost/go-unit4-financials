@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/localsecurityrules/localsecurityrules-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:lsecrws="http://www.coda.com/common/schemas/localsecurityrules/localsecurityrules-1.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:lsecr="http://www.coda.com/common/schemas/localsecurityrules"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/localsecurityrules/localsecurityrules-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/localsecurityrules" schemaLocation="../wsdl/common/localsecurityrules/localsecurityrules.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="User" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>Reserved for future use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DataType" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>Reserved for future use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Object" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>Reserved for future use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LocalSecurity" type="lsecr:LocalSecurity">
+                    <xsd:annotation>
+                        <xsd:documentation>Reserved for future use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LocalSecurity" minOccurs="0" type="lsecr:LocalSecurityList">
+                    <xsd:annotation>
+                        <xsd:documentation>Reserved for future use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="lsecrws:UpdateRequest"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="lsecrws:ListResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="lsecrws:Options"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="lsecrws:UpdateResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="lsecrws:ListRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="lsecrws:OptionsResponse"/>
+  </message>
+  <portType name="LocalSecurityRulesServicePortTypes">
+    <operation name="List">
+      <input message="lsecrws:ListRequest"/>
+      <output message="lsecrws:ListResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="lsecrws:UpdateRequest"/>
+      <output message="lsecrws:UpdateResponse"/>
+    </operation>
+  </portType>
+  <binding name="LocalSecurityRulesServiceSOAPBinding" type="lsecrws:LocalSecurityRulesServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/LocalSecurityRules/List" style="document"/>
+      <input>
+        <soap:header message="lsecrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="lsecrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/LocalSecurityRules/Update" style="document"/>
+      <input>
+        <soap:header message="lsecrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="lsecrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="LocalSecurityRulesService">
+    <port name="LocalSecurityRulesServicePort" binding="lsecrws:LocalSecurityRulesServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/localsecurityrules/localsecurityrules-1.0"/>
+    </port>
+  </service>
+</definitions>

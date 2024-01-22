@@ -1,0 +1,1186 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/common/schemas/printing</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/common/schemas/printing</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>PrintingRequest</h3>
+         <p>This service allows you to output data for printing.</p>
+         <h3>PrintingResponse</h3>
+         <p>This is the response returned when you send a request to output data for printing.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/common/schemas/printing}PdfFile"></a><h3>PdfFile</h3>
+         <p>The PDF file displayed for a print preview.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Contents</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}base64Binary" href="http://www.w3.org/TR/xmlschema11-2/#base64Binary">base64Binary</a></td>
+                     <td>Contains the data displayed in the PDF file.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}PdfFileList"></a><h3>PdfFileList</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PdfFile</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}PdfFile" href="#{http://www.coda.com/common/schemas/printing}PdfFile">PdfFile</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}PrintContent"></a><h3>PrintContent</h3>
+         <p>The data to print.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>LogHeader</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The header for the log.</td>
+                  </tr>
+                  <tr>
+                     <td>LogHeaderArgs</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>A set of arguments to include in the log header.</td>
+                  </tr>
+                  <tr>
+                     <td>LogLine</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The text for a log line.</td>
+                  </tr>
+                  <tr>
+                     <td>AdditionalLogLineArgs</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>A set of additional vocabs to include in the log line.</td>
+                  </tr>
+                  <tr>
+                     <td>LogFooter</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The footer for the log.</td>
+                  </tr>
+                  <tr>
+                     <td>LogFooterArgs</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>A set of arguments to include in the log footer.</td>
+                  </tr>
+                  <tr>
+                     <td>LogLineKeyParts</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>A list of the key vocabs to print.</td>
+                  </tr>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                     <td>A list of vocabulary which determines the data to print.</td>
+                  </tr>
+                  <tr>
+                     <td>DevicePath</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLocation" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLocation">typeLocation</a></td>
+                     <td>The physical location of the device (if a printer), or the default e-mail address
+                        (if e-mail), or the full path for the filename (if a file).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Subject</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeText" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeText">typeText</a></td>
+                     <td>The subject line to include in a e-mail.</td>
+                  </tr>
+                  <tr>
+                     <td>Comment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeText" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeText">typeText</a></td>
+                     <td>A text comment.</td>
+                  </tr>
+                  <tr>
+                     <td>EmailMasterTemplate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The e-mail template master that provides the subject, body and signature for the generated
+                        e-mails.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}Row"></a><h3>Row</h3>
+         <p>A row of payment data.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Cells</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                     <td>A list of cells of data.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}RowList"></a><h3>RowList</h3>
+         <p>A list of rows of header data.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Row</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}Row" href="#{http://www.coda.com/common/schemas/printing}Row">Row</a></td>
+                     <td>A row of payment data.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}WriteParameterDataElement"></a><h3>WriteParameterDataElement</h3>
+         <p>An extended parameter.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Name</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeParameterNameB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeParameterNameB">typeParameterNameB</a></td>
+                     <td>The name of the extended parameter.</td>
+                  </tr>
+                  <tr>
+                     <td>Value</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeParameterValueB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeParameterValueB">typeParameterValueB</a></td>
+                     <td>The value of the extended parameter.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}WriteParameterListData"></a><h3>WriteParameterListData</h3>
+         <p>This element contains a list of extended parameters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Parameter</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}WriteParameterDataElement" href="#{http://www.coda.com/common/schemas/printing}WriteParameterDataElement">WriteParameterDataElement</a></td>
+                     <td>An extended parameter.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}PayCollectWriteData"></a><h3>PayCollectWriteData</h3>
+         <p>The data to write to a file.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>OutputDeviceMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the output device master.</td>
+                  </tr>
+                  <tr>
+                     <td>PayFormatMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for a pay format master.</td>
+                  </tr>
+                  <tr>
+                     <td>EmailTemplateMaster</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code for an e-mail template master.</td>
+                  </tr>
+                  <tr>
+                     <td>BankCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The bank code.</td>
+                  </tr>
+                  <tr>
+                     <td>MediaCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The media code.</td>
+                  </tr>
+                  <tr>
+                     <td>PayCollectCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The pay/collect master code.</td>
+                  </tr>
+                  <tr>
+                     <td>ProposalCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The proposal code.</td>
+                  </tr>
+                  <tr>
+                     <td>Subject</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextAny" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextAny">typeTextAny</a></td>
+                     <td>The text to appear on the subject line of an e-mail message.</td>
+                  </tr>
+                  <tr>
+                     <td>ExtensionMasterCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of a user extension.</td>
+                  </tr>
+                  <tr>
+                     <td>WriteParameterList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}WriteParameterListData" href="#{http://www.coda.com/common/schemas/printing}WriteParameterListData">WriteParameterListData</a></td>
+                     <td>This element contains a list of extended parameters.</td>
+                  </tr>
+                  <tr>
+                     <td>Header</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                     <td>A list of cells of header information.</td>
+                  </tr>
+                  <tr>
+                     <td>HeaderTypes</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                     <td>A list of cells of header types.</td>
+                  </tr>
+                  <tr>
+                     <td>HeaderDataSet</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}RowList" href="#{http://www.coda.com/common/schemas/printing}RowList">RowList</a></td>
+                     <td>A list of rows of header data.</td>
+                  </tr>
+                  <tr>
+                     <td>SummaryAndDetail</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                     <td>A list of cells of summary and detail data.</td>
+                  </tr>
+                  <tr>
+                     <td>SummaryAndDetailTypes</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                     <td>A list of cells of summary and detail types.</td>
+                  </tr>
+                  <tr>
+                     <td>SummaryAndDetailDataSet</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}RowList" href="#{http://www.coda.com/common/schemas/printing}RowList">RowList</a></td>
+                     <td>A list of rows of summary and detail data.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}SuccessList"></a><h3>SuccessList</h3>
+         <p>This element holds a list of printing request outcomes.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Success</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether the corresponding document, identified by its position in the list,
+                        was successfully printed.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}PrintRequest"></a><h3>PrintRequest</h3>
+         <p>The PrintRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PrintFormatMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the print format master.</td>
+                  </tr>
+                  <tr>
+                     <td>Test</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether or not this print request uses test data: x for alphanumeric characters,
+                        9 for numeric characters and dd/mm/yy for dates.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                     <td>A list of vocabulary which determines the data to print.</td>
+                  </tr>
+                  <tr>
+                     <td>OutputDeviceMasterCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the output device master.</td>
+                  </tr>
+                  <tr>
+                     <td>EmailTemplateMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code for an e-mail template master.</td>
+                  </tr>
+                  <tr>
+                     <td>DevicePath</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLocation" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLocation">typeLocation</a></td>
+                     <td>Specifies the address of the output device on the local network.</td>
+                  </tr>
+                  <tr>
+                     <td>Subject</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeText" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeText">typeText</a></td>
+                     <td>The text that is displayed in the Subject field of the e-mail, if the output is sent
+                        to an e-mail address.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Comment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeText" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeText">typeText</a></td>
+                     <td>The text displayed in the body of the e-mail, if the output is sent to an e-mail address.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}PrintRequestVerb"></a><h3>PrintRequestVerb</h3>
+         <p>The PrintRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Prints data according to the specified output parameters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}PrintRequest" href="#{http://www.coda.com/common/schemas/printing}PrintRequest">PrintRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}PrintResponse"></a><h3>PrintResponse</h3>
+         <p>The PrintResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/common/schemas/printing}PrintResponseVerb"></a><h3>PrintResponseVerb</h3>
+         <p>The PrintResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}PrintResponse" href="#{http://www.coda.com/common/schemas/printing}PrintResponse">PrintResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}MultiPrintRequest"></a><h3>MultiPrintRequest</h3>
+         <p>The MultiPrintRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PrintFormatMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the print format master.</td>
+                  </tr>
+                  <tr>
+                     <td>Test</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether or not this print preview request uses test data: x for alphanumeric
+                        characters, 9 for numeric characters and dd/mm/yy for dates.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>OutputDeviceMasterCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the output device master.</td>
+                  </tr>
+                  <tr>
+                     <td>PrintContent</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}PrintContent" href="#{http://www.coda.com/common/schemas/printing}PrintContent">PrintContent</a></td>
+                     <td>The data to print.</td>
+                  </tr>
+                  <tr>
+                     <td>LogType</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGenericOon" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGenericOon">typeGenericOon</a></td>
+                     <td>The type of log to produce.</td>
+                  </tr>
+                  <tr>
+                     <td>LogTitle</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The title for the log.</td>
+                  </tr>
+                  <tr>
+                     <td>Product</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The Coda application requesting the print.</td>
+                  </tr>
+                  <tr>
+                     <td>DocumentSplit</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether multiple documents for a single customer should be printed seperately.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}MultiPrintRequestVerb"></a><h3>MultiPrintRequestVerb</h3>
+         <p>The MultiPrintRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Prints multiple documents according to the specified output parameters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}MultiPrintRequest" href="#{http://www.coda.com/common/schemas/printing}MultiPrintRequest">MultiPrintRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}MultiPrintResponse"></a><h3>MultiPrintResponse</h3>
+         <p>The MultiPrintResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SuccessList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}SuccessList" href="#{http://www.coda.com/common/schemas/printing}SuccessList">SuccessList</a></td>
+                     <td>A list of the printing request outcomes.</td>
+                  </tr>
+                  <tr>
+                     <td>LogKey</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="../logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>The log key that identifies the log for this print run.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}MultiPrintResponseVerb"></a><h3>MultiPrintResponseVerb</h3>
+         <p>The MultiPrintResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}MultiPrintResponse" href="#{http://www.coda.com/common/schemas/printing}MultiPrintResponse">MultiPrintResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}TestPrintRequest"></a><h3>TestPrintRequest</h3>
+         <p>The TestPrintRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PrintFormat</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printformatmaster}PrintFormat" href="../printformatmaster/printformatmaster.html#{http://www.coda.com/common/schemas/printformatmaster}PrintFormat">PrintFormat</a></td>
+                     <td>The code for the print format master.</td>
+                  </tr>
+                  <tr>
+                     <td>Test</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether or not this print request uses test data: x for alphanumeric characters,
+                        9 for numeric characters and dd/mm/yy for dates.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                     <td>A list of vocabulary which determines the data to print.</td>
+                  </tr>
+                  <tr>
+                     <td>OutputDeviceMasterCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the output device master.</td>
+                  </tr>
+                  <tr>
+                     <td>DevicePath</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLocation" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLocation">typeLocation</a></td>
+                     <td>Specifies the address of the output device on the local network.</td>
+                  </tr>
+                  <tr>
+                     <td>Subject</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeText" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeText">typeText</a></td>
+                     <td>The text that is displayed in the Subject field of the e-mail, if the output is sent
+                        to an e-mail address.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Comment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeText" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeText">typeText</a></td>
+                     <td>The text displayed in the body of the e-mail, if the output is sent to an e-mail address.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}TestPrintRequestVerb"></a><h3>TestPrintRequestVerb</h3>
+         <p>The TestPrintRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Generates a test print.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}TestPrintRequest" href="#{http://www.coda.com/common/schemas/printing}TestPrintRequest">TestPrintRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}TestPrintResponse"></a><h3>TestPrintResponse</h3>
+         <p>The TestPrintResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/common/schemas/printing}TestPrintResponseVerb"></a><h3>TestPrintResponseVerb</h3>
+         <p>The TestPrintResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}TestPrintResponse" href="#{http://www.coda.com/common/schemas/printing}TestPrintResponse">TestPrintResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}PrintPreviewRequest"></a><h3>PrintPreviewRequest</h3>
+         <p>The PrintPreviewRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PrintFormat</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printformatmaster}PrintFormat" href="../printformatmaster/printformatmaster.html#{http://www.coda.com/common/schemas/printformatmaster}PrintFormat">PrintFormat</a></td>
+                     <td>The code for the print format master.</td>
+                  </tr>
+                  <tr>
+                     <td>Test</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether or not this print preview request uses test data: x for alphanumeric
+                        characters, 9 for numeric characters and dd/mm/yy for dates.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                     <td>A list of vocabulary which determines the data to print.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}PrintPreviewRequestVerb"></a><h3>PrintPreviewRequestVerb</h3>
+         <p>The PrintPreviewRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves a print preview of the data you want to print.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}PrintPreviewRequest" href="#{http://www.coda.com/common/schemas/printing}PrintPreviewRequest">PrintPreviewRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}PrintPreviewResponse"></a><h3>PrintPreviewResponse</h3>
+         <p>The PrintPreviewResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PrintPreview</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}PdfFile" href="#{http://www.coda.com/common/schemas/printing}PdfFile">PdfFile</a></td>
+                     <td>A preview of the data you want to print, in PDF format.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}PrintPreviewResponseVerb"></a><h3>PrintPreviewResponseVerb</h3>
+         <p>The PrintPreviewResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}PrintPreviewResponse" href="#{http://www.coda.com/common/schemas/printing}PrintPreviewResponse">PrintPreviewResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}WritePayCollectDataRequest"></a><h3>WritePayCollectDataRequest</h3>
+         <p>The WritePayCollectDataRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PayCollectData</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}PayCollectWriteData" href="#{http://www.coda.com/common/schemas/printing}PayCollectWriteData">PayCollectWriteData</a></td>
+                     <td>The pay data to write to a file.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}WritePayCollectDataRequestVerb"></a><h3>WritePayCollectDataRequestVerb</h3>
+         <p>The WritePayCollectDataRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Writes pay data to a file.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}WritePayCollectDataRequest" href="#{http://www.coda.com/common/schemas/printing}WritePayCollectDataRequest">WritePayCollectDataRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}WritePayCollectDataResponse"></a><h3>WritePayCollectDataResponse</h3>
+         <p>The WritePayCollectDataResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>LogID</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLong" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLong">typeLong</a></td>
+                     <td>The ID for the log file produced during the write stage of the pay process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}WritePayCollectDataResponseVerb"></a><h3>WritePayCollectDataResponseVerb</h3>
+         <p>The WritePayCollectDataResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}WritePayCollectDataResponse" href="#{http://www.coda.com/common/schemas/printing}WritePayCollectDataResponse">WritePayCollectDataResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}PrintingRequest"></a><h3>PrintingRequest</h3>
+         <p>The PrintingRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to output data for printing.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Print</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}PrintRequestVerb" href="#{http://www.coda.com/common/schemas/printing}PrintRequestVerb">PrintRequestVerb</a></td>
+                     <td>Prints data according to the specified output parameters.</td>
+                  </tr>
+                  <tr>
+                     <td>TestPrint</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}TestPrintRequestVerb" href="#{http://www.coda.com/common/schemas/printing}TestPrintRequestVerb">TestPrintRequestVerb</a></td>
+                     <td>Generates a test print.</td>
+                  </tr>
+                  <tr>
+                     <td>PrintPreview</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}PrintPreviewRequestVerb" href="#{http://www.coda.com/common/schemas/printing}PrintPreviewRequestVerb">PrintPreviewRequestVerb</a></td>
+                     <td>Retrieves a print preview of the data you want to print.</td>
+                  </tr>
+                  <tr>
+                     <td>MultiPrint</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}MultiPrintRequestVerb" href="#{http://www.coda.com/common/schemas/printing}MultiPrintRequestVerb">MultiPrintRequestVerb</a></td>
+                     <td>Prints multiple documents according to the specified output parameters.</td>
+                  </tr>
+                  <tr>
+                     <td>WritePayCollectData</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}WritePayCollectDataRequestVerb" href="#{http://www.coda.com/common/schemas/printing}WritePayCollectDataRequestVerb">WritePayCollectDataRequestVerb</a></td>
+                     <td>Writes pay data to a file.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/printing}PrintingResponse"></a><h3>PrintingResponse</h3>
+         <p>The PrintingResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response returned when you send a request to output data for printing.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Print</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}PrintResponseVerb" href="#{http://www.coda.com/common/schemas/printing}PrintResponseVerb">PrintResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>TestPrint</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}TestPrintResponseVerb" href="#{http://www.coda.com/common/schemas/printing}TestPrintResponseVerb">TestPrintResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>PrintPreview</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}PrintPreviewResponseVerb" href="#{http://www.coda.com/common/schemas/printing}PrintPreviewResponseVerb">PrintPreviewResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>MultiPrint</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}MultiPrintResponseVerb" href="#{http://www.coda.com/common/schemas/printing}MultiPrintResponseVerb">MultiPrintResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>WritePayCollectData</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/printing}WritePayCollectDataResponseVerb" href="#{http://www.coda.com/common/schemas/printing}WritePayCollectDataResponseVerb">WritePayCollectDataResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

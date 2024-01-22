@@ -1,0 +1,829 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-ReminderLettersService">
+            <h1>ReminderLettersService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/reminderletters/reminderletters-13.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-reminderletters-reminderletters.wsdl" download="">finance-reminderletters-reminderletters.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/reminderletters/reminderletters-13.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#ReminderLettersService-Confirm">Confirm</a></li>
+               <li><a href="#ReminderLettersService-Delete">Delete</a></li>
+               <li><a href="#ReminderLettersService-Generate">Generate</a></li>
+               <li><a href="#ReminderLettersService-GetDTT">GetDTT</a></li>
+               <li><a href="#ReminderLettersService-GetDetails">GetDetails</a></li>
+               <li><a href="#ReminderLettersService-GetHistoryLines">GetHistoryLines</a></li>
+               <li><a href="#ReminderLettersService-GetNewProposalDetails">GetNewProposalDetails</a></li>
+               <li><a href="#ReminderLettersService-GetProposals">GetProposals</a></li>
+               <li><a href="#ReminderLettersService-GetSummaries">GetSummaries</a></li>
+               <li><a href="#ReminderLettersService-HoldDetails">HoldDetails</a></li>
+               <li><a href="#ReminderLettersService-Produce">Produce</a></li>
+               <li><a href="#ReminderLettersService-Recover">Recover</a></li>
+               <li><a href="#ReminderLettersService-UpdateSummaries">UpdateSummaries</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="ReminderLettersService-Confirm"></a>Confirm
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ConfirmRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Params</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ConfirmParams" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ConfirmParams">ConfirmParams</a></td>
+                              <td>This element stores the
+                                 parameters required for the confirmation
+                                 stage of the process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ConfirmResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>This key contains information
+                                 about the progress of the Confirm stage.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies the proposal being confirmed.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ReminderLettersService-Delete"></a>Delete
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>DeleteRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 identifies the proposal you want to delete
+                                 from the active list.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>DeleteResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies the proposal being deleted.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ReminderLettersService-Generate"></a>Generate
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GenerateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Params</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}GenerateParams" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}GenerateParams">GenerateParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 generating a proposal.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GenerateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>This key contains information
+                                 about the progress of the Generate stage.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies a proposal.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ReminderLettersService-GetDTT"></a>GetDTT
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDTTRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 identifies the proposal.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDTTResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LetterProposal</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}LetterProposal" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}LetterProposal">LetterProposal</a></td>
+                              <td>This element contains all the
+                                 reminder letter proposals in the company.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ReminderLettersService-GetDetails"></a>GetDetails
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDetailsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}SummaryKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}SummaryKey">SummaryKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies a reminder letter.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Columns</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}HeaderColumnList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}HeaderColumnList">HeaderColumnList</a></td>
+                              <td>A list of vocabulary items
+                                 used to retrieve detail lines.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDetailsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Details</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}Details" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}Details">Details</a></td>
+                              <td>Returns the specified details
+                                 for manipulation.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}SummaryKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}SummaryKey">SummaryKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies a reminder letter.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ReminderLettersService-GetHistoryLines"></a>GetHistoryLines
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetHistoryLinesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 identifies the proposal for which you want
+                                 to retrieve history information.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetHistoryLinesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Lines</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}HistoryLineList" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}HistoryLineList">HistoryLineList</a></td>
+                              <td>This element contains all the
+                                 details of the actions taken on the
+                                 specified proposal.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies the proposal for which
+                                 history lines are being retrieved.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ReminderLettersService-GetNewProposalDetails"></a>GetNewProposalDetails
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetNewProposalDetailsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}NewProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}NewProposalKey">NewProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies a new proposal.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetNewProposalDetailsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>NewProposalDetails</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}NewProposalDetails" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}NewProposalDetails">NewProposalDetails</a></td>
+                              <td>This element holds the
+                                 details for a new proposal.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}NewProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}NewProposalKey">NewProposalKey</a></td>
+                              <td>A key consisting of the
+                                 company code and reminder master code used
+                                 to uniquely identify a new proposal.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ReminderLettersService-GetProposals"></a>GetProposals
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetProposalsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKey" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKey">GlobalKey</a></td>
+                              <td>A key used to identify the
+                                 reminder proposals to be retrieved.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetProposalsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Proposals</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalList" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalList">ProposalList</a></td>
+                              <td>This element lists all the
+                                 reminder letter proposals in the company.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKey" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKey">GlobalKey</a></td>
+                              <td>The key used to identify the
+                                 reminder proposals to be retrieved.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ReminderLettersService-GetSummaries"></a>GetSummaries
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetSummariesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SummaryParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}SummaryParams" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}SummaryParams">SummaryParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified for a
+                                 reminder letter.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetSummariesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Summaries</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}SummaryList" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}SummaryList">SummaryList</a></td>
+                              <td>Returns a list of reminder
+                                 letters contained within a proposal.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies a proposal.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ReminderLettersService-HoldDetails"></a>HoldDetails
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>HoldDetailsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}SummaryKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}SummaryKey">SummaryKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies a reminder letter.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Changes</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}DetailChangeList" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}DetailChangeList">DetailChangeList</a></td>
+                              <td>This element stores changes
+                                 to individual detail lines within a reminder letter.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>HoldDetailsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Summary</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}Summary" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}Summary">Summary</a></td>
+                              <td>Returns details of the
+                                 retrieved reminder letter.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}SummaryKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}SummaryKey">SummaryKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies a reminder letter.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ReminderLettersService-Produce"></a>Produce
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ProduceRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>A key consisting of the
+                                 company code and proposal code which
+                                 identify a proposal.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ProduceResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>This key contains information
+                                 about the progress of the Produce stage.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies the proposal being produced.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ReminderLettersService-Recover"></a>Recover
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>RecoverRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 identifies the proposal you want to recover.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>RecoverResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies the proposal being recovered.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ReminderLettersService-UpdateSummaries"></a>UpdateSummaries
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateSummariesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>A key which uniquely
+                                 identifies a proposal.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Changes</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}SummaryChangeList" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}SummaryChangeList">SummaryChangeList</a></td>
+                              <td>This element stores a list of
+                                 changes to a reminder letter.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateSummariesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey" href="finance/reminderletters/reminderletters.html#{http://www.coda.com/efinance/schemas/reminderletters}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies the proposal being updated.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

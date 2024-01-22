@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/pricematrixmaster/poppricematrixmaster-11.3/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:prcmatxsvcws="http://www.coda.com/pop/schemas/pricematrixmaster/poppricematrixmaster-11.3/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:poptypes="http://www.coda.com/pop/schemas/common"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:prcmatxsvc="http://www.coda.com/pop/schemas/pricematrixmaster"
+    xmlns:ns1="http://www.coda.com/common/schemas/domaingen"
+    xmlns:curr="http://www.coda.com/pop/schemas/currency"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/pop/schemas/pricematrixmaster/poppricematrixmaster-11.3/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/pop/schemas/currency" schemaLocation="pop/currency/currency.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/common" schemaLocation="pop/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/pricematrixmaster" schemaLocation="../wsdl/pop/pricematrixmaster/pricematrixmaster.xsd"/>
+    <xsd:element name="GetLatestVersionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetLatestVersion" type="prcmatxsvc:PriceMatrixMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getLatestVersion function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="PriceMatrixMaster" type="prcmatxsvc:PriceMatrixMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            update function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetVersionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TargetPriceMatrixMaster" type="prcmatxsvc:PriceMatrixMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The target PriceMatrixMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Version" type="com:typeUWord">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLogResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetLog" type="prcmatxsvc:PriceMatrixMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getLog function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ConvertedPriceLatestVersion" type="prcmatxsvc:PriceMatrixItem">
+                    <xsd:annotation>
+                        <xsd:documentation>The
+                            convertedPriceLatestVersion is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the PriceMatrixMaster
+                            objects that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the PriceMatrixMaster
+                            objects that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLogRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TargetPriceMatrixMaster" type="prcmatxsvc:PriceMatrixMasterKey">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Currency" minOccurs="0" type="curr:CurrencyKey">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="CurrencyConversionDate" minOccurs="0" type="com:typeHard">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTextBandPriceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Master" type="prcmatxsvc:PriceMatrixMasterKey">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Text" type="com:typeText">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PriceMatrixMasterList" type="prcmatxsvc:PriceMatrixMasterList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTextBandPriceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetTextBandPrice" type="com:Money">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getTextBandPrice function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PriceMatrixMaster" type="prcmatxsvc:PriceMatrixMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPriceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetPrice" type="com:Money">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getPrice function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="PriceMatrixMaster" type="prcmatxsvc:PriceMatrixMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole PriceMatrixMaster
+                            object that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PriceMatrixMasterItemList" type="prcmatxsvc:PriceMatrixMasterItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetBandRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prcmatxsvc:PriceMatrixMasterKey">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLatestVersionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TargetPriceMatrixMaster" type="prcmatxsvc:PriceMatrixMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The target PriceMatrixMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetBandResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetBand" type="prcmatxsvc:PriceMatrixMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getBand function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FirstBandItemPrice" type="com:Money">
+                    <xsd:annotation>
+                        <xsd:documentation>The firstBandItemPrice is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ItemCount" type="com:typeNumber">
+                    <xsd:annotation>
+                        <xsd:documentation>The itemCount is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Band" type="poptypes:typePopMatrixBandType">
+                    <xsd:annotation>
+                        <xsd:documentation>The band is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PriceMatrixMasterKey" type="prcmatxsvc:PriceMatrixMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            PriceMatrixMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="PriceMatrixMaster" type="prcmatxsvc:PriceMatrixMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole PriceMatrixMaster
+                            object that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetVersionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetVersion" type="prcmatxsvc:PriceMatrixMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getVersion function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="PriceMatrixMaster" type="prcmatxsvc:PriceMatrixMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the add function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPriceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Master" type="prcmatxsvc:PriceMatrixMasterKey">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Quantity" type="com:typeNumberb">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PriceMatrixMasterKey" type="prcmatxsvc:PriceMatrixMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            PriceMatrixMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="FindRequest">
+    <part name="FindRequest" element="prcmatxsvcws:FindRequest"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="prcmatxsvcws:DeleteRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="prcmatxsvcws:DeleteResponse"/>
+  </message>
+  <message name="GetTextBandPriceRequest">
+    <part name="GetTextBandPriceRequest" element="prcmatxsvcws:GetTextBandPriceRequest"/>
+  </message>
+  <message name="GetLogRequest">
+    <part name="GetLogRequest" element="prcmatxsvcws:GetLogRequest"/>
+  </message>
+  <message name="GetVersionResponse">
+    <part name="GetVersionResponse" element="prcmatxsvcws:GetVersionResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="prcmatxsvcws:GetResponse"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="prcmatxsvcws:AddResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="prcmatxsvcws:ListRequest"/>
+  </message>
+  <message name="GetBandRequest">
+    <part name="GetBandRequest" element="prcmatxsvcws:GetBandRequest"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="prcmatxsvcws:UpdateRequest"/>
+  </message>
+  <message name="GetBandResponse">
+    <part name="GetBandResponse" element="prcmatxsvcws:GetBandResponse"/>
+  </message>
+  <message name="GetLatestVersionResponse">
+    <part name="GetLatestVersionResponse" element="prcmatxsvcws:GetLatestVersionResponse"/>
+  </message>
+  <message name="GetTextBandPriceResponse">
+    <part name="GetTextBandPriceResponse" element="prcmatxsvcws:GetTextBandPriceResponse"/>
+  </message>
+  <message name="GetVersionRequest">
+    <part name="GetVersionRequest" element="prcmatxsvcws:GetVersionRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="prcmatxsvcws:OptionsResponse"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="prcmatxsvcws:UpdateResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="prcmatxsvcws:AddRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="prcmatxsvcws:GetRequest"/>
+  </message>
+  <message name="GetPriceRequest">
+    <part name="GetPriceRequest" element="prcmatxsvcws:GetPriceRequest"/>
+  </message>
+  <message name="GetLatestVersionRequest">
+    <part name="GetLatestVersionRequest" element="prcmatxsvcws:GetLatestVersionRequest"/>
+  </message>
+  <message name="GetPriceResponse">
+    <part name="GetPriceResponse" element="prcmatxsvcws:GetPriceResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="prcmatxsvcws:Options"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="prcmatxsvcws:FindResponse"/>
+  </message>
+  <message name="GetLogResponse">
+    <part name="GetLogResponse" element="prcmatxsvcws:GetLogResponse"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="prcmatxsvcws:ListResponse"/>
+  </message>
+  <portType name="POPPriceMatrixMasterServicePortTypes">
+    <operation name="Delete">
+      <input message="prcmatxsvcws:DeleteRequest"/>
+      <output message="prcmatxsvcws:DeleteResponse"/>
+    </operation>
+    <operation name="Add">
+      <input message="prcmatxsvcws:AddRequest"/>
+      <output message="prcmatxsvcws:AddResponse"/>
+    </operation>
+    <operation name="GetLatestVersion">
+      <input message="prcmatxsvcws:GetLatestVersionRequest"/>
+      <output message="prcmatxsvcws:GetLatestVersionResponse"/>
+    </operation>
+    <operation name="GetLog">
+      <input message="prcmatxsvcws:GetLogRequest"/>
+      <output message="prcmatxsvcws:GetLogResponse"/>
+    </operation>
+    <operation name="GetPrice">
+      <input message="prcmatxsvcws:GetPriceRequest"/>
+      <output message="prcmatxsvcws:GetPriceResponse"/>
+    </operation>
+    <operation name="GetVersion">
+      <input message="prcmatxsvcws:GetVersionRequest"/>
+      <output message="prcmatxsvcws:GetVersionResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="prcmatxsvcws:GetRequest"/>
+      <output message="prcmatxsvcws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="prcmatxsvcws:FindRequest"/>
+      <output message="prcmatxsvcws:FindResponse"/>
+    </operation>
+    <operation name="GetTextBandPrice">
+      <input message="prcmatxsvcws:GetTextBandPriceRequest"/>
+      <output message="prcmatxsvcws:GetTextBandPriceResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="prcmatxsvcws:ListRequest"/>
+      <output message="prcmatxsvcws:ListResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="prcmatxsvcws:UpdateRequest"/>
+      <output message="prcmatxsvcws:UpdateResponse"/>
+    </operation>
+    <operation name="GetBand">
+      <input message="prcmatxsvcws:GetBandRequest"/>
+      <output message="prcmatxsvcws:GetBandResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPPriceMatrixMasterServiceSOAPBinding" type="prcmatxsvcws:POPPriceMatrixMasterServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPriceMatrixMaster/Delete" style="document"/>
+      <input>
+        <soap:header message="prcmatxsvcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prcmatxsvcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPriceMatrixMaster/Add" style="document"/>
+      <input>
+        <soap:header message="prcmatxsvcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prcmatxsvcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetLatestVersion">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPriceMatrixMaster/GetLatestVersion" style="document"/>
+      <input>
+        <soap:header message="prcmatxsvcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prcmatxsvcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetLog">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPriceMatrixMaster/GetLog" style="document"/>
+      <input>
+        <soap:header message="prcmatxsvcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prcmatxsvcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetPrice">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPriceMatrixMaster/GetPrice" style="document"/>
+      <input>
+        <soap:header message="prcmatxsvcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prcmatxsvcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetVersion">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPriceMatrixMaster/GetVersion" style="document"/>
+      <input>
+        <soap:header message="prcmatxsvcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prcmatxsvcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPriceMatrixMaster/Get" style="document"/>
+      <input>
+        <soap:header message="prcmatxsvcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prcmatxsvcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPriceMatrixMaster/Find" style="document"/>
+      <input>
+        <soap:header message="prcmatxsvcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prcmatxsvcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetTextBandPrice">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPriceMatrixMaster/GetTextBandPrice" style="document"/>
+      <input>
+        <soap:header message="prcmatxsvcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prcmatxsvcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPriceMatrixMaster/List" style="document"/>
+      <input>
+        <soap:header message="prcmatxsvcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prcmatxsvcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPriceMatrixMaster/Update" style="document"/>
+      <input>
+        <soap:header message="prcmatxsvcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prcmatxsvcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetBand">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPriceMatrixMaster/GetBand" style="document"/>
+      <input>
+        <soap:header message="prcmatxsvcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prcmatxsvcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPPriceMatrixMasterService">
+    <port name="POPPriceMatrixMasterServicePort" binding="prcmatxsvcws:POPPriceMatrixMasterServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/pricematrixmaster/poppricematrixmaster-11.3"/>
+    </port>
+  </service>
+</definitions>

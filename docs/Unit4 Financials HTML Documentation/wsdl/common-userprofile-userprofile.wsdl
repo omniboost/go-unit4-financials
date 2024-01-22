@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/userprofile/userprofile-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:userprofilews="http://www.coda.com/common/schemas/userprofile/userprofile-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:userprofile="http://www.coda.com/common/schemas/userprofile"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/userprofile/userprofile-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/userprofile" schemaLocation="../wsdl/common/userprofile/userprofile.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Get" type="userprofile:UserProfile">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SaveResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Save" type="userprofile:UserProfile">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the save function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SaveRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Profile" minOccurs="0" type="userprofile:UserProfile">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The details of a user profile.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PasswordMaintenance" minOccurs="0" type="userprofile:PasswordMaintenance">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>       Password maintenance details.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="userprofilews:OptionsResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="userprofilews:GetResponse"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="userprofilews:GetRequest"/>
+  </message>
+  <message name="SaveResponse">
+    <part name="SaveResponse" element="userprofilews:SaveResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="userprofilews:Options"/>
+  </message>
+  <message name="SaveRequest">
+    <part name="SaveRequest" element="userprofilews:SaveRequest"/>
+  </message>
+  <portType name="UserProfileServicePortTypes">
+    <operation name="Get">
+      <input message="userprofilews:GetRequest"/>
+      <output message="userprofilews:GetResponse"/>
+    </operation>
+    <operation name="Save">
+      <input message="userprofilews:SaveRequest"/>
+      <output message="userprofilews:SaveResponse"/>
+    </operation>
+  </portType>
+  <binding name="UserProfileServiceSOAPBinding" type="userprofilews:UserProfileServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserProfile/Get" style="document"/>
+      <input>
+        <soap:header message="userprofilews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="userprofilews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Save">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserProfile/Save" style="document"/>
+      <input>
+        <soap:header message="userprofilews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="userprofilews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="UserProfileService">
+    <port name="UserProfileServicePort" binding="userprofilews:UserProfileServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/userprofile/userprofile-14.0"/>
+    </port>
+  </service>
+</definitions>

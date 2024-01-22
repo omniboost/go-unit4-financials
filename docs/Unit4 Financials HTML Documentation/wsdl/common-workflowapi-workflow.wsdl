@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/workflowapi/workflow-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:worws="http://www.coda.com/common/schemas/workflowapi/workflow-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:use="http://www.coda.com/common/schemas/userextension"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:wor="http://www.coda.com/common/schemas/workflowapi"
+    xmlns:atc="http://www.coda.com/common/schemas/attachment"
+    xmlns:wsd="http://www.coda.com/common/schemas/wsdl"
+    xmlns:gra="http://www.coda.com/common/schemas/graphlayout"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:spec="http://www.coda.com/common/schemas/workflow"
+    xmlns:datatypes="http://www.coda.com/common/schemas/datatypes"
+    targetNamespace="http://www.coda.com/common/schemas/workflowapi/workflow-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/common/schemas/workflow" schemaLocation="common/workflow/workflow.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/graphlayout" schemaLocation="common/graphlayout/graphlayout.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/userextension" schemaLocation="common/userextension/userextension.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/workflowapi" schemaLocation="../wsdl/common/workflowapi/workflowapi.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/attachment" schemaLocation="common/attachment/attachment.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/wsdl" schemaLocation="common/wsdl/wsdl.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/datatypes" schemaLocation="common/datatypes/datatypes.xsd"/>
+    <xsd:element name="StartWorkflowResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Id" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>The id is an out argument, so
+                            the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WorkflowStatus" type="wor:WorkflowStatus">
+                    <xsd:annotation>
+                        <xsd:documentation>The workflowStatus is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateAttachmentsResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRuntimeStateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="State" type="wor:WorkflowRuntimeState">
+                    <xsd:annotation>
+                        <xsd:documentation>The state is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetWorkItemOptionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Options" type="wor:WorkItemOptions">
+                    <xsd:annotation>
+                        <xsd:documentation>The options is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNamedUsersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Id" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The workflow instance ID.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetWorkItemOptionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The workflow process definition
+                            code.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Version" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The version of the workflow process
+                            definition.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TaskName" type="com:typeName">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The name of the task.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CompleteWorkItemRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompletedWorkItem" type="wor:CompletedWorkItem">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The details required to complete the
+                                workflow work item.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNamedUsersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="WorkflowNamedUsers" type="wor:WorkflowNamedUsers">
+                    <xsd:annotation>
+                        <xsd:documentation>The WorkflowNamedUsers is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetExplodeURLRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="WorkflowInstanceID" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The workflow instance ID.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TaskName" type="com:typeName">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The name of the task.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelWorkflowRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Id" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The workflow instance ID.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelWorkflowResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="WorkflowStatus" type="com:typeComWorkflowStatus">
+                    <xsd:annotation>
+                        <xsd:documentation>The workflowStatus is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateAttachmentsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Id" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A workflow instance ID.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Attachments" type="wor:InstanceAttachment">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The details of an attachment.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CompleteWorkItemAsyncResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompletedAssignments" type="wor:CompletedAssignments">
+                    <xsd:annotation>
+                        <xsd:documentation>The completedAssignments is
+                            an out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CompleteWorkItemAsyncRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompletedWorkItem" type="wor:CompletedWorkItem">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The details of a completed work
+                            item.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAttachmentsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Attachments" type="wor:InstanceAttachment">
+                    <xsd:annotation>
+                        <xsd:documentation>The attachments is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CompleteWorkItemResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Id" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>The id is an out argument, so
+                            the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CompletedAssignments" type="wor:CompletedAssignments">
+                    <xsd:annotation>
+                        <xsd:documentation>The completedAssignments is
+                            an out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAttachmentsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Id" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The attachment ID.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartWorkflowRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Information" type="wor:WorkflowStartInformation">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The initial values for the workflow
+                            instance.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartWorkflowAsyncResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Id" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>The id is an out argument, so
+                            the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRuntimeStateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="VariableSet" type="wor:VariableSet">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The details of a set of
+                            variables.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDescendentsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Descendents" type="wor:Descendents">
+                    <xsd:annotation>
+                        <xsd:documentation>The descendents is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDescendentsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="WorkflowId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The workflow instance ID.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetUsersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="WorkflowUsers" type="wor:WorkflowUsers">
+                    <xsd:annotation>
+                        <xsd:documentation>The WorkflowUsers is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetExplodeURLResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Url" type="com:typeUri">
+                    <xsd:annotation>
+                        <xsd:documentation>The url is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartWorkflowAsyncRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Information" type="wor:WorkflowStartInformation">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The initial values for the workflow
+                            instance.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetUsersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Id" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The workflow instance ID.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="CompleteWorkItemAsyncRequest">
+    <part name="CompleteWorkItemAsyncRequest" element="worws:CompleteWorkItemAsyncRequest"/>
+  </message>
+  <message name="GetWorkItemOptionsResponse">
+    <part name="GetWorkItemOptionsResponse" element="worws:GetWorkItemOptionsResponse"/>
+  </message>
+  <message name="GetAttachmentsResponse">
+    <part name="GetAttachmentsResponse" element="worws:GetAttachmentsResponse"/>
+  </message>
+  <message name="GetRuntimeStateResponse">
+    <part name="GetRuntimeStateResponse" element="worws:GetRuntimeStateResponse"/>
+  </message>
+  <message name="GetDescendentsRequest">
+    <part name="GetDescendentsRequest" element="worws:GetDescendentsRequest"/>
+  </message>
+  <message name="StartWorkflowResponse">
+    <part name="StartWorkflowResponse" element="worws:StartWorkflowResponse"/>
+  </message>
+  <message name="GetNamedUsersResponse">
+    <part name="GetNamedUsersResponse" element="worws:GetNamedUsersResponse"/>
+  </message>
+  <message name="GetUsersRequest">
+    <part name="GetUsersRequest" element="worws:GetUsersRequest"/>
+  </message>
+  <message name="StartWorkflowAsyncResponse">
+    <part name="StartWorkflowAsyncResponse" element="worws:StartWorkflowAsyncResponse"/>
+  </message>
+  <message name="GetDescendentsResponse">
+    <part name="GetDescendentsResponse" element="worws:GetDescendentsResponse"/>
+  </message>
+  <message name="StartWorkflowRequest">
+    <part name="StartWorkflowRequest" element="worws:StartWorkflowRequest"/>
+  </message>
+  <message name="GetExplodeURLResponse">
+    <part name="GetExplodeURLResponse" element="worws:GetExplodeURLResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="worws:OptionsResponse"/>
+  </message>
+  <message name="UpdateAttachmentsResponse">
+    <part name="UpdateAttachmentsResponse" element="worws:UpdateAttachmentsResponse"/>
+  </message>
+  <message name="UpdateAttachmentsRequest">
+    <part name="UpdateAttachmentsRequest" element="worws:UpdateAttachmentsRequest"/>
+  </message>
+  <message name="GetNamedUsersRequest">
+    <part name="GetNamedUsersRequest" element="worws:GetNamedUsersRequest"/>
+  </message>
+  <message name="StartWorkflowAsyncRequest">
+    <part name="StartWorkflowAsyncRequest" element="worws:StartWorkflowAsyncRequest"/>
+  </message>
+  <message name="GetWorkItemOptionsRequest">
+    <part name="GetWorkItemOptionsRequest" element="worws:GetWorkItemOptionsRequest"/>
+  </message>
+  <message name="GetRuntimeStateRequest">
+    <part name="GetRuntimeStateRequest" element="worws:GetRuntimeStateRequest"/>
+  </message>
+  <message name="CompleteWorkItemAsyncResponse">
+    <part name="CompleteWorkItemAsyncResponse" element="worws:CompleteWorkItemAsyncResponse"/>
+  </message>
+  <message name="CompleteWorkItemRequest">
+    <part name="CompleteWorkItemRequest" element="worws:CompleteWorkItemRequest"/>
+  </message>
+  <message name="CompleteWorkItemResponse">
+    <part name="CompleteWorkItemResponse" element="worws:CompleteWorkItemResponse"/>
+  </message>
+  <message name="GetUsersResponse">
+    <part name="GetUsersResponse" element="worws:GetUsersResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="worws:Options"/>
+  </message>
+  <message name="GetExplodeURLRequest">
+    <part name="GetExplodeURLRequest" element="worws:GetExplodeURLRequest"/>
+  </message>
+  <message name="GetAttachmentsRequest">
+    <part name="GetAttachmentsRequest" element="worws:GetAttachmentsRequest"/>
+  </message>
+  <message name="CancelWorkflowRequest">
+    <part name="CancelWorkflowRequest" element="worws:CancelWorkflowRequest"/>
+  </message>
+  <message name="CancelWorkflowResponse">
+    <part name="CancelWorkflowResponse" element="worws:CancelWorkflowResponse"/>
+  </message>
+  <portType name="WorkflowServicePortTypes">
+    <operation name="GetWorkItemOptions">
+      <input message="worws:GetWorkItemOptionsRequest"/>
+      <output message="worws:GetWorkItemOptionsResponse"/>
+    </operation>
+    <operation name="GetDescendents">
+      <input message="worws:GetDescendentsRequest"/>
+      <output message="worws:GetDescendentsResponse"/>
+    </operation>
+    <operation name="CompleteWorkItemAsync">
+      <input message="worws:CompleteWorkItemAsyncRequest"/>
+      <output message="worws:CompleteWorkItemAsyncResponse"/>
+    </operation>
+    <operation name="GetExplodeURL">
+      <input message="worws:GetExplodeURLRequest"/>
+      <output message="worws:GetExplodeURLResponse"/>
+    </operation>
+    <operation name="GetAttachments">
+      <input message="worws:GetAttachmentsRequest"/>
+      <output message="worws:GetAttachmentsResponse"/>
+    </operation>
+    <operation name="GetUsers">
+      <input message="worws:GetUsersRequest"/>
+      <output message="worws:GetUsersResponse"/>
+    </operation>
+    <operation name="UpdateAttachments">
+      <input message="worws:UpdateAttachmentsRequest"/>
+      <output message="worws:UpdateAttachmentsResponse"/>
+    </operation>
+    <operation name="StartWorkflow">
+      <input message="worws:StartWorkflowRequest"/>
+      <output message="worws:StartWorkflowResponse"/>
+    </operation>
+    <operation name="StartWorkflowAsync">
+      <input message="worws:StartWorkflowAsyncRequest"/>
+      <output message="worws:StartWorkflowAsyncResponse"/>
+    </operation>
+    <operation name="CompleteWorkItem">
+      <input message="worws:CompleteWorkItemRequest"/>
+      <output message="worws:CompleteWorkItemResponse"/>
+    </operation>
+    <operation name="GetRuntimeState">
+      <input message="worws:GetRuntimeStateRequest"/>
+      <output message="worws:GetRuntimeStateResponse"/>
+    </operation>
+    <operation name="CancelWorkflow">
+      <input message="worws:CancelWorkflowRequest"/>
+      <output message="worws:CancelWorkflowResponse"/>
+    </operation>
+    <operation name="GetNamedUsers">
+      <input message="worws:GetNamedUsersRequest"/>
+      <output message="worws:GetNamedUsersResponse"/>
+    </operation>
+  </portType>
+  <binding name="WorkflowServiceSOAPBinding" type="worws:WorkflowServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetWorkItemOptions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Workflow/GetWorkItemOptions" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDescendents">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Workflow/GetDescendents" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CompleteWorkItemAsync">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Workflow/CompleteWorkItemAsync" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetExplodeURL">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Workflow/GetExplodeURL" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetAttachments">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Workflow/GetAttachments" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetUsers">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Workflow/GetUsers" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateAttachments">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Workflow/UpdateAttachments" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="StartWorkflow">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Workflow/StartWorkflow" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="StartWorkflowAsync">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Workflow/StartWorkflowAsync" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CompleteWorkItem">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Workflow/CompleteWorkItem" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetRuntimeState">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Workflow/GetRuntimeState" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CancelWorkflow">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Workflow/CancelWorkflow" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetNamedUsers">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Workflow/GetNamedUsers" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="WorkflowService">
+    <port name="WorkflowServicePort" binding="worws:WorkflowServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/workflowapi/workflow-14.0"/>
+    </port>
+  </service>
+</definitions>

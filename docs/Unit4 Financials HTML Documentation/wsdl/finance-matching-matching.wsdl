@@ -1,0 +1,1316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/matching/matching-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:matws="http://www.coda.com/efinance/schemas/matching/matching-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:prg="http://www.coda.com/efinance/schemas/progress"
+    xmlns:mam="http://www.coda.com/efinance/schemas/matchingmaster"
+    xmlns:aso="http://www.coda.com/efinance/schemas/association"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:txn="http://www.coda.com/efinance/schemas/transaction"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:mat="http://www.coda.com/efinance/schemas/matching"
+    targetNamespace="http://www.coda.com/efinance/schemas/matching/matching-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/transaction" schemaLocation="finance/transaction/transaction.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/progress" schemaLocation="finance/progress/progress.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/association" schemaLocation="finance/association/association.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/matchingmaster" schemaLocation="finance/matchingmaster/matchingmaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/matching" schemaLocation="../wsdl/finance/matching/matching.xsd"/>
+    <xsd:element name="StartAssistantResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching parameters you specified in the
+                            StartAssistantRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key that
+                            identifies the Assisted Interactive Matching
+                            process that has been started.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDrivingLineInfoResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching parameters you specified in the
+                            GetDrivingLineInfoRequest corresponding to
+                            this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" type="mat:MatchGroups">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the matching group you specified in the
+                            GetDrivingLineInfoRequest corresponding to
+                            this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DrivingLineInfo" type="mat:MatchingDataSources">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            information about the document lines which
+                            can be selected as the driving line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentChainRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocChainSelectKey" type="mat:DocChainSelectKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key used to retrieve the
+                            document chain information.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTotalsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            matching debit and credit entries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" type="mat:MatchGroups">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the matching groups in the matching session.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetGroupLinesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key that
+                            identifies the Assistant process for which
+                            you want to retrieve matching group information.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartAssistantRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            matching debit and credit entries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Folders" type="aso:asoKeyFolders">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the matching folders in which the debit
+                            and credit entries are listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Assistant" type="aso:AssistantScript">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the script
+                            used by the Assisted Interactive Matching process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="StartAtGroupNumber" minOccurs="0" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The group number at which the
+                            assistant should start creating matching
+                            groups. For example, the user might have
+                            manually created groups 1 and 2, and would
+                            therefore want the Assistant to create new
+                            groups starting from 3.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetGroupLinesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key that
+                            identifies the Assistant process for which
+                            matching group information has been retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" type="mat:MatchGroups">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the matching groups in the matching session.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateParamsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            matching debit and credit entries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProgressRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            started. This is given to you when you start
+                            the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentChainResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocChainSelectKey" type="mat:DocChainSelectKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key used to retrieve the
+                            document chain information.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectDocType" minOccurs="0" type="com:typeGenericOon">
+                    <xsd:annotation>
+                        <xsd:documentation>The type of document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocChainKeyList" minOccurs="0" type="mat:DocChainKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of document keys (made
+                            up of company code, document code and
+                            document number).</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WriteOffResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching parameters you specified in the
+                            WriteOffRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Details" type="mat:MatchDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            match details for the specified document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateParamsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Warning" minOccurs="0" type="com:Warning">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a warning message.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching parameters you specified in the
+                            ValidateParamsRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProgressResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            are sending the request to. This is given to
+                            you when you start the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Progress" minOccurs="0" type="prg:ProgressData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains information about
+                            the status and progress of the process you
+                            are running.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Statistics" type="aso:ProgressStatistics">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            statistics of the lines that the Assistant
+                            has processed so far.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WriteOffRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            matching debit and credit entries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Details" type="mat:MatchDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            match details for the specified document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Edits" type="mat:DetailEdits">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains changed
+                            currency values and/or rates for the
+                            document line specified in the Details element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AbortRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            want to abort. This is given to you when you
+                            start the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AbortResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special reference
+                            which identifies the process you want to abort.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DiscountResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching parameters you specified in the
+                            DiscountRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Details" type="mat:MatchDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            match details for the specified document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDiscountsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="aso:asoKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key that
+                            identifies the document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CurrCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the currency in
+                            which you want to obtain the discount values.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDrivingLineInfoRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            matching debit and credit entries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" type="mat:MatchGroups">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the matching groups in the matching session.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DisperseResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching parameters you specified in the
+                            DisperseRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Results" type="mat:GroupResults">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            results of the matches dispersed by the
+                            DisperseRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectLinesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            matching debit and credit entries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Folders" type="mat:SelectFolders">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the matching folders in which the debit
+                            and credit entries are listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RequiredLines" minOccurs="0" type="mat:LineKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of line keys.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartBackgroundResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching parameters you specified in the
+                            StartBackgroundRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key that
+                            identifies the Background Matching process
+                            that has been started.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPayDetailsSourcesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching parameters you specified in the
+                            GetPayDetailsSourcesRequest corresponding to
+                            this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" type="mat:MatchGroups">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the matching group you specified in the
+                            GetPayDetailsSourcesRequest corresponding to
+                            this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Sources" type="mat:MatchingDataSources">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            information about the document lines which
+                            can be selected as the source for data propagation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DisperseRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            matching debit and credit entries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" type="mat:MatchGroups">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the matching groups in the matching session.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CommitRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            matching debit and credit entries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" type="mat:MatchGroups">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the matching groups in the matching session.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDiscountsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="aso:asoKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a key
+                            that identifies the document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CurrCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the currency in
+                            which the discount values are supplied.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Discounts" type="mat:Discounts">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            discount rates available for this document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DiscountRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            matching debit and credit entries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Details" type="mat:MatchDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            match details for the specified document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Edits" type="mat:DetailEdits">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains changed
+                            currency values and/or rates for the
+                            document line specified in the Details element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CommitResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching parameters you specified in the
+                            CommitRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Results" type="mat:GroupResults">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            results of the matches committed by the
+                            CommitRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLineValuesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching parameters you specified in the
+                            GetLineValuesRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Details" type="mat:MatchDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            match details for the specified document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PartMatchRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            matching debit and credit entries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Details" type="mat:MatchDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            match details for the specified document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Edits" type="mat:DetailEdits">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains changed
+                            currency values and/or rates for the
+                            document line specified in the Details element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartBackgroundRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            matching debit and credit entries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Folders" type="mat:SelectFolders">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the matching folders in which the debit
+                            and credit entries are listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Assistant" type="aso:AssistantScript">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the script
+                            used by the Background Matching process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTotalsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching parameters you specified in the
+                            GetTotalsRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" type="mat:MatchGroups">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the matching group you specified in the
+                            GetTotalsRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Totals" type="mat:MatchTotals">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            total value (in matching, home and dual
+                            currency) of all the document lines included
+                            in the match.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectLinesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching parameters you specified in the
+                            SelectLinesRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Folders" type="mat:MatchingFolders">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching folders you specified in the
+                            SelectLinesRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLineValuesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            matching debit and credit entries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Details" type="mat:MatchDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            match details for the specified document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectMasterRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the matching master you want to select.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PartMatchResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            matching parameters you specified in the
+                            PartMatchRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Details" type="mat:MatchDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            match details for the specified document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectMasterResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to perform matching.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the matching
+                            master that you chose to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MatchingMaster" type="mam:MatchingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the matching master
+                            that you chose to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPayDetailsSourcesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingParams" type="mat:MatchingParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            matching debit and credit entries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" type="mat:MatchGroups">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the matching groups in the matching session.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="AbortRequest">
+    <part name="AbortRequest" element="matws:AbortRequest"/>
+  </message>
+  <message name="DisperseRequest">
+    <part name="DisperseRequest" element="matws:DisperseRequest"/>
+  </message>
+  <message name="StartAssistantResponse">
+    <part name="StartAssistantResponse" element="matws:StartAssistantResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="matws:OptionsResponse"/>
+  </message>
+  <message name="SelectMasterResponse">
+    <part name="SelectMasterResponse" element="matws:SelectMasterResponse"/>
+  </message>
+  <message name="SelectLinesRequest">
+    <part name="SelectLinesRequest" element="matws:SelectLinesRequest"/>
+  </message>
+  <message name="StartBackgroundRequest">
+    <part name="StartBackgroundRequest" element="matws:StartBackgroundRequest"/>
+  </message>
+  <message name="GetTotalsRequest">
+    <part name="GetTotalsRequest" element="matws:GetTotalsRequest"/>
+  </message>
+  <message name="WriteOffRequest">
+    <part name="WriteOffRequest" element="matws:WriteOffRequest"/>
+  </message>
+  <message name="AbortResponse">
+    <part name="AbortResponse" element="matws:AbortResponse"/>
+  </message>
+  <message name="GetDiscountsResponse">
+    <part name="GetDiscountsResponse" element="matws:GetDiscountsResponse"/>
+  </message>
+  <message name="GetDrivingLineInfoRequest">
+    <part name="GetDrivingLineInfoRequest" element="matws:GetDrivingLineInfoRequest"/>
+  </message>
+  <message name="GetGroupLinesResponse">
+    <part name="GetGroupLinesResponse" element="matws:GetGroupLinesResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="matws:Options"/>
+  </message>
+  <message name="GetDrivingLineInfoResponse">
+    <part name="GetDrivingLineInfoResponse" element="matws:GetDrivingLineInfoResponse"/>
+  </message>
+  <message name="GetPayDetailsSourcesRequest">
+    <part name="GetPayDetailsSourcesRequest" element="matws:GetPayDetailsSourcesRequest"/>
+  </message>
+  <message name="PartMatchRequest">
+    <part name="PartMatchRequest" element="matws:PartMatchRequest"/>
+  </message>
+  <message name="DisperseResponse">
+    <part name="DisperseResponse" element="matws:DisperseResponse"/>
+  </message>
+  <message name="StartBackgroundResponse">
+    <part name="StartBackgroundResponse" element="matws:StartBackgroundResponse"/>
+  </message>
+  <message name="SelectLinesResponse">
+    <part name="SelectLinesResponse" element="matws:SelectLinesResponse"/>
+  </message>
+  <message name="GetLineValuesResponse">
+    <part name="GetLineValuesResponse" element="matws:GetLineValuesResponse"/>
+  </message>
+  <message name="SelectMasterRequest">
+    <part name="SelectMasterRequest" element="matws:SelectMasterRequest"/>
+  </message>
+  <message name="GetPayDetailsSourcesResponse">
+    <part name="GetPayDetailsSourcesResponse" element="matws:GetPayDetailsSourcesResponse"/>
+  </message>
+  <message name="GetDocumentChainRequest">
+    <part name="GetDocumentChainRequest" element="matws:GetDocumentChainRequest"/>
+  </message>
+  <message name="GetProgressResponse">
+    <part name="GetProgressResponse" element="matws:GetProgressResponse"/>
+  </message>
+  <message name="WriteOffResponse">
+    <part name="WriteOffResponse" element="matws:WriteOffResponse"/>
+  </message>
+  <message name="PartMatchResponse">
+    <part name="PartMatchResponse" element="matws:PartMatchResponse"/>
+  </message>
+  <message name="GetTotalsResponse">
+    <part name="GetTotalsResponse" element="matws:GetTotalsResponse"/>
+  </message>
+  <message name="DiscountResponse">
+    <part name="DiscountResponse" element="matws:DiscountResponse"/>
+  </message>
+  <message name="GetGroupLinesRequest">
+    <part name="GetGroupLinesRequest" element="matws:GetGroupLinesRequest"/>
+  </message>
+  <message name="ValidateParamsRequest">
+    <part name="ValidateParamsRequest" element="matws:ValidateParamsRequest"/>
+  </message>
+  <message name="ValidateParamsResponse">
+    <part name="ValidateParamsResponse" element="matws:ValidateParamsResponse"/>
+  </message>
+  <message name="GetProgressRequest">
+    <part name="GetProgressRequest" element="matws:GetProgressRequest"/>
+  </message>
+  <message name="GetDocumentChainResponse">
+    <part name="GetDocumentChainResponse" element="matws:GetDocumentChainResponse"/>
+  </message>
+  <message name="CommitRequest">
+    <part name="CommitRequest" element="matws:CommitRequest"/>
+  </message>
+  <message name="DiscountRequest">
+    <part name="DiscountRequest" element="matws:DiscountRequest"/>
+  </message>
+  <message name="GetDiscountsRequest">
+    <part name="GetDiscountsRequest" element="matws:GetDiscountsRequest"/>
+  </message>
+  <message name="GetLineValuesRequest">
+    <part name="GetLineValuesRequest" element="matws:GetLineValuesRequest"/>
+  </message>
+  <message name="StartAssistantRequest">
+    <part name="StartAssistantRequest" element="matws:StartAssistantRequest"/>
+  </message>
+  <message name="CommitResponse">
+    <part name="CommitResponse" element="matws:CommitResponse"/>
+  </message>
+  <portType name="MatchingServicePortTypes">
+    <operation name="GetDrivingLineInfo">
+      <input message="matws:GetDrivingLineInfoRequest"/>
+      <output message="matws:GetDrivingLineInfoResponse"/>
+    </operation>
+    <operation name="GetDiscounts">
+      <input message="matws:GetDiscountsRequest"/>
+      <output message="matws:GetDiscountsResponse"/>
+    </operation>
+    <operation name="GetLineValues">
+      <input message="matws:GetLineValuesRequest"/>
+      <output message="matws:GetLineValuesResponse"/>
+    </operation>
+    <operation name="Discount">
+      <input message="matws:DiscountRequest"/>
+      <output message="matws:DiscountResponse"/>
+    </operation>
+    <operation name="GetDocumentChain">
+      <input message="matws:GetDocumentChainRequest"/>
+      <output message="matws:GetDocumentChainResponse"/>
+    </operation>
+    <operation name="GetTotals">
+      <input message="matws:GetTotalsRequest"/>
+      <output message="matws:GetTotalsResponse"/>
+    </operation>
+    <operation name="GetPayDetailsSources">
+      <input message="matws:GetPayDetailsSourcesRequest"/>
+      <output message="matws:GetPayDetailsSourcesResponse"/>
+    </operation>
+    <operation name="PartMatch">
+      <input message="matws:PartMatchRequest"/>
+      <output message="matws:PartMatchResponse"/>
+    </operation>
+    <operation name="ValidateParams">
+      <input message="matws:ValidateParamsRequest"/>
+      <output message="matws:ValidateParamsResponse"/>
+    </operation>
+    <operation name="Abort">
+      <input message="matws:AbortRequest"/>
+      <output message="matws:AbortResponse"/>
+    </operation>
+    <operation name="SelectLines">
+      <input message="matws:SelectLinesRequest"/>
+      <output message="matws:SelectLinesResponse"/>
+    </operation>
+    <operation name="Commit">
+      <input message="matws:CommitRequest"/>
+      <output message="matws:CommitResponse"/>
+    </operation>
+    <operation name="Disperse">
+      <input message="matws:DisperseRequest"/>
+      <output message="matws:DisperseResponse"/>
+    </operation>
+    <operation name="GetGroupLines">
+      <input message="matws:GetGroupLinesRequest"/>
+      <output message="matws:GetGroupLinesResponse"/>
+    </operation>
+    <operation name="SelectMaster">
+      <input message="matws:SelectMasterRequest"/>
+      <output message="matws:SelectMasterResponse"/>
+    </operation>
+    <operation name="WriteOff">
+      <input message="matws:WriteOffRequest"/>
+      <output message="matws:WriteOffResponse"/>
+    </operation>
+    <operation name="GetProgress">
+      <input message="matws:GetProgressRequest"/>
+      <output message="matws:GetProgressResponse"/>
+    </operation>
+    <operation name="StartAssistant">
+      <input message="matws:StartAssistantRequest"/>
+      <output message="matws:StartAssistantResponse"/>
+    </operation>
+    <operation name="StartBackground">
+      <input message="matws:StartBackgroundRequest"/>
+      <output message="matws:StartBackgroundResponse"/>
+    </operation>
+  </portType>
+  <binding name="MatchingServiceSOAPBinding" type="matws:MatchingServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetDrivingLineInfo">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/GetDrivingLineInfo" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDiscounts">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/GetDiscounts" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetLineValues">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/GetLineValues" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Discount">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/Discount" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDocumentChain">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/GetDocumentChain" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetTotals">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/GetTotals" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetPayDetailsSources">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/GetPayDetailsSources" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PartMatch">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/PartMatch" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateParams">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/ValidateParams" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Abort">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/Abort" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SelectLines">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/SelectLines" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Commit">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/Commit" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Disperse">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/Disperse" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetGroupLines">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/GetGroupLines" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SelectMaster">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/SelectMaster" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="WriteOff">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/WriteOff" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProgress">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/GetProgress" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="StartAssistant">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/StartAssistant" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="StartBackground">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Matching/StartBackground" style="document"/>
+      <input>
+        <soap:header message="matws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="MatchingService">
+    <port name="MatchingServicePort" binding="matws:MatchingServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/matching/matching-14.0"/>
+    </port>
+  </service>
+</definitions>

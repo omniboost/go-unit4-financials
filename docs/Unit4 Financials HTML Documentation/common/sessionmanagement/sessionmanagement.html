@@ -1,0 +1,238 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/common/schemas/sessionmanagement</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/common/schemas/sessionmanagement</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>SessionManagementRequest</h3>
+         <p>This service allows you to manage the current sessions on your installation. Use the
+            GenericBrowseRequest service and the SESSION dataview that Coda provides to get a
+            list of current sessions. Then, if required, delete selected sessions with this service.
+            You can delete only the sessions of users who have a capability level that is lower
+            than your own.
+         </p>
+         <h3>SessionManagementResponse</h3>
+         <p>This is the response that is returned when you delete sessions.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/common/schemas/sessionmanagement}KeyList"></a><h3>KeyList</h3>
+         <p>Holds a list of session keys that identify the sessions you want to delete.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>A session key that identifies a session you want to delete. This is the value of the
+                        Session key vocabulary item from the SESSION dataview that Coda provides.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/sessionmanagement}ErrorList"></a><h3>ErrorList</h3>
+         <p>Holds a list of reasons why attempted deletions failed.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Error</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Reason" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Reason">Reason</a></td>
+                     <td>Holds information about why one attempted deletion failed.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/sessionmanagement}LogoffRequest"></a><h3>LogoffRequest</h3>
+         <p>The LogoffRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>KeyList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/sessionmanagement}KeyList" href="#{http://www.coda.com/common/schemas/sessionmanagement}KeyList">KeyList</a></td>
+                     <td>Specifies the sessions that you want to delete.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/sessionmanagement}LogoffRequestVerb"></a><h3>LogoffRequestVerb</h3>
+         <p>The LogoffRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Deletes the sessions specified in the KeyList descendant.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/sessionmanagement}LogoffRequest" href="#{http://www.coda.com/common/schemas/sessionmanagement}LogoffRequest">LogoffRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/sessionmanagement}LogoffResponse"></a><h3>LogoffResponse</h3>
+         <p>The LogoffResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ErrorList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/sessionmanagement}ErrorList" href="#{http://www.coda.com/common/schemas/sessionmanagement}ErrorList">ErrorList</a></td>
+                     <td>When attempted deletions fail, this element holds a list of the reasons why the attempts
+                        failed.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/sessionmanagement}LogoffResponseVerb"></a><h3>LogoffResponseVerb</h3>
+         <p>The LogoffResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/sessionmanagement}LogoffResponse" href="#{http://www.coda.com/common/schemas/sessionmanagement}LogoffResponse">LogoffResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/sessionmanagement}SessionManagementRequest"></a><h3>SessionManagementRequest</h3>
+         <p>The SessionManagementRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to manage the current sessions on your installation. Use the
+            GenericBrowseRequest service and the SESSION dataview that Coda provides to get a
+            list of current sessions. Then, if required, delete selected sessions with this service.
+            You can delete only the sessions of users who have a capability level that is lower
+            than your own.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Delete</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/sessionmanagement}LogoffRequestVerb" href="#{http://www.coda.com/common/schemas/sessionmanagement}LogoffRequestVerb">LogoffRequestVerb</a></td>
+                     <td>Deletes the sessions specified in the KeyList descendant.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/sessionmanagement}SessionManagementResponse"></a><h3>SessionManagementResponse</h3>
+         <p>The SessionManagementResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you delete sessions.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Delete</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/sessionmanagement}LogoffResponseVerb" href="#{http://www.coda.com/common/schemas/sessionmanagement}LogoffResponseVerb">LogoffResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

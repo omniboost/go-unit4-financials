@@ -1,0 +1,173 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-TransactionService">
+            <h1>TransactionService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/transaction/transaction-14.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-transaction-transaction.wsdl" download="">finance-transaction-transaction.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/transaction/transaction-14.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#TransactionService-GetDocument">GetDocument</a></li>
+               <li><a href="#TransactionService-UpdateLastPrint">UpdateLastPrint</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="TransactionService-GetDocument"></a>GetDocument
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDocumentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>This element contains a key
+                                 uniquely identifying the document you want
+                                 to retrieve.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>MimicBrowse</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>If set, the request retrieves
+                                 all document details, including
+                                 system-maintained details.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDocumentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>This element contains a key
+                                 uniquely identifying the document you have retrieved.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>MimicBrowse</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>If set, the response includes
+                                 all document details, including
+                                 system-maintained details.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>This element holds the
+                                 financial document you have retrieved.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="TransactionService-UpdateLastPrint"></a>UpdateLastPrint
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateLastPrintRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Keys</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}TxnKeyList" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}TxnKeyList">TxnKeyList</a></td>
+                              <td>A list of the keys
+                                 identifying the documents for which you want
+                                 to update details of when they were last printed.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateLastPrintResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Keys</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}TxnKeyList" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}TxnKeyList">TxnKeyList</a></td>
+                              <td>A list of the keys
+                                 identifying the documents for which you
+                                 attempted to update details of when they
+                                 were last printed.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

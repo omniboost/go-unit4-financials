@@ -1,0 +1,719 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-InterestChargingService">
+            <h1>InterestChargingService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/interestcharging/interestcharging-13.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-interestcharging-interestcharging.wsdl" download="">finance-interestcharging-interestcharging.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/interestcharging/interestcharging-13.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#InterestChargingService-Delete">Delete</a></li>
+               <li><a href="#InterestChargingService-Generate">Generate</a></li>
+               <li><a href="#InterestChargingService-GetDetails">GetDetails</a></li>
+               <li><a href="#InterestChargingService-GetHistoryLines">GetHistoryLines</a></li>
+               <li><a href="#InterestChargingService-GetNewProposalDetails">GetNewProposalDetails</a></li>
+               <li><a href="#InterestChargingService-GetProposals">GetProposals</a></li>
+               <li><a href="#InterestChargingService-GetSummaries">GetSummaries</a></li>
+               <li><a href="#InterestChargingService-HoldDetails">HoldDetails</a></li>
+               <li><a href="#InterestChargingService-Post">Post</a></li>
+               <li><a href="#InterestChargingService-Recover">Recover</a></li>
+               <li><a href="#InterestChargingService-UpdateSummaries">UpdateSummaries</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="InterestChargingService-Delete"></a>Delete
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>DeleteRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                              <td>Contains the key identifying
+                                 the interest charges you want to delete.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>DeleteResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies the proposal being deleted.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InterestChargingService-Generate"></a>Generate
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GenerateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Params</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GenerateParams" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}GenerateParams">GenerateParams</a></td>
+                              <td>Contains the parameters
+                                 required to generate the proposals. The
+                                 parameters include the interest master,
+                                 selector master and proposal code.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GenerateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>This key contains information
+                                 about the progress of the Generate stage.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies a proposal.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InterestChargingService-GetDetails"></a>GetDetails
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDetailsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey">SummaryKey</a></td>
+                              <td>Contains the key identifying
+                                 the interest charge summaries you want to
+                                 retrieve from the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Columns</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}HeaderColumnList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}HeaderColumnList">HeaderColumnList</a></td>
+                              <td>The list of vocabulary items
+                                 you want to use to display the proposal details.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDetailsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Details</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}SelectionWithFlexiFields" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}SelectionWithFlexiFields">SelectionWithFlexiFields</a></td>
+                              <td>Returns the specified details
+                                 for manipulation.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey">SummaryKey</a></td>
+                              <td>Contains the key identifying
+                                 the interest charge summaries retrieved from
+                                 the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InterestChargingService-GetHistoryLines"></a>GetHistoryLines
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetHistoryLinesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 identifies the proposal for which you want
+                                 to retrieve history information
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetHistoryLinesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Lines</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}HistoryLineList" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}HistoryLineList">HistoryLineList</a></td>
+                              <td>This element contains all the
+                                 details of the actions taken on the
+                                 specified proposal.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies the proposal for which
+                                 history lines are being retrieved.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InterestChargingService-GetNewProposalDetails"></a>GetNewProposalDetails
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetNewProposalDetailsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}NewProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}NewProposalKey">NewProposalKey</a></td>
+                              <td>This key contains the company
+                                 code and interest master code that will be
+                                 used to generate the proposal.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetNewProposalDetailsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>NewProposalDetails</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}NewProposalDetails" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}NewProposalDetails">NewProposalDetails</a></td>
+                              <td>This element holds the
+                                 details for a new proposal.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}NewProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}NewProposalKey">NewProposalKey</a></td>
+                              <td>This key contains the company
+                                 code and interest master code that will be
+                                 used to generate the proposal.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InterestChargingService-GetProposals"></a>GetProposals
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetProposalsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKey" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKey">GlobalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies an interest charge proposal
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetProposalsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Proposals</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalList" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}ProposalList">ProposalList</a></td>
+                              <td>This element lists all the
+                                 interest charge proposals in the company.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKey" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKey">GlobalKey</a></td>
+                              <td>The key used to identify the
+                                 interest charge proposals to be retrieved.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InterestChargingService-GetSummaries"></a>GetSummaries
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetSummariesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                              <td>Contains the key identifying
+                                 the interest charge summary lines you want
+                                 to retrieve from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetSummariesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Summaries</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryList" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}SummaryList">SummaryList</a></td>
+                              <td>Returns a list of interest
+                                 charges contained within a proposal.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies a proposal..
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InterestChargingService-HoldDetails"></a>HoldDetails
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>HoldDetailsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey">SummaryKey</a></td>
+                              <td>Contains the summary key for
+                                 the detail lines held from the interest charge.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Changes</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}DetailChangeList" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}DetailChangeList">DetailChangeList</a></td>
+                              <td>This element stores changes
+                                 to individual detail lines within an
+                                 interest charge.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>HoldDetailsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Summary</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}Summary" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}Summary">Summary</a></td>
+                              <td>Returns details of the
+                                 retrieved interest charge.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey">SummaryKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies an interest charge.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InterestChargingService-Post"></a>Post
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Params</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}PostParams" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}PostParams">PostParams</a></td>
+                              <td>Contains parameters specified
+                                 for posting the proposals.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PostResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>This key contains information
+                                 about the progress of the Post stage.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies the proposal being posted.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InterestChargingService-Recover"></a>Recover
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>RecoverRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                              <td>Contains the key identifying
+                                 the interest charge you want to recover.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>RecoverResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies the proposal being recovered.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InterestChargingService-UpdateSummaries"></a>UpdateSummaries
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateSummariesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                              <td>This element contains
+                                 parameters for you to specify which proposal
+                                 to retrieve for manipulation.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Changes</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryChangeList" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}SummaryChangeList">SummaryChangeList</a></td>
+                              <td>This element stores a list of
+                                 changes to an interest charge.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateSummariesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="finance/interestcharging/interestcharging.html#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                              <td>This element is a key which
+                                 uniquely identifies the proposal being updated.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

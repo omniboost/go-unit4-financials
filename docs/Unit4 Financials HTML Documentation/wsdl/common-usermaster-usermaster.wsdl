@@ -1,0 +1,1247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/usermaster/usermaster-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:usrws="http://www.coda.com/common/schemas/usermaster/usermaster-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:secv="http://www.coda.com/common/schemas/securityvariables"
+    xmlns:mes="http://www.coda.com/common/schemas/messagetransport"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:usrg="http://www.coda.com/common/schemas/usergroupmaster"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:usrcapab="http://www.coda.com/common/schemas/usercapability"
+    xmlns:usr="http://www.coda.com/common/schemas/usermaster"
+    targetNamespace="http://www.coda.com/common/schemas/usermaster/usermaster-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/securityvariables" schemaLocation="common/securityvariables/securityvariables.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/usermaster" schemaLocation="../wsdl/common/usermaster/usermaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/usercapability" schemaLocation="common/usercapability/usercapability.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/messagetransport" schemaLocation="common/messagetransport/messagetransport.xsd"/>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the Coda user
+                            master that you retrieved or attempted to
+                            retrieve.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="User" minOccurs="0" type="usr:User">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the Coda user master
+                            you have retrieved from the database.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="User" type="usr:User">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the Coda user master you want to update.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" minOccurs="0" type="usr:Groups">
+                    <xsd:annotation>
+                        <xsd:documentation>The user groups to which this
+                            Coda user master belongs.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WarnAboutUndefaultedDomainUsers"
+                    minOccurs="0" type="xsd:boolean" default="false">
+                    <xsd:annotation>
+                        <xsd:documentation>If set, a warning message is
+                            displayed if any user masters do not have a
+                            default domain user mapping.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="usr:ListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>A filter that selects the
+                            Coda user masters to be listed.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddWithPositionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the Coda user
+                            master that you created or attempted to
+                            create.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" type="xsd:short">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            Coda user master in the database.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthenticateUserRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the user master code you want to
+                            Authenticate for.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Password" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The password.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ImportResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ChangePasswordResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The user code which has had
+                            its password changed.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetWithPositionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="usr:UserKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the Coda user master you want to retrieve
+                            from the database.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthenticateUserResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Valid" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The user code which has been
+                            authorised.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateUserClaimsResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddWithPositionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="User" type="usr:User">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the Coda user master you want to create. </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" minOccurs="0" type="usr:Groups">
+                    <xsd:annotation>
+                        <xsd:documentation>The user groups to which this
+                            Coda user master belongs.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WarnAboutUndefaultedDomainUsers"
+                    minOccurs="0" type="xsd:boolean" default="false">
+                    <xsd:annotation>
+                        <xsd:documentation>If set, a warning message is
+                            displayed if any user masters do not have a
+                            default domain user mapping.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Positions" minOccurs="0" type="usr:Positions">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of positions that
+                            this new user is associated with.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCapabilityList" type="usrcapab:UserCapabilityList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of capabilities by
+                            company or group.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateWithPositionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="User" type="usr:User">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the Coda user master you want to update.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" minOccurs="0" type="usr:Groups">
+                    <xsd:annotation>
+                        <xsd:documentation>The user groups to which this
+                            Coda user master belongs.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WarnAboutUndefaultedDomainUsers"
+                    minOccurs="0" type="xsd:boolean" default="false">
+                    <xsd:annotation>
+                        <xsd:documentation>If set, a warning message is
+                            displayed if any user masters do not have a
+                            default domain user mapping.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AddPositions" minOccurs="0" type="usr:Positions">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of positions that
+                            you want to add this user to.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RemovePositions" minOccurs="0" type="usr:Positions">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of positions that
+                            you want to remove this user from.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CheckPositionsLeftConnected"
+                    minOccurs="0" type="usr:Positions">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of positions that
+                            this user was associated with when you
+                            retrieved the user master from the database,
+                            and from which you have not removed this
+                            user. If         either the user has been
+                            removed from any of these positions or
+                            associated with any other positions, the
+                            response document warns         you of this
+                            and provides lists of externally added,
+                            removed and         deleted positions. This
+                            allows you to make any changes and
+                            attempt another update.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCapabilityList" type="usrcapab:UserCapabilityList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of capabilities by
+                            company or group.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateHomePageResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the Coda user
+                            whose Homepage template you updated or
+                            attempted to update.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TemplateCode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the HomePage
+                            template that you assigned, or attempted to
+                            assign, to this Coda user.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ChangePasswordRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the user master code you want to change
+                            password for.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="NewPassword" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The new password.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the Coda user
+                            master that you created or attempted to
+                            create.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" type="xsd:short">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            Coda user master in the database.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the Coda user
+                            master that you deleted or attempted to
+                            delete.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the Coda user
+                            master that you updated or attempted to
+                            update.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" minOccurs="0" type="xsd:short">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            Coda user master in the database.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ImportRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FullUserList" type="usr:FullUserList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the Coda user master
+                            data being imported.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="usr:UserKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the Coda user master you want to delete.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateUserClaimsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="UserClaimsList" type="usr:UserClaimsList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the user master code you want to
+                            Authenticate for.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetOutOfOfficeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="usr:UserKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a user.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetWithPositionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the Coda user
+                            master that you retrieved or attempted to
+                            retrieve.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="User" minOccurs="0" type="usr:User">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the Coda user master
+                            you have retrieved from the database.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectedPositions" type="usr:Positions">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of positions with
+                            which this user is associated.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectedHierarchies" type="usr:Hierarchies">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of position
+                            hierarchies in which the positions
+                            associated with this user occur.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCapabilityList" type="usrcapab:UserCapabilityList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of capabilities by
+                            company or group.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListAllRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="usr:ListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>A filter that selects the
+                            Coda user masters to be listed.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListAllResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="usr:ListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The filter that was used to
+                            select the Coda user masters to be listed.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="usr:UserList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key information
+                            for the listed Coda user masters.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExportRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="TurnOffOutOfOfficeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The user code whcih has had
+                            the out of office flag reset.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateHomePageRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="usr:UserKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the Coda user whose Homepage template you
+                            want to update.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TemplateCode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the HomePage
+                            template to assign to this Coda user.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="usr:ListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The filter that was used to
+                            select the Coda user masters to be listed.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="usr:UserList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key information
+                            for the listed Coda user masters.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListForApplicationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Keys" minOccurs="0" type="usr:UserList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information for
+                            the Coda user masters that are set up to use
+                            the application that was specified in the
+                            Request corresponding to this Response.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListForApplicationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="usr:ListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>A filter that selects the
+                            Coda user masters to be checked.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Application" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The application that you want
+                            to check for.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="usr:UserKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the Coda user master you want to retrieve
+                            from the database.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SearchResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="com:SearchFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The search criteria.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>The search results.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ListIsComplete" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If true, the records returned
+                            are the complete results of the search. If
+                            false, the results were truncated.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="TurnOffOutOfOfficeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="usr:UserKey">
+                    <xsd:annotation>
+                        <xsd:documentation>A key to a user ID.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="User" type="usr:User">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the Coda user master you want to create. </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" minOccurs="0" type="usr:Groups">
+                    <xsd:annotation>
+                        <xsd:documentation>The user groups to which this
+                            Coda user master belongs.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WarnAboutUndefaultedDomainUsers"
+                    minOccurs="0" type="xsd:boolean" default="false">
+                    <xsd:annotation>
+                        <xsd:documentation>If set, a warning message is
+                            displayed if any user masters do not have a
+                            default domain user mapping.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SearchRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="com:SearchFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The search results.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExportResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FullUserList" minOccurs="0" type="usr:FullUserList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the Coda user master
+                            data being exported.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateWithPositionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the Coda user
+                            master that you updated or attempted to
+                            update.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" minOccurs="0" type="xsd:short">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            Coda user master in the database.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Success" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies whether the update
+                            was successful (true) or the association of
+                            the user with positions was changed by
+                            someone else while you were editing the user
+                            master (false).  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExternallyAddedPositions"
+                    minOccurs="0" type="usr:Positions">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of positions with
+                            which the user has been associated by
+                            someone else while you were editing the user
+                            master.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExternallyRemovedPositions"
+                    minOccurs="0" type="usr:Positions">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of positions from
+                            which the user has been removed by someone
+                            else while you were editing the user master.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExternallyDeletedPositions"
+                    minOccurs="0" type="usr:Positions">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of position masters
+                            that have been deleted by someone else while
+                            you were editing the user master.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectedPositions" minOccurs="0" type="usr:Positions">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of positions with
+                            which the user is now associated.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectedHierarchies" minOccurs="0" type="usr:Hierarchies">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of position
+                            hierarchies in which the positions now
+                            associated with this user now occur.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCapabilityList" type="usrcapab:UserCapabilityList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of capabilities by
+                            company or group.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetOutOfOfficeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>A user code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="IsOutOfOffice" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If true, the out of office
+                            flag is set for the specified user.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OutOfOffice" minOccurs="0" type="usr:OutOfOffice">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains out of
+                            office details.  </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="usrws:DeleteResponse"/>
+  </message>
+  <message name="UpdateHomePageResponse">
+    <part name="UpdateHomePageResponse" element="usrws:UpdateHomePageResponse"/>
+  </message>
+  <message name="UpdateUserClaimsResponse">
+    <part name="UpdateUserClaimsResponse" element="usrws:UpdateUserClaimsResponse"/>
+  </message>
+  <message name="ListForApplicationRequest">
+    <part name="ListForApplicationRequest" element="usrws:ListForApplicationRequest"/>
+  </message>
+  <message name="ChangePasswordResponse">
+    <part name="ChangePasswordResponse" element="usrws:ChangePasswordResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="usrws:DeleteRequest"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="usrws:ListRequest"/>
+  </message>
+  <message name="TurnOffOutOfOfficeResponse">
+    <part name="TurnOffOutOfOfficeResponse" element="usrws:TurnOffOutOfOfficeResponse"/>
+  </message>
+  <message name="ImportRequest">
+    <part name="ImportRequest" element="usrws:ImportRequest"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="usrws:UpdateRequest"/>
+  </message>
+  <message name="GetWithPositionsRequest">
+    <part name="GetWithPositionsRequest" element="usrws:GetWithPositionsRequest"/>
+  </message>
+  <message name="ListForApplicationResponse">
+    <part name="ListForApplicationResponse" element="usrws:ListForApplicationResponse"/>
+  </message>
+  <message name="AddWithPositionsRequest">
+    <part name="AddWithPositionsRequest" element="usrws:AddWithPositionsRequest"/>
+  </message>
+  <message name="ExportResponse">
+    <part name="ExportResponse" element="usrws:ExportResponse"/>
+  </message>
+  <message name="SearchResponse">
+    <part name="SearchResponse" element="usrws:SearchResponse"/>
+  </message>
+  <message name="TurnOffOutOfOfficeRequest">
+    <part name="TurnOffOutOfOfficeRequest" element="usrws:TurnOffOutOfOfficeRequest"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="usrws:AddResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="usrws:GetResponse"/>
+  </message>
+  <message name="AddWithPositionsResponse">
+    <part name="AddWithPositionsResponse" element="usrws:AddWithPositionsResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="usrws:AddRequest"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="usrws:UpdateResponse"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="usrws:GetRequest"/>
+  </message>
+  <message name="ListAllResponse">
+    <part name="ListAllResponse" element="usrws:ListAllResponse"/>
+  </message>
+  <message name="ImportResponse">
+    <part name="ImportResponse" element="usrws:ImportResponse"/>
+  </message>
+  <message name="UpdateWithPositionsResponse">
+    <part name="UpdateWithPositionsResponse" element="usrws:UpdateWithPositionsResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="usrws:OptionsResponse"/>
+  </message>
+  <message name="ExportRequest">
+    <part name="ExportRequest" element="usrws:ExportRequest"/>
+  </message>
+  <message name="GetOutOfOfficeRequest">
+    <part name="GetOutOfOfficeRequest" element="usrws:GetOutOfOfficeRequest"/>
+  </message>
+  <message name="UpdateHomePageRequest">
+    <part name="UpdateHomePageRequest" element="usrws:UpdateHomePageRequest"/>
+  </message>
+  <message name="AuthenticateUserResponse">
+    <part name="AuthenticateUserResponse" element="usrws:AuthenticateUserResponse"/>
+  </message>
+  <message name="ListAllRequest">
+    <part name="ListAllRequest" element="usrws:ListAllRequest"/>
+  </message>
+  <message name="GetWithPositionsResponse">
+    <part name="GetWithPositionsResponse" element="usrws:GetWithPositionsResponse"/>
+  </message>
+  <message name="AuthenticateUserRequest">
+    <part name="AuthenticateUserRequest" element="usrws:AuthenticateUserRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="usrws:Options"/>
+  </message>
+  <message name="UpdateUserClaimsRequest">
+    <part name="UpdateUserClaimsRequest" element="usrws:UpdateUserClaimsRequest"/>
+  </message>
+  <message name="SearchRequest">
+    <part name="SearchRequest" element="usrws:SearchRequest"/>
+  </message>
+  <message name="UpdateWithPositionsRequest">
+    <part name="UpdateWithPositionsRequest" element="usrws:UpdateWithPositionsRequest"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="usrws:ListResponse"/>
+  </message>
+  <message name="ChangePasswordRequest">
+    <part name="ChangePasswordRequest" element="usrws:ChangePasswordRequest"/>
+  </message>
+  <message name="GetOutOfOfficeResponse">
+    <part name="GetOutOfOfficeResponse" element="usrws:GetOutOfOfficeResponse"/>
+  </message>
+  <portType name="UserMasterServicePortTypes">
+    <operation name="Add">
+      <input message="usrws:AddRequest"/>
+      <output message="usrws:AddResponse"/>
+    </operation>
+    <operation name="Delete">
+      <input message="usrws:DeleteRequest"/>
+      <output message="usrws:DeleteResponse"/>
+    </operation>
+    <operation name="ChangePassword">
+      <input message="usrws:ChangePasswordRequest"/>
+      <output message="usrws:ChangePasswordResponse"/>
+    </operation>
+    <operation name="Import">
+      <input message="usrws:ImportRequest"/>
+      <output message="usrws:ImportResponse"/>
+      <jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws">
+        <jaxws:method name="_import"/>
+      </jaxws:bindings>
+    </operation>
+    <operation name="UpdateWithPositions">
+      <input message="usrws:UpdateWithPositionsRequest"/>
+      <output message="usrws:UpdateWithPositionsResponse"/>
+    </operation>
+    <operation name="GetOutOfOffice">
+      <input message="usrws:GetOutOfOfficeRequest"/>
+      <output message="usrws:GetOutOfOfficeResponse"/>
+    </operation>
+    <operation name="ListForApplication">
+      <input message="usrws:ListForApplicationRequest"/>
+      <output message="usrws:ListForApplicationResponse"/>
+    </operation>
+    <operation name="TurnOffOutOfOffice">
+      <input message="usrws:TurnOffOutOfOfficeRequest"/>
+      <output message="usrws:TurnOffOutOfOfficeResponse"/>
+    </operation>
+    <operation name="UpdateUserClaims">
+      <input message="usrws:UpdateUserClaimsRequest"/>
+      <output message="usrws:UpdateUserClaimsResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="usrws:UpdateRequest"/>
+      <output message="usrws:UpdateResponse"/>
+    </operation>
+    <operation name="AddWithPositions">
+      <input message="usrws:AddWithPositionsRequest"/>
+      <output message="usrws:AddWithPositionsResponse"/>
+    </operation>
+    <operation name="UpdateHomePage">
+      <input message="usrws:UpdateHomePageRequest"/>
+      <output message="usrws:UpdateHomePageResponse"/>
+    </operation>
+    <operation name="ListAll">
+      <input message="usrws:ListAllRequest"/>
+      <output message="usrws:ListAllResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="usrws:GetRequest"/>
+      <output message="usrws:GetResponse"/>
+    </operation>
+    <operation name="Search">
+      <input message="usrws:SearchRequest"/>
+      <output message="usrws:SearchResponse"/>
+    </operation>
+    <operation name="Export">
+      <input message="usrws:ExportRequest"/>
+      <output message="usrws:ExportResponse"/>
+    </operation>
+    <operation name="AuthenticateUser">
+      <input message="usrws:AuthenticateUserRequest"/>
+      <output message="usrws:AuthenticateUserResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="usrws:ListRequest"/>
+      <output message="usrws:ListResponse"/>
+    </operation>
+    <operation name="GetWithPositions">
+      <input message="usrws:GetWithPositionsRequest"/>
+      <output message="usrws:GetWithPositionsResponse"/>
+    </operation>
+  </portType>
+  <binding name="UserMasterServiceSOAPBinding" type="usrws:UserMasterServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/Add" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/Delete" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ChangePassword">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/ChangePassword" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Import">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/Import" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateWithPositions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/UpdateWithPositions" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetOutOfOffice">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/GetOutOfOffice" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListForApplication">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/ListForApplication" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="TurnOffOutOfOffice">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/TurnOffOutOfOffice" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateUserClaims">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/UpdateUserClaims" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/Update" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AddWithPositions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/AddWithPositions" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateHomePage">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/UpdateHomePage" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListAll">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/ListAll" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/Get" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Search">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/Search" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Export">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/Export" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AuthenticateUser">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/AuthenticateUser" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/List" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetWithPositions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserMaster/GetWithPositions" style="document"/>
+      <input>
+        <soap:header message="usrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="UserMasterService">
+    <port name="UserMasterServicePort" binding="usrws:UserMasterServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/usermaster/usermaster-14.0"/>
+    </port>
+  </service>
+</definitions>

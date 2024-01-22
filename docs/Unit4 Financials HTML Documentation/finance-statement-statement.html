@@ -1,0 +1,740 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-StatementService">
+            <h1>StatementService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/statement/statement-14.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-statement-statement.wsdl" download="">finance-statement-statement.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/statement/statement-14.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#StatementService-Browse">Browse</a></li>
+               <li><a href="#StatementService-Generate">Generate</a></li>
+               <li><a href="#StatementService-GetDetails">GetDetails</a></li>
+               <li><a href="#StatementService-GetHeader">GetHeader</a></li>
+               <li><a href="#StatementService-GetReferenceNumbers">GetReferenceNumbers</a></li>
+               <li><a href="#StatementService-Lock">Lock</a></li>
+               <li><a href="#StatementService-Post">Post</a></li>
+               <li><a href="#StatementService-Unlock">Unlock</a></li>
+               <li><a href="#StatementService-Validate">Validate</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="StatementService-Browse"></a>Browse
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>BrowseRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}DetailsLocation" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}DetailsLocation">DetailsLocation</a></td>
+                              <td>The source of the data you
+                                 want to browse: Books, Intray or Archive.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>GslCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                              <td>The code of the selector
+                                 master you are using to select the statement lines.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>WholeDocuments</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>If TRUE, specifies that you
+                                 want to browse whole documents.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RowLimit</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                              <td>The maximum number of lines
+                                 you want to retrieve for browsing.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ApplicationFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>The search criteria to be
+                                 applied by the application when selecting
+                                 the data. These are as set up in the
+                                 selector master.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>UserFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>The additional search
+                                 criteria specified by the user, to be
+                                 applied when selecting the data. This may
+                                 be, for example, a document code or a range
+                                 of codes.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>HierarchyFilter</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>The additional search
+                                 criteria which will be applied to select
+                                 data within specified hierarchies.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Columns</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                              <td>The columns in which the
+                                 retrieved data will be displayed.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>BrowseResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>This element contains the
+                                 data you have selected for browsing, which
+                                 is returned from the server.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="StatementService-Generate"></a>Generate
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GenerateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>GetDetailsParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}GetDetailsParams" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}GetDetailsParams">GetDetailsParams</a></td>
+                              <td>The parameters for retrieving
+                                 the statement lines for which you want to
+                                 generate document proposals.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Params</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}GenerateParams" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}GenerateParams">GenerateParams</a></td>
+                              <td>Contains the parameters for
+                                 generating documents for the statement lines.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogID</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The name of the log to which
+                                 the details of the Generate process will be written.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GenerateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>FullKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FullKey" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FullKey">FullKey</a></td>
+                              <td>The key containing the codes
+                                 of the masters and the statement you want to
+                                 use in Statement Processing.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocProposals</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}DocProposals" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}DocProposals">DocProposals</a></td>
+                              <td>The generated documents
+                                 containing the proposed transactions.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Folders</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FolderList" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FolderList">FolderList</a></td>
+                              <td>Contains the list of folders
+                                 and information about the lines held in the folders.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="StatementService-GetDetails"></a>GetDetails
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDetailsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Params</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}GetDetailsParams" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}GetDetailsParams">GetDetailsParams</a></td>
+                              <td>The parameters for retrieving
+                                 the statement lines you are interested in.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDetailsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FullKey" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FullKey">FullKey</a></td>
+                              <td>The key containing the codes
+                                 of the masters and the statement you want to
+                                 use in Statement Processing.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Details</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}Details" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}Details">Details</a></td>
+                              <td>Contains information about
+                                 the statement lines and statement value.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="StatementService-GetHeader"></a>GetHeader
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetHeaderRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FullKey" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FullKey">FullKey</a></td>
+                              <td>The key containing the codes
+                                 of the masters and the statement you want to
+                                 use in Statement Processing.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetHeaderResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FullKey" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FullKey">FullKey</a></td>
+                              <td>The key containing the codes
+                                 of the masters and the statement you want to
+                                 use in Statement Processing.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Header</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}Header" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}Header">Header</a></td>
+                              <td>Contains details of the
+                                 statement header.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="StatementService-GetReferenceNumbers"></a>GetReferenceNumbers
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetReferenceNumbersRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}Key" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}Key">Key</a></td>
+                              <td>The key containing the
+                                 selection criteria for the Reference Number map.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetReferenceNumbersResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}Key" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}Key">Key</a></td>
+                              <td>The key containing the
+                                 selection criteria for the Reference Number
+                                 map. This contains statement master codes
+                                 and the statement reference numbers valid
+                                 for each.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ReferenceNumberMap</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}ReferenceNumberMap" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}ReferenceNumberMap">ReferenceNumberMap</a></td>
+                              <td>The list of statement
+                                 reference numbers mapped against statement
+                                 masters, which you have received from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="StatementService-Lock"></a>Lock
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>LockRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FullKey" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FullKey">FullKey</a></td>
+                              <td>The key containing the code
+                                 of the company, the masters and the
+                                 statement, identifying the statement you
+                                 want to lock for your own use in Statement Processing.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>LockResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FullKey" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FullKey">FullKey</a></td>
+                              <td>The key containing the codes
+                                 of the company, the masters and the
+                                 statement, identifying the statement you
+                                 want to lock for your own use in Statement Processing.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LockToken</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeText" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeText">typeText</a></td>
+                              <td>A random alpha-numeric string
+                                 which is returned when you send a request to
+                                 lock a statement. You need the LockToken if
+                                 you want to initiate any further processing
+                                 for the locked statement, as it indicates
+                                 that you are the user with write-access to
+                                 that table.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="StatementService-Post"></a>Post
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>GetDetailsParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}GetDetailsParams" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}GetDetailsParams">GetDetailsParams</a></td>
+                              <td>The parameters for retrieving
+                                 the statement lines you want to post.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Folders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FolderList" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FolderList">FolderList</a></td>
+                              <td>The list of folders
+                                 containing the statement lines.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocProposals</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}DocProposals" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}DocProposals">DocProposals</a></td>
+                              <td>The proposed documents which
+                                 were created using the Generate request.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogID</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The name of the log to which
+                                 the details of the Post process will be written.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PostResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>FullKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FullKey" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FullKey">FullKey</a></td>
+                              <td>The key containing the codes
+                                 of the masters and the statement you want to
+                                 use in Statement Processing
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Folders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FolderList" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FolderList">FolderList</a></td>
+                              <td>Contains the list of folders
+                                 and information on the lines held in the folders.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="StatementService-Unlock"></a>Unlock
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UnlockRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FullKey" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FullKey">FullKey</a></td>
+                              <td>The key containing the code
+                                 of the company, the masters and the
+                                 statement, identifying the statement you
+                                 want to unlock.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UnlockResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FullKey" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FullKey">FullKey</a></td>
+                              <td>The key containing the code
+                                 of the company, the masters and the
+                                 statement, identifying the statement you
+                                 want to unlock.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="StatementService-Validate"></a>Validate
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>GetDetailsParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}GetDetailsParams" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}GetDetailsParams">GetDetailsParams</a></td>
+                              <td>The parameters for retrieving
+                                 the statement lines you want to validate.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Folders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FolderList" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FolderList">FolderList</a></td>
+                              <td>Contains information about
+                                 the folders in which the statement lines are held.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogID</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The name of the log to which
+                                 the details of the Validate process will be written.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ValidateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>FullKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FullKey" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FullKey">FullKey</a></td>
+                              <td>The key containing the codes
+                                 of the masters and the statement you want to
+                                 use in Statement Processing.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Folders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/statement}FolderList" href="finance/statement/statement.html#{http://www.coda.com/efinance/schemas/statement}FolderList">FolderList</a></td>
+                              <td>The list of folders
+                                 containing the statement lines, which have
+                                 attempted to validate.               The
+                                 folders element for this response will be
+                                 taken from the Folders element of
+                                 ValidateRequest.           The status values
+                                 may be modified to indicate an error, or a
+                                 change of posting location from
+                                 books to Intray.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

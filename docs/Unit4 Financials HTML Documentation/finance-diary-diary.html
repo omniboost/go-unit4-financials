@@ -1,0 +1,596 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-DiaryService">
+            <h1>DiaryService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/diary/diary-13.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-diary-diary.wsdl" download="">finance-diary-diary.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/diary/diary-13.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#DiaryService-Add">Add</a></li>
+               <li><a href="#DiaryService-AddComment">AddComment</a></li>
+               <li><a href="#DiaryService-Browse">Browse</a></li>
+               <li><a href="#DiaryService-GetComments">GetComments</a></li>
+               <li><a href="#DiaryService-GetDefaultSelector">GetDefaultSelector</a></li>
+               <li><a href="#DiaryService-GetDiary">GetDiary</a></li>
+               <li><a href="#DiaryService-GetInfo">GetInfo</a></li>
+               <li><a href="#DiaryService-List">List</a></li>
+               <li><a href="#DiaryService-Update">Update</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="DiaryService-Add"></a>Add
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>AddRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Entry</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}Entry" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}Entry">Entry</a></td>
+                              <td>This element contains details
+                                 about the diary event you want to add.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Phasing</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}Phasing" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}Phasing">Phasing</a></td>
+                              <td>This element contains details
+                                 about the rules applied when the diary event
+                                 is replicated, and set to recur at regular intervals.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Comment</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}Comment" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}Comment">Comment</a></td>
+                              <td>This element contains the
+                                 comments for the diary event you want to add.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>AddResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Keys</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}AddKeyList" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}AddKeyList">AddKeyList</a></td>
+                              <td>The keys identifying the
+                                 diary events added to the database by the
+                                 'Adddry' request.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="DiaryService-AddComment"></a>AddComment
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>AddCommentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                              <td>The key identifying the diary
+                                 event to which you want to add comments.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Comment</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}Comment" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}Comment">Comment</a></td>
+                              <td>Contains the comment text
+                                 that you want to add to the diary event.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>AddCommentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                              <td>The key identifying the diary
+                                 event to which the comment was added.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CommentData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}CommentData" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}CommentData">CommentData</a></td>
+                              <td>Contains details about when
+                                 the diary event comment was created, and by
+                                 which user.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="DiaryService-Browse"></a>Browse
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>BrowseRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PresenterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the metadata
+                                 presenter master to be used to display the data.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Selector</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>The code for the metadata
+                                 selector master to be used to retrieve data.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ExtraVocabs</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/genericbrowse}VocabIdList" href="common/genericbrowse/genericbrowse.html#{http://www.coda.com/common/schemas/genericbrowse}VocabIdList">VocabIdList</a></td>
+                              <td>A list of extra vocabulary
+                                 items to return in the presentation results.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ActionDateFrom</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDateB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDateB">typeDateB</a></td>
+                              <td>The start date of the
+                                 selection date range.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ActionDateTo</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDateB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDateB">typeDateB</a></td>
+                              <td>The end date of the selection
+                                 date range.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>BrowseResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>This element holds your diary data.</td>
+                           </tr>
+                           <tr>
+                              <td>PrimaryKeyVocabs</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}VocabList" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}VocabList">VocabList</a></td>
+                              <td>A list of the vocabulary
+                                 items that describe the primary key of the
+                                 primary object of the dataview.  This is for
+                                 the benefit of generic printing.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="DiaryService-GetComments"></a>GetComments
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetCommentsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                              <td>The key identifying the diary
+                                 event for which you want to retrieve comments.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetCommentsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                              <td>The key identifying the diary
+                                 event for which comments have been retrieved.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Comments</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}EntryCommentList" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}EntryCommentList">EntryCommentList</a></td>
+                              <td>Contains a list comments
+                                 associated with the selected diary events.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="DiaryService-GetDefaultSelector"></a>GetDefaultSelector
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>This method has no input parameters.
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDefaultSelectorResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selector</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>Contains a selector with
+                                 default selection criteria.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="DiaryService-GetDiary"></a>GetDiary
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDiaryRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                              <td>The key identifying the diary
+                                 event that you are interested in.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDiaryResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Entry</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}Entry" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}Entry">Entry</a></td>
+                              <td>Contains the details of the
+                                 diary event you have retrieved from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="DiaryService-GetInfo"></a>GetInfo
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetInfoRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                              <td>The key identifying the diary
+                                 event you want to retrieve from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetInfoResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                              <td>Contains the key information
+                                 for the diary event you have retrieved.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>EntryInfo</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}EntryInfo" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}EntryInfo">EntryInfo</a></td>
+                              <td>Contains information about
+                                 the diary event you have retrieved from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="DiaryService-List"></a>List
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ListRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Filter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}SelectInfo" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}SelectInfo">SelectInfo</a></td>
+                              <td>A filter that selects the
+                                 diary events to be listed
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ListResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Filter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}SelectInfo" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}SelectInfo">SelectInfo</a></td>
+                              <td>This element holds the filter
+                                 criteria used to determine which diary
+                                 events are selected from the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Entries</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}EntryList" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}EntryList">EntryList</a></td>
+                              <td>Lists the diary events you
+                                 have retrieved from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="DiaryService-Update"></a>Update
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Entry</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}UpdateEntry" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}UpdateEntry">UpdateEntry</a></td>
+                              <td>Contains the information for
+                                 the diary event you want to update.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="finance/diary/diary.html#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                              <td>Contains the key information
+                                 for the diary event you want to update.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

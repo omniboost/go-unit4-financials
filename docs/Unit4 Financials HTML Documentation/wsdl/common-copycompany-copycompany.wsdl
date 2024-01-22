@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/copycompany/copycompany-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:cpcws="http://www.coda.com/common/schemas/copycompany/copycompany-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:cpc="http://www.coda.com/common/schemas/copycompany"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:tasks="http://www.coda.com/common/schemas/tasks"
+    targetNamespace="http://www.coda.com/common/schemas/copycompany/copycompany-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/copycompany" schemaLocation="../wsdl/common/copycompany/copycompany.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/tasks" schemaLocation="common/tasks/tasks.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="GetCustomisableMastersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetCustomisableMasters" type="cpc:CustomisableMasters">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getCustomisableMasters function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProgressRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Task" type="tasks:TaskKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The task to get the progress for.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProgressResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetProgress" type="tasks:Task">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getProgress function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TaskKey" type="tasks:TaskKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The Task is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetMasterTypeProvidersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetMasterTypeProviders" type="cpc:MasterTypeProviders">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getMasterTypeProviders function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StopResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SourceCompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the source company.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DestinationCompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the destination
+                            company.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MasterTypeList" type="cpc:CopyCompanyStartMasterTypeList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>       The ranges used to select the
+                                masters to be       copied.      </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExternalDatabase" minOccurs="0" type="cpc:ExternalDatabaseDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>       Details of an external
+                                database to copy masters       from when
+                                copying across databases.      </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogTitle" type="com:typeComLogtitle">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The title of the log to write to.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetMasterTypeProvidersRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetCustomisableMastersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SourceCompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the source company.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DestinationCompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the destination
+                            company.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MasterTypeList" type="cpc:CopyCompanyGetCustomisableMastersMasterTypeList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>       The ranges used to select the
+                                masters to be       copied.      </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExternalDatabase" minOccurs="0" type="cpc:ExternalDatabaseDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>       Details of an external
+                                database to copy masters       from when
+                                doing copy company across databases.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StopRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Task" type="tasks:TaskKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The task to stop</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Options">
+    <part name="Options" element="cpcws:Options"/>
+  </message>
+  <message name="GetMasterTypeProvidersResponse">
+    <part name="GetMasterTypeProvidersResponse" element="cpcws:GetMasterTypeProvidersResponse"/>
+  </message>
+  <message name="StopResponse">
+    <part name="StopResponse" element="cpcws:StopResponse"/>
+  </message>
+  <message name="GetMasterTypeProvidersRequest">
+    <part name="GetMasterTypeProvidersRequest" element="cpcws:GetMasterTypeProvidersRequest"/>
+  </message>
+  <message name="GetProgressResponse">
+    <part name="GetProgressResponse" element="cpcws:GetProgressResponse"/>
+  </message>
+  <message name="GetProgressRequest">
+    <part name="GetProgressRequest" element="cpcws:GetProgressRequest"/>
+  </message>
+  <message name="GetCustomisableMastersResponse">
+    <part name="GetCustomisableMastersResponse" element="cpcws:GetCustomisableMastersResponse"/>
+  </message>
+  <message name="StopRequest">
+    <part name="StopRequest" element="cpcws:StopRequest"/>
+  </message>
+  <message name="StartRequest">
+    <part name="StartRequest" element="cpcws:StartRequest"/>
+  </message>
+  <message name="StartResponse">
+    <part name="StartResponse" element="cpcws:StartResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="cpcws:OptionsResponse"/>
+  </message>
+  <message name="GetCustomisableMastersRequest">
+    <part name="GetCustomisableMastersRequest" element="cpcws:GetCustomisableMastersRequest"/>
+  </message>
+  <portType name="CopyCompanyServicePortTypes">
+    <operation name="GetMasterTypeProviders">
+      <input message="cpcws:GetMasterTypeProvidersRequest"/>
+      <output message="cpcws:GetMasterTypeProvidersResponse"/>
+    </operation>
+    <operation name="Start">
+      <input message="cpcws:StartRequest"/>
+      <output message="cpcws:StartResponse"/>
+    </operation>
+    <operation name="Stop">
+      <input message="cpcws:StopRequest"/>
+      <output message="cpcws:StopResponse"/>
+    </operation>
+    <operation name="GetProgress">
+      <input message="cpcws:GetProgressRequest"/>
+      <output message="cpcws:GetProgressResponse"/>
+    </operation>
+    <operation name="GetCustomisableMasters">
+      <input message="cpcws:GetCustomisableMastersRequest"/>
+      <output message="cpcws:GetCustomisableMastersResponse"/>
+    </operation>
+  </portType>
+  <binding name="CopyCompanyServiceSOAPBinding" type="cpcws:CopyCompanyServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetMasterTypeProviders">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/CopyCompany/GetMasterTypeProviders" style="document"/>
+      <input>
+        <soap:header message="cpcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cpcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Start">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/CopyCompany/Start" style="document"/>
+      <input>
+        <soap:header message="cpcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cpcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Stop">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/CopyCompany/Stop" style="document"/>
+      <input>
+        <soap:header message="cpcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cpcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProgress">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/CopyCompany/GetProgress" style="document"/>
+      <input>
+        <soap:header message="cpcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cpcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetCustomisableMasters">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/CopyCompany/GetCustomisableMasters" style="document"/>
+      <input>
+        <soap:header message="cpcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cpcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CopyCompanyService">
+    <port name="CopyCompanyServicePort" binding="cpcws:CopyCompanyServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/copycompany/copycompany-14.0"/>
+    </port>
+  </service>
+</definitions>

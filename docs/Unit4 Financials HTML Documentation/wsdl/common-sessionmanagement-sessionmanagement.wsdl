@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/sessionmanagement/sessionmanagement-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ssmws="http://www.coda.com/common/schemas/sessionmanagement/sessionmanagement-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ssm="http://www.coda.com/common/schemas/sessionmanagement"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/sessionmanagement/sessionmanagement-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/sessionmanagement" schemaLocation="../wsdl/common/sessionmanagement/sessionmanagement.xsd"/>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="KeyList" type="ssm:KeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies the sessions that
+                            you want to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ErrorList" type="ssm:ErrorList">
+                    <xsd:annotation>
+                        <xsd:documentation>When attempted deletions
+                            fail, this element holds a list of the
+                            reasons why the attempts failed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="ssmws:DeleteRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="ssmws:OptionsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="ssmws:Options"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="ssmws:DeleteResponse"/>
+  </message>
+  <portType name="SessionManagementServicePortTypes">
+    <operation name="Delete">
+      <input message="ssmws:DeleteRequest"/>
+      <output message="ssmws:DeleteResponse"/>
+    </operation>
+  </portType>
+  <binding name="SessionManagementServiceSOAPBinding" type="ssmws:SessionManagementServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SessionManagement/Delete" style="document"/>
+      <input>
+        <soap:header message="ssmws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ssmws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SessionManagementService">
+    <port name="SessionManagementServicePort" binding="ssmws:SessionManagementServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/sessionmanagement/sessionmanagement-12.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,519 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-GenericBrowseService">
+            <h1>GenericBrowseService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/common/schemas/genericbrowse/genericbrowse-13.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/common-genericbrowse-genericbrowse.wsdl" download="">common-genericbrowse-genericbrowse.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/common/genericbrowse/genericbrowse-13.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#GenericBrowseService-Print">Print</a></li>
+               <li><a href="#GenericBrowseService-Select">Select</a></li>
+               <li><a href="#GenericBrowseService-SelectForLedger">SelectForLedger</a></li>
+               <li><a href="#GenericBrowseService-SelectForLinkMaintenance">SelectForLinkMaintenance</a></li>
+               <li><a href="#GenericBrowseService-SelectForTransactions">SelectForTransactions</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="GenericBrowseService-Print"></a>Print
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PrintRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>DataSecurityMasterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the data
+                                 security master that controls the data
+                                 security that applies to the user. This is
+                                 required to ensure that the user is not able
+                                 to print or transmit lines that are filtered
+                                 out when browsing.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunTimeSelector</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>Contains the selector master
+                                 that was used to retrieve data, including
+                                 any run-time changes the user made and any
+                                 values the user entered in response to
+                                 prompts. (This improves performance when
+                                 finding the lines to print.)
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>OutputDeviceCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The output device to use to
+                                 print or transmit rows.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PrintFormatCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>                    Code of
+                                 the print format to be used. The print
+                                 format should ..                    a) if
+                                 tables are being used, have its form type
+                                 set to 'flow'.              b) if
+                                 the order of printing is important, have a
+                                 sort order on it.        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>EmailTemplateCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of an e-mail
+                                 template master used to provide the subject,
+                                 body and signature of generated emails.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ChosenRows</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>         
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:gmb="http://www.coda.com/common/schemas/genericbrowsemaster" xmlns:gnb="http://www.coda.com/common/schemas/genericbrowse" xmlns:sel="http://www.coda.com/efinance/schemas/selector" xmlns:pre="http://www.coda.com/efinance/schemas/presenter" xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:gnbws="http://www.coda.com/common/schemas/genericbrowse/genericbrowse-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">          A
+                                    selection containing the primary key
+                                    cells          of the rows that need to
+                                    be printed. These should
+                                    correspond to the primary key of the
+                                    primary object          of the dataview
+                                    that this generic browse/print is
+                                    based on.                    N.B.
+                                    Printing only has the granularity to
+                                    print dataview          lines based on
+                                    the primary key of the primary object
+                                    of the dataview. Therefore if your
+                                    generic browse           screen displays
+                                    two lines that both have the same
+                                    primary key, it is not possible to print
+                                    one without           the other one also
+                                    being printed. To get round this,
+                                    define a new dataview that has a more
+                                    suitable primary          key.
+                                    
+                                 </p>        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DoLogging</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Specifies whether to write a
+                                 log file. If this element is set to true,
+                                 then the elements LogType and LogTitle must
+                                 also be set.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogTitle</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The title for the log file.
+                                 This needs to be set only if the DoLogging
+                                 element is set to true.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGenericOon" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGenericOon">typeGenericOon</a></td>
+                              <td>The type of the log. This
+                                 needs to be set only if the DoLogging
+                                 element is set to true.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>This method returns no data.
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="GenericBrowseService-Select"></a>Select
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PresenterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the presenter
+                                 master to be used to display the data.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SecurityCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the data
+                                 security master to be used to control data security.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunTimeSelector</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>Contains the selector master
+                                 to be used to retrieve data, including any
+                                 run-time changes the user made and any
+                                 values the user entered in response to prompts.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ExtraVocabs</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/genericbrowse}VocabIdList" href="common/genericbrowse/genericbrowse.html#{http://www.coda.com/common/schemas/genericbrowse}VocabIdList">VocabIdList</a></td>
+                              <td>A list of extra vocabulary
+                                 items to return in the presentation results.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>This element holds your data.</td>
+                           </tr>
+                           <tr>
+                              <td>PrimaryKeyVocabs</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}VocabList" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}VocabList">VocabList</a></td>
+                              <td>         
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:gmb="http://www.coda.com/common/schemas/genericbrowsemaster" xmlns:gnb="http://www.coda.com/common/schemas/genericbrowse" xmlns:sel="http://www.coda.com/efinance/schemas/selector" xmlns:pre="http://www.coda.com/efinance/schemas/presenter" xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:gnbws="http://www.coda.com/common/schemas/genericbrowse/genericbrowse-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+                                    Contains vocabs detailing the primary
+                                    key of the          primary object
+                                    (table) of the dataview that we
+                                    are browsing. This is for the benefit of
+                                    generic          printing.
+                                    N.B. This limits generic printing to
+                                    only being able          to print (or
+                                    not print) documents based on the
+                                    primary          key of the dataview.
+                                    e.g. if your presenter is showing
+                                    you more than one line with the same
+                                    primary key, you           will not be
+                                    able to print one but-not-the-others of
+                                    these          lines on an individual
+                                    basis. You will only be able to
+                                    print one 'document'
+                                    containing all the line with
+                                    the same primary key. Lines with other
+                                    primary keys will          appear in
+                                    other 'documents'.
+                                    To get round this limitation, create a
+                                    new dataview with          a primary key
+                                    that suits your needs.         
+                                 </p>        
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="GenericBrowseService-SelectForLedger"></a>SelectForLedger
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectForLedgerRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LedgerKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                              <td>The key to a browse ledger master.</td>
+                           </tr>
+                           <tr>
+                              <td>RunTimeSelector</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>Contains the selector master
+                                 to be used to retrieve data, including any
+                                 run-time changes the user made and any
+                                 values the user entered in response to prompts.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ExtraVocabs</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/genericbrowse}VocabIdList" href="common/genericbrowse/genericbrowse.html#{http://www.coda.com/common/schemas/genericbrowse}VocabIdList">VocabIdList</a></td>
+                              <td>A list of extra vocabulary
+                                 items to return in the presentation results.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectForLedgerResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>This element holds your data.</td>
+                           </tr>
+                           <tr>
+                              <td>PrimaryKeyVocabs</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}VocabList" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}VocabList">VocabList</a></td>
+                              <td>A list of the vocabulary
+                                 items that describe the primary key of the
+                                 primary object of the dataview.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="GenericBrowseService-SelectForLinkMaintenance"></a>SelectForLinkMaintenance
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectForLinkMaintenanceRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PresenterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the presenter
+                                 master to be used to display the data.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunTimeSelector</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>Contains the selector master
+                                 to be used to retrieve data, including any
+                                 run-time changes the user made and any
+                                 values the user entered in response to prompts.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectForLinkMaintenanceResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>This element holds your data.</td>
+                           </tr>
+                           <tr>
+                              <td>PrimaryKeyVocabs</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/genericbrowse}VocabIdList" href="common/genericbrowse/genericbrowse.html#{http://www.coda.com/common/schemas/genericbrowse}VocabIdList">VocabIdList</a></td>
+                              <td>A list of the vocabulary
+                                 items that describe the primary key of the
+                                 primary object of the dataview.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="GenericBrowseService-SelectForTransactions"></a>SelectForTransactions
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectForTransactionsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PresenterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the presenter
+                                 master to be used to display the data.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunTimeSelector</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>Contains the selector master
+                                 to be used to retrieve data, including any
+                                 run-time changes the user made and any
+                                 values the user entered in response to prompts.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ExtraVocabs</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/genericbrowse}VocabIdList" href="common/genericbrowse/genericbrowse.html#{http://www.coda.com/common/schemas/genericbrowse}VocabIdList">VocabIdList</a></td>
+                              <td>A list of extra vocabulary
+                                 items to return in the presentation results.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectForTransactionsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>This element holds your data.</td>
+                           </tr>
+                           <tr>
+                              <td>PrimaryKeyVocabs</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}VocabList" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}VocabList">VocabList</a></td>
+                              <td>A list of the vocabulary
+                                 items that describe the primary key of the
+                                 primary object of the dataview.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

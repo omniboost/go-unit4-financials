@@ -1,0 +1,371 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-CancelEventsService">
+            <h1>CancelEventsService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/eassets/schemas/cancelevents/cancelevents-12.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/assets-cancelevents-cancelevents.wsdl" download="">assets-cancelevents-cancelevents.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/assets/cancelevents/cancelevents-12.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#CancelEventsService-CancelReview">CancelReview</a></li>
+               <li><a href="#CancelEventsService-Post">Post</a></li>
+               <li><a href="#CancelEventsService-PostReview">PostReview</a></li>
+               <li><a href="#CancelEventsService-Review">Review</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="CancelEventsService-CancelReview"></a>CancelReview
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CancelReviewRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code for the company in
+                                 which events are being cancelled.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number identifying this
+                                 cancellation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Key information identifying
+                                 the log in which the cancellation event
+                                 details are recorded.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CancelReviewResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>isCancelled</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether the
+                                 CancelReviewRequest corresponding to this
+                                 response was successful.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CancelEventsService-Post"></a>Post
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CancelEvents</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}CancelEvents" href="assets/cancelevents/cancelevents.html#{http://www.coda.com/eassets/schemas/cancelevents}CancelEvents">CancelEvents</a></td>
+                              <td>This element contains
+                                 parameters specifying which events should be cancelled.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PostResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IsPosted</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether the
+                                 PostRequest corresponding to this response
+                                 was successful.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to cancel events.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number identifying this
+                                 cancellation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>HasWarnings</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether any
+                                 warnings have been generated.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CancelEventsService-PostReview"></a>PostReview
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostReviewRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CancelEvents</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}CancelEvents" href="assets/cancelevents/cancelevents.html#{http://www.coda.com/eassets/schemas/cancelevents}CancelEvents">CancelEvents</a></td>
+                              <td>This element contains
+                                 parameters specifying which events should be cancelled.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Key information identifying
+                                 the log in which the cancellation event
+                                 details are recorded.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PostReviewResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IsPosted</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether the
+                                 ReviewPostRequest corresponding to this
+                                 response was successful.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to post the reviewed
+                                 cancellation events.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number identifying this
+                                 cancellation process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CancelEventsService-Review"></a>Review
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ReviewRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CancelEvents</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}CancelEvents" href="assets/cancelevents/cancelevents.html#{http://www.coda.com/eassets/schemas/cancelevents}CancelEvents">CancelEvents</a></td>
+                              <td>This element contains
+                                 parameters specifying which events should be cancelled.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ReviewResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IsReviewed</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether the
+                                 ReviewRequest corresponding to this response
+                                 was successful.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to review the
+                                 cancellation events.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number identifying this
+                                 cancellation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ReviewTransactions</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions" href="assets/reviewtransactions/reviewtransactions.html#{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions">ReviewTransactions</a></td>
+                              <td>Contains the asset
+                                 transactions and financial transactions
+                                 generated by this cancellation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Key information identifying
+                                 the log in which the cancellation event
+                                 details are recorded.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>HasWarnings</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether any
+                                 warnings have been generated.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

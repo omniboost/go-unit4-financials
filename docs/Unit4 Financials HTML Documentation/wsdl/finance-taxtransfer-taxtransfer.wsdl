@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/taxtransfer/taxtransfer-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ttrws="http://www.coda.com/efinance/schemas/taxtransfer/taxtransfer-1.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:ttr="http://www.coda.com/efinance/schemas/taxtransfer"
+    xmlns:prg="http://www.coda.com/efinance/schemas/progress"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/taxtransfer/taxtransfer-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/progress" schemaLocation="finance/progress/progress.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/taxtransfer" schemaLocation="../wsdl/finance/taxtransfer/taxtransfer.xsd"/>
+    <xsd:element name="GetProgressResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            are sending the request to. This is given to
+                            you when you start the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Progress" minOccurs="0" type="prg:ProgressData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains information about
+                            the status and progress of the process you
+                            are running.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressStatistics" type="ttr:ProgressStatistics">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the statistics about
+                            the tax transfer progress such as Lines
+                            processed and Lines rejected.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProgressRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            started. This is given to you when you start
+                            the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the tax transfer process was started.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TTMCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the tax transfer
+                            master used to run the tax transfer process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of the tax transfer progress data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AbortResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special reference
+                            which identifies the process you want to abort.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AbortRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            want to abort. This is given to you when you
+                            start the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Params" type="ttr:StartParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element stores the
+                            parameters that can be specified when you
+                            run the tax transfer process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="ttrws:OptionsResponse"/>
+  </message>
+  <message name="StartResponse">
+    <part name="StartResponse" element="ttrws:StartResponse"/>
+  </message>
+  <message name="StartRequest">
+    <part name="StartRequest" element="ttrws:StartRequest"/>
+  </message>
+  <message name="AbortResponse">
+    <part name="AbortResponse" element="ttrws:AbortResponse"/>
+  </message>
+  <message name="AbortRequest">
+    <part name="AbortRequest" element="ttrws:AbortRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="ttrws:Options"/>
+  </message>
+  <message name="GetProgressRequest">
+    <part name="GetProgressRequest" element="ttrws:GetProgressRequest"/>
+  </message>
+  <message name="GetProgressResponse">
+    <part name="GetProgressResponse" element="ttrws:GetProgressResponse"/>
+  </message>
+  <portType name="TaxTransferServicePortTypes">
+    <operation name="Abort">
+      <input message="ttrws:AbortRequest"/>
+      <output message="ttrws:AbortResponse"/>
+    </operation>
+    <operation name="Start">
+      <input message="ttrws:StartRequest"/>
+      <output message="ttrws:StartResponse"/>
+    </operation>
+    <operation name="GetProgress">
+      <input message="ttrws:GetProgressRequest"/>
+      <output message="ttrws:GetProgressResponse"/>
+    </operation>
+  </portType>
+  <binding name="TaxTransferServiceSOAPBinding" type="ttrws:TaxTransferServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Abort">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/TaxTransfer/Abort" style="document"/>
+      <input>
+        <soap:header message="ttrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ttrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Start">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/TaxTransfer/Start" style="document"/>
+      <input>
+        <soap:header message="ttrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ttrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProgress">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/TaxTransfer/GetProgress" style="document"/>
+      <input>
+        <soap:header message="ttrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ttrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="TaxTransferService">
+    <port name="TaxTransferServicePort" binding="ttrws:TaxTransferServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/taxtransfer/taxtransfer-1.0"/>
+    </port>
+  </service>
+</definitions>

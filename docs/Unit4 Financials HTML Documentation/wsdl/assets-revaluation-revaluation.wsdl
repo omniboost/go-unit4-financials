@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/eassets/schemas/revaluation/revaluation-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:revws="http://www.coda.com/eassets/schemas/revaluation/revaluation-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:rvl="http://www.coda.com/eassets/schemas/revaluation"
+    xmlns:ass="http://www.coda.com/eassets/schemas/asset"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:rev="http://www.coda.com/eassets/schemas/revaluation"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:trn="http://www.coda.com/eassets/schemas/reviewtransactions"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:asscom="http://www.coda.com/eassets/schemas/common"
+    targetNamespace="http://www.coda.com/eassets/schemas/revaluation/revaluation-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/eassets/schemas/asset" schemaLocation="assets/asset/asset.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/revaluation" schemaLocation="../wsdl/assets/revaluation/revaluation.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/reviewtransactions" schemaLocation="assets/reviewtransactions/reviewtransactions.xsd"/>
+    <xsd:import namespace="http://www.coda.com/eassets/schemas/common" schemaLocation="assets/common/common.xsd"/>
+    <xsd:element name="CancelResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsCancelled" type="com:typeBool">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            CancelRequest corresponding to this response
+                            was successful.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostAfterReviewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsPosted" type="com:typeBool">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            PostAfterReviewRequest corresponding to this
+                            response was successful.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ReviewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Revaluation" type="rvl:Revaluation">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            revaluing assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsPosted" type="com:typeBool">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            PostRequest corresponding to this response
+                            was successful.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Revaluation" type="rvl:Revaluation">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            revaluing assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Revaluation" type="rvl:Revaluation">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters of the revaluation process that
+                            you wish to cancel.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostAfterReviewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Revaluation" type="rvl:Revaluation">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            revaluing assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ReviewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsReviewed" type="com:typeBool">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            ReviewRequest corresponding to this response
+                            was successful.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunIDs" minOccurs="0" type="rvl:RunIdList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of companies in which the revaluation
+                            process will be run.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RevaluationPostings" type="rvl:RevaluationPostings">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the postings that
+                            will be generated by this revaluation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ReviewTransactions" type="trn:ReviewTransactions">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the financial
+                            transactions that will be generated by this
+                            revaluation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="revws:OptionsResponse"/>
+  </message>
+  <message name="PostAfterReviewRequest">
+    <part name="PostAfterReviewRequest" element="revws:PostAfterReviewRequest"/>
+  </message>
+  <message name="PostResponse">
+    <part name="PostResponse" element="revws:PostResponse"/>
+  </message>
+  <message name="PostAfterReviewResponse">
+    <part name="PostAfterReviewResponse" element="revws:PostAfterReviewResponse"/>
+  </message>
+  <message name="ReviewResponse">
+    <part name="ReviewResponse" element="revws:ReviewResponse"/>
+  </message>
+  <message name="ReviewRequest">
+    <part name="ReviewRequest" element="revws:ReviewRequest"/>
+  </message>
+  <message name="CancelResponse">
+    <part name="CancelResponse" element="revws:CancelResponse"/>
+  </message>
+  <message name="CancelRequest">
+    <part name="CancelRequest" element="revws:CancelRequest"/>
+  </message>
+  <message name="PostRequest">
+    <part name="PostRequest" element="revws:PostRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="revws:Options"/>
+  </message>
+  <portType name="RevaluationServicePortTypes">
+    <operation name="Cancel">
+      <input message="revws:CancelRequest"/>
+      <output message="revws:CancelResponse"/>
+    </operation>
+    <operation name="Post">
+      <input message="revws:PostRequest"/>
+      <output message="revws:PostResponse"/>
+    </operation>
+    <operation name="PostAfterReview">
+      <input message="revws:PostAfterReviewRequest"/>
+      <output message="revws:PostAfterReviewResponse"/>
+    </operation>
+    <operation name="Review">
+      <input message="revws:ReviewRequest"/>
+      <output message="revws:ReviewResponse"/>
+    </operation>
+  </portType>
+  <binding name="RevaluationServiceSOAPBinding" type="revws:RevaluationServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Cancel">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Revaluation/Cancel" style="document"/>
+      <input>
+        <soap:header message="revws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="revws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Post">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Revaluation/Post" style="document"/>
+      <input>
+        <soap:header message="revws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="revws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PostAfterReview">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Revaluation/PostAfterReview" style="document"/>
+      <input>
+        <soap:header message="revws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="revws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Review">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Revaluation/Review" style="document"/>
+      <input>
+        <soap:header message="revws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="revws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="RevaluationService">
+    <port name="RevaluationServicePort" binding="revws:RevaluationServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/assets/revaluation/revaluation-12.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/copycompany/copycompany-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ccyws="http://www.coda.com/efinance/schemas/copycompany/copycompany-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:prg="http://www.coda.com/efinance/schemas/progress"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:ccy="http://www.coda.com/efinance/schemas/copycompany"
+    targetNamespace="http://www.coda.com/efinance/schemas/copycompany/copycompany-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/progress" schemaLocation="finance/progress/progress.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/copycompany" schemaLocation="../wsdl/finance/copycompany/copycompany.xsd"/>
+    <xsd:element name="GetITMsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Keys" minOccurs="0" type="ccy:CopKeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>The keys, or special
+                            references, given to you when you request
+                            information about input template masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetITMsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectITM" type="ccy:SelectITMs">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the input template
+                            master selection criteria.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcessData" type="ccy:CopyCompany">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the parameters you
+                            have defined, listing the masters to be
+                            copied, and the ranges specified.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of Copy Company.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartExternalRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcessData" type="ccy:CopyFromExternal">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the parameters you
+                            have defined, listing the masters to be
+                            copied, and the ranges specified.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcessData" type="ccy:CopyCompany">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the parameters you
+                            have defined, listing the masters to be
+                            copied, and the ranges specified.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartExternalResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcessData" type="ccy:CopyFromExternal">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the parameters you
+                            have defined for the copy from an external
+                            database, listing the masters to be copied,
+                            and the ranges specified.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of Copy Company.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="ccyws:OptionsResponse"/>
+  </message>
+  <message name="GetITMsRequest">
+    <part name="GetITMsRequest" element="ccyws:GetITMsRequest"/>
+  </message>
+  <message name="StartResponse">
+    <part name="StartResponse" element="ccyws:StartResponse"/>
+  </message>
+  <message name="StartRequest">
+    <part name="StartRequest" element="ccyws:StartRequest"/>
+  </message>
+  <message name="GetITMsResponse">
+    <part name="GetITMsResponse" element="ccyws:GetITMsResponse"/>
+  </message>
+  <message name="StartExternalRequest">
+    <part name="StartExternalRequest" element="ccyws:StartExternalRequest"/>
+  </message>
+  <message name="StartExternalResponse">
+    <part name="StartExternalResponse" element="ccyws:StartExternalResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="ccyws:Options"/>
+  </message>
+  <portType name="CopyCompanyServicePortTypes">
+    <operation name="StartExternal">
+      <input message="ccyws:StartExternalRequest"/>
+      <output message="ccyws:StartExternalResponse"/>
+    </operation>
+    <operation name="Start">
+      <input message="ccyws:StartRequest"/>
+      <output message="ccyws:StartResponse"/>
+    </operation>
+    <operation name="GetITMs">
+      <input message="ccyws:GetITMsRequest"/>
+      <output message="ccyws:GetITMsResponse"/>
+    </operation>
+  </portType>
+  <binding name="CopyCompanyServiceSOAPBinding" type="ccyws:CopyCompanyServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="StartExternal">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/CopyCompany/StartExternal" style="document"/>
+      <input>
+        <soap:header message="ccyws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ccyws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Start">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/CopyCompany/Start" style="document"/>
+      <input>
+        <soap:header message="ccyws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ccyws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetITMs">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/CopyCompany/GetITMs" style="document"/>
+      <input>
+        <soap:header message="ccyws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ccyws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CopyCompanyService">
+    <port name="CopyCompanyServicePort" binding="ccyws:CopyCompanyServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/copycompany/copycompany-12.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,514 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-ArchiveService">
+            <h1>ArchiveService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/archive/archive-2.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-archive-archive.wsdl" download="">finance-archive-archive.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/archive/archive-2.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#ArchiveService-Abort">Abort</a></li>
+               <li><a href="#ArchiveService-GetArchiveDocumentsInformation">GetArchiveDocumentsInformation</a></li>
+               <li><a href="#ArchiveService-GetProgress">GetProgress</a></li>
+               <li><a href="#ArchiveService-Pause">Pause</a></li>
+               <li><a href="#ArchiveService-Restart">Restart</a></li>
+               <li><a href="#ArchiveService-Resume">Resume</a></li>
+               <li><a href="#ArchiveService-StartArchivingDocuments">StartArchivingDocuments</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="ArchiveService-Abort"></a>Abort
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>AbortRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, which identifies the process you
+                                 want to abort. This is given to you when you
+                                 start the process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>AbortResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special reference
+                                 which identifies the process you want to abort.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ArchiveService-GetArchiveDocumentsInformation"></a>GetArchiveDocumentsInformation
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetArchiveDocumentsInformationRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ArchiveHeaderMasterKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                              <td>Contains the key identifying
+                                 the archive header master you want to use
+                                 for archiving documents.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetArchiveDocumentsInformationResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the company in
+                                 which the Archive process is running.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ArchiveHeaderMasterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the header master
+                                 being used to archive documents.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ArchiveDocumentsInformation</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/archive}ArchiveDocumentsInformation" href="finance/archive/archive.html#{http://www.coda.com/efinance/schemas/archive}ArchiveDocumentsInformation">ArchiveDocumentsInformation</a></td>
+                              <td>Contains the default
+                                 parameters and current status for the
+                                 Archive Documents process. The parameters
+                                 can be edited if required.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ArchiveService-GetProgress"></a>GetProgress
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetProgressRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, which identifies the process you
+                                 started. This is given to you when you start
+                                 the process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetProgressResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, which identifies the process you
+                                 are sending the request to. This is given to
+                                 you when you start the process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Progress</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressData" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressData">ProgressData</a></td>
+                              <td>Contains information about
+                                 the status and progress of the process you
+                                 are running.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ArchiveMonitor</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/archive}ArchiveMonitor" href="finance/archive/archive.html#{http://www.coda.com/efinance/schemas/archive}ArchiveMonitor">ArchiveMonitor</a></td>
+                              <td>Contains details of the
+                                 progress made by the Archive process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Error</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}EmbeddedReason" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}EmbeddedReason">EmbeddedReason</a></td>
+                              <td>Contains information about an
+                                 error that occurred.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ArchiveService-Pause"></a>Pause
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PauseRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, which identifies the process you
+                                 want to pause. This is given to you when you
+                                 start the process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PauseResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, which identifies the process you
+                                 want to pause.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ArchiveService-Restart"></a>Restart
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>RestartRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ArchiveHeaderMasterKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                              <td>Contains the key identifying
+                                 the archive header master you want to use to
+                                 restart the Archive process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>RestartResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the company in
+                                 which you attempted to restart a failed
+                                 Archive process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ArchiveHeaderMasterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the archive
+                                 header master you specified for the
+                                 restarted Archive process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of the
+                                 Archive process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ArchiveService-Resume"></a>Resume
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ResumeRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, which identifies the process you
+                                 want to resume. This is given to you when
+                                 you pause the process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ResumeResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, which identifies the process you
+                                 want to resume.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ArchiveService-StartArchivingDocuments"></a>StartArchivingDocuments
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>StartArchivingDocumentsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ArchiveDocumentsParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/archive}ArchiveDocumentsParams" href="finance/archive/archive.html#{http://www.coda.com/efinance/schemas/archive}ArchiveDocumentsParams">ArchiveDocumentsParams</a></td>
+                              <td>Contains the parameters for
+                                 starting the Archive Documents process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>StartArchivingDocumentsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the company in
+                                 which you are attempting to archive documents.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ArchiveHeaderMasterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the archive
+                                 header master you are using to archive documents.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>BalanceWarning</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/archive}BalanceWarning" href="finance/archive/archive.html#{http://www.coda.com/efinance/schemas/archive}BalanceWarning">BalanceWarning</a></td>
+                              <td>A warning that not all
+                                 documents for the year have been archived.
+                                 Archive Documents should be run before
+                                 archiving balances.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of Archive Documents.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

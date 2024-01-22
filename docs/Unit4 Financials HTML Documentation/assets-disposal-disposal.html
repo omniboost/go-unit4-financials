@@ -1,0 +1,463 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-DisposalService">
+            <h1>DisposalService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/eassets/schemas/disposal/disposal-14.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/assets-disposal-disposal.wsdl" download="">assets-disposal-disposal.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/assets/disposal/disposal-14.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#DisposalService-CancelPost">CancelPost</a></li>
+               <li><a href="#DisposalService-CreateDocument">CreateDocument</a></li>
+               <li><a href="#DisposalService-GetChildren">GetChildren</a></li>
+               <li><a href="#DisposalService-PostDocument">PostDocument</a></li>
+               <li><a href="#DisposalService-ReviewDocument">ReviewDocument</a></li>
+               <li><a href="#DisposalService-Validate">Validate</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="DisposalService-CancelPost"></a>CancelPost
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CancelPostRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RunIDs</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}RunIdList" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}RunIdList">RunIdList</a></td>
+                              <td>This element contains a list
+                                 of companies in which the disposal process
+                                 would have been run.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Disposal</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}Disposal" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}Disposal">Disposal</a></td>
+                              <td>This element contains the
+                                 parameters of the disposal process that you
+                                 wish to cancel.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CancelPostResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IsCancelled</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether the
+                                 CancelPostRequest corresponding to this
+                                 response was successful.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="DisposalService-CreateDocument"></a>CreateDocument
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CreateDocumentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Disposal</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}Disposal" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}Disposal">Disposal</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 disposing assets.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DisposalPostings</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}DisposalPostings" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}DisposalPostings">DisposalPostings</a></td>
+                              <td>This element contains the
+                                 values that will be posted by the disposal process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CreateDocumentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IsCreated</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether the
+                                 CreateDocumentRequest corresponding to this
+                                 response was successful.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DisposalPostings</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}DisposalPostings" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}DisposalPostings">DisposalPostings</a></td>
+                              <td>Contains the postings that
+                                 will be generated by this disposal process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="DisposalService-GetChildren"></a>GetChildren
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetChildrenRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>AssetKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKey" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKey">AssetKey</a></td>
+                              <td>Contains key information
+                                 identifying the asset(s) whose child assets
+                                 you want to retrieve.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetChildrenResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Assets</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetList" href="assets/asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetList">AssetList</a></td>
+                              <td>This element contains details
+                                 of the child assets that have been retrieved.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="DisposalService-PostDocument"></a>PostDocument
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostDocumentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Disposal</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}Disposal" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}Disposal">Disposal</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 disposing assets.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DisposalPostings</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}DisposalPostings" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}DisposalPostings">DisposalPostings</a></td>
+                              <td>This element contains the
+                                 values that will be posted by the disposal process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PostDocumentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IsPosted</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether the
+                                 PostDocumentRequest corresponding to this
+                                 response was successful.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunIDs</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}RunIdList" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}RunIdList">RunIdList</a></td>
+                              <td>This element contains a list
+                                 of companies in which the disposal process
+                                 has been run.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DisposalPostings</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}DisposalPostings" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}DisposalPostings">DisposalPostings</a></td>
+                              <td>Contains the postings that
+                                 have been generated by this disposal process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="DisposalService-ReviewDocument"></a>ReviewDocument
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ReviewDocumentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Disposal</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}Disposal" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}Disposal">Disposal</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 disposing assets.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DisposalPostings</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}DisposalPostings" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}DisposalPostings">DisposalPostings</a></td>
+                              <td>This element contains the
+                                 values that will be posted by the disposal process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ReviewDocumentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IsReviewed</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether the
+                                 ReviewDocumentRequest corresponding to this
+                                 response was successful.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunIDs</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}RunIdList" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}RunIdList">RunIdList</a></td>
+                              <td>This element contains a list
+                                 of companies in which the disposal process
+                                 will be run.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DisposalPostings</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}DisposalPostings" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}DisposalPostings">DisposalPostings</a></td>
+                              <td>Contains the postings that
+                                 will be generated by this disposal process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ReviewTransactions</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions" href="assets/reviewtransactions/reviewtransactions.html#{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions">ReviewTransactions</a></td>
+                              <td>Contains the financial
+                                 transactions that will be generated by this
+                                 disposal process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="DisposalService-Validate"></a>Validate
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Disposal</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}Disposal" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}Disposal">Disposal</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 disposing assets.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ValidateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IsValid</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether the
+                                 disposal details specified in the
+                                 ValidateRequest corresponding to this
+                                 response are valid.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DisposalPostings</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/disposal}DisposalPostings" href="assets/disposal/disposal.html#{http://www.coda.com/eassets/schemas/disposal}DisposalPostings">DisposalPostings</a></td>
+                              <td>Contains the postings that
+                                 would be generated by this disposal process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

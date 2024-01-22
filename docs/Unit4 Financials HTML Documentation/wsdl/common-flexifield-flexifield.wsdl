@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/flexifield/flexifield-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ffdws="http://www.coda.com/common/schemas/flexifield/flexifield-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:ffd="http://www.coda.com/common/schemas/flexifield"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/flexifield/flexifield-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/flexifield" schemaLocation="../wsdl/common/flexifield/flexifield.xsd"/>
+    <xsd:element name="CopyResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LoadRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FlexiFieldDataKey" type="ffd:FlexiFieldDataKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      A key to the flexi-field data.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FlexiFieldDataKey" type="ffd:FlexiFieldDataKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The flexiFieldDataKey is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CountResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Count" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the count function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The masterCode is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LinkLoadTransactionDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FlexiFieldDataKey" type="ffd:FlexiFieldLinkTransDataKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The flexiFieldDataKey is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CopyRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SourceFFDataKey" type="ffd:FlexiFieldDataKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      A Flexi-Field Data key to copy
+                                from.     </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DestinationObjectKey" type="ffd:ObjectKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      A key to the object to copy to.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AllowLooseKeyMatching" minOccurs="0" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      Where the object key can match
+                                more specific keys then copy those keys
+                                as well, for example copy transaction
+                                lines       matching a transaction
+                                header key.      </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="NegateNumbers" minOccurs="0" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      If true then negate integer and
+                                decimal values during the copy.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FlexiFieldData" type="ffd:FlexiFieldData">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      Contains flexi-field data.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LinkLoadTransactionDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FlexiFieldDataKey" type="ffd:FlexiFieldLinkTransDataKey">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CountRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      The flexi-field master code to
+                                count instances of.     </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SaveResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FlexiFieldDataKey" type="ffd:FlexiFieldDataKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The flexiFieldDataKey is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="IsUsedRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      The flexi-field master code to
+                                check for usage.     </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LinkLoadRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FlexiFieldDataKey" type="ffd:FlexiFieldDataKey">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="IsUsedResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsUsed" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            isUsed function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LinkLoadResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FlexiFieldDataKey" type="ffd:FlexiFieldDataKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The flexiFieldDataKey is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FlexiFieldDataKey" type="ffd:FlexiFieldDataKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The flexiFieldDataKey is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LoadResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FlexiFieldData" type="ffd:FlexiFieldData">
+                    <xsd:annotation>
+                        <xsd:documentation>The flexiFieldData is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SaveRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FlexiFieldData" type="ffd:FlexiFieldData">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      Contains flexi-field data.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ObjectKey" type="ffd:ObjectKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      A key to the object.     </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AllowLooseKeyMatching" minOccurs="0" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      Where the object key can match
+                                more specific keys then delete those
+                                keys as well, for example delete
+                                transaction lines       matching a
+                                transaction header key.      </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Options">
+    <part name="Options" element="ffdws:Options"/>
+  </message>
+  <message name="LoadRequest">
+    <part name="LoadRequest" element="ffdws:LoadRequest"/>
+  </message>
+  <message name="LoadResponse">
+    <part name="LoadResponse" element="ffdws:LoadResponse"/>
+  </message>
+  <message name="ValidateResponse">
+    <part name="ValidateResponse" element="ffdws:ValidateResponse"/>
+  </message>
+  <message name="CopyRequest">
+    <part name="CopyRequest" element="ffdws:CopyRequest"/>
+  </message>
+  <message name="LinkLoadResponse">
+    <part name="LinkLoadResponse" element="ffdws:LinkLoadResponse"/>
+  </message>
+  <message name="CopyResponse">
+    <part name="CopyResponse" element="ffdws:CopyResponse"/>
+  </message>
+  <message name="CountResponse">
+    <part name="CountResponse" element="ffdws:CountResponse"/>
+  </message>
+  <message name="SaveRequest">
+    <part name="SaveRequest" element="ffdws:SaveRequest"/>
+  </message>
+  <message name="IsUsedResponse">
+    <part name="IsUsedResponse" element="ffdws:IsUsedResponse"/>
+  </message>
+  <message name="CountRequest">
+    <part name="CountRequest" element="ffdws:CountRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="ffdws:DeleteResponse"/>
+  </message>
+  <message name="LinkLoadTransactionDataRequest">
+    <part name="LinkLoadTransactionDataRequest" element="ffdws:LinkLoadTransactionDataRequest"/>
+  </message>
+  <message name="ValidateRequest">
+    <part name="ValidateRequest" element="ffdws:ValidateRequest"/>
+  </message>
+  <message name="SaveResponse">
+    <part name="SaveResponse" element="ffdws:SaveResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="ffdws:DeleteRequest"/>
+  </message>
+  <message name="IsUsedRequest">
+    <part name="IsUsedRequest" element="ffdws:IsUsedRequest"/>
+  </message>
+  <message name="LinkLoadTransactionDataResponse">
+    <part name="LinkLoadTransactionDataResponse" element="ffdws:LinkLoadTransactionDataResponse"/>
+  </message>
+  <message name="LinkLoadRequest">
+    <part name="LinkLoadRequest" element="ffdws:LinkLoadRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="ffdws:OptionsResponse"/>
+  </message>
+  <portType name="FlexiFieldServicePortTypes">
+    <operation name="Delete">
+      <input message="ffdws:DeleteRequest"/>
+      <output message="ffdws:DeleteResponse"/>
+    </operation>
+    <operation name="Load">
+      <input message="ffdws:LoadRequest"/>
+      <output message="ffdws:LoadResponse"/>
+    </operation>
+    <operation name="LinkLoad">
+      <input message="ffdws:LinkLoadRequest"/>
+      <output message="ffdws:LinkLoadResponse"/>
+    </operation>
+    <operation name="Validate">
+      <input message="ffdws:ValidateRequest"/>
+      <output message="ffdws:ValidateResponse"/>
+    </operation>
+    <operation name="Copy">
+      <input message="ffdws:CopyRequest"/>
+      <output message="ffdws:CopyResponse"/>
+    </operation>
+    <operation name="IsUsed">
+      <input message="ffdws:IsUsedRequest"/>
+      <output message="ffdws:IsUsedResponse"/>
+    </operation>
+    <operation name="Save">
+      <input message="ffdws:SaveRequest"/>
+      <output message="ffdws:SaveResponse"/>
+    </operation>
+    <operation name="LinkLoadTransactionData">
+      <input message="ffdws:LinkLoadTransactionDataRequest"/>
+      <output message="ffdws:LinkLoadTransactionDataResponse"/>
+    </operation>
+    <operation name="Count">
+      <input message="ffdws:CountRequest"/>
+      <output message="ffdws:CountResponse"/>
+    </operation>
+  </portType>
+  <binding name="FlexiFieldServiceSOAPBinding" type="ffdws:FlexiFieldServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/FlexiField/Delete" style="document"/>
+      <input>
+        <soap:header message="ffdws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ffdws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Load">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/FlexiField/Load" style="document"/>
+      <input>
+        <soap:header message="ffdws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ffdws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LinkLoad">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/FlexiField/LinkLoad" style="document"/>
+      <input>
+        <soap:header message="ffdws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ffdws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Validate">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/FlexiField/Validate" style="document"/>
+      <input>
+        <soap:header message="ffdws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ffdws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Copy">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/FlexiField/Copy" style="document"/>
+      <input>
+        <soap:header message="ffdws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ffdws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="IsUsed">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/FlexiField/IsUsed" style="document"/>
+      <input>
+        <soap:header message="ffdws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ffdws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Save">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/FlexiField/Save" style="document"/>
+      <input>
+        <soap:header message="ffdws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ffdws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LinkLoadTransactionData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/FlexiField/LinkLoadTransactionData" style="document"/>
+      <input>
+        <soap:header message="ffdws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ffdws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Count">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/FlexiField/Count" style="document"/>
+      <input>
+        <soap:header message="ffdws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="ffdws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="FlexiFieldService">
+    <port name="FlexiFieldServicePort" binding="ffdws:FlexiFieldServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/flexifield/flexifield-14.0"/>
+    </port>
+  </service>
+</definitions>

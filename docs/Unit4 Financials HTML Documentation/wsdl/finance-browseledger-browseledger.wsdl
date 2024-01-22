@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/browseledger/browseledger-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:blrws="http://www.coda.com/efinance/schemas/browseledger/browseledger-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:blr="http://www.coda.com/efinance/schemas/browseledger"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:elm="http://www.coda.com/efinance/schemas/elementmaster"
+    targetNamespace="http://www.coda.com/efinance/schemas/browseledger/browseledger-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/elementmaster" schemaLocation="finance/elementmaster/elementmaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/browseledger" schemaLocation="../wsdl/finance/browseledger/browseledger.xsd"/>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="blr:Filter">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria used to retrieve ledger details
+                            form the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LedgerOutOfDate" minOccurs="0" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            selected ledger master has changed since the
+                            last Ledger Update. Some ledger master
+                            changes, for example, changing a column
+                            title, are ignored.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Selection" minOccurs="0" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            ledger details retrieved by Browse Ledger.
+                            The selection contains a header row, zero or
+                            more data rows, and a totals row.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ReferenceDate" minOccurs="0" type="xsd:dateTime">
+                    <xsd:annotation>
+                        <xsd:documentation>The date that Browse Ledger
+                            was run for.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LedgerKey" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>A key used to identify the ledger.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Currency" type="com:typeCtBlrCurrView">
+                    <xsd:annotation>
+                        <xsd:documentation>The currency in which the
+                            Browse Ledger results are to be displayed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Grouping" type="blr:Grouping">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds
+                            information about how the Browse Ledger
+                            results are to be grouped.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Sort" type="blr:SortList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds
+                            information about the columns used to sort
+                            the Browse Ledger results.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectedColumns" minOccurs="0" type="blr:ColumnNumberList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of column numbers
+                            indicating which ledger columns are to be
+                            retrieved. If this list is not given, all
+                            columns are retrieved. A column in the
+                            selected columns list may not be returned if
+                            it is hidden by grouping.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RowLimit" minOccurs="0" type="com:typeULong">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of rows
+                            that can be retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ElmKey" minOccurs="0" type="elm:elmFullKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Optionally restricts the
+                            ledger to this element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectFilter" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector vocabulary used
+                            to retrieve the ledger details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ColumnFilter" type="blr:FilterList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            selection criteria used in addition to the
+                            criteria contained in the SelectFilter
+                            element, but the selection is based on
+                            columns in the ledger rather than selector
+                            vocabulary. Any column filter which can be
+                            expressed as a vocabulary-based filter, will
+                            be moved to the SelectFilter by the server
+                            to make the selection process more efficient.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSelectorResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LedgerKey" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>A key used to identify the ledger.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OrgCmpCode" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the original
+                            company for the ledger row.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AccountCode" type="com:typeAcCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The full account code for the
+                            ledger row.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ColumnNumber" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The column number.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectFilter" minOccurs="0" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector for this ledger
+                            row and column.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRowResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LedgerKey" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>A key used to identify the ledger.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OrgCmpCode" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the original
+                            company for the ledger row.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AccountCode" type="com:typeAcCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The full account code for the
+                            ledger row.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Currency" type="com:typeCtBlrCurrView">
+                    <xsd:annotation>
+                        <xsd:documentation>The currency in which the
+                            Browse Ledger results are displayed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectedColumns" minOccurs="0" type="blr:ColumnNumberList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of column numbers indicating which ledger
+                            columns have been retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Selection" minOccurs="0" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            revised ledger data resulting from the
+                            update. The selection contains a header row
+                            and one data row (no SelectFilter or
+                            ColumnFilter is applied to this data).</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRowRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LedgerKey" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>A key used to identify the ledger.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OrgCmpCode" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the original
+                            company for the ledger row.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AccountCode" type="com:typeAcCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The full account code for the
+                            ledger row.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Currency" type="com:typeCtBlrCurrView">
+                    <xsd:annotation>
+                        <xsd:documentation>The currency in which the
+                            Browse Ledger results are to be displayed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectedColumns" minOccurs="0" type="blr:ColumnNumberList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of column numbers
+                            indicating which ledger columns are to be
+                            retrieved. If this list is not given, all
+                            columns are retrieved. A column in the
+                            selected columns list may not be returned if
+                            it is hidden by grouping.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSelectorRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LedgerKey" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>A key used to identify the ledger.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OrgCmpCode" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the original
+                            company for the ledger row.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AccountCode" type="com:typeAcCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The account code for the
+                            ledger row.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ColumnNumber" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The column number.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="blrws:OptionsResponse"/>
+  </message>
+  <message name="GetSelectorRequest">
+    <part name="GetSelectorRequest" element="blrws:GetSelectorRequest"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="blrws:GetResponse"/>
+  </message>
+  <message name="UpdateRowRequest">
+    <part name="UpdateRowRequest" element="blrws:UpdateRowRequest"/>
+  </message>
+  <message name="GetSelectorResponse">
+    <part name="GetSelectorResponse" element="blrws:GetSelectorResponse"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="blrws:GetRequest"/>
+  </message>
+  <message name="UpdateRowResponse">
+    <part name="UpdateRowResponse" element="blrws:UpdateRowResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="blrws:Options"/>
+  </message>
+  <portType name="BrowseLedgerServicePortTypes">
+    <operation name="UpdateRow">
+      <input message="blrws:UpdateRowRequest"/>
+      <output message="blrws:UpdateRowResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="blrws:GetRequest"/>
+      <output message="blrws:GetResponse"/>
+    </operation>
+    <operation name="GetSelector">
+      <input message="blrws:GetSelectorRequest"/>
+      <output message="blrws:GetSelectorResponse"/>
+    </operation>
+  </portType>
+  <binding name="BrowseLedgerServiceSOAPBinding" type="blrws:BrowseLedgerServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="UpdateRow">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseLedger/UpdateRow" style="document"/>
+      <input>
+        <soap:header message="blrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="blrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseLedger/Get" style="document"/>
+      <input>
+        <soap:header message="blrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="blrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetSelector">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseLedger/GetSelector" style="document"/>
+      <input>
+        <soap:header message="blrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="blrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="BrowseLedgerService">
+    <port name="BrowseLedgerServicePort" binding="blrws:BrowseLedgerServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/browseledger/browseledger-13.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,858 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/common/schemas/genericbrowse</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/common/schemas/genericbrowse</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>GenericBrowseRequest</h3>
+         <p>This service allows you to retrieve data from the database using metadata selectors
+            and presenters.
+         </p>
+         <h3>GenericBrowseResponse</h3>
+         <p>This is the response that is returned when you submit a generic browse request.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/common/schemas/genericbrowse}VocabIdList"></a><h3>VocabIdList</h3>
+         <p>This element contains a list of vocabulary items.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>VocabId</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>This element contains a vocabulary item.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectRequest"></a><h3>SelectRequest</h3>
+         <p>The SelectRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PresenterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the presenter master to be used to display the data.</td>
+                  </tr>
+                  <tr>
+                     <td>SecurityCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the data security master to be used to control data security.</td>
+                  </tr>
+                  <tr>
+                     <td>RunTimeSelector</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                     <td>Contains the selector master to be used to retrieve data, including any run-time changes
+                        the user made and any values the user entered in response to prompts.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ExtraVocabs</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}VocabIdList" href="#{http://www.coda.com/common/schemas/genericbrowse}VocabIdList">VocabIdList</a></td>
+                     <td>A list of extra vocabulary items to return in the presentation results.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectRequestVerb"></a><h3>SelectRequestVerb</h3>
+         <p>The SelectRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves data from the database using the specified presenter and selector information.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectRequest" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectRequest">SelectRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectResponse"></a><h3>SelectResponse</h3>
+         <p>The SelectResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                     <td>This element holds your data.</td>
+                  </tr>
+                  <tr>
+                     <td>PrimaryKeyVocabs</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}VocabList" href="../../finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}VocabList">VocabList</a></td>
+                     <td>         
+                        <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:gmb="http://www.coda.com/common/schemas/genericbrowsemaster" xmlns:gnb="http://www.coda.com/common/schemas/genericbrowse" xmlns:sel="http://www.coda.com/efinance/schemas/selector" xmlns:pre="http://www.coda.com/efinance/schemas/presenter" xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster" xmlns:build="http://www.coda.com/common/schemas/funcsec">          Contains vocabs detailing the primary key of the          primary object
+                           (table) of the dataview that we          are browsing. This is for the benefit of
+                           generic          printing.                    N.B. This limits generic printing to
+                           only being able          to print (or not print) documents based on the primary  
+                           key of the dataview. e.g. if your presenter is showing          you more than one
+                           line with the same primary key, you           will not be able to print one but-not-the-others
+                           of these          lines on an individual basis. You will only be able to         
+                           print one 'document' containing all the line with          the same primary key. Lines
+                           with other primary keys will          appear in other 'documents'.               
+                           To get round this limitation, create a new dataview with          a primary key that
+                           suits your needs.         
+                        </p>        
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectResponseVerb"></a><h3>SelectResponseVerb</h3>
+         <p>The SelectResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectResponse" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectResponse">SelectResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}PrintRequest"></a><h3>PrintRequest</h3>
+         <p>The PrintRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DataSecurityMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the data security master that controls the data security that applies
+                        to the user. This is required to ensure that the user is not able to print or transmit
+                        lines that are filtered out when browsing.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>RunTimeSelector</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                     <td>Contains the selector master that was used to retrieve data, including any run-time
+                        changes the user made and any values the user entered in response to prompts. (This
+                        improves performance when finding the lines to print.)
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>OutputDeviceCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The output device to use to print or transmit rows.</td>
+                  </tr>
+                  <tr>
+                     <td>PrintFormatCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>                    Code of the print format to be used. The print format should ..
+                        a) if tables are being used, have its form type set to 'flow'.              b) if
+                        the order of printing is important, have a sort order on it.        
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>EmailTemplateCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of an e-mail template master used to provide the subject, body and signature
+                        of generated emails.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ChosenRows</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                     <td>         
+                        <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:gmb="http://www.coda.com/common/schemas/genericbrowsemaster" xmlns:gnb="http://www.coda.com/common/schemas/genericbrowse" xmlns:sel="http://www.coda.com/efinance/schemas/selector" xmlns:pre="http://www.coda.com/efinance/schemas/presenter" xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster" xmlns:build="http://www.coda.com/common/schemas/funcsec">          A selection containing the primary key cells          of the rows that need
+                           to be printed. These should           correspond to the primary key of the primary
+                           object          of the dataview that this generic browse/print is          based on.
+                           N.B. Printing only has the granularity to print dataview          lines based on the
+                           primary key of the primary object          of the dataview. Therefore if your generic
+                           browse           screen displays two lines that both have the same           primary
+                           key, it is not possible to print one without           the other one also being printed.
+                           To get round this,          define a new dataview that has a more suitable primary
+                           key.            
+                        </p>        
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DoLogging</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether to write a log file. If this element is set to true, then the elements
+                        LogType and LogTitle must also be set.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>LogTitle</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The title for the log file. This needs to be set only if the DoLogging element is
+                        set to true.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>LogType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGenericOon" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGenericOon">typeGenericOon</a></td>
+                     <td>The type of the log. This needs to be set only if the DoLogging element is set to
+                        true.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}PrintRequestVerb"></a><h3>PrintRequestVerb</h3>
+         <p>The PrintRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Sends the rows listed in the ChosenRows element to Print Formatter, where they are
+            formatted in accordance with the specified print format and then printed or transmitted
+            in accordance with the specified output device.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}PrintRequest" href="#{http://www.coda.com/common/schemas/genericbrowse}PrintRequest">PrintRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}PrintResponse"></a><h3>PrintResponse</h3>
+         <p>The PrintResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/common/schemas/genericbrowse}PrintResponseVerb"></a><h3>PrintResponseVerb</h3>
+         <p>The PrintResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}PrintResponse" href="#{http://www.coda.com/common/schemas/genericbrowse}PrintResponse">PrintResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectForLedgerRequest"></a><h3>SelectForLedgerRequest</h3>
+         <p>The SelectForLedgerRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>LedgerKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>The key to a browse ledger master.</td>
+                  </tr>
+                  <tr>
+                     <td>RunTimeSelector</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                     <td>Contains the selector master to be used to retrieve data, including any run-time changes
+                        the user made and any values the user entered in response to prompts.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ExtraVocabs</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}VocabIdList" href="#{http://www.coda.com/common/schemas/genericbrowse}VocabIdList">VocabIdList</a></td>
+                     <td>A list of extra vocabulary items to return in the presentation results.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectForLedgerRequestVerb"></a><h3>SelectForLedgerRequestVerb</h3>
+         <p>The SelectForLedgerRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves data from the database using a specified browse ledger master and selector
+            master.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectForLedgerRequest" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectForLedgerRequest">SelectForLedgerRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectForLedgerResponse"></a><h3>SelectForLedgerResponse</h3>
+         <p>The SelectForLedgerResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                     <td>This element holds your data.</td>
+                  </tr>
+                  <tr>
+                     <td>PrimaryKeyVocabs</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}VocabList" href="../../finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}VocabList">VocabList</a></td>
+                     <td>A list of the vocabulary items that describe the primary key of the primary object
+                        of the dataview.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectForLedgerResponseVerb"></a><h3>SelectForLedgerResponseVerb</h3>
+         <p>The SelectForLedgerResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectForLedgerResponse" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectForLedgerResponse">SelectForLedgerResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectForTransactionsRequest"></a><h3>SelectForTransactionsRequest</h3>
+         <p>The SelectForTransactionsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PresenterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the presenter master to be used to display the data.</td>
+                  </tr>
+                  <tr>
+                     <td>RunTimeSelector</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                     <td>Contains the selector master to be used to retrieve data, including any run-time changes
+                        the user made and any values the user entered in response to prompts.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ExtraVocabs</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}VocabIdList" href="#{http://www.coda.com/common/schemas/genericbrowse}VocabIdList">VocabIdList</a></td>
+                     <td>A list of extra vocabulary items to return in the presentation results.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectForTransactionsRequestVerb"></a><h3>SelectForTransactionsRequestVerb</h3>
+         <p>The SelectForTransactionsRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves data from the database using a specified presenter master and selector master.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectForTransactionsRequest" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectForTransactionsRequest">SelectForTransactionsRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectForTransactionsResponse"></a><h3>SelectForTransactionsResponse</h3>
+         <p>The SelectForTransactionsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                     <td>This element holds your data.</td>
+                  </tr>
+                  <tr>
+                     <td>PrimaryKeyVocabs</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}VocabList" href="../../finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}VocabList">VocabList</a></td>
+                     <td>A list of the vocabulary items that describe the primary key of the primary object
+                        of the dataview.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectForTransactionsResponseVerb"></a><h3>SelectForTransactionsResponseVerb</h3>
+         <p>The SelectForTransactionsResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectForTransactionsResponse" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectForTransactionsResponse">SelectForTransactionsResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectForLinkMaintenanceRequest"></a><h3>SelectForLinkMaintenanceRequest</h3>
+         <p>The SelectForLinkMaintenanceRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PresenterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the presenter master to be used to display the data.</td>
+                  </tr>
+                  <tr>
+                     <td>RunTimeSelector</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                     <td>Contains the selector master to be used to retrieve data, including any run-time changes
+                        the user made and any values the user entered in response to prompts.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectForLinkMaintenanceRequestVerb"></a><h3>SelectForLinkMaintenanceRequestVerb</h3>
+         <p>The SelectForLinkMaintenanceRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves data from the database using a specified presenter master and selector master.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectForLinkMaintenanceRequest" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectForLinkMaintenanceRequest">SelectForLinkMaintenanceRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectForLinkMaintenanceResponse"></a><h3>SelectForLinkMaintenanceResponse</h3>
+         <p>The SelectForLinkMaintenanceResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                     <td>This element holds your data.</td>
+                  </tr>
+                  <tr>
+                     <td>PrimaryKeyVocabs</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}VocabIdList" href="#{http://www.coda.com/common/schemas/genericbrowse}VocabIdList">VocabIdList</a></td>
+                     <td>A list of the vocabulary items that describe the primary key of the primary object
+                        of the dataview.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}SelectForLinkMaintenanceResponseVerb"></a><h3>SelectForLinkMaintenanceResponseVerb</h3>
+         <p>The SelectForLinkMaintenanceResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectForLinkMaintenanceResponse" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectForLinkMaintenanceResponse">SelectForLinkMaintenanceResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}GenericBrowseRequest"></a><h3>GenericBrowseRequest</h3>
+         <p>The GenericBrowseRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to retrieve data from the database using metadata selectors
+            and presenters.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Select</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectRequestVerb" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectRequestVerb">SelectRequestVerb</a></td>
+                     <td>Retrieves data from the database using the specified presenter and selector information.</td>
+                  </tr>
+                  <tr>
+                     <td>Print</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}PrintRequestVerb" href="#{http://www.coda.com/common/schemas/genericbrowse}PrintRequestVerb">PrintRequestVerb</a></td>
+                     <td>Sends the rows listed in the ChosenRows element to Print Formatter, where they are
+                        formatted in accordance with the specified print format and then printed or transmitted
+                        in accordance with the specified output device.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>SelectForLedger</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectForLedgerRequestVerb" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectForLedgerRequestVerb">SelectForLedgerRequestVerb</a></td>
+                     <td>Retrieves data from the database using a specified browse ledger master and selector
+                        master.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>SelectForTransactions</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectForTransactionsRequestVerb" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectForTransactionsRequestVerb">SelectForTransactionsRequestVerb</a></td>
+                     <td>Retrieves data from the database using a specified presenter master and selector master.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectForLinkMaintenance</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectForLinkMaintenanceRequestVerb" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectForLinkMaintenanceRequestVerb">SelectForLinkMaintenanceRequestVerb</a></td>
+                     <td>Retrieves data from the database using a specified presenter master and selector master.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/genericbrowse}GenericBrowseResponse"></a><h3>GenericBrowseResponse</h3>
+         <p>The GenericBrowseResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you submit a generic browse request.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Select</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectResponseVerb" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectResponseVerb">SelectResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Print</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}PrintResponseVerb" href="#{http://www.coda.com/common/schemas/genericbrowse}PrintResponseVerb">PrintResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectForLedger</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectForLedgerResponseVerb" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectForLedgerResponseVerb">SelectForLedgerResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectForTransactions</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectForTransactionsResponseVerb" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectForTransactionsResponseVerb">SelectForTransactionsResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectForLinkMaintenance</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}SelectForLinkMaintenanceResponseVerb" href="#{http://www.coda.com/common/schemas/genericbrowse}SelectForLinkMaintenanceResponseVerb">SelectForLinkMaintenanceResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

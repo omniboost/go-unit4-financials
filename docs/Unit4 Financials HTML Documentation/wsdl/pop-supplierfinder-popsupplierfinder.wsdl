@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/supplierfinder/popsupplierfinder-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:supws="http://www.coda.com/pop/schemas/supplierfinder/popsupplierfinder-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sup="http://www.coda.com/pop/schemas/supplierfinder"
+    xmlns:supp="http://www.coda.com/pop/schemas/supplierfinder"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/pop/schemas/supplierfinder/popsupplierfinder-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/supplierfinder" schemaLocation="../wsdl/pop/supplierfinder/supplierfinder.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FinderFilter" type="supp:FinderFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The criteria to be applied
+                            when selecting the data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FinderFilter" type="supp:SupplierFinderFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The criteria applied when
+                            selecting the data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="supp:supKeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>The key that identifies the
+                            selected supplier.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Options">
+    <part name="Options" element="supws:Options"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="supws:FindResponse"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="supws:FindRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="supws:OptionsResponse"/>
+  </message>
+  <portType name="POPSupplierFinderServicePortTypes">
+    <operation name="Find">
+      <input message="supws:FindRequest"/>
+      <output message="supws:FindResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPSupplierFinderServiceSOAPBinding" type="supws:POPSupplierFinderServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPSupplierFinder/Find" style="document"/>
+      <input>
+        <soap:header message="supws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="supws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPSupplierFinderService">
+    <port name="POPSupplierFinderServicePort" binding="supws:POPSupplierFinderServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/supplierfinder/popsupplierfinder-12.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,330 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/eassets/schemas/accountmapping</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/eassets/schemas/accountmapping</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>AccountMapKey</h3>
+         <p>Contains key information identifying a particular asset and account mapping string.</p>
+         <h3>AccountMapping</h3>
+         <p>Contains the account mapping string and the account code that it maps to.</p>
+         <h3>AccountMappingRequest</h3>
+         <p>This service allows you to resolve account codes from account mappings.</p>
+         <h3>AccountMappingResponse</h3>
+         <p>This is the response that is returned when you resolve account codes from account
+            mappings.    
+         </p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/eassets/schemas/accountmapping}GetAccountRequest"></a><h3>GetAccountRequest</h3>
+         <p>The GetAccountRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AccountMapKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/accountmapping}AccountMapKey" href="#{http://www.coda.com/eassets/schemas/accountmapping}AccountMapKey">AccountMapKey</a></td>
+                     <td>Contains key information identifying a particular asset and account mapping string.
+                        
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Validate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Indicates whether the request also validates the account code before returning it
+                        in the response.        
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/accountmapping}GetAccountRequestVerb"></a><h3>GetAccountRequestVerb</h3>
+         <p>The GetAccountRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Gets the account code for the specified account mapping string.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/accountmapping}GetAccountRequest" href="#{http://www.coda.com/eassets/schemas/accountmapping}GetAccountRequest">GetAccountRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/accountmapping}GetAccountResponse"></a><h3>GetAccountResponse</h3>
+         <p>The GetAccountResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AssetKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKey" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKey">AssetKey</a></td>
+                     <td>Contains key information for the asset specified in the corresponding Request.</td>
+                  </tr>
+                  <tr>
+                     <td>AccountMapping</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/accountmapping}AccountMapping" href="#{http://www.coda.com/eassets/schemas/accountmapping}AccountMapping">AccountMapping</a></td>
+                     <td>Contains the account mapping string specified in the corresponding Request, and the
+                        account code         that it maps to.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/accountmapping}GetAccountResponseVerb"></a><h3>GetAccountResponseVerb</h3>
+         <p>The GetAccountResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/accountmapping}GetAccountResponse" href="#{http://www.coda.com/eassets/schemas/accountmapping}GetAccountResponse">GetAccountResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/accountmapping}AccountMappingRequest"></a><h3>AccountMappingRequest</h3>
+         <p>The AccountMappingRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to resolve account codes from account mappings.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetAccount</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/accountmapping}GetAccountRequestVerb" href="#{http://www.coda.com/eassets/schemas/accountmapping}GetAccountRequestVerb">GetAccountRequestVerb</a></td>
+                     <td>Gets the account code for the specified account mapping string.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/accountmapping}AccountMappingResponse"></a><h3>AccountMappingResponse</h3>
+         <p>The AccountMappingResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you resolve account codes from account
+            mappings.    
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetAccount</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/accountmapping}GetAccountResponseVerb" href="#{http://www.coda.com/eassets/schemas/accountmapping}GetAccountResponseVerb">GetAccountResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/accountmapping}AccountMapKey"></a><h3>AccountMapKey</h3>
+         <p>Contains key information identifying a particular asset and account mapping string.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AssetKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKey" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKey">AssetKey</a></td>
+                     <td>Contains key information for the specified asset.</td>
+                  </tr>
+                  <tr>
+                     <td>Map</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeAcCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAcCode">typeAcCode</a></td>
+                     <td>The account mapping string to be resolved.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/accountmapping}AccountMapping"></a><h3>AccountMapping</h3>
+         <p>Contains the account mapping string and the account code that it maps to.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Map</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeAcCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAcCode">typeAcCode</a></td>
+                     <td>The account mapping string to be resolved.</td>
+                  </tr>
+                  <tr>
+                     <td>Account</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeAcCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAcCode">typeAcCode</a></td>
+                     <td>The account code that the account mapping string resolves to.</td>
+                  </tr>
+                  <tr>
+                     <td>Reason</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Reason" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Reason">Reason</a></td>
+                     <td>If the request fails, this element contains an explanation of why the account mapping
+                        string could not be resolved.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/accountmapping}ElementMap"></a><h3>ElementMap</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ElementMapping</td>
+                     <td>8</td>
+                     <td>8</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/accountmapping}ElementMapping" href="#{http://www.coda.com/eassets/schemas/accountmapping}ElementMapping">ElementMapping</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/accountmapping}ElementMapping"></a><h3>ElementMapping</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Mapping</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Value</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

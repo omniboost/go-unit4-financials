@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/eassets/schemas/bulkupload/bulkupload-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:uploadws="http://www.coda.com/eassets/schemas/bulkupload/bulkupload-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ass="http://www.coda.com/eassets/schemas/asset"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:upload="http://www.coda.com/eassets/schemas/bulkupload"
+    xmlns:trn="http://www.coda.com/eassets/schemas/transactiondetails"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:asscom="http://www.coda.com/eassets/schemas/common"
+    targetNamespace="http://www.coda.com/eassets/schemas/bulkupload/bulkupload-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/eassets/schemas/asset" schemaLocation="assets/asset/asset.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/transactiondetails" schemaLocation="assets/transactiondetails/transactiondetails.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/bulkupload" schemaLocation="../wsdl/assets/bulkupload/bulkupload.xsd"/>
+    <xsd:import namespace="http://www.coda.com/eassets/schemas/common" schemaLocation="assets/common/common.xsd"/>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BulkUpload" type="upload:BulkUpload">
+                    <xsd:annotation>
+                        <xsd:documentation>OBSOLETE</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="assetnumbers"
+                type="asscom:typeUploadAssetCode" use="required">
+                <xsd:annotation>
+                    <xsd:documentation>Specify whether you are creating
+                        new asset numbers, or if you are updating
+                        existing asset numbers.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsUpdateded" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>OBSOLETE</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UploadResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsUploaded" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            UploadRequest corresponding to this response
+                            was successful.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateAssetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsUpdateded" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            UpdateAssetRequest corresponding to this
+                            response was successful.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UploadRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BulkUpload" type="upload:BulkUpload">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            assets and transaction details you specify
+                            when uploading assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateAssetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BulkUpdate" type="upload:BulkUpdate">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            asset details that you wish to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="UpdateAssetRequest">
+    <part name="UpdateAssetRequest" element="uploadws:UpdateAssetRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="uploadws:OptionsResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="uploadws:UpdateRequest"/>
+  </message>
+  <message name="UpdateAssetResponse">
+    <part name="UpdateAssetResponse" element="uploadws:UpdateAssetResponse"/>
+  </message>
+  <message name="UploadRequest">
+    <part name="UploadRequest" element="uploadws:UploadRequest"/>
+  </message>
+  <message name="UploadResponse">
+    <part name="UploadResponse" element="uploadws:UploadResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="uploadws:Options"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="uploadws:UpdateResponse"/>
+  </message>
+  <portType name="BulkUploadServicePortTypes">
+    <operation name="UpdateAsset">
+      <input message="uploadws:UpdateAssetRequest"/>
+      <output message="uploadws:UpdateAssetResponse"/>
+    </operation>
+    <operation name="Upload">
+      <input message="uploadws:UploadRequest"/>
+      <output message="uploadws:UploadResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="uploadws:UpdateRequest"/>
+      <output message="uploadws:UpdateResponse"/>
+    </operation>
+  </portType>
+  <binding name="BulkUploadServiceSOAPBinding" type="uploadws:BulkUploadServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="UpdateAsset">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/BulkUpload/UpdateAsset" style="document"/>
+      <input>
+        <soap:header message="uploadws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="uploadws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Upload">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/BulkUpload/Upload" style="document"/>
+      <input>
+        <soap:header message="uploadws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="uploadws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/BulkUpload/Update" style="document"/>
+      <input>
+        <soap:header message="uploadws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="uploadws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="BulkUploadService">
+    <port name="BulkUploadServicePort" binding="uploadws:BulkUploadServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/assets/bulkupload/bulkupload-12.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/messagetransport/messagetransport-2.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:mesws="http://www.coda.com/common/schemas/messagetransport/messagetransport-2.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:use="http://www.coda.com/common/schemas/userextension"
+    xmlns:mes="http://www.coda.com/common/schemas/messagetransport"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/messagetransport/messagetransport-2.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/userextension" schemaLocation="common/userextension/userextension.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/messagetransport" schemaLocation="../wsdl/common/messagetransport/messagetransport.xsd"/>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MessageTransport" type="mes:MessageTransport">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole MessageTransport
+                            object that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the MessageTransport objects
+                            that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SendMessageResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SendMessage" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            sendMessage function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MessageTransport" type="mes:MessageTransport">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MessageTransportItemList" type="mes:MessageTransportItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the MessageTransport objects
+                            that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MessageTransport" type="mes:MessageTransport">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            update function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MessageTransport" type="mes:MessageTransport">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the add function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MessageTransport" type="mes:MessageTransport">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole MessageTransport
+                            object that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MessageTransportKey" type="mes:MessageTransportKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            MessageTransport object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SendMessageRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TargetMessageTransport" type="mes:MessageTransportKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The target MessageTransport object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Content" type="com:typeTextAny">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      The content of the message.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="To" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      The e-mail address of the
+                                message recipient.     </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="From" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      The address of the e-mail
+                                server from which message are sent.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MessageTransportKey" type="mes:MessageTransportKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            MessageTransport object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MessageTransportList" type="mes:MessageTransportList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="mesws:UpdateRequest"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="mesws:ListResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="mesws:Options"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="mesws:FindResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="mesws:ListRequest"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="mesws:GetResponse"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="mesws:AddResponse"/>
+  </message>
+  <message name="SendMessageRequest">
+    <part name="SendMessageRequest" element="mesws:SendMessageRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="mesws:GetRequest"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="mesws:UpdateResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="mesws:AddRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="mesws:DeleteResponse"/>
+  </message>
+  <message name="SendMessageResponse">
+    <part name="SendMessageResponse" element="mesws:SendMessageResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="mesws:DeleteRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="mesws:OptionsResponse"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="mesws:FindRequest"/>
+  </message>
+  <portType name="MessageTransportServicePortTypes">
+    <operation name="Add">
+      <input message="mesws:AddRequest"/>
+      <output message="mesws:AddResponse"/>
+    </operation>
+    <operation name="Delete">
+      <input message="mesws:DeleteRequest"/>
+      <output message="mesws:DeleteResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="mesws:GetRequest"/>
+      <output message="mesws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="mesws:FindRequest"/>
+      <output message="mesws:FindResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="mesws:ListRequest"/>
+      <output message="mesws:ListResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="mesws:UpdateRequest"/>
+      <output message="mesws:UpdateResponse"/>
+    </operation>
+    <operation name="SendMessage">
+      <input message="mesws:SendMessageRequest"/>
+      <output message="mesws:SendMessageResponse"/>
+    </operation>
+  </portType>
+  <binding name="MessageTransportServiceSOAPBinding" type="mesws:MessageTransportServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/MessageTransport/Add" style="document"/>
+      <input>
+        <soap:header message="mesws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mesws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/MessageTransport/Delete" style="document"/>
+      <input>
+        <soap:header message="mesws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mesws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/MessageTransport/Get" style="document"/>
+      <input>
+        <soap:header message="mesws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mesws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/MessageTransport/Find" style="document"/>
+      <input>
+        <soap:header message="mesws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mesws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/MessageTransport/List" style="document"/>
+      <input>
+        <soap:header message="mesws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mesws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/MessageTransport/Update" style="document"/>
+      <input>
+        <soap:header message="mesws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mesws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SendMessage">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/MessageTransport/SendMessage" style="document"/>
+      <input>
+        <soap:header message="mesws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mesws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="MessageTransportService">
+    <port name="MessageTransportServicePort" binding="mesws:MessageTransportServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/messagetransport/messagetransport-2.0"/>
+    </port>
+  </service>
+</definitions>

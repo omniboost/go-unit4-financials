@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/browsebalances/browsebalances-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:bblws="http://www.coda.com/efinance/schemas/browsebalances/browsebalances-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:brm="http://www.coda.com/efinance/schemas/browsereportmaster"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:bbm="http://www.coda.com/efinance/schemas/browsebalancemaster"
+    xmlns:bbl="http://www.coda.com/efinance/schemas/browsebalances"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/browsebalances/browsebalances-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/browsebalances" schemaLocation="../wsdl/finance/browsebalances/browsebalances.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/browsebalancemaster" schemaLocation="finance/browsebalancemaster/browsebalancemaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/browsereportmaster" schemaLocation="finance/browsereportmaster/browsereportmaster.xsd"/>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetCalculationDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Results" type="bbl:BrowseResults">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the
+                            calculated values retrieved by the
+                            GetCalculationData request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPeriodsDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="bbl:BrowseCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the
+                            criteria for the selection of balances by period.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetBrowseDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="bbl:BrowseCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the
+                            criteria for the selection of balance
+                            information you want to browse.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPeriodsDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BrowseResults" type="bbl:BrowseResults">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the
+                            results of your request to view balance
+                            information by period.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetBrowseDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BrowseResults" type="bbl:BrowseResults">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the
+                            results of your browse balances request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetCalculationDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InputData" type="bbl:BrowseResults">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the rows
+                            for which calculation subtotals need to be computed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Options">
+    <part name="Options" element="bblws:Options"/>
+  </message>
+  <message name="GetBrowseDataResponse">
+    <part name="GetBrowseDataResponse" element="bblws:GetBrowseDataResponse"/>
+  </message>
+  <message name="GetBrowseDataRequest">
+    <part name="GetBrowseDataRequest" element="bblws:GetBrowseDataRequest"/>
+  </message>
+  <message name="GetPeriodsDataRequest">
+    <part name="GetPeriodsDataRequest" element="bblws:GetPeriodsDataRequest"/>
+  </message>
+  <message name="GetPeriodsDataResponse">
+    <part name="GetPeriodsDataResponse" element="bblws:GetPeriodsDataResponse"/>
+  </message>
+  <message name="GetCalculationDataRequest">
+    <part name="GetCalculationDataRequest" element="bblws:GetCalculationDataRequest"/>
+  </message>
+  <message name="GetCalculationDataResponse">
+    <part name="GetCalculationDataResponse" element="bblws:GetCalculationDataResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="bblws:OptionsResponse"/>
+  </message>
+  <portType name="BrowseBalancesServicePortTypes">
+    <operation name="GetBrowseData">
+      <input message="bblws:GetBrowseDataRequest"/>
+      <output message="bblws:GetBrowseDataResponse"/>
+    </operation>
+    <operation name="GetPeriodsData">
+      <input message="bblws:GetPeriodsDataRequest"/>
+      <output message="bblws:GetPeriodsDataResponse"/>
+    </operation>
+    <operation name="GetCalculationData">
+      <input message="bblws:GetCalculationDataRequest"/>
+      <output message="bblws:GetCalculationDataResponse"/>
+    </operation>
+  </portType>
+  <binding name="BrowseBalancesServiceSOAPBinding" type="bblws:BrowseBalancesServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetBrowseData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseBalances/GetBrowseData" style="document"/>
+      <input>
+        <soap:header message="bblws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="bblws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetPeriodsData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseBalances/GetPeriodsData" style="document"/>
+      <input>
+        <soap:header message="bblws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="bblws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetCalculationData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseBalances/GetCalculationData" style="document"/>
+      <input>
+        <soap:header message="bblws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="bblws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="BrowseBalancesService">
+    <port name="BrowseBalancesServicePort" binding="bblws:BrowseBalancesServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/browsebalances/browsebalances-13.0"/>
+    </port>
+  </service>
+</definitions>

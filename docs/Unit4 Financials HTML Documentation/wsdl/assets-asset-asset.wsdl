@@ -1,0 +1,2189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/eassets/schemas/asset/asset-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:assws="http://www.coda.com/eassets/schemas/asset/asset-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:rev="http://www.coda.com/eassets/schemas/reviewtransactions"
+    xmlns:ass="http://www.coda.com/eassets/schemas/asset"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:trd="http://www.coda.com/eassets/schemas/transactiondetails"
+    xmlns:log="http://www.coda.com/common/schemas/logging"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/eassets/schemas/asset/asset-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/eassets/schemas/asset" schemaLocation="../wsdl/assets/asset/asset.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/transactiondetails" schemaLocation="assets/transactiondetails/transactiondetails.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/logging" schemaLocation="common/logging/logging.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/reviewtransactions" schemaLocation="assets/reviewtransactions/reviewtransactions.xsd"/>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="com:ReqKeys">
+                    <xsd:annotation>
+                        <xsd:documentation>A filter that selects the
+                            assets to be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateAssetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Asset" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the asset you want to validate.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CapitalisationYearPeriod" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The year/period in which the
+                            asset will be capitalised.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateAssetCodeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ValidStatus" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the asset
+                            code is valid. This can be one of three values:</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="NumRuleCode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>If ValidStatus = 2, this
+                            element contains the code of the number rule
+                            master which causes the conflict.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateFullAssetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CreateFullAsset" type="ass:CreateFullAsset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            (including document line details) for the
+                            asset you want to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostReviewedLateAdjustmentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to post a late adjustment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AssetCode" type="com:typeAstCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset to
+                            which you attempted to post a late adjustment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AdditionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company
+                            containing the asset to which you want to
+                            make an addition.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset to
+                            which you want to make an addition.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Value" type="com:typeMoney">
+                    <xsd:annotation>
+                        <xsd:documentation>The value of the addition.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ReviewCapitalisationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CapitaliseDetails" type="ass:CapitaliseAsset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the costs, accounts
+                            and posting details that will be used when
+                            the specified assets are capitalised.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListSourceTransactionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TransactionDetailList" type="trd:TransactionDetailList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the details of the
+                            transactions for the specified asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListChildrenRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="ass:AssetKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the asset whose children you want to list.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UserFieldClassListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Asset" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the asset with the user defined field that
+                            you want to query.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExtensionName" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The appropriate user field
+                            extension providing the list for the
+                            specified asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateDerivedCurrencyBookRatesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Asset" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>The asset code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BookCode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the primary book
+                            or secondary book whose associated currency
+                            values you want to calculate.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateCurrencyBookValuesOnDateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CurrencyData" type="ass:AssetCurrencyDataList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the results of asset
+                            currency calculation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Keys" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key information
+                            for the listed assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ReviewLateAdjustmentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LateAdjustmentDetails" type="ass:LateAdjustmentAsset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the value, suspense
+                            account and posting details for the
+                            specified late adjustment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateAssetCodeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AssetKey" type="ass:AssetKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the asset code you want to validate.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CreateDetails" type="ass:CreateDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains parameters for you
+                            to specify a code for the new asset, the
+                            company in which the asset is created, and
+                            the capital cost of the asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to retrieve assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset that
+                            you attempted to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Asset" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the asset you have
+                            retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CapitaliseReviewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CapitaliseDetails" type="ass:CapitaliseReviewAsset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the costs, accounts
+                            and posting details for capitalising the
+                            specified assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelReviewedLateAdjustmentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LateAdjustmentDetails" type="ass:PostCancelReviewedLateAdjustmentAsset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains posting details for
+                            the specified late adjustment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateWIPAssetsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvalidAssetKeys" type="ass:AssetKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a list of WIP assets
+                            (and their categories) that failed the validation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateAssetCurrenciesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Asset" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>The asset code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Date" type="xsd:dateTime">
+                    <xsd:annotation>
+                        <xsd:documentation>The date that current
+                            currency exchange rates will be derived from
+                            if the Exchange Rate Date on the Financials
+                            company master is set to Document. (If the
+                            Exchange Rate Date is set to Input, then
+                            currency exchange rates will be derived from
+                            today&apos;s date.)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Value" type="com:typeMoney">
+                    <xsd:annotation>
+                        <xsd:documentation>The value to calculate.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CurrencyEdits" minOccurs="0" type="ass:AssetCurrencyDataList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of the value
+                            in associated currencies.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateCategoryCurrencyBookValuesOnDateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CurrencyData" type="ass:AssetCurrencyDataList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the results of asset
+                            currency calculation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateAssetCategoriesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvalidAssetKeys" type="ass:AssetCategoryKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a list of assets
+                            (and their categories) that failed the validation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateFromParentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to create the asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset that
+                            you attempted to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Asset" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the asset you have created.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PostingDeltas" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If set, differences between
+                            asset values in the primary book and the
+                            corresponding values in secondary books
+                            (delta values) are posted to Financials.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateAssetCurrenciesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CurrencyData" type="ass:AssetCurrencyDataList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the results of asset
+                            currency calculation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UserFieldClassListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataList" type="ass:AssetUserDataList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list associated
+                            with the user defined field identified in
+                            the request corresponding to this response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="ass:AssetKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the asset you want to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Asset" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the asset you want to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListTransactionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TransactionDetailList" type="trd:TransactionDetailList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the transaction
+                            details for the listed assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListTransactionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="com:ReqKeys">
+                    <xsd:annotation>
+                        <xsd:documentation>A filter that selects the
+                            assets for which you want to retrieve
+                            transaction information.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LateAdjustmentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company
+                            containing the asset to which you attempted
+                            to make a late adjustment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AssetCode" type="com:typeAstCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset to
+                            which you attempted to make a late adjustment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateAssetCategoriesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AssetKeys" type="ass:AssetKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a list of keys
+                            identifying assets and the categories used
+                            to create them.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ReviewCapitalisationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to review capitalisation
+                            and transaction details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CapitaliseDetailsList" type="ass:CapitaliseDetailsList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details that will be
+                            stored when the specified assets are capitalised.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ReviewTransactions" type="rev:ReviewTransactions">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains transaction details
+                            for the specified assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunNum" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A number that uniquely
+                            identifies this review capitalisation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AggregateAsset" minOccurs="0" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a single asset that
+                            has been created from multiple asset lines
+                            on the Asset Intray.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateAssetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AssetValid" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the asset
+                            is valid.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CapitaliseResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to capitalise the assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AssetKeyList" minOccurs="0" type="ass:AssetKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a list of key
+                            information for the assets that have been capitalised.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AssetList" minOccurs="0" type="ass:AssetList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a list of the assets
+                            that have been capitalised.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AggregateAsset" minOccurs="0" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a single asset that
+                            has been created from multiple asset lines
+                            on the Asset Intray.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SavedOnIntray" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the asset
+                            has been saved to the Intray instead of
+                            being capitalised.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ReasonSavedOnIntray" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>Explains why the asset was
+                            saved to the Intray; that is, why it could
+                            not be capitalised.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckAssetCreatableResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you checked that an asset can be created.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Passed" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether an asset
+                            can be created from the information provided.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogNumber" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The number of the log
+                            containing details of this checking process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to delete the asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset that
+                            you attempted to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SummaryRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="ass:AssetBookKey">
+                    <xsd:annotation>
+                        <xsd:documentation>A unique identifier for the
+                            asset book.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ReviewLateAdjustmentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to review late
+                            adjustment details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AssetCode" type="com:typeAstCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset whose
+                            late adjustment details you attempted to review.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ReviewTransactions" type="rev:ReviewTransactions">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains transaction details
+                            for the specified asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunNum" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A number that uniquely
+                            identifies this late adjustment review process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuditYearEndChangeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogKey" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key to the year
+                            end change audit log.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuditPassed" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Set to FALSE if any assets
+                            are found which are capitalised subsequent
+                            to the proposed new year end date or which
+                            are subject to depreciation rules starting
+                            after the proposed new year end date.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ApplyCategoryRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company
+                            containing the asset to which you want to
+                            apply a new category.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset to
+                            which you want to apply a new category.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="NewCategory" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the category you
+                            want to apply to the specified asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateAndAddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to add the asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset that
+                            you attempted to add.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            asset in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SummaryResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The company code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The asset code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BookCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The asset book code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AssetSummary" type="ass:AssetSummary">
+                    <xsd:annotation>
+                        <xsd:documentation>The asset summary.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelReviewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you have cancelled the review of
+                            specified assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunNum" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A number that uniquely
+                            identifies this cancel review process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateFromParentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ParentWithOveridesKey" type="ass:ParentWithOveridesKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains parameters for you
+                            to specify the parent asset, the attributes
+                            that the child asset inherits from its
+                            parent, and the capital cost of the new
+                            child asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="ass:AssetKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the asset you want to retrieve from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateWithTransactionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to update the asset with transactions.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset that
+                            you attempted to update with transactions.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            asset in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelReviewedLateAdjustmentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to cancel a late
+                            adjustment review.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunNum" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A number that uniquely
+                            identifies this late adjustment review process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to update the asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset that
+                            you attempted to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            asset in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckAssetCreatableRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CreateGeneralDetails" type="ass:CreateGeneralDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information that
+                            you want to check will create an asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CapitaliseReviewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to capitalise the
+                            reviewed assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AssetKeyList" minOccurs="0" type="ass:AssetKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a list of key
+                            information for the specified assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AssetList" minOccurs="0" type="ass:AssetList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a list of the
+                            specified assets and their details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AggregateAsset" minOccurs="0" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a single asset that
+                            has been created from multiple asset lines
+                            on the Asset Intray.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateFullAssetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you have created an asset from
+                            document lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The asset code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Passed" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether an asset
+                            was created from the document lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogNumber" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The number of the log
+                            containing details of this asset creation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Location" type="com:typeCtOneOfN">
+                    <xsd:annotation>
+                        <xsd:documentation>The location of the asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateAndAddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Asset" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the asset you want to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Asset" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the asset you want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateWithTransactionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Asset" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the asset you want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LateAdjustmentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LateAdjustmentDetails" type="ass:LateAdjustmentAsset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the value, suspense
+                            account and posting details for the
+                            specified late adjustment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to add the asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset that
+                            you attempted to add.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            asset in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateDerivedCurrencyBookRatesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CurrencyData" type="ass:AssetCurrencyDataList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the results of asset
+                            currency calculation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AdditionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company
+                            containing the asset to which you attempted
+                            to make an addition.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset to
+                            which you attempted to make an addition.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Asset" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the asset, including
+                            the addition you have made.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to create the asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset that
+                            you attempted to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Asset" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the asset you have created.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PostingDeltas" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If set, differences between
+                            asset values in the primary book and the
+                            corresponding values in secondary books
+                            (delta values) are posted to Financials.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateWIPAssetsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AssetKeys" type="ass:AssetKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a list of keys
+                            identifying WIP assets and the categories
+                            used to create them.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelReviewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CapitaliseDetails" type="ass:CancelReviewAsset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the costs, accounts
+                            and posting details for the asset review to
+                            be cancelled.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateCategoryCurrencyBookValuesOnDateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CategoryCode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The category code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Date" type="xsd:dateTime">
+                    <xsd:annotation>
+                        <xsd:documentation>The date that current
+                            currency exchange rates will be derived from
+                            if the Exchange Rate Date on the Financials
+                            company master is set to Document. (If the
+                            Exchange Rate Date is set to Input, then
+                            currency exchange rates will be derived from
+                            today&apos;s date.)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Value" type="com:typeMoney">
+                    <xsd:annotation>
+                        <xsd:documentation>The value to calculate.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BookCode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the primary book
+                            or secondary book whose associated currency
+                            values you want to calculate.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CapitaliseRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CapitaliseDetails" type="ass:CapitaliseAsset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the costs, accounts
+                            and posting details for capitalising the
+                            specified assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListChildrenResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="KeyList" type="ass:AssetKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a list of key
+                            information for the specified assets.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ApplyCategoryResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company
+                            containing the asset to which you attempted
+                            to apply a new category.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeAstCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the asset to
+                            which you attempted to apply a new category.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListSourceTransactionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AssetKey" type="ass:AssetKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the asset whose source transactions will be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateCurrencyBookValuesOnDateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Asset" type="ass:Asset">
+                    <xsd:annotation>
+                        <xsd:documentation>The asset code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Date" type="xsd:dateTime">
+                    <xsd:annotation>
+                        <xsd:documentation>The date that current
+                            currency exchange rates will be derived from
+                            if the Exchange Rate Date on the Financials
+                            company master is set to Document. (If the
+                            Exchange Rate Date is set to Input, then
+                            currency exchange rates will be derived from
+                            today&apos;s date.)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Value" type="com:typeMoney">
+                    <xsd:annotation>
+                        <xsd:documentation>The value to recalculate.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BookCode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the primary book
+                            or secondary book whose associated currency
+                            values you want to calculate.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuditYearEndChangeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogID" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key to the year
+                            end change audit log.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="NumberOfPeriods" type="xsd:short">
+                    <xsd:annotation>
+                        <xsd:documentation>The new number of periods for
+                            the current year.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostReviewedLateAdjustmentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LateAdjustmentDetails" type="ass:PostCancelReviewedLateAdjustmentAsset">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains posting details for
+                            the specified late adjustment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="CalculateCurrencyBookValuesOnDateRequest">
+    <part name="CalculateCurrencyBookValuesOnDateRequest" element="assws:CalculateCurrencyBookValuesOnDateRequest"/>
+  </message>
+  <message name="CreateFullAssetRequest">
+    <part name="CreateFullAssetRequest" element="assws:CreateFullAssetRequest"/>
+  </message>
+  <message name="CheckAssetCreatableRequest">
+    <part name="CheckAssetCreatableRequest" element="assws:CheckAssetCreatableRequest"/>
+  </message>
+  <message name="AuditYearEndChangeRequest">
+    <part name="AuditYearEndChangeRequest" element="assws:AuditYearEndChangeRequest"/>
+  </message>
+  <message name="AuditYearEndChangeResponse">
+    <part name="AuditYearEndChangeResponse" element="assws:AuditYearEndChangeResponse"/>
+  </message>
+  <message name="ValidateAssetResponse">
+    <part name="ValidateAssetResponse" element="assws:ValidateAssetResponse"/>
+  </message>
+  <message name="ReviewCapitalisationRequest">
+    <part name="ReviewCapitalisationRequest" element="assws:ReviewCapitalisationRequest"/>
+  </message>
+  <message name="ValidateWIPAssetsRequest">
+    <part name="ValidateWIPAssetsRequest" element="assws:ValidateWIPAssetsRequest"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="assws:GetResponse"/>
+  </message>
+  <message name="CapitaliseReviewRequest">
+    <part name="CapitaliseReviewRequest" element="assws:CapitaliseReviewRequest"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="assws:AddResponse"/>
+  </message>
+  <message name="ValidateAssetCategoriesRequest">
+    <part name="ValidateAssetCategoriesRequest" element="assws:ValidateAssetCategoriesRequest"/>
+  </message>
+  <message name="CreateFromParentResponse">
+    <part name="CreateFromParentResponse" element="assws:CreateFromParentResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="assws:DeleteRequest"/>
+  </message>
+  <message name="LateAdjustmentResponse">
+    <part name="LateAdjustmentResponse" element="assws:LateAdjustmentResponse"/>
+  </message>
+  <message name="CalculateDerivedCurrencyBookRatesRequest">
+    <part name="CalculateDerivedCurrencyBookRatesRequest" element="assws:CalculateDerivedCurrencyBookRatesRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="assws:Options"/>
+  </message>
+  <message name="AdditionResponse">
+    <part name="AdditionResponse" element="assws:AdditionResponse"/>
+  </message>
+  <message name="LateAdjustmentRequest">
+    <part name="LateAdjustmentRequest" element="assws:LateAdjustmentRequest"/>
+  </message>
+  <message name="UserFieldClassListResponse">
+    <part name="UserFieldClassListResponse" element="assws:UserFieldClassListResponse"/>
+  </message>
+  <message name="CreateFromParentRequest">
+    <part name="CreateFromParentRequest" element="assws:CreateFromParentRequest"/>
+  </message>
+  <message name="CancelReviewedLateAdjustmentResponse">
+    <part name="CancelReviewedLateAdjustmentResponse" element="assws:CancelReviewedLateAdjustmentResponse"/>
+  </message>
+  <message name="ApplyCategoryRequest">
+    <part name="ApplyCategoryRequest" element="assws:ApplyCategoryRequest"/>
+  </message>
+  <message name="AdditionRequest">
+    <part name="AdditionRequest" element="assws:AdditionRequest"/>
+  </message>
+  <message name="CapitaliseRequest">
+    <part name="CapitaliseRequest" element="assws:CapitaliseRequest"/>
+  </message>
+  <message name="PostReviewedLateAdjustmentResponse">
+    <part name="PostReviewedLateAdjustmentResponse" element="assws:PostReviewedLateAdjustmentResponse"/>
+  </message>
+  <message name="ReviewLateAdjustmentResponse">
+    <part name="ReviewLateAdjustmentResponse" element="assws:ReviewLateAdjustmentResponse"/>
+  </message>
+  <message name="CreateFullAssetResponse">
+    <part name="CreateFullAssetResponse" element="assws:CreateFullAssetResponse"/>
+  </message>
+  <message name="ValidateWIPAssetsResponse">
+    <part name="ValidateWIPAssetsResponse" element="assws:ValidateWIPAssetsResponse"/>
+  </message>
+  <message name="ListTransactionsRequest">
+    <part name="ListTransactionsRequest" element="assws:ListTransactionsRequest"/>
+  </message>
+  <message name="SummaryResponse">
+    <part name="SummaryResponse" element="assws:SummaryResponse"/>
+  </message>
+  <message name="CancelReviewedLateAdjustmentRequest">
+    <part name="CancelReviewedLateAdjustmentRequest" element="assws:CancelReviewedLateAdjustmentRequest"/>
+  </message>
+  <message name="CalculateCategoryCurrencyBookValuesOnDateRequest">
+    <part name="CalculateCategoryCurrencyBookValuesOnDateRequest" element="assws:CalculateCategoryCurrencyBookValuesOnDateRequest"/>
+  </message>
+  <message name="CapitaliseResponse">
+    <part name="CapitaliseResponse" element="assws:CapitaliseResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="assws:OptionsResponse"/>
+  </message>
+  <message name="CancelReviewResponse">
+    <part name="CancelReviewResponse" element="assws:CancelReviewResponse"/>
+  </message>
+  <message name="CheckAssetCreatableResponse">
+    <part name="CheckAssetCreatableResponse" element="assws:CheckAssetCreatableResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="assws:ListRequest"/>
+  </message>
+  <message name="CapitaliseReviewResponse">
+    <part name="CapitaliseReviewResponse" element="assws:CapitaliseReviewResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="assws:UpdateRequest"/>
+  </message>
+  <message name="ValidateAssetCodeResponse">
+    <part name="ValidateAssetCodeResponse" element="assws:ValidateAssetCodeResponse"/>
+  </message>
+  <message name="ListChildrenRequest">
+    <part name="ListChildrenRequest" element="assws:ListChildrenRequest"/>
+  </message>
+  <message name="CancelReviewRequest">
+    <part name="CancelReviewRequest" element="assws:CancelReviewRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="assws:DeleteResponse"/>
+  </message>
+  <message name="CalculateCurrencyBookValuesOnDateResponse">
+    <part name="CalculateCurrencyBookValuesOnDateResponse" element="assws:CalculateCurrencyBookValuesOnDateResponse"/>
+  </message>
+  <message name="CalculateDerivedCurrencyBookRatesResponse">
+    <part name="CalculateDerivedCurrencyBookRatesResponse" element="assws:CalculateDerivedCurrencyBookRatesResponse"/>
+  </message>
+  <message name="CalculateAssetCurrenciesRequest">
+    <part name="CalculateAssetCurrenciesRequest" element="assws:CalculateAssetCurrenciesRequest"/>
+  </message>
+  <message name="ListTransactionsResponse">
+    <part name="ListTransactionsResponse" element="assws:ListTransactionsResponse"/>
+  </message>
+  <message name="SummaryRequest">
+    <part name="SummaryRequest" element="assws:SummaryRequest"/>
+  </message>
+  <message name="ValidateAssetCodeRequest">
+    <part name="ValidateAssetCodeRequest" element="assws:ValidateAssetCodeRequest"/>
+  </message>
+  <message name="ReviewCapitalisationResponse">
+    <part name="ReviewCapitalisationResponse" element="assws:ReviewCapitalisationResponse"/>
+  </message>
+  <message name="UpdateWithTransactionsRequest">
+    <part name="UpdateWithTransactionsRequest" element="assws:UpdateWithTransactionsRequest"/>
+  </message>
+  <message name="ValidateAssetCategoriesResponse">
+    <part name="ValidateAssetCategoriesResponse" element="assws:ValidateAssetCategoriesResponse"/>
+  </message>
+  <message name="CreateRequest">
+    <part name="CreateRequest" element="assws:CreateRequest"/>
+  </message>
+  <message name="CreateResponse">
+    <part name="CreateResponse" element="assws:CreateResponse"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="assws:ListResponse"/>
+  </message>
+  <message name="ApplyCategoryResponse">
+    <part name="ApplyCategoryResponse" element="assws:ApplyCategoryResponse"/>
+  </message>
+  <message name="ValidateAndAddRequest">
+    <part name="ValidateAndAddRequest" element="assws:ValidateAndAddRequest"/>
+  </message>
+  <message name="ValidateAssetRequest">
+    <part name="ValidateAssetRequest" element="assws:ValidateAssetRequest"/>
+  </message>
+  <message name="PostReviewedLateAdjustmentRequest">
+    <part name="PostReviewedLateAdjustmentRequest" element="assws:PostReviewedLateAdjustmentRequest"/>
+  </message>
+  <message name="ListSourceTransactionsResponse">
+    <part name="ListSourceTransactionsResponse" element="assws:ListSourceTransactionsResponse"/>
+  </message>
+  <message name="ListChildrenResponse">
+    <part name="ListChildrenResponse" element="assws:ListChildrenResponse"/>
+  </message>
+  <message name="ListSourceTransactionsRequest">
+    <part name="ListSourceTransactionsRequest" element="assws:ListSourceTransactionsRequest"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="assws:UpdateResponse"/>
+  </message>
+  <message name="CalculateCategoryCurrencyBookValuesOnDateResponse">
+    <part name="CalculateCategoryCurrencyBookValuesOnDateResponse" element="assws:CalculateCategoryCurrencyBookValuesOnDateResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="assws:AddRequest"/>
+  </message>
+  <message name="ReviewLateAdjustmentRequest">
+    <part name="ReviewLateAdjustmentRequest" element="assws:ReviewLateAdjustmentRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="assws:GetRequest"/>
+  </message>
+  <message name="UserFieldClassListRequest">
+    <part name="UserFieldClassListRequest" element="assws:UserFieldClassListRequest"/>
+  </message>
+  <message name="UpdateWithTransactionsResponse">
+    <part name="UpdateWithTransactionsResponse" element="assws:UpdateWithTransactionsResponse"/>
+  </message>
+  <message name="ValidateAndAddResponse">
+    <part name="ValidateAndAddResponse" element="assws:ValidateAndAddResponse"/>
+  </message>
+  <message name="CalculateAssetCurrenciesResponse">
+    <part name="CalculateAssetCurrenciesResponse" element="assws:CalculateAssetCurrenciesResponse"/>
+  </message>
+  <portType name="AssetServicePortTypes">
+    <operation name="Add">
+      <input message="assws:AddRequest"/>
+      <output message="assws:AddResponse"/>
+    </operation>
+    <operation name="Delete">
+      <input message="assws:DeleteRequest"/>
+      <output message="assws:DeleteResponse"/>
+    </operation>
+    <operation name="CancelReview">
+      <input message="assws:CancelReviewRequest"/>
+      <output message="assws:CancelReviewResponse"/>
+    </operation>
+    <operation name="CalculateDerivedCurrencyBookRates">
+      <input message="assws:CalculateDerivedCurrencyBookRatesRequest"/>
+      <output message="assws:CalculateDerivedCurrencyBookRatesResponse"/>
+    </operation>
+    <operation name="CreateFullAsset">
+      <input message="assws:CreateFullAssetRequest"/>
+      <output message="assws:CreateFullAssetResponse"/>
+    </operation>
+    <operation name="ListSourceTransactions">
+      <input message="assws:ListSourceTransactionsRequest"/>
+      <output message="assws:ListSourceTransactionsResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="assws:UpdateRequest"/>
+      <output message="assws:UpdateResponse"/>
+    </operation>
+    <operation name="UpdateWithTransactions">
+      <input message="assws:UpdateWithTransactionsRequest"/>
+      <output message="assws:UpdateWithTransactionsResponse"/>
+    </operation>
+    <operation name="ValidateAssetCategories">
+      <input message="assws:ValidateAssetCategoriesRequest"/>
+      <output message="assws:ValidateAssetCategoriesResponse"/>
+    </operation>
+    <operation name="CheckAssetCreatable">
+      <input message="assws:CheckAssetCreatableRequest"/>
+      <output message="assws:CheckAssetCreatableResponse"/>
+    </operation>
+    <operation name="ApplyCategory">
+      <input message="assws:ApplyCategoryRequest"/>
+      <output message="assws:ApplyCategoryResponse"/>
+    </operation>
+    <operation name="CapitaliseReview">
+      <input message="assws:CapitaliseReviewRequest"/>
+      <output message="assws:CapitaliseReviewResponse"/>
+    </operation>
+    <operation name="CancelReviewedLateAdjustment">
+      <input message="assws:CancelReviewedLateAdjustmentRequest"/>
+      <output message="assws:CancelReviewedLateAdjustmentResponse"/>
+    </operation>
+    <operation name="ListChildren">
+      <input message="assws:ListChildrenRequest"/>
+      <output message="assws:ListChildrenResponse"/>
+    </operation>
+    <operation name="ReviewCapitalisation">
+      <input message="assws:ReviewCapitalisationRequest"/>
+      <output message="assws:ReviewCapitalisationResponse"/>
+    </operation>
+    <operation name="Create">
+      <input message="assws:CreateRequest"/>
+      <output message="assws:CreateResponse"/>
+    </operation>
+    <operation name="UserFieldClassList">
+      <input message="assws:UserFieldClassListRequest"/>
+      <output message="assws:UserFieldClassListResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="assws:ListRequest"/>
+      <output message="assws:ListResponse"/>
+    </operation>
+    <operation name="ValidateAssetCode">
+      <input message="assws:ValidateAssetCodeRequest"/>
+      <output message="assws:ValidateAssetCodeResponse"/>
+    </operation>
+    <operation name="Addition">
+      <input message="assws:AdditionRequest"/>
+      <output message="assws:AdditionResponse"/>
+    </operation>
+    <operation name="ListTransactions">
+      <input message="assws:ListTransactionsRequest"/>
+      <output message="assws:ListTransactionsResponse"/>
+    </operation>
+    <operation name="Capitalise">
+      <input message="assws:CapitaliseRequest"/>
+      <output message="assws:CapitaliseResponse"/>
+    </operation>
+    <operation name="ValidateAsset">
+      <input message="assws:ValidateAssetRequest"/>
+      <output message="assws:ValidateAssetResponse"/>
+    </operation>
+    <operation name="ValidateAndAdd">
+      <input message="assws:ValidateAndAddRequest"/>
+      <output message="assws:ValidateAndAddResponse"/>
+    </operation>
+    <operation name="CalculateAssetCurrencies">
+      <input message="assws:CalculateAssetCurrenciesRequest"/>
+      <output message="assws:CalculateAssetCurrenciesResponse"/>
+    </operation>
+    <operation name="ReviewLateAdjustment">
+      <input message="assws:ReviewLateAdjustmentRequest"/>
+      <output message="assws:ReviewLateAdjustmentResponse"/>
+    </operation>
+    <operation name="AuditYearEndChange">
+      <input message="assws:AuditYearEndChangeRequest"/>
+      <output message="assws:AuditYearEndChangeResponse"/>
+    </operation>
+    <operation name="PostReviewedLateAdjustment">
+      <input message="assws:PostReviewedLateAdjustmentRequest"/>
+      <output message="assws:PostReviewedLateAdjustmentResponse"/>
+    </operation>
+    <operation name="LateAdjustment">
+      <input message="assws:LateAdjustmentRequest"/>
+      <output message="assws:LateAdjustmentResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="assws:GetRequest"/>
+      <output message="assws:GetResponse"/>
+    </operation>
+    <operation name="CalculateCategoryCurrencyBookValuesOnDate">
+      <input message="assws:CalculateCategoryCurrencyBookValuesOnDateRequest"/>
+      <output message="assws:CalculateCategoryCurrencyBookValuesOnDateResponse"/>
+    </operation>
+    <operation name="CreateFromParent">
+      <input message="assws:CreateFromParentRequest"/>
+      <output message="assws:CreateFromParentResponse"/>
+    </operation>
+    <operation name="Summary">
+      <input message="assws:SummaryRequest"/>
+      <output message="assws:SummaryResponse"/>
+    </operation>
+    <operation name="ValidateWIPAssets">
+      <input message="assws:ValidateWIPAssetsRequest"/>
+      <output message="assws:ValidateWIPAssetsResponse"/>
+    </operation>
+    <operation name="CalculateCurrencyBookValuesOnDate">
+      <input message="assws:CalculateCurrencyBookValuesOnDateRequest"/>
+      <output message="assws:CalculateCurrencyBookValuesOnDateResponse"/>
+    </operation>
+  </portType>
+  <binding name="AssetServiceSOAPBinding" type="assws:AssetServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/Add" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/Delete" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CancelReview">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/CancelReview" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CalculateDerivedCurrencyBookRates">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/CalculateDerivedCurrencyBookRates" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CreateFullAsset">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/CreateFullAsset" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListSourceTransactions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/ListSourceTransactions" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/Update" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateWithTransactions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/UpdateWithTransactions" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateAssetCategories">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/ValidateAssetCategories" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckAssetCreatable">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/CheckAssetCreatable" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ApplyCategory">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/ApplyCategory" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CapitaliseReview">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/CapitaliseReview" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CancelReviewedLateAdjustment">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/CancelReviewedLateAdjustment" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListChildren">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/ListChildren" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ReviewCapitalisation">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/ReviewCapitalisation" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Create">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/Create" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UserFieldClassList">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/UserFieldClassList" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/List" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateAssetCode">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/ValidateAssetCode" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Addition">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/Addition" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListTransactions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/ListTransactions" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Capitalise">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/Capitalise" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateAsset">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/ValidateAsset" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateAndAdd">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/ValidateAndAdd" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CalculateAssetCurrencies">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/CalculateAssetCurrencies" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ReviewLateAdjustment">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/ReviewLateAdjustment" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AuditYearEndChange">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/AuditYearEndChange" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PostReviewedLateAdjustment">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/PostReviewedLateAdjustment" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LateAdjustment">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/LateAdjustment" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/Get" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CalculateCategoryCurrencyBookValuesOnDate">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/CalculateCategoryCurrencyBookValuesOnDate" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CreateFromParent">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/CreateFromParent" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Summary">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/Summary" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateWIPAssets">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/ValidateWIPAssets" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CalculateCurrencyBookValuesOnDate">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Asset/CalculateCurrencyBookValuesOnDate" style="document"/>
+      <input>
+        <soap:header message="assws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="assws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AssetService">
+    <port name="AssetServicePort" binding="assws:AssetServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/assets/asset/asset-12.0"/>
+    </port>
+  </service>
+</definitions>

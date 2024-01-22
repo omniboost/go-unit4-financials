@@ -1,0 +1,999 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/chainmaster</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/chainmaster</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>ChainMaster</h3>
+         <p>This element holds a chain master.</p>
+         <h3>ChainMasterRequest</h3>
+         <p>This service allows you to maintain chain masters.</p>
+         <h3>ChainMasterResponse</h3>
+         <p>This is the response that is returned when you maintain chain masters.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/chainmaster}Master"></a><h3>Master</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>TimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The TimeStamp value for this chain master in the database.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code of the company in which the chain master exists.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for this chain master.</td>
+                  </tr>
+                  <tr>
+                     <td>Name</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeName" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeName">typeName</a></td>
+                     <td>The full name for this chain master.</td>
+                  </tr>
+                  <tr>
+                     <td>ShortName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The abbreviated name for this chain master.</td>
+                  </tr>
+                  <tr>
+                     <td>ContinueOnFail</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that the chain runs the remaining rules if one rule fails.</td>
+                  </tr>
+                  <tr>
+                     <td>DocumentDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The posting date for the allocation document.</td>
+                  </tr>
+                  <tr>
+                     <td>DocumentPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                     <td>The year and period for posting, which will apply to the allocation document. You
+                        can use an explicit or soft period.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ReversingDocumentDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date of the reversing document, if applicable.</td>
+                  </tr>
+                  <tr>
+                     <td>ReversingDocumentPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                     <td>The year and period to which the reversing document will be posted, if applicable.</td>
+                  </tr>
+                  <tr>
+                     <td>BalancePeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                     <td>The year and period which you want to be updated, if single period update is set in
+                        the rule master. If multi-period update is set, this override is not applied.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DocumentLineDescription</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextAnyB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextAnyB">typeTextAnyB</a></td>
+                     <td>A description of up to 36 characters which will be applied to each line of the document,
+                        overriding those specified in the individual rule masters.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ApplyOverrides</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE specifies that values set in the previous fields (dates, periods, document
+                        line descriptions) will override those set in the corresponding fields in the individual
+                        rule masters.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}Rule"></a><h3>Rule</h3>
+         <p>An item within the list of rules.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>RulCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the rule.</td>
+                  </tr>
+                  <tr>
+                     <td>Desc</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextAnyB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextAnyB">typeTextAnyB</a></td>
+                     <td>The short name of the rule for identification.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}RuleList"></a><h3>RuleList</h3>
+         <p>The list of rules which you want this chain to run. All the rules named within this
+            element should be of the same rule type: either allocation rules or revaluation rules.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Rule</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}Rule" href="#{http://www.coda.com/efinance/schemas/chainmaster}Rule">Rule</a></td>
+                     <td>An item within the list of rules.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}chnKey"></a><h3>chnKey</h3>
+         <p>A chain master key.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which the chain master exists.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the chain master.</td>
+                  </tr>
+                  <tr>
+                     <td>Allocation</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtEvalRule" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtEvalRule">typeCtEvalRule</a></td>
+                     <td>Specifies that this chain master is used to run allocation rules. If this element
+                        is left blank, then all keys are returned.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}chnReqKeys"></a><h3>chnReqKeys</h3>
+         <p>Contains key information for requesting a number of chain masters from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MaxKeys</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The maximum number of items to be returned.</td>
+                  </tr>
+                  <tr>
+                     <td>WildKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}chnKey" href="#{http://www.coda.com/efinance/schemas/chainmaster}chnKey">chnKey</a></td>
+                     <td>A chain master key.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}ChainMaster"></a><h3>ChainMaster</h3>
+         <p>The ChainMaster type has <a title="{http://www.coda.com/efinance/schemas/chainmaster}Master" href="#{http://www.coda.com/efinance/schemas/chainmaster}Master">Master</a> as its base type.
+         </p>
+         <p>This element holds a chain master.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>RuleList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}RuleList" href="#{http://www.coda.com/efinance/schemas/chainmaster}RuleList">RuleList</a></td>
+                     <td>The list of rules which you want this chain to run. All the rules named within this
+                        element should be of the same rule type: either allocation rules or revaluation rules.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}ListRequest"></a><h3>ListRequest</h3>
+         <p>The ListRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}chnReqKeys" href="#{http://www.coda.com/efinance/schemas/chainmaster}chnReqKeys">chnReqKeys</a></td>
+                     <td>A filter that selects chain masters to be listed.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}ListRequestVerb"></a><h3>ListRequestVerb</h3>
+         <p>The ListRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves key information for the specified chain masters from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}ListRequest" href="#{http://www.coda.com/efinance/schemas/chainmaster}ListRequest">ListRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}ListResponse"></a><h3>ListResponse</h3>
+         <p>The ListResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}chnReqKeys" href="#{http://www.coda.com/efinance/schemas/chainmaster}chnReqKeys">chnReqKeys</a></td>
+                     <td>The filter that was used to select the chain masters for listing.</td>
+                  </tr>
+                  <tr>
+                     <td>Keys</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}KeyData" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}KeyData">KeyData</a></td>
+                     <td>Contains the key information for the listed chain masters.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}ListResponseVerb"></a><h3>ListResponseVerb</h3>
+         <p>The ListResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}ListResponse" href="#{http://www.coda.com/efinance/schemas/chainmaster}ListResponse">ListResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}GetRequest"></a><h3>GetRequest</h3>
+         <p>The GetRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>Contains the key identifying a chain master you want to retrieve from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}GetRequestVerb"></a><h3>GetRequestVerb</h3>
+         <p>The GetRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the specified chain masters from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}GetRequest" href="#{http://www.coda.com/efinance/schemas/chainmaster}GetRequest">GetRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}GetResponse"></a><h3>GetResponse</h3>
+         <p>The GetResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which you attempted to retrieve the chain master.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the chain master you attempted to retrieve.</td>
+                  </tr>
+                  <tr>
+                     <td>ChainMaster</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}ChainMaster" href="#{http://www.coda.com/efinance/schemas/chainmaster}ChainMaster">ChainMaster</a></td>
+                     <td>Contains the chain master you have retrieved from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}GetResponseVerb"></a><h3>GetResponseVerb</h3>
+         <p>The GetResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}GetResponse" href="#{http://www.coda.com/efinance/schemas/chainmaster}GetResponse">GetResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}AddRequest"></a><h3>AddRequest</h3>
+         <p>The AddRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ChainMaster</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}ChainMaster" href="#{http://www.coda.com/efinance/schemas/chainmaster}ChainMaster">ChainMaster</a></td>
+                     <td>Contains the information for a chain master you want to create.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}AddRequestVerb"></a><h3>AddRequestVerb</h3>
+         <p>The AddRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}MultiCompanyRequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}MultiCompanyRequestVerb">MultiCompanyRequestVerb</a> as its base type.
+         </p>
+         <p>Creates new chain masters in the database using the chain information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}AddRequest" href="#{http://www.coda.com/efinance/schemas/chainmaster}AddRequest">AddRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}AddResponse"></a><h3>AddResponse</h3>
+         <p>The AddResponse type has <a title="{http://www.coda.com/efinance/schemas/common}MultiCompanyResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}MultiCompanyResponse">MultiCompanyResponse</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which you attempted to create the chain master.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the chain master you attempted to create.</td>
+                  </tr>
+                  <tr>
+                     <td>TimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeWord" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeWord">typeWord</a></td>
+                     <td>The TimeStamp value for this chain master in the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}AddResponseVerb"></a><h3>AddResponseVerb</h3>
+         <p>The AddResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Companies</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Companies" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Companies">Companies</a></td>
+                     <td>Contains the list of additional companies in which you want to create the masters.
+                        This is part of the multi-company functionality for maintaining masters in multiple
+                        companies.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}AddResponse" href="#{http://www.coda.com/efinance/schemas/chainmaster}AddResponse">AddResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}UpdateRequest"></a><h3>UpdateRequest</h3>
+         <p>The UpdateRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ChainMaster</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}ChainMaster" href="#{http://www.coda.com/efinance/schemas/chainmaster}ChainMaster">ChainMaster</a></td>
+                     <td>Contains the information for a chain master you want to update.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}UpdateRequestVerb"></a><h3>UpdateRequestVerb</h3>
+         <p>The UpdateRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}MultiCompanyRequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}MultiCompanyRequestVerb">MultiCompanyRequestVerb</a> as its base type.
+         </p>
+         <p>Updates chain masters in the database using the chain information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}UpdateRequest" href="#{http://www.coda.com/efinance/schemas/chainmaster}UpdateRequest">UpdateRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}UpdateResponse"></a><h3>UpdateResponse</h3>
+         <p>The UpdateResponse type has <a title="{http://www.coda.com/efinance/schemas/common}MultiCompanyResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}MultiCompanyResponse">MultiCompanyResponse</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which you attempted to update the chain master.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the chain master you attempted to update.</td>
+                  </tr>
+                  <tr>
+                     <td>TimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeWord" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeWord">typeWord</a></td>
+                     <td>The TimeStamp value for this chain master in the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}UpdateResponseVerb"></a><h3>UpdateResponseVerb</h3>
+         <p>The UpdateResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Companies</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Companies" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Companies">Companies</a></td>
+                     <td>Contains the list of additional companies in which you want to update the masters.
+                        This is part of the multi-company functionality for maintaining masters in multiple
+                        companies.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}UpdateResponse" href="#{http://www.coda.com/efinance/schemas/chainmaster}UpdateResponse">UpdateResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}DeleteRequest"></a><h3>DeleteRequest</h3>
+         <p>The DeleteRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>Contains the key identifying a chain master you want to delete.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}DeleteRequestVerb"></a><h3>DeleteRequestVerb</h3>
+         <p>The DeleteRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Deletes the specified chain masters from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}DeleteRequest" href="#{http://www.coda.com/efinance/schemas/chainmaster}DeleteRequest">DeleteRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}DeleteResponse"></a><h3>DeleteResponse</h3>
+         <p>The DeleteResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which you attempted to delete the chain master.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the chain master that you attempted to delete.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}DeleteResponseVerb"></a><h3>DeleteResponseVerb</h3>
+         <p>The DeleteResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}DeleteResponse" href="#{http://www.coda.com/efinance/schemas/chainmaster}DeleteResponse">DeleteResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}ChainMasterRequest"></a><h3>ChainMasterRequest</h3>
+         <p>The ChainMasterRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to maintain chain masters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>List</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}ListRequestVerb" href="#{http://www.coda.com/efinance/schemas/chainmaster}ListRequestVerb">ListRequestVerb</a></td>
+                     <td>Retrieves key information for the specified chain masters from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>Get</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}GetRequestVerb" href="#{http://www.coda.com/efinance/schemas/chainmaster}GetRequestVerb">GetRequestVerb</a></td>
+                     <td>Retrieves the specified chain masters from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>Add</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}AddRequestVerb" href="#{http://www.coda.com/efinance/schemas/chainmaster}AddRequestVerb">AddRequestVerb</a></td>
+                     <td>Creates new chain masters in the database using the chain information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>Update</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}UpdateRequestVerb" href="#{http://www.coda.com/efinance/schemas/chainmaster}UpdateRequestVerb">UpdateRequestVerb</a></td>
+                     <td>Updates chain masters in the database using the chain information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>Delete</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}DeleteRequestVerb" href="#{http://www.coda.com/efinance/schemas/chainmaster}DeleteRequestVerb">DeleteRequestVerb</a></td>
+                     <td>Deletes the specified chain masters from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/chainmaster}ChainMasterResponse"></a><h3>ChainMasterResponse</h3>
+         <p>The ChainMasterResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you maintain chain masters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>List</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}ListResponseVerb" href="#{http://www.coda.com/efinance/schemas/chainmaster}ListResponseVerb">ListResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Get</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}GetResponseVerb" href="#{http://www.coda.com/efinance/schemas/chainmaster}GetResponseVerb">GetResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Add</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}AddResponseVerb" href="#{http://www.coda.com/efinance/schemas/chainmaster}AddResponseVerb">AddResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Update</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}UpdateResponseVerb" href="#{http://www.coda.com/efinance/schemas/chainmaster}UpdateResponseVerb">UpdateResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Delete</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/chainmaster}DeleteResponseVerb" href="#{http://www.coda.com/efinance/schemas/chainmaster}DeleteResponseVerb">DeleteResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

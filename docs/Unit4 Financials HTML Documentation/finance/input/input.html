@@ -1,0 +1,440 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/input</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/input</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>InputRequest</h3>
+         <p>This service allows you to post financial documents to the Books or the Intray.</p>
+         <h3>InputResponse</h3>
+         <p>This is the response that is returned when you post financial documents to the Books
+            or the Intray.
+         </p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/input}PostRequest"></a><h3>PostRequest</h3>
+         <p>The PostRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Transaction</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="../transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                     <td>Contains the document you want to post.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/input}PostRequestVerb"></a><h3>PostRequestVerb</h3>
+         <p>The PostRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Posts the document.</p>
+         <div class="attributes">
+            <h4>Attributes</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Type</th>
+                     <th>Use</th>
+                     <th>Default</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>logerrorsonly</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>optional</td>
+                     <td></td>
+                     <td>If True, specifies that the log contains only errors.</td>
+                  </tr>
+                  <tr>
+                     <td>postto</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtDocDest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtDocDest">typeCtDocDest</a></td>
+                     <td>optional</td>
+                     <td></td>
+                     <td>Specifies whether the document should be posted to the Books, the Intray, or either
+                        (preferentially the Books but failing that, the Intray).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>relaxtriangulation</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>optional</td>
+                     <td></td>
+                     <td>If True, specifies that the EMU Triangulation rules do not apply to this document.</td>
+                  </tr>
+                  <tr>
+                     <td>reportallerrors</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>optional</td>
+                     <td></td>
+                     <td>If True, specifies that the process should report all errors in the log. If False,
+                        only the first error encountered under this verb is reported.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>stoponerror</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>optional</td>
+                     <td></td>
+                     <td>If True, specifies that the process is to terminate on encountering an error.</td>
+                  </tr>
+                  <tr>
+                     <td>warningsareerrors</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>optional</td>
+                     <td></td>
+                     <td>If True, specifies that warnings are to be treated as errors.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/input}PostRequest" href="#{http://www.coda.com/efinance/schemas/input}PostRequest">PostRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/input}PostResponse"></a><h3>PostResponse</h3>
+         <p>The PostResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="attributes">
+            <h4>Attributes</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Type</th>
+                     <th>Use</th>
+                     <th>Default</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>postto</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtDocPost" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtDocPost">typeCtDocPost</a></td>
+                     <td>optional</td>
+                     <td></td>
+                     <td>Specifies whether the document was posted to the Books or the Intray.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="../transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                     <td>Contains the extended key information for the transaction you posted.</td>
+                  </tr>
+                  <tr>
+                     <td>SuppliedNumber</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The document number you may have supplied (applies to Batch Load).</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/input}PostResponseVerb"></a><h3>PostResponseVerb</h3>
+         <p>The PostResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/input}PostResponse" href="#{http://www.coda.com/efinance/schemas/input}PostResponse">PostResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/input}PostToXRequestVerb"></a><h3>PostToXRequestVerb</h3>
+         <p>The PostToXRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Posts a document to the books.</p>
+         <div class="attributes">
+            <h4>Attributes</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Type</th>
+                     <th>Use</th>
+                     <th>Default</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>logerrorsonly</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>optional</td>
+                     <td></td>
+                     <td>If True, specifies that the log contains only errors.</td>
+                  </tr>
+                  <tr>
+                     <td>relaxtriangulation</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>optional</td>
+                     <td></td>
+                     <td>If True, specifies that the EMU Triangulation rules do not apply to this document.</td>
+                  </tr>
+                  <tr>
+                     <td>reportallerrors</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>optional</td>
+                     <td></td>
+                     <td>If True, specifies that the process should report all errors in the log. If False,
+                        only the first error encountered under this verb is reported.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>stoponerror</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>optional</td>
+                     <td></td>
+                     <td>If True, specifies that the process is to terminate on encountering an error.</td>
+                  </tr>
+                  <tr>
+                     <td>warningsareerrors</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>optional</td>
+                     <td></td>
+                     <td>If True, specifies that warnings are to be treated as errors.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/input}PostRequest" href="#{http://www.coda.com/efinance/schemas/input}PostRequest">PostRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/input}PostToXResponse"></a><h3>PostToXResponse</h3>
+         <p>The PostToXResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="../transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                     <td>Contains the extended key information for the transaction you posted.</td>
+                  </tr>
+                  <tr>
+                     <td>SuppliedNumber</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>Contains the suppled document number.                SuppliedNumber is the number
+                        from the original XML transaction, where the final document was renumbered
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/input}PostToXResponseVerb"></a><h3>PostToXResponseVerb</h3>
+         <p>The PostToXResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/input}PostToXResponse" href="#{http://www.coda.com/efinance/schemas/input}PostToXResponse">PostToXResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/input}InputRequest"></a><h3>InputRequest</h3>
+         <p>The InputRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to post financial documents to the Books or the Intray.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Post</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/input}PostRequestVerb" href="#{http://www.coda.com/efinance/schemas/input}PostRequestVerb">PostRequestVerb</a></td>
+                     <td>Posts the document.</td>
+                  </tr>
+                  <tr>
+                     <td>PostToBooks</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/input}PostToXRequestVerb" href="#{http://www.coda.com/efinance/schemas/input}PostToXRequestVerb">PostToXRequestVerb</a></td>
+                     <td>Posts a document to the books.</td>
+                  </tr>
+                  <tr>
+                     <td>PostToIntray</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/input}PostToXRequestVerb" href="#{http://www.coda.com/efinance/schemas/input}PostToXRequestVerb">PostToXRequestVerb</a></td>
+                     <td>Posts a document to the Intray.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/input}InputResponse"></a><h3>InputResponse</h3>
+         <p>The InputResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you post financial documents to the Books
+            or the Intray.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Post</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/input}PostResponseVerb" href="#{http://www.coda.com/efinance/schemas/input}PostResponseVerb">PostResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>PostToBooks</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/input}PostToXResponseVerb" href="#{http://www.coda.com/efinance/schemas/input}PostToXResponseVerb">PostToXResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>PostToIntray</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/input}PostToXResponseVerb" href="#{http://www.coda.com/efinance/schemas/input}PostToXResponseVerb">PostToXResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

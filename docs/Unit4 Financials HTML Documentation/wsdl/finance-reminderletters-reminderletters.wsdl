@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/reminderletters/reminderletters-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:letws="http://www.coda.com/efinance/schemas/reminderletters/reminderletters-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:let="http://www.coda.com/efinance/schemas/reminderletters"
+    xmlns:prg="http://www.coda.com/efinance/schemas/progress"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/reminderletters/reminderletters-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/progress" schemaLocation="finance/progress/progress.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/reminderletters" schemaLocation="../wsdl/finance/reminderletters/reminderletters.xsd"/>
+    <xsd:element name="HoldDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Summary" minOccurs="0" type="let:Summary">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns details of the
+                            retrieved reminder letter.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="let:SummaryKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies a reminder letter.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies the proposal being deleted.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDTTResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LetterProposal" type="let:LetterProposal">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains all the
+                            reminder letter proposals in the company.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Params" type="let:GenerateParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            generating a proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHistoryLinesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Lines" minOccurs="0" type="let:HistoryLineList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains all the
+                            details of the actions taken on the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies the proposal for which
+                            history lines are being retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ProduceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This key contains information
+                            about the progress of the Produce stage.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies the proposal being produced.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="let:SummaryKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies a reminder letter.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" type="sel:HeaderColumnList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of vocabulary items
+                            used to retrieve detail lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ConfirmRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Params" type="let:ConfirmParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element stores the
+                            parameters required for the confirmation
+                            stage of the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="HoldDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="let:SummaryKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies a reminder letter.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Changes" type="let:DetailChangeList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element stores changes
+                            to individual detail lines within a reminder letter.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHistoryLinesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            identifies the proposal for which you want
+                            to retrieve history information.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RecoverRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            identifies the proposal you want to recover.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNewProposalDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="NewProposalDetails" minOccurs="0" type="let:NewProposalDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the
+                            details for a new proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="let:NewProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>A key consisting of the
+                            company code and reminder master code used
+                            to uniquely identify a new proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SummaryParams" type="let:SummaryParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified for a
+                            reminder letter.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProposalsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:GlobalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>A key used to identify the
+                            reminder proposals to be retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies the proposal being updated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDTTRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            identifies the proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProposalsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Proposals" minOccurs="0" type="let:ProposalList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element lists all the
+                            reminder letter proposals in the company.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="com:GlobalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key used to identify the
+                            reminder proposals to be retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Summaries" minOccurs="0" type="let:SummaryList">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns a list of reminder
+                            letters contained within a proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies a proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNewProposalDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="let:NewProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies a new proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RecoverResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies the proposal being recovered.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Details" minOccurs="0" type="let:Details">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns the specified details
+                            for manipulation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="let:SummaryKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies a reminder letter.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>A key which uniquely
+                            identifies a proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Changes" type="let:SummaryChangeList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element stores a list of
+                            changes to a reminder letter.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ProduceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>A key consisting of the
+                            company code and proposal code which
+                            identify a proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This key contains information
+                            about the progress of the Generate stage.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies a proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ConfirmResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This key contains information
+                            about the progress of the Confirm stage.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies the proposal being confirmed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="let:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            identifies the proposal you want to delete
+                            from the active list.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="letws:DeleteRequest"/>
+  </message>
+  <message name="GetDTTResponse">
+    <part name="GetDTTResponse" element="letws:GetDTTResponse"/>
+  </message>
+  <message name="HoldDetailsRequest">
+    <part name="HoldDetailsRequest" element="letws:HoldDetailsRequest"/>
+  </message>
+  <message name="GenerateRequest">
+    <part name="GenerateRequest" element="letws:GenerateRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="letws:DeleteResponse"/>
+  </message>
+  <message name="GetProposalsResponse">
+    <part name="GetProposalsResponse" element="letws:GetProposalsResponse"/>
+  </message>
+  <message name="GenerateResponse">
+    <part name="GenerateResponse" element="letws:GenerateResponse"/>
+  </message>
+  <message name="GetSummariesResponse">
+    <part name="GetSummariesResponse" element="letws:GetSummariesResponse"/>
+  </message>
+  <message name="RecoverRequest">
+    <part name="RecoverRequest" element="letws:RecoverRequest"/>
+  </message>
+  <message name="GetNewProposalDetailsRequest">
+    <part name="GetNewProposalDetailsRequest" element="letws:GetNewProposalDetailsRequest"/>
+  </message>
+  <message name="GetDetailsResponse">
+    <part name="GetDetailsResponse" element="letws:GetDetailsResponse"/>
+  </message>
+  <message name="ConfirmResponse">
+    <part name="ConfirmResponse" element="letws:ConfirmResponse"/>
+  </message>
+  <message name="HoldDetailsResponse">
+    <part name="HoldDetailsResponse" element="letws:HoldDetailsResponse"/>
+  </message>
+  <message name="ProduceResponse">
+    <part name="ProduceResponse" element="letws:ProduceResponse"/>
+  </message>
+  <message name="GetHistoryLinesRequest">
+    <part name="GetHistoryLinesRequest" element="letws:GetHistoryLinesRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="letws:OptionsResponse"/>
+  </message>
+  <message name="ConfirmRequest">
+    <part name="ConfirmRequest" element="letws:ConfirmRequest"/>
+  </message>
+  <message name="GetProposalsRequest">
+    <part name="GetProposalsRequest" element="letws:GetProposalsRequest"/>
+  </message>
+  <message name="GetHistoryLinesResponse">
+    <part name="GetHistoryLinesResponse" element="letws:GetHistoryLinesResponse"/>
+  </message>
+  <message name="GetSummariesRequest">
+    <part name="GetSummariesRequest" element="letws:GetSummariesRequest"/>
+  </message>
+  <message name="UpdateSummariesRequest">
+    <part name="UpdateSummariesRequest" element="letws:UpdateSummariesRequest"/>
+  </message>
+  <message name="RecoverResponse">
+    <part name="RecoverResponse" element="letws:RecoverResponse"/>
+  </message>
+  <message name="GetDTTRequest">
+    <part name="GetDTTRequest" element="letws:GetDTTRequest"/>
+  </message>
+  <message name="GetDetailsRequest">
+    <part name="GetDetailsRequest" element="letws:GetDetailsRequest"/>
+  </message>
+  <message name="GetNewProposalDetailsResponse">
+    <part name="GetNewProposalDetailsResponse" element="letws:GetNewProposalDetailsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="letws:Options"/>
+  </message>
+  <message name="UpdateSummariesResponse">
+    <part name="UpdateSummariesResponse" element="letws:UpdateSummariesResponse"/>
+  </message>
+  <message name="ProduceRequest">
+    <part name="ProduceRequest" element="letws:ProduceRequest"/>
+  </message>
+  <portType name="ReminderLettersServicePortTypes">
+    <operation name="Delete">
+      <input message="letws:DeleteRequest"/>
+      <output message="letws:DeleteResponse"/>
+    </operation>
+    <operation name="GetHistoryLines">
+      <input message="letws:GetHistoryLinesRequest"/>
+      <output message="letws:GetHistoryLinesResponse"/>
+    </operation>
+    <operation name="GetDTT">
+      <input message="letws:GetDTTRequest"/>
+      <output message="letws:GetDTTResponse"/>
+    </operation>
+    <operation name="GetNewProposalDetails">
+      <input message="letws:GetNewProposalDetailsRequest"/>
+      <output message="letws:GetNewProposalDetailsResponse"/>
+    </operation>
+    <operation name="Produce">
+      <input message="letws:ProduceRequest"/>
+      <output message="letws:ProduceResponse"/>
+    </operation>
+    <operation name="Confirm">
+      <input message="letws:ConfirmRequest"/>
+      <output message="letws:ConfirmResponse"/>
+    </operation>
+    <operation name="HoldDetails">
+      <input message="letws:HoldDetailsRequest"/>
+      <output message="letws:HoldDetailsResponse"/>
+    </operation>
+    <operation name="UpdateSummaries">
+      <input message="letws:UpdateSummariesRequest"/>
+      <output message="letws:UpdateSummariesResponse"/>
+    </operation>
+    <operation name="GetDetails">
+      <input message="letws:GetDetailsRequest"/>
+      <output message="letws:GetDetailsResponse"/>
+    </operation>
+    <operation name="Generate">
+      <input message="letws:GenerateRequest"/>
+      <output message="letws:GenerateResponse"/>
+    </operation>
+    <operation name="GetProposals">
+      <input message="letws:GetProposalsRequest"/>
+      <output message="letws:GetProposalsResponse"/>
+    </operation>
+    <operation name="Recover">
+      <input message="letws:RecoverRequest"/>
+      <output message="letws:RecoverResponse"/>
+    </operation>
+    <operation name="GetSummaries">
+      <input message="letws:GetSummariesRequest"/>
+      <output message="letws:GetSummariesResponse"/>
+    </operation>
+  </portType>
+  <binding name="ReminderLettersServiceSOAPBinding" type="letws:ReminderLettersServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ReminderLetters/Delete" style="document"/>
+      <input>
+        <soap:header message="letws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="letws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetHistoryLines">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ReminderLetters/GetHistoryLines" style="document"/>
+      <input>
+        <soap:header message="letws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="letws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDTT">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ReminderLetters/GetDTT" style="document"/>
+      <input>
+        <soap:header message="letws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="letws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetNewProposalDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ReminderLetters/GetNewProposalDetails" style="document"/>
+      <input>
+        <soap:header message="letws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="letws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Produce">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ReminderLetters/Produce" style="document"/>
+      <input>
+        <soap:header message="letws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="letws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Confirm">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ReminderLetters/Confirm" style="document"/>
+      <input>
+        <soap:header message="letws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="letws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="HoldDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ReminderLetters/HoldDetails" style="document"/>
+      <input>
+        <soap:header message="letws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="letws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ReminderLetters/UpdateSummaries" style="document"/>
+      <input>
+        <soap:header message="letws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="letws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ReminderLetters/GetDetails" style="document"/>
+      <input>
+        <soap:header message="letws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="letws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Generate">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ReminderLetters/Generate" style="document"/>
+      <input>
+        <soap:header message="letws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="letws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProposals">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ReminderLetters/GetProposals" style="document"/>
+      <input>
+        <soap:header message="letws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="letws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Recover">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ReminderLetters/Recover" style="document"/>
+      <input>
+        <soap:header message="letws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="letws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ReminderLetters/GetSummaries" style="document"/>
+      <input>
+        <soap:header message="letws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="letws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ReminderLettersService">
+    <port name="ReminderLettersServicePort" binding="letws:ReminderLettersServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/reminderletters/reminderletters-13.0"/>
+    </port>
+  </service>
+</definitions>

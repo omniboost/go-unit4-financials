@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/procsystem/pimprocurementsystemmaster-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:procsysws="http://www.coda.com/pim/schemas/procsystem/pimprocurementsystemmaster-1.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:use="http://www.coda.com/common/schemas/userextension"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:usrextmas="http://www.coda.com/pim/schemas/userextensionmaster"
+    xmlns:procsys="http://www.coda.com/pim/schemas/procsystem"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/pim/schemas/procsystem/pimprocurementsystemmaster-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/userextension" schemaLocation="common/userextension/userextension.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/procsystem" schemaLocation="../wsdl/pim/procsystem/procsystem.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/userextensionmaster" schemaLocation="pim/userextensionmaster/userextensionmaster.xsd"/>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcurementSystemMaster" type="procsys:ProcurementSystemMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole
+                            ProcurementSystemMaster object that is to be
+                            persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the ProcurementSystemMaster
+                            objects that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcurementSystemMaster" type="procsys:ProcurementSystemMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcurementSystemMasterItemList" type="procsys:ProcurementSystemMasterItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the ProcurementSystemMaster
+                            objects that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcurementSystemMaster" type="procsys:ProcurementSystemMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            update function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcurementSystemMaster" type="procsys:ProcurementSystemMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the add function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcurementSystemMaster" type="procsys:ProcurementSystemMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole
+                            ProcurementSystemMaster object that is to be
+                            persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcurementSystemMasterKey" type="procsys:ProcurementSystemMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            ProcurementSystemMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcurementSystemMasterKey" type="procsys:ProcurementSystemMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            ProcurementSystemMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcurementSystemMasterList" type="procsys:ProcurementSystemMasterList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="AddResponse">
+    <part name="AddResponse" element="procsysws:AddResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="procsysws:GetResponse"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="procsysws:ListResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="procsysws:UpdateRequest"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="procsysws:ListRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="procsysws:Options"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="procsysws:FindResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="procsysws:OptionsResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="procsysws:DeleteRequest"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="procsysws:FindRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="procsysws:GetRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="procsysws:DeleteResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="procsysws:AddRequest"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="procsysws:UpdateResponse"/>
+  </message>
+  <portType name="PIMProcurementSystemMasterServicePortTypes">
+    <operation name="Delete">
+      <input message="procsysws:DeleteRequest"/>
+      <output message="procsysws:DeleteResponse"/>
+    </operation>
+    <operation name="Add">
+      <input message="procsysws:AddRequest"/>
+      <output message="procsysws:AddResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="procsysws:GetRequest"/>
+      <output message="procsysws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="procsysws:FindRequest"/>
+      <output message="procsysws:FindResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="procsysws:ListRequest"/>
+      <output message="procsysws:ListResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="procsysws:UpdateRequest"/>
+      <output message="procsysws:UpdateResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMProcurementSystemMasterServiceSOAPBinding" type="procsysws:PIMProcurementSystemMasterServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMProcurementSystemMaster/Delete" style="document"/>
+      <input>
+        <soap:header message="procsysws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="procsysws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMProcurementSystemMaster/Add" style="document"/>
+      <input>
+        <soap:header message="procsysws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="procsysws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMProcurementSystemMaster/Get" style="document"/>
+      <input>
+        <soap:header message="procsysws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="procsysws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMProcurementSystemMaster/Find" style="document"/>
+      <input>
+        <soap:header message="procsysws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="procsysws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMProcurementSystemMaster/List" style="document"/>
+      <input>
+        <soap:header message="procsysws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="procsysws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMProcurementSystemMaster/Update" style="document"/>
+      <input>
+        <soap:header message="procsysws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="procsysws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMProcurementSystemMasterService">
+    <port name="PIMProcurementSystemMasterServicePort" binding="procsysws:PIMProcurementSystemMasterServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/procsystem/pimprocurementsystemmaster-1.0"/>
+    </port>
+  </service>
+</definitions>

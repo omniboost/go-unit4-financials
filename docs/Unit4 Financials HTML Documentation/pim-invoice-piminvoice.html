@@ -1,0 +1,644 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-PIMInvoiceService">
+            <h1>PIMInvoiceService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/pim-invoice-piminvoice.wsdl" download="">pim-invoice-piminvoice.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/pim/invoice/piminvoice-13.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#PIMInvoiceService-Find">Find</a></li>
+               <li><a href="#PIMInvoiceService-Get">Get</a></li>
+               <li><a href="#PIMInvoiceService-GetAssociatedInvoices">GetAssociatedInvoices</a></li>
+               <li><a href="#PIMInvoiceService-GetCreditNote">GetCreditNote</a></li>
+               <li><a href="#PIMInvoiceService-GetPurchaseInvoice">GetPurchaseInvoice</a></li>
+               <li><a href="#PIMInvoiceService-MarkForDeferredMatching">MarkForDeferredMatching</a></li>
+               <li><a href="#PIMInvoiceService-ResetValidationStatus">ResetValidationStatus</a></li>
+               <li><a href="#PIMInvoiceService-UnmarkForDeferredMatching">UnmarkForDeferredMatching</a></li>
+               <li><a href="#PIMInvoiceService-ValidateForDeferredMatching">ValidateForDeferredMatching</a></li>
+               <li><a href="#PIMInvoiceService-ValidationFailed">ValidationFailed</a></li>
+               <li><a href="#PIMInvoiceService-ValidationSuccessful">ValidationSuccessful</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="PIMInvoiceService-Find"></a>Find
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>FindRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Query</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Query" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Query">Query</a></td>
+                              <td>The set of query criteria to
+                                 be used to find the Invoice objects that the
+                                 user is interested in.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>FindResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>InvoiceList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/invoice}InvoiceList" href="pim/invoice/invoice.html#{http://www.coda.com/pim/schemas/invoice}InvoiceList">InvoiceList</a></td>
+                              <td>The return value of the find function.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMInvoiceService-Get"></a>Get
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>InvoiceKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/invoice}InvoiceKey" href="pim/invoice/invoice.html#{http://www.coda.com/pim/schemas/invoice}InvoiceKey">InvoiceKey</a></td>
+                              <td>The key to the Invoice object.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Invoice</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/invoice}Invoice" href="pim/invoice/invoice.html#{http://www.coda.com/pim/schemas/invoice}Invoice">Invoice</a></td>
+                              <td>The return value of the get function.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMInvoiceService-GetAssociatedInvoices"></a>GetAssociatedInvoices
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetAssociatedInvoicesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>
+                                 
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:inv="http://www.coda.com/pim/schemas/invoice" xmlns:atc="http://www.coda.com/common/schemas/attachment" xmlns:elmmas="http://www.coda.com/pim/schemas/elementmaster" xmlns:pimusr="http://www.coda.com/pim/schemas/user" xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:crn="http://www.coda.com/pim/schemas/creditnote" xmlns:itm="http://www.coda.com/pim/schemas/inputtemplatemaster" xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster" xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster" xmlns:group="http://www.coda.com/pim/schemas/group" xmlns:cmp="http://www.coda.com/pim/schemas/company" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns:tolmas="http://www.coda.com/pim/schemas/tolerancemaster" xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice" xmlns:post="http://www.coda.com/pim/schemas/postingdocument" xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster" xmlns:datatypes="http://www.coda.com/common/schemas/datatypes" xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invws="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The company code</p>                             
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocumentCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>
+                                 
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:inv="http://www.coda.com/pim/schemas/invoice" xmlns:atc="http://www.coda.com/common/schemas/attachment" xmlns:elmmas="http://www.coda.com/pim/schemas/elementmaster" xmlns:pimusr="http://www.coda.com/pim/schemas/user" xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:crn="http://www.coda.com/pim/schemas/creditnote" xmlns:itm="http://www.coda.com/pim/schemas/inputtemplatemaster" xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster" xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster" xmlns:group="http://www.coda.com/pim/schemas/group" xmlns:cmp="http://www.coda.com/pim/schemas/company" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns:tolmas="http://www.coda.com/pim/schemas/tolerancemaster" xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice" xmlns:post="http://www.coda.com/pim/schemas/postingdocument" xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster" xmlns:datatypes="http://www.coda.com/common/schemas/datatypes" xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invws="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The document code</p>                             
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocumentNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNumAlpha" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNumAlpha">typeDocNumAlpha</a></td>
+                              <td>
+                                 
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:inv="http://www.coda.com/pim/schemas/invoice" xmlns:atc="http://www.coda.com/common/schemas/attachment" xmlns:elmmas="http://www.coda.com/pim/schemas/elementmaster" xmlns:pimusr="http://www.coda.com/pim/schemas/user" xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:crn="http://www.coda.com/pim/schemas/creditnote" xmlns:itm="http://www.coda.com/pim/schemas/inputtemplatemaster" xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster" xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster" xmlns:group="http://www.coda.com/pim/schemas/group" xmlns:cmp="http://www.coda.com/pim/schemas/company" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns:tolmas="http://www.coda.com/pim/schemas/tolerancemaster" xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice" xmlns:post="http://www.coda.com/pim/schemas/postingdocument" xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster" xmlns:datatypes="http://www.coda.com/common/schemas/datatypes" xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invws="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The document number</p>                             
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetAssociatedInvoicesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The companyCode is an out
+                                 argument, so the server will put it here.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocumentCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The documentCode is an out
+                                 argument, so the server will put it here.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocumentNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNumAlpha" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNumAlpha">typeDocNumAlpha</a></td>
+                              <td>The documentNumber is an out
+                                 argument, so the server will put it here.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AssociatedInvoices</td>
+                              <td>0</td>
+                              <td>unbounded</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/invoice}Association" href="pim/invoice/invoice.html#{http://www.coda.com/pim/schemas/invoice}Association">Association</a></td>
+                              <td>The associatedInvoices is an
+                                 out argument, so the server will put it here.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>InvoiceKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/invoice}InvoiceKey" href="pim/invoice/invoice.html#{http://www.coda.com/pim/schemas/invoice}InvoiceKey">InvoiceKey</a></td>
+                              <td>The invoice is an out
+                                 argument, so the server will put it here.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>InvoiceAttachmentKeyKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/attachment}AttachmentKey" href="common/attachment/attachment.html#{http://www.coda.com/common/schemas/attachment}AttachmentKey">AttachmentKey</a></td>
+                              <td>The invoiceAttachmentKey is
+                                 an out argument, so the server will put it here.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>InvoiceType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/common}typePimDocumentType" href="pim/common/common.html#{http://www.coda.com/pim/schemas/common}typePimDocumentType">typePimDocumentType</a></td>
+                              <td>The invoiceType is an out
+                                 argument, so the server will put it here.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMInvoiceService-GetCreditNote"></a>GetCreditNote
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetCreditNoteRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CreditNoteKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/creditnote}CreditNoteKey" href="pim/creditnote/creditnote.html#{http://www.coda.com/pim/schemas/creditnote}CreditNoteKey">CreditNoteKey</a></td>
+                              <td>The key to the CreditNote object.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetCreditNoteResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CreditNote</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/creditnote}CreditNote" href="pim/creditnote/creditnote.html#{http://www.coda.com/pim/schemas/creditnote}CreditNote">CreditNote</a></td>
+                              <td>The return value of the
+                                 getCreditNote function.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMInvoiceService-GetPurchaseInvoice"></a>GetPurchaseInvoice
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetPurchaseInvoiceRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PurchaseInvoiceKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/purchaseinvoice}PurchaseInvoiceKey" href="pim/purchaseinvoice/purchaseinvoice.html#{http://www.coda.com/pim/schemas/purchaseinvoice}PurchaseInvoiceKey">PurchaseInvoiceKey</a></td>
+                              <td>The key to the
+                                 PurchaseInvoice object.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetPurchaseInvoiceResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PurchaseInvoice</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/purchaseinvoice}PurchaseInvoice" href="pim/purchaseinvoice/purchaseinvoice.html#{http://www.coda.com/pim/schemas/purchaseinvoice}PurchaseInvoice">PurchaseInvoice</a></td>
+                              <td>The return value of the
+                                 getPurchaseInvoice function.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMInvoiceService-MarkForDeferredMatching"></a>MarkForDeferredMatching
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>MarkForDeferredMatchingRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>InvoiceKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/invoice}InvoiceKey" href="pim/invoice/invoice.html#{http://www.coda.com/pim/schemas/invoice}InvoiceKey">InvoiceKey</a></td>
+                              <td>
+                                 
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:inv="http://www.coda.com/pim/schemas/invoice" xmlns:atc="http://www.coda.com/common/schemas/attachment" xmlns:elmmas="http://www.coda.com/pim/schemas/elementmaster" xmlns:pimusr="http://www.coda.com/pim/schemas/user" xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:crn="http://www.coda.com/pim/schemas/creditnote" xmlns:itm="http://www.coda.com/pim/schemas/inputtemplatemaster" xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster" xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster" xmlns:group="http://www.coda.com/pim/schemas/group" xmlns:cmp="http://www.coda.com/pim/schemas/company" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns:tolmas="http://www.coda.com/pim/schemas/tolerancemaster" xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice" xmlns:post="http://www.coda.com/pim/schemas/postingdocument" xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster" xmlns:datatypes="http://www.coda.com/common/schemas/datatypes" xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invws="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The company that the invoice exists
+                                    in
+                                 </p>                             
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>MarkForDeferredMatchingResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MarkForDeferredMatching</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBoolean" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBoolean">typeBoolean</a></td>
+                              <td>The return value of the
+                                 markForDeferredMatching function.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMInvoiceService-ResetValidationStatus"></a>ResetValidationStatus
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ResetValidationStatusRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyMasterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>
+                                 
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:inv="http://www.coda.com/pim/schemas/invoice" xmlns:atc="http://www.coda.com/common/schemas/attachment" xmlns:elmmas="http://www.coda.com/pim/schemas/elementmaster" xmlns:pimusr="http://www.coda.com/pim/schemas/user" xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:crn="http://www.coda.com/pim/schemas/creditnote" xmlns:itm="http://www.coda.com/pim/schemas/inputtemplatemaster" xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster" xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster" xmlns:group="http://www.coda.com/pim/schemas/group" xmlns:cmp="http://www.coda.com/pim/schemas/company" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns:tolmas="http://www.coda.com/pim/schemas/tolerancemaster" xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice" xmlns:post="http://www.coda.com/pim/schemas/postingdocument" xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster" xmlns:datatypes="http://www.coda.com/common/schemas/datatypes" xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invws="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The company that the invoice exists
+                                    in
+                                 </p>                             
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocumentId</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDbGuid" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDbGuid">typeDbGuid</a></td>
+                              <td>
+                                 
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:inv="http://www.coda.com/pim/schemas/invoice" xmlns:atc="http://www.coda.com/common/schemas/attachment" xmlns:elmmas="http://www.coda.com/pim/schemas/elementmaster" xmlns:pimusr="http://www.coda.com/pim/schemas/user" xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:crn="http://www.coda.com/pim/schemas/creditnote" xmlns:itm="http://www.coda.com/pim/schemas/inputtemplatemaster" xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster" xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster" xmlns:group="http://www.coda.com/pim/schemas/group" xmlns:cmp="http://www.coda.com/pim/schemas/company" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns:tolmas="http://www.coda.com/pim/schemas/tolerancemaster" xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice" xmlns:post="http://www.coda.com/pim/schemas/postingdocument" xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster" xmlns:datatypes="http://www.coda.com/common/schemas/datatypes" xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invws="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The invoice id</p>                             
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>This method returns no data.
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMInvoiceService-UnmarkForDeferredMatching"></a>UnmarkForDeferredMatching
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UnmarkForDeferredMatchingRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>InvoiceKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/invoice}InvoiceKey" href="pim/invoice/invoice.html#{http://www.coda.com/pim/schemas/invoice}InvoiceKey">InvoiceKey</a></td>
+                              <td>
+                                 
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:inv="http://www.coda.com/pim/schemas/invoice" xmlns:atc="http://www.coda.com/common/schemas/attachment" xmlns:elmmas="http://www.coda.com/pim/schemas/elementmaster" xmlns:pimusr="http://www.coda.com/pim/schemas/user" xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:crn="http://www.coda.com/pim/schemas/creditnote" xmlns:itm="http://www.coda.com/pim/schemas/inputtemplatemaster" xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster" xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster" xmlns:group="http://www.coda.com/pim/schemas/group" xmlns:cmp="http://www.coda.com/pim/schemas/company" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns:tolmas="http://www.coda.com/pim/schemas/tolerancemaster" xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice" xmlns:post="http://www.coda.com/pim/schemas/postingdocument" xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster" xmlns:datatypes="http://www.coda.com/common/schemas/datatypes" xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invws="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The company that the invoice exists
+                                    in
+                                 </p>                             
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UnmarkForDeferredMatchingResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UnmarkForDeferredMatching</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBoolean" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBoolean">typeBoolean</a></td>
+                              <td>The return value of the
+                                 unmarkForDeferredMatching function.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMInvoiceService-ValidateForDeferredMatching"></a>ValidateForDeferredMatching
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidateForDeferredMatchingRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>InvoiceKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/invoice}InvoiceKey" href="pim/invoice/invoice.html#{http://www.coda.com/pim/schemas/invoice}InvoiceKey">InvoiceKey</a></td>
+                              <td>
+                                 
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:inv="http://www.coda.com/pim/schemas/invoice" xmlns:atc="http://www.coda.com/common/schemas/attachment" xmlns:elmmas="http://www.coda.com/pim/schemas/elementmaster" xmlns:pimusr="http://www.coda.com/pim/schemas/user" xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:crn="http://www.coda.com/pim/schemas/creditnote" xmlns:itm="http://www.coda.com/pim/schemas/inputtemplatemaster" xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster" xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster" xmlns:group="http://www.coda.com/pim/schemas/group" xmlns:cmp="http://www.coda.com/pim/schemas/company" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns:tolmas="http://www.coda.com/pim/schemas/tolerancemaster" xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice" xmlns:post="http://www.coda.com/pim/schemas/postingdocument" xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster" xmlns:datatypes="http://www.coda.com/common/schemas/datatypes" xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invws="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The company that the invoice exists
+                                    in
+                                 </p>                             
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>This method returns no data.
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMInvoiceService-ValidationFailed"></a>ValidationFailed
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidationFailedRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyMasterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>
+                                 
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:inv="http://www.coda.com/pim/schemas/invoice" xmlns:atc="http://www.coda.com/common/schemas/attachment" xmlns:elmmas="http://www.coda.com/pim/schemas/elementmaster" xmlns:pimusr="http://www.coda.com/pim/schemas/user" xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:crn="http://www.coda.com/pim/schemas/creditnote" xmlns:itm="http://www.coda.com/pim/schemas/inputtemplatemaster" xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster" xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster" xmlns:group="http://www.coda.com/pim/schemas/group" xmlns:cmp="http://www.coda.com/pim/schemas/company" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns:tolmas="http://www.coda.com/pim/schemas/tolerancemaster" xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice" xmlns:post="http://www.coda.com/pim/schemas/postingdocument" xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster" xmlns:datatypes="http://www.coda.com/common/schemas/datatypes" xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invws="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The company that the invoice exists
+                                    in
+                                 </p>                             
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocumentId</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDbGuid" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDbGuid">typeDbGuid</a></td>
+                              <td>
+                                 
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:inv="http://www.coda.com/pim/schemas/invoice" xmlns:atc="http://www.coda.com/common/schemas/attachment" xmlns:elmmas="http://www.coda.com/pim/schemas/elementmaster" xmlns:pimusr="http://www.coda.com/pim/schemas/user" xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:crn="http://www.coda.com/pim/schemas/creditnote" xmlns:itm="http://www.coda.com/pim/schemas/inputtemplatemaster" xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster" xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster" xmlns:group="http://www.coda.com/pim/schemas/group" xmlns:cmp="http://www.coda.com/pim/schemas/company" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns:tolmas="http://www.coda.com/pim/schemas/tolerancemaster" xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice" xmlns:post="http://www.coda.com/pim/schemas/postingdocument" xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster" xmlns:datatypes="http://www.coda.com/common/schemas/datatypes" xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invws="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The invoice id</p>                             
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>This method returns no data.
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMInvoiceService-ValidationSuccessful"></a>ValidationSuccessful
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidationSuccessfulRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyMasterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>
+                                 
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:inv="http://www.coda.com/pim/schemas/invoice" xmlns:atc="http://www.coda.com/common/schemas/attachment" xmlns:elmmas="http://www.coda.com/pim/schemas/elementmaster" xmlns:pimusr="http://www.coda.com/pim/schemas/user" xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:crn="http://www.coda.com/pim/schemas/creditnote" xmlns:itm="http://www.coda.com/pim/schemas/inputtemplatemaster" xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster" xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster" xmlns:group="http://www.coda.com/pim/schemas/group" xmlns:cmp="http://www.coda.com/pim/schemas/company" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns:tolmas="http://www.coda.com/pim/schemas/tolerancemaster" xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice" xmlns:post="http://www.coda.com/pim/schemas/postingdocument" xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster" xmlns:datatypes="http://www.coda.com/common/schemas/datatypes" xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invws="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The company that the invoice exists
+                                    in
+                                 </p>                             
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocumentId</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDbGuid" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDbGuid">typeDbGuid</a></td>
+                              <td>
+                                 
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:inv="http://www.coda.com/pim/schemas/invoice" xmlns:atc="http://www.coda.com/common/schemas/attachment" xmlns:elmmas="http://www.coda.com/pim/schemas/elementmaster" xmlns:pimusr="http://www.coda.com/pim/schemas/user" xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:crn="http://www.coda.com/pim/schemas/creditnote" xmlns:itm="http://www.coda.com/pim/schemas/inputtemplatemaster" xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster" xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster" xmlns:group="http://www.coda.com/pim/schemas/group" xmlns:cmp="http://www.coda.com/pim/schemas/company" xmlns:build="http://www.coda.com/common/schemas/funcsec" xmlns:tolmas="http://www.coda.com/pim/schemas/tolerancemaster" xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice" xmlns:post="http://www.coda.com/pim/schemas/postingdocument" xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster" xmlns:datatypes="http://www.coda.com/common/schemas/datatypes" xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invws="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The invoice id</p>                             
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>This method returns no data.
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

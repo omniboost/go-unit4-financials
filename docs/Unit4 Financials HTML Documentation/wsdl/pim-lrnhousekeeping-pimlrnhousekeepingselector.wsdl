@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/lrnhousekeeping/pimlrnhousekeepingselector-11.1/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:lrnhousekeepingws="http://www.coda.com/pim/schemas/lrnhousekeeping/pimlrnhousekeepingselector-11.1/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:lrnhkeep="http://www.coda.com/pim/schemas/lrnhousekeepingmaster"
+    xmlns:lrnhousekeeping="http://www.coda.com/pim/schemas/lrnhousekeeping"
+    xmlns:selt="http://www.coda.com/efinance/schemas/selector"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:presmas="http://www.coda.com/efinance/schemas/presenter"
+    xmlns:doc="http://www.coda.com/pim/schemas/document"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:pimsel="http://www.coda.com/pim/schemas/selector"
+    targetNamespace="http://www.coda.com/pim/schemas/lrnhousekeeping/pimlrnhousekeepingselector-11.1/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/lrnhousekeeping" schemaLocation="../wsdl/pim/lrnhousekeeping/lrnhousekeeping.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/selector" schemaLocation="pim/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/presenter" schemaLocation="finance/presenter/presenter.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/lrnhousekeepingmaster" schemaLocation="pim/lrnhousekeepingmaster/lrnhousekeepingmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/document" schemaLocation="pim/document/document.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:element name="SelectRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector defining the
+                            search criteria for LRN documents to be
+                            included in the LRN housekeeping process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterMaster" type="presmas:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The presenter used to display
+                            the selected documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectLRNResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="selt:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The documents selected by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectLRNRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector defining the
+                            search criteria for LRN documents to be
+                            included in the LRN housekeeping process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterMaster" type="presmas:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The presenter used to display
+                            the selected documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="selt:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The documents selected by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Options">
+    <part name="Options" element="lrnhousekeepingws:Options"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="lrnhousekeepingws:OptionsResponse"/>
+  </message>
+  <message name="SelectRequest">
+    <part name="SelectRequest" element="lrnhousekeepingws:SelectRequest"/>
+  </message>
+  <message name="SelectLRNRequest">
+    <part name="SelectLRNRequest" element="lrnhousekeepingws:SelectLRNRequest"/>
+  </message>
+  <message name="SelectResponse">
+    <part name="SelectResponse" element="lrnhousekeepingws:SelectResponse"/>
+  </message>
+  <message name="SelectLRNResponse">
+    <part name="SelectLRNResponse" element="lrnhousekeepingws:SelectLRNResponse"/>
+  </message>
+  <portType name="PIMLRNHousekeepingSelectorServicePortTypes">
+    <operation name="SelectLRN">
+      <input message="lrnhousekeepingws:SelectLRNRequest"/>
+      <output message="lrnhousekeepingws:SelectLRNResponse"/>
+    </operation>
+    <operation name="Select">
+      <input message="lrnhousekeepingws:SelectRequest"/>
+      <output message="lrnhousekeepingws:SelectResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMLRNHousekeepingSelectorServiceSOAPBinding" type="lrnhousekeepingws:PIMLRNHousekeepingSelectorServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="SelectLRN">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMLRNHousekeepingSelector/SelectLRN" style="document"/>
+      <input>
+        <soap:header message="lrnhousekeepingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="lrnhousekeepingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Select">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMLRNHousekeepingSelector/Select" style="document"/>
+      <input>
+        <soap:header message="lrnhousekeepingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="lrnhousekeepingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMLRNHousekeepingSelectorService">
+    <port name="PIMLRNHousekeepingSelectorServicePort" binding="lrnhousekeepingws:PIMLRNHousekeepingSelectorServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/lrnhousekeeping/pimlrnhousekeepingselector-11.1"/>
+    </port>
+  </service>
+</definitions>

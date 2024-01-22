@@ -1,0 +1,612 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/progress</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/progress</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>ProgressRequest</h3>
+         <p>This service allows you to request information from the server about a long-running
+            process, or to abort it. It is used by several processes, including Archive, Tax Transfer,
+            Allocation, and Pay.
+         </p>
+         <h3>ProgressResponse</h3>
+         <p>This is the response that is returned when you use the GetProgress or Abort request
+            for a long-running process on the server.
+         </p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/progress}progressGetRequest"></a><h3>progressGetRequest</h3>
+         <p>The progressGetRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>This element contains a request about a long-running process.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>The key, or special reference, which identifies the process you started. This is given
+                        to you when you start the process.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressGetRequestVerb"></a><h3>progressGetRequestVerb</h3>
+         <p>The progressGetRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Requests progress information about a current server process.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressGetRequest" href="#{http://www.coda.com/efinance/schemas/progress}progressGetRequest">progressGetRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressGetResponse"></a><h3>progressGetResponse</h3>
+         <p>The progressGetResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you send a request about a long-running
+            process on the server.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>The key, or special reference, which identifies the process you are sending the request
+                        to. This is given to you when you start the process.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Progress</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressData" href="#{http://www.coda.com/efinance/schemas/progress}ProgressData">ProgressData</a></td>
+                     <td>Contains information about the status and progress of the process you are running.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressGetResponseVerb"></a><h3>progressGetResponseVerb</h3>
+         <p>The progressGetResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressGetResponse" href="#{http://www.coda.com/efinance/schemas/progress}progressGetResponse">progressGetResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressAbortRequest"></a><h3>progressAbortRequest</h3>
+         <p>The progressAbortRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>The key, or special reference, which identifies the process you want to abort. This
+                        is given to you when you start the process.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressAbortRequestVerb"></a><h3>progressAbortRequestVerb</h3>
+         <p>The progressAbortRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Requests the server to abort a current process.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressAbortRequest" href="#{http://www.coda.com/efinance/schemas/progress}progressAbortRequest">progressAbortRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressAbortResponse"></a><h3>progressAbortResponse</h3>
+         <p>The progressAbortResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>The key, or special reference which identifies the process you want to abort.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressAbortResponseVerb"></a><h3>progressAbortResponseVerb</h3>
+         <p>The progressAbortResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>This is the response to the Abort request.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressAbortResponse" href="#{http://www.coda.com/efinance/schemas/progress}progressAbortResponse">progressAbortResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressPauseRequest"></a><h3>progressPauseRequest</h3>
+         <p>The progressPauseRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>The key, or special reference, which identifies the process you want to pause. This
+                        is given to you when you start the process.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressPauseRequestVerb"></a><h3>progressPauseRequestVerb</h3>
+         <p>The progressPauseRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Requests the server to pause a current server process.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressPauseRequest" href="#{http://www.coda.com/efinance/schemas/progress}progressPauseRequest">progressPauseRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressPauseResponse"></a><h3>progressPauseResponse</h3>
+         <p>The progressPauseResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>The key, or special reference, which identifies the process you want to pause.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressPauseResponseVerb"></a><h3>progressPauseResponseVerb</h3>
+         <p>The progressPauseResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>This is the response to the Pause request.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressPauseResponse" href="#{http://www.coda.com/efinance/schemas/progress}progressPauseResponse">progressPauseResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressResumeRequest"></a><h3>progressResumeRequest</h3>
+         <p>The progressResumeRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>The key, or special reference, which identifies the process you want to resume. This
+                        is given to you when you pause the process.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressResumeRequestVerb"></a><h3>progressResumeRequestVerb</h3>
+         <p>The progressResumeRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Requests the server to resume a process which you have paused.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressResumeRequest" href="#{http://www.coda.com/efinance/schemas/progress}progressResumeRequest">progressResumeRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressResumeResponse"></a><h3>progressResumeResponse</h3>
+         <p>The progressResumeResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>The key, or special reference, which identifies the process you want to resume.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}progressResumeResponseVerb"></a><h3>progressResumeResponseVerb</h3>
+         <p>The progressResumeResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>This is the response to the Resume request.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressResumeResponse" href="#{http://www.coda.com/efinance/schemas/progress}progressResumeResponse">progressResumeResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}ProgressRequest"></a><h3>ProgressRequest</h3>
+         <p>The ProgressRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to request information from the server about a long-running
+            process, or to abort it. It is used by several processes, including Archive, Tax Transfer,
+            Allocation, and Pay.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetProgress</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressGetRequestVerb" href="#{http://www.coda.com/efinance/schemas/progress}progressGetRequestVerb">progressGetRequestVerb</a></td>
+                     <td>Retrieves information about the progress of a long-running process on the server.</td>
+                  </tr>
+                  <tr>
+                     <td>Abort</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressAbortRequestVerb" href="#{http://www.coda.com/efinance/schemas/progress}progressAbortRequestVerb">progressAbortRequestVerb</a></td>
+                     <td>Aborts a long-running process on the server.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}ProgressResponse"></a><h3>ProgressResponse</h3>
+         <p>The ProgressResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you use the GetProgress or Abort request
+            for a long-running process on the server.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetProgress</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressGetResponseVerb" href="#{http://www.coda.com/efinance/schemas/progress}progressGetResponseVerb">progressGetResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Abort</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressAbortResponseVerb" href="#{http://www.coda.com/efinance/schemas/progress}progressAbortResponseVerb">progressAbortResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}ProgressKey"></a><h3>ProgressKey</h3>
+         <p>Contains the key, or special reference, given to you for monitoring a long-running
+            process on the server. You will be supplied with one of the following keys, depending
+            on the service you are using.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>A unique key which identifies the process.</td>
+                  </tr>
+                  <tr>
+                     <td>CodeKey</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>An alternative key for identifying the process, which is used by Archive, for example.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/progress}ProgressData"></a><h3>ProgressData</h3>
+         <p>Contains information about the progress of the Financials process you are monitoring.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Message</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeProgressMessage" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeProgressMessage">typeProgressMessage</a></td>
+                     <td>Contains information about the progress of this process.</td>
+                  </tr>
+                  <tr>
+                     <td>Status</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtProgressStatus" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtProgressStatus">typeCtProgressStatus</a></td>
+                     <td>The current status of the process. This may be Completed successfully, Completed with
+                        errors, In progress, or Aborted.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>StepsProcessed</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number of steps completed so far.</td>
+                  </tr>
+                  <tr>
+                     <td>StepsToProcess</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number of steps not yet completed.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

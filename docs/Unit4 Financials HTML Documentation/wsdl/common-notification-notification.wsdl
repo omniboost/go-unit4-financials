@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/notification/notification-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:notws="http://www.coda.com/common/schemas/notification/notification-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:use="http://www.coda.com/common/schemas/users"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:not="http://www.coda.com/common/schemas/notification"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/notification/notification-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/common/schemas/users" schemaLocation="common/users/users.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/notification" schemaLocation="../wsdl/common/notification/notification.xsd"/>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the Notification objects
+                            that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListForCurrentUserRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="NotificationKey" type="not:NotificationKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the Notification object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListForCurrentUserResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Notification" minOccurs="0"
+                    maxOccurs="unbounded" type="not:Notification">
+                    <xsd:annotation>
+                        <xsd:documentation>The notification is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="NotificationItemList" type="not:NotificationItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="notws:OptionsResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="notws:DeleteRequest"/>
+  </message>
+  <message name="ListForCurrentUserRequest">
+    <part name="ListForCurrentUserRequest" element="notws:ListForCurrentUserRequest"/>
+  </message>
+  <message name="ListForCurrentUserResponse">
+    <part name="ListForCurrentUserResponse" element="notws:ListForCurrentUserResponse"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="notws:ListResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="notws:ListRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="notws:DeleteResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="notws:Options"/>
+  </message>
+  <portType name="NotificationServicePortTypes">
+    <operation name="Delete">
+      <input message="notws:DeleteRequest"/>
+      <output message="notws:DeleteResponse"/>
+    </operation>
+    <operation name="ListForCurrentUser">
+      <input message="notws:ListForCurrentUserRequest"/>
+      <output message="notws:ListForCurrentUserResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="notws:ListRequest"/>
+      <output message="notws:ListResponse"/>
+    </operation>
+  </portType>
+  <binding name="NotificationServiceSOAPBinding" type="notws:NotificationServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Notification/Delete" style="document"/>
+      <input>
+        <soap:header message="notws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="notws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListForCurrentUser">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Notification/ListForCurrentUser" style="document"/>
+      <input>
+        <soap:header message="notws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="notws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Notification/List" style="document"/>
+      <input>
+        <soap:header message="notws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="notws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="NotificationService">
+    <port name="NotificationServicePort" binding="notws:NotificationServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/notification/notification-13.0"/>
+    </port>
+  </service>
+</definitions>

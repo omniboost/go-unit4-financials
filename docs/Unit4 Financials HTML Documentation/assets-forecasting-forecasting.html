@@ -1,0 +1,370 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-ForecastingService">
+            <h1>ForecastingService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/eassets/schemas/forecasting/forecasting-12.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/assets-forecasting-forecasting.wsdl" download="">assets-forecasting-forecasting.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/assets/forecasting/forecasting-12.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#ForecastingService-BalanceSave">BalanceSave</a></li>
+               <li><a href="#ForecastingService-LogsWithSpreadsheetData">LogsWithSpreadsheetData</a></li>
+               <li><a href="#ForecastingService-Progress">Progress</a></li>
+               <li><a href="#ForecastingService-SpreadsheetData">SpreadsheetData</a></li>
+               <li><a href="#ForecastingService-Start">Start</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="ForecastingService-BalanceSave"></a>BalanceSave
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>BalanceSaveRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The code of the company in
+                                 which forecasting is being performed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number identifying the
+                                 forecast depreciation run.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>BalanceCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The Coda non-maintained
+                                 balance code to which the forecast
+                                 information will be saved.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>BalanceSaveResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>WrittenCount</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>Contains the balance of the
+                                 specified Coda non-maintained balance code.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ForecastingService-LogsWithSpreadsheetData"></a>LogsWithSpreadsheetData
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>LogsWithSpreadsheetDataRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The code of the company in
+                                 which you want to search for forecasting
+                                 logs that have spreadsheet data available
+                                 for download.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>LogsWithSpreadsheetDataResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Response</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/forecasting}LogsWithSpreadsheetDataList" href="assets/forecasting/forecasting.html#{http://www.coda.com/eassets/schemas/forecasting}LogsWithSpreadsheetDataList">LogsWithSpreadsheetDataList</a></td>
+                              <td></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ForecastingService-Progress"></a>Progress
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ProgressRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The code of the company in
+                                 which forecasting is being performed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogID</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The log number.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ProgressResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PercentCompleteMessage</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>A message indicating the
+                                 percent complete of the forecasting process
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ForecastingService-SpreadsheetData"></a>SpreadsheetData
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SpreadsheetDataRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The code of the company in
+                                 which forecasting is being performed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number identifying the
+                                 forecast depreciation run.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>IncludeAssetTransactions</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Specifies whether to include
+                                 asset transactions in the forecast
+                                 information. When FALSE, only financial
+                                 transactions are included.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SpreadsheetDataResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>FinancialData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/temporarydoc}TemporaryDocumentDetailList" href="assets/temporarydoc/temporarydoc.html#{http://www.coda.com/eassets/schemas/temporarydoc}TemporaryDocumentDetailList">TemporaryDocumentDetailList</a></td>
+                              <td>Contains the financial
+                                 transactions forecast data that has been
+                                 generated for export to a spreadsheet file.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AssetData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/transactiondetails}TransactionTempDetailList" href="assets/transactiondetails/transactiondetails.html#{http://www.coda.com/eassets/schemas/transactiondetails}TransactionTempDetailList">TransactionTempDetailList</a></td>
+                              <td>Contains the asset
+                                 transactions forecast data that has been
+                                 generated for export to a spreadsheet file.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="ForecastingService-Start"></a>Start
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>StartRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Forecasting</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/forecasting}Forecasting" href="assets/forecasting/forecasting.html#{http://www.coda.com/eassets/schemas/forecasting}Forecasting">Forecasting</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 forecasting depreciation.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>StartResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The code of the company in
+                                 which forecasting has been performed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number identifying the
+                                 forecast depreciation run.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogID</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The log number.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

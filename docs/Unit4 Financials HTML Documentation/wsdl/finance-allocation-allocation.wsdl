@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/allocation/allocation-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:allws="http://www.coda.com/efinance/schemas/allocation/allocation-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:bal="http://www.coda.com/efinance/schemas/balance"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:all="http://www.coda.com/efinance/schemas/allocation"
+    xmlns:prg="http://www.coda.com/efinance/schemas/progress"
+    xmlns:txn="http://www.coda.com/efinance/schemas/transaction"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/allocation/allocation-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/allocation" schemaLocation="../wsdl/finance/allocation/allocation.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/balance" schemaLocation="finance/balance/balance.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/progress" schemaLocation="finance/progress/progress.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/transaction" schemaLocation="finance/transaction/transaction.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="RunRuleAndPostRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RuleData" type="all:RuleParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start an Allocation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PromptData" minOccurs="0" type="all:AllocationPrompts">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains those values which
+                            have not been specified in the rule master,
+                            but are required by         the Allocation
+                            run.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of
+                            Allocation.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunChainRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ChainData" type="all:ChainParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start an allocation chain.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PromptList" minOccurs="0" type="all:AllocationPromptsList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains those values which
+                            have not been specified in any rule masters
+                            in the chain, but are         required by
+                            the allocation process.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of
+                            Allocation.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrepareRuleResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RuleData" type="all:RuleParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start an Allocation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of
+                            Allocation.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Requirements" minOccurs="0" type="all:AllocationRequirements">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of
+                            parameters which are still required for this
+                            allocation rule.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PreCode" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the presenter you
+                            want Alloction to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunRuleAndViewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" minOccurs="0" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of accounts or
+                            balances selected for updating, when the
+                            allocation rule was run.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Transaction" minOccurs="0" type="txn:Transaction">
+                    <xsd:annotation>
+                        <xsd:documentation>The allocation document
+                            containing details of the proposed
+                            allocation values.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Balances" minOccurs="0" type="bal:BalanceList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of balances,
+                            containing details of the proposed
+                            allocation values.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Warning" minOccurs="0" type="com:Reason">
+                    <xsd:annotation>
+                        <xsd:documentation>A message indicating that the
+                            update failed and giving a detailed reason
+                            for the failure.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunRuleAndViewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RuleData" type="all:RuleParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start an Allocation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PromptData" minOccurs="0" type="all:AllocationPrompts">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains those values which
+                            have not been specified in the rule master,
+                            but are required by         the Allocation
+                            process.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of
+                            Allocation.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" type="sel:VocabIDList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of vocabulary items
+                            you want to look at when you receive the
+                            response.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrepareChainRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ChainData" type="all:ChainParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start an allocation chain.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunRuleAndPostResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of
+                            Allocation.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RuleData" type="all:RuleParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start an Allocation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Transaction" minOccurs="0" type="txn:Transaction">
+                    <xsd:annotation>
+                        <xsd:documentation>The allocation document
+                            listing the proposed allocation values,
+                            produced by RunRuleAndView.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Balances" minOccurs="0" type="bal:BalanceList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of balances which
+                            will be updated, produced by RunRuleAndView.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrepareRuleRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RuleData" type="all:RuleParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start an Allocation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrepareChainResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ChainData" type="all:ChainParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start an allocation chain.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of
+                            Allocation.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RequirementsList" minOccurs="0" type="all:AllocationRequirementsList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of
+                            parameters which are still required, for
+                            each rule within the chain.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunChainResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of Allocation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Options">
+    <part name="Options" element="allws:Options"/>
+  </message>
+  <message name="PrepareRuleRequest">
+    <part name="PrepareRuleRequest" element="allws:PrepareRuleRequest"/>
+  </message>
+  <message name="PrepareChainRequest">
+    <part name="PrepareChainRequest" element="allws:PrepareChainRequest"/>
+  </message>
+  <message name="RunRuleAndViewRequest">
+    <part name="RunRuleAndViewRequest" element="allws:RunRuleAndViewRequest"/>
+  </message>
+  <message name="PostRequest">
+    <part name="PostRequest" element="allws:PostRequest"/>
+  </message>
+  <message name="RunRuleAndViewResponse">
+    <part name="RunRuleAndViewResponse" element="allws:RunRuleAndViewResponse"/>
+  </message>
+  <message name="RunChainResponse">
+    <part name="RunChainResponse" element="allws:RunChainResponse"/>
+  </message>
+  <message name="PrepareChainResponse">
+    <part name="PrepareChainResponse" element="allws:PrepareChainResponse"/>
+  </message>
+  <message name="PrepareRuleResponse">
+    <part name="PrepareRuleResponse" element="allws:PrepareRuleResponse"/>
+  </message>
+  <message name="RunRuleAndPostResponse">
+    <part name="RunRuleAndPostResponse" element="allws:RunRuleAndPostResponse"/>
+  </message>
+  <message name="RunRuleAndPostRequest">
+    <part name="RunRuleAndPostRequest" element="allws:RunRuleAndPostRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="allws:OptionsResponse"/>
+  </message>
+  <message name="RunChainRequest">
+    <part name="RunChainRequest" element="allws:RunChainRequest"/>
+  </message>
+  <message name="PostResponse">
+    <part name="PostResponse" element="allws:PostResponse"/>
+  </message>
+  <portType name="AllocationServicePortTypes">
+    <operation name="PrepareChain">
+      <input message="allws:PrepareChainRequest"/>
+      <output message="allws:PrepareChainResponse"/>
+    </operation>
+    <operation name="Post">
+      <input message="allws:PostRequest"/>
+      <output message="allws:PostResponse"/>
+    </operation>
+    <operation name="RunRuleAndView">
+      <input message="allws:RunRuleAndViewRequest"/>
+      <output message="allws:RunRuleAndViewResponse"/>
+    </operation>
+    <operation name="PrepareRule">
+      <input message="allws:PrepareRuleRequest"/>
+      <output message="allws:PrepareRuleResponse"/>
+    </operation>
+    <operation name="RunChain">
+      <input message="allws:RunChainRequest"/>
+      <output message="allws:RunChainResponse"/>
+    </operation>
+    <operation name="RunRuleAndPost">
+      <input message="allws:RunRuleAndPostRequest"/>
+      <output message="allws:RunRuleAndPostResponse"/>
+    </operation>
+  </portType>
+  <binding name="AllocationServiceSOAPBinding" type="allws:AllocationServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="PrepareChain">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Allocation/PrepareChain" style="document"/>
+      <input>
+        <soap:header message="allws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="allws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Post">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Allocation/Post" style="document"/>
+      <input>
+        <soap:header message="allws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="allws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RunRuleAndView">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Allocation/RunRuleAndView" style="document"/>
+      <input>
+        <soap:header message="allws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="allws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PrepareRule">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Allocation/PrepareRule" style="document"/>
+      <input>
+        <soap:header message="allws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="allws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RunChain">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Allocation/RunChain" style="document"/>
+      <input>
+        <soap:header message="allws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="allws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RunRuleAndPost">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Allocation/RunRuleAndPost" style="document"/>
+      <input>
+        <soap:header message="allws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="allws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AllocationService">
+    <port name="AllocationServicePort" binding="allws:AllocationServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/allocation/allocation-14.0"/>
+    </port>
+  </service>
+</definitions>

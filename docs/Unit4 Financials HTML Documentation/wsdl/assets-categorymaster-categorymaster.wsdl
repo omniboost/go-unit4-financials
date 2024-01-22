@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/eassets/schemas/categorymaster/categorymaster-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:cmsws="http://www.coda.com/eassets/schemas/categorymaster/categorymaster-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:cms="http://www.coda.com/eassets/schemas/categorymaster"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:asscom="http://www.coda.com/eassets/schemas/common"
+    targetNamespace="http://www.coda.com/eassets/schemas/categorymaster/categorymaster-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/categorymaster" schemaLocation="../wsdl/assets/categorymaster/categorymaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/eassets/schemas/common" schemaLocation="assets/common/common.xsd"/>
+    <xsd:element name="InUseAndChangedRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CategoryMaster" type="cms:CategoryMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The category master that you
+                            want to check.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to update the category master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the category
+                            master that you attempted to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" minOccurs="0" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            category master in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetWIPDefaultsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AssociatedCategoryKey" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            identifying the associated category.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WIPCategoryCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the WIP category.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to delete the category master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the category
+                            master that you attempted to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SearchRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="com:SearchFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The search criteria.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListMappingsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information for
+                            the category masters which contain the
+                            mappings you want to list.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MappingList" type="cms:MappingList">
+                    <xsd:annotation>
+                        <xsd:documentation>Lists the specified field
+                            mappings, retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReqKeys" type="cms:cmsReqKeys">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            identifying the category masters you want to list.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListMappingsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information for
+                            the listed field mappings.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="InUseResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InUse" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            category master is being used by an asset.
+                            Returns True if the category master is in
+                            use, and False if not.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains key
+                            information for the category masters that
+                            are in use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="InUseRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReqKeys" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information for
+                            the category masters that you want to check.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to retrieve the category master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the category
+                            master that you attempted to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CategoryMaster" type="cms:CategoryMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the category master
+                            you have retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SearchResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="com:SearchFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The search criteria.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>The search results.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ListIsComplete" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If true, the records returned
+                            are the complete results of the search. If
+                            false, the results were truncated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CategoryMaster" type="cms:CategoryMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the category master you want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetWIPDefaultsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CategoryMaster" type="cms:CategoryMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the category master
+                            constructed from the default values of the
+                            capitalisation category, combined with the
+                            WIP category settings.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to list category masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the category
+                            masters you want to list.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MaxKeys" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of items
+                            to be returned.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains key
+                            information for the listed category masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the category master you want to retrieve
+                            from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CategoryMaster" type="cms:CategoryMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains information for the
+                            category master you want to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to create the category master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the category
+                            master that you attempted to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" minOccurs="0" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            category master in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="InUseAndChangedResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InUseAndChanged" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            category master has changed and is already
+                            referenced by an asset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Associated" minOccurs="0" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            category master is associated with a WIP category.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the category master you want to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="cmsws:DeleteRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="cmsws:OptionsResponse"/>
+  </message>
+  <message name="InUseAndChangedResponse">
+    <part name="InUseAndChangedResponse" element="cmsws:InUseAndChangedResponse"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="cmsws:UpdateResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="cmsws:AddRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="cmsws:DeleteResponse"/>
+  </message>
+  <message name="InUseResponse">
+    <part name="InUseResponse" element="cmsws:InUseResponse"/>
+  </message>
+  <message name="ListMappingsRequest">
+    <part name="ListMappingsRequest" element="cmsws:ListMappingsRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="cmsws:GetRequest"/>
+  </message>
+  <message name="InUseAndChangedRequest">
+    <part name="InUseAndChangedRequest" element="cmsws:InUseAndChangedRequest"/>
+  </message>
+  <message name="GetWIPDefaultsResponse">
+    <part name="GetWIPDefaultsResponse" element="cmsws:GetWIPDefaultsResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="cmsws:GetResponse"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="cmsws:AddResponse"/>
+  </message>
+  <message name="SearchResponse">
+    <part name="SearchResponse" element="cmsws:SearchResponse"/>
+  </message>
+  <message name="ListMappingsResponse">
+    <part name="ListMappingsResponse" element="cmsws:ListMappingsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="cmsws:Options"/>
+  </message>
+  <message name="SearchRequest">
+    <part name="SearchRequest" element="cmsws:SearchRequest"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="cmsws:ListRequest"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="cmsws:UpdateRequest"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="cmsws:ListResponse"/>
+  </message>
+  <message name="GetWIPDefaultsRequest">
+    <part name="GetWIPDefaultsRequest" element="cmsws:GetWIPDefaultsRequest"/>
+  </message>
+  <message name="InUseRequest">
+    <part name="InUseRequest" element="cmsws:InUseRequest"/>
+  </message>
+  <portType name="CategoryMasterServicePortTypes">
+    <operation name="Add">
+      <input message="cmsws:AddRequest"/>
+      <output message="cmsws:AddResponse"/>
+    </operation>
+    <operation name="Delete">
+      <input message="cmsws:DeleteRequest"/>
+      <output message="cmsws:DeleteResponse"/>
+    </operation>
+    <operation name="InUseAndChanged">
+      <input message="cmsws:InUseAndChangedRequest"/>
+      <output message="cmsws:InUseAndChangedResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="cmsws:GetRequest"/>
+      <output message="cmsws:GetResponse"/>
+    </operation>
+    <operation name="Search">
+      <input message="cmsws:SearchRequest"/>
+      <output message="cmsws:SearchResponse"/>
+    </operation>
+    <operation name="ListMappings">
+      <input message="cmsws:ListMappingsRequest"/>
+      <output message="cmsws:ListMappingsResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="cmsws:ListRequest"/>
+      <output message="cmsws:ListResponse"/>
+    </operation>
+    <operation name="InUse">
+      <input message="cmsws:InUseRequest"/>
+      <output message="cmsws:InUseResponse"/>
+    </operation>
+    <operation name="GetWIPDefaults">
+      <input message="cmsws:GetWIPDefaultsRequest"/>
+      <output message="cmsws:GetWIPDefaultsResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="cmsws:UpdateRequest"/>
+      <output message="cmsws:UpdateResponse"/>
+    </operation>
+  </portType>
+  <binding name="CategoryMasterServiceSOAPBinding" type="cmsws:CategoryMasterServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CategoryMaster/Add" style="document"/>
+      <input>
+        <soap:header message="cmsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CategoryMaster/Delete" style="document"/>
+      <input>
+        <soap:header message="cmsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="InUseAndChanged">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CategoryMaster/InUseAndChanged" style="document"/>
+      <input>
+        <soap:header message="cmsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CategoryMaster/Get" style="document"/>
+      <input>
+        <soap:header message="cmsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Search">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CategoryMaster/Search" style="document"/>
+      <input>
+        <soap:header message="cmsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListMappings">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CategoryMaster/ListMappings" style="document"/>
+      <input>
+        <soap:header message="cmsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CategoryMaster/List" style="document"/>
+      <input>
+        <soap:header message="cmsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="InUse">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CategoryMaster/InUse" style="document"/>
+      <input>
+        <soap:header message="cmsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetWIPDefaults">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CategoryMaster/GetWIPDefaults" style="document"/>
+      <input>
+        <soap:header message="cmsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CategoryMaster/Update" style="document"/>
+      <input>
+        <soap:header message="cmsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CategoryMasterService">
+    <port name="CategoryMasterServicePort" binding="cmsws:CategoryMasterServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/assets/categorymaster/categorymaster-12.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,640 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-BrowseDetailsService">
+            <h1>BrowseDetailsService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/browsedetails/browsedetails-14.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-browsedetails-browsedetails.wsdl" download="">finance-browsedetails-browsedetails.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/browsedetails/browsedetails-14.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#BrowseDetailsService-AllowEdit">AllowEdit</a></li>
+               <li><a href="#BrowseDetailsService-GetAttachmentsList">GetAttachmentsList</a></li>
+               <li><a href="#BrowseDetailsService-GetHomeTotal">GetHomeTotal</a></li>
+               <li><a href="#BrowseDetailsService-GetLine">GetLine</a></li>
+               <li><a href="#BrowseDetailsService-GetRelated">GetRelated</a></li>
+               <li><a href="#BrowseDetailsService-Update">Update</a></li>
+               <li><a href="#BrowseDetailsService-UpdateAttachFile">UpdateAttachFile</a></li>
+               <li><a href="#BrowseDetailsService-UpdateMultipleAttachments">UpdateMultipleAttachments</a></li>
+               <li><a href="#BrowseDetailsService-ValidateUpdate">ValidateUpdate</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="BrowseDetailsService-AllowEdit"></a>AllowEdit
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>AllowEditRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnLineKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnLineKey">txnLineKey</a></td>
+                              <td>Identifies the document line
+                                 to check for edit permission.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>AllowEditResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnLineKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnLineKey">txnLineKey</a></td>
+                              <td>Identifies the transaction
+                                 which has been checked.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BrowseDetailsService-GetAttachmentsList"></a>GetAttachmentsList
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetAttachmentsListRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>A key identifying the
+                                 document to get the attachments for
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetAttachmentsListResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ReadOnly</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Are the attachment changes disallowed.</td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>A key identifying the document.</td>
+                           </tr>
+                           <tr>
+                              <td>Attachment</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/attachment}Attachment" href="common/attachment/attachment.html#{http://www.coda.com/common/schemas/attachment}Attachment">Attachment</a></td>
+                              <td>This element contains the
+                                 identification number of the primary attachment.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AttachmentsList</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/attachment}AttachmentList" href="common/attachment/attachment.html#{http://www.coda.com/common/schemas/attachment}AttachmentList">AttachmentList</a></td>
+                              <td>This element holds a list of attachments.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BrowseDetailsService-GetHomeTotal"></a>GetHomeTotal
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetHomeTotalRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RowList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browsedetails}HomeTotalRowList" href="finance/browsedetails/browsedetails.html#{http://www.coda.com/efinance/schemas/browsedetails}HomeTotalRowList">HomeTotalRowList</a></td>
+                              <td>The list of transactions
+                                 contributing to the total value.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetHomeTotalResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>HomeTotalData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browsedetails}HomeTotalData" href="finance/browsedetails/browsedetails.html#{http://www.coda.com/efinance/schemas/browsedetails}HomeTotalData">HomeTotalData</a></td>
+                              <td>The information relating to
+                                 the total value.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BrowseDetailsService-GetLine"></a>GetLine
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetLineRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>TxnKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnLineKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnLineKey">txnLineKey</a></td>
+                              <td>Contains the key identifying
+                                 the document line to retrieve from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetLineResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>TxnKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnLineKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnLineKey">txnLineKey</a></td>
+                              <td>The key used to identify the
+                                 document line.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browsedetails}LineData" href="finance/browsedetails/browsedetails.html#{http://www.coda.com/efinance/schemas/browsedetails}LineData">LineData</a></td>
+                              <td>This element contains the
+                                 document line details retrieved by the GetLineRequest.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BrowseDetailsService-GetRelated"></a>GetRelated
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetRelatedRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}DetailsLocation" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}DetailsLocation">DetailsLocation</a></td>
+                              <td>The location from which the
+                                 document details will be selected. The
+                                 locations are: Books, Intray or Archive.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>TxnKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>Identifies the transaction
+                                 for which related transactions should be retrieved.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RowLimit</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                              <td>The maximum number of lines
+                                 that can be retrieved.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Columns</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}HeaderColumnList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}HeaderColumnList">HeaderColumnList</a></td>
+                              <td>This element holds a list of
+                                 columns to retrieve. Each cell is of the
+                                 type com:typeCtVocabEnum.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetRelatedResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>TxnKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>Identifies the transaction
+                                 for which related transactions should be retrieved.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectionWithFlexiFields</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}SelectionWithFlexiFields" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}SelectionWithFlexiFields">SelectionWithFlexiFields</a></td>
+                              <td>This element contains the
+                                 document details retrieved by Browse Details.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BrowseDetailsService-Update"></a>Update
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>TxnKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browsedetails}UpdateHeader" href="finance/browsedetails/browsedetails.html#{http://www.coda.com/efinance/schemas/browsedetails}UpdateHeader">UpdateHeader</a></td>
+                              <td>Identifies the document line
+                                 to update.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Updates</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browsedetails}UpdateUnionList" href="finance/browsedetails/browsedetails.html#{http://www.coda.com/efinance/schemas/browsedetails}UpdateUnionList">UpdateUnionList</a></td>
+                              <td>Contains the document line
+                                 details you want to update.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>TxnKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browsedetails}UpdateHeader" href="finance/browsedetails/browsedetails.html#{http://www.coda.com/efinance/schemas/browsedetails}UpdateHeader">UpdateHeader</a></td>
+                              <td>Identifies the transaction
+                                 which has been updated.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BrowseDetailsService-UpdateAttachFile"></a>UpdateAttachFile
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateAttachFileRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>A key identifying the
+                                 document to be updated
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Attachment</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/attachment}Attachment" href="common/attachment/attachment.html#{http://www.coda.com/common/schemas/attachment}Attachment">Attachment</a></td>
+                              <td>This element contains the
+                                 identification number of the attachment.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateAttachFileResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>A key identifying the
+                                 document that has been updated.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Attachment</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/attachment}Attachment" href="common/attachment/attachment.html#{http://www.coda.com/common/schemas/attachment}Attachment">Attachment</a></td>
+                              <td>This element contains the
+                                 identification number of the attachment.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BrowseDetailsService-UpdateMultipleAttachments"></a>UpdateMultipleAttachments
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateMultipleAttachmentsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>A key identifying the
+                                 document to be updated
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Attachment</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/attachment}Attachment" href="common/attachment/attachment.html#{http://www.coda.com/common/schemas/attachment}Attachment">Attachment</a></td>
+                              <td>This element contains the
+                                 identification number of the primary attachment.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AttachmentsList</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/attachment}AttachmentList" href="common/attachment/attachment.html#{http://www.coda.com/common/schemas/attachment}AttachmentList">AttachmentList</a></td>
+                              <td>This element holds a list of attachments.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateMultipleAttachmentsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>A key identifying the
+                                 document that has been updated.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Attachment</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/attachment}Attachment" href="common/attachment/attachment.html#{http://www.coda.com/common/schemas/attachment}Attachment">Attachment</a></td>
+                              <td>This element contains the
+                                 identification number of the primary attachment.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AttachmentsList</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/attachment}AttachmentList" href="common/attachment/attachment.html#{http://www.coda.com/common/schemas/attachment}AttachmentList">AttachmentList</a></td>
+                              <td>This element holds a list of attachments.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BrowseDetailsService-ValidateUpdate"></a>ValidateUpdate
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidateUpdateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>TxnKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browsedetails}UpdateHeader" href="finance/browsedetails/browsedetails.html#{http://www.coda.com/efinance/schemas/browsedetails}UpdateHeader">UpdateHeader</a></td>
+                              <td>Identifies the document line
+                                 to update.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Updates</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browsedetails}UpdateUnionList" href="finance/browsedetails/browsedetails.html#{http://www.coda.com/efinance/schemas/browsedetails}UpdateUnionList">UpdateUnionList</a></td>
+                              <td>Contains the document line
+                                 details you want to update.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ValidateUpdateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>TxnKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browsedetails}UpdateHeader" href="finance/browsedetails/browsedetails.html#{http://www.coda.com/efinance/schemas/browsedetails}UpdateHeader">UpdateHeader</a></td>
+                              <td>Identifies the transaction
+                                 which has been updated.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

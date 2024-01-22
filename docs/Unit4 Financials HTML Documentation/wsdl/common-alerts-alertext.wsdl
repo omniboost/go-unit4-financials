@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/alerts/alertext-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:alews="http://www.coda.com/common/schemas/alerts/alertext-14.0/webservice">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:use="http://www.coda.com/common/schemas/users"
+    xmlns:ale="http://www.coda.com/common/schemas/alerts"
+    xmlns:mes="http://www.coda.com/common/schemas/messagetransport"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/alerts/alertext-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/common/schemas/alerts" schemaLocation="../wsdl/common/alerts/alerts.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/users" schemaLocation="common/users/users.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/messagetransport" schemaLocation="common/messagetransport/messagetransport.xsd"/>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SendSimpleResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AlertID" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>The Alert ID.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SendSimpleRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Recipient" minOccurs="0"
+                    maxOccurs="unbounded" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The user ID of the intended recipient.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="EmailSubject" minOccurs="0" type="com:typeLongDescriptionb">
+                    <xsd:annotation>
+                        <xsd:documentation>The e-mail subject when
+                            issuing email alerts.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ImmediatePriority" minOccurs="0" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If set, the alert is sent immediately.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Transport" minOccurs="0" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The message transport used to
+                            transmit the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SummaryText" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>The summary text for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DetailText" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>The detailed text for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SummaryParameter1" minOccurs="0" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>A summary paramer for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SummaryParameter2" minOccurs="0" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>A summary paramer for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SummaryParameter3" minOccurs="0" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>A summary paramer for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DetailParameter1" minOccurs="0" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>A detailed paramer for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DetailParameter2" minOccurs="0" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>A detailed paramer for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DetailParameter3" minOccurs="0" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>A detailed paramer for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DetailParameter4" minOccurs="0" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>A detailed paramer for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DetailParameter5" minOccurs="0" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>A detailed paramer for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DetailParameter6" minOccurs="0" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>A detailed paramer for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DetailParameter7" minOccurs="0" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>A detailed paramer for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DetailParameter8" minOccurs="0" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>A detailed paramer for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DetailParameter9" minOccurs="0" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>A detailed paramer for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DetailParameter10" minOccurs="0" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>A detailed paramer for the alert.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Uri" minOccurs="0" type="com:typeUri">
+                    <xsd:annotation>
+                        <xsd:documentation>The URI of a resource to be
+                            associated         with this alert. This may
+                            be a standard HTTP URI to a web
+                            page, or a special CODA URI to identify a
+                            web application         in the CODA e-Framework.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="alews:OptionsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="alews:Options"/>
+  </message>
+  <message name="SendSimpleResponse">
+    <part name="SendSimpleResponse" element="alews:SendSimpleResponse"/>
+  </message>
+  <message name="SendSimpleRequest">
+    <part name="SendSimpleRequest" element="alews:SendSimpleRequest"/>
+  </message>
+  <portType name="AlertExtServicePortTypes">
+    <operation name="SendSimple">
+      <input message="alews:SendSimpleRequest"/>
+      <output message="alews:SendSimpleResponse"/>
+    </operation>
+  </portType>
+  <binding name="AlertExtServiceSOAPBinding" type="alews:AlertExtServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="SendSimple">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/AlertExt/SendSimple" style="document"/>
+      <input>
+        <soap:header message="alews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="alews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AlertExtService">
+    <port name="AlertExtServicePort" binding="alews:AlertExtServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/alerts/alertext-14.0"/>
+    </port>
+  </service>
+</definitions>

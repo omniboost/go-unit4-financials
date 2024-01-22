@@ -1,0 +1,2554 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/common/schemas/mobile</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/common/schemas/mobile</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>WorkflowTasksRequest</h3>
+         <p>This service is intended for UNIT4's internal use only.</p>
+         <h3>WorkflowTasksResponse</h3>
+         <p>This is the response that is returned when you make a workflow tasks request.</p>
+      </div>
+      <div class="simple-types">
+         <h2>Simple Types</h2><a name="{http://www.coda.com/common/schemas/mobile}ActionArgumentKind"></a><h3>ActionArgumentKind</h3>
+         <p></p>
+         <table>
+            <tbody>
+               <tr>
+                  <th>Base type</th>
+                  <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+               </tr>
+               <tr>
+                  <th>Enumeration Values</th>
+                  <td>
+                     <dl>
+                        <dt>Text</dt>
+                        <dd>The value should be entered into a text field.</dd>
+                        <dt>Integer</dt>
+                        <dd></dd>
+                        <dt>Decimal</dt>
+                        <dd></dd>
+                        <dt>Boolean</dt>
+                        <dd></dd>
+                        <dt>DateTime</dt>
+                        <dd>An UTC date in the standard XML form: "YYYY-MM-DDThh:mm:ssZ".</dd>
+                        <dt>SingleChoiceList</dt>
+                        <dd>The value should be picked from a fixed list.</dd>
+                        <dt>MultipleChoiceList</dt>
+                        <dd>Multiple values can be selected from a fixed list.</dd>
+                        <dt>Search</dt>
+                        <dd>The value should be picked from a dynamic list retrieved by a separate filtered request.</dd>
+                     </dl>
+                  </td>
+               </tr>
+            </tbody>
+         </table><a name="{http://www.coda.com/common/schemas/mobile}ActionArgumentValueKind"></a><h3>ActionArgumentValueKind</h3>
+         <p></p>
+         <table>
+            <tbody>
+               <tr>
+                  <th>Base type</th>
+                  <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+               </tr>
+               <tr>
+                  <th>Enumeration Values</th>
+                  <td>
+                     <dl>
+                        <dt>User</dt>
+                        <dd>The value is a user identifier.</dd>
+                        <dt>UserGroup</dt>
+                        <dd>The value is a user group identifier.</dd>
+                        <dt>Other</dt>
+                        <dd>Any other kind of value.</dd>
+                     </dl>
+                  </td>
+               </tr>
+            </tbody>
+         </table><a name="{http://www.coda.com/common/schemas/mobile}ActionType"></a><h3>ActionType</h3>
+         <p>Allows for the Application to render action buttons using different icons and/or color
+            schemes to indicate the action's behaviour. For instance the "Approve" action button
+            might have a green background whereas the "Deny" would be displayed in red. Use "Neutral"
+            for actions where the action type cannot be determined.
+         </p>
+         <table>
+            <tbody>
+               <tr>
+                  <th>Base type</th>
+                  <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+               </tr>
+               <tr>
+                  <th>Enumeration Values</th>
+                  <td>
+                     <dl>
+                        <dt>Negative</dt>
+                        <dd>Suitable for actions like "Deny", "Decline" or "Cancel".</dd>
+                        <dt>Neutral</dt>
+                        <dd>Suitable for actions like "Forward", or "Request information".</dd>
+                        <dt>Positive</dt>
+                        <dd>Suitable for actions like "Approve", or "Allow".</dd>
+                     </dl>
+                  </td>
+               </tr>
+            </tbody>
+         </table><a name="{http://www.coda.com/common/schemas/mobile}DisplayDataValueType"></a><h3>DisplayDataValueType</h3>
+         <p></p>
+         <table>
+            <tbody>
+               <tr>
+                  <th>Base type</th>
+                  <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+               </tr>
+               <tr>
+                  <th>Enumeration Values</th>
+                  <td>
+                     <dl>
+                        <dt>String</dt>
+                        <dd></dd>
+                        <dt>Integer</dt>
+                        <dd></dd>
+                        <dt>Decimal</dt>
+                        <dd></dd>
+                        <dt>Boolean</dt>
+                        <dd></dd>
+                        <dt>DateTime</dt>
+                        <dd></dd>
+                        <dt>PieChart</dt>
+                        <dd></dd>
+                        <dt>Message</dt>
+                        <dd></dd>
+                        <dt>Warning</dt>
+                        <dd></dd>
+                     </dl>
+                  </td>
+               </tr>
+            </tbody>
+         </table><a name="{http://www.coda.com/common/schemas/mobile}SystemType"></a><h3>SystemType</h3>
+         <p></p>
+         <table>
+            <tbody>
+               <tr>
+                  <th>Base type</th>
+                  <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+               </tr>
+               <tr>
+                  <th>Enumeration Values</th>
+                  <td>
+                     <dl>
+                        <dt>ABW</dt>
+                        <dd></dd>
+                        <dt>Coda</dt>
+                        <dd></dd>
+                     </dl>
+                  </td>
+               </tr>
+            </tbody>
+         </table><a name="{http://www.coda.com/common/schemas/mobile}TaskPriorityLevel"></a><h3>TaskPriorityLevel</h3>
+         <p>Task (work item) priority. "Medium" is the same as "normal". "None" means "not specified".</p>
+         <table>
+            <tbody>
+               <tr>
+                  <th>Base type</th>
+                  <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+               </tr>
+               <tr>
+                  <th>Enumeration Values</th>
+                  <td>
+                     <dl>
+                        <dt>None</dt>
+                        <dd></dd>
+                        <dt>Low</dt>
+                        <dd></dd>
+                        <dt>Medium</dt>
+                        <dd></dd>
+                        <dt>High</dt>
+                        <dd></dd>
+                     </dl>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/common/schemas/mobile}WSCredentials"></a><h3>WSCredentials</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Username</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Client</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Password</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}SystemVersion"></a><h3>SystemVersion</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Label</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Part1</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Part2</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Part3</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Part4</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}SystemInfo"></a><h3>SystemInfo</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Label</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Version</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}SystemVersion" href="#{http://www.coda.com/common/schemas/mobile}SystemVersion">SystemVersion</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>SystemType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}SystemType" href="#{http://www.coda.com/common/schemas/mobile}SystemType">SystemType</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}UserInfo"></a><h3>UserInfo</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UserID</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Name</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Client</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Language</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}EnvironmentInfo"></a><h3>EnvironmentInfo</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>System</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}SystemInfo" href="#{http://www.coda.com/common/schemas/mobile}SystemInfo">SystemInfo</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>User</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}UserInfo" href="#{http://www.coda.com/common/schemas/mobile}UserInfo">UserInfo</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}Title"></a><h3>Title</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Id</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Value</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfTitle"></a><h3>ArrayOfTitle</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Title</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}Title" href="#{http://www.coda.com/common/schemas/mobile}Title">Title</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ServerId"></a><h3>ServerId</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Name</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>Name of the key. Eg "CompanyCode" or "ElementMasterCode".</td>
+                  </tr>
+                  <tr>
+                     <td>Value</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>Key value.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId"></a><h3>ArrayOfServerId</h3>
+         <p>Complex key for IDs.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ServerId</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ServerId" href="#{http://www.coda.com/common/schemas/mobile}ServerId">ServerId</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}DisplayData"></a><h3>DisplayData</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Label</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>A short description of the value.</td>
+                  </tr>
+                  <tr>
+                     <td>Value</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ValueType</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}DisplayDataValueType" href="#{http://www.coda.com/common/schemas/mobile}DisplayDataValueType">DisplayDataValueType</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ValueDescription</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>CanZoom</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>This flag indicates whether it is possible to zoom/drill to details of this value.</td>
+                  </tr>
+                  <tr>
+                     <td>ElementName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>A value that identifies this particular data element (eg. Table and Column in ABW,
+                        or VocabID in Coda).
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayData"></a><h3>ArrayOfDisplayData</h3>
+         <p>Group content.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DisplayData</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}DisplayData" href="#{http://www.coda.com/common/schemas/mobile}DisplayData">DisplayData</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}DisplayDataGroup"></a><h3>DisplayDataGroup</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Label</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>Group caption.</td>
+                  </tr>
+                  <tr>
+                     <td>Items</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayData" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayData">ArrayOfDisplayData</a></td>
+                     <td>Group content.</td>
+                  </tr>
+                  <tr>
+                     <td>Children</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayData" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayData">ArrayOfDisplayData</a></td>
+                     <td>Nested data.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayDataGroup"></a><h3>ArrayOfDisplayDataGroup</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DisplayDataGroup</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}DisplayDataGroup" href="#{http://www.coda.com/common/schemas/mobile}DisplayDataGroup">DisplayDataGroup</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}TaskInfo"></a><h3>TaskInfo</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>TaskId</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Label</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>PriorityLevel</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}TaskPriorityLevel" href="#{http://www.coda.com/common/schemas/mobile}TaskPriorityLevel">TaskPriorityLevel</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>TaskInfoDataList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayDataGroup" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayDataGroup">ArrayOfDisplayDataGroup</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfTaskInfo"></a><h3>ArrayOfTaskInfo</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>TaskInfo</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}TaskInfo" href="#{http://www.coda.com/common/schemas/mobile}TaskInfo">TaskInfo</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}TaskGroupInfo"></a><h3>TaskGroupInfo</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GroupId</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Label</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>TaskInfoList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfTaskInfo" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfTaskInfo">ArrayOfTaskInfo</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfTaskGroupInfo"></a><h3>ArrayOfTaskGroupInfo</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>TaskGroupInfo</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}TaskGroupInfo" href="#{http://www.coda.com/common/schemas/mobile}TaskGroupInfo">TaskGroupInfo</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ActionArgumentValue"></a><h3>ActionArgumentValue</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Label</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The text to display in the value picker or next to the value field.</td>
+                  </tr>
+                  <tr>
+                     <td>Value</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The value of the argument to use when performing a task action.</td>
+                  </tr>
+                  <tr>
+                     <td>ValueKind</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ActionArgumentValueKind" href="#{http://www.coda.com/common/schemas/mobile}ActionArgumentValueKind">ActionArgumentValueKind</a></td>
+                     <td>Flag for the UI to display a relevant icon next to the value.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfActionArgumentValue"></a><h3>ArrayOfActionArgumentValue</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ActionArgumentValue</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ActionArgumentValue" href="#{http://www.coda.com/common/schemas/mobile}ActionArgumentValue">ActionArgumentValue</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ActionArgumentInfo"></a><h3>ActionArgumentInfo</h3>
+         <p>Task action's argument definition.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ActionArgumentId</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Label</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Mandatory</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>An action cannot be performed without this argument having a valid non empty value.</td>
+                  </tr>
+                  <tr>
+                     <td>ArgumentKind</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ActionArgumentKind" href="#{http://www.coda.com/common/schemas/mobile}ActionArgumentKind">ActionArgumentKind</a></td>
+                     <td>The Input Method defines the way of choosing a value for the argument.</td>
+                  </tr>
+                  <tr>
+                     <td>ValueList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfActionArgumentValue" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfActionArgumentValue">ArrayOfActionArgumentValue</a></td>
+                     <td>Some arguments may have a fixed list of values assigned to them (applicable input
+                        methods are OneOfMany and SomeOfMany).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DefaultValue</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>Default (initial) value for this argument.</td>
+                  </tr>
+                  <tr>
+                     <td>MaxLength</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfActionArgumentInfo"></a><h3>ArrayOfActionArgumentInfo</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ActionArgumentInfo</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ActionArgumentInfo" href="#{http://www.coda.com/common/schemas/mobile}ActionArgumentInfo">ActionArgumentInfo</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ActionInfo"></a><h3>ActionInfo</h3>
+         <p>Task action definition.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ActionId</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Label</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ActionType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ActionType" href="#{http://www.coda.com/common/schemas/mobile}ActionType">ActionType</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ActionArgumentList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfActionArgumentInfo" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfActionArgumentInfo">ArrayOfActionArgumentInfo</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfActionInfo"></a><h3>ArrayOfActionInfo</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ActionInfo</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ActionInfo" href="#{http://www.coda.com/common/schemas/mobile}ActionInfo">ActionInfo</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}DocumentInfo"></a><h3>DocumentInfo</h3>
+         <p>Attachment definition.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DocumentId</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Label</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>DataSize</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}integer" href="http://www.w3.org/TR/xmlschema11-2/#integer">integer</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>MimeType</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>HasThumbnail</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfDocumentInfo"></a><h3>ArrayOfDocumentInfo</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DocumentInfo</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}DocumentInfo" href="#{http://www.coda.com/common/schemas/mobile}DocumentInfo">DocumentInfo</a></td>
+                     <td>Attachment definition.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}AttachedDocumentsInfo"></a><h3>AttachedDocumentsInfo</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PrimaryDocumentId</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Documents</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfDocumentInfo" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfDocumentInfo">ArrayOfDocumentInfo</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}DetailInfo"></a><h3>DetailInfo</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DetailId</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Label</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>DetailDataList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayDataGroup" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayDataGroup">ArrayOfDisplayDataGroup</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>WorkflowLog</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfWorkflowLogEvent" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfWorkflowLogEvent">ArrayOfWorkflowLogEvent</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>AttachedDocumentsInfo</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}AttachedDocumentsInfo" href="#{http://www.coda.com/common/schemas/mobile}AttachedDocumentsInfo">AttachedDocumentsInfo</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfDetailInfo"></a><h3>ArrayOfDetailInfo</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DetailInfo</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}DetailInfo" href="#{http://www.coda.com/common/schemas/mobile}DetailInfo">DetailInfo</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}WorkflowLogEvent"></a><h3>WorkflowLogEvent</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>TimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>EventType</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>UserId</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>UserComment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>EventFriendlyText</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfWorkflowLogEvent"></a><h3>ArrayOfWorkflowLogEvent</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>WorkflowLogEvent</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}WorkflowLogEvent" href="#{http://www.coda.com/common/schemas/mobile}WorkflowLogEvent">WorkflowLogEvent</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}TaskInfoExtended"></a><h3>TaskInfoExtended</h3>
+         <p>The TaskInfoExtended type has <a title="{http://www.coda.com/common/schemas/mobile}TaskInfo" href="#{http://www.coda.com/common/schemas/mobile}TaskInfo">TaskInfo</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Actions</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfActionInfo" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfActionInfo">ArrayOfActionInfo</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>AttachedDocumentsInfo</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}AttachedDocumentsInfo" href="#{http://www.coda.com/common/schemas/mobile}AttachedDocumentsInfo">AttachedDocumentsInfo</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>TaskHeaderDataList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayDataGroup" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayDataGroup">ArrayOfDisplayDataGroup</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>RelatedInfo</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayDataGroup" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayDataGroup">ArrayOfDisplayDataGroup</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>DetailList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfDetailInfo" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfDetailInfo">ArrayOfDetailInfo</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>WorkflowLog</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfWorkflowLogEvent" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfWorkflowLogEvent">ArrayOfWorkflowLogEvent</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}Document"></a><h3>Document</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DocumentId</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>MimeType</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>DataSize</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Label</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>FileContent</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfString"></a><h3>ArrayOfString</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>string</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ActionArgument"></a><h3>ActionArgument</h3>
+         <p>Task action's argument request object.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ActionArgumentId</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ValueList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfString" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfString">ArrayOfString</a></td>
+                     <td>One or more values selected for this argument.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ArrayOfActionArgument"></a><h3>ArrayOfActionArgument</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ActionArgument</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ActionArgument" href="#{http://www.coda.com/common/schemas/mobile}ActionArgument">ActionArgument</a></td>
+                     <td>Task action's argument request object.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}AboutRequest"></a><h3>AboutRequest</h3>
+         <p>The AboutRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/common/schemas/mobile}AboutRequestVerb"></a><h3>AboutRequestVerb</h3>
+         <p>The AboutRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Provides information about the back-end system and the logged on user.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}AboutRequest" href="#{http://www.coda.com/common/schemas/mobile}AboutRequest">AboutRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}AboutResponse"></a><h3>AboutResponse</h3>
+         <p>The AboutResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AboutResult</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}AboutResponseVerb"></a><h3>AboutResponseVerb</h3>
+         <p>The AboutResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}AboutResponse" href="#{http://www.coda.com/common/schemas/mobile}AboutResponse">AboutResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetEnvironmentRequest"></a><h3>GetEnvironmentRequest</h3>
+         <p>The GetEnvironmentRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/common/schemas/mobile}GetEnvironmentRequestVerb"></a><h3>GetEnvironmentRequestVerb</h3>
+         <p>The GetEnvironmentRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Provides information about the back-end system and the logged on user.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetEnvironmentRequest" href="#{http://www.coda.com/common/schemas/mobile}GetEnvironmentRequest">GetEnvironmentRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetEnvironmentResponse"></a><h3>GetEnvironmentResponse</h3>
+         <p>The GetEnvironmentResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>EnvironmentInfo</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}EnvironmentInfo" href="#{http://www.coda.com/common/schemas/mobile}EnvironmentInfo">EnvironmentInfo</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetEnvironmentResponseVerb"></a><h3>GetEnvironmentResponseVerb</h3>
+         <p>The GetEnvironmentResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetEnvironmentResponse" href="#{http://www.coda.com/common/schemas/mobile}GetEnvironmentResponse">GetEnvironmentResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetTitlesRequest"></a><h3>GetTitlesRequest</h3>
+         <p>The GetTitlesRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/common/schemas/mobile}GetTitlesRequestVerb"></a><h3>GetTitlesRequestVerb</h3>
+         <p>The GetTitlesRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Get titles to use for Tasks implementation.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetTitlesRequest" href="#{http://www.coda.com/common/schemas/mobile}GetTitlesRequest">GetTitlesRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetTitlesResponse"></a><h3>GetTitlesResponse</h3>
+         <p>The GetTitlesResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Titles</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfTitle" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfTitle">ArrayOfTitle</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetTitlesResponseVerb"></a><h3>GetTitlesResponseVerb</h3>
+         <p>The GetTitlesResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetTitlesResponse" href="#{http://www.coda.com/common/schemas/mobile}GetTitlesResponse">GetTitlesResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetTaskGroupsRequest"></a><h3>GetTaskGroupsRequest</h3>
+         <p>The GetTaskGroupsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/common/schemas/mobile}GetTaskGroupsRequestVerb"></a><h3>GetTaskGroupsRequestVerb</h3>
+         <p>The GetTaskGroupsRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves grouped list of workflow tasks.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetTaskGroupsRequest" href="#{http://www.coda.com/common/schemas/mobile}GetTaskGroupsRequest">GetTaskGroupsRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetTaskGroupsResponse"></a><h3>GetTaskGroupsResponse</h3>
+         <p>The GetTaskGroupsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetTaskGroupsResult</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfTaskGroupInfo" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfTaskGroupInfo">ArrayOfTaskGroupInfo</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetTaskGroupsResponseVerb"></a><h3>GetTaskGroupsResponseVerb</h3>
+         <p>The GetTaskGroupsResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetTaskGroupsResponse" href="#{http://www.coda.com/common/schemas/mobile}GetTaskGroupsResponse">GetTaskGroupsResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetTaskRequest"></a><h3>GetTaskRequest</h3>
+         <p>The GetTaskRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>TaskId</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetTaskRequestVerb"></a><h3>GetTaskRequestVerb</h3>
+         <p>The GetTaskRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves extended task information.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetTaskRequest" href="#{http://www.coda.com/common/schemas/mobile}GetTaskRequest">GetTaskRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetTaskResponse"></a><h3>GetTaskResponse</h3>
+         <p>The GetTaskResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetTaskResult</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}TaskInfoExtended" href="#{http://www.coda.com/common/schemas/mobile}TaskInfoExtended">TaskInfoExtended</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetTaskResponseVerb"></a><h3>GetTaskResponseVerb</h3>
+         <p>The GetTaskResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetTaskResponse" href="#{http://www.coda.com/common/schemas/mobile}GetTaskResponse">GetTaskResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetDocumentRequest"></a><h3>GetDocumentRequest</h3>
+         <p>The GetDocumentRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DocumentId</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>RequestingThumbnail</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetDocumentRequestVerb"></a><h3>GetDocumentRequestVerb</h3>
+         <p>The GetDocumentRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the attached document.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetDocumentRequest" href="#{http://www.coda.com/common/schemas/mobile}GetDocumentRequest">GetDocumentRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetDocumentResponse"></a><h3>GetDocumentResponse</h3>
+         <p>The GetDocumentResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetDocumentResult</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}Document" href="#{http://www.coda.com/common/schemas/mobile}Document">Document</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetDocumentResponseVerb"></a><h3>GetDocumentResponseVerb</h3>
+         <p>The GetDocumentResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetDocumentResponse" href="#{http://www.coda.com/common/schemas/mobile}GetDocumentResponse">GetDocumentResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetObjectDetailsRequest"></a><h3>GetObjectDetailsRequest</h3>
+         <p>The GetObjectDetailsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ObjectContainingData</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>DataToExpand</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}DisplayData" href="#{http://www.coda.com/common/schemas/mobile}DisplayData">DisplayData</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetObjectDetailsRequestVerb"></a><h3>GetObjectDetailsRequestVerb</h3>
+         <p>The GetObjectDetailsRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Zoom/get details for DisplayData (e.g. OrderId).</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetObjectDetailsRequest" href="#{http://www.coda.com/common/schemas/mobile}GetObjectDetailsRequest">GetObjectDetailsRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetObjectDetailsResponse"></a><h3>GetObjectDetailsResponse</h3>
+         <p>The GetObjectDetailsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetObjectDetailsResult</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayDataGroup" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfDisplayDataGroup">ArrayOfDisplayDataGroup</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetObjectDetailsResponseVerb"></a><h3>GetObjectDetailsResponseVerb</h3>
+         <p>The GetObjectDetailsResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetObjectDetailsResponse" href="#{http://www.coda.com/common/schemas/mobile}GetObjectDetailsResponse">GetObjectDetailsResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetActionArgumentValuesRequest"></a><h3>GetActionArgumentValuesRequest</h3>
+         <p>The GetActionArgumentValuesRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>TaskId</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ActionId</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ActionArgumentId</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>SearchValue</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetActionArgumentValuesRequestVerb"></a><h3>GetActionArgumentValuesRequestVerb</h3>
+         <p>The GetActionArgumentValuesRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Search for argument values.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetActionArgumentValuesRequest" href="#{http://www.coda.com/common/schemas/mobile}GetActionArgumentValuesRequest">GetActionArgumentValuesRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetActionArgumentValuesResponse"></a><h3>GetActionArgumentValuesResponse</h3>
+         <p>The GetActionArgumentValuesResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetActionArgumentValuesResult</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfActionArgumentValue" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfActionArgumentValue">ArrayOfActionArgumentValue</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}GetActionArgumentValuesResponseVerb"></a><h3>GetActionArgumentValuesResponseVerb</h3>
+         <p>The GetActionArgumentValuesResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetActionArgumentValuesResponse" href="#{http://www.coda.com/common/schemas/mobile}GetActionArgumentValuesResponse">GetActionArgumentValuesResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ProcessTaskActionRequest"></a><h3>ProcessTaskActionRequest</h3>
+         <p>The ProcessTaskActionRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>TaskId</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ActionId</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ActionArguments</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfActionArgument" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfActionArgument">ArrayOfActionArgument</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ProcessTaskActionRequestVerb"></a><h3>ProcessTaskActionRequestVerb</h3>
+         <p>The ProcessTaskActionRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Perform an action on a workflow task.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ProcessTaskActionRequest" href="#{http://www.coda.com/common/schemas/mobile}ProcessTaskActionRequest">ProcessTaskActionRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ProcessTaskActionResult"></a><h3>ProcessTaskActionResult</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>TaskId</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfServerId" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfServerId">ArrayOfServerId</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Success</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ActionPerformedLabel</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Errors</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ArrayOfString" href="#{http://www.coda.com/common/schemas/mobile}ArrayOfString">ArrayOfString</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>RemovedFromTaskList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ProcessTaskActionResponse"></a><h3>ProcessTaskActionResponse</h3>
+         <p>The ProcessTaskActionResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ProcessTaskActionResult</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ProcessTaskActionResult" href="#{http://www.coda.com/common/schemas/mobile}ProcessTaskActionResult">ProcessTaskActionResult</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}ProcessTaskActionResponseVerb"></a><h3>ProcessTaskActionResponseVerb</h3>
+         <p>The ProcessTaskActionResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ProcessTaskActionResponse" href="#{http://www.coda.com/common/schemas/mobile}ProcessTaskActionResponse">ProcessTaskActionResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}WorkflowTasksRequest"></a><h3>WorkflowTasksRequest</h3>
+         <p>The WorkflowTasksRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service is intended for UNIT4's internal use only.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>About</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}AboutRequestVerb" href="#{http://www.coda.com/common/schemas/mobile}AboutRequestVerb">AboutRequestVerb</a></td>
+                     <td>Provides information about the back-end system and the logged on user.</td>
+                  </tr>
+                  <tr>
+                     <td>GetEnvironment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetEnvironmentRequestVerb" href="#{http://www.coda.com/common/schemas/mobile}GetEnvironmentRequestVerb">GetEnvironmentRequestVerb</a></td>
+                     <td>Provides information about the back-end system and the logged on user.</td>
+                  </tr>
+                  <tr>
+                     <td>GetTitles</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetTitlesRequestVerb" href="#{http://www.coda.com/common/schemas/mobile}GetTitlesRequestVerb">GetTitlesRequestVerb</a></td>
+                     <td>Get titles to use for Tasks implementation.</td>
+                  </tr>
+                  <tr>
+                     <td>GetTaskGroups</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetTaskGroupsRequestVerb" href="#{http://www.coda.com/common/schemas/mobile}GetTaskGroupsRequestVerb">GetTaskGroupsRequestVerb</a></td>
+                     <td>Retrieves grouped list of workflow tasks.</td>
+                  </tr>
+                  <tr>
+                     <td>GetTask</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetTaskRequestVerb" href="#{http://www.coda.com/common/schemas/mobile}GetTaskRequestVerb">GetTaskRequestVerb</a></td>
+                     <td>Retrieves extended task information.</td>
+                  </tr>
+                  <tr>
+                     <td>GetDocument</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetDocumentRequestVerb" href="#{http://www.coda.com/common/schemas/mobile}GetDocumentRequestVerb">GetDocumentRequestVerb</a></td>
+                     <td>Retrieves the attached document.</td>
+                  </tr>
+                  <tr>
+                     <td>GetObjectDetails</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetObjectDetailsRequestVerb" href="#{http://www.coda.com/common/schemas/mobile}GetObjectDetailsRequestVerb">GetObjectDetailsRequestVerb</a></td>
+                     <td>Zoom/get details for DisplayData (e.g. OrderId).</td>
+                  </tr>
+                  <tr>
+                     <td>GetActionArgumentValues</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetActionArgumentValuesRequestVerb" href="#{http://www.coda.com/common/schemas/mobile}GetActionArgumentValuesRequestVerb">GetActionArgumentValuesRequestVerb</a></td>
+                     <td>Search for argument values.</td>
+                  </tr>
+                  <tr>
+                     <td>ProcessTaskAction</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ProcessTaskActionRequestVerb" href="#{http://www.coda.com/common/schemas/mobile}ProcessTaskActionRequestVerb">ProcessTaskActionRequestVerb</a></td>
+                     <td>Perform an action on a workflow task.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/mobile}WorkflowTasksResponse"></a><h3>WorkflowTasksResponse</h3>
+         <p>The WorkflowTasksResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you make a workflow tasks request.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>About</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}AboutResponseVerb" href="#{http://www.coda.com/common/schemas/mobile}AboutResponseVerb">AboutResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetEnvironment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetEnvironmentResponseVerb" href="#{http://www.coda.com/common/schemas/mobile}GetEnvironmentResponseVerb">GetEnvironmentResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetTitles</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetTitlesResponseVerb" href="#{http://www.coda.com/common/schemas/mobile}GetTitlesResponseVerb">GetTitlesResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetTaskGroups</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetTaskGroupsResponseVerb" href="#{http://www.coda.com/common/schemas/mobile}GetTaskGroupsResponseVerb">GetTaskGroupsResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetTask</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetTaskResponseVerb" href="#{http://www.coda.com/common/schemas/mobile}GetTaskResponseVerb">GetTaskResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetDocument</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetDocumentResponseVerb" href="#{http://www.coda.com/common/schemas/mobile}GetDocumentResponseVerb">GetDocumentResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetObjectDetails</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetObjectDetailsResponseVerb" href="#{http://www.coda.com/common/schemas/mobile}GetObjectDetailsResponseVerb">GetObjectDetailsResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetActionArgumentValues</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}GetActionArgumentValuesResponseVerb" href="#{http://www.coda.com/common/schemas/mobile}GetActionArgumentValuesResponseVerb">GetActionArgumentValuesResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>ProcessTaskAction</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/mobile}ProcessTaskActionResponseVerb" href="#{http://www.coda.com/common/schemas/mobile}ProcessTaskActionResponseVerb">ProcessTaskActionResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

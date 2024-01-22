@@ -1,0 +1,550 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/common/schemas/selectorpresenter</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/common/schemas/selectorpresenter</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>SelectorPresenterRequest</h3>
+         <p>This service allows you to import and export metadata selectors and presenters.</p>
+         <h3>SelectorPresenterResponse</h3>
+         <p>This is the response that is returned after issuing a request to export or import
+            selectors and presenters.
+         </p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/common/schemas/selectorpresenter}ExportRequest"></a><h3>ExportRequest</h3>
+         <p>The ExportRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selectors</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}KeyList" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}KeyList">KeyList</a></td>
+                     <td>A list of selectors.</td>
+                  </tr>
+                  <tr>
+                     <td>Presenters</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}KeyList" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}KeyList">KeyList</a></td>
+                     <td>A list of presenters.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}ExportRequestVerb"></a><h3>ExportRequestVerb</h3>
+         <p>The ExportRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Exports a specified list of selectors and presenters and any supporting data objects
+            to an XML file.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportRequest" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportRequest">ExportRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}ExportResponse"></a><h3>ExportResponse</h3>
+         <p>The ExportResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelectorPresenterExport</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}SelectorPresenterExport" href="#{http://www.coda.com/common/schemas/selectorpresenter}SelectorPresenterExport">SelectorPresenterExport</a></td>
+                     <td>This element holds details of exported metadata.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectorErrors</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList">ExportErrorList</a></td>
+                     <td>This element contains a list of errors which occurred while exporting selectors.</td>
+                  </tr>
+                  <tr>
+                     <td>PresenterErrors</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList">ExportErrorList</a></td>
+                     <td>This element contains a list of errors which occurred while exporting presenters.</td>
+                  </tr>
+                  <tr>
+                     <td>ExportSuccess</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If set, indicates that the export process was successful.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}ExportResponseVerb"></a><h3>ExportResponseVerb</h3>
+         <p>The ExportResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportResponse" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportResponse">ExportResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}ImportRequest"></a><h3>ImportRequest</h3>
+         <p>The ImportRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelectorPresenterExport</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}SelectorPresenterExport" href="#{http://www.coda.com/common/schemas/selectorpresenter}SelectorPresenterExport">SelectorPresenterExport</a></td>
+                     <td>This element holds details of exported metadata.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateSelectorList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKeyData" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKeyData">GlobalKeyData</a></td>
+                     <td>A list of updated selectors.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdatePresenterList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKeyData" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKeyData">GlobalKeyData</a></td>
+                     <td>A list of updated presenters.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateDataViewList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKeyData" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKeyData">GlobalKeyData</a></td>
+                     <td>A list of updated data views.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateObjectList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKeyData" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKeyData">GlobalKeyData</a></td>
+                     <td>A list of updated data objects.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateEnumerationList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKeyData" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKeyData">GlobalKeyData</a></td>
+                     <td>A list of updated enumeration lists.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}ImportRequestVerb"></a><h3>ImportRequestVerb</h3>
+         <p>The ImportRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Imports selectors and presenters and any supporting data objects.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ImportRequest" href="#{http://www.coda.com/common/schemas/selectorpresenter}ImportRequest">ImportRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}ImportResponse"></a><h3>ImportResponse</h3>
+         <p>The ImportResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelectorErrors</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList">ExportErrorList</a></td>
+                     <td>This element contains a list of errors which occurred while importing selectors.</td>
+                  </tr>
+                  <tr>
+                     <td>PresenterErrors</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList">ExportErrorList</a></td>
+                     <td>This element contains a list of errors which occurred while importing presenters.</td>
+                  </tr>
+                  <tr>
+                     <td>DataViewErrors</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList">ExportErrorList</a></td>
+                     <td>This element contains a list of errors which occurred while importing data views.</td>
+                  </tr>
+                  <tr>
+                     <td>ObjectErrors</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList">ExportErrorList</a></td>
+                     <td>This element contains a list of errors which occurred while importing data objects.</td>
+                  </tr>
+                  <tr>
+                     <td>EnumerationErrors</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList">ExportErrorList</a></td>
+                     <td>This element contains a list of errors which occurred while importing enumerations.</td>
+                  </tr>
+                  <tr>
+                     <td>DataSourceErrors</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList">ExportErrorList</a></td>
+                     <td>This element contains a list of errors which occurred while importing data sources.</td>
+                  </tr>
+                  <tr>
+                     <td>Warnings</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList">ExportErrorList</a></td>
+                     <td>This element contains a list of warnings which occurred during the import process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}ImportResponseVerb"></a><h3>ImportResponseVerb</h3>
+         <p>The ImportResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ImportResponse" href="#{http://www.coda.com/common/schemas/selectorpresenter}ImportResponse">ImportResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}SelectorPresenterRequest"></a><h3>SelectorPresenterRequest</h3>
+         <p>The SelectorPresenterRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to import and export metadata selectors and presenters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ExportData</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportRequestVerb" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportRequestVerb">ExportRequestVerb</a></td>
+                     <td>Exports a specified list of selectors and presenters and any supporting data objects
+                        to an XML file.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ImportData</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ImportRequestVerb" href="#{http://www.coda.com/common/schemas/selectorpresenter}ImportRequestVerb">ImportRequestVerb</a></td>
+                     <td>Imports selectors and presenters and any supporting data objects.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}SelectorPresenterResponse"></a><h3>SelectorPresenterResponse</h3>
+         <p>The SelectorPresenterResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned after issuing a request to export or import
+            selectors and presenters.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ExportData</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportResponseVerb" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportResponseVerb">ExportResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>ImportData</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ImportResponseVerb" href="#{http://www.coda.com/common/schemas/selectorpresenter}ImportResponseVerb">ImportResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}ExportSelectorList"></a><h3>ExportSelectorList</h3>
+         <p>A list of exported selectors.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selector</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                     <td>This element holds a selector master.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}ExportPresenterList"></a><h3>ExportPresenterList</h3>
+         <p>A list of exported presenters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Presenter</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="../../finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                     <td>This element holds a presenter master.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}SelectorPresenterExport"></a><h3>SelectorPresenterExport</h3>
+         <p>The SelectorPresenterExport type has <a title="{http://www.coda.com/common/schemas/dataview}MetadataExport" href="../dataview/dataview.html#{http://www.coda.com/common/schemas/dataview}MetadataExport">MetadataExport</a> as its base type.
+         </p>
+         <p>This element holds details of exported metadata.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selectors</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportSelectorList" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportSelectorList">ExportSelectorList</a></td>
+                     <td>A list of exported selectors.</td>
+                  </tr>
+                  <tr>
+                     <td>Presenters</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportPresenterList" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportPresenterList">ExportPresenterList</a></td>
+                     <td>A list of exported presenters.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}ExportError"></a><h3>ExportError</h3>
+         <p>Details of an export error.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The code for the object which failed to export.</td>
+                  </tr>
+                  <tr>
+                     <td>AlreadyExists</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If set, indicates that the exported item already exists.</td>
+                  </tr>
+                  <tr>
+                     <td>ReasonFailed</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>A text description of the reason the export failed.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/selectorpresenter}ExportErrorList"></a><h3>ExportErrorList</h3>
+         <p>A list of export errors.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ExportError</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/selectorpresenter}ExportError" href="#{http://www.coda.com/common/schemas/selectorpresenter}ExportError">ExportError</a></td>
+                     <td>Details of an export error.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

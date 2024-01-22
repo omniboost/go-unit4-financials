@@ -1,0 +1,470 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-POPPrintingService">
+            <h1>POPPrintingService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/pop/schemas/printing/popprinting-13.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/pop-printing-popprinting.wsdl" download="">pop-printing-popprinting.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/pop/printing/popprinting-13.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#POPPrintingService-BackgroundPrint">BackgroundPrint</a></li>
+               <li><a href="#POPPrintingService-GetDefaultPrintFormat">GetDefaultPrintFormat</a></li>
+               <li><a href="#POPPrintingService-GetOutputDeviceList">GetOutputDeviceList</a></li>
+               <li><a href="#POPPrintingService-Print">Print</a></li>
+               <li><a href="#POPPrintingService-PrintPreview">PrintPreview</a></li>
+               <li><a href="#POPPrintingService-PrintPreviewList">PrintPreviewList</a></li>
+               <li><a href="#POPPrintingService-SelectBatch">SelectBatch</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="POPPrintingService-BackgroundPrint"></a>BackgroundPrint
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>BackgroundPrintRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProcessMasterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The Printing or Issuing
+                                 process master.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogTitle</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeLogText" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLogText">typeLogText</a></td>
+                              <td>The log title for this
+                                 printing or issuing session.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtOneOfN" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtOneOfN">typeCtOneOfN</a></td>
+                              <td>The log type, that is, Printing.</td>
+                           </tr>
+                           <tr>
+                              <td>Reissuing</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Specifies whether this is a
+                                 reissuing process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectorMaster</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>The code of the selector
+                                 master to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PrintFormatCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeB">typeCodeB</a></td>
+                              <td>The code of the print format
+                                 master to use.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>This method returns no data.
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="POPPrintingService-GetDefaultPrintFormat"></a>GetDefaultPrintFormat
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDefaultPrintFormatRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>DocumentFormatKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/printing}DocumentFormatKey" href="pop/printing/printing.html#{http://www.coda.com/pop/schemas/printing}DocumentFormatKey">DocumentFormatKey</a></td>
+                              <td>The key that identifies the
+                                 document and format details for this session.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDefaultPrintFormatResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>DefaultPrintFormat</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The default print format
+                                 master retrieved from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="POPPrintingService-GetOutputDeviceList"></a>GetOutputDeviceList
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetOutputDeviceListRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>DocumentFormatKeyList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/printing}DocumentFormatKeyList" href="pop/printing/printing.html#{http://www.coda.com/pop/schemas/printing}DocumentFormatKeyList">DocumentFormatKeyList</a></td>
+                              <td>A list of keys that identify
+                                 the documents for which you want a list of
+                                 output devices. The format information in
+                                 the key is not used and the list of output
+                                 devices in the key is ignored.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetOutputDeviceListResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>OutputDeviceList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/outputdevice}OutputDeviceMasterItemList" href="common/outputdevice/outputdevice.html#{http://www.coda.com/common/schemas/outputdevice}OutputDeviceMasterItemList">OutputDeviceMasterItemList</a></td>
+                              <td>A list of the output devices
+                                 specified by the documents in the list of
+                                 document keys in the request.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="POPPrintingService-Print"></a>Print
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PrintRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PrintingOptions</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/printing}PrintingOptions" href="pop/printing/printing.html#{http://www.coda.com/pop/schemas/printing}PrintingOptions">PrintingOptions</a></td>
+                              <td>The individual criteria that
+                                 apply to this printing session.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PrintResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Errors</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Specifies whether errors were reported.</td>
+                           </tr>
+                           <tr>
+                              <td>LogTitle</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The log title.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="POPPrintingService-PrintPreview"></a>PrintPreview
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PrintPreviewRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>DocumentFormatKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/printing}DocumentFormatKey" href="pop/printing/printing.html#{http://www.coda.com/pop/schemas/printing}DocumentFormatKey">DocumentFormatKey</a></td>
+                              <td>The key that identifies the
+                                 document and format details for this print
+                                 preview session.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PrintPreviewResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PreviewData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/printing}PreviewData" href="pop/printing/printing.html#{http://www.coda.com/pop/schemas/printing}PreviewData">PreviewData</a></td>
+                              <td>The preview of the data to be printed.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="POPPrintingService-PrintPreviewList"></a>PrintPreviewList
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PrintPreviewListRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>DocumentKeyList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/document}DocumentKeyList" href="pop/document/document.html#{http://www.coda.com/pop/schemas/document}DocumentKeyList">DocumentKeyList</a></td>
+                              <td>A list of document keys.</td>
+                           </tr>
+                           <tr>
+                              <td>DocType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocumentType" href="pop/common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocumentType">typePopDocumentType</a></td>
+                              <td>A Procurement document type.</td>
+                           </tr>
+                           <tr>
+                              <td>PrintFormatCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code of the print format
+                                 master to use.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PrintPreviewListResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PreviewData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/printing}PreviewData" href="pop/printing/printing.html#{http://www.coda.com/pop/schemas/printing}PreviewData">PreviewData</a></td>
+                              <td>The preview of the data to be printed.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="POPPrintingService-SelectBatch"></a>SelectBatch
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectBatchRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelectorMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>The selector master that
+                                 selects the items in the batch.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocumentType" href="pop/common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocumentType">typePopDocumentType</a></td>
+                              <td>The Procurement document type
+                                 to which the batch process relates.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Function</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/common}typePopProcesses" href="pop/common/common.html#{http://www.coda.com/pop/schemas/common}typePopProcesses">typePopProcesses</a></td>
+                              <td>The Procurement process to
+                                 which the batch process relates.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Reissuing</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Specifies whether this is a
+                                 reissuing process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectBatchResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelectionResults</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/printing}SelectionResultList" href="pop/printing/printing.html#{http://www.coda.com/pop/schemas/printing}SelectionResultList">SelectionResultList</a></td>
+                              <td>The items returned by the
+                                 batch selection process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

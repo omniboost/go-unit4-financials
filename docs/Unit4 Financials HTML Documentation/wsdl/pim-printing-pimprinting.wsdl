@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/printing/pimprinting-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:pimprintingws="http://www.coda.com/pim/schemas/printing/pimprinting-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote"
+    xmlns:pri="http://www.coda.com/common/schemas/printing"
+    xmlns:sel="http://www.coda.com/pim/schemas/selector"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:pimprinting="http://www.coda.com/pim/schemas/printing"
+    xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:dom="http://www.coda.com/pim/schemas/documentoutputmaster"
+    xmlns:odm="http://www.coda.com/common/schemas/outputdevice"
+    xmlns:document="http://www.coda.com/pim/schemas/document"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:pimcom="http://www.coda.com/pim/schemas/common"
+    xmlns:comprinting="http://www.coda.com/common/schemas/printing"
+    targetNamespace="http://www.coda.com/pim/schemas/printing/pimprinting-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/documentoutputmaster" schemaLocation="pim/documentoutputmaster/documentoutputmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/outputdevice" schemaLocation="common/outputdevice/outputdevice.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/printing" schemaLocation="../wsdl/pim/printing/printing.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/selector" schemaLocation="pim/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/logicalreceiptnote" schemaLocation="pim/logicalreceiptnote/logicalreceiptnote.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/document" schemaLocation="pim/document/document.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/printing" schemaLocation="common/printing/printing.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/purchaseinvoice" schemaLocation="pim/purchaseinvoice/purchaseinvoice.xsd"/>
+    <xsd:element name="PrintPreviewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentKey" type="document:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key for the document to preview.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PrintFormatCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the print format
+                            master to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BackgroundPrintRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentOutputMaster" type="dom:DocumentOutputMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The document output master to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentKeyList" type="document:DocumentKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            identifying the documents to output.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogTitle" type="pimtypes:typePimLogtitle">
+                    <xsd:annotation>
+                        <xsd:documentation>The title of the log file in
+                            which details of the output process will be stored.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogDetailLevel" type="pimtypes:typePimLogDetailLevel">
+                    <xsd:annotation>
+                        <xsd:documentation>The level of detail that will
+                            be recorded in the log.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentSelector" type="sel:Selector">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector to use if no
+                            document keys are supplied.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentKeyList" type="document:DocumentKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            identifying the documents to output.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OutputDeviceCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the document
+                            output master to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PrintFormatCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the print format
+                            to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BackgroundPrintResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintPreviewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PdfFile" type="pri:PdfFile">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a PDF file of the
+                            document you asked to preview.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="pimprintingws:OptionsResponse"/>
+  </message>
+  <message name="BackgroundPrintResponse">
+    <part name="BackgroundPrintResponse" element="pimprintingws:BackgroundPrintResponse"/>
+  </message>
+  <message name="BackgroundPrintRequest">
+    <part name="BackgroundPrintRequest" element="pimprintingws:BackgroundPrintRequest"/>
+  </message>
+  <message name="PrintRequest">
+    <part name="PrintRequest" element="pimprintingws:PrintRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="pimprintingws:Options"/>
+  </message>
+  <message name="PrintPreviewRequest">
+    <part name="PrintPreviewRequest" element="pimprintingws:PrintPreviewRequest"/>
+  </message>
+  <message name="PrintPreviewResponse">
+    <part name="PrintPreviewResponse" element="pimprintingws:PrintPreviewResponse"/>
+  </message>
+  <message name="PrintResponse">
+    <part name="PrintResponse" element="pimprintingws:PrintResponse"/>
+  </message>
+  <portType name="PIMPrintingServicePortTypes">
+    <operation name="Print">
+      <input message="pimprintingws:PrintRequest"/>
+      <output message="pimprintingws:PrintResponse"/>
+    </operation>
+    <operation name="PrintPreview">
+      <input message="pimprintingws:PrintPreviewRequest"/>
+      <output message="pimprintingws:PrintPreviewResponse"/>
+    </operation>
+    <operation name="BackgroundPrint">
+      <input message="pimprintingws:BackgroundPrintRequest"/>
+      <output message="pimprintingws:BackgroundPrintResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMPrintingServiceSOAPBinding" type="pimprintingws:PIMPrintingServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Print">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMPrinting/Print" style="document"/>
+      <input>
+        <soap:header message="pimprintingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="pimprintingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PrintPreview">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMPrinting/PrintPreview" style="document"/>
+      <input>
+        <soap:header message="pimprintingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="pimprintingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="BackgroundPrint">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMPrinting/BackgroundPrint" style="document"/>
+      <input>
+        <soap:header message="pimprintingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="pimprintingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMPrintingService">
+    <port name="PIMPrintingServicePort" binding="pimprintingws:PIMPrintingServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/printing/pimprinting-12.0"/>
+    </port>
+  </service>
+</definitions>

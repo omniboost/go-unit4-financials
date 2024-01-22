@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Technical Reference</title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+	</head>
+	<body>
+		<h1>Technical Reference</h1>
+		<h2>Web Services URL formats</h2>
+		<p>The web services index page lists all the XMLi services and presents
+		generated links to the corresponding XMLi calls and web service WSDL 
+		definitions.</p>
+		<h3>Web Services WSDL URLs</h3>
+		<p>The generated Web Services URLs are composed as follows:</p>
+		<p>
+			<code>{protocol}://{hostname}/{webapp}/wsdl/{product}/{namespace}/{service}-{version}.wsdl</code>
+		</p>
+		<p>For example:</p>
+		<p>
+			<code>http://yourserver/codaws/wsdl/finance/input/input-2.0.wsdl</code>
+		</p>
+		<dl>
+			<dt>{protocol}://{hostname}</dt>
+			<dd>The name of your Web server, for example <code>http://yourserver.</code>
+			</dd>
+			<dt>{webapp}</dt>
+			<dd>The name of your web services instance, for example <code>codaws</code>.</dd>
+			<dt>{product}</dt>
+			<dd>The installed Coda web product supplying web services. This can be <code>assets</code>, <code>common</code>, <code>finance</code>, <code>pim</code>, <code>pop</code>, or <code>billing</code>.</dd>
+			<dt>{namespace}</dt>
+			<dd>The namespace, for example <code>elementmaster</code> or <code>currency</code>.</dd>
+			<dt>{service}</dt>
+			<dd>The name of the service, for example <code>input</code>.</dd>
+			<dt>{version}</dt>
+			<dd>The version of the service, for example <code>3.0</code>.</dd>
+		</dl>
+		<h3>XMLi schema URLs</h3>
+		<p>The generated XMLi schema URLs are composed as follows:</p>
+		<p>
+			<code>{protocol}://{hostname}/{webapp}/wsdl/{product}/{namespace}/{namespace}.xsd</code>
+		</p>
+		<p>For example:</p>
+		<p>
+			<code>http://yourserver/codaws/wsdl/finance/input/input.xsd</code>
+		</p>
+		<dl>
+			<dt>{protocol}://{hostname}</dt>
+			<dd>The name of your Web server, for example <code>http://yourserver.</code>
+			</dd>
+			<dt>{webapp}</dt>
+			<dd>The name of your web services instance, for example <code>codaws</code>.</dd>
+			<dt>{product}</dt>
+			<dd>The installed Coda web product supplying web services. This can be <code>assets</code>, <code>common</code>, <code>finance</code>, <code>pim</code>, <code>pop</code>, or <code>billing</code>.</dd>
+			<dt>{namespace}</dt>
+			<dd>The namespace, for example <code>elementmaster</code> or <code>currency</code>.</dd>
+			<dt>{namespace}</dt>
+			<dd>The name of the service, for example <code>input</code>.</dd>
+		</dl>
+		<h3>Optional style attributes for Web Services calls</h3>
+		<p>Certain environments may require a different style of Web service call. To accommodate this, you can add a style attribute to the WSDL URL:</p>
+		<p>
+			<code>{protocol}://{hostname}/{webapp}/wsdl/{product}/{namespace}/{service}-{version}-{style}.wsdl</code>
+		</p>
+		<p>For example:</p>
+		<p>
+			<code>http://yourserver/codaws/wsdl/finance/currency/currency-3.0-(wrapped).wsdl</code>
+		</p>
+		<p>The following optional style attributes can be added to the generated WSDL URL:</p>
+		<dl>
+			<dt>No style (Default)</dt>
+			<dd>
+				<p>Generates ws-i compatible WSDLs.</p>
+				<p>Example:</p>
+				<p>
+					<code>http://yourserver/codaws/wsdl/finance/currency/currency-3.0.wsdl</code>
+				</p>
+			</dd>
+			<dt>(wrapped)</dt>
+			<dd>
+				<p>Optionally, add this style attribute when you are calling Web
+				Services in a .Net environment. Setting this option changes the
+				method signature of the generated proxy classes to be more like
+				native .Net services.</p>
+				<p>Example:</p>
+				<p>
+					<code>http://yourserver/codaws/wsdl/finance/currency/currency-3.0-(wrapped).wsdl</code>
+				</p>
+			</dd>
+			<dt>(bare)</dt>
+			<dd>Add this style attribute if you prefer to use multi-part Web
+			service requests rather than the default single part style.
+				<p>Example:</p>
+				<p>
+					<code>http://yourserver/codaws/wsdl/finance/currency/currency-3.0-(bare).wsdl</code>
+				</p>
+			</dd>
+			<dt>(bare-useschematypes)</dt>
+			<dd>
+				<p>Add this style attribute when you are calling the
+				browseledger or input Web Services from a Microsoft InfoPath
+				form.</p>
+				<p>Example:</p>
+				<p>
+					<code>http://yourserver/codaws/wsdl/finance/currency/currency-3.0-(bare-useschematypes).wsdl</code>
+				</p>
+			</dd>
+		</dl>
+		<a name="UseOfSoapHeaders">
+		<h2>Use of SOAP Headers</h2>
+		<p>Web Services defines an <code>&lt;Options&gt;</code> element for use
+		within the SOAP Header part of aWeb Service request. This element is
+		described in each WSDL document, the following shows the XML Schema used
+		to describe this element for the ElementMaster service.</p>
+		<pre>
+&lt;xsd:element name="Options"&gt;
+  &lt;xsd:complexType&gt;
+    &lt;xsd:attribute name="locale" type="xsd:string" /&gt;
+    &lt;xsd:attribute name="bulkload" type="xsd:boolean" /&gt;
+    &lt;xsd:attribute name="logtitle" type="com:typeLogTitle" /&gt;
+  &lt;/xsd:complexType&gt;
+&lt;/xsd:element&gt;
+		</pre>
+		<p>The locale attribute accepts ISO 639 two letter language codes. A
+		list is available at
+			<a href="ftp://wwwold.dkuug.dk/isp/iso639.txt">ftp://wwwold.dkuug.dk/isp/iso639.txt</a>.</p>
+		<p>For information on sending SOAP Headers please consult the technical
+		documentation of your chosen Web Service technology or product. Note
+		that Microsoft InfoPath SP1 does not presently support SOAP Headers by
+		default, though it is possible if InfoPath scripting is used.</p>
+		<h2>How the locale is determined</h2>
+		<p>Generated messages such as error messages appear in the language
+		specified by the active client locale.</p>
+		<p>Usually, the locale is determined accurately. This is the case with
+		Microsoft InfoPath and.Net applications, for example.</p>
+		<p>Otherwise the active locale is determined from the SOAP message
+		envelope settings. See <a href="#UseOfSoapHeaders">Use of SOAP Headers</a>. If this is
+		not available, the locale defaults to that specified in the
+		<code>Accept-Language</code> field of the HTTP message header.</p>
+	</body>
+</html>

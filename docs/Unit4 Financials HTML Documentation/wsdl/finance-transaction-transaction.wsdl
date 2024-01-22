@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/transaction/transaction-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:txnws="http://www.coda.com/efinance/schemas/transaction/transaction-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:ffd="http://www.coda.com/common/schemas/flexifield"
+    xmlns:txn="http://www.coda.com/efinance/schemas/transaction"
+    xmlns:atc="http://www.coda.com/common/schemas/attachment"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/transaction/transaction-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/transaction" schemaLocation="../wsdl/finance/transaction/transaction.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/flexifield" schemaLocation="common/flexifield/flexifield.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/attachment" schemaLocation="common/attachment/attachment.xsd"/>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a key
+                            uniquely identifying the document you have retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MimicBrowse" minOccurs="0" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If set, the response includes
+                            all document details, including
+                            system-maintained details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Transaction" minOccurs="0" type="txn:Transaction">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the
+                            financial document you have retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateLastPrintRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Keys" type="txn:TxnKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of the keys
+                            identifying the documents for which you want
+                            to update details of when they were last printed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateLastPrintResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Keys" type="txn:TxnKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of the keys
+                            identifying the documents for which you
+                            attempted to update details of when they
+                            were last printed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a key
+                            uniquely identifying the document you want
+                            to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MimicBrowse" minOccurs="0" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If set, the request retrieves
+                            all document details, including
+                            system-maintained details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="txnws:OptionsResponse"/>
+  </message>
+  <message name="GetDocumentRequest">
+    <part name="GetDocumentRequest" element="txnws:GetDocumentRequest"/>
+  </message>
+  <message name="UpdateLastPrintRequest">
+    <part name="UpdateLastPrintRequest" element="txnws:UpdateLastPrintRequest"/>
+  </message>
+  <message name="GetDocumentResponse">
+    <part name="GetDocumentResponse" element="txnws:GetDocumentResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="txnws:Options"/>
+  </message>
+  <message name="UpdateLastPrintResponse">
+    <part name="UpdateLastPrintResponse" element="txnws:UpdateLastPrintResponse"/>
+  </message>
+  <portType name="TransactionServicePortTypes">
+    <operation name="GetDocument">
+      <input message="txnws:GetDocumentRequest"/>
+      <output message="txnws:GetDocumentResponse"/>
+    </operation>
+    <operation name="UpdateLastPrint">
+      <input message="txnws:UpdateLastPrintRequest"/>
+      <output message="txnws:UpdateLastPrintResponse"/>
+    </operation>
+  </portType>
+  <binding name="TransactionServiceSOAPBinding" type="txnws:TransactionServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Transaction/GetDocument" style="document"/>
+      <input>
+        <soap:header message="txnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="txnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateLastPrint">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Transaction/UpdateLastPrint" style="document"/>
+      <input>
+        <soap:header message="txnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="txnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="TransactionService">
+    <port name="TransactionServicePort" binding="txnws:TransactionServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/transaction/transaction-14.0"/>
+    </port>
+  </service>
+</definitions>

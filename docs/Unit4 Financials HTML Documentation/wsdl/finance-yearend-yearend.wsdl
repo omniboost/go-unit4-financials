@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/yearend/yearend-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:yendws="http://www.coda.com/efinance/schemas/yearend/yearend-1.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:yend="http://www.coda.com/efinance/schemas/yearend"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/yearend/yearend-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/yearend" schemaLocation="../wsdl/finance/yearend/yearend.xsd"/>
+    <xsd:element name="RecoverRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which you are trying to recover the Year End process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PauseRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company for
+                            which you are pausing the Year End process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RecoverResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which you are trying to recover the Year End process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company for
+                            which you are starting the Year End process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Params" type="yend:Params">
+                    <xsd:annotation>
+                        <xsd:documentation>The parameters for starting
+                            the Year End process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetParamsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company for
+                            which you are retrieving the parameters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResumeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company for
+                            which you are trying to restart the Year End process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetParamsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company for
+                            which you are retrieving the parameters for
+                            the Year End process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Params" minOccurs="0" type="yend:Params">
+                    <xsd:annotation>
+                        <xsd:documentation>The parameters for the Year
+                            End process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResumeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company for
+                            which you are resuming the Year End process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PauseResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which you are trying to pause the Year End process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDefaultsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company for
+                            which you are retrieving the default parameters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDefaultsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company for
+                            which you are retrieving the default parameters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Params" minOccurs="0" type="yend:Params">
+                    <xsd:annotation>
+                        <xsd:documentation>The default parameters for
+                            the Year End process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="StartRequest">
+    <part name="StartRequest" element="yendws:StartRequest"/>
+  </message>
+  <message name="GetParamsResponse">
+    <part name="GetParamsResponse" element="yendws:GetParamsResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="yendws:OptionsResponse"/>
+  </message>
+  <message name="ResumeRequest">
+    <part name="ResumeRequest" element="yendws:ResumeRequest"/>
+  </message>
+  <message name="GetParamsRequest">
+    <part name="GetParamsRequest" element="yendws:GetParamsRequest"/>
+  </message>
+  <message name="GetDefaultsRequest">
+    <part name="GetDefaultsRequest" element="yendws:GetDefaultsRequest"/>
+  </message>
+  <message name="GetDefaultsResponse">
+    <part name="GetDefaultsResponse" element="yendws:GetDefaultsResponse"/>
+  </message>
+  <message name="RecoverRequest">
+    <part name="RecoverRequest" element="yendws:RecoverRequest"/>
+  </message>
+  <message name="ResumeResponse">
+    <part name="ResumeResponse" element="yendws:ResumeResponse"/>
+  </message>
+  <message name="StartResponse">
+    <part name="StartResponse" element="yendws:StartResponse"/>
+  </message>
+  <message name="RecoverResponse">
+    <part name="RecoverResponse" element="yendws:RecoverResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="yendws:Options"/>
+  </message>
+  <message name="PauseRequest">
+    <part name="PauseRequest" element="yendws:PauseRequest"/>
+  </message>
+  <message name="PauseResponse">
+    <part name="PauseResponse" element="yendws:PauseResponse"/>
+  </message>
+  <portType name="YearEndServicePortTypes">
+    <operation name="GetDefaults">
+      <input message="yendws:GetDefaultsRequest"/>
+      <output message="yendws:GetDefaultsResponse"/>
+    </operation>
+    <operation name="Pause">
+      <input message="yendws:PauseRequest"/>
+      <output message="yendws:PauseResponse"/>
+    </operation>
+    <operation name="Start">
+      <input message="yendws:StartRequest"/>
+      <output message="yendws:StartResponse"/>
+    </operation>
+    <operation name="GetParams">
+      <input message="yendws:GetParamsRequest"/>
+      <output message="yendws:GetParamsResponse"/>
+    </operation>
+    <operation name="Recover">
+      <input message="yendws:RecoverRequest"/>
+      <output message="yendws:RecoverResponse"/>
+    </operation>
+    <operation name="Resume">
+      <input message="yendws:ResumeRequest"/>
+      <output message="yendws:ResumeResponse"/>
+    </operation>
+  </portType>
+  <binding name="YearEndServiceSOAPBinding" type="yendws:YearEndServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetDefaults">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/YearEnd/GetDefaults" style="document"/>
+      <input>
+        <soap:header message="yendws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="yendws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Pause">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/YearEnd/Pause" style="document"/>
+      <input>
+        <soap:header message="yendws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="yendws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Start">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/YearEnd/Start" style="document"/>
+      <input>
+        <soap:header message="yendws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="yendws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetParams">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/YearEnd/GetParams" style="document"/>
+      <input>
+        <soap:header message="yendws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="yendws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Recover">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/YearEnd/Recover" style="document"/>
+      <input>
+        <soap:header message="yendws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="yendws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Resume">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/YearEnd/Resume" style="document"/>
+      <input>
+        <soap:header message="yendws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="yendws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="YearEndService">
+    <port name="YearEndServicePort" binding="yendws:YearEndServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/yearend/yearend-1.0"/>
+    </port>
+  </service>
+</definitions>

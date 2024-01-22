@@ -1,0 +1,1325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/browse/pimbrowse-11.3/webservice" xmlns:browsews="http://www.coda.com/pim/schemas/browse/pimbrowse-11.3/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:brep="http://www.coda.com/pim/schemas/browsereportmaster"
+    xmlns:pre="http://www.coda.com/efinance/schemas/presenter"
+    xmlns:wfs="http://www.coda.com/common/schemas/workflowselection"
+    xmlns:atc="http://www.coda.com/common/schemas/attachment"
+    xmlns:inv="http://www.coda.com/pim/schemas/invoice"
+    xmlns:cmt="http://www.coda.com/pim/schemas/comment"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:browse="http://www.coda.com/pim/schemas/browse"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/pim/schemas/browse/pimbrowse-11.3/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/attachment" schemaLocation="common/attachment/attachment.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/browse" schemaLocation="../wsdl/pim/browse/browse.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/workflowselection" schemaLocation="common/workflowselection/workflowselection.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/invoice" schemaLocation="pim/invoice/invoice.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/comment" schemaLocation="pim/comment/comment.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/presenter" schemaLocation="finance/presenter/presenter.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/browsereportmaster" schemaLocation="pim/browsereportmaster/browsereportmaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:element name="GetValidationWorkflowIdsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="browse:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            identifying the document whose invoice
+                            validation workflow instance IDs you want to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectTransactionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BrowseReportMaster" type="brep:BrowseReportMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The browse report master you
+                            want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SupplierCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the supplier
+                            whose transactions you want to browse.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="YearPeriodFrom" minOccurs="0" type="com:typePeriod">
+                    <xsd:annotation>
+                        <xsd:documentation>Restrict the summary to
+                            documents with         year/period on or
+                            after this.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="YearPeriodTo" minOccurs="0" type="com:typePeriod">
+                    <xsd:annotation>
+                        <xsd:documentation>Restrict the summary to
+                            documents with         year/period on or
+                            before this.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentType" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The type of document that you
+                            wish to browse.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Category" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The category of documents
+                            that will be presented initially if supplier
+                            summary is suppressed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RowLimit" minOccurs="0" type="com:typeULong">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of rows to
+                            be         returned in the summary.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Selector" type="gsl:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector masters to use.
+                            If supplied, these override the default
+                            selectors on the browse report master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentCommentsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Comments" type="cmt:CommentList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            comments held on the specified document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentChainRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Anchor" type="browse:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            identifying the document whose chain of
+                            documents you want to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetCollationPropertiesRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectSummaryRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BrowseReportMaster" type="brep:BrowseReportMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The browse report master you
+                            want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SupplierCode" minOccurs="0" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the supplier
+                            whose transactions you want to browse.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="YearPeriodFrom" minOccurs="0" type="com:typePeriod">
+                    <xsd:annotation>
+                        <xsd:documentation>Restrict the summary to
+                            documents with         year/period on or
+                            after this.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="YearPeriodTo" minOccurs="0" type="com:typePeriod">
+                    <xsd:annotation>
+                        <xsd:documentation>Restrict the summary to
+                            documents with         year/period on or
+                            before this.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PrimaryCategory" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>Use this as the primary
+                            category. This         category will be used
+                            to determine the set of suppliers
+                            considered for all other         categories.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RowLimit" minOccurs="0" type="com:typeULong">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of lines
+                            that can be retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Selector" minOccurs="0"
+                    maxOccurs="unbounded" type="gsl:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector masters to use.
+                            If supplied, these override the default
+                            selectors on the browse report master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="successCount" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a count
+                            of the number of documents that posted successfully.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="failCount" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a count
+                            of the number of documents that failed to post.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="logTitle" type="pimtypes:typePimLogtitle">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            title of the log file that recorded the
+                            posting details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetWorkflowIdsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Ids" minOccurs="0" type="wfs:WorkflowIds">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            list of workflow instance IDs associated
+                            with the specified document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DisplayKey" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The display version of the
+                            document key.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" minOccurs="0" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            selected data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSelectableDataViewsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataViews" minOccurs="0" type="browse:DataViewList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            list of dataviews returned by the request
+                            corresponding to this response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSelectableDataViewsRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLrnCodesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The filter to use to retrieve
+                            the document codes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RowLimit" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of lines
+                            that can be retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SetDocumentCommentsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="browse:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            identifying the document to which you want
+                            to add a comment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Comments" type="cmt:CommentList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            comments that you want to add to the
+                            specified document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSelectorMasterResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorMaster" type="gsl:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            selector used for the category identified in
+                            the corresponding request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentChainResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetDocumentChain" type="browse:DocumentChainNode">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            document chain details, including documents
+                            both upstream and downstream of the
+                            specified document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Anchor" type="browse:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the key
+                            information supplied in the GetDocumentChain
+                            request corresponding to this response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExplodeDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="browse:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            identifying the document you want to explode.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BrowseReportMaster" minOccurs="0" type="brep:BrowseReportMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The browse report master to
+                            use to govern the explosion.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LinesPresenter" minOccurs="0" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The presenter to use to
+                            display document line details in the
+                            exploded view.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MLinePresenter" minOccurs="0" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The presenter to use to
+                            display M lines (posting lines) in the
+                            exploded view.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentAttachmentsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="browse:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            identifying the document whose attachments
+                            you want to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentKeyList" type="browse:DocumentKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            identifying the documents to be posted.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BrowseMasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the browse report
+                            master you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetCategoriesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BrowseReportMaster" type="brep:BrowseReportMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The browse report master that
+                            you want to report on.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RestrictToSupported" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether to restrict
+                            the request to those categories that have
+                            document mappings specified on the browse
+                            report master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSelectorMasterRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BrowseReportMaster" type="brep:BrowseReportMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The browse report master that
+                            you want to report on.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CategoryId" type="com:typeTextAnyDb">
+                    <xsd:annotation>
+                        <xsd:documentation>The category whose selector
+                            master you wish to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetCollationPropertiesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetCollationProperties" type="browse:CollationProperties">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a
+                            sequence of collatable vocabs, one for each
+                            document type.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SetDocumentCommentsResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExplodeDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ExplodeDocument" type="browse:DocumentExplosion">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            exploded document details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LinesPresenter" type="pre:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The presenter used to display
+                            document line details in the exploded view.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MLinePresenter" type="pre:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The presenter used to display
+                            M lines (posting lines) in the exploded view.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="browse:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            document key information supplied in the
+                            ExplodeDocument request corresponding to
+                            this response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DisplayKey" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The display version of the
+                            document key.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetCategoriesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Categories" type="browse:CategoryList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of document categories associated with the
+                            specified browse report master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetBrowseTransactionsPresenterRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BrowseReportMaster" type="brep:BrowseReportMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The browse report master that
+                            you want to report on.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CategoryId" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The category whose presenter
+                            master you wish to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLrnCodesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LrnCodes" type="brep:DocumentCodesDocumentCodeList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of the document master codes being used for
+                            LRN documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="EmailSnapshotResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SuccessfulRecipients" type="browse:RecipientList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of Coda users to whom the snapshot was
+                            e-mailed successfully.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FailedRecipients" type="browse:RecipientList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of Coda users to whom the snapshot was
+                            e-mailed unsuccessfully.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetBrowseTransactionsPresenterResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Presenter" type="pre:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            presenter used for the category identified
+                            in the corresponding request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentCommentsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="browse:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            identifying the document whose comments you
+                            want to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetValidationWorkflowIdsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Ids" minOccurs="0" type="wfs:WorkflowIds">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            list of invoice validation workflow instance
+                            IDs associated with the specified document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DisplayKey" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The display version of the
+                            document key.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SupplierStatisticsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which the supplier exists.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SupplierCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the supplier
+                            whose statistics you want to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="EmailSnapshotRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TransportMasterCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the message
+                            transport master that will be used to e-mail
+                            the snapshot.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Recipients" type="browse:RecipientList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of Coda users who
+                            will receive the snapshot.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Subject" type="com:typeTextfieldb">
+                    <xsd:annotation>
+                        <xsd:documentation>The subject that will appear
+                            on the e-mail.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Priority" type="pimtypes:typePimBrsEmailPriority">
+                    <xsd:annotation>
+                        <xsd:documentation>The priority that the e-mail
+                            will take.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Content" type="com:typeMultitextb">
+                    <xsd:annotation>
+                        <xsd:documentation>The message that will appear
+                            in the e-mail.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SnapshotFilename" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The filename of the
+                            snapshot&apos;s .html file.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Snapshot" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The snapshot data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentAttachmentsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Attachments" type="atc:AttachmentList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            attachments held on the specified document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SupplierStatisticsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which the supplier exists.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SupplierCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The supplier code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Statistics" type="browse:SupplierStatistics">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the statistics
+                            retrieved for this supplier.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectSummaryResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DateFrom" type="com:typeHardTime">
+                    <xsd:annotation>
+                        <xsd:documentation>The date of the earliest
+                            document included in the selection (based on
+                            document date).</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DateTo" minOccurs="0" type="com:typeHardTime">
+                    <xsd:annotation>
+                        <xsd:documentation>The date of the latest
+                            document included in the selection (based on
+                            document date).</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="YearPeriodFrom" type="com:typePeriod">
+                    <xsd:annotation>
+                        <xsd:documentation>The year/period from which
+                            the selection started.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="YearPeriodTo" minOccurs="0" type="com:typePeriod">
+                    <xsd:annotation>
+                        <xsd:documentation>The year/period at which the
+                            selection ended.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Summary" type="browse:SummaryRowList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            supplier summaries retrieved by the selection.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectorByCategory" type="browse:SelectorByCategoryList">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector code for each category.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectTransactionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Transactions" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            selected transaction data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TransactionInfo" type="browse:TransactionInfoList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            information about each of the selected transactions.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SupplierCodeVocab" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The vocabulary used for the
+                            supplier code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelType" type="gsl:SelectorType">
+                    <xsd:annotation>
+                        <xsd:documentation>Used internally by XL for
+                            Invoice Matching.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GslCode" type="com:typeGeneralCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>Used internally by XL for
+                            Invoice Matching.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RowLimit" minOccurs="0" type="com:typeULong">
+                    <xsd:annotation>
+                        <xsd:documentation>Used internally by XL for
+                            Invoice Matching.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ApplicationFilters" minOccurs="0" type="sel:VocListDataList">
+                    <xsd:annotation>
+                        <xsd:documentation>Used internally by XL for
+                            Invoice Matching.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserFilter" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>Used internally by XL for
+                            Invoice Matching.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Used internally by XL for
+                            Invoice Matching.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetWorkflowIdsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="browse:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            identifying the document whose workflow
+                            instance IDs you want to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetSelectorMasterRequest">
+    <part name="GetSelectorMasterRequest" element="browsews:GetSelectorMasterRequest"/>
+  </message>
+  <message name="GetBrowseTransactionsPresenterRequest">
+    <part name="GetBrowseTransactionsPresenterRequest" element="browsews:GetBrowseTransactionsPresenterRequest"/>
+  </message>
+  <message name="GetValidationWorkflowIdsRequest">
+    <part name="GetValidationWorkflowIdsRequest" element="browsews:GetValidationWorkflowIdsRequest"/>
+  </message>
+  <message name="GetDocumentAttachmentsRequest">
+    <part name="GetDocumentAttachmentsRequest" element="browsews:GetDocumentAttachmentsRequest"/>
+  </message>
+  <message name="GetDocumentAttachmentsResponse">
+    <part name="GetDocumentAttachmentsResponse" element="browsews:GetDocumentAttachmentsResponse"/>
+  </message>
+  <message name="PostDocumentResponse">
+    <part name="PostDocumentResponse" element="browsews:PostDocumentResponse"/>
+  </message>
+  <message name="GetSelectableDataViewsRequest">
+    <part name="GetSelectableDataViewsRequest" element="browsews:GetSelectableDataViewsRequest"/>
+  </message>
+  <message name="GetDocumentChainResponse">
+    <part name="GetDocumentChainResponse" element="browsews:GetDocumentChainResponse"/>
+  </message>
+  <message name="GetCollationPropertiesResponse">
+    <part name="GetCollationPropertiesResponse" element="browsews:GetCollationPropertiesResponse"/>
+  </message>
+  <message name="SelectSummaryRequest">
+    <part name="SelectSummaryRequest" element="browsews:SelectSummaryRequest"/>
+  </message>
+  <message name="SelectTransactionsRequest">
+    <part name="SelectTransactionsRequest" element="browsews:SelectTransactionsRequest"/>
+  </message>
+  <message name="GetWorkflowIdsResponse">
+    <part name="GetWorkflowIdsResponse" element="browsews:GetWorkflowIdsResponse"/>
+  </message>
+  <message name="GetCategoriesRequest">
+    <part name="GetCategoriesRequest" element="browsews:GetCategoriesRequest"/>
+  </message>
+  <message name="SelectResponse">
+    <part name="SelectResponse" element="browsews:SelectResponse"/>
+  </message>
+  <message name="GetCategoriesResponse">
+    <part name="GetCategoriesResponse" element="browsews:GetCategoriesResponse"/>
+  </message>
+  <message name="GetDocumentCommentsRequest">
+    <part name="GetDocumentCommentsRequest" element="browsews:GetDocumentCommentsRequest"/>
+  </message>
+  <message name="GetDocumentChainRequest">
+    <part name="GetDocumentChainRequest" element="browsews:GetDocumentChainRequest"/>
+  </message>
+  <message name="GetLrnCodesRequest">
+    <part name="GetLrnCodesRequest" element="browsews:GetLrnCodesRequest"/>
+  </message>
+  <message name="GetCollationPropertiesRequest">
+    <part name="GetCollationPropertiesRequest" element="browsews:GetCollationPropertiesRequest"/>
+  </message>
+  <message name="ExplodeDocumentResponse">
+    <part name="ExplodeDocumentResponse" element="browsews:ExplodeDocumentResponse"/>
+  </message>
+  <message name="GetBrowseTransactionsPresenterResponse">
+    <part name="GetBrowseTransactionsPresenterResponse" element="browsews:GetBrowseTransactionsPresenterResponse"/>
+  </message>
+  <message name="SupplierStatisticsRequest">
+    <part name="SupplierStatisticsRequest" element="browsews:SupplierStatisticsRequest"/>
+  </message>
+  <message name="GetDocumentCommentsResponse">
+    <part name="GetDocumentCommentsResponse" element="browsews:GetDocumentCommentsResponse"/>
+  </message>
+  <message name="EmailSnapshotRequest">
+    <part name="EmailSnapshotRequest" element="browsews:EmailSnapshotRequest"/>
+  </message>
+  <message name="GetSelectorMasterResponse">
+    <part name="GetSelectorMasterResponse" element="browsews:GetSelectorMasterResponse"/>
+  </message>
+  <message name="EmailSnapshotResponse">
+    <part name="EmailSnapshotResponse" element="browsews:EmailSnapshotResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="browsews:Options"/>
+  </message>
+  <message name="SetDocumentCommentsResponse">
+    <part name="SetDocumentCommentsResponse" element="browsews:SetDocumentCommentsResponse"/>
+  </message>
+  <message name="ExplodeDocumentRequest">
+    <part name="ExplodeDocumentRequest" element="browsews:ExplodeDocumentRequest"/>
+  </message>
+  <message name="SelectTransactionsResponse">
+    <part name="SelectTransactionsResponse" element="browsews:SelectTransactionsResponse"/>
+  </message>
+  <message name="SupplierStatisticsResponse">
+    <part name="SupplierStatisticsResponse" element="browsews:SupplierStatisticsResponse"/>
+  </message>
+  <message name="GetWorkflowIdsRequest">
+    <part name="GetWorkflowIdsRequest" element="browsews:GetWorkflowIdsRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="browsews:OptionsResponse"/>
+  </message>
+  <message name="SelectRequest">
+    <part name="SelectRequest" element="browsews:SelectRequest"/>
+  </message>
+  <message name="PostDocumentRequest">
+    <part name="PostDocumentRequest" element="browsews:PostDocumentRequest"/>
+  </message>
+  <message name="GetLrnCodesResponse">
+    <part name="GetLrnCodesResponse" element="browsews:GetLrnCodesResponse"/>
+  </message>
+  <message name="GetSelectableDataViewsResponse">
+    <part name="GetSelectableDataViewsResponse" element="browsews:GetSelectableDataViewsResponse"/>
+  </message>
+  <message name="SetDocumentCommentsRequest">
+    <part name="SetDocumentCommentsRequest" element="browsews:SetDocumentCommentsRequest"/>
+  </message>
+  <message name="GetValidationWorkflowIdsResponse">
+    <part name="GetValidationWorkflowIdsResponse" element="browsews:GetValidationWorkflowIdsResponse"/>
+  </message>
+  <message name="SelectSummaryResponse">
+    <part name="SelectSummaryResponse" element="browsews:SelectSummaryResponse"/>
+  </message>
+  <portType name="PIMBrowseServicePortTypes">
+    <operation name="GetDocumentChain">
+      <input message="browsews:GetDocumentChainRequest"/>
+      <output message="browsews:GetDocumentChainResponse"/>
+    </operation>
+    <operation name="SelectTransactions">
+      <input message="browsews:SelectTransactionsRequest"/>
+      <output message="browsews:SelectTransactionsResponse"/>
+    </operation>
+    <operation name="GetValidationWorkflowIds">
+      <input message="browsews:GetValidationWorkflowIdsRequest"/>
+      <output message="browsews:GetValidationWorkflowIdsResponse"/>
+    </operation>
+    <operation name="SupplierStatistics">
+      <input message="browsews:SupplierStatisticsRequest"/>
+      <output message="browsews:SupplierStatisticsResponse"/>
+    </operation>
+    <operation name="GetBrowseTransactionsPresenter">
+      <input message="browsews:GetBrowseTransactionsPresenterRequest"/>
+      <output message="browsews:GetBrowseTransactionsPresenterResponse"/>
+    </operation>
+    <operation name="GetDocumentAttachments">
+      <input message="browsews:GetDocumentAttachmentsRequest"/>
+      <output message="browsews:GetDocumentAttachmentsResponse"/>
+    </operation>
+    <operation name="GetSelectorMaster">
+      <input message="browsews:GetSelectorMasterRequest"/>
+      <output message="browsews:GetSelectorMasterResponse"/>
+    </operation>
+    <operation name="SelectSummary">
+      <input message="browsews:SelectSummaryRequest"/>
+      <output message="browsews:SelectSummaryResponse"/>
+    </operation>
+    <operation name="EmailSnapshot">
+      <input message="browsews:EmailSnapshotRequest"/>
+      <output message="browsews:EmailSnapshotResponse"/>
+    </operation>
+    <operation name="ExplodeDocument">
+      <input message="browsews:ExplodeDocumentRequest"/>
+      <output message="browsews:ExplodeDocumentResponse"/>
+    </operation>
+    <operation name="GetDocumentComments">
+      <input message="browsews:GetDocumentCommentsRequest"/>
+      <output message="browsews:GetDocumentCommentsResponse"/>
+    </operation>
+    <operation name="GetCategories">
+      <input message="browsews:GetCategoriesRequest"/>
+      <output message="browsews:GetCategoriesResponse"/>
+    </operation>
+    <operation name="GetLrnCodes">
+      <input message="browsews:GetLrnCodesRequest"/>
+      <output message="browsews:GetLrnCodesResponse"/>
+    </operation>
+    <operation name="GetWorkflowIds">
+      <input message="browsews:GetWorkflowIdsRequest"/>
+      <output message="browsews:GetWorkflowIdsResponse"/>
+    </operation>
+    <operation name="Select">
+      <input message="browsews:SelectRequest"/>
+      <output message="browsews:SelectResponse"/>
+    </operation>
+    <operation name="GetSelectableDataViews">
+      <input message="browsews:GetSelectableDataViewsRequest"/>
+      <output message="browsews:GetSelectableDataViewsResponse"/>
+    </operation>
+    <operation name="GetCollationProperties">
+      <input message="browsews:GetCollationPropertiesRequest"/>
+      <output message="browsews:GetCollationPropertiesResponse"/>
+    </operation>
+    <operation name="PostDocument">
+      <input message="browsews:PostDocumentRequest"/>
+      <output message="browsews:PostDocumentResponse"/>
+    </operation>
+    <operation name="SetDocumentComments">
+      <input message="browsews:SetDocumentCommentsRequest"/>
+      <output message="browsews:SetDocumentCommentsResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMBrowseServiceSOAPBinding" type="browsews:PIMBrowseServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetDocumentChain">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/GetDocumentChain" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SelectTransactions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/SelectTransactions" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetValidationWorkflowIds">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/GetValidationWorkflowIds" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SupplierStatistics">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/SupplierStatistics" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetBrowseTransactionsPresenter">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/GetBrowseTransactionsPresenter" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDocumentAttachments">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/GetDocumentAttachments" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetSelectorMaster">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/GetSelectorMaster" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SelectSummary">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/SelectSummary" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="EmailSnapshot">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/EmailSnapshot" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ExplodeDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/ExplodeDocument" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDocumentComments">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/GetDocumentComments" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetCategories">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/GetCategories" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetLrnCodes">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/GetLrnCodes" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetWorkflowIds">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/GetWorkflowIds" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Select">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/Select" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetSelectableDataViews">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/GetSelectableDataViews" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetCollationProperties">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/GetCollationProperties" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PostDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/PostDocument" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SetDocumentComments">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMBrowse/SetDocumentComments" style="document"/>
+      <input>
+        <soap:header message="browsews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="browsews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMBrowseService">
+    <port name="PIMBrowseServicePort" binding="browsews:PIMBrowseServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/browse/pimbrowse-11.3"/>
+    </port>
+  </service>
+</definitions>

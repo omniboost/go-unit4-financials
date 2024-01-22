@@ -1,0 +1,135 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-AssetSelectorService">
+            <h1>AssetSelectorService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/eassets/schemas/assetselector/assetselector-1.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/assets-assetselector-assetselector.wsdl" download="">assets-assetselector-assetselector.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/assets/assetselector/assetselector-1.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#AssetSelectorService-SelectAssets">SelectAssets</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="AssetSelectorService-SelectAssets"></a>SelectAssets
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectAssetsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}DetailsLocation" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}DetailsLocation">DetailsLocation</a></td>
+                              <td>The code for the selector
+                                 master used to select assets from the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>IncludeChildren</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Specifies whether children of
+                                 the selected parent assets should be
+                                 included in the selction.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RowLimit</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                              <td>The maximum number of rows to
+                                 be returned. The default is 1000.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ApplicationFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>A list of criteria for
+                                 selecting assets supplied by the system.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>UserFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>A list of criteria for
+                                 selecting assets supplied by the user using
+                                 a generic selector master.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Columns</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                              <td>Each column specifies an item
+                                 of data that is returned for each selected asset.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectAssetsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>Contains the assets that are
+                                 selected from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

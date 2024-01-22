@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/systemsecurity/systemsecurity-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:sysws="http://www.coda.com/efinance/schemas/systemsecurity/systemsecurity-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:sys="http://www.coda.com/efinance/schemas/systemsecurity"
+    targetNamespace="http://www.coda.com/efinance/schemas/systemsecurity/systemsecurity-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/systemsecurity" schemaLocation="../wsdl/finance/systemsecurity/systemsecurity.xsd"/>
+    <xsd:element name="SelectLogListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogSelect" type="sys:LogSelect">
+                    <xsd:annotation>
+                        <xsd:documentation>The search criteria you want
+                            to use to retrieve the logon details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteLogSublistResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogDataItemKey" type="sys:LogDataItemKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key which identifies an
+                            item in the log.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SystemSecurity" minOccurs="0" type="sys:SystemSecurity">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the system security
+                            parameters you have retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteLogSublistRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogDataItemKey" type="sys:LogDataItemKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key which identifies an
+                            item in the log.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectLogListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogSelect" type="sys:LogSelect">
+                    <xsd:annotation>
+                        <xsd:documentation>The search criteria you used
+                            to retrieve the logon details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogDataList" minOccurs="0" type="sys:LogDataList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of users&apos; logon
+                            details which you have retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TimeStamp" type="xsd:short">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp for the system
+                            security master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteLogSelectionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogSelection" type="sys:LogSelection">
+                    <xsd:annotation>
+                        <xsd:documentation>The criteria for selecting
+                            logon details for a Financials user.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SystemSecurity" type="sys:SystemSecurity">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            updating the system security parameters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLockoutListRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLockoutListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LockoutDataList" minOccurs="0" type="sys:LockoutDataList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of locked out users
+                            you have retrieved from the logon audit trail.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteLockoutRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="sys:LockoutKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key which identifies a
+                            user who is locked out.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteLockoutResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="sys:LockoutKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key which identifies a
+                            user who is locked out.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteLogSelectionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogSelection" type="sys:LogSelection">
+                    <xsd:annotation>
+                        <xsd:documentation>The criteria for selecting
+                            logon details for the Financials user.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="DeleteLockoutRequest">
+    <part name="DeleteLockoutRequest" element="sysws:DeleteLockoutRequest"/>
+  </message>
+  <message name="DeleteLogSelectionResponse">
+    <part name="DeleteLogSelectionResponse" element="sysws:DeleteLogSelectionResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="sysws:OptionsResponse"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="sysws:UpdateResponse"/>
+  </message>
+  <message name="GetLockoutListResponse">
+    <part name="GetLockoutListResponse" element="sysws:GetLockoutListResponse"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="sysws:GetRequest"/>
+  </message>
+  <message name="DeleteLogSublistRequest">
+    <part name="DeleteLogSublistRequest" element="sysws:DeleteLogSublistRequest"/>
+  </message>
+  <message name="GetLockoutListRequest">
+    <part name="GetLockoutListRequest" element="sysws:GetLockoutListRequest"/>
+  </message>
+  <message name="DeleteLogSublistResponse">
+    <part name="DeleteLogSublistResponse" element="sysws:DeleteLogSublistResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="sysws:GetResponse"/>
+  </message>
+  <message name="SelectLogListResponse">
+    <part name="SelectLogListResponse" element="sysws:SelectLogListResponse"/>
+  </message>
+  <message name="DeleteLockoutResponse">
+    <part name="DeleteLockoutResponse" element="sysws:DeleteLockoutResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="sysws:Options"/>
+  </message>
+  <message name="SelectLogListRequest">
+    <part name="SelectLogListRequest" element="sysws:SelectLogListRequest"/>
+  </message>
+  <message name="DeleteLogSelectionRequest">
+    <part name="DeleteLogSelectionRequest" element="sysws:DeleteLogSelectionRequest"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="sysws:UpdateRequest"/>
+  </message>
+  <portType name="SystemSecurityServicePortTypes">
+    <operation name="DeleteLockout">
+      <input message="sysws:DeleteLockoutRequest"/>
+      <output message="sysws:DeleteLockoutResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="sysws:GetRequest"/>
+      <output message="sysws:GetResponse"/>
+    </operation>
+    <operation name="DeleteLogSublist">
+      <input message="sysws:DeleteLogSublistRequest"/>
+      <output message="sysws:DeleteLogSublistResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="sysws:UpdateRequest"/>
+      <output message="sysws:UpdateResponse"/>
+    </operation>
+    <operation name="GetLockoutList">
+      <input message="sysws:GetLockoutListRequest"/>
+      <output message="sysws:GetLockoutListResponse"/>
+    </operation>
+    <operation name="SelectLogList">
+      <input message="sysws:SelectLogListRequest"/>
+      <output message="sysws:SelectLogListResponse"/>
+    </operation>
+    <operation name="DeleteLogSelection">
+      <input message="sysws:DeleteLogSelectionRequest"/>
+      <output message="sysws:DeleteLogSelectionResponse"/>
+    </operation>
+  </portType>
+  <binding name="SystemSecurityServiceSOAPBinding" type="sysws:SystemSecurityServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="DeleteLockout">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/SystemSecurity/DeleteLockout" style="document"/>
+      <input>
+        <soap:header message="sysws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sysws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/SystemSecurity/Get" style="document"/>
+      <input>
+        <soap:header message="sysws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sysws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeleteLogSublist">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/SystemSecurity/DeleteLogSublist" style="document"/>
+      <input>
+        <soap:header message="sysws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sysws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/SystemSecurity/Update" style="document"/>
+      <input>
+        <soap:header message="sysws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sysws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetLockoutList">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/SystemSecurity/GetLockoutList" style="document"/>
+      <input>
+        <soap:header message="sysws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sysws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SelectLogList">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/SystemSecurity/SelectLogList" style="document"/>
+      <input>
+        <soap:header message="sysws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sysws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeleteLogSelection">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/SystemSecurity/DeleteLogSelection" style="document"/>
+      <input>
+        <soap:header message="sysws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sysws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SystemSecurityService">
+    <port name="SystemSecurityServicePort" binding="sysws:SystemSecurityServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/systemsecurity/systemsecurity-12.0"/>
+    </port>
+  </service>
+</definitions>

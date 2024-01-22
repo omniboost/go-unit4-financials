@@ -1,0 +1,276 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-SelectorService">
+            <h1>SelectorService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/selector/selector-13.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-selector-selector.wsdl" download="">finance-selector-selector.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/selector/selector-13.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#SelectorService-Select">Select</a></li>
+               <li><a href="#SelectorService-SelectDetails">SelectDetails</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="SelectorService-Select"></a>Select
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorType" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorType">SelectorType</a></td>
+                              <td>Specifies the source of the
+                                 data from which the selection is made. The
+                                 data source is determined by the combination
+                                 of data class and data location.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>GslCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                              <td>The code of the selector
+                                 master you want to use. GslCode is used to
+                                 look up hints, and also overrides the
+                                 SelType above.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RowLimit</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                              <td>The maximum number of rows
+                                 you want your search to return
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ApplicationFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>The search criteria to be
+                                 applied by the application when selecting
+                                 the data. These are as set up in the
+                                 selector master.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>UserFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>The additional search
+                                 criteria specified by the user, to be
+                                 applied when selecting the data. This may
+                                 be, for example, a document code or a range
+                                 of codes.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Columns</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                              <td>The columns representing
+                                 vocabulary items that you want the server to return.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The selected data returned to
+                                 you for browsing.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="SelectorService-SelectDetails"></a>SelectDetails
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectDetailsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}DetailsLocation" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}DetailsLocation">DetailsLocation</a></td>
+                              <td>Indicates the source of the
+                                 data, which may be retrieved from Books,
+                                 Intray, Archive or Self.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>GslCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                              <td>The code of the selector
+                                 master you want to use. GslCode is used to
+                                 look up hints, and also overrides the
+                                 SelType above.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>WholeDocuments</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>If TRUE, specifies that you
+                                 want to browse whole documents for the lines selected.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RowLimit</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                              <td>The maximum number of rows
+                                 you want your search to return.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ApplicationFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>The search criteria to be
+                                 applied by the application when selecting
+                                 the data. These are as set up in the
+                                 selector master.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>UserFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>The additional search
+                                 criteria specified by the user, to be
+                                 applied when selecting the data. This may
+                                 be, for example, a document code or a range
+                                 of codes.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>HierarchyFilter</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>The additional search
+                                 criteria which will be applied to select
+                                 data within specified hierarchies.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>FlexiFieldFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}FlexiFieldVocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}FlexiFieldVocListData">FlexiFieldVocListData</a></td>
+                              <td>The additional search
+                                 criteria which will be applied to select
+                                 data from specified flexi-field masters.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Columns</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}HeaderColumnList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}HeaderColumnList">HeaderColumnList</a></td>
+                              <td>The columns representing
+                                 vocabulary items that you want the server to return.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectDetailsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelectionWithFlexiFields</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}SelectionWithFlexiFields" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}SelectionWithFlexiFields">SelectionWithFlexiFields</a></td>
+                              <td>The selected data, including
+                                 flexi-fields, returned to you for browsing.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

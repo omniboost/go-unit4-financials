@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/mobile/workflowtasks-11.3/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mobws="http://www.coda.com/common/schemas/mobile/workflowtasks-11.3/webservice">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:mob="http://www.coda.com/common/schemas/mobile"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/mobile/workflowtasks-11.3/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/mobile" schemaLocation="../wsdl/common/mobile/mobile.xsd"/>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AboutRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetDocumentResult" minOccurs="0" type="mob:Document"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTitlesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Titles" minOccurs="0" type="mob:ArrayOfTitle"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTaskResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetTaskResult" minOccurs="0" type="mob:TaskInfoExtended"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetObjectDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ObjectContainingData" type="mob:ArrayOfServerId"/>
+                <xsd:element name="DataToExpand" minOccurs="0" type="mob:DisplayData"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetActionArgumentValuesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetActionArgumentValuesResult"
+                    minOccurs="0" type="mob:ArrayOfActionArgumentValue"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AboutResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AboutResult" minOccurs="0" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ProcessTaskActionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcessTaskActionResult"
+                    minOccurs="0" type="mob:ProcessTaskActionResult"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ProcessTaskActionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TaskId" type="mob:ArrayOfServerId"/>
+                <xsd:element name="ActionId" type="mob:ArrayOfServerId"/>
+                <xsd:element name="ActionArguments" minOccurs="0" type="mob:ArrayOfActionArgument"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetObjectDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetObjectDetailsResult" minOccurs="0" type="mob:ArrayOfDisplayDataGroup"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetEnvironmentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="EnvironmentInfo" minOccurs="0" type="mob:EnvironmentInfo"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTitlesRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetActionArgumentValuesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TaskId" type="mob:ArrayOfServerId"/>
+                <xsd:element name="ActionId" type="mob:ArrayOfServerId"/>
+                <xsd:element name="ActionArgumentId" type="mob:ArrayOfServerId"/>
+                <xsd:element name="SearchValue" minOccurs="0" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTaskGroupsRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentId" type="xsd:string"/>
+                <xsd:element name="RequestingThumbnail" type="xsd:boolean"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetEnvironmentRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTaskGroupsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetTaskGroupsResult" minOccurs="0" type="mob:ArrayOfTaskGroupInfo"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTaskRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TaskId" type="mob:ArrayOfServerId"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetTaskGroupsRequest">
+    <part name="GetTaskGroupsRequest" element="mobws:GetTaskGroupsRequest"/>
+  </message>
+  <message name="ProcessTaskActionResponse">
+    <part name="ProcessTaskActionResponse" element="mobws:ProcessTaskActionResponse"/>
+  </message>
+  <message name="GetDocumentResponse">
+    <part name="GetDocumentResponse" element="mobws:GetDocumentResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="mobws:Options"/>
+  </message>
+  <message name="GetTaskRequest">
+    <part name="GetTaskRequest" element="mobws:GetTaskRequest"/>
+  </message>
+  <message name="GetObjectDetailsRequest">
+    <part name="GetObjectDetailsRequest" element="mobws:GetObjectDetailsRequest"/>
+  </message>
+  <message name="GetTitlesResponse">
+    <part name="GetTitlesResponse" element="mobws:GetTitlesResponse"/>
+  </message>
+  <message name="GetDocumentRequest">
+    <part name="GetDocumentRequest" element="mobws:GetDocumentRequest"/>
+  </message>
+  <message name="GetEnvironmentRequest">
+    <part name="GetEnvironmentRequest" element="mobws:GetEnvironmentRequest"/>
+  </message>
+  <message name="GetTaskResponse">
+    <part name="GetTaskResponse" element="mobws:GetTaskResponse"/>
+  </message>
+  <message name="GetActionArgumentValuesResponse">
+    <part name="GetActionArgumentValuesResponse" element="mobws:GetActionArgumentValuesResponse"/>
+  </message>
+  <message name="GetTitlesRequest">
+    <part name="GetTitlesRequest" element="mobws:GetTitlesRequest"/>
+  </message>
+  <message name="AboutRequest">
+    <part name="AboutRequest" element="mobws:AboutRequest"/>
+  </message>
+  <message name="GetEnvironmentResponse">
+    <part name="GetEnvironmentResponse" element="mobws:GetEnvironmentResponse"/>
+  </message>
+  <message name="ProcessTaskActionRequest">
+    <part name="ProcessTaskActionRequest" element="mobws:ProcessTaskActionRequest"/>
+  </message>
+  <message name="GetActionArgumentValuesRequest">
+    <part name="GetActionArgumentValuesRequest" element="mobws:GetActionArgumentValuesRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="mobws:OptionsResponse"/>
+  </message>
+  <message name="AboutResponse">
+    <part name="AboutResponse" element="mobws:AboutResponse"/>
+  </message>
+  <message name="GetTaskGroupsResponse">
+    <part name="GetTaskGroupsResponse" element="mobws:GetTaskGroupsResponse"/>
+  </message>
+  <message name="GetObjectDetailsResponse">
+    <part name="GetObjectDetailsResponse" element="mobws:GetObjectDetailsResponse"/>
+  </message>
+  <portType name="WorkflowTasksServicePortTypes">
+    <operation name="ProcessTaskAction">
+      <input message="mobws:ProcessTaskActionRequest"/>
+      <output message="mobws:ProcessTaskActionResponse"/>
+    </operation>
+    <operation name="GetDocument">
+      <input message="mobws:GetDocumentRequest"/>
+      <output message="mobws:GetDocumentResponse"/>
+    </operation>
+    <operation name="GetEnvironment">
+      <input message="mobws:GetEnvironmentRequest"/>
+      <output message="mobws:GetEnvironmentResponse"/>
+    </operation>
+    <operation name="GetTask">
+      <input message="mobws:GetTaskRequest"/>
+      <output message="mobws:GetTaskResponse"/>
+    </operation>
+    <operation name="GetTaskGroups">
+      <input message="mobws:GetTaskGroupsRequest"/>
+      <output message="mobws:GetTaskGroupsResponse"/>
+    </operation>
+    <operation name="GetTitles">
+      <input message="mobws:GetTitlesRequest"/>
+      <output message="mobws:GetTitlesResponse"/>
+    </operation>
+    <operation name="GetObjectDetails">
+      <input message="mobws:GetObjectDetailsRequest"/>
+      <output message="mobws:GetObjectDetailsResponse"/>
+    </operation>
+    <operation name="GetActionArgumentValues">
+      <input message="mobws:GetActionArgumentValuesRequest"/>
+      <output message="mobws:GetActionArgumentValuesResponse"/>
+    </operation>
+    <operation name="About">
+      <input message="mobws:AboutRequest"/>
+      <output message="mobws:AboutResponse"/>
+    </operation>
+  </portType>
+  <binding name="WorkflowTasksServiceSOAPBinding" type="mobws:WorkflowTasksServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ProcessTaskAction">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/WorkflowTasks/ProcessTaskAction" style="document"/>
+      <input>
+        <soap:header message="mobws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mobws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/WorkflowTasks/GetDocument" style="document"/>
+      <input>
+        <soap:header message="mobws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mobws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetEnvironment">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/WorkflowTasks/GetEnvironment" style="document"/>
+      <input>
+        <soap:header message="mobws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mobws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetTask">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/WorkflowTasks/GetTask" style="document"/>
+      <input>
+        <soap:header message="mobws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mobws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetTaskGroups">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/WorkflowTasks/GetTaskGroups" style="document"/>
+      <input>
+        <soap:header message="mobws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mobws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetTitles">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/WorkflowTasks/GetTitles" style="document"/>
+      <input>
+        <soap:header message="mobws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mobws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetObjectDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/WorkflowTasks/GetObjectDetails" style="document"/>
+      <input>
+        <soap:header message="mobws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mobws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetActionArgumentValues">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/WorkflowTasks/GetActionArgumentValues" style="document"/>
+      <input>
+        <soap:header message="mobws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mobws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="About">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/WorkflowTasks/About" style="document"/>
+      <input>
+        <soap:header message="mobws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="mobws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="WorkflowTasksService">
+    <port name="WorkflowTasksServicePort" binding="mobws:WorkflowTasksServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/mobile/workflowtasks-11.3"/>
+    </port>
+  </service>
+</definitions>

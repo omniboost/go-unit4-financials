@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/eassets/schemas/accountmapping/accountmapping-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:accmws="http://www.coda.com/eassets/schemas/accountmapping/accountmapping-1.0/webservice">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ass="http://www.coda.com/eassets/schemas/asset"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:accm="http://www.coda.com/eassets/schemas/accountmapping"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/eassets/schemas/accountmapping/accountmapping-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/eassets/schemas/asset" schemaLocation="assets/asset/asset.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/accountmapping" schemaLocation="../wsdl/assets/accountmapping/accountmapping.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAccountResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AssetKey" type="ass:AssetKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information for
+                            the asset specified in the corresponding Request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AccountMapping" type="accm:AccountMapping">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the account mapping
+                            string specified in the corresponding
+                            Request, and the account code         that
+                            it maps to.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAccountRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AccountMapKey" type="accm:AccountMapKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            identifying a particular asset and account
+                            mapping string.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Validate" minOccurs="0"
+                    type="xsd:boolean" default="true">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the request
+                            also validates the account code before
+                            returning it in the response.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetAccountRequest">
+    <part name="GetAccountRequest" element="accmws:GetAccountRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="accmws:OptionsResponse"/>
+  </message>
+  <message name="GetAccountResponse">
+    <part name="GetAccountResponse" element="accmws:GetAccountResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="accmws:Options"/>
+  </message>
+  <portType name="AccountMappingServicePortTypes">
+    <operation name="GetAccount">
+      <input message="accmws:GetAccountRequest"/>
+      <output message="accmws:GetAccountResponse"/>
+    </operation>
+  </portType>
+  <binding name="AccountMappingServiceSOAPBinding" type="accmws:AccountMappingServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetAccount">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/AccountMapping/GetAccount" style="document"/>
+      <input>
+        <soap:header message="accmws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="accmws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AccountMappingService">
+    <port name="AccountMappingServicePort" binding="accmws:AccountMappingServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/assets/accountmapping/accountmapping-1.0"/>
+    </port>
+  </service>
+</definitions>

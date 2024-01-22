@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/matchingmaster/pimmatchingmaster-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:matmasws="http://www.coda.com/pim/schemas/matchingmaster/pimmatchingmaster-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:pimusr="http://www.coda.com/pim/schemas/user"
+    xmlns:pres="http://www.coda.com/pim/schemas/presenter"
+    xmlns:cmt="http://www.coda.com/pim/schemas/comment"
+    xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:pimsel="http://www.coda.com/pim/schemas/selector"
+    targetNamespace="http://www.coda.com/pim/schemas/matchingmaster/pimmatchingmaster-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/matchingmaster" schemaLocation="../wsdl/pim/matchingmaster/matchingmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/selector" schemaLocation="pim/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/presenter" schemaLocation="pim/presenter/presenter.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/comment" schemaLocation="pim/comment/comment.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/user" schemaLocation="pim/user/user.xsd"/>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="MatchingMaster" type="matmas:MatchingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole MatchingMaster
+                            object that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the MatchingMaster objects
+                            that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingMaster" type="matmas:MatchingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingMasterItemList" type="matmas:MatchingMasterItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the MatchingMaster objects
+                            that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="MatchingMaster" type="matmas:MatchingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            update function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="MatchingMaster" type="matmas:MatchingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the add function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="MatchingMaster" type="matmas:MatchingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole MatchingMaster
+                            object that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingMasterKey" type="matmas:MatchingMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the MatchingMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateMasterResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateMasterRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingMaster" type="matmas:MatchingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the information for the
+                                matching master you want to
+                            validate.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingMasterKey" type="matmas:MatchingMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the MatchingMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingMasterList" type="matmas:MatchingMasterList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="ListResponse">
+    <part name="ListResponse" element="matmasws:ListResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="matmasws:UpdateRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="matmasws:Options"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="matmasws:FindResponse"/>
+  </message>
+  <message name="ValidateMasterResponse">
+    <part name="ValidateMasterResponse" element="matmasws:ValidateMasterResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="matmasws:ListRequest"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="matmasws:AddResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="matmasws:GetResponse"/>
+  </message>
+  <message name="ValidateMasterRequest">
+    <part name="ValidateMasterRequest" element="matmasws:ValidateMasterRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="matmasws:GetRequest"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="matmasws:AddRequest"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="matmasws:UpdateResponse"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="matmasws:DeleteResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="matmasws:DeleteRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="matmasws:OptionsResponse"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="matmasws:FindRequest"/>
+  </message>
+  <portType name="PIMMatchingMasterServicePortTypes">
+    <operation name="Delete">
+      <input message="matmasws:DeleteRequest"/>
+      <output message="matmasws:DeleteResponse"/>
+    </operation>
+    <operation name="Add">
+      <input message="matmasws:AddRequest"/>
+      <output message="matmasws:AddResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="matmasws:GetRequest"/>
+      <output message="matmasws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="matmasws:FindRequest"/>
+      <output message="matmasws:FindResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="matmasws:ListRequest"/>
+      <output message="matmasws:ListResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="matmasws:UpdateRequest"/>
+      <output message="matmasws:UpdateResponse"/>
+    </operation>
+    <operation name="ValidateMaster">
+      <input message="matmasws:ValidateMasterRequest"/>
+      <output message="matmasws:ValidateMasterResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMMatchingMasterServiceSOAPBinding" type="matmasws:PIMMatchingMasterServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingMaster/Delete" style="document"/>
+      <input>
+        <soap:header message="matmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingMaster/Add" style="document"/>
+      <input>
+        <soap:header message="matmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingMaster/Get" style="document"/>
+      <input>
+        <soap:header message="matmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingMaster/Find" style="document"/>
+      <input>
+        <soap:header message="matmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingMaster/List" style="document"/>
+      <input>
+        <soap:header message="matmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingMaster/Update" style="document"/>
+      <input>
+        <soap:header message="matmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateMaster">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingMaster/ValidateMaster" style="document"/>
+      <input>
+        <soap:header message="matmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMMatchingMasterService">
+    <port name="PIMMatchingMasterServicePort" binding="matmasws:PIMMatchingMasterServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/matchingmaster/pimmatchingmaster-12.0"/>
+    </port>
+  </service>
+</definitions>

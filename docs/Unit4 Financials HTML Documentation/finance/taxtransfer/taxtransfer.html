@@ -1,0 +1,461 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/taxtransfer</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/taxtransfer</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>ProgressStatistics</h3>
+         <p>This element contains the statistics for the progress made with the tax transfer process
+            currently running.
+         </p>
+         <h3>StartParams</h3>
+         <p>This element contains the required parameters from running the tax transfer process.</p>
+         <h3>TaxTransferRequest</h3>
+         <p>This service allows you to transfer tax.</p>
+         <h3>TaxTransferResponse</h3>
+         <p>This is the response that is returned when you transfer tax.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/taxtransfer}StartParams"></a><h3>StartParams</h3>
+         <p>This element contains the required parameters from running the tax transfer process.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the company in which the tax transfer process is started.</td>
+                  </tr>
+                  <tr>
+                     <td>TaxTransferMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the tax transfer master used to run Tax Transfer.</td>
+                  </tr>
+                  <tr>
+                     <td>DeferredTaxFromDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>When transferring deferred VAT the process is initiated by a date range. All lines
+                        whose paid date or undo-match date is later than this date, and earlier than the date
+                        set in the DeferredTaxToDate element will be selected for processing.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DeferredTaxToDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>When transferring deferred VAT the process is initiated by a date range. All lines
+                        whose paid date or undo-match date is earlier than this date, and later than the date
+                        set in the DeferredTaxFromDate element will be selected for processing.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>SelCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the selector master which the tax transfer process uses.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectorVocabList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="../selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                     <td>The list of vocabulary items defined in the selector master.</td>
+                  </tr>
+                  <tr>
+                     <td>ReportOnly</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies that this is a 'report only' run. Meaning that you can see what values would
+                        be transferred if you ran a full transfer process, but the database is not updated.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>TransferDocDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date of the generated transfer documents.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferDocPeriod</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                     <td>The year and period of the generated transfer documents.</td>
+                  </tr>
+                  <tr>
+                     <td>Description</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDescr" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDescr">typeDescr</a></td>
+                     <td>The default description for the generated transfer document lines.</td>
+                  </tr>
+                  <tr>
+                     <td>LogTitle</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLogTitle" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeLogTitle">typeLogTitle</a></td>
+                     <td>The title of the log, entered by the user who ran the transfer process.</td>
+                  </tr>
+                  <tr>
+                     <td>LogLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtLogLevel" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtLogLevel">typeCtLogLevel</a></td>
+                     <td>The amount of information you want to display in the log. You can set this element
+                        to Summary, Detailed or Highly detailed.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/taxtransfer}ProgressStatistics"></a><h3>ProgressStatistics</h3>
+         <p>This element contains the statistics for the progress made with the tax transfer process
+            currently running.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>LinesToProcess</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The total number of customer/supplier lines to be processed.</td>
+                  </tr>
+                  <tr>
+                     <td>LinesProcessed</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of customer/supplier lines processed so far.</td>
+                  </tr>
+                  <tr>
+                     <td>LinesRejected</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of lines which have been processed and rejected.</td>
+                  </tr>
+                  <tr>
+                     <td>Sorting</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Sorts the selected documents into a transfer summary order. When this process is running,
+                        the Sorting element is true.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>TransferSummariesToProcess</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The total number of transfer documents to be processed.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferSummariesProcessed</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of transfer documents processed so far.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferSummariesRejected</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of transfer documents which have been processed and rejected.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/taxtransfer}StartRequest"></a><h3>StartRequest</h3>
+         <p>The StartRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Params</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/taxtransfer}StartParams" href="#{http://www.coda.com/efinance/schemas/taxtransfer}StartParams">StartParams</a></td>
+                     <td>This element stores the parameters that can be specified when you run the tax transfer
+                        process.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/taxtransfer}StartRequestVerb"></a><h3>StartRequestVerb</h3>
+         <p>The StartRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Starts the tax transfer process using the parameters you specify.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/taxtransfer}StartRequest" href="#{http://www.coda.com/efinance/schemas/taxtransfer}StartRequest">StartRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/taxtransfer}StartResponse"></a><h3>StartResponse</h3>
+         <p>The StartResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the company in which the tax transfer process was started.</td>
+                  </tr>
+                  <tr>
+                     <td>TTMCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the tax transfer master used to run the tax transfer process.</td>
+                  </tr>
+                  <tr>
+                     <td>ProgressKey</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>This element is a key consisting of the tax transfer progress data.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/taxtransfer}StartResponseVerb"></a><h3>StartResponseVerb</h3>
+         <p>The StartResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/taxtransfer}StartResponse" href="#{http://www.coda.com/efinance/schemas/taxtransfer}StartResponse">StartResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/taxtransfer}ProgressResponse"></a><h3>ProgressResponse</h3>
+         <p>The ProgressResponse type has <a title="{http://www.coda.com/efinance/schemas/progress}progressGetResponse" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}progressGetResponse">progressGetResponse</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ProgressStatistics</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/taxtransfer}ProgressStatistics" href="#{http://www.coda.com/efinance/schemas/taxtransfer}ProgressStatistics">ProgressStatistics</a></td>
+                     <td>Contains the statistics about the tax transfer progress such as Lines processed and
+                        Lines rejected.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/taxtransfer}ProgressResponseVerb"></a><h3>ProgressResponseVerb</h3>
+         <p>The ProgressResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/taxtransfer}ProgressResponse" href="#{http://www.coda.com/efinance/schemas/taxtransfer}ProgressResponse">ProgressResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/taxtransfer}TaxTransferRequest"></a><h3>TaxTransferRequest</h3>
+         <p>The TaxTransferRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to transfer tax.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Start</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/taxtransfer}StartRequestVerb" href="#{http://www.coda.com/efinance/schemas/taxtransfer}StartRequestVerb">StartRequestVerb</a></td>
+                     <td>Starts the tax transfer process using the parameters you specify.</td>
+                  </tr>
+                  <tr>
+                     <td>Abort</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressAbortRequestVerb" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}progressAbortRequestVerb">progressAbortRequestVerb</a></td>
+                     <td>Stops the tax transfer process.</td>
+                  </tr>
+                  <tr>
+                     <td>GetProgress</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressGetRequestVerb" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}progressGetRequestVerb">progressGetRequestVerb</a></td>
+                     <td>Retrieves the current status of the tax transfer process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/taxtransfer}TaxTransferResponse"></a><h3>TaxTransferResponse</h3>
+         <p>The TaxTransferResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you transfer tax.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Start</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/taxtransfer}StartResponseVerb" href="#{http://www.coda.com/efinance/schemas/taxtransfer}StartResponseVerb">StartResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Abort</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressAbortResponseVerb" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}progressAbortResponseVerb">progressAbortResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetProgress</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/taxtransfer}ProgressResponseVerb" href="#{http://www.coda.com/efinance/schemas/taxtransfer}ProgressResponseVerb">ProgressResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

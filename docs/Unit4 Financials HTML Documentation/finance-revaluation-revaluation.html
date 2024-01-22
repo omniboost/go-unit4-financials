@@ -1,0 +1,500 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-RevaluationService">
+            <h1>RevaluationService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/revaluation/revaluation-14.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-revaluation-revaluation.wsdl" download="">finance-revaluation-revaluation.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/revaluation/revaluation-14.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#RevaluationService-Post">Post</a></li>
+               <li><a href="#RevaluationService-PrepareChain">PrepareChain</a></li>
+               <li><a href="#RevaluationService-PrepareRule">PrepareRule</a></li>
+               <li><a href="#RevaluationService-RunChain">RunChain</a></li>
+               <li><a href="#RevaluationService-RunRuleAndPost">RunRuleAndPost</a></li>
+               <li><a href="#RevaluationService-RunRuleAndView">RunRuleAndView</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="RevaluationService-Post"></a>Post
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RuleData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}RuleParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}RuleParams">RuleParams</a></td>
+                              <td>Contains the information
+                                 required to start a revaluation run
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>The currency revaluation
+                                 document, listing the proposed updates,
+                                 produced by RunRuleAndView.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Balances</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/balance}BalanceList" href="finance/balance/balance.html#{http://www.coda.com/efinance/schemas/balance}BalanceList">BalanceList</a></td>
+                              <td>The list of proposed changes
+                                 to the balances produced by RunRuleAndView.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>This method returns no data.
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="RevaluationService-PrepareChain"></a>PrepareChain
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PrepareChainRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ChainData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}ChainParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}ChainParams">ChainParams</a></td>
+                              <td>Contains the information
+                                 required to start a revaluation chain.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PrepareChainResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ChainData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}ChainParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}ChainParams">ChainParams</a></td>
+                              <td>Contains the information
+                                 required to start a revaluation chain.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of Revaluation.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RequirementsList</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/revaluation}RevaluationRequirementsList" href="finance/revaluation/revaluation.html#{http://www.coda.com/efinance/schemas/revaluation}RevaluationRequirementsList">RevaluationRequirementsList</a></td>
+                              <td>Contains details of
+                                 parameters which are still required, for
+                                 each rule within the chain.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="RevaluationService-PrepareRule"></a>PrepareRule
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PrepareRuleRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RuleData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}RuleParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}RuleParams">RuleParams</a></td>
+                              <td>Contains the information
+                                 required to start a revaluation run.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PrepareRuleResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RuleData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}RuleParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}RuleParams">RuleParams</a></td>
+                              <td>Contains the information
+                                 required to start a revaluation run
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of Revaluation.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Requirements</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/revaluation}RevaluationRequirements" href="finance/revaluation/revaluation.html#{http://www.coda.com/efinance/schemas/revaluation}RevaluationRequirements">RevaluationRequirements</a></td>
+                              <td>Contains details of
+                                 parameters which are still required for this
+                                 revaluation rule.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PreCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the presenter you
+                                 want Revaluation to use.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="RevaluationService-RunChain"></a>RunChain
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>RunChainRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ChainData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}ChainParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}ChainParams">ChainParams</a></td>
+                              <td>Contains the information
+                                 required to start a revaluation chain.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PromptList</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/revaluation}RevaluationPromptsList" href="finance/revaluation/revaluation.html#{http://www.coda.com/efinance/schemas/revaluation}RevaluationPromptsList">RevaluationPromptsList</a></td>
+                              <td>Contains those values which
+                                 have not been specified in any rule masters
+                                 in the chain, but are required by the
+                                 revaluation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of Revaluation.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>RunChainResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of Revaluation.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="RevaluationService-RunRuleAndPost"></a>RunRuleAndPost
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>RunRuleAndPostRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RuleData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}RuleParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}RuleParams">RuleParams</a></td>
+                              <td>Contains the information
+                                 required to start a revaluation run.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PromptData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/revaluation}RevaluationPrompts" href="finance/revaluation/revaluation.html#{http://www.coda.com/efinance/schemas/revaluation}RevaluationPrompts">RevaluationPrompts</a></td>
+                              <td>Contains those values which
+                                 have not been specified in the rule master,
+                                 but are required by the revaluation run .
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of the
+                                 revaluation run.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>RunRuleAndPostResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of Revaluation.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="RevaluationService-RunRuleAndView"></a>RunRuleAndView
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>RunRuleAndViewRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RuleData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}RuleParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}RuleParams">RuleParams</a></td>
+                              <td>Contains the information
+                                 required to start a revaluation run
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PromptData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/revaluation}RevaluationPrompts" href="finance/revaluation/revaluation.html#{http://www.coda.com/efinance/schemas/revaluation}RevaluationPrompts">RevaluationPrompts</a></td>
+                              <td>Contains those values which
+                                 have not been specified in the rule master,
+                                 but are required by the revaluation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of the Revaluation.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Columns</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}VocabIDList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}VocabIDList">VocabIDList</a></td>
+                              <td>The list of vocabulary items
+                                 you want to look at when you receive the response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>RunRuleAndViewResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The list of accounts or
+                                 balances selected for updating, when the
+                                 revaluation rule was run.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>The revaluation document
+                                 containing details of the proposed
+                                 revaluation updates.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Balances</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/balance}BalanceList" href="finance/balance/balance.html#{http://www.coda.com/efinance/schemas/balance}BalanceList">BalanceList</a></td>
+                              <td>The list of balances,
+                                 containing details of the proposed
+                                 revaluation updates.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Warning</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Reason" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Reason">Reason</a></td>
+                              <td>A message indicating that the
+                                 update failed and giving a detailed reason
+                                 for the failure.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

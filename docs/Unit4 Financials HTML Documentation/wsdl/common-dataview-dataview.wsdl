@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/dataview/dataview-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:dvwws="http://www.coda.com/common/schemas/dataview/dataview-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:met="http://www.coda.com/common/schemas/datametadata"
+    xmlns:dvw="http://www.coda.com/common/schemas/dataview"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:tra="http://www.coda.com/common/schemas/translation"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/dataview/dataview-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/translation" schemaLocation="common/translation/translation.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/dataview" schemaLocation="../wsdl/common/dataview/dataview.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/datametadata" schemaLocation="common/datametadata/datametadata.xsd"/>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataView" type="dvw:DataView">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            update function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDataSourceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetDataSource" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getDataSource function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDataSourceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TargetDataView" type="dvw:DataViewKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The target DataView object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DefaultVocabsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DefaultVocabs" type="dvw:DataView">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            defaultVocabs function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DefaultVocabsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataView" type="dvw:DataView">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The dataview that you want to be
+                                populated with vocabulary items.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TargetObject" minOccurs="0" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>       The object to generate vocabs
+                                for or null for all objects.      </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTypeInformationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetTypeInformation" type="dvw:DataViewTypeInformation">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getTypeInformation function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="dvw:PickDataViewQuery">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the DataView objects that
+                            the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDataViewWithTypeInformationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataViewKey" type="dvw:DataViewKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the key identifying the
+                                dataview master you want to retrieve
+                                from the database.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTypeInformationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TargetDataView" type="dvw:DataViewKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The target DataView object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataViewList" type="dvw:DataViewList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataView" type="dvw:DataView">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExportMetadataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Product" minOccurs="0" type="com:typeApplicationNameb">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The product to which the metadata
+                                masters relate.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ViewList" type="dvw:DataViewExportMetadataViewList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A list of metadata master views.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataView" type="dvw:DataView">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole DataView object
+                            that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="List" type="dvw:DataViewPickList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataViewKey" type="dvw:DataViewKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the DataView object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataView" type="dvw:DataView">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole DataView object
+                            that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDataViewWithTypeInformationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataView" type="dvw:DataView">
+                    <xsd:annotation>
+                        <xsd:documentation>The dataView is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TypeInformation" type="dvw:DataViewTypeInformation">
+                    <xsd:annotation>
+                        <xsd:documentation>The typeInformation is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataView" type="dvw:DataView">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the add function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataViewKey" type="dvw:DataViewKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the DataView object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExportMetadataResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="AddRequest">
+    <part name="AddRequest" element="dvwws:AddRequest"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="dvwws:UpdateResponse"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="dvwws:DeleteResponse"/>
+  </message>
+  <message name="GetDataSourceRequest">
+    <part name="GetDataSourceRequest" element="dvwws:GetDataSourceRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="dvwws:GetRequest"/>
+  </message>
+  <message name="GetDataSourceResponse">
+    <part name="GetDataSourceResponse" element="dvwws:GetDataSourceResponse"/>
+  </message>
+  <message name="DefaultVocabsRequest">
+    <part name="DefaultVocabsRequest" element="dvwws:DefaultVocabsRequest"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="dvwws:FindRequest"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="dvwws:DeleteRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="dvwws:OptionsResponse"/>
+  </message>
+  <message name="GetTypeInformationResponse">
+    <part name="GetTypeInformationResponse" element="dvwws:GetTypeInformationResponse"/>
+  </message>
+  <message name="ExportMetadataRequest">
+    <part name="ExportMetadataRequest" element="dvwws:ExportMetadataRequest"/>
+  </message>
+  <message name="DefaultVocabsResponse">
+    <part name="DefaultVocabsResponse" element="dvwws:DefaultVocabsResponse"/>
+  </message>
+  <message name="ExportMetadataResponse">
+    <part name="ExportMetadataResponse" element="dvwws:ExportMetadataResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="dvwws:Options"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="dvwws:FindResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="dvwws:ListRequest"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="dvwws:ListResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="dvwws:UpdateRequest"/>
+  </message>
+  <message name="GetDataViewWithTypeInformationResponse">
+    <part name="GetDataViewWithTypeInformationResponse" element="dvwws:GetDataViewWithTypeInformationResponse"/>
+  </message>
+  <message name="GetTypeInformationRequest">
+    <part name="GetTypeInformationRequest" element="dvwws:GetTypeInformationRequest"/>
+  </message>
+  <message name="GetDataViewWithTypeInformationRequest">
+    <part name="GetDataViewWithTypeInformationRequest" element="dvwws:GetDataViewWithTypeInformationRequest"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="dvwws:AddResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="dvwws:GetResponse"/>
+  </message>
+  <portType name="DataViewServicePortTypes">
+    <operation name="Add">
+      <input message="dvwws:AddRequest"/>
+      <output message="dvwws:AddResponse"/>
+    </operation>
+    <operation name="Delete">
+      <input message="dvwws:DeleteRequest"/>
+      <output message="dvwws:DeleteResponse"/>
+    </operation>
+    <operation name="ExportMetadata">
+      <input message="dvwws:ExportMetadataRequest"/>
+      <output message="dvwws:ExportMetadataResponse"/>
+    </operation>
+    <operation name="DefaultVocabs">
+      <input message="dvwws:DefaultVocabsRequest"/>
+      <output message="dvwws:DefaultVocabsResponse"/>
+    </operation>
+    <operation name="GetDataViewWithTypeInformation">
+      <input message="dvwws:GetDataViewWithTypeInformationRequest"/>
+      <output message="dvwws:GetDataViewWithTypeInformationResponse"/>
+    </operation>
+    <operation name="GetDataSource">
+      <input message="dvwws:GetDataSourceRequest"/>
+      <output message="dvwws:GetDataSourceResponse"/>
+    </operation>
+    <operation name="GetTypeInformation">
+      <input message="dvwws:GetTypeInformationRequest"/>
+      <output message="dvwws:GetTypeInformationResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="dvwws:GetRequest"/>
+      <output message="dvwws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="dvwws:FindRequest"/>
+      <output message="dvwws:FindResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="dvwws:ListRequest"/>
+      <output message="dvwws:ListResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="dvwws:UpdateRequest"/>
+      <output message="dvwws:UpdateResponse"/>
+    </operation>
+  </portType>
+  <binding name="DataViewServiceSOAPBinding" type="dvwws:DataViewServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataView/Add" style="document"/>
+      <input>
+        <soap:header message="dvwws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="dvwws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataView/Delete" style="document"/>
+      <input>
+        <soap:header message="dvwws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="dvwws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ExportMetadata">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataView/ExportMetadata" style="document"/>
+      <input>
+        <soap:header message="dvwws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="dvwws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DefaultVocabs">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataView/DefaultVocabs" style="document"/>
+      <input>
+        <soap:header message="dvwws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="dvwws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDataViewWithTypeInformation">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataView/GetDataViewWithTypeInformation" style="document"/>
+      <input>
+        <soap:header message="dvwws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="dvwws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDataSource">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataView/GetDataSource" style="document"/>
+      <input>
+        <soap:header message="dvwws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="dvwws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetTypeInformation">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataView/GetTypeInformation" style="document"/>
+      <input>
+        <soap:header message="dvwws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="dvwws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataView/Get" style="document"/>
+      <input>
+        <soap:header message="dvwws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="dvwws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataView/Find" style="document"/>
+      <input>
+        <soap:header message="dvwws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="dvwws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataView/List" style="document"/>
+      <input>
+        <soap:header message="dvwws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="dvwws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataView/Update" style="document"/>
+      <input>
+        <soap:header message="dvwws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="dvwws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="DataViewService">
+    <port name="DataViewServicePort" binding="dvwws:DataViewServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/dataview/dataview-14.0"/>
+    </port>
+  </service>
+</definitions>

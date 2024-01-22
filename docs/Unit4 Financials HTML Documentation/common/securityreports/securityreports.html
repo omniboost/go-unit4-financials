@@ -1,0 +1,2364 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/common/schemas/securityreports</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/common/schemas/securityreports</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>SecurityReportsRequest</h3>
+         <p>This service allows you to generate security reports.</p>
+         <h3>SecurityReportsResponse</h3>
+         <p>This is the response that is returned when you generate security reports.</p>
+      </div>
+      <div class="simple-types">
+         <h2>Simple Types</h2><a name="{http://www.coda.com/common/schemas/securityreports}SecRptCapabilityLevel"></a><h3>SecRptCapabilityLevel</h3>
+         <p>A capability level from 1 to 7 (1 is lowest).</p>
+         <table>
+            <tbody>
+               <tr>
+                  <th>Base type</th>
+                  <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+               </tr>
+               <tr>
+                  <th>Minimum value</th>
+                  <td>1</td>
+               </tr>
+               <tr>
+                  <th>Maximum value</th>
+                  <td>8</td>
+               </tr>
+            </tbody>
+         </table><a name="{http://www.coda.com/common/schemas/securityreports}SecurityReportOrientation"></a><h3>SecurityReportOrientation</h3>
+         <p>This element contains report orientation details.</p>
+         <table>
+            <tbody>
+               <tr>
+                  <th>Base type</th>
+                  <td><a title="{http://www.coda.com/efinance/schemas/common}typeBaseEnum" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBaseEnum">typeBaseEnum</a></td>
+               </tr>
+               <tr>
+                  <th>Enumeration Values</th>
+                  <td>
+                     <dl>
+                        <dt>by_user</dt>
+                        <dd>For example, a roles by user report.</dd>
+                        <dt>by_entity</dt>
+                        <dd>For example, a users by role report.</dd>
+                     </dl>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/common/schemas/securityreports}UserSelectionItem"></a><h3>UserSelectionItem</h3>
+         <p>The list of selected users.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UserCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The user code.</td>
+                  </tr>
+                  <tr>
+                     <td>UserShortName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The user's short name.</td>
+                  </tr>
+                  <tr>
+                     <td>CapCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The user's capability code.</td>
+                  </tr>
+                  <tr>
+                     <td>CapShortName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The short name of the user's capability.</td>
+                  </tr>
+                  <tr>
+                     <td>CapSecurityLevel</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}SecRptCapabilityLevel" href="#{http://www.coda.com/common/schemas/securityreports}SecRptCapabilityLevel">SecRptCapabilityLevel</a></td>
+                     <td>The security level associated with this capability.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}ValueItem"></a><h3>ValueItem</h3>
+         <p>A value for this property.</p>
+         <div class="attributes">
+            <h4>Attributes</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Type</th>
+                     <th>Use</th>
+                     <th>Default</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UserCode</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>optional</td>
+                     <td></td>
+                     <td>The Coda user code.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UserSelection"></a><h3>UserSelection</h3>
+         <p>The user list.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelectedUser</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UserSelectionItem" href="#{http://www.coda.com/common/schemas/securityreports}UserSelectionItem">UserSelectionItem</a></td>
+                     <td>The list of selected users.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}Values"></a><h3>Values</h3>
+         <p>The list of values for this property.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Value</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}ValueItem" href="#{http://www.coda.com/common/schemas/securityreports}ValueItem">ValueItem</a></td>
+                     <td>A value for this property.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}SecurityEntityList"></a><h3>SecurityEntityList</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UserList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UserSelection" href="#{http://www.coda.com/common/schemas/securityreports}UserSelection">UserSelection</a></td>
+                     <td>The user list.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}CapabilityEntityItem"></a><h3>CapabilityEntityItem</h3>
+         <p>The capability property.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Values</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}Values" href="#{http://www.coda.com/common/schemas/securityreports}Values">Values</a></td>
+                     <td>The list of values for this property.</td>
+                  </tr>
+                  <tr>
+                     <td>CapCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The capability code.</td>
+                  </tr>
+                  <tr>
+                     <td>CapShortName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The capability short name.</td>
+                  </tr>
+                  <tr>
+                     <td>CapSecurityLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}SecRptCapabilityLevel" href="#{http://www.coda.com/common/schemas/securityreports}SecRptCapabilityLevel">SecRptCapabilityLevel</a></td>
+                     <td>The security level associated with this capability.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}CapabilityEntityList"></a><h3>CapabilityEntityList</h3>
+         <p>The list of capability properties.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CapEntityItem</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}CapabilityEntityItem" href="#{http://www.coda.com/common/schemas/securityreports}CapabilityEntityItem">CapabilityEntityItem</a></td>
+                     <td>The capability property.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}CapabilityReport"></a><h3>CapabilityReport</h3>
+         <p>The CapabilityReport type has <a title="{http://www.coda.com/common/schemas/securityreports}SecurityEntityList" href="#{http://www.coda.com/common/schemas/securityreports}SecurityEntityList">SecurityEntityList</a> as its base type.
+         </p>
+         <p>This element contains details of a users by capability report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CapEntityList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}CapabilityEntityList" href="#{http://www.coda.com/common/schemas/securityreports}CapabilityEntityList">CapabilityEntityList</a></td>
+                     <td>The list of capability properties.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}RoleEntityItem"></a><h3>RoleEntityItem</h3>
+         <p>The role property.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Values</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}Values" href="#{http://www.coda.com/common/schemas/securityreports}Values">Values</a></td>
+                     <td>The list of values for this property.</td>
+                  </tr>
+                  <tr>
+                     <td>RoleCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The role code.</td>
+                  </tr>
+                  <tr>
+                     <td>RoleShortName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The role short name.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}RoleEntityList"></a><h3>RoleEntityList</h3>
+         <p>The list of role properties.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>RoleEntityItem</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}RoleEntityItem" href="#{http://www.coda.com/common/schemas/securityreports}RoleEntityItem">RoleEntityItem</a></td>
+                     <td>The role property.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}RoleReport"></a><h3>RoleReport</h3>
+         <p>The RoleReport type has <a title="{http://www.coda.com/common/schemas/securityreports}SecurityEntityList" href="#{http://www.coda.com/common/schemas/securityreports}SecurityEntityList">SecurityEntityList</a> as its base type.
+         </p>
+         <p>This element contains details of a users by role report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>RoleEntityList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}RoleEntityList" href="#{http://www.coda.com/common/schemas/securityreports}RoleEntityList">RoleEntityList</a></td>
+                     <td>The list of role properties.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}CompanyEntityItem"></a><h3>CompanyEntityItem</h3>
+         <p>The company property.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Values</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}Values" href="#{http://www.coda.com/common/schemas/securityreports}Values">Values</a></td>
+                     <td>The list of values for this property.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The company code.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpShortName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The company short name.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}CompanyEntityList"></a><h3>CompanyEntityList</h3>
+         <p>The list of company properties.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CompanyEntityItem</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}CompanyEntityItem" href="#{http://www.coda.com/common/schemas/securityreports}CompanyEntityItem">CompanyEntityItem</a></td>
+                     <td>The company property.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}CompanyReport"></a><h3>CompanyReport</h3>
+         <p>The CompanyReport type has <a title="{http://www.coda.com/common/schemas/securityreports}SecurityEntityList" href="#{http://www.coda.com/common/schemas/securityreports}SecurityEntityList">SecurityEntityList</a> as its base type.
+         </p>
+         <p>This element contains details of a users by company report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpEntityList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}CompanyEntityList" href="#{http://www.coda.com/common/schemas/securityreports}CompanyEntityList">CompanyEntityList</a></td>
+                     <td>The list of company properties.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}ApplicationEntityItem"></a><h3>ApplicationEntityItem</h3>
+         <p>The application property.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Values</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}Values" href="#{http://www.coda.com/common/schemas/securityreports}Values">Values</a></td>
+                     <td>The list of values for this property.</td>
+                  </tr>
+                  <tr>
+                     <td>AppCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The application identifier such as Financials or Invoice Matching.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}ApplicationEntityList"></a><h3>ApplicationEntityList</h3>
+         <p>The list of application properties.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AppEntityItem</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}ApplicationEntityItem" href="#{http://www.coda.com/common/schemas/securityreports}ApplicationEntityItem">ApplicationEntityItem</a></td>
+                     <td>The application property.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}ApplicationReport"></a><h3>ApplicationReport</h3>
+         <p>The ApplicationReport type has <a title="{http://www.coda.com/common/schemas/securityreports}SecurityEntityList" href="#{http://www.coda.com/common/schemas/securityreports}SecurityEntityList">SecurityEntityList</a> as its base type.
+         </p>
+         <p>This element contains details of a users by application report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AppEntityList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}ApplicationEntityList" href="#{http://www.coda.com/common/schemas/securityreports}ApplicationEntityList">ApplicationEntityList</a></td>
+                     <td>The list of application properties.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}ApplicationListItem"></a><h3>ApplicationListItem</h3>
+         <p>This element contains details of an application</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ApplicationName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The name of the application.</td>
+                  </tr>
+                  <tr>
+                     <td>ApplicationDescription</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The description of the application.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}ApplicationList"></a><h3>ApplicationList</h3>
+         <p>This element contains a list of application names.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Application</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}ApplicationListItem" href="#{http://www.coda.com/common/schemas/securityreports}ApplicationListItem">ApplicationListItem</a></td>
+                     <td>This element contains details of an application</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityEntityItem"></a><h3>FunctionalSecurityEntityItem</h3>
+         <p>This is a element reserved for Coda use only.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Values</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}Values" href="#{http://www.coda.com/common/schemas/securityreports}Values">Values</a></td>
+                     <td>This is a element reserved for Coda use only.</td>
+                  </tr>
+                  <tr>
+                     <td>FuncSecNode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/capabilitymaster}FunctionalSecurityItem" href="../capabilitymaster/capabilitymaster.html#{http://www.coda.com/common/schemas/capabilitymaster}FunctionalSecurityItem">FunctionalSecurityItem</a></td>
+                     <td>This is a element reserved for Coda use only.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityEntityList"></a><h3>FunctionalSecurityEntityList</h3>
+         <p>This is a element reserved for Coda use only.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>FncSecEntityItem</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityEntityItem" href="#{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityEntityItem">FunctionalSecurityEntityItem</a></td>
+                     <td>This is a element reserved for Coda use only.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityReport"></a><h3>FunctionalSecurityReport</h3>
+         <p>The FunctionalSecurityReport type has <a title="{http://www.coda.com/common/schemas/securityreports}SecurityEntityList" href="#{http://www.coda.com/common/schemas/securityreports}SecurityEntityList">SecurityEntityList</a> as its base type.
+         </p>
+         <p>This is a element reserved for Coda use only.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>FncSecEntityList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityEntityList" href="#{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityEntityList">FunctionalSecurityEntityList</a></td>
+                     <td>This is a element reserved for Coda use only.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}MasterAccountEntityItem"></a><h3>MasterAccountEntityItem</h3>
+         <p>The master account property.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Values</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}Values" href="#{http://www.coda.com/common/schemas/securityreports}Values">Values</a></td>
+                     <td>The list of values for this property.</td>
+                  </tr>
+                  <tr>
+                     <td>MasterAccountCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The master code. The type here is string since master codes and account codes are
+                        of different lengths.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>MasAccountShortName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The master's short name.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}MasterAccountEntityList"></a><h3>MasterAccountEntityList</h3>
+         <p>The list of master account properties.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MasAccEntityItem</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}MasterAccountEntityItem" href="#{http://www.coda.com/common/schemas/securityreports}MasterAccountEntityItem">MasterAccountEntityItem</a></td>
+                     <td>The master account property.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}MasterAccountReport"></a><h3>MasterAccountReport</h3>
+         <p>The MasterAccountReport type has <a title="{http://www.coda.com/common/schemas/securityreports}SecurityEntityList" href="#{http://www.coda.com/common/schemas/securityreports}SecurityEntityList">SecurityEntityList</a> as its base type.
+         </p>
+         <p>This element contains details of a users by master security report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MasAccEntityList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}MasterAccountEntityList" href="#{http://www.coda.com/common/schemas/securityreports}MasterAccountEntityList">MasterAccountEntityList</a></td>
+                     <td>The list of master account properties.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}AbilityEntityItem"></a><h3>AbilityEntityItem</h3>
+         <p>The ability property.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Values</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}Values" href="#{http://www.coda.com/common/schemas/securityreports}Values">Values</a></td>
+                     <td>The list of values for this property.</td>
+                  </tr>
+                  <tr>
+                     <td>VocabID</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The vocabulary ID.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}AbilityEntityList"></a><h3>AbilityEntityList</h3>
+         <p>The list of ability properties.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AbilityEntityItem</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}AbilityEntityItem" href="#{http://www.coda.com/common/schemas/securityreports}AbilityEntityItem">AbilityEntityItem</a></td>
+                     <td>The ability property.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}AbilityReport"></a><h3>AbilityReport</h3>
+         <p>The AbilityReport type has <a title="{http://www.coda.com/common/schemas/securityreports}SecurityEntityList" href="#{http://www.coda.com/common/schemas/securityreports}SecurityEntityList">SecurityEntityList</a> as its base type.
+         </p>
+         <p>This element contains details of a users by ability report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AbilityEntityList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}AbilityEntityList" href="#{http://www.coda.com/common/schemas/securityreports}AbilityEntityList">AbilityEntityList</a></td>
+                     <td>The list of ability properties.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}ProcessMasterEntityItem"></a><h3>ProcessMasterEntityItem</h3>
+         <p>Report details for one process master.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Values</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}Values" href="#{http://www.coda.com/common/schemas/securityreports}Values">Values</a></td>
+                     <td>The list of values for this process master.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>The company in which this process master exists.</td>
+                  </tr>
+                  <tr>
+                     <td>ProcessMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>The code for this process master.</td>
+                  </tr>
+                  <tr>
+                     <td>ProcessMasterShortName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The short name for this process master.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}ProcessMasterEntityList"></a><h3>ProcessMasterEntityList</h3>
+         <p>The list of report details for the selected users and process masters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ProcessMasterEntityItem</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}ProcessMasterEntityItem" href="#{http://www.coda.com/common/schemas/securityreports}ProcessMasterEntityItem">ProcessMasterEntityItem</a></td>
+                     <td>Report details for one process master.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}ProcessMasterReport"></a><h3>ProcessMasterReport</h3>
+         <p>The ProcessMasterReport type has <a title="{http://www.coda.com/common/schemas/securityreports}SecurityEntityList" href="#{http://www.coda.com/common/schemas/securityreports}SecurityEntityList">SecurityEntityList</a> as its base type.
+         </p>
+         <p>This element holds details of a users by process master report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ProcessMasterEntityList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}ProcessMasterEntityList" href="#{http://www.coda.com/common/schemas/securityreports}ProcessMasterEntityList">ProcessMasterEntityList</a></td>
+                     <td>The list of report details for the selected users and process masters.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}BaseCriteria"></a><h3>BaseCriteria</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UserCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                     <td>The Coda user codes.</td>
+                  </tr>
+                  <tr>
+                     <td>Orientation</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}SecurityReportOrientation" href="#{http://www.coda.com/common/schemas/securityreports}SecurityReportOrientation">SecurityReportOrientation</a></td>
+                     <td>The orientation of the report (where the user codes are listed).</td>
+                  </tr>
+                  <tr>
+                     <td>IncludeShortNames</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If set, indicates short names are included.</td>
+                  </tr>
+                  <tr>
+                     <td>IncludeEmptyItems</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If set, indicates that empty items are included.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}CapabilityCriteria"></a><h3>CapabilityCriteria</h3>
+         <p>The CapabilityCriteria type has <a title="{http://www.coda.com/common/schemas/securityreports}BaseCriteria" href="#{http://www.coda.com/common/schemas/securityreports}BaseCriteria">BaseCriteria</a> as its base type.
+         </p>
+         <p>This element contains the criteria used to generate the users by capability report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                     <td>The capability code.</td>
+                  </tr>
+                  <tr>
+                     <td>Level</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}SecRptCapabilityLevel" href="#{http://www.coda.com/common/schemas/securityreports}SecRptCapabilityLevel">SecRptCapabilityLevel</a></td>
+                     <td>The security level associated with this capability.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}RoleCriteria"></a><h3>RoleCriteria</h3>
+         <p>The RoleCriteria type has <a title="{http://www.coda.com/common/schemas/securityreports}BaseCriteria" href="#{http://www.coda.com/common/schemas/securityreports}BaseCriteria">BaseCriteria</a> as its base type.
+         </p>
+         <p>This element contains the criteria used to generate the users by role report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                     <td>The role code.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}CompanyCriteria"></a><h3>CompanyCriteria</h3>
+         <p>The CompanyCriteria type has <a title="{http://www.coda.com/common/schemas/securityreports}BaseCriteria" href="#{http://www.coda.com/common/schemas/securityreports}BaseCriteria">BaseCriteria</a> as its base type.
+         </p>
+         <p>This element contains the criteria used to generate the users by company report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                     <td>The company code.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}ApplicationCriteria"></a><h3>ApplicationCriteria</h3>
+         <p>The ApplicationCriteria type has <a title="{http://www.coda.com/common/schemas/securityreports}BaseCriteria" href="#{http://www.coda.com/common/schemas/securityreports}BaseCriteria">BaseCriteria</a> as its base type.
+         </p>
+         <p>This element contains the criteria used to generate the users by application report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AppName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>This element contains the requested application name or "All" for every application.</td>
+                  </tr>
+                  <tr>
+                     <td>AppList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}ApplicationList" href="#{http://www.coda.com/common/schemas/securityreports}ApplicationList">ApplicationList</a></td>
+                     <td>This element contains a list of application names.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityCriteria"></a><h3>FunctionalSecurityCriteria</h3>
+         <p>The FunctionalSecurityCriteria type has <a title="{http://www.coda.com/common/schemas/securityreports}BaseCriteria" href="#{http://www.coda.com/common/schemas/securityreports}BaseCriteria">BaseCriteria</a> as its base type.
+         </p>
+         <p>This is a element reserved for Coda use only.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>FuncSecNodeList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/capabilitymaster}FunctionalSecurityList" href="../capabilitymaster/capabilitymaster.html#{http://www.coda.com/common/schemas/capabilitymaster}FunctionalSecurityList">FunctionalSecurityList</a></td>
+                     <td>This is a element reserved for Coda use only.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}MasterAccountCriteria"></a><h3>MasterAccountCriteria</h3>
+         <p>The MasterAccountCriteria type has <a title="{http://www.coda.com/common/schemas/securityreports}BaseCriteria" href="#{http://www.coda.com/common/schemas/securityreports}BaseCriteria">BaseCriteria</a> as its base type.
+         </p>
+         <p>This element contains the criteria used to generate the users by master security report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ItemVocab</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The vocabulary name of the master you want to include or exclude from the selection.</td>
+                  </tr>
+                  <tr>
+                     <td>OperatorVocab</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The relational operator used in the selection.</td>
+                  </tr>
+                  <tr>
+                     <td>FromValue</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The From value in a range.</td>
+                  </tr>
+                  <tr>
+                     <td>ToValue</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The To value in a range.</td>
+                  </tr>
+                  <tr>
+                     <td>DocCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                     <td>The document code (Master Security).</td>
+                  </tr>
+                  <tr>
+                     <td>AccountCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeAcCodeWild" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAcCodeWild">typeAcCodeWild</a></td>
+                     <td>The account code (Account Security).</td>
+                  </tr>
+                  <tr>
+                     <td>SelectionLimit</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The maximum number of rows that will be returned.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}VocabList"></a><h3>VocabList</h3>
+         <p>A list of vocabulary items.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>VocabID</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>A vocabulary item in the list.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}AbilityCriteria"></a><h3>AbilityCriteria</h3>
+         <p>The AbilityCriteria type has <a title="{http://www.coda.com/common/schemas/securityreports}BaseCriteria" href="#{http://www.coda.com/common/schemas/securityreports}BaseCriteria">BaseCriteria</a> as its base type.
+         </p>
+         <p>This element contains the criteria used to generate the users by ability report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AbilityVocabList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}VocabList" href="#{http://www.coda.com/common/schemas/securityreports}VocabList">VocabList</a></td>
+                     <td>A list of ability vocabulary items.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}ProcessMasterCriteria"></a><h3>ProcessMasterCriteria</h3>
+         <p>The ProcessMasterCriteria type has <a title="{http://www.coda.com/common/schemas/securityreports}BaseCriteria" href="#{http://www.coda.com/common/schemas/securityreports}BaseCriteria">BaseCriteria</a> as its base type.
+         </p>
+         <p>This element contains the criteria used to generate the users by process master report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                     <td>The company in which the process masters exist.</td>
+                  </tr>
+                  <tr>
+                     <td>ProcessType</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGenericOon" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGenericOon">typeGenericOon</a></td>
+                     <td>The type of process master that you want to report on.</td>
+                  </tr>
+                  <tr>
+                     <td>ProcessCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                     <td>The code for the process masters that you want to report on. Wildcards are allowed.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}SecurityReport"></a><h3>SecurityReport</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelectionCriteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}BaseCriteria" href="#{http://www.coda.com/common/schemas/securityreports}BaseCriteria">BaseCriteria</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>SecurityData</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}SecurityEntityList" href="#{http://www.coda.com/common/schemas/securityreports}SecurityEntityList">SecurityEntityList</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByCapabilityRequest"></a><h3>UsersByCapabilityRequest</h3>
+         <p>The UsersByCapabilityRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}CapabilityCriteria" href="#{http://www.coda.com/common/schemas/securityreports}CapabilityCriteria">CapabilityCriteria</a></td>
+                     <td>This element contains the criteria used to generate the report.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByCapabilityRequestVerb"></a><h3>UsersByCapabilityRequestVerb</h3>
+         <p>The UsersByCapabilityRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>The request to the users by capability function.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByCapabilityRequest" href="#{http://www.coda.com/common/schemas/securityreports}UsersByCapabilityRequest">UsersByCapabilityRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByCapabilityResponse"></a><h3>UsersByCapabilityResponse</h3>
+         <p>The UsersByCapabilityResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}CapabilityCriteria" href="#{http://www.coda.com/common/schemas/securityreports}CapabilityCriteria">CapabilityCriteria</a></td>
+                     <td>This element contains the criteria specified in the request.</td>
+                  </tr>
+                  <tr>
+                     <td>Results</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}CapabilityReport" href="#{http://www.coda.com/common/schemas/securityreports}CapabilityReport">CapabilityReport</a></td>
+                     <td>Contains the results retrieved by the request.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByCapabilityResponseVerb"></a><h3>UsersByCapabilityResponseVerb</h3>
+         <p>The UsersByCapabilityResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByCapabilityResponse" href="#{http://www.coda.com/common/schemas/securityreports}UsersByCapabilityResponse">UsersByCapabilityResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByRoleRequest"></a><h3>UsersByRoleRequest</h3>
+         <p>The UsersByRoleRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}RoleCriteria" href="#{http://www.coda.com/common/schemas/securityreports}RoleCriteria">RoleCriteria</a></td>
+                     <td>This element contains the criteria used to generate the report.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByRoleRequestVerb"></a><h3>UsersByRoleRequestVerb</h3>
+         <p>The UsersByRoleRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>The request to the users by role function.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByRoleRequest" href="#{http://www.coda.com/common/schemas/securityreports}UsersByRoleRequest">UsersByRoleRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByRoleResponse"></a><h3>UsersByRoleResponse</h3>
+         <p>The UsersByRoleResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}RoleCriteria" href="#{http://www.coda.com/common/schemas/securityreports}RoleCriteria">RoleCriteria</a></td>
+                     <td>This element contains the criteria specified in the request.</td>
+                  </tr>
+                  <tr>
+                     <td>Results</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}RoleReport" href="#{http://www.coda.com/common/schemas/securityreports}RoleReport">RoleReport</a></td>
+                     <td>Contains the results retrieved by the request.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByRoleResponseVerb"></a><h3>UsersByRoleResponseVerb</h3>
+         <p>The UsersByRoleResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByRoleResponse" href="#{http://www.coda.com/common/schemas/securityreports}UsersByRoleResponse">UsersByRoleResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByCompanyRequest"></a><h3>UsersByCompanyRequest</h3>
+         <p>The UsersByCompanyRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}CompanyCriteria" href="#{http://www.coda.com/common/schemas/securityreports}CompanyCriteria">CompanyCriteria</a></td>
+                     <td>This element contains the criteria used to generate the report.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByCompanyRequestVerb"></a><h3>UsersByCompanyRequestVerb</h3>
+         <p>The UsersByCompanyRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>The request to the users by company function.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByCompanyRequest" href="#{http://www.coda.com/common/schemas/securityreports}UsersByCompanyRequest">UsersByCompanyRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByCompanyResponse"></a><h3>UsersByCompanyResponse</h3>
+         <p>The UsersByCompanyResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}CompanyCriteria" href="#{http://www.coda.com/common/schemas/securityreports}CompanyCriteria">CompanyCriteria</a></td>
+                     <td>This element contains the criteria specified in the request.</td>
+                  </tr>
+                  <tr>
+                     <td>Results</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}CompanyReport" href="#{http://www.coda.com/common/schemas/securityreports}CompanyReport">CompanyReport</a></td>
+                     <td>Contains the results retrieved by the request.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByCompanyResponseVerb"></a><h3>UsersByCompanyResponseVerb</h3>
+         <p>The UsersByCompanyResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByCompanyResponse" href="#{http://www.coda.com/common/schemas/securityreports}UsersByCompanyResponse">UsersByCompanyResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByApplicationRequest"></a><h3>UsersByApplicationRequest</h3>
+         <p>The UsersByApplicationRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}ApplicationCriteria" href="#{http://www.coda.com/common/schemas/securityreports}ApplicationCriteria">ApplicationCriteria</a></td>
+                     <td>This element contains the criteria used to generate the report.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByApplicationRequestVerb"></a><h3>UsersByApplicationRequestVerb</h3>
+         <p>The UsersByApplicationRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Creates a users by application report.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByApplicationRequest" href="#{http://www.coda.com/common/schemas/securityreports}UsersByApplicationRequest">UsersByApplicationRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByApplicationResponse"></a><h3>UsersByApplicationResponse</h3>
+         <p>The UsersByApplicationResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}ApplicationCriteria" href="#{http://www.coda.com/common/schemas/securityreports}ApplicationCriteria">ApplicationCriteria</a></td>
+                     <td>This element contains the criteria specified in the request.</td>
+                  </tr>
+                  <tr>
+                     <td>Results</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}ApplicationReport" href="#{http://www.coda.com/common/schemas/securityreports}ApplicationReport">ApplicationReport</a></td>
+                     <td>Contains the results retrieved by the request.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByApplicationResponseVerb"></a><h3>UsersByApplicationResponseVerb</h3>
+         <p>The UsersByApplicationResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByApplicationResponse" href="#{http://www.coda.com/common/schemas/securityreports}UsersByApplicationResponse">UsersByApplicationResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByFunctionalSecurityRequest"></a><h3>UsersByFunctionalSecurityRequest</h3>
+         <p>The UsersByFunctionalSecurityRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityCriteria" href="#{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityCriteria">FunctionalSecurityCriteria</a></td>
+                     <td>This element contains the criteria used to generate the report.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByFunctionalSecurityRequestVerb"></a><h3>UsersByFunctionalSecurityRequestVerb</h3>
+         <p>The UsersByFunctionalSecurityRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>The request to the users by functional security function.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByFunctionalSecurityRequest" href="#{http://www.coda.com/common/schemas/securityreports}UsersByFunctionalSecurityRequest">UsersByFunctionalSecurityRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByFunctionalSecurityResponse"></a><h3>UsersByFunctionalSecurityResponse</h3>
+         <p>The UsersByFunctionalSecurityResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityCriteria" href="#{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityCriteria">FunctionalSecurityCriteria</a></td>
+                     <td>This element contains the criteria specified in the request.</td>
+                  </tr>
+                  <tr>
+                     <td>Results</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityReport" href="#{http://www.coda.com/common/schemas/securityreports}FunctionalSecurityReport">FunctionalSecurityReport</a></td>
+                     <td>Contains the results retrieved by the request.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByFunctionalSecurityResponseVerb"></a><h3>UsersByFunctionalSecurityResponseVerb</h3>
+         <p>The UsersByFunctionalSecurityResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByFunctionalSecurityResponse" href="#{http://www.coda.com/common/schemas/securityreports}UsersByFunctionalSecurityResponse">UsersByFunctionalSecurityResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityRequest"></a><h3>UsersByMasterAccountSecurityRequest</h3>
+         <p>The UsersByMasterAccountSecurityRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}MasterAccountCriteria" href="#{http://www.coda.com/common/schemas/securityreports}MasterAccountCriteria">MasterAccountCriteria</a></td>
+                     <td>This element contains the criteria used to generate the report.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityRequestVerb"></a><h3>UsersByMasterAccountSecurityRequestVerb</h3>
+         <p>The UsersByMasterAccountSecurityRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>The request to the users by master security function.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityRequest" href="#{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityRequest">UsersByMasterAccountSecurityRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityResponse"></a><h3>UsersByMasterAccountSecurityResponse</h3>
+         <p>The UsersByMasterAccountSecurityResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}MasterAccountCriteria" href="#{http://www.coda.com/common/schemas/securityreports}MasterAccountCriteria">MasterAccountCriteria</a></td>
+                     <td>This element contains the criteria specified in the request.</td>
+                  </tr>
+                  <tr>
+                     <td>Results</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}MasterAccountReport" href="#{http://www.coda.com/common/schemas/securityreports}MasterAccountReport">MasterAccountReport</a></td>
+                     <td>Contains the results retrieved by the request.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityResponseVerb"></a><h3>UsersByMasterAccountSecurityResponseVerb</h3>
+         <p>The UsersByMasterAccountSecurityResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityResponse" href="#{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityResponse">UsersByMasterAccountSecurityResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}GetAvailableAbilityVocabsRequest"></a><h3>GetAvailableAbilityVocabsRequest</h3>
+         <p>The GetAvailableAbilityVocabsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/common/schemas/securityreports}GetAvailableAbilityVocabsRequestVerb"></a><h3>GetAvailableAbilityVocabsRequestVerb</h3>
+         <p>The GetAvailableAbilityVocabsRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves a list of vocabulary items available to the logged on user.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}GetAvailableAbilityVocabsRequest" href="#{http://www.coda.com/common/schemas/securityreports}GetAvailableAbilityVocabsRequest">GetAvailableAbilityVocabsRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}GetAvailableAbilityVocabsResponse"></a><h3>GetAvailableAbilityVocabsResponse</h3>
+         <p>The GetAvailableAbilityVocabsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AbilityVocabList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}VocabList" href="#{http://www.coda.com/common/schemas/securityreports}VocabList">VocabList</a></td>
+                     <td>A list of vocabulary items returned by the request.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}GetAvailableAbilityVocabsResponseVerb"></a><h3>GetAvailableAbilityVocabsResponseVerb</h3>
+         <p>The GetAvailableAbilityVocabsResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}GetAvailableAbilityVocabsResponse" href="#{http://www.coda.com/common/schemas/securityreports}GetAvailableAbilityVocabsResponse">GetAvailableAbilityVocabsResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByAbilityRequest"></a><h3>UsersByAbilityRequest</h3>
+         <p>The UsersByAbilityRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}AbilityCriteria" href="#{http://www.coda.com/common/schemas/securityreports}AbilityCriteria">AbilityCriteria</a></td>
+                     <td>This element contains the criteria used to generate the report.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByAbilityRequestVerb"></a><h3>UsersByAbilityRequestVerb</h3>
+         <p>The UsersByAbilityRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>The request to the users by ability function.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByAbilityRequest" href="#{http://www.coda.com/common/schemas/securityreports}UsersByAbilityRequest">UsersByAbilityRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByAbilityResponse"></a><h3>UsersByAbilityResponse</h3>
+         <p>The UsersByAbilityResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Criteria</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}AbilityCriteria" href="#{http://www.coda.com/common/schemas/securityreports}AbilityCriteria">AbilityCriteria</a></td>
+                     <td>This element contains the criteria specified in the request.</td>
+                  </tr>
+                  <tr>
+                     <td>Results</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}AbilityReport" href="#{http://www.coda.com/common/schemas/securityreports}AbilityReport">AbilityReport</a></td>
+                     <td>Contains the results retrieved by the request.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}UsersByAbilityResponseVerb"></a><h3>UsersByAbilityResponseVerb</h3>
+         <p>The UsersByAbilityResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByAbilityResponse" href="#{http://www.coda.com/common/schemas/securityreports}UsersByAbilityResponse">UsersByAbilityResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}SecurityReportsRequest"></a><h3>SecurityReportsRequest</h3>
+         <p>The SecurityReportsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to generate security reports.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UsersByCapability</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByCapabilityRequestVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByCapabilityRequestVerb">UsersByCapabilityRequestVerb</a></td>
+                     <td>The request to the users by capability function.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByRole</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByRoleRequestVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByRoleRequestVerb">UsersByRoleRequestVerb</a></td>
+                     <td>The request to the users by role function.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByCompany</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByCompanyRequestVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByCompanyRequestVerb">UsersByCompanyRequestVerb</a></td>
+                     <td>The request to the users by company function.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByApplication</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByApplicationRequestVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByApplicationRequestVerb">UsersByApplicationRequestVerb</a></td>
+                     <td>Creates a users by application report.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByFunctionalSecurity</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByFunctionalSecurityRequestVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByFunctionalSecurityRequestVerb">UsersByFunctionalSecurityRequestVerb</a></td>
+                     <td>The request to the users by functional security function.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByMasterSecurity</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityRequestVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityRequestVerb">UsersByMasterAccountSecurityRequestVerb</a></td>
+                     <td>The request to the users by master security function.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByAccountSecurity</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityRequestVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityRequestVerb">UsersByMasterAccountSecurityRequestVerb</a></td>
+                     <td>The request to the users by account security function.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByAbility</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByAbilityRequestVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByAbilityRequestVerb">UsersByAbilityRequestVerb</a></td>
+                     <td>The request to the users by ability function.</td>
+                  </tr>
+                  <tr>
+                     <td>GetAvailableAbilityVocabs</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}GetAvailableAbilityVocabsRequestVerb" href="#{http://www.coda.com/common/schemas/securityreports}GetAvailableAbilityVocabsRequestVerb">GetAvailableAbilityVocabsRequestVerb</a></td>
+                     <td>Request a list of ability reporting vocabs we support. This is controlled by which
+                        applications are installed. Note that not all our applications supply reporting vocabs.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/securityreports}SecurityReportsResponse"></a><h3>SecurityReportsResponse</h3>
+         <p>The SecurityReportsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you generate security reports.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UsersByCapability</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByCapabilityResponseVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByCapabilityResponseVerb">UsersByCapabilityResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByRole</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByRoleResponseVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByRoleResponseVerb">UsersByRoleResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByCompany</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByCompanyResponseVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByCompanyResponseVerb">UsersByCompanyResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByApplication</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByApplicationResponseVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByApplicationResponseVerb">UsersByApplicationResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByFunctionalSecurity</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByFunctionalSecurityResponseVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByFunctionalSecurityResponseVerb">UsersByFunctionalSecurityResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByMasterSecurity</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityResponseVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityResponseVerb">UsersByMasterAccountSecurityResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByAccountSecurity</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityResponseVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByMasterAccountSecurityResponseVerb">UsersByMasterAccountSecurityResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>UsersByAbility</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}UsersByAbilityResponseVerb" href="#{http://www.coda.com/common/schemas/securityreports}UsersByAbilityResponseVerb">UsersByAbilityResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetAvailableAbilityVocabs</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/securityreports}GetAvailableAbilityVocabsResponseVerb" href="#{http://www.coda.com/common/schemas/securityreports}GetAvailableAbilityVocabsResponseVerb">GetAvailableAbilityVocabsResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

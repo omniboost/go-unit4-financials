@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/accountsummary/accountsummary-14.0/webservice" xmlns:asrws="http://www.coda.com/efinance/schemas/accountsummary/accountsummary-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:asr="http://www.coda.com/efinance/schemas/accountsummary"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:elm="http://www.coda.com/efinance/schemas/elementmaster"
+    targetNamespace="http://www.coda.com/efinance/schemas/accountsummary/accountsummary-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/accountsummary" schemaLocation="../wsdl/finance/accountsummary/accountsummary.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/elementmaster" schemaLocation="finance/elementmaster/elementmaster.xsd"/>
+    <xsd:element name="FindElementResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="asr:FindElementFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the filter that was
+                            used to find elements.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="asr:elmKeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information for
+                            the elements that are found.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="asr:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information for
+                            the listed account summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Context" minOccurs="0" type="asr:AccountSummaryContext">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the data held in
+                            each account summary that is listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="asr:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the account summary you want to retrieve
+                            from the database.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindElementRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="asr:FindElementFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the filter critieria
+                            used to find elements.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetResponse">
+    <part name="GetResponse" element="asrws:GetResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="asrws:OptionsResponse"/>
+  </message>
+  <message name="FindElementResponse">
+    <part name="FindElementResponse" element="asrws:FindElementResponse"/>
+  </message>
+  <message name="FindElementRequest">
+    <part name="FindElementRequest" element="asrws:FindElementRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="asrws:GetRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="asrws:Options"/>
+  </message>
+  <portType name="AccountSummaryServicePortTypes">
+    <operation name="FindElement">
+      <input message="asrws:FindElementRequest"/>
+      <output message="asrws:FindElementResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="asrws:GetRequest"/>
+      <output message="asrws:GetResponse"/>
+    </operation>
+  </portType>
+  <binding name="AccountSummaryServiceSOAPBinding" type="asrws:AccountSummaryServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="FindElement">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/AccountSummary/FindElement" style="document"/>
+      <input>
+        <soap:header message="asrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="asrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/AccountSummary/Get" style="document"/>
+      <input>
+        <soap:header message="asrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="asrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AccountSummaryService">
+    <port name="AccountSummaryServicePort" binding="asrws:AccountSummaryServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/accountsummary/accountsummary-14.0"/>
+    </port>
+  </service>
+</definitions>

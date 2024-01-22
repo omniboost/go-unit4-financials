@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/input/popinput-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:inpws="http://www.coda.com/pop/schemas/input/popinput-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:rfq="http://www.coda.com/pop/schemas/requestforquote"
+    xmlns:inputtemplatemaster="http://www.coda.com/pop/schemas/inputtemplatemaster"
+    xmlns:commbalance="http://www.coda.com/pop/schemas/commitmentbalance"
+    xmlns:inp="http://www.coda.com/pop/schemas/input"
+    xmlns:ns1="http://www.coda.com/common/schemas/domaingen"
+    xmlns:doc="http://www.coda.com/pop/schemas/document"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:popcommon="http://www.coda.com/pop/schemas/popcommon"
+    xmlns:popreqisition="http://www.coda.com/pop/schemas/requisition"
+    targetNamespace="http://www.coda.com/pop/schemas/input/popinput-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/requestforquote" schemaLocation="pop/requestforquote/requestforquote.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/commitmentbalance" schemaLocation="pop/commitmentbalance/commitmentbalance.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/requisition" schemaLocation="pop/requisition/requisition.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/input" schemaLocation="../wsdl/pop/input/input.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/inputtemplatemaster" schemaLocation="pop/inputtemplatemaster/inputtemplatemaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/popcommon" schemaLocation="pop/popcommon/popcommon.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/document" schemaLocation="pop/document/document.xsd"/>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="doc:Document">
+                    <xsd:annotation>
+                        <xsd:documentation>The document is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BudgetRejected" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The BudgetRejected is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Budget" minOccurs="0"
+                    maxOccurs="unbounded" type="commbalance:ComBudgetInfo">
+                    <xsd:annotation>
+                        <xsd:documentation>The Budget is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WarningMessages" minOccurs="0"
+                    maxOccurs="unbounded" type="popcommon:Warning">
+                    <xsd:annotation>
+                        <xsd:documentation>The WarningMessages is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentChanged" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The DocumentChanged is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="NewRFQResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="NewRFQ" type="rfq:RequestForQuote">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            newRFQ function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="NewRFQRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code to use when
+                                    creating the document.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RequisitionLinesKeyList" type="popreqisition:RequisitionItemLineKeyList">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DocumentChangedRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="doc:Document">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BlankDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BlankDocument" type="doc:Document">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            blankDocument function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ItemLine" type="doc:ItemLine">
+                    <xsd:annotation>
+                        <xsd:documentation>The itemLine is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SaveResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="doc:Document">
+                    <xsd:annotation>
+                        <xsd:documentation>The document is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BudgetRejected" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The BudgetRejected is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Budget" minOccurs="0"
+                    maxOccurs="unbounded" type="commbalance:ComBudgetInfo">
+                    <xsd:annotation>
+                        <xsd:documentation>The Budget is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WarningMessages" minOccurs="0"
+                    maxOccurs="unbounded" type="popcommon:Warning">
+                    <xsd:annotation>
+                        <xsd:documentation>The WarningMessages is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateForApprovalRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" minOccurs="0" type="doc:Document">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BlankRFQRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentMasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code to use when
+                                    creating the document.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateForApprovalResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="WarningMessages" minOccurs="0"
+                    maxOccurs="unbounded" type="popcommon:Warning">
+                    <xsd:annotation>
+                        <xsd:documentation>The warningMessages is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="doc:Document">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document to update.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SaveRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="doc:Document">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document to save.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BlankDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InputTemplate" type="inputtemplatemaster:InputTemplateMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The Input Template that is used to
+                                    create the document. This is a
+                                    mandatory field.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentMasterCode" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DocumentChangedResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentChanged" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            documentChanged function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BlankRFQResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BlankRFQ" type="rfq:RequestForQuote">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            blankRFQ function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentKey" type="doc:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the Document object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="inpws:OptionsResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="inpws:DeleteRequest"/>
+  </message>
+  <message name="DocumentChangedResponse">
+    <part name="DocumentChangedResponse" element="inpws:DocumentChangedResponse"/>
+  </message>
+  <message name="BlankRFQResponse">
+    <part name="BlankRFQResponse" element="inpws:BlankRFQResponse"/>
+  </message>
+  <message name="DocumentChangedRequest">
+    <part name="DocumentChangedRequest" element="inpws:DocumentChangedRequest"/>
+  </message>
+  <message name="NewRFQResponse">
+    <part name="NewRFQResponse" element="inpws:NewRFQResponse"/>
+  </message>
+  <message name="BlankDocumentRequest">
+    <part name="BlankDocumentRequest" element="inpws:BlankDocumentRequest"/>
+  </message>
+  <message name="SaveResponse">
+    <part name="SaveResponse" element="inpws:SaveResponse"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="inpws:DeleteResponse"/>
+  </message>
+  <message name="SaveRequest">
+    <part name="SaveRequest" element="inpws:SaveRequest"/>
+  </message>
+  <message name="BlankRFQRequest">
+    <part name="BlankRFQRequest" element="inpws:BlankRFQRequest"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="inpws:UpdateResponse"/>
+  </message>
+  <message name="ValidateForApprovalResponse">
+    <part name="ValidateForApprovalResponse" element="inpws:ValidateForApprovalResponse"/>
+  </message>
+  <message name="BlankDocumentResponse">
+    <part name="BlankDocumentResponse" element="inpws:BlankDocumentResponse"/>
+  </message>
+  <message name="ValidateForApprovalRequest">
+    <part name="ValidateForApprovalRequest" element="inpws:ValidateForApprovalRequest"/>
+  </message>
+  <message name="NewRFQRequest">
+    <part name="NewRFQRequest" element="inpws:NewRFQRequest"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="inpws:UpdateRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="inpws:Options"/>
+  </message>
+  <portType name="POPInputServicePortTypes">
+    <operation name="Delete">
+      <input message="inpws:DeleteRequest"/>
+      <output message="inpws:DeleteResponse"/>
+    </operation>
+    <operation name="DocumentChanged">
+      <input message="inpws:DocumentChangedRequest"/>
+      <output message="inpws:DocumentChangedResponse"/>
+    </operation>
+    <operation name="ValidateForApproval">
+      <input message="inpws:ValidateForApprovalRequest"/>
+      <output message="inpws:ValidateForApprovalResponse"/>
+    </operation>
+    <operation name="Save">
+      <input message="inpws:SaveRequest"/>
+      <output message="inpws:SaveResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="inpws:UpdateRequest"/>
+      <output message="inpws:UpdateResponse"/>
+    </operation>
+    <operation name="BlankRFQ">
+      <input message="inpws:BlankRFQRequest"/>
+      <output message="inpws:BlankRFQResponse"/>
+    </operation>
+    <operation name="NewRFQ">
+      <input message="inpws:NewRFQRequest"/>
+      <output message="inpws:NewRFQResponse"/>
+    </operation>
+    <operation name="BlankDocument">
+      <input message="inpws:BlankDocumentRequest"/>
+      <output message="inpws:BlankDocumentResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPInputServiceSOAPBinding" type="inpws:POPInputServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPInput/Delete" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DocumentChanged">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPInput/DocumentChanged" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateForApproval">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPInput/ValidateForApproval" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Save">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPInput/Save" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPInput/Update" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="BlankRFQ">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPInput/BlankRFQ" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="NewRFQ">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPInput/NewRFQ" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="BlankDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPInput/BlankDocument" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPInputService">
+    <port name="POPInputServicePort" binding="inpws:POPInputServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/input/popinput-12.0"/>
+    </port>
+  </service>
+</definitions>

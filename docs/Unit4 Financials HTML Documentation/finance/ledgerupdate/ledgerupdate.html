@@ -1,0 +1,954 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/ledgerupdate</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/ledgerupdate</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>IsOneRunningStatistics</h3>
+         <p>This element contains statistical information about whether a ledger update process
+            is running and the parameters used to start the last, or currently running, update.
+         </p>
+         <h3>LedgerUpdateRequest</h3>
+         <p>This service allows you to update ledger information.</p>
+         <h3>LedgerUpdateResponse</h3>
+         <p>This is the response that is returned when you update ledger information.</p>
+         <h3>ProgressStatistics</h3>
+         <p>This element contains statistical information about the progress of this ledger update.</p>
+         <h3>StartParams</h3>
+         <p>This element contains the parameters used to select the ledgers to update.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}StartParams"></a><h3>StartParams</h3>
+         <p>This element contains the parameters used to select the ledgers to update.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UpdateMode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtUpdateMode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtUpdateMode">typeCtUpdateMode</a></td>
+                     <td>Should the process continually update or stop after one update? The available values
+                        are Single update (ledger information is updated only once) or Continuous update (ledger
+                        information is updated repeatedly at intervals specified in the IdleInterval field).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>IdleInterval</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The interval in hours between each ledger update. This option is available only when
+                        the UpdateMode is Continuous.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>AllCompanies</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether you want to update all ledgers in all the companies to which you
+                        have access.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>LedgerSelection</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the ledger master you want to update. Leave this field blank to select
+                        all ledger masters for the current company.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ReferenceDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeHSDateB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeHSDateB">typeHSDateB</a></td>
+                     <td>The date for which the selected ledger master(s) will be updated. This can be a hard
+                        date or a soft date, or can be left blank to use the reference date specified on the
+                        individual ledger master(s). If the reference date on a ledger master is blank, and
+                        ReferenceDate is left blank, the ledger will be updated for today's date.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}ProgressStatistics"></a><h3>ProgressStatistics</h3>
+         <p>This element contains statistical information about the progress of this ledger update.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>OverallElapsedDays</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The time elapsed in days since the start of the ledger update process (this includes
+                        all current update cycles).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>OverallElapsedHours</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The time elapsed in hours since the start of the ledger update process (this includes
+                        all current update cycles).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>OverallElapsedMins</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The time elapsed in minutes since the start of the ledger update process (this includes
+                        all current update cycles).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>IdleHoursLeft</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The time remaining in hours until the next update cycle begins. This information is
+                        displayed only when the current state of the update process is Idle.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>IdleMinsLeft</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The time remaining in minutes until the next update cycle begins. This information
+                        is displayed only when the current state of the update process is Idle.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>CyclesCompleted</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The number of update cycles completed so far in the ledger update process.</td>
+                  </tr>
+                  <tr>
+                     <td>CycleStartDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date on which this update cycle started.</td>
+                  </tr>
+                  <tr>
+                     <td>CycleStartTime</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTime" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTime">typeTime</a></td>
+                     <td>The time at which this update cycle started.</td>
+                  </tr>
+                  <tr>
+                     <td>CycleElapsedDays</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The time elapsed in days since the start of this update cycle.</td>
+                  </tr>
+                  <tr>
+                     <td>CycleElapsedHours</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The time elapsed in hours since the start of this update cycle.</td>
+                  </tr>
+                  <tr>
+                     <td>CycleElapsedMins</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The time elapsed in minutes since the start of this update cycle.</td>
+                  </tr>
+                  <tr>
+                     <td>TotalCompanys</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The total number of companies for which ledgers are being updated.</td>
+                  </tr>
+                  <tr>
+                     <td>CurrentCompany</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The company for which ledger information is being updated.</td>
+                  </tr>
+                  <tr>
+                     <td>CurrentCompanyCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company for which ledger information is being updated.</td>
+                  </tr>
+                  <tr>
+                     <td>TotalLedgers</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The number of ledgers in the update of the current company.</td>
+                  </tr>
+                  <tr>
+                     <td>CurrentLedger</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The ledger master currently being updated.</td>
+                  </tr>
+                  <tr>
+                     <td>CurrentLedgerCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the ledger master currently being updated.</td>
+                  </tr>
+                  <tr>
+                     <td>DetailsSelected</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of document lines selected for this ledger update cycle.</td>
+                  </tr>
+                  <tr>
+                     <td>DetailsProcessed</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of detail lines processed so far for this ledger update cycle.</td>
+                  </tr>
+                  <tr>
+                     <td>OverallState</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtOneOfN" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtOneOfN">typeCtOneOfN</a></td>
+                     <td>The current state of the Ledger Maintenance process. The available values are: None,
+                        Processing, Idle, Aborting, Finishing, Finished.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>CycleState</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtOneOfN" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtOneOfN">typeCtOneOfN</a></td>
+                     <td>The state of the current update cycle. The available values are: None, Selecting,
+                        Building, Updating and Writing statistics.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ReasonMessage</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeText" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeText">typeText</a></td>
+                     <td>Displays information about the ledger update cycle.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}IsOneRunningStatistics"></a><h3>IsOneRunningStatistics</h3>
+         <p>This element contains statistical information about whether a ledger update process
+            is running and the parameters used to start the last, or currently running, update.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsRunning</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether a ledger update process is currently running.</td>
+                  </tr>
+                  <tr>
+                     <td>OverallStartDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date on which the ledger update process started.</td>
+                  </tr>
+                  <tr>
+                     <td>OverallStartTime</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTime" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTime">typeTime</a></td>
+                     <td>The time at which the ledger update process started.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateMode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtUpdateMode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtUpdateMode">typeCtUpdateMode</a></td>
+                     <td>Should the process continually update or stop after one update? The available values
+                        are Single update (ledger information is updated only once) or Continuous update (ledger
+                        information is updated repeatedly at intervals specified in the IdleInterval field).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>IdleInterval</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The interval in hours between each ledger update. This option is available only when
+                        the UpdateMode is Continuous.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>CompanySelection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company for which a ledger update process was last run, or is currently
+                        running. A blank field indicates that ledger information is being updated for all
+                        the companies to which you have access.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>LedgerSelection</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the ledger master to update. Leave this field blank to select all ledger
+                        masters for the current company.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}StartRequest"></a><h3>StartRequest</h3>
+         <p>The StartRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Params</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}StartParams" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}StartParams">StartParams</a></td>
+                     <td>Contains the parameters needed to select the ledgers to update.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}StartRequestVerb"></a><h3>StartRequestVerb</h3>
+         <p>The StartRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Starts updating ledger information using the parameters you specify.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}StartRequest" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}StartRequest">StartRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}StartResponse"></a><h3>StartResponse</h3>
+         <p>The StartResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company for which ledger updates are currently running.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateMode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtUpdateMode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtUpdateMode">typeCtUpdateMode</a></td>
+                     <td>Specifies the update method being used. The available values are Single update (ledger
+                        information is updated only once) or Continuous update (ledger information is updated
+                        repeatedly at intervals specified in the IdleInterval field).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>IdleInterval</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The interval in hours between each ledger update. This option is available only when
+                        the UpdateMode is Continuous.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>AllCompanies</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether you are updating all ledgers for all companies to which you have
+                        access.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>LedgerSelection</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code for the ledger master to update. This field is blank if all ledger masters
+                        for the current company are being updated.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>AllLedgers</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether you are updating all ledgers for the current company.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}StartResponseVerb"></a><h3>StartResponseVerb</h3>
+         <p>The StartResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}StartResponse" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}StartResponse">StartResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}GetProgressRequestVerb"></a><h3>GetProgressRequestVerb</h3>
+         <p>The GetProgressRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves statistical information about the progress of the ledger update process.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}GetProgressResponse"></a><h3>GetProgressResponse</h3>
+         <p>The GetProgressResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ProgressStatistics</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}ProgressStatistics" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}ProgressStatistics">ProgressStatistics</a></td>
+                     <td>This element contains statistical information about the progress of the ledger update
+                        process.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}GetProgressResponseVerb"></a><h3>GetProgressResponseVerb</h3>
+         <p>The GetProgressResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}GetProgressResponse" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}GetProgressResponse">GetProgressResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}IsOneRunningRequestVerb"></a><h3>IsOneRunningRequestVerb</h3>
+         <p>The IsOneRunningRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Indicates whether a ledger update process is running and contains information about
+            the parameters used to start the last, or currently running, update.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}IsOneRunningResponse"></a><h3>IsOneRunningResponse</h3>
+         <p>The IsOneRunningResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsOneRunningStatistics</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}IsOneRunningStatistics" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}IsOneRunningStatistics">IsOneRunningStatistics</a></td>
+                     <td>Indicates whether a ledger update process is running and returns statistical information
+                        about the parameters used to start the last, or currently running, update.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}IsOneRunningResponseVerb"></a><h3>IsOneRunningResponseVerb</h3>
+         <p>The IsOneRunningResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}IsOneRunningResponse" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}IsOneRunningResponse">IsOneRunningResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}StopRequestVerb"></a><h3>StopRequestVerb</h3>
+         <p>The StopRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Stops the ledger update process at the end of the current update cycle. This is available
+            only when the UpdateMode is Continuous.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}StopResponseVerb"></a><h3>StopResponseVerb</h3>
+         <p>The StopResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}AbortRequestVerb"></a><h3>AbortRequestVerb</h3>
+         <p>The AbortRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Aborts the ledger update process immediately (or as soon as it is safe to do so).</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}AbortResponseVerb"></a><h3>AbortResponseVerb</h3>
+         <p>The AbortResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}ClearLocksRequestVerb"></a><h3>ClearLocksRequestVerb</h3>
+         <p>The ClearLocksRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Clears any update cycle that the server believes is still running but which has actually
+            stopped.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}ClearLocksResponseVerb"></a><h3>ClearLocksResponseVerb</h3>
+         <p>The ClearLocksResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}LedgerUpdateRequest"></a><h3>LedgerUpdateRequest</h3>
+         <p>The LedgerUpdateRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to update ledger information.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Start</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}StartRequestVerb" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}StartRequestVerb">StartRequestVerb</a></td>
+                     <td>Starts updating ledger information using the parameters you specify.</td>
+                  </tr>
+                  <tr>
+                     <td>Stop</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}StopRequestVerb" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}StopRequestVerb">StopRequestVerb</a></td>
+                     <td>Stops the ledger update process at the end of the current update cycle. This is available
+                        only when the UpdateMode is Continuous.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Abort</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}AbortRequestVerb" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}AbortRequestVerb">AbortRequestVerb</a></td>
+                     <td>Aborts the ledger update process immediately (or as soon as it is safe to do so).</td>
+                  </tr>
+                  <tr>
+                     <td>GetProgress</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}GetProgressRequestVerb" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}GetProgressRequestVerb">GetProgressRequestVerb</a></td>
+                     <td>Retrieves statistical information about the progress of the ledger update process.</td>
+                  </tr>
+                  <tr>
+                     <td>ClearLocks</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}ClearLocksRequestVerb" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}ClearLocksRequestVerb">ClearLocksRequestVerb</a></td>
+                     <td>Clears any update cycle that the server believes is still running but which has actually
+                        stopped.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>IsOneRunning</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}IsOneRunningRequestVerb" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}IsOneRunningRequestVerb">IsOneRunningRequestVerb</a></td>
+                     <td>Indicates whether a ledger update process is running and contains information about
+                        the parameters used to start the last, or currently running, update.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/ledgerupdate}LedgerUpdateResponse"></a><h3>LedgerUpdateResponse</h3>
+         <p>The LedgerUpdateResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you update ledger information.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Start</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}StartResponseVerb" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}StartResponseVerb">StartResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Stop</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}StopResponseVerb" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}StopResponseVerb">StopResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Abort</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}AbortResponseVerb" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}AbortResponseVerb">AbortResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetProgress</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}GetProgressResponseVerb" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}GetProgressResponseVerb">GetProgressResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>ClearLocks</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}ClearLocksResponseVerb" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}ClearLocksResponseVerb">ClearLocksResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>IsOneRunning</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/ledgerupdate}IsOneRunningResponseVerb" href="#{http://www.coda.com/efinance/schemas/ledgerupdate}IsOneRunningResponseVerb">IsOneRunningResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

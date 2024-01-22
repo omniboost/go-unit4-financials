@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/homepage/homepage-3.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:hmpws="http://www.coda.com/common/schemas/homepage/homepage-3.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:cpm="http://www.coda.com/common/schemas/contentprovidermaster"
+    xmlns:hmp="http://www.coda.com/common/schemas/homepage"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/homepage/homepage-3.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/contentprovidermaster" schemaLocation="common/contentprovidermaster/contentprovidermaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/homepage" schemaLocation="../wsdl/common/homepage/homepage.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="GetContentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Content" minOccurs="0" type="hmp:Content">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the content that has
+                            been retrieved in accordance with the
+                            parameters specified in the corresponding Request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ContentProvider" minOccurs="0" type="hmp:ContentProviderListItem">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of the
+                            content provider master used to provide this content.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Page" type="hmp:Page">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the updated Home
+                            Page. This is the Home Page of the current user.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Contents" type="hmp:Contents">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the content
+                            available in frames on this Home Page.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ContentProviders" type="hmp:ContentProviderList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of the
+                            content provider masters available to this
+                            Home Page.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetFrameResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Frame" minOccurs="0" type="hmp:Frame">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the frame that has
+                            been retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Content" minOccurs="0" type="hmp:Content">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the content
+                            available in this frame.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ContentProvider" minOccurs="0" type="hmp:ContentProviderListItem">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of the
+                            content provider master used in this frame.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetFramesetContentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Page" type="hmp:Page">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the Home Page
+                            specified in the corresponding Request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Contents" type="hmp:Contents">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the content
+                            available in frames on this Home Page.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ContentProviders" type="hmp:ContentProviderList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of the
+                            content provider masters available to this
+                            Home Page.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetFramesetContentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FramesetIndex" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The index identifying the frameset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Page" type="hmp:Page">
+                    <xsd:annotation>
+                        <xsd:documentation>The Home Page containing the
+                            specified frameset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ContentProviders" type="hmp:ContentProviderList">
+                    <xsd:annotation>
+                        <xsd:documentation>The content provider masters
+                            available to this Home Page.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateFrameResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Frame" type="hmp:Frame">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the updated frame.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Content" minOccurs="0" type="hmp:Content">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the content in this frame.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ContentProvider" minOccurs="0" type="hmp:ContentProviderListItem">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of the
+                            content provider master used to provide the
+                            content in this frame.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateContentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Content" minOccurs="0" type="hmp:Content">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the refreshed content.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ContentProvider" minOccurs="0" type="hmp:ContentProviderListItem">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of the
+                            content provider master used to provide this content.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateContentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ContentID" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The number identifying the
+                            frame and content configuration to be refreshed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LastUpdate" type="xsd:dateTime">
+                    <xsd:annotation>
+                        <xsd:documentation>The date and time when this
+                            content configuration was last updated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Page" type="hmp:Page">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the definition of
+                            the Home Page that has been retrieved from
+                            the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Contents" type="hmp:Contents">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the content
+                            available in frames on this Home Page.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ContentProviders" type="hmp:ContentProviderList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of the
+                            content provider masters available to this
+                            Home Page.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Page" type="hmp:Page">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the Home Page to be
+                            updated. This is the Home Page of the
+                            current user.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetFrameRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FrameID" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The ID of the frame you want
+                            to retrieve. Frame IDs are unique per frameset.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPageResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Page" type="hmp:Page">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the definition of
+                            the Home Page that has been retrieved from
+                            the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ContentProviders" type="hmp:ContentProviderList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of the
+                            content provider masters available to this
+                            Home Page.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetContentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ContentProviderCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the content
+                            provider master to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Configuration" type="hmp:FrameConfiguration">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the
+                            settings which may be configured for the frame.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LastUpdate" minOccurs="0" type="xsd:dateTime">
+                    <xsd:annotation>
+                        <xsd:documentation>The date and time when the
+                            content was last updated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPageRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateFrameRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Frame" type="hmp:Frame">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the frame to be updated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="hmpws:UpdateResponse"/>
+  </message>
+  <message name="UpdateContentRequest">
+    <part name="UpdateContentRequest" element="hmpws:UpdateContentRequest"/>
+  </message>
+  <message name="GetContentRequest">
+    <part name="GetContentRequest" element="hmpws:GetContentRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="hmpws:GetRequest"/>
+  </message>
+  <message name="GetContentResponse">
+    <part name="GetContentResponse" element="hmpws:GetContentResponse"/>
+  </message>
+  <message name="UpdateFrameRequest">
+    <part name="UpdateFrameRequest" element="hmpws:UpdateFrameRequest"/>
+  </message>
+  <message name="UpdateFrameResponse">
+    <part name="UpdateFrameResponse" element="hmpws:UpdateFrameResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="hmpws:OptionsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="hmpws:Options"/>
+  </message>
+  <message name="GetFramesetContentRequest">
+    <part name="GetFramesetContentRequest" element="hmpws:GetFramesetContentRequest"/>
+  </message>
+  <message name="UpdateContentResponse">
+    <part name="UpdateContentResponse" element="hmpws:UpdateContentResponse"/>
+  </message>
+  <message name="GetFrameRequest">
+    <part name="GetFrameRequest" element="hmpws:GetFrameRequest"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="hmpws:UpdateRequest"/>
+  </message>
+  <message name="GetPageResponse">
+    <part name="GetPageResponse" element="hmpws:GetPageResponse"/>
+  </message>
+  <message name="GetFrameResponse">
+    <part name="GetFrameResponse" element="hmpws:GetFrameResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="hmpws:GetResponse"/>
+  </message>
+  <message name="GetPageRequest">
+    <part name="GetPageRequest" element="hmpws:GetPageRequest"/>
+  </message>
+  <message name="GetFramesetContentResponse">
+    <part name="GetFramesetContentResponse" element="hmpws:GetFramesetContentResponse"/>
+  </message>
+  <portType name="HomePageServicePortTypes">
+    <operation name="GetFramesetContent">
+      <input message="hmpws:GetFramesetContentRequest"/>
+      <output message="hmpws:GetFramesetContentResponse"/>
+    </operation>
+    <operation name="GetContent">
+      <input message="hmpws:GetContentRequest"/>
+      <output message="hmpws:GetContentResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="hmpws:GetRequest"/>
+      <output message="hmpws:GetResponse"/>
+    </operation>
+    <operation name="GetPage">
+      <input message="hmpws:GetPageRequest"/>
+      <output message="hmpws:GetPageResponse"/>
+    </operation>
+    <operation name="UpdateContent">
+      <input message="hmpws:UpdateContentRequest"/>
+      <output message="hmpws:UpdateContentResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="hmpws:UpdateRequest"/>
+      <output message="hmpws:UpdateResponse"/>
+    </operation>
+    <operation name="GetFrame">
+      <input message="hmpws:GetFrameRequest"/>
+      <output message="hmpws:GetFrameResponse"/>
+    </operation>
+    <operation name="UpdateFrame">
+      <input message="hmpws:UpdateFrameRequest"/>
+      <output message="hmpws:UpdateFrameResponse"/>
+    </operation>
+  </portType>
+  <binding name="HomePageServiceSOAPBinding" type="hmpws:HomePageServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetFramesetContent">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/HomePage/GetFramesetContent" style="document"/>
+      <input>
+        <soap:header message="hmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="hmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetContent">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/HomePage/GetContent" style="document"/>
+      <input>
+        <soap:header message="hmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="hmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/HomePage/Get" style="document"/>
+      <input>
+        <soap:header message="hmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="hmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetPage">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/HomePage/GetPage" style="document"/>
+      <input>
+        <soap:header message="hmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="hmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateContent">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/HomePage/UpdateContent" style="document"/>
+      <input>
+        <soap:header message="hmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="hmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/HomePage/Update" style="document"/>
+      <input>
+        <soap:header message="hmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="hmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetFrame">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/HomePage/GetFrame" style="document"/>
+      <input>
+        <soap:header message="hmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="hmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateFrame">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/HomePage/UpdateFrame" style="document"/>
+      <input>
+        <soap:header message="hmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="hmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="HomePageService">
+    <port name="HomePageServicePort" binding="hmpws:HomePageServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/homepage/homepage-3.0"/>
+    </port>
+  </service>
+</definitions>

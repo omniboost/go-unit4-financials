@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/elementauthorisationrule/elementauthorisationrule-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:elmauthrulews="http://www.coda.com/efinance/schemas/elementauthorisationrule/elementauthorisationrule-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:elmauthrule="http://www.coda.com/efinance/schemas/elementauthorisationrule"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/elementauthorisationrule/elementauthorisationrule-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/elementauthorisationrule" schemaLocation="../wsdl/finance/elementauthorisationrule/elementauthorisationrule.xsd"/>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ElementAuthorisationRule" type="elmauthrule:ElementAuthorisationRule">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            update function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the ElementAuthorisationRule
+                            objects that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the ElementAuthorisationRule
+                            objects that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetVocabInformationRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetVocabInformationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="VocabInformation" minOccurs="0"
+                    maxOccurs="unbounded" type="elmauthrule:VocabInformation">
+                    <xsd:annotation>
+                        <xsd:documentation>The VocabInformation is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ImportRuleResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Rules" type="elmauthrule:ElementAuthorisationRuleExport">
+                    <xsd:annotation>
+                        <xsd:documentation>The Rules is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Metadata" minOccurs="0"
+                    maxOccurs="unbounded" type="elmauthrule:RuleImportMetadata">
+                    <xsd:annotation>
+                        <xsd:documentation>The Metadata is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ElementAuthorisationRuleList" type="elmauthrule:ElementAuthorisationRuleList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ElementAuthorisationRule" type="elmauthrule:ElementAuthorisationRule">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExportRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CodesList" type="elmauthrule:ElementAuthorisationRuleExportCodesList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>       Contains the vocabulary items
+                                we can use on the rule.      </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ElementAuthorisationRule" type="elmauthrule:ElementAuthorisationRule">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole
+                            ElementAuthorisationRule object that is to
+                            be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ElementAuthorisationRuleItemList" type="elmauthrule:ElementAuthorisationRuleItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ElementAuthorisationRuleKey" type="elmauthrule:ElementAuthorisationRuleKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            ElementAuthorisationRule object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ImportRuleRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Rules" type="elmauthrule:ElementAuthorisationRuleExport">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>       The element authorisation
+                                rules to import      </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MetadataList" type="elmauthrule:ElementAuthorisationRuleImportRuleMetadataList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>       Contains any the results of
+                                the import and any user instuctions
+                                about what to do with conflicts
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExportResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Export" type="elmauthrule:ElementAuthorisationRuleExport">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            export function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ElementAuthorisationRule" type="elmauthrule:ElementAuthorisationRule">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole
+                            ElementAuthorisationRule object that is to
+                            be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ElementAuthorisationRule" type="elmauthrule:ElementAuthorisationRule">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the add function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ElementAuthorisationRuleKey" type="elmauthrule:ElementAuthorisationRuleKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            ElementAuthorisationRule object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="elmauthrulews:DeleteResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="elmauthrulews:AddRequest"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="elmauthrulews:UpdateResponse"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="elmauthrulews:GetRequest"/>
+  </message>
+  <message name="GetVocabInformationRequest">
+    <part name="GetVocabInformationRequest" element="elmauthrulews:GetVocabInformationRequest"/>
+  </message>
+  <message name="ImportRuleRequest">
+    <part name="ImportRuleRequest" element="elmauthrulews:ImportRuleRequest"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="elmauthrulews:FindRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="elmauthrulews:OptionsResponse"/>
+  </message>
+  <message name="ExportRequest">
+    <part name="ExportRequest" element="elmauthrulews:ExportRequest"/>
+  </message>
+  <message name="ImportRuleResponse">
+    <part name="ImportRuleResponse" element="elmauthrulews:ImportRuleResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="elmauthrulews:DeleteRequest"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="elmauthrulews:ListRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="elmauthrulews:Options"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="elmauthrulews:FindResponse"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="elmauthrulews:ListResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="elmauthrulews:UpdateRequest"/>
+  </message>
+  <message name="GetVocabInformationResponse">
+    <part name="GetVocabInformationResponse" element="elmauthrulews:GetVocabInformationResponse"/>
+  </message>
+  <message name="ExportResponse">
+    <part name="ExportResponse" element="elmauthrulews:ExportResponse"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="elmauthrulews:AddResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="elmauthrulews:GetResponse"/>
+  </message>
+  <portType name="ElementAuthorisationRuleServicePortTypes">
+    <operation name="Delete">
+      <input message="elmauthrulews:DeleteRequest"/>
+      <output message="elmauthrulews:DeleteResponse"/>
+    </operation>
+    <operation name="Add">
+      <input message="elmauthrulews:AddRequest"/>
+      <output message="elmauthrulews:AddResponse"/>
+    </operation>
+    <operation name="GetVocabInformation">
+      <input message="elmauthrulews:GetVocabInformationRequest"/>
+      <output message="elmauthrulews:GetVocabInformationResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="elmauthrulews:GetRequest"/>
+      <output message="elmauthrulews:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="elmauthrulews:FindRequest"/>
+      <output message="elmauthrulews:FindResponse"/>
+    </operation>
+    <operation name="Export">
+      <input message="elmauthrulews:ExportRequest"/>
+      <output message="elmauthrulews:ExportResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="elmauthrulews:ListRequest"/>
+      <output message="elmauthrulews:ListResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="elmauthrulews:UpdateRequest"/>
+      <output message="elmauthrulews:UpdateResponse"/>
+    </operation>
+    <operation name="ImportRule">
+      <input message="elmauthrulews:ImportRuleRequest"/>
+      <output message="elmauthrulews:ImportRuleResponse"/>
+    </operation>
+  </portType>
+  <binding name="ElementAuthorisationRuleServiceSOAPBinding" type="elmauthrulews:ElementAuthorisationRuleServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ElementAuthorisationRule/Delete" style="document"/>
+      <input>
+        <soap:header message="elmauthrulews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="elmauthrulews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ElementAuthorisationRule/Add" style="document"/>
+      <input>
+        <soap:header message="elmauthrulews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="elmauthrulews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetVocabInformation">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ElementAuthorisationRule/GetVocabInformation" style="document"/>
+      <input>
+        <soap:header message="elmauthrulews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="elmauthrulews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ElementAuthorisationRule/Get" style="document"/>
+      <input>
+        <soap:header message="elmauthrulews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="elmauthrulews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ElementAuthorisationRule/Find" style="document"/>
+      <input>
+        <soap:header message="elmauthrulews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="elmauthrulews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Export">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ElementAuthorisationRule/Export" style="document"/>
+      <input>
+        <soap:header message="elmauthrulews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="elmauthrulews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ElementAuthorisationRule/List" style="document"/>
+      <input>
+        <soap:header message="elmauthrulews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="elmauthrulews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ElementAuthorisationRule/Update" style="document"/>
+      <input>
+        <soap:header message="elmauthrulews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="elmauthrulews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ImportRule">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/ElementAuthorisationRule/ImportRule" style="document"/>
+      <input>
+        <soap:header message="elmauthrulews:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="elmauthrulews:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ElementAuthorisationRuleService">
+    <port name="ElementAuthorisationRuleServicePort" binding="elmauthrulews:ElementAuthorisationRuleServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/elementauthorisationrule/elementauthorisationrule-14.0"/>
+    </port>
+  </service>
+</definitions>

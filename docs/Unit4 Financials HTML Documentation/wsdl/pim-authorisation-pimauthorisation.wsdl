@@ -1,0 +1,1349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/authorisation/pimauthorisation-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:authorisationws="http://www.coda.com/pim/schemas/authorisation/pimauthorisation-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:pimusr="http://www.coda.com/pim/schemas/user"
+    xmlns:pres="http://www.coda.com/pim/schemas/presenter"
+    xmlns:authorisation="http://www.coda.com/pim/schemas/authorisation"
+    xmlns:selct="http://www.coda.com/efinance/schemas/selector"
+    xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:presmas="http://www.coda.com/efinance/schemas/presenter"
+    xmlns:doc="http://www.coda.com/pim/schemas/document"
+    xmlns:group="http://www.coda.com/pim/schemas/group"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:pimsel="http://www.coda.com/pim/schemas/selector"
+    targetNamespace="http://www.coda.com/pim/schemas/authorisation/pimauthorisation-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/pim/schemas/presenter" schemaLocation="pim/presenter/presenter.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/authorisation" schemaLocation="../wsdl/pim/authorisation/authorisation.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/group" schemaLocation="pim/group/group.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/user" schemaLocation="pim/user/user.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/selector" schemaLocation="pim/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/presenter" schemaLocation="finance/presenter/presenter.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/matchingmaster" schemaLocation="pim/matchingmaster/matchingmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/document" schemaLocation="pim/document/document.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/documentmaster" schemaLocation="pim/documentmaster/documentmaster.xsd"/>
+    <xsd:element name="ResetPendingRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the company in which the
+                                document             exists.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A unique number identifying the
+                            document.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunAuthorisationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogTitle" type="pimtypes:typePimLogtitle">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The log title to record
+                                the results or errors.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogDetailLevel" type="pimtypes:typePimLogDetailLevel">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The detail level to use
+                                for logging           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectorMaster" minOccurs="0" type="pimsel:Selector">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The selector defining
+                                the search criteria for invoice
+                                documents to be included in the
+                                authorisation             process.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterMaster" minOccurs="0" type="pres:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The presenter used to
+                                display the selected documents.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Authorisation" minOccurs="0" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The code of the
+                                authorisation workflow.             If
+                                this is not provided, the workflow code
+                                specified on the
+                                invoice&apos;s document
+                                master is used.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExplodeURL" minOccurs="0" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The URL for browsing the
+                                invoice from the browse work list.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunAuthorisationResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckDiscrepancyTolerancesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MLineCompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The company that the
+                                discrepancy exists in           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UltimateCompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The ultimate company
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MLineId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The ID of the
+                                discrepancy mline           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserMasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The user code of the
+                                user whose tolerance is to be checked
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PositionMasterCode" minOccurs="0" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The position code of the
+                                user whose tolerance is to be checked
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ApproveMLineResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeclineDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="IsPromptForMatchingAuthorisingUserExpectedRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingMaster" type="matmas:MatchingMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The matching master key
+                                that may (or may not) require an
+                                authorising user code.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GroupList" type="group:GroupList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The groups to be saved
+                                to the database.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResetPendingAndCancelWorkflowRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the company in which the
+                                document             exists.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A unique number identifying the
+                            document.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Resubmit" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>If true, Coda resubmits the document
+                                to             Workflow. If false, it
+                                does not.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHighestPositionForUserResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetHighestPositionForUser" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getHighestPositionForUser function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResetDeniedRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the company in which the
+                                document             exists.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A unique number identifying the
+                            document.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHighestPositionForUserRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PositionHierarchyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The position hierachy
+                                code           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeUserCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The user code
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ApproveDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeclineMLineResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="IsPromptForMatchingAuthorisingUserExpectedResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element
+                    name="IsPromptForMatchingAuthorisingUserExpected" type="authorisation:AuthorisingUserPrompt">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            isPromptForMatchingAuthorisingUserExpected function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResetPendingResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ApproveDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the company in which the
+                                document             exists.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A unique number identifying the
+                            document.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the authorising user.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResetMLinePendingResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResetPendingAndCancelWorkflowResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckDiscrepancyTolerancesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CheckDiscrepancyTolerances" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            checkDiscrepancyTolerances function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ApproveMLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the company in which the
+                                document             exists.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MLineId" type="com:typeDbGuid">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DisAuthorisingUser" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the user who denied the
+                                discrepancy.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ApproveLineResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthoriseDiscrepancyRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="doc:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The invoice with which
+                                the mLines are associated.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExplodeURL" minOccurs="0" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             URL for browsing the
+                                invoice from workflow.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeclineLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LineId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A unique number identifying the
+                                document line.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the authorising user.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResetMLinePendingRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the company in which the
+                                document             exists.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MLineId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A unique number identifying the M
+                            line.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResetAuthorisedRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the company in which the
+                                document             exists.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A unique number identifying the
+                            document.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetFilteredElementResponsibilitiesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ResponsibleUsers" minOccurs="0"
+                    maxOccurs="unbounded" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The responsibleUsers is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FilteredResponsibleUsers"
+                    minOccurs="0" maxOccurs="unbounded" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The filteredResponsibleUsers
+                            is an out argument, so the server will put
+                            it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FilteringApplied" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The filteringApplied is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResetPendingDiscrepancyResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeclineDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the company in which the
+                                document             exists.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A unique number identifying the
+                            document.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the authorising user.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResetPendingDiscrepancyRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the company in which the
+                                document             exists.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A unique number identifying the
+                            document.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CanOverrideAuthorisationWorkflowResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CanOverrideAuthorisationWorkflow" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            canOverrideAuthorisationWorkflow function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthoriseInvoiceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="doc:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The invoice to submit to
+                                its authorisation workflows.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" minOccurs="0" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The AuthorisingUser
+                                parameter passed to the invoice&apos;s
+                                authorisation workflow, if the document
+                                master             requires
+                                that an             AuthorisingUser be
+                                &apos;entered&apos;. See
+                                isAuthorisingUserRequired().
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExplodeURL" minOccurs="0" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             URL for browsing the
+                                invoice from workflow.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResetAuthorisedResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeclineMLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the company in which the
+                                document             exists.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MLineId" type="com:typeDbGuid">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DisAuthorisingUser" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the user who denied the
+                                discrepancy.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunAuthorisationKeyResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeclineLineResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunAuthorisationKeyRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogTitle" type="pimtypes:typePimLogtitle">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The log title to record
+                                the results or errors.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogDetailLevel" type="pimtypes:typePimLogDetailLevel">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The detail level to use
+                                for logging           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="InvoiceKeyList" type="doc:DocumentKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The selected docuements
+                                to run the Document authorisation
+                                process on.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectorMaster" minOccurs="0" type="pimsel:Selector">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The selector to run the
+                                Document authorisation process on.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExplodeURL" minOccurs="0" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             URL for browse workflow
+                                list           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Authorisation" minOccurs="0" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The override for the
+                                document authorisation workflow code,
+                                when not provided the workflow from each
+                                document&apos;s master             is
+                                used.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="IsPromptForAuthorisingUserExpectedRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentMaster" type="docmas:DocumentMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The document master key
+                                that may (or may not) require
+                                an             authorising user code.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthoriseInvoiceResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResetDeniedResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ApproveLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LineId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A unique number identifying the
+                                document line.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the authorising user.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CanOverrideAuthorisationWorkflowRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetFilteredElementResponsibilitiesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MLineId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The ID of the
+                                discrepancy mline           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The company that the
+                                discrepancy exists in           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UsersList" type="authorisation:PIMAuthorisationGetFilteredElementResponsibilitiesUsersList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The users to check
+                                responsibility for           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="IsPromptForAuthorisingUserExpectedResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsPromptForAuthorisingUserExpected" type="authorisation:AuthorisingUserPrompt">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            isPromptForAuthorisingUserExpected function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthoriseDiscrepancyResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="ResetPendingAndCancelWorkflowResponse">
+    <part name="ResetPendingAndCancelWorkflowResponse" element="authorisationws:ResetPendingAndCancelWorkflowResponse"/>
+  </message>
+  <message name="ResetPendingRequest">
+    <part name="ResetPendingRequest" element="authorisationws:ResetPendingRequest"/>
+  </message>
+  <message name="DeclineLineResponse">
+    <part name="DeclineLineResponse" element="authorisationws:DeclineLineResponse"/>
+  </message>
+  <message name="GetFilteredElementResponsibilitiesResponse">
+    <part name="GetFilteredElementResponsibilitiesResponse" element="authorisationws:GetFilteredElementResponsibilitiesResponse"/>
+  </message>
+  <message name="ApproveMLineResponse">
+    <part name="ApproveMLineResponse" element="authorisationws:ApproveMLineResponse"/>
+  </message>
+  <message name="ApproveMLineRequest">
+    <part name="ApproveMLineRequest" element="authorisationws:ApproveMLineRequest"/>
+  </message>
+  <message name="IsPromptForMatchingAuthorisingUserExpectedResponse">
+    <part name="IsPromptForMatchingAuthorisingUserExpectedResponse" element="authorisationws:IsPromptForMatchingAuthorisingUserExpectedResponse"/>
+  </message>
+  <message name="AuthoriseDiscrepancyResponse">
+    <part name="AuthoriseDiscrepancyResponse" element="authorisationws:AuthoriseDiscrepancyResponse"/>
+  </message>
+  <message name="ResetAuthorisedResponse">
+    <part name="ResetAuthorisedResponse" element="authorisationws:ResetAuthorisedResponse"/>
+  </message>
+  <message name="RunAuthorisationResponse">
+    <part name="RunAuthorisationResponse" element="authorisationws:RunAuthorisationResponse"/>
+  </message>
+  <message name="RunAuthorisationKeyResponse">
+    <part name="RunAuthorisationKeyResponse" element="authorisationws:RunAuthorisationKeyResponse"/>
+  </message>
+  <message name="GetHighestPositionForUserResponse">
+    <part name="GetHighestPositionForUserResponse" element="authorisationws:GetHighestPositionForUserResponse"/>
+  </message>
+  <message name="ResetMLinePendingRequest">
+    <part name="ResetMLinePendingRequest" element="authorisationws:ResetMLinePendingRequest"/>
+  </message>
+  <message name="CheckDiscrepancyTolerancesRequest">
+    <part name="CheckDiscrepancyTolerancesRequest" element="authorisationws:CheckDiscrepancyTolerancesRequest"/>
+  </message>
+  <message name="ApproveLineResponse">
+    <part name="ApproveLineResponse" element="authorisationws:ApproveLineResponse"/>
+  </message>
+  <message name="DeclineDocumentRequest">
+    <part name="DeclineDocumentRequest" element="authorisationws:DeclineDocumentRequest"/>
+  </message>
+  <message name="GetFilteredElementResponsibilitiesRequest">
+    <part name="GetFilteredElementResponsibilitiesRequest" element="authorisationws:GetFilteredElementResponsibilitiesRequest"/>
+  </message>
+  <message name="ResetPendingDiscrepancyRequest">
+    <part name="ResetPendingDiscrepancyRequest" element="authorisationws:ResetPendingDiscrepancyRequest"/>
+  </message>
+  <message name="IsPromptForMatchingAuthorisingUserExpectedRequest">
+    <part name="IsPromptForMatchingAuthorisingUserExpectedRequest" element="authorisationws:IsPromptForMatchingAuthorisingUserExpectedRequest"/>
+  </message>
+  <message name="GetHighestPositionForUserRequest">
+    <part name="GetHighestPositionForUserRequest" element="authorisationws:GetHighestPositionForUserRequest"/>
+  </message>
+  <message name="CanOverrideAuthorisationWorkflowRequest">
+    <part name="CanOverrideAuthorisationWorkflowRequest" element="authorisationws:CanOverrideAuthorisationWorkflowRequest"/>
+  </message>
+  <message name="ResetDeniedResponse">
+    <part name="ResetDeniedResponse" element="authorisationws:ResetDeniedResponse"/>
+  </message>
+  <message name="ResetPendingResponse">
+    <part name="ResetPendingResponse" element="authorisationws:ResetPendingResponse"/>
+  </message>
+  <message name="DeclineLineRequest">
+    <part name="DeclineLineRequest" element="authorisationws:DeclineLineRequest"/>
+  </message>
+  <message name="AuthoriseInvoiceResponse">
+    <part name="AuthoriseInvoiceResponse" element="authorisationws:AuthoriseInvoiceResponse"/>
+  </message>
+  <message name="AuthoriseInvoiceRequest">
+    <part name="AuthoriseInvoiceRequest" element="authorisationws:AuthoriseInvoiceRequest"/>
+  </message>
+  <message name="CanOverrideAuthorisationWorkflowResponse">
+    <part name="CanOverrideAuthorisationWorkflowResponse" element="authorisationws:CanOverrideAuthorisationWorkflowResponse"/>
+  </message>
+  <message name="ApproveLineRequest">
+    <part name="ApproveLineRequest" element="authorisationws:ApproveLineRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="authorisationws:OptionsResponse"/>
+  </message>
+  <message name="ResetDeniedRequest">
+    <part name="ResetDeniedRequest" element="authorisationws:ResetDeniedRequest"/>
+  </message>
+  <message name="ResetPendingAndCancelWorkflowRequest">
+    <part name="ResetPendingAndCancelWorkflowRequest" element="authorisationws:ResetPendingAndCancelWorkflowRequest"/>
+  </message>
+  <message name="ResetPendingDiscrepancyResponse">
+    <part name="ResetPendingDiscrepancyResponse" element="authorisationws:ResetPendingDiscrepancyResponse"/>
+  </message>
+  <message name="AuthoriseDiscrepancyRequest">
+    <part name="AuthoriseDiscrepancyRequest" element="authorisationws:AuthoriseDiscrepancyRequest"/>
+  </message>
+  <message name="DeclineMLineResponse">
+    <part name="DeclineMLineResponse" element="authorisationws:DeclineMLineResponse"/>
+  </message>
+  <message name="ResetAuthorisedRequest">
+    <part name="ResetAuthorisedRequest" element="authorisationws:ResetAuthorisedRequest"/>
+  </message>
+  <message name="DeclineDocumentResponse">
+    <part name="DeclineDocumentResponse" element="authorisationws:DeclineDocumentResponse"/>
+  </message>
+  <message name="ApproveDocumentResponse">
+    <part name="ApproveDocumentResponse" element="authorisationws:ApproveDocumentResponse"/>
+  </message>
+  <message name="RunAuthorisationKeyRequest">
+    <part name="RunAuthorisationKeyRequest" element="authorisationws:RunAuthorisationKeyRequest"/>
+  </message>
+  <message name="ResetMLinePendingResponse">
+    <part name="ResetMLinePendingResponse" element="authorisationws:ResetMLinePendingResponse"/>
+  </message>
+  <message name="CheckDiscrepancyTolerancesResponse">
+    <part name="CheckDiscrepancyTolerancesResponse" element="authorisationws:CheckDiscrepancyTolerancesResponse"/>
+  </message>
+  <message name="IsPromptForAuthorisingUserExpectedResponse">
+    <part name="IsPromptForAuthorisingUserExpectedResponse" element="authorisationws:IsPromptForAuthorisingUserExpectedResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="authorisationws:Options"/>
+  </message>
+  <message name="ApproveDocumentRequest">
+    <part name="ApproveDocumentRequest" element="authorisationws:ApproveDocumentRequest"/>
+  </message>
+  <message name="RunAuthorisationRequest">
+    <part name="RunAuthorisationRequest" element="authorisationws:RunAuthorisationRequest"/>
+  </message>
+  <message name="IsPromptForAuthorisingUserExpectedRequest">
+    <part name="IsPromptForAuthorisingUserExpectedRequest" element="authorisationws:IsPromptForAuthorisingUserExpectedRequest"/>
+  </message>
+  <message name="DeclineMLineRequest">
+    <part name="DeclineMLineRequest" element="authorisationws:DeclineMLineRequest"/>
+  </message>
+  <portType name="PIMAuthorisationServicePortTypes">
+    <operation name="AuthoriseDiscrepancy">
+      <input message="authorisationws:AuthoriseDiscrepancyRequest"/>
+      <output message="authorisationws:AuthoriseDiscrepancyResponse"/>
+    </operation>
+    <operation name="IsPromptForMatchingAuthorisingUserExpected">
+      <input message="authorisationws:IsPromptForMatchingAuthorisingUserExpectedRequest"/>
+      <output message="authorisationws:IsPromptForMatchingAuthorisingUserExpectedResponse"/>
+    </operation>
+    <operation name="ResetDenied">
+      <input message="authorisationws:ResetDeniedRequest"/>
+      <output message="authorisationws:ResetDeniedResponse"/>
+    </operation>
+    <operation name="ResetMLinePending">
+      <input message="authorisationws:ResetMLinePendingRequest"/>
+      <output message="authorisationws:ResetMLinePendingResponse"/>
+    </operation>
+    <operation name="DeclineDocument">
+      <input message="authorisationws:DeclineDocumentRequest"/>
+      <output message="authorisationws:DeclineDocumentResponse"/>
+    </operation>
+    <operation name="CheckDiscrepancyTolerances">
+      <input message="authorisationws:CheckDiscrepancyTolerancesRequest"/>
+      <output message="authorisationws:CheckDiscrepancyTolerancesResponse"/>
+    </operation>
+    <operation name="ApproveLine">
+      <input message="authorisationws:ApproveLineRequest"/>
+      <output message="authorisationws:ApproveLineResponse"/>
+    </operation>
+    <operation name="ResetPendingDiscrepancy">
+      <input message="authorisationws:ResetPendingDiscrepancyRequest"/>
+      <output message="authorisationws:ResetPendingDiscrepancyResponse"/>
+    </operation>
+    <operation name="RunAuthorisationKey">
+      <input message="authorisationws:RunAuthorisationKeyRequest"/>
+      <output message="authorisationws:RunAuthorisationKeyResponse"/>
+    </operation>
+    <operation name="ApproveDocument">
+      <input message="authorisationws:ApproveDocumentRequest"/>
+      <output message="authorisationws:ApproveDocumentResponse"/>
+    </operation>
+    <operation name="DeclineLine">
+      <input message="authorisationws:DeclineLineRequest"/>
+      <output message="authorisationws:DeclineLineResponse"/>
+    </operation>
+    <operation name="RunAuthorisation">
+      <input message="authorisationws:RunAuthorisationRequest"/>
+      <output message="authorisationws:RunAuthorisationResponse"/>
+    </operation>
+    <operation name="AuthoriseInvoice">
+      <input message="authorisationws:AuthoriseInvoiceRequest"/>
+      <output message="authorisationws:AuthoriseInvoiceResponse"/>
+    </operation>
+    <operation name="GetFilteredElementResponsibilities">
+      <input message="authorisationws:GetFilteredElementResponsibilitiesRequest"/>
+      <output message="authorisationws:GetFilteredElementResponsibilitiesResponse"/>
+    </operation>
+    <operation name="GetHighestPositionForUser">
+      <input message="authorisationws:GetHighestPositionForUserRequest"/>
+      <output message="authorisationws:GetHighestPositionForUserResponse"/>
+    </operation>
+    <operation name="ApproveMLine">
+      <input message="authorisationws:ApproveMLineRequest"/>
+      <output message="authorisationws:ApproveMLineResponse"/>
+    </operation>
+    <operation name="ResetPending">
+      <input message="authorisationws:ResetPendingRequest"/>
+      <output message="authorisationws:ResetPendingResponse"/>
+    </operation>
+    <operation name="DeclineMLine">
+      <input message="authorisationws:DeclineMLineRequest"/>
+      <output message="authorisationws:DeclineMLineResponse"/>
+    </operation>
+    <operation name="CanOverrideAuthorisationWorkflow">
+      <input message="authorisationws:CanOverrideAuthorisationWorkflowRequest"/>
+      <output message="authorisationws:CanOverrideAuthorisationWorkflowResponse"/>
+    </operation>
+    <operation name="ResetPendingAndCancelWorkflow">
+      <input message="authorisationws:ResetPendingAndCancelWorkflowRequest"/>
+      <output message="authorisationws:ResetPendingAndCancelWorkflowResponse"/>
+    </operation>
+    <operation name="ResetAuthorised">
+      <input message="authorisationws:ResetAuthorisedRequest"/>
+      <output message="authorisationws:ResetAuthorisedResponse"/>
+    </operation>
+    <operation name="IsPromptForAuthorisingUserExpected">
+      <input message="authorisationws:IsPromptForAuthorisingUserExpectedRequest"/>
+      <output message="authorisationws:IsPromptForAuthorisingUserExpectedResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMAuthorisationServiceSOAPBinding" type="authorisationws:PIMAuthorisationServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="AuthoriseDiscrepancy">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/AuthoriseDiscrepancy" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="IsPromptForMatchingAuthorisingUserExpected">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/IsPromptForMatchingAuthorisingUserExpected" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ResetDenied">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/ResetDenied" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ResetMLinePending">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/ResetMLinePending" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeclineDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/DeclineDocument" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckDiscrepancyTolerances">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/CheckDiscrepancyTolerances" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ApproveLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/ApproveLine" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ResetPendingDiscrepancy">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/ResetPendingDiscrepancy" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RunAuthorisationKey">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/RunAuthorisationKey" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ApproveDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/ApproveDocument" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeclineLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/DeclineLine" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RunAuthorisation">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/RunAuthorisation" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AuthoriseInvoice">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/AuthoriseInvoice" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetFilteredElementResponsibilities">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/GetFilteredElementResponsibilities" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetHighestPositionForUser">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/GetHighestPositionForUser" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ApproveMLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/ApproveMLine" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ResetPending">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/ResetPending" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeclineMLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/DeclineMLine" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CanOverrideAuthorisationWorkflow">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/CanOverrideAuthorisationWorkflow" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ResetPendingAndCancelWorkflow">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/ResetPendingAndCancelWorkflow" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ResetAuthorised">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/ResetAuthorised" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="IsPromptForAuthorisingUserExpected">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisation/IsPromptForAuthorisingUserExpected" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMAuthorisationService">
+    <port name="PIMAuthorisationServicePort" binding="authorisationws:PIMAuthorisationServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/authorisation/pimauthorisation-13.0"/>
+    </port>
+  </service>
+</definitions>

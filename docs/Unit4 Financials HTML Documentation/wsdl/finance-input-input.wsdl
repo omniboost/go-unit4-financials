@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/input/input-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:inpws="http://www.coda.com/efinance/schemas/input/input-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:txn="http://www.coda.com/efinance/schemas/transaction"
+    xmlns:inp="http://www.coda.com/efinance/schemas/input"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/input/input-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/input" schemaLocation="../wsdl/finance/input/input.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/transaction" schemaLocation="finance/transaction/transaction.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="PostToBooksResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the extended key
+                            information for the transaction you posted.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SuppliedNumber" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the suppled document
+                            number.                SuppliedNumber is the
+                            number from the original XML transaction,
+                            where the final document was renumbered</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the extended key
+                            information for the transaction you posted.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SuppliedNumber" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The document number you may
+                            have supplied (applies to Batch Load).</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostToBooksRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PostToBooksOptions" minOccurs="0" nillable="true">
+                    <xsd:complexType>
+                        <xsd:attribute name="relaxtriangulation" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that the EMU Triangulation rules do
+                                    not apply to this document.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="warningsareerrors" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that warnings are to be treated as errors.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="stoponerror" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that the process is to terminate on
+                                    encountering an error.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="logerrorsonly" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that the log contains only errors.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="reportallerrors" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that the process should report all
+                                    errors in the log. If False, only
+                                    the first error encountered under
+                                    this verb is reported.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="Transaction" type="txn:Transaction">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the document you
+                            want to post.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PostOptions" minOccurs="0" nillable="true">
+                    <xsd:complexType>
+                        <xsd:attribute name="postto" type="com:typeCtDocDest">
+                            <xsd:annotation>
+                                <xsd:documentation>Specifies whether the
+                                    document should be posted to the
+                                    Books, the Intray, or either
+                                    (preferentially the Books but
+                                    failing that, the Intray).</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="relaxtriangulation" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that the EMU Triangulation rules do
+                                    not apply to this document.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="warningsareerrors" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that warnings are to be treated as errors.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="stoponerror" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that the process is to terminate on
+                                    encountering an error.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="logerrorsonly" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that the log contains only errors.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="reportallerrors" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that the process should report all
+                                    errors in the log. If False, only
+                                    the first error encountered under
+                                    this verb is reported.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="Transaction" type="txn:Transaction">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the document you
+                            want to post.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostToIntrayResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the extended key
+                            information for the transaction you posted.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SuppliedNumber" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the suppled document
+                            number.                SuppliedNumber is the
+                            number from the original XML transaction,
+                            where the final document was renumbered</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostToIntrayRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PostToIntrayOptions" minOccurs="0" nillable="true">
+                    <xsd:complexType>
+                        <xsd:attribute name="relaxtriangulation" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that the EMU Triangulation rules do
+                                    not apply to this document.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="warningsareerrors" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that warnings are to be treated as errors.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="stoponerror" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that the process is to terminate on
+                                    encountering an error.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="logerrorsonly" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that the log contains only errors.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="reportallerrors" type="xsd:boolean">
+                            <xsd:annotation>
+                                <xsd:documentation>If True, specifies
+                                    that the process should report all
+                                    errors in the log. If False, only
+                                    the first error encountered under
+                                    this verb is reported.</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:attribute>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="Transaction" type="txn:Transaction">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the document you
+                            want to post.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="PostToBooksResponse">
+    <part name="PostToBooksResponse" element="inpws:PostToBooksResponse"/>
+  </message>
+  <message name="PostToBooksRequest">
+    <part name="PostToBooksRequest" element="inpws:PostToBooksRequest"/>
+  </message>
+  <message name="PostResponse">
+    <part name="PostResponse" element="inpws:PostResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="inpws:OptionsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="inpws:Options"/>
+  </message>
+  <message name="PostToIntrayResponse">
+    <part name="PostToIntrayResponse" element="inpws:PostToIntrayResponse"/>
+  </message>
+  <message name="PostRequest">
+    <part name="PostRequest" element="inpws:PostRequest"/>
+  </message>
+  <message name="PostToIntrayRequest">
+    <part name="PostToIntrayRequest" element="inpws:PostToIntrayRequest"/>
+  </message>
+  <portType name="InputServicePortTypes">
+    <operation name="Post">
+      <input message="inpws:PostRequest"/>
+      <output message="inpws:PostResponse"/>
+    </operation>
+    <operation name="PostToIntray">
+      <input message="inpws:PostToIntrayRequest"/>
+      <output message="inpws:PostToIntrayResponse"/>
+    </operation>
+    <operation name="PostToBooks">
+      <input message="inpws:PostToBooksRequest"/>
+      <output message="inpws:PostToBooksResponse"/>
+    </operation>
+  </portType>
+  <binding name="InputServiceSOAPBinding" type="inpws:InputServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Post">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Input/Post" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PostToIntray">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Input/PostToIntray" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PostToBooks">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Input/PostToBooks" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="InputService">
+    <port name="InputServicePort" binding="inpws:InputServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/input/input-14.0"/>
+    </port>
+  </service>
+</definitions>

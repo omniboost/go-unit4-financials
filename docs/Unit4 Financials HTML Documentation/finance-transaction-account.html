@@ -1,0 +1,721 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-AccountService">
+            <h1>AccountService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/transaction/account-12.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-transaction-account.wsdl" download="">finance-transaction-account.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/transaction/account-12.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#AccountService-CheckCode">CheckCode</a></li>
+               <li><a href="#AccountService-CheckElementResponsibilityAccountAccess">CheckElementResponsibilityAccountAccess</a></li>
+               <li><a href="#AccountService-GetAccessLevel">GetAccessLevel</a></li>
+               <li><a href="#AccountService-GetDefaultTaxCode">GetDefaultTaxCode</a></li>
+               <li><a href="#AccountService-GetDestCmp">GetDestCmp</a></li>
+               <li><a href="#AccountService-GetResponsibleUsers">GetResponsibleUsers</a></li>
+               <li><a href="#AccountService-GetResponsibleUsersWithReason">GetResponsibleUsersWithReason</a></li>
+               <li><a href="#AccountService-GetResponsibleUsersWithTolerance">GetResponsibleUsersWithTolerance</a></li>
+               <li><a href="#AccountService-SubstituteAccount">SubstituteAccount</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="AccountService-CheckCode"></a>CheckCode
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CheckCodeRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ChkCodeData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}ChkAccCodeData" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}ChkAccCodeData">ChkAccCodeData</a></td>
+                              <td>This element holds details of
+                                 the account code you want to validate and
+                                 the type of validation you want to perform.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CheckCodeResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Answer</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}ChkAccCodeAnswer" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}ChkAccCodeAnswer">ChkAccCodeAnswer</a></td>
+                              <td>This element holds the result
+                                 of the validation.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AccountService-CheckElementResponsibilityAccountAccess"></a>CheckElementResponsibilityAccountAccess
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CheckElementResponsibilityAccountAccessRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>A company code.</td>
+                           </tr>
+                           <tr>
+                              <td>Accounts</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}DestAndAccountList" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}DestAndAccountList">DestAndAccountList</a></td>
+                              <td>A list of destination and
+                                 account combinations
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Usage</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtResponsibilityUsage" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtResponsibilityUsage">typeCtResponsibilityUsage</a></td>
+                              <td>The scope of an element responsibilty.</td>
+                           </tr>
+                           <tr>
+                              <td>User</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>A user code.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CheckElementResponsibilityAccountAccessResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>NotResponsibleAccounts</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}DeniedAccounts" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}DeniedAccounts">DeniedAccounts</a></td>
+                              <td>A list of accounts to which
+                                 the specified user has no access.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AccountService-GetAccessLevel"></a>GetAccessLevel
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetAccessLevelRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>AccessLevelParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}AccessLevelParams" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}AccessLevelParams">AccessLevelParams</a></td>
+                              <td>This element contains details
+                                 of access level parameters.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetAccessLevelResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>AccessLevelParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}AccessLevelParams" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}AccessLevelParams">AccessLevelParams</a></td>
+                              <td>This element contains details
+                                 of access level parameters.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AccessLevel</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtAcCodeAccessLevel" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtAcCodeAccessLevel">typeCtAcCodeAccessLevel</a></td>
+                              <td>The type of access available.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AccountService-GetDefaultTaxCode"></a>GetDefaultTaxCode
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDefaultTaxCodeRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>A company code.</td>
+                           </tr>
+                           <tr>
+                              <td>DestinationCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeB">typeCodeB</a></td>
+                              <td>An intercompany destination code.</td>
+                           </tr>
+                           <tr>
+                              <td>AccountCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAcCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAcCode">typeAcCode</a></td>
+                              <td>An account code.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDefaultTaxCodeResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>A company code.</td>
+                           </tr>
+                           <tr>
+                              <td>DestinationCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeB">typeCodeB</a></td>
+                              <td>An intercompany destination code.</td>
+                           </tr>
+                           <tr>
+                              <td>AccountCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAcCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAcCode">typeAcCode</a></td>
+                              <td>An account code.</td>
+                           </tr>
+                           <tr>
+                              <td>TaxCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>A tax code.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AccountService-GetDestCmp"></a>GetDestCmp
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDestCmpRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>DestCmpSource</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}GetDestSource" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}GetDestSource">GetDestSource</a></td>
+                              <td>This element holds the
+                                 company code and InterCompany destination code.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDestCmpResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Company</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The company code retrieved
+                                 from the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Destination</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                              <td>The InterCompany destination
+                                 code retrieved from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AccountService-GetResponsibleUsers"></a>GetResponsibleUsers
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetResponsibleUsersRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>A company code.</td>
+                           </tr>
+                           <tr>
+                              <td>Accounts</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}DestAndAccountList" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}DestAndAccountList">DestAndAccountList</a></td>
+                              <td>A list of destination and
+                                 account combinations
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Usage</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtResponsibilityUsage" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtResponsibilityUsage">typeCtResponsibilityUsage</a></td>
+                              <td>The scope of an element responsibilty.</td>
+                           </tr>
+                           <tr>
+                              <td>Users</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}UserCodeList" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}UserCodeList">UserCodeList</a></td>
+                              <td>A list of user codes.</td>
+                           </tr>
+                           <tr>
+                              <td>CurrencyCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                              <td>A currency code.</td>
+                           </tr>
+                           <tr>
+                              <td>Value</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>A monetary value.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetResponsibleUsersResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>A company code.</td>
+                           </tr>
+                           <tr>
+                              <td>Accounts</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}DestAndAccountList" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}DestAndAccountList">DestAndAccountList</a></td>
+                              <td>A list of destination and
+                                 account combinations
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Usage</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtResponsibilityUsage" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtResponsibilityUsage">typeCtResponsibilityUsage</a></td>
+                              <td>The scope of an element responsibilty.</td>
+                           </tr>
+                           <tr>
+                              <td>Users</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}UserCodeList" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}UserCodeList">UserCodeList</a></td>
+                              <td>A list of user codes.</td>
+                           </tr>
+                           <tr>
+                              <td>CurrencyCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                              <td>A currency code.</td>
+                           </tr>
+                           <tr>
+                              <td>Value</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>A monetary value.</td>
+                           </tr>
+                           <tr>
+                              <td>ResponsibleUsers</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}UserCodeList" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}UserCodeList">UserCodeList</a></td>
+                              <td>A list of responsible user codes.</td>
+                           </tr>
+                           <tr>
+                              <td>FirstFailedAccount</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}DestAndAccount" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}DestAndAccount">DestAndAccount</a></td>
+                              <td>The details of the first
+                                 failed account.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>OverLimit</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Indicates whether the values
+                                 exceeds the specified limit.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AccountService-GetResponsibleUsersWithReason"></a>GetResponsibleUsersWithReason
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetResponsibleUsersWithReasonRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>A company code.</td>
+                           </tr>
+                           <tr>
+                              <td>Account</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}DestAndAccount" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}DestAndAccount">DestAndAccount</a></td>
+                              <td>A destination and account combination.</td>
+                           </tr>
+                           <tr>
+                              <td>Usage</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtResponsibilityUsage" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtResponsibilityUsage">typeCtResponsibilityUsage</a></td>
+                              <td>The scope of an element responsibilty.</td>
+                           </tr>
+                           <tr>
+                              <td>Users</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}UserCodeList" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}UserCodeList">UserCodeList</a></td>
+                              <td>The initial list of user codes.</td>
+                           </tr>
+                           <tr>
+                              <td>ReasonCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The discrepancy reason code.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetResponsibleUsersWithReasonResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ResponsibleUsers</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}UserCodeList" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}UserCodeList">UserCodeList</a></td>
+                              <td>A list of users with
+                                 responsibility for the specified account
+                                 code and discrepancy reason code.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AccountService-GetResponsibleUsersWithTolerance"></a>GetResponsibleUsersWithTolerance
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetResponsibleUsersWithToleranceRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>A company code.</td>
+                           </tr>
+                           <tr>
+                              <td>Account</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}DestAndAccount" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}DestAndAccount">DestAndAccount</a></td>
+                              <td>A destination and account combination.</td>
+                           </tr>
+                           <tr>
+                              <td>Usage</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtResponsibilityUsage" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtResponsibilityUsage">typeCtResponsibilityUsage</a></td>
+                              <td>The scope of an element responsibilty.</td>
+                           </tr>
+                           <tr>
+                              <td>Users</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}UserCodeList" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}UserCodeList">UserCodeList</a></td>
+                              <td>A list of user codes.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetResponsibleUsersWithToleranceResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ResponsibleUsersWithTolerance</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}UsersAndTolerances" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}UsersAndTolerances">UsersAndTolerances</a></td>
+                              <td>Details of tolerances
+                                 associated with users.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AccountService-SubstituteAccount"></a>SubstituteAccount
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SubstituteAccountRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SubstituteAccount</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}SubstituteAccountParams" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}SubstituteAccountParams">SubstituteAccountParams</a></td>
+                              <td>This element contains details
+                                 of substitute account parameters.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SubstituteAccountResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SubstituteAccount</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}SubstituteAccountParams" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}SubstituteAccountParams">SubstituteAccountParams</a></td>
+                              <td>This element contains details
+                                 of substitute account parameters.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AccountCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAcCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAcCode">typeAcCode</a></td>
+                              <td>An account code.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

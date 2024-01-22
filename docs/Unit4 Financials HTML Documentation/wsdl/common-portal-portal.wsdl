@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/portal/portal-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:porws="http://www.coda.com/common/schemas/portal/portal-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:por="http://www.coda.com/common/schemas/portal"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/portal/portal-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/common/schemas/portal" schemaLocation="../wsdl/common/portal/portal.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Portal" type="por:Portal">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            update function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddWidgetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PortalWidget" type="por:PortalWidget">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            addWidget function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteWidgetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PortalWidgetKey" type="por:PortalWidgetKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the PortalWidget object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateWidgetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PortalWidget" type="por:PortalWidget">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole PortalWidget object
+                            that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetWidgetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PortalWidgetKey" type="por:PortalWidgetKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the PortalWidget object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListWidgetsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the PortalWidget objects
+                            that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the Portal objects that the
+                            user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetWidgetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PortalWidget" type="por:PortalWidget">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getWidget function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Portal" type="por:Portal">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Portal" type="por:Portal">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole Portal object that
+                            is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PortalItemList" type="por:PortalItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListWidgetsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PortalWidgetItemList" type="por:PortalWidgetItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            listWidgets function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateWidgetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PortalWidget" type="por:PortalWidget">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            updateWidget function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PortalKey" type="por:PortalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the Portal object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteWidgetResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Portal" type="por:Portal">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole Portal object that
+                            is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddWidgetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PortalWidget" type="por:PortalWidget">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole PortalWidget object
+                            that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Portal" type="por:Portal">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the add function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PortalKey" type="por:PortalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the Portal object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="porws:DeleteResponse"/>
+  </message>
+  <message name="GetWidgetResponse">
+    <part name="GetWidgetResponse" element="porws:GetWidgetResponse"/>
+  </message>
+  <message name="DeleteWidgetResponse">
+    <part name="DeleteWidgetResponse" element="porws:DeleteWidgetResponse"/>
+  </message>
+  <message name="UpdateWidgetResponse">
+    <part name="UpdateWidgetResponse" element="porws:UpdateWidgetResponse"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="porws:UpdateResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="porws:AddRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="porws:GetRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="porws:OptionsResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="porws:DeleteRequest"/>
+  </message>
+  <message name="AddWidgetRequest">
+    <part name="AddWidgetRequest" element="porws:AddWidgetRequest"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="porws:ListRequest"/>
+  </message>
+  <message name="AddWidgetResponse">
+    <part name="AddWidgetResponse" element="porws:AddWidgetResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="porws:Options"/>
+  </message>
+  <message name="ListWidgetsRequest">
+    <part name="ListWidgetsRequest" element="porws:ListWidgetsRequest"/>
+  </message>
+  <message name="ListWidgetsResponse">
+    <part name="ListWidgetsResponse" element="porws:ListWidgetsResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="porws:UpdateRequest"/>
+  </message>
+  <message name="UpdateWidgetRequest">
+    <part name="UpdateWidgetRequest" element="porws:UpdateWidgetRequest"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="porws:ListResponse"/>
+  </message>
+  <message name="DeleteWidgetRequest">
+    <part name="DeleteWidgetRequest" element="porws:DeleteWidgetRequest"/>
+  </message>
+  <message name="GetWidgetRequest">
+    <part name="GetWidgetRequest" element="porws:GetWidgetRequest"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="porws:GetResponse"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="porws:AddResponse"/>
+  </message>
+  <portType name="PortalServicePortTypes">
+    <operation name="Add">
+      <input message="porws:AddRequest"/>
+      <output message="porws:AddResponse"/>
+    </operation>
+    <operation name="Delete">
+      <input message="porws:DeleteRequest"/>
+      <output message="porws:DeleteResponse"/>
+    </operation>
+    <operation name="DeleteWidget">
+      <input message="porws:DeleteWidgetRequest"/>
+      <output message="porws:DeleteWidgetResponse"/>
+    </operation>
+    <operation name="AddWidget">
+      <input message="porws:AddWidgetRequest"/>
+      <output message="porws:AddWidgetResponse"/>
+    </operation>
+    <operation name="ListWidgets">
+      <input message="porws:ListWidgetsRequest"/>
+      <output message="porws:ListWidgetsResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="porws:GetRequest"/>
+      <output message="porws:GetResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="porws:ListRequest"/>
+      <output message="porws:ListResponse"/>
+    </operation>
+    <operation name="GetWidget">
+      <input message="porws:GetWidgetRequest"/>
+      <output message="porws:GetWidgetResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="porws:UpdateRequest"/>
+      <output message="porws:UpdateResponse"/>
+    </operation>
+    <operation name="UpdateWidget">
+      <input message="porws:UpdateWidgetRequest"/>
+      <output message="porws:UpdateWidgetResponse"/>
+    </operation>
+  </portType>
+  <binding name="PortalServiceSOAPBinding" type="porws:PortalServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Portal/Add" style="document"/>
+      <input>
+        <soap:header message="porws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="porws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Portal/Delete" style="document"/>
+      <input>
+        <soap:header message="porws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="porws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeleteWidget">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Portal/DeleteWidget" style="document"/>
+      <input>
+        <soap:header message="porws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="porws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AddWidget">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Portal/AddWidget" style="document"/>
+      <input>
+        <soap:header message="porws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="porws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListWidgets">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Portal/ListWidgets" style="document"/>
+      <input>
+        <soap:header message="porws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="porws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Portal/Get" style="document"/>
+      <input>
+        <soap:header message="porws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="porws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Portal/List" style="document"/>
+      <input>
+        <soap:header message="porws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="porws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetWidget">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Portal/GetWidget" style="document"/>
+      <input>
+        <soap:header message="porws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="porws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Portal/Update" style="document"/>
+      <input>
+        <soap:header message="porws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="porws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateWidget">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Portal/UpdateWidget" style="document"/>
+      <input>
+        <soap:header message="porws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="porws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PortalService">
+    <port name="PortalServicePort" binding="porws:PortalServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/portal/portal-13.0"/>
+    </port>
+  </service>
+</definitions>

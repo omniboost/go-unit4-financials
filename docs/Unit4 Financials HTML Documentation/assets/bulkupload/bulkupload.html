@@ -1,0 +1,1022 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/eassets/schemas/bulkupload</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/eassets/schemas/bulkupload</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>BulkUpdate</h3>
+         <p>This element contains the asset details that you wish to update.</p>
+         <h3>BulkUpload</h3>
+         <p>This element contains the assets and transaction details you specify when uploading
+            assets.
+         </p>
+         <h3>BulkUploadRequest</h3>
+         <p>This service allows you to upload assets in bulk from other systems.</p>
+         <h3>BulkUploadResponse</h3>
+         <p>This is the response that is returned when you upload assets in bulk.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/eassets/schemas/bulkupload}BulkUpload"></a><h3>BulkUpload</h3>
+         <p>This element contains the assets and transaction details you specify when uploading
+            assets.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Details</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}Details" href="#{http://www.coda.com/eassets/schemas/bulkupload}Details">Details</a></td>
+                     <td>Contains the asset information and transaction details you specify when uploading
+                        an asset.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}Details"></a><h3>Details</h3>
+         <p>Contains the asset information and transaction details you specify when uploading
+            an asset.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Asset</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                     <td>This element holds the details for an asset.</td>
+                  </tr>
+                  <tr>
+                     <td>Transactions</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transactiondetails}TransactionDetailList" href="../transactiondetails/transactiondetails.html#{http://www.coda.com/eassets/schemas/transactiondetails}TransactionDetailList">TransactionDetailList</a></td>
+                     <td>This element holds the transaction details for the associated asset.</td>
+                  </tr>
+                  <tr>
+                     <td>DepreciationAdjustments</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}AdjustmentDetailList" href="#{http://www.coda.com/eassets/schemas/bulkupload}AdjustmentDetailList">AdjustmentDetailList</a></td>
+                     <td>This element holds any adjustment values that need to be recorded against the asset's
+                        first period of depreciation.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}AdjustmentDetailList"></a><h3>AdjustmentDetailList</h3>
+         <p>This element holds any adjustment values that need to be recorded against the asset's
+            first period of depreciation.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AdjustmentDetail</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}AdjustmentDetail" href="#{http://www.coda.com/eassets/schemas/bulkupload}AdjustmentDetail">AdjustmentDetail</a></td>
+                     <td>This element holds an adjustment value for the asset's first period of depreciation.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}AdjustmentDetail"></a><h3>AdjustmentDetail</h3>
+         <p>This element holds an adjustment value for the asset's first period of depreciation.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>BookCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The asset book in which this adjustment value will be recorded.</td>
+                  </tr>
+                  <tr>
+                     <td>DepnCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The code of the depreciation master used for this asset in the specified asset book.</td>
+                  </tr>
+                  <tr>
+                     <td>AdjustmentValue</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The adjustment value.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}BulkUpdate"></a><h3>BulkUpdate</h3>
+         <p>This element contains the asset details that you wish to update.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UpdateAsset</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UpdateAsset" href="#{http://www.coda.com/eassets/schemas/bulkupload}UpdateAsset">UpdateAsset</a></td>
+                     <td>This element contains the details that you wish to update for a particular asset.
+                        Apart from CmpCode and Code which are mandatory, you need only populate the fields
+                        that you wish to update.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UpdateAsset"></a><h3>UpdateAsset</h3>
+         <p>This element contains the details that you wish to update for a particular asset.
+            Apart from CmpCode and Code which are mandatory, you need only populate the fields
+            that you wish to update.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which the asset exists.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeAstCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAstCode">typeAstCode</a></td>
+                     <td>The asset code.</td>
+                  </tr>
+                  <tr>
+                     <td>Description</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDescr" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDescr">typeDescr</a></td>
+                     <td>The description of the asset.</td>
+                  </tr>
+                  <tr>
+                     <td>Comment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>The comment stored with the asset.</td>
+                  </tr>
+                  <tr>
+                     <td>Url</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>The URL to a location which can contain a picture of the asset or other details.</td>
+                  </tr>
+                  <tr>
+                     <td>OldAsset</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>If the asset has been copied from another system, this element contains the asset's
+                        code from the old system.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>LocationCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmCode">typeElmCode</a></td>
+                     <td>The code of this asset's location.</td>
+                  </tr>
+                  <tr>
+                     <td>Quantity</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLong" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLong">typeLong</a></td>
+                     <td>The quantity of this asset.</td>
+                  </tr>
+                  <tr>
+                     <td>UserString1</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>User defined text field, 1.</td>
+                  </tr>
+                  <tr>
+                     <td>UserString2</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>User defined text field, 2.</td>
+                  </tr>
+                  <tr>
+                     <td>UserString3</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>User defined text field, 3.</td>
+                  </tr>
+                  <tr>
+                     <td>UserString4</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>User defined text field, 4.</td>
+                  </tr>
+                  <tr>
+                     <td>UserString5</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>User defined text field, 5.</td>
+                  </tr>
+                  <tr>
+                     <td>UserString6</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>User defined text field, 6.</td>
+                  </tr>
+                  <tr>
+                     <td>UserString7</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>User defined text field, 7.</td>
+                  </tr>
+                  <tr>
+                     <td>UserString8</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>User defined text field, 8.</td>
+                  </tr>
+                  <tr>
+                     <td>UserString9</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>User defined text field, 9.</td>
+                  </tr>
+                  <tr>
+                     <td>UserString10</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>User defined text field, 10.</td>
+                  </tr>
+                  <tr>
+                     <td>UserValue1</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>User defined value field, 1. (A monetary value.)</td>
+                  </tr>
+                  <tr>
+                     <td>UserValue2</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>User defined value field, 2. (A monetary value.)</td>
+                  </tr>
+                  <tr>
+                     <td>UserValue3</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>User defined value field, 3. (A monetary value.)</td>
+                  </tr>
+                  <tr>
+                     <td>UserValue4</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>User defined value field, 4. (A monetary value.)</td>
+                  </tr>
+                  <tr>
+                     <td>UserValue5</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>User defined value field, 5. (A monetary value.)</td>
+                  </tr>
+                  <tr>
+                     <td>UserValue6</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>User defined value field, 6. (A monetary value.)</td>
+                  </tr>
+                  <tr>
+                     <td>UserValue7</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>User defined value field, 7. (A monetary value.)</td>
+                  </tr>
+                  <tr>
+                     <td>UserValue8</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>User defined value field, 8. (A monetary value.)</td>
+                  </tr>
+                  <tr>
+                     <td>UserValue9</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>User defined value field, 9. (A monetary value.)</td>
+                  </tr>
+                  <tr>
+                     <td>UserValue10</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>User defined value field, 10. (A monetary value.)</td>
+                  </tr>
+                  <tr>
+                     <td>UserDate1</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>User defined date field, 1.</td>
+                  </tr>
+                  <tr>
+                     <td>UserDate2</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>User defined date field, 2.</td>
+                  </tr>
+                  <tr>
+                     <td>UserDate3</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>User defined date field, 3.</td>
+                  </tr>
+                  <tr>
+                     <td>UserDate4</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>User defined date field, 4.</td>
+                  </tr>
+                  <tr>
+                     <td>UserDate5</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>User defined date field, 5.</td>
+                  </tr>
+                  <tr>
+                     <td>UserDate6</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>User defined date field, 6.</td>
+                  </tr>
+                  <tr>
+                     <td>UserDate7</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>User defined date field, 7.</td>
+                  </tr>
+                  <tr>
+                     <td>UserDate8</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>User defined date field, 8.</td>
+                  </tr>
+                  <tr>
+                     <td>UserDate9</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>User defined date field, 9.</td>
+                  </tr>
+                  <tr>
+                     <td>UserDate10</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>User defined date field, 10.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateBook</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UpdateBook" href="#{http://www.coda.com/eassets/schemas/bulkupload}UpdateBook">UpdateBook</a></td>
+                     <td>Contains the details that you wish to update in a particular asset book.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UpdateBook"></a><h3>UpdateBook</h3>
+         <p>Contains the details that you wish to update in a particular asset book.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>BookCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>The code of the asset book.</td>
+                  </tr>
+                  <tr>
+                     <td>AssetLife</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}typeAssetLife" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}typeAssetLife">typeAssetLife</a></td>
+                     <td>The number of periods over which the asset will be written off.</td>
+                  </tr>
+                  <tr>
+                     <td>StandardDepnCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeB">typeCodeB</a></td>
+                     <td>The code of the depreciation rule master used in this asset book for calculating standard
+                        depreciation.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>SpecialDepnCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeB">typeCodeB</a></td>
+                     <td>The code of the depreciation rule master used in this asset book for calculating special
+                        depreciation.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>StartYear</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The year when the asset starts to depreciate.</td>
+                  </tr>
+                  <tr>
+                     <td>StartPeriod</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The period when the asset starts to depreciate.</td>
+                  </tr>
+                  <tr>
+                     <td>StartDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>The date when the asset starts to depreciate.</td>
+                  </tr>
+                  <tr>
+                     <td>ResidualPercent</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                     <td>The asset's residual value as a percentage of its original capital cost.</td>
+                  </tr>
+                  <tr>
+                     <td>ResidualValue</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                     <td>The asset's residual value as an absolute value.</td>
+                  </tr>
+                  <tr>
+                     <td>IsPercentage</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Indicates whether the asset's residual worth is held as a percentage or a value.</td>
+                  </tr>
+                  <tr>
+                     <td>PurchaseDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>The date and time when the asset was purchased.</td>
+                  </tr>
+                  <tr>
+                     <td>Cost</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                     <td>The original cost of the asset. This is known as the asset's capital cost.</td>
+                  </tr>
+                  <tr>
+                     <td>Revalue</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Indicates whether the asset may be revalued.</td>
+                  </tr>
+                  <tr>
+                     <td>PostingRuleCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code of the posting rule master used by this asset. This is mandatory for posting
+                        books, but should be left blank or omitted for non-posting books.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UpdateRequest"></a><h3>UpdateRequest</h3>
+         <p>The UpdateRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>BulkUpload</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}BulkUpload" href="#{http://www.coda.com/eassets/schemas/bulkupload}BulkUpload">BulkUpload</a></td>
+                     <td>OBSOLETE</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UpdateRequestVerb"></a><h3>UpdateRequestVerb</h3>
+         <p>The UpdateRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>THIS HAS BEEN SUPERSEDED BY UPDATEASSET WHICH YOU SHOULD USE INSTEAD.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UpdateRequest" href="#{http://www.coda.com/eassets/schemas/bulkupload}UpdateRequest">UpdateRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UpdateResponse"></a><h3>UpdateResponse</h3>
+         <p>The UpdateResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsUpdateded</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>OBSOLETE</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UpdateResponseVerb"></a><h3>UpdateResponseVerb</h3>
+         <p>The UpdateResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UpdateResponse" href="#{http://www.coda.com/eassets/schemas/bulkupload}UpdateResponse">UpdateResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UploadRequest"></a><h3>UploadRequest</h3>
+         <p>The UploadRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>BulkUpload</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}BulkUpload" href="#{http://www.coda.com/eassets/schemas/bulkupload}BulkUpload">BulkUpload</a></td>
+                     <td>This element contains the assets and transaction details you specify when uploading
+                        assets.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UploadRequestVerb"></a><h3>UploadRequestVerb</h3>
+         <p>The UploadRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Uploads assets using the parameters you specify.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UploadRequest" href="#{http://www.coda.com/eassets/schemas/bulkupload}UploadRequest">UploadRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UploadResponse"></a><h3>UploadResponse</h3>
+         <p>The UploadResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsUploaded</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Indicates whether the UploadRequest corresponding to this response was successful.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UploadResponseVerb"></a><h3>UploadResponseVerb</h3>
+         <p>The UploadResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UploadResponse" href="#{http://www.coda.com/eassets/schemas/bulkupload}UploadResponse">UploadResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UpdateAssetRequest"></a><h3>UpdateAssetRequest</h3>
+         <p>The UpdateAssetRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>BulkUpdate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}BulkUpdate" href="#{http://www.coda.com/eassets/schemas/bulkupload}BulkUpdate">BulkUpdate</a></td>
+                     <td>This element contains the asset details that you wish to update.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UpdateAssetRequestVerb"></a><h3>UpdateAssetRequestVerb</h3>
+         <p>The UpdateAssetRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Updates assets using the parameters you specify.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UpdateAssetRequest" href="#{http://www.coda.com/eassets/schemas/bulkupload}UpdateAssetRequest">UpdateAssetRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UpdateAssetResponse"></a><h3>UpdateAssetResponse</h3>
+         <p>The UpdateAssetResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsUpdateded</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Indicates whether the UpdateAssetRequest corresponding to this response was successful.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}UpdateAssetResponseVerb"></a><h3>UpdateAssetResponseVerb</h3>
+         <p>The UpdateAssetResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UpdateAssetResponse" href="#{http://www.coda.com/eassets/schemas/bulkupload}UpdateAssetResponse">UpdateAssetResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}BulkUploadRequest"></a><h3>BulkUploadRequest</h3>
+         <p>The BulkUploadRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to upload assets in bulk from other systems.</p>
+         <div class="attributes">
+            <h4>Attributes</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Type</th>
+                     <th>Use</th>
+                     <th>Default</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>assetnumbers</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/common}typeUploadAssetCode" href="../common/common.html#{http://www.coda.com/eassets/schemas/common}typeUploadAssetCode">typeUploadAssetCode</a></td>
+                     <td>required</td>
+                     <td></td>
+                     <td>Specify whether you are creating new asset numbers, or if you are updating existing
+                        asset numbers.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Upload</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UploadRequestVerb" href="#{http://www.coda.com/eassets/schemas/bulkupload}UploadRequestVerb">UploadRequestVerb</a></td>
+                     <td>Uploads assets using the parameters you specify.</td>
+                  </tr>
+                  <tr>
+                     <td>Update</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UpdateRequestVerb" href="#{http://www.coda.com/eassets/schemas/bulkupload}UpdateRequestVerb">UpdateRequestVerb</a></td>
+                     <td>THIS HAS BEEN SUPERSEDED BY UPDATEASSET WHICH YOU SHOULD USE INSTEAD.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateAsset</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UpdateAssetRequestVerb" href="#{http://www.coda.com/eassets/schemas/bulkupload}UpdateAssetRequestVerb">UpdateAssetRequestVerb</a></td>
+                     <td>Updates assets using the parameters you specify.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/bulkupload}BulkUploadResponse"></a><h3>BulkUploadResponse</h3>
+         <p>The BulkUploadResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you upload assets in bulk.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Upload</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UploadResponseVerb" href="#{http://www.coda.com/eassets/schemas/bulkupload}UploadResponseVerb">UploadResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Update</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UpdateResponseVerb" href="#{http://www.coda.com/eassets/schemas/bulkupload}UpdateResponseVerb">UpdateResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateAsset</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/bulkupload}UpdateAssetResponseVerb" href="#{http://www.coda.com/eassets/schemas/bulkupload}UpdateAssetResponseVerb">UpdateAssetResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

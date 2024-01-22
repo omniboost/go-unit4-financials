@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/positions/position-11.3/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:posws="http://www.coda.com/common/schemas/positions/position-11.3/webservice">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:use="http://www.coda.com/common/schemas/users"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:udf="http://www.coda.com/common/schemas/udfmaster"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:pos="http://www.coda.com/common/schemas/positions"
+    targetNamespace="http://www.coda.com/common/schemas/positions/position-11.3/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/common/schemas/users" schemaLocation="common/users/users.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/positions" schemaLocation="../wsdl/common/positions/positions.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/udfmaster" schemaLocation="common/udfmaster/udfmaster.xsd"/>
+    <xsd:element name="UpdatePositionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Position" type="pos:Position">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            updatePosition function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPositionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Position" type="pos:Position">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getPosition function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPositionAttributeDefinitionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetPositionAttributeDefinitions" type="pos:PositionAttributeDefinitions">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getPositionAttributeDefinitions function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LightweightListPositionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the Position objects that
+                            the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListPositionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the Position objects that
+                            the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="IsWithinLimitsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsWithinLimits" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            isWithinLimits function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeletePositionResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindPositionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PositionList" type="pos:PositionList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            findPosition function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckMultipleAccountsAgainstLimitsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CheckMultipleAccountsAgainstLimits" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            checkMultipleAccountsAgainstLimits function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdatePositionAttributeDefinitionsResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdatePositionAttributeDefinitionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Definitions" type="pos:PositionAttributeDefinitions">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      The position master attributes
+                                to update.     </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LightweightListPositionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PositionItemList" type="pos:PositionItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            lightweightListPositions function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddPositionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Position" type="pos:Position">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole Position object
+                            that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPositionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PositionKey" type="pos:PositionKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the Position object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListPositionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PositionList" type="pos:PositionList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            listPositions function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdatePositionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Position" type="pos:Position">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole Position object
+                            that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckMultipleAccountsAgainstLimitsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Information" type="pos:MultipleAccountLimitInformation">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      Details of account limits for
+                                multiple accounts.     </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindPositionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the Position objects that
+                            the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddPositionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Position" type="pos:Position">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            addPosition function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeletePositionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PositionKey" type="pos:PositionKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the Position object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="IsWithinLimitsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PosCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      A position code.     </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      A company code.     </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocType" type="com:typeComDoc">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      A document type.     </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AccCode" type="com:typeAcCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      An account code.     </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CurrCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      A currency code.     </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Amount" type="com:typeMoney">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>      A monetary value.     </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPositionAttributeDefinitionsRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetPositionAttributeDefinitionsRequest">
+    <part name="GetPositionAttributeDefinitionsRequest" element="posws:GetPositionAttributeDefinitionsRequest"/>
+  </message>
+  <message name="UpdatePositionAttributeDefinitionsRequest">
+    <part name="UpdatePositionAttributeDefinitionsRequest" element="posws:UpdatePositionAttributeDefinitionsRequest"/>
+  </message>
+  <message name="AddPositionRequest">
+    <part name="AddPositionRequest" element="posws:AddPositionRequest"/>
+  </message>
+  <message name="GetPositionRequest">
+    <part name="GetPositionRequest" element="posws:GetPositionRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="posws:Options"/>
+  </message>
+  <message name="IsWithinLimitsResponse">
+    <part name="IsWithinLimitsResponse" element="posws:IsWithinLimitsResponse"/>
+  </message>
+  <message name="ListPositionsRequest">
+    <part name="ListPositionsRequest" element="posws:ListPositionsRequest"/>
+  </message>
+  <message name="DeletePositionRequest">
+    <part name="DeletePositionRequest" element="posws:DeletePositionRequest"/>
+  </message>
+  <message name="FindPositionResponse">
+    <part name="FindPositionResponse" element="posws:FindPositionResponse"/>
+  </message>
+  <message name="FindPositionRequest">
+    <part name="FindPositionRequest" element="posws:FindPositionRequest"/>
+  </message>
+  <message name="LightweightListPositionsResponse">
+    <part name="LightweightListPositionsResponse" element="posws:LightweightListPositionsResponse"/>
+  </message>
+  <message name="ListPositionsResponse">
+    <part name="ListPositionsResponse" element="posws:ListPositionsResponse"/>
+  </message>
+  <message name="DeletePositionResponse">
+    <part name="DeletePositionResponse" element="posws:DeletePositionResponse"/>
+  </message>
+  <message name="IsWithinLimitsRequest">
+    <part name="IsWithinLimitsRequest" element="posws:IsWithinLimitsRequest"/>
+  </message>
+  <message name="AddPositionResponse">
+    <part name="AddPositionResponse" element="posws:AddPositionResponse"/>
+  </message>
+  <message name="UpdatePositionRequest">
+    <part name="UpdatePositionRequest" element="posws:UpdatePositionRequest"/>
+  </message>
+  <message name="UpdatePositionAttributeDefinitionsResponse">
+    <part name="UpdatePositionAttributeDefinitionsResponse" element="posws:UpdatePositionAttributeDefinitionsResponse"/>
+  </message>
+  <message name="LightweightListPositionsRequest">
+    <part name="LightweightListPositionsRequest" element="posws:LightweightListPositionsRequest"/>
+  </message>
+  <message name="CheckMultipleAccountsAgainstLimitsRequest">
+    <part name="CheckMultipleAccountsAgainstLimitsRequest" element="posws:CheckMultipleAccountsAgainstLimitsRequest"/>
+  </message>
+  <message name="GetPositionResponse">
+    <part name="GetPositionResponse" element="posws:GetPositionResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="posws:OptionsResponse"/>
+  </message>
+  <message name="UpdatePositionResponse">
+    <part name="UpdatePositionResponse" element="posws:UpdatePositionResponse"/>
+  </message>
+  <message name="GetPositionAttributeDefinitionsResponse">
+    <part name="GetPositionAttributeDefinitionsResponse" element="posws:GetPositionAttributeDefinitionsResponse"/>
+  </message>
+  <message name="CheckMultipleAccountsAgainstLimitsResponse">
+    <part name="CheckMultipleAccountsAgainstLimitsResponse" element="posws:CheckMultipleAccountsAgainstLimitsResponse"/>
+  </message>
+  <portType name="PositionServicePortTypes">
+    <operation name="LightweightListPositions">
+      <input message="posws:LightweightListPositionsRequest"/>
+      <output message="posws:LightweightListPositionsResponse"/>
+    </operation>
+    <operation name="IsWithinLimits">
+      <input message="posws:IsWithinLimitsRequest"/>
+      <output message="posws:IsWithinLimitsResponse"/>
+    </operation>
+    <operation name="CheckMultipleAccountsAgainstLimits">
+      <input message="posws:CheckMultipleAccountsAgainstLimitsRequest"/>
+      <output message="posws:CheckMultipleAccountsAgainstLimitsResponse"/>
+    </operation>
+    <operation name="AddPosition">
+      <input message="posws:AddPositionRequest"/>
+      <output message="posws:AddPositionResponse"/>
+    </operation>
+    <operation name="ListPositions">
+      <input message="posws:ListPositionsRequest"/>
+      <output message="posws:ListPositionsResponse"/>
+    </operation>
+    <operation name="UpdatePosition">
+      <input message="posws:UpdatePositionRequest"/>
+      <output message="posws:UpdatePositionResponse"/>
+    </operation>
+    <operation name="FindPosition">
+      <input message="posws:FindPositionRequest"/>
+      <output message="posws:FindPositionResponse"/>
+    </operation>
+    <operation name="GetPositionAttributeDefinitions">
+      <input message="posws:GetPositionAttributeDefinitionsRequest"/>
+      <output message="posws:GetPositionAttributeDefinitionsResponse"/>
+    </operation>
+    <operation name="GetPosition">
+      <input message="posws:GetPositionRequest"/>
+      <output message="posws:GetPositionResponse"/>
+    </operation>
+    <operation name="UpdatePositionAttributeDefinitions">
+      <input message="posws:UpdatePositionAttributeDefinitionsRequest"/>
+      <output message="posws:UpdatePositionAttributeDefinitionsResponse"/>
+    </operation>
+    <operation name="DeletePosition">
+      <input message="posws:DeletePositionRequest"/>
+      <output message="posws:DeletePositionResponse"/>
+    </operation>
+  </portType>
+  <binding name="PositionServiceSOAPBinding" type="posws:PositionServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="LightweightListPositions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Position/LightweightListPositions" style="document"/>
+      <input>
+        <soap:header message="posws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="posws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="IsWithinLimits">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Position/IsWithinLimits" style="document"/>
+      <input>
+        <soap:header message="posws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="posws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckMultipleAccountsAgainstLimits">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Position/CheckMultipleAccountsAgainstLimits" style="document"/>
+      <input>
+        <soap:header message="posws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="posws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AddPosition">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Position/AddPosition" style="document"/>
+      <input>
+        <soap:header message="posws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="posws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListPositions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Position/ListPositions" style="document"/>
+      <input>
+        <soap:header message="posws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="posws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdatePosition">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Position/UpdatePosition" style="document"/>
+      <input>
+        <soap:header message="posws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="posws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FindPosition">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Position/FindPosition" style="document"/>
+      <input>
+        <soap:header message="posws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="posws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetPositionAttributeDefinitions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Position/GetPositionAttributeDefinitions" style="document"/>
+      <input>
+        <soap:header message="posws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="posws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetPosition">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Position/GetPosition" style="document"/>
+      <input>
+        <soap:header message="posws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="posws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdatePositionAttributeDefinitions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Position/UpdatePositionAttributeDefinitions" style="document"/>
+      <input>
+        <soap:header message="posws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="posws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeletePosition">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Position/DeletePosition" style="document"/>
+      <input>
+        <soap:header message="posws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="posws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PositionService">
+    <port name="PositionServicePort" binding="posws:PositionServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/positions/position-11.3"/>
+    </port>
+  </service>
+</definitions>

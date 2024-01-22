@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/requestforquoteip/poprequestforquoteip-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:rfqws="http://www.coda.com/pop/schemas/requestforquoteip/poprequestforquoteip-1.0/webservice">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:rfq="http://www.coda.com/pop/schemas/requestforquoteip"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/pop/schemas/requestforquoteip/poprequestforquoteip-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/requestforquoteip" schemaLocation="../wsdl/pop/requestforquoteip/requestforquoteip.xsd"/>
+    <xsd:element name="ViewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RFQObject" type="rfq:RFQKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Requisition to Update in the system.                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="XLCheckConvertResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="XLRequestForQuotation" type="rfq:XLRequestForQuotation">
+                    <xsd:annotation>
+                        <xsd:documentation>The details of the RFQ.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="XLGetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Cmpcode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which the document exists.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Doccode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The document code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Docnum" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The document number.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReqObject" type="rfq:RequestForQuoteView">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Updated Requisition                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="XLCheckConvertRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Cmpcode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which the document exists.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Doccode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The document code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Docnum" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The document number.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CheckOrderAssoc" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Checks whether there is a
+                            suitable order document specified on the
+                            associated input template master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="XLGetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="XLRequestForQuotation" type="rfq:XLRequestForQuotation">
+                    <xsd:annotation>
+                        <xsd:documentation>The details of the RFQ.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RFQObject" type="rfq:RFQObject">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Requisition to Update in the system.                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ViewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RFQObject" type="rfq:RequestForQuoteView">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            Updated Requisition                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="XLSetPreferredSupplierRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Cmpcode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which the document exists.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Doccode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The document code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Docnum" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The document number.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SuppId" type="xsd:decimal">
+                    <xsd:annotation>
+                        <xsd:documentation>The unique identifier for the
+                            supplier of the item.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DoCompleteRFQ" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies whether the RFQ
+                            should be marked as complete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ReasonText" minOccurs="0" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The reason for accepting or
+                            rejecting the supplier&apos;s quote.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="XLSetPreferredSupplierResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="XLRequestForQuotation" type="rfq:XLRequestForQuotation">
+                    <xsd:annotation>
+                        <xsd:documentation>The details of the RFQ.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="XLSetPreferredSupplierRequest">
+    <part name="XLSetPreferredSupplierRequest" element="rfqws:XLSetPreferredSupplierRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="rfqws:OptionsResponse"/>
+  </message>
+  <message name="XLGetRequest">
+    <part name="XLGetRequest" element="rfqws:XLGetRequest"/>
+  </message>
+  <message name="XLCheckConvertRequest">
+    <part name="XLCheckConvertRequest" element="rfqws:XLCheckConvertRequest"/>
+  </message>
+  <message name="ViewRequest">
+    <part name="ViewRequest" element="rfqws:ViewRequest"/>
+  </message>
+  <message name="XLCheckConvertResponse">
+    <part name="XLCheckConvertResponse" element="rfqws:XLCheckConvertResponse"/>
+  </message>
+  <message name="ViewResponse">
+    <part name="ViewResponse" element="rfqws:ViewResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="rfqws:Options"/>
+  </message>
+  <message name="XLGetResponse">
+    <part name="XLGetResponse" element="rfqws:XLGetResponse"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="rfqws:UpdateResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="rfqws:UpdateRequest"/>
+  </message>
+  <message name="XLSetPreferredSupplierResponse">
+    <part name="XLSetPreferredSupplierResponse" element="rfqws:XLSetPreferredSupplierResponse"/>
+  </message>
+  <portType name="POPRequestForQuoteIPServicePortTypes">
+    <operation name="XLCheckConvert">
+      <input message="rfqws:XLCheckConvertRequest"/>
+      <output message="rfqws:XLCheckConvertResponse"/>
+    </operation>
+    <operation name="XLGet">
+      <input message="rfqws:XLGetRequest"/>
+      <output message="rfqws:XLGetResponse"/>
+    </operation>
+    <operation name="XLSetPreferredSupplier">
+      <input message="rfqws:XLSetPreferredSupplierRequest"/>
+      <output message="rfqws:XLSetPreferredSupplierResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="rfqws:UpdateRequest"/>
+      <output message="rfqws:UpdateResponse"/>
+    </operation>
+    <operation name="View">
+      <input message="rfqws:ViewRequest"/>
+      <output message="rfqws:ViewResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPRequestForQuoteIPServiceSOAPBinding" type="rfqws:POPRequestForQuoteIPServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="XLCheckConvert">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPRequestForQuoteIP/XLCheckConvert" style="document"/>
+      <input>
+        <soap:header message="rfqws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rfqws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="XLGet">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPRequestForQuoteIP/XLGet" style="document"/>
+      <input>
+        <soap:header message="rfqws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rfqws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="XLSetPreferredSupplier">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPRequestForQuoteIP/XLSetPreferredSupplier" style="document"/>
+      <input>
+        <soap:header message="rfqws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rfqws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPRequestForQuoteIP/Update" style="document"/>
+      <input>
+        <soap:header message="rfqws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rfqws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="View">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPRequestForQuoteIP/View" style="document"/>
+      <input>
+        <soap:header message="rfqws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rfqws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPRequestForQuoteIPService">
+    <port name="POPRequestForQuoteIPServicePort" binding="rfqws:POPRequestForQuoteIPServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/requestforquoteip/poprequestforquoteip-1.0"/>
+    </port>
+  </service>
+</definitions>

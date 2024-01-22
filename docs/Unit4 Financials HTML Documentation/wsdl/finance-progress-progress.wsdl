@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/progress/progress-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:prgws="http://www.coda.com/efinance/schemas/progress/progress-1.0/webservice">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:prg="http://www.coda.com/efinance/schemas/progress"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/progress/progress-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/progress" schemaLocation="../wsdl/finance/progress/progress.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="GetProgressResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            are sending the request to. This is given to
+                            you when you start the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Progress" minOccurs="0" type="prg:ProgressData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains information about
+                            the status and progress of the process you
+                            are running.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProgressRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            started. This is given to you when you start
+                            the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AbortResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special reference
+                            which identifies the process you want to abort.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AbortRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            want to abort. This is given to you when you
+                            start the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="AbortResponse">
+    <part name="AbortResponse" element="prgws:AbortResponse"/>
+  </message>
+  <message name="AbortRequest">
+    <part name="AbortRequest" element="prgws:AbortRequest"/>
+  </message>
+  <message name="GetProgressRequest">
+    <part name="GetProgressRequest" element="prgws:GetProgressRequest"/>
+  </message>
+  <message name="GetProgressResponse">
+    <part name="GetProgressResponse" element="prgws:GetProgressResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="prgws:Options"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="prgws:OptionsResponse"/>
+  </message>
+  <portType name="ProgressServicePortTypes">
+    <operation name="Abort">
+      <input message="prgws:AbortRequest"/>
+      <output message="prgws:AbortResponse"/>
+    </operation>
+    <operation name="GetProgress">
+      <input message="prgws:GetProgressRequest"/>
+      <output message="prgws:GetProgressResponse"/>
+    </operation>
+  </portType>
+  <binding name="ProgressServiceSOAPBinding" type="prgws:ProgressServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Abort">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Progress/Abort" style="document"/>
+      <input>
+        <soap:header message="prgws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prgws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProgress">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Progress/GetProgress" style="document"/>
+      <input>
+        <soap:header message="prgws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="prgws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ProgressService">
+    <port name="ProgressServicePort" binding="prgws:ProgressServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/progress/progress-1.0"/>
+    </port>
+  </service>
+</definitions>

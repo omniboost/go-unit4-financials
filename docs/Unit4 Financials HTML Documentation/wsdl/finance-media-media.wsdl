@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/media/media-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:medws="http://www.coda.com/efinance/schemas/media/media-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:med="http://www.coda.com/efinance/schemas/media"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:elm="http://www.coda.com/efinance/schemas/elementmaster"
+    targetNamespace="http://www.coda.com/efinance/schemas/media/media-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/elementmaster" schemaLocation="finance/elementmaster/elementmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/media" schemaLocation="../wsdl/finance/media/media.xsd"/>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="MediaMaster" type="med:MediaMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            a media master you want to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="med:MediaReqKeys">
+                    <xsd:annotation>
+                        <xsd:documentation>A filter that selects the
+                            media masters to be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which you attempted to retrieve the media master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the media master
+                            you attempted to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MediaMaster" minOccurs="0" type="med:MediaMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the media master you
+                            have retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="med:MediaReqKeys">
+                    <xsd:annotation>
+                        <xsd:documentation>The filter that was used to
+                            select the media masters to be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="med:MediaKeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains extended key
+                            information for the listed media masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which you attempted to update the media master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the media master
+                            that you attempted to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            media master in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which you attempted to delete the media master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the media master
+                            that you attempted to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which you attempted to create the media master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the media master
+                            that you attempted to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            media master in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="MediaMaster" type="med:MediaMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            a media master you want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            a media master you want to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the media master you want to retrieve from
+                            the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="AddResponse">
+    <part name="AddResponse" element="medws:AddResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="medws:DeleteRequest"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="medws:GetResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="medws:OptionsResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="medws:AddRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="medws:Options"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="medws:UpdateResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="medws:ListRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="medws:DeleteResponse"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="medws:ListResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="medws:UpdateRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="medws:GetRequest"/>
+  </message>
+  <portType name="MediaServicePortTypes">
+    <operation name="Add">
+      <input message="medws:AddRequest"/>
+      <output message="medws:AddResponse"/>
+    </operation>
+    <operation name="Delete">
+      <input message="medws:DeleteRequest"/>
+      <output message="medws:DeleteResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="medws:GetRequest"/>
+      <output message="medws:GetResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="medws:ListRequest"/>
+      <output message="medws:ListResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="medws:UpdateRequest"/>
+      <output message="medws:UpdateResponse"/>
+    </operation>
+  </portType>
+  <binding name="MediaServiceSOAPBinding" type="medws:MediaServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Media/Add" style="document"/>
+      <input>
+        <soap:header message="medws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="medws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Media/Delete" style="document"/>
+      <input>
+        <soap:header message="medws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="medws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Media/Get" style="document"/>
+      <input>
+        <soap:header message="medws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="medws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Media/List" style="document"/>
+      <input>
+        <soap:header message="medws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="medws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Media/Update" style="document"/>
+      <input>
+        <soap:header message="medws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="medws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="MediaService">
+    <port name="MediaServicePort" binding="medws:MediaServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/media/media-12.0"/>
+    </port>
+  </service>
+</definitions>

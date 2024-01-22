@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/billing/schemas/documentnumbering/documentnumbering-14.0/webservice" xmlns:blsdocnumws="http://www.coda.com/billing/schemas/documentnumbering/documentnumbering-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:blsdocnum="http://www.coda.com/billing/schemas/documentnumbering"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/billing/schemas/documentnumbering/documentnumbering-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/billing/schemas/documentnumbering" schemaLocation="../wsdl/billing/documentnumbering/documentnumbering.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSampleNumberResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SampleNumber" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>The sampleNumber is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSampleNumberRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="NumberLength" type="com:typeUWordB">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="ZeroPadding" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="TextPrefix" type="com:typeCodeB">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="YearPrefix" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="PeriodPrefix" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="CurrentYearPeriod" type="com:typeHPeriodb">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="ResetNumberAtNewYear" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="NextNumber" type="com:typeLong">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetSampleNumberResponse">
+    <part name="GetSampleNumberResponse" element="blsdocnumws:GetSampleNumberResponse"/>
+  </message>
+  <message name="GetSampleNumberRequest">
+    <part name="GetSampleNumberRequest" element="blsdocnumws:GetSampleNumberRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="blsdocnumws:Options"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="blsdocnumws:OptionsResponse"/>
+  </message>
+  <portType name="DocumentNumberingServicePortTypes">
+    <operation name="GetSampleNumber">
+      <input message="blsdocnumws:GetSampleNumberRequest"/>
+      <output message="blsdocnumws:GetSampleNumberResponse"/>
+    </operation>
+  </portType>
+  <binding name="DocumentNumberingServiceSOAPBinding" type="blsdocnumws:DocumentNumberingServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetSampleNumber">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/billing/DocumentNumbering/GetSampleNumber" style="document"/>
+      <input>
+        <soap:header message="blsdocnumws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="blsdocnumws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="DocumentNumberingService">
+    <port name="DocumentNumberingServicePort" binding="blsdocnumws:DocumentNumberingServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/billing/documentnumbering/documentnumbering-14.0"/>
+    </port>
+  </service>
+</definitions>

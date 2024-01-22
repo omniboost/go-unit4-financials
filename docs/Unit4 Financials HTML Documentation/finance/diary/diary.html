@@ -1,0 +1,2391 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/diary</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/diary</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>DiaryRequest</h3>
+         <p>This service allows you to maintain diary events.</p>
+         <h3>DiaryResponse</h3>
+         <p>This is the response that is returned when you request to retrieve a list of diary
+            events.
+         </p>
+      </div>
+      <div class="simple-types">
+         <h2>Simple Types</h2><a name="{http://www.coda.com/efinance/schemas/diary}Comment"></a><h3>Comment</h3>
+         <p>A text string that can be saved against a diary event.</p>
+         <table>
+            <tbody>
+               <tr>
+                  <th>Base type</th>
+                  <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+               </tr>
+               <tr>
+                  <th>Maximum length</th>
+                  <td>100</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/diary}Key"></a><h3>Key</h3>
+         <p>This element holds the unique keys used to identify diary events.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UniqueID</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>A unique key used to identify a diary event.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}AddKey"></a><h3>AddKey</h3>
+         <p>The AddKey type has <a title="{http://www.coda.com/efinance/schemas/diary}Key" href="#{http://www.coda.com/efinance/schemas/diary}Key">Key</a> as its base type.
+         </p>
+         <p>This element holds the unique keys used to identify diary events.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ActionDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date for which a diary task is scheduled.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}AddKeyList"></a><h3>AddKeyList</h3>
+         <p>This element holds a list of keys and action dates for the diary events added to the
+            database.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}AddKey" href="#{http://www.coda.com/efinance/schemas/diary}AddKey">AddKey</a></td>
+                     <td>This element holds the unique keys used to identify diary events.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}UpdateEntry"></a><h3>UpdateEntry</h3>
+         <p>This element holds information about the diary event you want to update.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UniqueID</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>A unique key used to identify a diary event.</td>
+                  </tr>
+                  <tr>
+                     <td>ActionDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date for which a diary task is scheduled.</td>
+                  </tr>
+                  <tr>
+                     <td>CompleteDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date on which a diary task was completed. This is not present if the event has
+                        not been completed.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>CompleteTime</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTime" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTime">typeTime</a></td>
+                     <td>The time at which a diary task was completed. This is not present if the event has
+                        not been completed.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Priority</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDiaryPriority" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDiaryPriority">typeDiaryPriority</a></td>
+                     <td>The priority level of the diary task.</td>
+                  </tr>
+                  <tr>
+                     <td>ResponsibleUser</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the user responsible for the task.</td>
+                  </tr>
+                  <tr>
+                     <td>ActionCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code for the type of action that is required. The action code must be one of those
+                        listed by the Diary Action Codes entity master specified on the company master for
+                        the current company or the company associated with the diary event.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>TaskDescription</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDiaryDescr" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDiaryDescr">typeDiaryDescr</a></td>
+                     <td>A text description of the task that is required.</td>
+                  </tr>
+                  <tr>
+                     <td>ReasonCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code for the type of reason or excuse which your customers give you when there
+                        is a payment dispute. The reason code must be one of those listed by the Reason Codes
+                        entity master specified on the company master for the current company or the company
+                        associated with the diary event.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ResolutionCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code for the way in which a payment dispute with a customer is resolved. The resolution
+                        code must be one of those listed by the Resolution Codes entity master specified on
+                        the company master for the current company, or the company associated with the diary
+                        event.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DocCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code for the document, if the diary event is associated with a document. The document
+                        must exist on the Books of the specified company, and be posted to the specified element
+                        level and code.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DocNum</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNumAlphaB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNumAlphaB">typeDocNumAlphaB</a></td>
+                     <td>The number for the document associated with the diary event.</td>
+                  </tr>
+                  <tr>
+                     <td>DocLineNum</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number for the document line associated with the diary event.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}Entry"></a><h3>Entry</h3>
+         <p>This element holds information about a diary event.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UniqueID</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>A unique key used to identify a diary event.</td>
+                  </tr>
+                  <tr>
+                     <td>CreateDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date on which the diary event was created.</td>
+                  </tr>
+                  <tr>
+                     <td>CreateTime</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTime" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTime">typeTime</a></td>
+                     <td>The time at which the diary event was created.</td>
+                  </tr>
+                  <tr>
+                     <td>ActionDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date for which a diary task is scheduled.</td>
+                  </tr>
+                  <tr>
+                     <td>CompleteDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date on which a diary task was completed.</td>
+                  </tr>
+                  <tr>
+                     <td>CompleteTime</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTime" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTime">typeTime</a></td>
+                     <td>The time at which a diary task was completed.</td>
+                  </tr>
+                  <tr>
+                     <td>Priority</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDiaryPriority" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDiaryPriority">typeDiaryPriority</a></td>
+                     <td>The priority level of the diary task.</td>
+                  </tr>
+                  <tr>
+                     <td>ResponsibleUser</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the user responsible for the task.</td>
+                  </tr>
+                  <tr>
+                     <td>ActionCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code for the type of action that is required. The action code must be one of those
+                        listed by the Diary Action Codes entity master specified on the company master for
+                        the current company or the company associated with the diary event.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>TaskDescription</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDiaryDescr" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDiaryDescr">typeDiaryDescr</a></td>
+                     <td>A text description of the task that is required.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code of the company that this diary event relates to (if any).</td>
+                  </tr>
+                  <tr>
+                     <td>ElmLevel</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmLevel" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmLevel">typeElmLevel</a></td>
+                     <td>The level of the element within the account code.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmCodeB">typeElmCodeB</a></td>
+                     <td>The code of the element that this diary event relates to (if any). A diary event can
+                        be related to either an ElmCode or a GrpCode, but not both.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DocCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code of the document that this diary event relates to (if any). You can only relate
+                        a diary event to a specific transaction if an ElmCode (not GrpCode) is supplied. The
+                        document must exist on the Books of the specified company, and be posted to the specified
+                        element level and code.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DocNum</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNumAlphaB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNumAlphaB">typeDocNumAlphaB</a></td>
+                     <td>The document number that this diary event relates to (if any). This cannot be blank
+                        if a DocCode is supplied.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DocLineNum</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The document line number. This is optional but if supplied the document line must
+                        contain the specified ElmCode.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ReasonCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code for the type of reason or excuse which your customers give you when there
+                        is a payment dispute. The reason code must be one of those listed by the Reason Codes
+                        entity master specified on the company master for the current company or the company
+                        associated with the diary event.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>CreateUser</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the user who created the diary event.</td>
+                  </tr>
+                  <tr>
+                     <td>ResolutionCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code for the way in which a payment dispute with a customer is resolved. The resolution
+                        code must be one of those listed by the Resolution Codes entity master specified on
+                        the company master for the current company, or the company associated with the diary
+                        event.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Origin</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtDiaryOrigin" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtDiaryOrigin">typeCtDiaryOrigin</a></td>
+                     <td>Indicates whether the diary event was created manually by a user, or was created automatically
+                        by another function such as reminder letters.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}EntryList"></a><h3>EntryList</h3>
+         <p>This element holds a list of diary events.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Entry</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Entry" href="#{http://www.coda.com/efinance/schemas/diary}Entry">Entry</a></td>
+                     <td>This element holds information about one diary event.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}SortInfo"></a><h3>SortInfo</h3>
+         <p>This element holds details about which columns are included in the sort, and whether
+            the data in the columns is displayed in ascending or descending order.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Column</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtDrySortField" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtDrySortField">typeCtDrySortField</a></td>
+                     <td>Identifies the column used to sort the diary events.</td>
+                  </tr>
+                  <tr>
+                     <td>Ascending</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Indicates whether the column data is sorted in ascending order. If this is false,
+                        the column data will be sorted in descending order.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}SortInfoList"></a><h3>SortInfoList</h3>
+         <p>This element holds information about the sort order of the diary events in the main
+            diary display.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Sort</td>
+                     <td>0</td>
+                     <td>3</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}SortInfo" href="#{http://www.coda.com/efinance/schemas/diary}SortInfo">SortInfo</a></td>
+                     <td>This element holds details about which columns are included in the sort, and whether
+                        the data in the columns is displayed in ascending or descending order.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}SelectInfo"></a><h3>SelectInfo</h3>
+         <p>This element holds the criteria used to determine which diary events are selected
+            from the database.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Select</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="../selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                     <td>This element holds the selection vocabulary used to determine which diary events are
+                        selected from the database.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>FilterFromDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeHSDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeHSDate">typeHSDate</a></td>
+                     <td>The date at the start of the selection range.</td>
+                  </tr>
+                  <tr>
+                     <td>FilterToDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeHSDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeHSDate">typeHSDate</a></td>
+                     <td>The date at the end of the selection range.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmCodeB">typeElmCodeB</a></td>
+                     <td>The code for the element, if the diary event refers to an element or a document.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmLevel</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmLevel" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmLevel">typeElmLevel</a></td>
+                     <td>The level of the element within the account code, if the diary event refers to an
+                        element or a document.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>SortColumns</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}SortInfoList" href="#{http://www.coda.com/efinance/schemas/diary}SortInfoList">SortInfoList</a></td>
+                     <td>This element holds information about the sort order of the diary events in the main
+                        diary display.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>GslCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code for a selector master in the current company. If present, it identifies a
+                        list used to optimise the selection.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}CommentData"></a><h3>CommentData</h3>
+         <p>This element holds details about when the diary event comment was created, and by
+            which user.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CreateDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date on which the comment was created.</td>
+                  </tr>
+                  <tr>
+                     <td>CreateTime</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTime" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTime">typeTime</a></td>
+                     <td>The time at which the comment was created.</td>
+                  </tr>
+                  <tr>
+                     <td>User</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the user who created the comment.</td>
+                  </tr>
+                  <tr>
+                     <td>Source</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDiaryCommentsource" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDiaryCommentsource">typeDiaryCommentsource</a></td>
+                     <td>Indicates whether the comment was created manually by a user, or was created automatically
+                        for audit purposes.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}EntryComment"></a><h3>EntryComment</h3>
+         <p>This element holds the information for a comment attached to a diary event.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Data</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}CommentData" href="#{http://www.coda.com/efinance/schemas/diary}CommentData">CommentData</a></td>
+                     <td>This element holds details about when the diary event comment was created, and by
+                        which user.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Text</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Comment" href="#{http://www.coda.com/efinance/schemas/diary}Comment">Comment</a></td>
+                     <td>The comment text attached to the diary event.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}EntryCommentList"></a><h3>EntryCommentList</h3>
+         <p>This element holds the list of comments attached to a diary event.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Comment</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}EntryComment" href="#{http://www.coda.com/efinance/schemas/diary}EntryComment">EntryComment</a></td>
+                     <td>This element holds the information for a comment attached to a diary event.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}Phasing"></a><h3>Phasing</h3>
+         <p>This element holds details of a diary event that has been replicated and set to recur
+            at regular intervals.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PhasingRule</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePhasing" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePhasing">typePhasing</a></td>
+                     <td>The time interval between the action dates of each recurring event. This is in the
+                        format Dnnn or Mnnn, where nnn specifies the number of days or months between each
+                        event.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DateRule</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDateRule" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDateRule">typeDateRule</a></td>
+                     <td>The rule that specifies how the dates for the events that follow the original one
+                        are derived. This rule only applies when you specify the phasing rule to be in months.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Count</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The number of events you require, including the original one. This number must be
+                        greater than 1.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}ElmInfo"></a><h3>ElmInfo</h3>
+         <p>This stores information about the element associated with the diary event.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ShortName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The short name for the element.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmLevel" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmLevel">typeElmLevel</a></td>
+                     <td>The level of the element within the account code.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmCode">typeElmCode</a></td>
+                     <td>The code for the element.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}ElmCurrs"></a><h3>ElmCurrs</h3>
+         <p>This element contains the currency codes for the element.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>HomeCurrency</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the home currency.</td>
+                  </tr>
+                  <tr>
+                     <td>DualCurrency</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code for the dual currency.</td>
+                  </tr>
+                  <tr>
+                     <td>ElementCurrency</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the element currency.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}ElmBalance"></a><h3>ElmBalance</h3>
+         <p>Contains the balance for the element in the specified currency.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>HomeValue</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The balance for the element, in home currency.</td>
+                  </tr>
+                  <tr>
+                     <td>DualValue</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The balance for the element, in dual currency.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmValue</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The balance for the element, in element currency.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}ElmLastPayment"></a><h3>ElmLastPayment</h3>
+         <p>This element contains details about the last payment made for the element.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Date</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date on which the last payment was made.</td>
+                  </tr>
+                  <tr>
+                     <td>Amount</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount of the last payment.</td>
+                  </tr>
+                  <tr>
+                     <td>DocCurrency</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the currency in which the document is held.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}DocPay"></a><h3>DocPay</h3>
+         <p>This element contains the pay status and value of a document line.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PayStatus</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtStatPayDocLine" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtStatPayDocLine">typeCtStatPayDocLine</a></td>
+                     <td>The payment status of the document line.</td>
+                  </tr>
+                  <tr>
+                     <td>DocValue</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The value of the document line, in document currency.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmValue</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The value of the document line, in element currency.</td>
+                  </tr>
+                  <tr>
+                     <td>HomeValue</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The value of the document line, in home currency.</td>
+                  </tr>
+                  <tr>
+                     <td>DualValue</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The value of the document line, in dual currency.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}DocPayList"></a><h3>DocPayList</h3>
+         <p>This element contains the pay status and value for each line on the document.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DocPay</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}DocPay" href="#{http://www.coda.com/efinance/schemas/diary}DocPay">DocPay</a></td>
+                     <td>This element contains the pay status and value of a document line.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}OverdueInfo"></a><h3>OverdueInfo</h3>
+         <p>This element contains information about the lines that are overdue for payment on
+            the specified document.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>NoOfLines</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number of document lines that are overdue for payment.</td>
+                  </tr>
+                  <tr>
+                     <td>MinOverdueDays</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The minimum number of days by which any of the document lines are overdue.</td>
+                  </tr>
+                  <tr>
+                     <td>MaxOverdueDays</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The maximum number of days by which any of the document lines are overdue. If all
+                        overdue lines are overdue by the same number of days, a Maximum Days Overdue value
+                        is not displayed.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}DocLineKey"></a><h3>DocLineKey</h3>
+         <p>This element is a key consisting of a document code, document number, and document
+            line, which uniquely identifies a document line.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the document with which the diary event is associated.</td>
+                  </tr>
+                  <tr>
+                     <td>Number</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNumAlpha" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNumAlpha">typeDocNumAlpha</a></td>
+                     <td>The number for the document with which the diary event is associated.</td>
+                  </tr>
+                  <tr>
+                     <td>LineNumber</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number for the document line with which the diary event is associated.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}DocData"></a><h3>DocData</h3>
+         <p>This element contains information about the document associated with a diary event.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DocLineKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}DocLineKey" href="#{http://www.coda.com/efinance/schemas/diary}DocLineKey">DocLineKey</a></td>
+                     <td>This element is a key consisting of a document code, document number, and document
+                        line, which uniquely identifies a document line.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>NoOfDaysAged</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeUWord" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeUWord">typeUWord</a></td>
+                     <td>The number of days between the document input date and the current date.</td>
+                  </tr>
+                  <tr>
+                     <td>OverdueInfo</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}OverdueInfo" href="#{http://www.coda.com/efinance/schemas/diary}OverdueInfo">OverdueInfo</a></td>
+                     <td>This element contains information about the lines that are overdue for payment on
+                        the specified document.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DocCurrency</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the currency in which the document is held.</td>
+                  </tr>
+                  <tr>
+                     <td>UserStatus</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeStatUserB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeStatUserB">typeStatUserB</a></td>
+                     <td>A user-defined status.</td>
+                  </tr>
+                  <tr>
+                     <td>PayList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}DocPayList" href="#{http://www.coda.com/efinance/schemas/diary}DocPayList">DocPayList</a></td>
+                     <td>This element contains the pay status and value for each line on the document.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}EntryInfo"></a><h3>EntryInfo</h3>
+         <p>This element holds information about a diary event.       Notes on composition of
+            dry:EntryInfo   CmpPresent implies   CmpCode specified on diary entry   All Cmp element
+            fields entered  ElmNamePresent implies   CmpCode, Element level and element code specified
+            on diary entry   All ElmName fields filled in  ElmBalancePresent implies   CmpCode,
+            Element level and element code specified on diary entry   Some balance information
+            available for the element   All ElmBalance fields filled in  ElmLastPaymentPresent
+            implies   CmpCode, Element level and element code specified on diary entry   A last
+            cash transaction has been posted   All ElmLastPayment fields filled in  DocPresent
+            implies   CmpCode, Element level, element code, document code, document number specified
+            All DocData fields filled in except:    Dual values if no dual currency    OverdueInfo
+            if no overdue lines    Overdueinfo/MaxOverdueDays if same as MinOverdueDays
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpPresent</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Indicates whether the diary event is associated with a company.</td>
+                  </tr>
+                  <tr>
+                     <td>Cmp</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}KeyDataElement" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}KeyDataElement">KeyDataElement</a></td>
+                     <td>The company associated with the diary event.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmNamePresent</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Indicates whether the diary event is associated with an element.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}ElmInfo" href="#{http://www.coda.com/efinance/schemas/diary}ElmInfo">ElmInfo</a></td>
+                     <td>This stores information about the element associated with the diary event.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmCurrsPresent</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Indicates whether currency details are present for the element.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmCurrs</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}ElmCurrs" href="#{http://www.coda.com/efinance/schemas/diary}ElmCurrs">ElmCurrs</a></td>
+                     <td>This element contains the currency codes for the element.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmBalancePresent</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Indicates whether balance information is present for the element.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmBalance</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}ElmBalance" href="#{http://www.coda.com/efinance/schemas/diary}ElmBalance">ElmBalance</a></td>
+                     <td>Contains the balance for the element in the specified currency.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmLastPaymentPresent</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Indicates whether there is a value for the last payment made for the element.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmLastPayment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}ElmLastPayment" href="#{http://www.coda.com/efinance/schemas/diary}ElmLastPayment">ElmLastPayment</a></td>
+                     <td>This element contains details about the last payment made for the element.</td>
+                  </tr>
+                  <tr>
+                     <td>DocPresent</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Indicates whether the diary event is associated with a document.</td>
+                  </tr>
+                  <tr>
+                     <td>Doc</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}DocData" href="#{http://www.coda.com/efinance/schemas/diary}DocData">DocData</a></td>
+                     <td>This element contains information about the document associated with a diary event.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}ListRequest"></a><h3>ListRequest</h3>
+         <p>The ListRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}SelectInfo" href="#{http://www.coda.com/efinance/schemas/diary}SelectInfo">SelectInfo</a></td>
+                     <td>A filter that selects the diary events to be listed</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}ListRequestVerb"></a><h3>ListRequestVerb</h3>
+         <p>The ListRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves a list of diary events from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}ListRequest" href="#{http://www.coda.com/efinance/schemas/diary}ListRequest">ListRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}ListResponse"></a><h3>ListResponse</h3>
+         <p>The ListResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}SelectInfo" href="#{http://www.coda.com/efinance/schemas/diary}SelectInfo">SelectInfo</a></td>
+                     <td>This element holds the filter criteria used to determine which diary events are selected
+                        from the database.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Entries</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}EntryList" href="#{http://www.coda.com/efinance/schemas/diary}EntryList">EntryList</a></td>
+                     <td>Lists the diary events you have retrieved from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}ListResponseVerb"></a><h3>ListResponseVerb</h3>
+         <p>The ListResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}ListResponse" href="#{http://www.coda.com/efinance/schemas/diary}ListResponse">ListResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}AddRequest"></a><h3>AddRequest</h3>
+         <p>The AddRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Entry</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Entry" href="#{http://www.coda.com/efinance/schemas/diary}Entry">Entry</a></td>
+                     <td>This element contains details about the diary event you want to add.</td>
+                  </tr>
+                  <tr>
+                     <td>Phasing</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Phasing" href="#{http://www.coda.com/efinance/schemas/diary}Phasing">Phasing</a></td>
+                     <td>This element contains details about the rules applied when the diary event is replicated,
+                        and set to recur at regular intervals.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Comment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Comment" href="#{http://www.coda.com/efinance/schemas/diary}Comment">Comment</a></td>
+                     <td>This element contains the comments for the diary event you want to add.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}AddRequestVerb"></a><h3>AddRequestVerb</h3>
+         <p>The AddRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Adds a diary event to the database using the information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}AddRequest" href="#{http://www.coda.com/efinance/schemas/diary}AddRequest">AddRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}AddResponse"></a><h3>AddResponse</h3>
+         <p>The AddResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Keys</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}AddKeyList" href="#{http://www.coda.com/efinance/schemas/diary}AddKeyList">AddKeyList</a></td>
+                     <td>The keys identifying the diary events added to the database by the 'Adddry' request.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}AddResponseVerb"></a><h3>AddResponseVerb</h3>
+         <p>The AddResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}AddResponse" href="#{http://www.coda.com/efinance/schemas/diary}AddResponse">AddResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}UpdateRequest"></a><h3>UpdateRequest</h3>
+         <p>The UpdateRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Entry</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}UpdateEntry" href="#{http://www.coda.com/efinance/schemas/diary}UpdateEntry">UpdateEntry</a></td>
+                     <td>Contains the information for the diary event you want to update.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}UpdateRequestVerb"></a><h3>UpdateRequestVerb</h3>
+         <p>The UpdateRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Updates diary events in the database using the information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}UpdateRequest" href="#{http://www.coda.com/efinance/schemas/diary}UpdateRequest">UpdateRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}UpdateResponse"></a><h3>UpdateResponse</h3>
+         <p>The UpdateResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                     <td>Contains the key information for the diary event you want to update.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}UpdateResponseVerb"></a><h3>UpdateResponseVerb</h3>
+         <p>The UpdateResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}UpdateResponse" href="#{http://www.coda.com/efinance/schemas/diary}UpdateResponse">UpdateResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetInfoRequest"></a><h3>GetInfoRequest</h3>
+         <p>The GetInfoRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                     <td>The key identifying the diary event you want to retrieve from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetInfoRequestVerb"></a><h3>GetInfoRequestVerb</h3>
+         <p>The GetInfoRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves more detailed information about the diary event.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetInfoRequest" href="#{http://www.coda.com/efinance/schemas/diary}GetInfoRequest">GetInfoRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetInfoResponse"></a><h3>GetInfoResponse</h3>
+         <p>The GetInfoResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                     <td>Contains the key information for the diary event you have retrieved.</td>
+                  </tr>
+                  <tr>
+                     <td>EntryInfo</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}EntryInfo" href="#{http://www.coda.com/efinance/schemas/diary}EntryInfo">EntryInfo</a></td>
+                     <td>Contains information about the diary event you have retrieved from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetInfoResponseVerb"></a><h3>GetInfoResponseVerb</h3>
+         <p>The GetInfoResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetInfoResponse" href="#{http://www.coda.com/efinance/schemas/diary}GetInfoResponse">GetInfoResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetCommentsRequest"></a><h3>GetCommentsRequest</h3>
+         <p>The GetCommentsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                     <td>The key identifying the diary event for which you want to retrieve comments.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetCommentsRequestVerb"></a><h3>GetCommentsRequestVerb</h3>
+         <p>The GetCommentsRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the comments attached to a diary event.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetCommentsRequest" href="#{http://www.coda.com/efinance/schemas/diary}GetCommentsRequest">GetCommentsRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetCommentsResponse"></a><h3>GetCommentsResponse</h3>
+         <p>The GetCommentsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                     <td>The key identifying the diary event for which comments have been retrieved.</td>
+                  </tr>
+                  <tr>
+                     <td>Comments</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}EntryCommentList" href="#{http://www.coda.com/efinance/schemas/diary}EntryCommentList">EntryCommentList</a></td>
+                     <td>Contains a list comments associated with the selected diary events.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetCommentsResponseVerb"></a><h3>GetCommentsResponseVerb</h3>
+         <p>The GetCommentsResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetCommentsResponse" href="#{http://www.coda.com/efinance/schemas/diary}GetCommentsResponse">GetCommentsResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}AddCommentRequest"></a><h3>AddCommentRequest</h3>
+         <p>The AddCommentRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                     <td>The key identifying the diary event to which you want to add comments.</td>
+                  </tr>
+                  <tr>
+                     <td>Comment</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Comment" href="#{http://www.coda.com/efinance/schemas/diary}Comment">Comment</a></td>
+                     <td>Contains the comment text that you want to add to the diary event.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}AddCommentRequestVerb"></a><h3>AddCommentRequestVerb</h3>
+         <p>The AddCommentRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Adds a comment to the diary event, using the information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}AddCommentRequest" href="#{http://www.coda.com/efinance/schemas/diary}AddCommentRequest">AddCommentRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}AddCommentResponse"></a><h3>AddCommentResponse</h3>
+         <p>The AddCommentResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                     <td>The key identifying the diary event to which the comment was added.</td>
+                  </tr>
+                  <tr>
+                     <td>CommentData</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}CommentData" href="#{http://www.coda.com/efinance/schemas/diary}CommentData">CommentData</a></td>
+                     <td>Contains details about when the diary event comment was created, and by which user.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}AddCommentResponseVerb"></a><h3>AddCommentResponseVerb</h3>
+         <p>The AddCommentResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}AddCommentResponse" href="#{http://www.coda.com/efinance/schemas/diary}AddCommentResponse">AddCommentResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetDiaryRequest"></a><h3>GetDiaryRequest</h3>
+         <p>The GetDiaryRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Key" href="#{http://www.coda.com/efinance/schemas/diary}Key">Key</a></td>
+                     <td>The key identifying the diary event that you are interested in.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetDiaryRequestVerb"></a><h3>GetDiaryRequestVerb</h3>
+         <p>The GetDiaryRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves a diary event's details using the information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetDiaryRequest" href="#{http://www.coda.com/efinance/schemas/diary}GetDiaryRequest">GetDiaryRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetDiaryResponse"></a><h3>GetDiaryResponse</h3>
+         <p>The GetDiaryResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Entry</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}Entry" href="#{http://www.coda.com/efinance/schemas/diary}Entry">Entry</a></td>
+                     <td>Contains the details of the diary event you have retrieved from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetDiaryResponseVerb"></a><h3>GetDiaryResponseVerb</h3>
+         <p>The GetDiaryResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetDiaryResponse" href="#{http://www.coda.com/efinance/schemas/diary}GetDiaryResponse">GetDiaryResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}BrowseRequest"></a><h3>BrowseRequest</h3>
+         <p>The BrowseRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PresenterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the metadata presenter master to be used to display the data.</td>
+                  </tr>
+                  <tr>
+                     <td>Selector</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="../selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                     <td>The code for the metadata selector master to be used to retrieve data.</td>
+                  </tr>
+                  <tr>
+                     <td>ExtraVocabs</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/genericbrowse}VocabIdList" href="../../common/genericbrowse/genericbrowse.html#{http://www.coda.com/common/schemas/genericbrowse}VocabIdList">VocabIdList</a></td>
+                     <td>A list of extra vocabulary items to return in the presentation results.</td>
+                  </tr>
+                  <tr>
+                     <td>ActionDateFrom</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDateB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDateB">typeDateB</a></td>
+                     <td>The start date of the selection date range.</td>
+                  </tr>
+                  <tr>
+                     <td>ActionDateTo</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDateB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDateB">typeDateB</a></td>
+                     <td>The end date of the selection date range.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}BrowseRequestVerb"></a><h3>BrowseRequestVerb</h3>
+         <p>The BrowseRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves diary data from the database using the information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}BrowseRequest" href="#{http://www.coda.com/efinance/schemas/diary}BrowseRequest">BrowseRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}BrowseResponse"></a><h3>BrowseResponse</h3>
+         <p>The BrowseResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="../selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                     <td>This element holds your diary data.</td>
+                  </tr>
+                  <tr>
+                     <td>PrimaryKeyVocabs</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}VocabList" href="../presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}VocabList">VocabList</a></td>
+                     <td>A list of the vocabulary items that describe the primary key of the primary object
+                        of the dataview.  This is for the benefit of generic printing.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}BrowseResponseVerb"></a><h3>BrowseResponseVerb</h3>
+         <p>The BrowseResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}BrowseResponse" href="#{http://www.coda.com/efinance/schemas/diary}BrowseResponse">BrowseResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetDefaultSelectorRequest"></a><h3>GetDefaultSelectorRequest</h3>
+         <p>The GetDefaultSelectorRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/efinance/schemas/diary}GetDefaultSelectorRequestVerb"></a><h3>GetDefaultSelectorRequestVerb</h3>
+         <p>The GetDefaultSelectorRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Creates a selector on-the-fly using the default selection criteria.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetDefaultSelectorRequest" href="#{http://www.coda.com/efinance/schemas/diary}GetDefaultSelectorRequest">GetDefaultSelectorRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetDefaultSelectorResponse"></a><h3>GetDefaultSelectorResponse</h3>
+         <p>The GetDefaultSelectorResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selector</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="../selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                     <td>Contains a selector with default selection criteria.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}GetDefaultSelectorResponseVerb"></a><h3>GetDefaultSelectorResponseVerb</h3>
+         <p>The GetDefaultSelectorResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetDefaultSelectorResponse" href="#{http://www.coda.com/efinance/schemas/diary}GetDefaultSelectorResponse">GetDefaultSelectorResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}DiaryRequest"></a><h3>DiaryRequest</h3>
+         <p>The DiaryRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to maintain diary events.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>List</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}ListRequestVerb" href="#{http://www.coda.com/efinance/schemas/diary}ListRequestVerb">ListRequestVerb</a></td>
+                     <td>Retrieves a list of diary events from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>Add</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}AddRequestVerb" href="#{http://www.coda.com/efinance/schemas/diary}AddRequestVerb">AddRequestVerb</a></td>
+                     <td>Adds a diary event to the database using the information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>Update</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}UpdateRequestVerb" href="#{http://www.coda.com/efinance/schemas/diary}UpdateRequestVerb">UpdateRequestVerb</a></td>
+                     <td>Updates diary events in the database using the information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>GetInfo</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetInfoRequestVerb" href="#{http://www.coda.com/efinance/schemas/diary}GetInfoRequestVerb">GetInfoRequestVerb</a></td>
+                     <td>Retrieves more detailed information about the diary event.</td>
+                  </tr>
+                  <tr>
+                     <td>GetComments</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetCommentsRequestVerb" href="#{http://www.coda.com/efinance/schemas/diary}GetCommentsRequestVerb">GetCommentsRequestVerb</a></td>
+                     <td>Retrieves the comments attached to a diary event.</td>
+                  </tr>
+                  <tr>
+                     <td>AddComment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}AddCommentRequestVerb" href="#{http://www.coda.com/efinance/schemas/diary}AddCommentRequestVerb">AddCommentRequestVerb</a></td>
+                     <td>Adds a comment to the diary event, using the information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>GetDiary</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetDiaryRequestVerb" href="#{http://www.coda.com/efinance/schemas/diary}GetDiaryRequestVerb">GetDiaryRequestVerb</a></td>
+                     <td>Retrieves a diary event's details using the information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>Browse</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}BrowseRequestVerb" href="#{http://www.coda.com/efinance/schemas/diary}BrowseRequestVerb">BrowseRequestVerb</a></td>
+                     <td>Retrieves diary data from the database using the information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>GetDefaultSelector</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetDefaultSelectorRequestVerb" href="#{http://www.coda.com/efinance/schemas/diary}GetDefaultSelectorRequestVerb">GetDefaultSelectorRequestVerb</a></td>
+                     <td>Creates a selector on-the-fly using the default selection criteria.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/diary}DiaryResponse"></a><h3>DiaryResponse</h3>
+         <p>The DiaryResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you request to retrieve a list of diary
+            events.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>List</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}ListResponseVerb" href="#{http://www.coda.com/efinance/schemas/diary}ListResponseVerb">ListResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Add</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}AddResponseVerb" href="#{http://www.coda.com/efinance/schemas/diary}AddResponseVerb">AddResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Update</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}UpdateResponseVerb" href="#{http://www.coda.com/efinance/schemas/diary}UpdateResponseVerb">UpdateResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetInfo</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetInfoResponseVerb" href="#{http://www.coda.com/efinance/schemas/diary}GetInfoResponseVerb">GetInfoResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetComments</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetCommentsResponseVerb" href="#{http://www.coda.com/efinance/schemas/diary}GetCommentsResponseVerb">GetCommentsResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>AddComment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}AddCommentResponseVerb" href="#{http://www.coda.com/efinance/schemas/diary}AddCommentResponseVerb">AddCommentResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetDiary</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetDiaryResponseVerb" href="#{http://www.coda.com/efinance/schemas/diary}GetDiaryResponseVerb">GetDiaryResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Browse</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}BrowseResponseVerb" href="#{http://www.coda.com/efinance/schemas/diary}BrowseResponseVerb">BrowseResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetDefaultSelector</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/diary}GetDefaultSelectorResponseVerb" href="#{http://www.coda.com/efinance/schemas/diary}GetDefaultSelectorResponseVerb">GetDefaultSelectorResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

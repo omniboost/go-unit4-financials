@@ -1,0 +1,429 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-UndoMatchingService">
+            <h1>UndoMatchingService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/undomatching/undomatching-13.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-undomatching-undomatching.wsdl" download="">finance-undomatching-undomatching.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/undomatching/undomatching-13.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#UndoMatchingService-SelectMatches">SelectMatches</a></li>
+               <li><a href="#UndoMatchingService-SelectSuppressedLines">SelectSuppressedLines</a></li>
+               <li><a href="#UndoMatchingService-UndoMatches">UndoMatches</a></li>
+               <li><a href="#UndoMatchingService-UndoSuppressedLines">UndoSuppressedLines</a></li>
+               <li><a href="#UndoMatchingService-ValidateParams">ValidateParams</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="UndoMatchingService-SelectMatches"></a>SelectMatches
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectMatchesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UndoMatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams">UndoMatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 performing undomatching.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectionFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>This element contains a list
+                                 of the selector vocabulary that determines
+                                 which matches are selected.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>FlexiFieldSelectionFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}FlexiFieldVocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}FlexiFieldVocListData">FlexiFieldVocListData</a></td>
+                              <td>This element contains a list
+                                 of the selector flexi-fields that determines
+                                 which matches are selected.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectMatchesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UndoMatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams">UndoMatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters you specified in the
+                                 SelectMatchesRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Header</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}HeaderColumnList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}HeaderColumnList">HeaderColumnList</a></td>
+                              <td>This element contains
+                                 vocabulary item names, identifying the
+                                 columns of data returned in the Matches element.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Matches</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}SelectedMatches" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}SelectedMatches">SelectedMatches</a></td>
+                              <td>This element contains details
+                                 of the matches that are selected.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="UndoMatchingService-SelectSuppressedLines"></a>SelectSuppressedLines
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectSuppressedLinesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UndoMatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams">UndoMatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 performing undomatching.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectionFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>This element contains a list
+                                 of the selector vocabulary that determines
+                                 which lines are selected.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>FlexiFieldSelectionFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}FlexiFieldVocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}FlexiFieldVocListData">FlexiFieldVocListData</a></td>
+                              <td>This element contains a list
+                                 of the selector flexi-fields that determines
+                                 which matches are selected.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectSuppressedLinesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UndoMatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams">UndoMatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters you specified in the
+                                 SelectSuppressedLinesRequest corresponding
+                                 to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Header</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}HeaderColumnList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}HeaderColumnList">HeaderColumnList</a></td>
+                              <td>This element contains
+                                 vocabulary item names, identifying the
+                                 columns of data returned in the Lines element.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Lines</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}SuppressedLines" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}SuppressedLines">SuppressedLines</a></td>
+                              <td>This element contains details
+                                 of the lines that have been undone.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="UndoMatchingService-UndoMatches"></a>UndoMatches
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UndoMatchesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UndoMatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams">UndoMatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 performing undomatching.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Matches</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}MatchesToUndo" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}MatchesToUndo">MatchesToUndo</a></td>
+                              <td>This element contains details
+                                 of the matches that will be undone.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UndoMatchesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UndoMatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams">UndoMatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters you specified in the
+                                 UndoMatchesRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Matches</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}UndoResults" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}UndoResults">UndoResults</a></td>
+                              <td>This element contains details
+                                 of the matches that have been undone.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="UndoMatchingService-UndoSuppressedLines"></a>UndoSuppressedLines
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UndoSuppressedLinesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UndoMatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams">UndoMatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 performing undomatching.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Lines</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}SuppressedLinesToUndo" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}SuppressedLinesToUndo">SuppressedLinesToUndo</a></td>
+                              <td>This element contains details
+                                 of the suppressed lines that will be undone.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UndoSuppressedLinesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UndoMatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams">UndoMatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters you specified in the
+                                 UndoSuppressedLinesRequest corresponding to
+                                 this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Lines</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}UndoSuppressedResults" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}UndoSuppressedResults">UndoSuppressedResults</a></td>
+                              <td>This element contains details
+                                 of the lines that have been undone.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="UndoMatchingService-ValidateParams"></a>ValidateParams
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidateParamsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UndoMatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams">UndoMatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 performing undomatching.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ValidateParamsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Warning</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Warning" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Warning">Warning</a></td>
+                              <td>Contains a warning message.</td>
+                           </tr>
+                           <tr>
+                              <td>UndoMatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams" href="finance/undomatching/undomatching.html#{http://www.coda.com/efinance/schemas/undomatching}UndoMatchingParams">UndoMatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters you specified in the
+                                 ValidateParamsRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

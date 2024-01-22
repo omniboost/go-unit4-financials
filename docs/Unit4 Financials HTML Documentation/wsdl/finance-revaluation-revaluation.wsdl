@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/revaluation/revaluation-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:revws="http://www.coda.com/efinance/schemas/revaluation/revaluation-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:prg="http://www.coda.com/efinance/schemas/progress"
+    xmlns:rev="http://www.coda.com/efinance/schemas/revaluation"
+    xmlns:txn="http://www.coda.com/efinance/schemas/transaction"
+    xmlns:all="http://www.coda.com/efinance/schemas/allocation"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:bal="http://www.coda.com/efinance/schemas/balance"
+    targetNamespace="http://www.coda.com/efinance/schemas/revaluation/revaluation-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/revaluation" schemaLocation="../wsdl/finance/revaluation/revaluation.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/allocation" schemaLocation="finance/allocation/allocation.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/balance" schemaLocation="finance/balance/balance.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/transaction" schemaLocation="finance/transaction/transaction.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/progress" schemaLocation="finance/progress/progress.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="RunRuleAndPostRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RuleData" type="all:RuleParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start a revaluation run.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PromptData" minOccurs="0" type="rev:RevaluationPrompts">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains those values which
+                            have not been specified in the rule master,
+                            but are required by the revaluation run .</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of the
+                            revaluation run.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunChainRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ChainData" type="all:ChainParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start a revaluation chain.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PromptList" minOccurs="0" type="rev:RevaluationPromptsList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains those values which
+                            have not been specified in any rule masters
+                            in the chain, but are required by the
+                            revaluation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of Revaluation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrepareRuleResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RuleData" type="all:RuleParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start a revaluation run</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of Revaluation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Requirements" minOccurs="0" type="rev:RevaluationRequirements">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of
+                            parameters which are still required for this
+                            revaluation rule.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PreCode" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the presenter you
+                            want Revaluation to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunRuleAndViewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" minOccurs="0" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of accounts or
+                            balances selected for updating, when the
+                            revaluation rule was run.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Transaction" minOccurs="0" type="txn:Transaction">
+                    <xsd:annotation>
+                        <xsd:documentation>The revaluation document
+                            containing details of the proposed
+                            revaluation updates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Balances" minOccurs="0" type="bal:BalanceList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of balances,
+                            containing details of the proposed
+                            revaluation updates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Warning" minOccurs="0" type="com:Reason">
+                    <xsd:annotation>
+                        <xsd:documentation>A message indicating that the
+                            update failed and giving a detailed reason
+                            for the failure.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunRuleAndViewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RuleData" type="all:RuleParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start a revaluation run</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PromptData" minOccurs="0" type="rev:RevaluationPrompts">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains those values which
+                            have not been specified in the rule master,
+                            but are required by the revaluation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of the Revaluation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" type="sel:VocabIDList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of vocabulary items
+                            you want to look at when you receive the response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrepareChainRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ChainData" type="all:ChainParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start a revaluation chain.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunRuleAndPostResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of Revaluation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RuleData" type="all:RuleParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start a revaluation run</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Transaction" minOccurs="0" type="txn:Transaction">
+                    <xsd:annotation>
+                        <xsd:documentation>The currency revaluation
+                            document, listing the proposed updates,
+                            produced by RunRuleAndView.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Balances" minOccurs="0" type="bal:BalanceList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of proposed changes
+                            to the balances produced by RunRuleAndView.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrepareRuleRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RuleData" type="all:RuleParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start a revaluation run.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrepareChainResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ChainData" type="all:ChainParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            required to start a revaluation chain.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of Revaluation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RequirementsList" minOccurs="0" type="rev:RevaluationRequirementsList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of
+                            parameters which are still required, for
+                            each rule within the chain.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunChainResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of Revaluation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="PrepareChainRequest">
+    <part name="PrepareChainRequest" element="revws:PrepareChainRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="revws:Options"/>
+  </message>
+  <message name="PrepareRuleRequest">
+    <part name="PrepareRuleRequest" element="revws:PrepareRuleRequest"/>
+  </message>
+  <message name="PrepareChainResponse">
+    <part name="PrepareChainResponse" element="revws:PrepareChainResponse"/>
+  </message>
+  <message name="PrepareRuleResponse">
+    <part name="PrepareRuleResponse" element="revws:PrepareRuleResponse"/>
+  </message>
+  <message name="RunRuleAndPostResponse">
+    <part name="RunRuleAndPostResponse" element="revws:RunRuleAndPostResponse"/>
+  </message>
+  <message name="RunRuleAndPostRequest">
+    <part name="RunRuleAndPostRequest" element="revws:RunRuleAndPostRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="revws:OptionsResponse"/>
+  </message>
+  <message name="RunChainRequest">
+    <part name="RunChainRequest" element="revws:RunChainRequest"/>
+  </message>
+  <message name="PostResponse">
+    <part name="PostResponse" element="revws:PostResponse"/>
+  </message>
+  <message name="RunRuleAndViewRequest">
+    <part name="RunRuleAndViewRequest" element="revws:RunRuleAndViewRequest"/>
+  </message>
+  <message name="PostRequest">
+    <part name="PostRequest" element="revws:PostRequest"/>
+  </message>
+  <message name="RunRuleAndViewResponse">
+    <part name="RunRuleAndViewResponse" element="revws:RunRuleAndViewResponse"/>
+  </message>
+  <message name="RunChainResponse">
+    <part name="RunChainResponse" element="revws:RunChainResponse"/>
+  </message>
+  <portType name="RevaluationServicePortTypes">
+    <operation name="PrepareChain">
+      <input message="revws:PrepareChainRequest"/>
+      <output message="revws:PrepareChainResponse"/>
+    </operation>
+    <operation name="Post">
+      <input message="revws:PostRequest"/>
+      <output message="revws:PostResponse"/>
+    </operation>
+    <operation name="RunRuleAndView">
+      <input message="revws:RunRuleAndViewRequest"/>
+      <output message="revws:RunRuleAndViewResponse"/>
+    </operation>
+    <operation name="PrepareRule">
+      <input message="revws:PrepareRuleRequest"/>
+      <output message="revws:PrepareRuleResponse"/>
+    </operation>
+    <operation name="RunChain">
+      <input message="revws:RunChainRequest"/>
+      <output message="revws:RunChainResponse"/>
+    </operation>
+    <operation name="RunRuleAndPost">
+      <input message="revws:RunRuleAndPostRequest"/>
+      <output message="revws:RunRuleAndPostResponse"/>
+    </operation>
+  </portType>
+  <binding name="RevaluationServiceSOAPBinding" type="revws:RevaluationServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="PrepareChain">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Revaluation/PrepareChain" style="document"/>
+      <input>
+        <soap:header message="revws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="revws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Post">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Revaluation/Post" style="document"/>
+      <input>
+        <soap:header message="revws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="revws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RunRuleAndView">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Revaluation/RunRuleAndView" style="document"/>
+      <input>
+        <soap:header message="revws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="revws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PrepareRule">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Revaluation/PrepareRule" style="document"/>
+      <input>
+        <soap:header message="revws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="revws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RunChain">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Revaluation/RunChain" style="document"/>
+      <input>
+        <soap:header message="revws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="revws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RunRuleAndPost">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Revaluation/RunRuleAndPost" style="document"/>
+      <input>
+        <soap:header message="revws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="revws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="RevaluationService">
+    <port name="RevaluationServicePort" binding="revws:RevaluationServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/revaluation/revaluation-14.0"/>
+    </port>
+  </service>
+</definitions>

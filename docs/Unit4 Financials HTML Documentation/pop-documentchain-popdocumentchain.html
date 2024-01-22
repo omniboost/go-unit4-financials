@@ -1,0 +1,244 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-POPDocumentChainService">
+            <h1>POPDocumentChainService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/pop/schemas/documentchain/popdocumentchain-1.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/pop-documentchain-popdocumentchain.wsdl" download="">pop-documentchain-popdocumentchain.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/pop/documentchain/popdocumentchain-1.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#POPDocumentChainService-GetReceiptRelatedOrders">GetReceiptRelatedOrders</a></li>
+               <li><a href="#POPDocumentChainService-GetRelatedReceipts">GetRelatedReceipts</a></li>
+               <li><a href="#POPDocumentChainService-GetRelatedRequisitions">GetRelatedRequisitions</a></li>
+               <li><a href="#POPDocumentChainService-GetRequisitionRelatedOrders">GetRequisitionRelatedOrders</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="POPDocumentChainService-GetReceiptRelatedOrders"></a>GetReceiptRelatedOrders
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetReceiptRelatedOrdersRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ReceiptKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeText" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeText">typeText</a></td>
+                              <td>The key that identifies the
+                                 current GRN. This value is the External
+                                 System Document Key used in Invoice
+                                 Matching, comprising the document type,
+                                 company code, document code and document
+                                 number separated by #.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetReceiptRelatedOrdersResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PurchaseOrderItemList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderItemList" href="pop/purchaseorder/purchaseorder.html#{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderItemList">PurchaseOrderItemList</a></td>
+                              <td>The return value of the list function.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="POPDocumentChainService-GetRelatedReceipts"></a>GetRelatedReceipts
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetRelatedReceiptsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PurchaseOrderKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderKey" href="pop/purchaseorder/purchaseorder.html#{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderKey">PurchaseOrderKey</a></td>
+                              <td>The key that identifies the
+                                 current purchase order.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetRelatedReceiptsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ExternalSystemKeyList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/documentchain}ExternalSystemKeyList" href="pop/documentchain/documentchain.html#{http://www.coda.com/pop/schemas/documentchain}ExternalSystemKeyList">ExternalSystemKeyList</a></td>
+                              <td>The External System Document
+                                 Keys used in Invoice Matching, comprising
+                                 the document type, company code, document
+                                 code and document number separated by #.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="POPDocumentChainService-GetRelatedRequisitions"></a>GetRelatedRequisitions
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetRelatedRequisitionsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PurchaseOrderKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderKey" href="pop/purchaseorder/purchaseorder.html#{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderKey">PurchaseOrderKey</a></td>
+                              <td>The key that identifies the
+                                 current purchase order.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetRelatedRequisitionsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RequisitionItemList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/requisition}RequisitionItemList" href="pop/requisition/requisition.html#{http://www.coda.com/pop/schemas/requisition}RequisitionItemList">RequisitionItemList</a></td>
+                              <td>The return value of the list function.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="POPDocumentChainService-GetRequisitionRelatedOrders"></a>GetRequisitionRelatedOrders
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetRequisitionRelatedOrdersRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RequisitionKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/requisition}RequisitionKey" href="pop/requisition/requisition.html#{http://www.coda.com/pop/schemas/requisition}RequisitionKey">RequisitionKey</a></td>
+                              <td>The key that identifies the
+                                 current requisition.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetRequisitionRelatedOrdersResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PurchaseOrderItemList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderItemList" href="pop/purchaseorder/purchaseorder.html#{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderItemList">PurchaseOrderItemList</a></td>
+                              <td>The return value of the list function.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

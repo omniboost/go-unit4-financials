@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/browsedetails/browsedetails-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:brsws="http://www.coda.com/efinance/schemas/browsedetails/browsedetails-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:pre="http://www.coda.com/efinance/schemas/presenter"
+    xmlns:atc="http://www.coda.com/common/schemas/attachment"
+    xmlns:brs="http://www.coda.com/efinance/schemas/browsedetails"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:txn="http://www.coda.com/efinance/schemas/transaction"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/browsedetails/browsedetails-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/browsedetails" schemaLocation="../wsdl/finance/browsedetails/browsedetails.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/transaction" schemaLocation="finance/transaction/transaction.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/presenter" schemaLocation="finance/presenter/presenter.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/attachment" schemaLocation="common/attachment/attachment.xsd"/>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TxnKey" type="brs:UpdateHeader">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies the transaction
+                            which has been updated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateAttachFileRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>A key identifying the
+                            document to be updated</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Attachment" type="atc:Attachment">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            identification number of the attachment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAttachmentsListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReadOnly" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Are the attachment changes disallowed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>A key identifying the document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Attachment" type="atc:Attachment">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            identification number of the primary attachment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AttachmentsList" minOccurs="0" type="atc:AttachmentList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds a list of attachments.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRelatedRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelType" type="gsl:DetailsLocation">
+                    <xsd:annotation>
+                        <xsd:documentation>The location from which the
+                            document details will be selected. The
+                            locations are: Books, Intray or Archive.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TxnKey" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies the transaction
+                            for which related transactions should be retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RowLimit" minOccurs="0" type="com:typeULong">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of lines
+                            that can be retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" type="sel:HeaderColumnList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds a list of
+                            columns to retrieve. Each cell is of the
+                            type com:typeCtVocabEnum.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TxnKey" type="txn:txnLineKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the document line to retrieve from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateMultipleAttachmentsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>A key identifying the
+                            document to be updated</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Attachment" type="atc:Attachment">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            identification number of the primary attachment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AttachmentsList" minOccurs="0" type="atc:AttachmentList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds a list of attachments.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAttachmentsListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>A key identifying the
+                            document to get the attachments for</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLineResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TxnKey" type="txn:txnLineKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key used to identify the
+                            document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Transaction" type="brs:LineData">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            document line details retrieved by the GetLineRequest.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHomeTotalRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RowList" type="brs:HomeTotalRowList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of transactions
+                            contributing to the total value.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateUpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TxnKey" type="brs:UpdateHeader">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies the transaction
+                            which has been updated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRelatedResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TxnKey" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies the transaction
+                            for which related transactions should be retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectionWithFlexiFields"
+                    minOccurs="0" type="sel:SelectionWithFlexiFields">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            document details retrieved by Browse Details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TxnKey" type="brs:UpdateHeader">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies the document line
+                            to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Updates" type="brs:UpdateUnionList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the document line
+                            details you want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateMultipleAttachmentsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>A key identifying the
+                            document that has been updated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Attachment" type="atc:Attachment">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            identification number of the primary attachment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AttachmentsList" minOccurs="0" type="atc:AttachmentList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds a list of attachments.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHomeTotalResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="HomeTotalData" type="brs:HomeTotalData">
+                    <xsd:annotation>
+                        <xsd:documentation>The information relating to
+                            the total value.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateAttachFileResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>A key identifying the
+                            document that has been updated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Attachment" type="atc:Attachment">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            identification number of the attachment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateUpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TxnKey" type="brs:UpdateHeader">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies the document line
+                            to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Updates" type="brs:UpdateUnionList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the document line
+                            details you want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AllowEditRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnLineKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies the document line
+                            to check for edit permission.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AllowEditResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnLineKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies the transaction
+                            which has been checked.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetLineRequest">
+    <part name="GetLineRequest" element="brsws:GetLineRequest"/>
+  </message>
+  <message name="AllowEditRequest">
+    <part name="AllowEditRequest" element="brsws:AllowEditRequest"/>
+  </message>
+  <message name="GetAttachmentsListResponse">
+    <part name="GetAttachmentsListResponse" element="brsws:GetAttachmentsListResponse"/>
+  </message>
+  <message name="UpdateAttachFileRequest">
+    <part name="UpdateAttachFileRequest" element="brsws:UpdateAttachFileRequest"/>
+  </message>
+  <message name="GetAttachmentsListRequest">
+    <part name="GetAttachmentsListRequest" element="brsws:GetAttachmentsListRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="brsws:OptionsResponse"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="brsws:UpdateResponse"/>
+  </message>
+  <message name="GetRelatedRequest">
+    <part name="GetRelatedRequest" element="brsws:GetRelatedRequest"/>
+  </message>
+  <message name="ValidateUpdateResponse">
+    <part name="ValidateUpdateResponse" element="brsws:ValidateUpdateResponse"/>
+  </message>
+  <message name="UpdateAttachFileResponse">
+    <part name="UpdateAttachFileResponse" element="brsws:UpdateAttachFileResponse"/>
+  </message>
+  <message name="ValidateUpdateRequest">
+    <part name="ValidateUpdateRequest" element="brsws:ValidateUpdateRequest"/>
+  </message>
+  <message name="UpdateMultipleAttachmentsResponse">
+    <part name="UpdateMultipleAttachmentsResponse" element="brsws:UpdateMultipleAttachmentsResponse"/>
+  </message>
+  <message name="AllowEditResponse">
+    <part name="AllowEditResponse" element="brsws:AllowEditResponse"/>
+  </message>
+  <message name="GetLineResponse">
+    <part name="GetLineResponse" element="brsws:GetLineResponse"/>
+  </message>
+  <message name="GetRelatedResponse">
+    <part name="GetRelatedResponse" element="brsws:GetRelatedResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="brsws:Options"/>
+  </message>
+  <message name="GetHomeTotalRequest">
+    <part name="GetHomeTotalRequest" element="brsws:GetHomeTotalRequest"/>
+  </message>
+  <message name="GetHomeTotalResponse">
+    <part name="GetHomeTotalResponse" element="brsws:GetHomeTotalResponse"/>
+  </message>
+  <message name="UpdateMultipleAttachmentsRequest">
+    <part name="UpdateMultipleAttachmentsRequest" element="brsws:UpdateMultipleAttachmentsRequest"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="brsws:UpdateRequest"/>
+  </message>
+  <portType name="BrowseDetailsServicePortTypes">
+    <operation name="GetLine">
+      <input message="brsws:GetLineRequest"/>
+      <output message="brsws:GetLineResponse"/>
+    </operation>
+    <operation name="GetHomeTotal">
+      <input message="brsws:GetHomeTotalRequest"/>
+      <output message="brsws:GetHomeTotalResponse"/>
+    </operation>
+    <operation name="AllowEdit">
+      <input message="brsws:AllowEditRequest"/>
+      <output message="brsws:AllowEditResponse"/>
+    </operation>
+    <operation name="GetAttachmentsList">
+      <input message="brsws:GetAttachmentsListRequest"/>
+      <output message="brsws:GetAttachmentsListResponse"/>
+    </operation>
+    <operation name="ValidateUpdate">
+      <input message="brsws:ValidateUpdateRequest"/>
+      <output message="brsws:ValidateUpdateResponse"/>
+    </operation>
+    <operation name="GetRelated">
+      <input message="brsws:GetRelatedRequest"/>
+      <output message="brsws:GetRelatedResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="brsws:UpdateRequest"/>
+      <output message="brsws:UpdateResponse"/>
+    </operation>
+    <operation name="UpdateAttachFile">
+      <input message="brsws:UpdateAttachFileRequest"/>
+      <output message="brsws:UpdateAttachFileResponse"/>
+    </operation>
+    <operation name="UpdateMultipleAttachments">
+      <input message="brsws:UpdateMultipleAttachmentsRequest"/>
+      <output message="brsws:UpdateMultipleAttachmentsResponse"/>
+    </operation>
+  </portType>
+  <binding name="BrowseDetailsServiceSOAPBinding" type="brsws:BrowseDetailsServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseDetails/GetLine" style="document"/>
+      <input>
+        <soap:header message="brsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetHomeTotal">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseDetails/GetHomeTotal" style="document"/>
+      <input>
+        <soap:header message="brsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AllowEdit">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseDetails/AllowEdit" style="document"/>
+      <input>
+        <soap:header message="brsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetAttachmentsList">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseDetails/GetAttachmentsList" style="document"/>
+      <input>
+        <soap:header message="brsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateUpdate">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseDetails/ValidateUpdate" style="document"/>
+      <input>
+        <soap:header message="brsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetRelated">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseDetails/GetRelated" style="document"/>
+      <input>
+        <soap:header message="brsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseDetails/Update" style="document"/>
+      <input>
+        <soap:header message="brsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateAttachFile">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseDetails/UpdateAttachFile" style="document"/>
+      <input>
+        <soap:header message="brsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateMultipleAttachments">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BrowseDetails/UpdateMultipleAttachments" style="document"/>
+      <input>
+        <soap:header message="brsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="BrowseDetailsService">
+    <port name="BrowseDetailsServicePort" binding="brsws:BrowseDetailsServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/browsedetails/browsedetails-14.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/document/popdocument-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:docws="http://www.coda.com/pop/schemas/document/popdocument-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:poptypes="http://www.coda.com/pop/schemas/common"
+    xmlns:elmmas="http://www.coda.com/pop/schemas/elementmaster"
+    xmlns:acmask="http://www.coda.com/pop/schemas/accountmask"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:atc="http://www.coda.com/common/schemas/attachment"
+    xmlns:inputtemplatemaster="http://www.coda.com/pop/schemas/inputtemplatemaster"
+    xmlns:comment="http://www.coda.com/pop/schemas/comment"
+    xmlns:taxmas="http://www.coda.com/pop/schemas/taxmaster"
+    xmlns:ns1="http://www.coda.com/common/schemas/domaingen"
+    xmlns:doc="http://www.coda.com/pop/schemas/document"
+    xmlns:address="http://www.coda.com/pop/schemas/address"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:popitem="http://www.coda.com/pop/schemas/item"
+    xmlns:datatypes="http://www.coda.com/common/schemas/datatypes"
+    xmlns:curr="http://www.coda.com/pop/schemas/currency"
+    targetNamespace="http://www.coda.com/pop/schemas/document/popdocument-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/common/schemas/datatypes" schemaLocation="common/datatypes/datatypes.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/attachment" schemaLocation="common/attachment/attachment.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/common" schemaLocation="pop/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/item" schemaLocation="pop/item/item.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/document" schemaLocation="../wsdl/pop/document/document.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/currency" schemaLocation="pop/currency/currency.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/comment" schemaLocation="pop/comment/comment.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/taxmaster" schemaLocation="pop/taxmaster/taxmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/accountmask" schemaLocation="pop/accountmask/accountmask.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/address" schemaLocation="pop/address/address.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/inputtemplatemaster" schemaLocation="pop/inputtemplatemaster/inputtemplatemaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/elementmaster" schemaLocation="pop/elementmaster/elementmaster.xsd"/>
+    <xsd:element name="ResolveSubstitutionCharactersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AllocationsList" type="doc:ReceivableAccountAllocationList">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LoadTermsListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TermsList" minOccurs="0"
+                    maxOccurs="unbounded" type="com:typeTerm">
+                    <xsd:annotation>
+                        <xsd:documentation>The TermsList is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RecalculateSplitsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ItemLine" type="doc:DeliverableItemLine">
+                    <xsd:annotation>
+                        <xsd:documentation>The ItemLine is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DetectCurrencyMasterRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Company" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AccountToAccountDescriptionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AccountAllocation" type="doc:AccountAllocation">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LoadTransportModesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="MarkDocLinesAsGroupedResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DetectElementRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Level" type="com:typeUWordB">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Company" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="MarkDocLinesAsAvailableRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LrnExtLineKeyList" type="doc:POPDocumentMarkDocLinesAsAvailableLrnExtLineKeyList">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DetectTaxMasterRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Company" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RefreshItemLineAfterContractPromptRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="doc:Document">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="ItemPriceData" type="popitem:ItemPriceData">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="LineNumber" type="com:typeULong">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentLineKeyList" type="doc:ItemLineKeyList">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="ReasonForCancelling" type="com:typeText">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckLineCancellableResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Cancellable" minOccurs="0"
+                    maxOccurs="unbounded" type="doc:DocumentCancellable">
+                    <xsd:annotation>
+                        <xsd:documentation>The Cancellable is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentKeyList" type="doc:DocumentKeyList">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="ReasonForCancelling" type="com:typeText">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DetectElementResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InUse" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The inUse is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DetectTaxMasterResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InUse" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The inUse is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DetectCurrencyMasterResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InUse" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The inUse is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckCancellableResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Cancellable" minOccurs="0"
+                    maxOccurs="unbounded" type="doc:DocumentCancellable">
+                    <xsd:annotation>
+                        <xsd:documentation>The Cancellable is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="MarkDocLinesAsAvailableResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDiscountForItemResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Discount" type="com:Money">
+                    <xsd:annotation>
+                        <xsd:documentation>The discount is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RecalculateSplitsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Supplier" type="elmmas:ElementMasterKey">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DocumentCurrency" type="curr:CurrencyKey">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DocumentDate" type="com:typeHard">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="InputDate" type="com:typeHard">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="ItemLine" type="doc:DeliverableItemLine">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="InterCo" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentSecurityAccessResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Access" type="poptypes:typePopDocumentSecurity">
+                    <xsd:annotation>
+                        <xsd:documentation>The access is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLinesforContractPromptRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentDTO" type="doc:Document">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The requisition/order we want to get
+                                    the lines for</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BuildLineAccountResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DeptAccountAllocation"
+                    maxOccurs="unbounded" type="doc:DeptAccountAlloc">
+                    <xsd:annotation>
+                        <xsd:documentation>The deptAccountAllocation is
+                            an out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LoadDepartmentListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelLineResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Cancelled" minOccurs="0"
+                    maxOccurs="unbounded" type="doc:DocumentCancellable">
+                    <xsd:annotation>
+                        <xsd:documentation>The Cancelled is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ShowSubmitMessage" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The ShowSubmitMessage is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResolveSubstitutionCharactersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Allocations" minOccurs="0"
+                    maxOccurs="unbounded" type="doc:ReceivableAccountAllocation">
+                    <xsd:annotation>
+                        <xsd:documentation>The Allocations is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckLineCancellableRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentLineKeyList" type="doc:ItemLineKeyList">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDiscountForItemRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Item" type="popitem:ItemKey">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Supplier" minOccurs="0" type="elmmas:ElementMasterKey">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Currency" minOccurs="0" type="curr:CurrencyKey">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Quantity" minOccurs="0" type="com:typeNumber">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DocumentDate" minOccurs="0" type="com:typeHard">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="InputDate" minOccurs="0" type="com:typeHard">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="UnitPrice" minOccurs="0" type="com:Money">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentSecurityAccessRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DocCode" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Originator" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Approver" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckCancellableRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentKeyList" type="doc:DocumentKeyList">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LoadTransportModesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TransportModes" minOccurs="0"
+                    maxOccurs="unbounded" type="doc:ModeOfTransport">
+                    <xsd:annotation>
+                        <xsd:documentation>The TransportModes is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RefreshItemLineAfterContractPromptResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="doc:Document">
+                    <xsd:annotation>
+                        <xsd:documentation>The document is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GeneratedLineAccount" minOccurs="0"
+                    maxOccurs="unbounded" type="doc:GeneratedLineAccount">
+                    <xsd:annotation>
+                        <xsd:documentation>The generatedLineAccount is
+                            an out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SystemPriceData" minOccurs="0"
+                    maxOccurs="unbounded" type="doc:SystemPriceData">
+                    <xsd:annotation>
+                        <xsd:documentation>The systemPriceData is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="MarkDocLinesAsGroupedRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LrnExtLineKeyList" type="doc:POPDocumentMarkDocLinesAsGroupedLrnExtLineKeyList">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLinesforContractPromptResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ItemLines" minOccurs="0"
+                    maxOccurs="unbounded" type="doc:OtherSupplierContractReasonLine">
+                    <xsd:annotation>
+                        <xsd:documentation>The ItemLines is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AccountToAccountDescriptionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AccountDescription" type="com:typeDescriptionf">
+                    <xsd:annotation>
+                        <xsd:documentation>The AccountDescription is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BuildLineAccountRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AccountMask" type="acmask:AccountMask">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="SupplierElement" minOccurs="0" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Item" minOccurs="0" type="popitem:Item">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DepartmentElementList" type="doc:POPDocumentBuildLineAccountDepartmentElementList">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="LineUDFElement1" minOccurs="0" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="LineUDFElement2" minOccurs="0" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="LineUDFElement3" minOccurs="0" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="LineUDFElement4" minOccurs="0" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="LineUDFElement5" minOccurs="0" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="LineUDFElement6" minOccurs="0" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="HeaderUDFElement1" minOccurs="0" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="HeaderUDFElement2" minOccurs="0" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="HeaderUDFElement3" minOccurs="0" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="HeaderUDFElement4" minOccurs="0" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="HeaderUDFElement5" minOccurs="0" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="HeaderUDFElement6" minOccurs="0" type="com:typeElmCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DocType" type="poptypes:typePopDocumentType">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LoadDepartmentListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DepartmentList" minOccurs="0"
+                    maxOccurs="unbounded" type="doc:ElementData">
+                    <xsd:annotation>
+                        <xsd:documentation>The DepartmentList is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Cancelled" minOccurs="0"
+                    maxOccurs="unbounded" type="doc:DocumentCancellable">
+                    <xsd:annotation>
+                        <xsd:documentation>The Cancelled is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LoadTermsListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Supplier" minOccurs="0" type="elmmas:ElementMasterKey">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="CancelLineRequest">
+    <part name="CancelLineRequest" element="docws:CancelLineRequest"/>
+  </message>
+  <message name="DetectCurrencyMasterRequest">
+    <part name="DetectCurrencyMasterRequest" element="docws:DetectCurrencyMasterRequest"/>
+  </message>
+  <message name="BuildLineAccountRequest">
+    <part name="BuildLineAccountRequest" element="docws:BuildLineAccountRequest"/>
+  </message>
+  <message name="DetectElementResponse">
+    <part name="DetectElementResponse" element="docws:DetectElementResponse"/>
+  </message>
+  <message name="GetDocumentSecurityAccessResponse">
+    <part name="GetDocumentSecurityAccessResponse" element="docws:GetDocumentSecurityAccessResponse"/>
+  </message>
+  <message name="GetDiscountForItemResponse">
+    <part name="GetDiscountForItemResponse" element="docws:GetDiscountForItemResponse"/>
+  </message>
+  <message name="BuildLineAccountResponse">
+    <part name="BuildLineAccountResponse" element="docws:BuildLineAccountResponse"/>
+  </message>
+  <message name="DetectCurrencyMasterResponse">
+    <part name="DetectCurrencyMasterResponse" element="docws:DetectCurrencyMasterResponse"/>
+  </message>
+  <message name="RefreshItemLineAfterContractPromptRequest">
+    <part name="RefreshItemLineAfterContractPromptRequest" element="docws:RefreshItemLineAfterContractPromptRequest"/>
+  </message>
+  <message name="GetDocumentSecurityAccessRequest">
+    <part name="GetDocumentSecurityAccessRequest" element="docws:GetDocumentSecurityAccessRequest"/>
+  </message>
+  <message name="GetDiscountForItemRequest">
+    <part name="GetDiscountForItemRequest" element="docws:GetDiscountForItemRequest"/>
+  </message>
+  <message name="CheckLineCancellableResponse">
+    <part name="CheckLineCancellableResponse" element="docws:CheckLineCancellableResponse"/>
+  </message>
+  <message name="RecalculateSplitsRequest">
+    <part name="RecalculateSplitsRequest" element="docws:RecalculateSplitsRequest"/>
+  </message>
+  <message name="MarkDocLinesAsGroupedResponse">
+    <part name="MarkDocLinesAsGroupedResponse" element="docws:MarkDocLinesAsGroupedResponse"/>
+  </message>
+  <message name="CheckCancellableRequest">
+    <part name="CheckCancellableRequest" element="docws:CheckCancellableRequest"/>
+  </message>
+  <message name="RefreshItemLineAfterContractPromptResponse">
+    <part name="RefreshItemLineAfterContractPromptResponse" element="docws:RefreshItemLineAfterContractPromptResponse"/>
+  </message>
+  <message name="ResolveSubstitutionCharactersRequest">
+    <part name="ResolveSubstitutionCharactersRequest" element="docws:ResolveSubstitutionCharactersRequest"/>
+  </message>
+  <message name="CheckCancellableResponse">
+    <part name="CheckCancellableResponse" element="docws:CheckCancellableResponse"/>
+  </message>
+  <message name="LoadDepartmentListResponse">
+    <part name="LoadDepartmentListResponse" element="docws:LoadDepartmentListResponse"/>
+  </message>
+  <message name="MarkDocLinesAsAvailableResponse">
+    <part name="MarkDocLinesAsAvailableResponse" element="docws:MarkDocLinesAsAvailableResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="docws:OptionsResponse"/>
+  </message>
+  <message name="LoadTermsListRequest">
+    <part name="LoadTermsListRequest" element="docws:LoadTermsListRequest"/>
+  </message>
+  <message name="LoadDepartmentListRequest">
+    <part name="LoadDepartmentListRequest" element="docws:LoadDepartmentListRequest"/>
+  </message>
+  <message name="CancelRequest">
+    <part name="CancelRequest" element="docws:CancelRequest"/>
+  </message>
+  <message name="CheckLineCancellableRequest">
+    <part name="CheckLineCancellableRequest" element="docws:CheckLineCancellableRequest"/>
+  </message>
+  <message name="MarkDocLinesAsGroupedRequest">
+    <part name="MarkDocLinesAsGroupedRequest" element="docws:MarkDocLinesAsGroupedRequest"/>
+  </message>
+  <message name="GetLinesforContractPromptResponse">
+    <part name="GetLinesforContractPromptResponse" element="docws:GetLinesforContractPromptResponse"/>
+  </message>
+  <message name="CancelResponse">
+    <part name="CancelResponse" element="docws:CancelResponse"/>
+  </message>
+  <message name="AccountToAccountDescriptionRequest">
+    <part name="AccountToAccountDescriptionRequest" element="docws:AccountToAccountDescriptionRequest"/>
+  </message>
+  <message name="GetLinesforContractPromptRequest">
+    <part name="GetLinesforContractPromptRequest" element="docws:GetLinesforContractPromptRequest"/>
+  </message>
+  <message name="LoadTermsListResponse">
+    <part name="LoadTermsListResponse" element="docws:LoadTermsListResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="docws:Options"/>
+  </message>
+  <message name="AccountToAccountDescriptionResponse">
+    <part name="AccountToAccountDescriptionResponse" element="docws:AccountToAccountDescriptionResponse"/>
+  </message>
+  <message name="LoadTransportModesResponse">
+    <part name="LoadTransportModesResponse" element="docws:LoadTransportModesResponse"/>
+  </message>
+  <message name="RecalculateSplitsResponse">
+    <part name="RecalculateSplitsResponse" element="docws:RecalculateSplitsResponse"/>
+  </message>
+  <message name="MarkDocLinesAsAvailableRequest">
+    <part name="MarkDocLinesAsAvailableRequest" element="docws:MarkDocLinesAsAvailableRequest"/>
+  </message>
+  <message name="ResolveSubstitutionCharactersResponse">
+    <part name="ResolveSubstitutionCharactersResponse" element="docws:ResolveSubstitutionCharactersResponse"/>
+  </message>
+  <message name="DetectElementRequest">
+    <part name="DetectElementRequest" element="docws:DetectElementRequest"/>
+  </message>
+  <message name="DetectTaxMasterRequest">
+    <part name="DetectTaxMasterRequest" element="docws:DetectTaxMasterRequest"/>
+  </message>
+  <message name="LoadTransportModesRequest">
+    <part name="LoadTransportModesRequest" element="docws:LoadTransportModesRequest"/>
+  </message>
+  <message name="CancelLineResponse">
+    <part name="CancelLineResponse" element="docws:CancelLineResponse"/>
+  </message>
+  <message name="DetectTaxMasterResponse">
+    <part name="DetectTaxMasterResponse" element="docws:DetectTaxMasterResponse"/>
+  </message>
+  <portType name="POPDocumentServicePortTypes">
+    <operation name="DetectElement">
+      <input message="docws:DetectElementRequest"/>
+      <output message="docws:DetectElementResponse"/>
+    </operation>
+    <operation name="AccountToAccountDescription">
+      <input message="docws:AccountToAccountDescriptionRequest"/>
+      <output message="docws:AccountToAccountDescriptionResponse"/>
+    </operation>
+    <operation name="LoadDepartmentList">
+      <input message="docws:LoadDepartmentListRequest"/>
+      <output message="docws:LoadDepartmentListResponse"/>
+    </operation>
+    <operation name="CheckLineCancellable">
+      <input message="docws:CheckLineCancellableRequest"/>
+      <output message="docws:CheckLineCancellableResponse"/>
+    </operation>
+    <operation name="GetLinesforContractPrompt">
+      <input message="docws:GetLinesforContractPromptRequest"/>
+      <output message="docws:GetLinesforContractPromptResponse"/>
+    </operation>
+    <operation name="CheckCancellable">
+      <input message="docws:CheckCancellableRequest"/>
+      <output message="docws:CheckCancellableResponse"/>
+    </operation>
+    <operation name="MarkDocLinesAsAvailable">
+      <input message="docws:MarkDocLinesAsAvailableRequest"/>
+      <output message="docws:MarkDocLinesAsAvailableResponse"/>
+    </operation>
+    <operation name="Cancel">
+      <input message="docws:CancelRequest"/>
+      <output message="docws:CancelResponse"/>
+    </operation>
+    <operation name="CancelLine">
+      <input message="docws:CancelLineRequest"/>
+      <output message="docws:CancelLineResponse"/>
+    </operation>
+    <operation name="ResolveSubstitutionCharacters">
+      <input message="docws:ResolveSubstitutionCharactersRequest"/>
+      <output message="docws:ResolveSubstitutionCharactersResponse"/>
+    </operation>
+    <operation name="DetectTaxMaster">
+      <input message="docws:DetectTaxMasterRequest"/>
+      <output message="docws:DetectTaxMasterResponse"/>
+    </operation>
+    <operation name="LoadTermsList">
+      <input message="docws:LoadTermsListRequest"/>
+      <output message="docws:LoadTermsListResponse"/>
+    </operation>
+    <operation name="DetectCurrencyMaster">
+      <input message="docws:DetectCurrencyMasterRequest"/>
+      <output message="docws:DetectCurrencyMasterResponse"/>
+    </operation>
+    <operation name="RecalculateSplits">
+      <input message="docws:RecalculateSplitsRequest"/>
+      <output message="docws:RecalculateSplitsResponse"/>
+    </operation>
+    <operation name="LoadTransportModes">
+      <input message="docws:LoadTransportModesRequest"/>
+      <output message="docws:LoadTransportModesResponse"/>
+    </operation>
+    <operation name="GetDocumentSecurityAccess">
+      <input message="docws:GetDocumentSecurityAccessRequest"/>
+      <output message="docws:GetDocumentSecurityAccessResponse"/>
+    </operation>
+    <operation name="GetDiscountForItem">
+      <input message="docws:GetDiscountForItemRequest"/>
+      <output message="docws:GetDiscountForItemResponse"/>
+    </operation>
+    <operation name="RefreshItemLineAfterContractPrompt">
+      <input message="docws:RefreshItemLineAfterContractPromptRequest"/>
+      <output message="docws:RefreshItemLineAfterContractPromptResponse"/>
+    </operation>
+    <operation name="MarkDocLinesAsGrouped">
+      <input message="docws:MarkDocLinesAsGroupedRequest"/>
+      <output message="docws:MarkDocLinesAsGroupedResponse"/>
+    </operation>
+    <operation name="BuildLineAccount">
+      <input message="docws:BuildLineAccountRequest"/>
+      <output message="docws:BuildLineAccountResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPDocumentServiceSOAPBinding" type="docws:POPDocumentServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="DetectElement">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/DetectElement" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AccountToAccountDescription">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/AccountToAccountDescription" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LoadDepartmentList">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/LoadDepartmentList" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckLineCancellable">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/CheckLineCancellable" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetLinesforContractPrompt">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/GetLinesforContractPrompt" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckCancellable">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/CheckCancellable" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="MarkDocLinesAsAvailable">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/MarkDocLinesAsAvailable" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Cancel">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/Cancel" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CancelLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/CancelLine" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ResolveSubstitutionCharacters">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/ResolveSubstitutionCharacters" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DetectTaxMaster">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/DetectTaxMaster" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LoadTermsList">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/LoadTermsList" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DetectCurrencyMaster">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/DetectCurrencyMaster" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RecalculateSplits">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/RecalculateSplits" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LoadTransportModes">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/LoadTransportModes" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDocumentSecurityAccess">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/GetDocumentSecurityAccess" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDiscountForItem">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/GetDiscountForItem" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RefreshItemLineAfterContractPrompt">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/RefreshItemLineAfterContractPrompt" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="MarkDocLinesAsGrouped">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/MarkDocLinesAsGrouped" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="BuildLineAccount">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocument/BuildLineAccount" style="document"/>
+      <input>
+        <soap:header message="docws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPDocumentService">
+    <port name="POPDocumentServicePort" binding="docws:POPDocumentServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/document/popdocument-12.0"/>
+    </port>
+  </service>
+</definitions>

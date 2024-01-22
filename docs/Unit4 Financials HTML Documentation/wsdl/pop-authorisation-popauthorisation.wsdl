@@ -1,0 +1,1393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/authorisation/popauthorisation-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:authws="http://www.coda.com/pop/schemas/authorisation/popauthorisation-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:poptypes="http://www.coda.com/pop/schemas/common"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:auth="http://www.coda.com/pop/schemas/authorisation"
+    xmlns:commbalance="http://www.coda.com/pop/schemas/commitmentbalance"
+    xmlns:ns1="http://www.coda.com/common/schemas/domaingen"
+    xmlns:doc="http://www.coda.com/pop/schemas/document"
+    xmlns:popcommon="http://www.coda.com/pop/schemas/popcommon"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/pop/schemas/authorisation/popauthorisation-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/authorisation" schemaLocation="../wsdl/pop/authorisation/authorisation.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/commitmentbalance" schemaLocation="pop/commitmentbalance/commitmentbalance.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/common" schemaLocation="pop/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/popcommon" schemaLocation="pop/popcommon/popcommon.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/document" schemaLocation="pop/document/document.xsd"/>
+    <xsd:element name="SubmitDocumentForApprovalRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the company in which the
+                                    document exists.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="poptypes:typePopDocnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document number.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the authorising user.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUserPositionCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The position master to which the
+                                    authorising user belongs.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PositionCode" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The position master to which the
+                                    current user belongs.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PositionHierarchy" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the position hierarchy
+                                    master to which the authorisation
+                                    hierarchy relates.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WorkflowExplodeURL" type="com:typeUri">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The URL to display when exploding a
+                                    work item.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GetWarnings" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>If set, retrieves warning messages.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindPositionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PositionHierarchy" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the position hierarchy
+                                    master to which the authorisation
+                                    hierarchy relates.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the authorising user.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentMasterSettingsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the company in which the
+                                    document exists.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeclineLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the company in which the
+                                    document exists.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="poptypes:typePopDocnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document number.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LineNumber" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document line number.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the authorising user.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNextlevelUsersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Users" minOccurs="0"
+                    maxOccurs="unbounded" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The Users is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="IsUserWithinLimitsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the company in which the
+                                    document exists.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="poptypes:typePopDocnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document number.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the authorising user.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNextApproverResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="NextApprover" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The NextApprover is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetOwnerCanApproveResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CanApprove" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The CanApprove is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeclineDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Declined" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The Declined is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetOwnerCanApproveRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the company in which the
+                                    document exists.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ApproveLineResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Authorised" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The Authorised is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BudgetRejected" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The BudgetRejected is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Budget" minOccurs="0"
+                    maxOccurs="unbounded" type="commbalance:ComBudgetInfo">
+                    <xsd:annotation>
+                        <xsd:documentation>The Budget is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateStatusOnCancelWorkflowResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Updated" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The Updated is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentStatus" type="poptypes:typePopDocStatus">
+                    <xsd:annotation>
+                        <xsd:documentation>The DocumentStatus is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ReasonFailed" type="com:typeTextB">
+                    <xsd:annotation>
+                        <xsd:documentation>The ReasonFailed is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="HoldDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Held" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The Held is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="IsUserWithinLimitsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsWithinLimits" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The IsWithinLimits is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SetDocumentToDraftAndCancelWFRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the company in which the
+                                    document exists.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="poptypes:typePopDocnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document number.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SetDocumentToDraftRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the company in which the
+                                    document exists.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="poptypes:typePopDocnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document number.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SetDocumentToDraftAndCancelWFResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Updated" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The Updated is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentStatus" type="poptypes:typePopDocStatus">
+                    <xsd:annotation>
+                        <xsd:documentation>The DocumentStatus is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ReasonFailed" type="com:typeTextB">
+                    <xsd:annotation>
+                        <xsd:documentation>The ReasonFailed is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHigherlevelUsersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PositionHierarchy" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the position hierarchy
+                                    master to which the authorisation
+                                    hierarchy relates.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PositionCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The position master to which the
+                                    current user belongs.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateStatusOnCancelWorkflowRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The company code.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="poptypes:typePopDocnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document number.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNextApproverRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the company in which the
+                                    document exists.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="poptypes:typePopDocnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document number.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CurrentApprover" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the current authorising user.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HierarchyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the position hierarchy
+                                    master to which the authorisation
+                                    hierarchy relates.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindPositionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Positions" minOccurs="0"
+                    maxOccurs="unbounded" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The Positions is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ApproveDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Authorised" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The Authorised is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BudgetRejected" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The BudgetRejected is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Budget" minOccurs="0"
+                    maxOccurs="unbounded" type="commbalance:ComBudgetInfo">
+                    <xsd:annotation>
+                        <xsd:documentation>The Budget is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GeneratedDocsKey" minOccurs="0"
+                    maxOccurs="unbounded" type="doc:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The GeneratedDocs is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WarningMessages" minOccurs="0"
+                    maxOccurs="unbounded" type="popcommon:Warning">
+                    <xsd:annotation>
+                        <xsd:documentation>The warningMessages is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeclineDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the company in which the
+                                    document exists.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="poptypes:typePopDocnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document number.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the authorising user.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeclineLineResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Declined" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The Declined is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentMasterSettingsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="OriginatorCanApprove" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The OriginatorCanApprove is
+                            an out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentType" type="poptypes:typePopDocumentType">
+                    <xsd:annotation>
+                        <xsd:documentation>The DocumentType is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ApprovalType" type="poptypes:typePopAuthorisationLevel">
+                    <xsd:annotation>
+                        <xsd:documentation>The ApprovalType is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AutoRecieving" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The AutoRecieving is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MustBeIssued" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The MustBeIssued is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Intercompany" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The Intercompany is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BlanketOrder" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The BlanketOrder is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ApproveDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the company in which the
+                                document exists.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The document code.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="poptypes:typePopDocnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The document number.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the authorising user.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SetDocumentToDraftResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Updated" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The Updated is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentStatus" type="poptypes:typePopDocStatus">
+                    <xsd:annotation>
+                        <xsd:documentation>The DocumentStatus is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ReasonFailed" type="com:typeTextB">
+                    <xsd:annotation>
+                        <xsd:documentation>The ReasonFailed is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHigherlevelUsersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Users" minOccurs="0"
+                    maxOccurs="unbounded" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The Users is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNextlevelUsersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PositionHierarchy" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the position hierarchy
+                                    master to which the authorisation
+                                    hierarchy relates.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PositionCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The position master to which the
+                                    current user belongs.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SubmitDocumentForApprovalResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The CompanyCode is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The DocumentCode is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="poptypes:typePopDocnum">
+                    <xsd:annotation>
+                        <xsd:documentation>The DocumentNumber is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Submitted" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The Submitted is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentStatus" type="poptypes:typePopDocStatus">
+                    <xsd:annotation>
+                        <xsd:documentation>The DocumentStatus is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WorkflowMessage" type="com:typeTextB">
+                    <xsd:annotation>
+                        <xsd:documentation>The WorkflowMessage is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BudgetWarning" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The BudgetWarning is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BudgetRejected" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The BudgetRejected is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WarningMessages" minOccurs="0"
+                    maxOccurs="unbounded" type="popcommon:Warning">
+                    <xsd:annotation>
+                        <xsd:documentation>The warningMessages is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="HoldDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the company in which the
+                                    document exists.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="poptypes:typePopDocnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document number.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the authorising user.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ApproveLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the company in which the
+                                    document exists.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document code.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="poptypes:typePopDocnum">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document number.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LineNumber" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document line number.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The code of the authorising user.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="authws:OptionsResponse"/>
+  </message>
+  <message name="ApproveLineRequest">
+    <part name="ApproveLineRequest" element="authws:ApproveLineRequest"/>
+  </message>
+  <message name="GetOwnerCanApproveRequest">
+    <part name="GetOwnerCanApproveRequest" element="authws:GetOwnerCanApproveRequest"/>
+  </message>
+  <message name="GetNextlevelUsersRequest">
+    <part name="GetNextlevelUsersRequest" element="authws:GetNextlevelUsersRequest"/>
+  </message>
+  <message name="GetNextApproverResponse">
+    <part name="GetNextApproverResponse" element="authws:GetNextApproverResponse"/>
+  </message>
+  <message name="IsUserWithinLimitsResponse">
+    <part name="IsUserWithinLimitsResponse" element="authws:IsUserWithinLimitsResponse"/>
+  </message>
+  <message name="SubmitDocumentForApprovalResponse">
+    <part name="SubmitDocumentForApprovalResponse" element="authws:SubmitDocumentForApprovalResponse"/>
+  </message>
+  <message name="GetOwnerCanApproveResponse">
+    <part name="GetOwnerCanApproveResponse" element="authws:GetOwnerCanApproveResponse"/>
+  </message>
+  <message name="IsUserWithinLimitsRequest">
+    <part name="IsUserWithinLimitsRequest" element="authws:IsUserWithinLimitsRequest"/>
+  </message>
+  <message name="GetNextlevelUsersResponse">
+    <part name="GetNextlevelUsersResponse" element="authws:GetNextlevelUsersResponse"/>
+  </message>
+  <message name="GetHigherlevelUsersRequest">
+    <part name="GetHigherlevelUsersRequest" element="authws:GetHigherlevelUsersRequest"/>
+  </message>
+  <message name="SetDocumentToDraftResponse">
+    <part name="SetDocumentToDraftResponse" element="authws:SetDocumentToDraftResponse"/>
+  </message>
+  <message name="ApproveDocumentResponse">
+    <part name="ApproveDocumentResponse" element="authws:ApproveDocumentResponse"/>
+  </message>
+  <message name="DeclineDocumentResponse">
+    <part name="DeclineDocumentResponse" element="authws:DeclineDocumentResponse"/>
+  </message>
+  <message name="FindPositionsRequest">
+    <part name="FindPositionsRequest" element="authws:FindPositionsRequest"/>
+  </message>
+  <message name="ApproveDocumentRequest">
+    <part name="ApproveDocumentRequest" element="authws:ApproveDocumentRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="authws:Options"/>
+  </message>
+  <message name="SetDocumentToDraftAndCancelWFResponse">
+    <part name="SetDocumentToDraftAndCancelWFResponse" element="authws:SetDocumentToDraftAndCancelWFResponse"/>
+  </message>
+  <message name="DeclineLineResponse">
+    <part name="DeclineLineResponse" element="authws:DeclineLineResponse"/>
+  </message>
+  <message name="UpdateStatusOnCancelWorkflowResponse">
+    <part name="UpdateStatusOnCancelWorkflowResponse" element="authws:UpdateStatusOnCancelWorkflowResponse"/>
+  </message>
+  <message name="ApproveLineResponse">
+    <part name="ApproveLineResponse" element="authws:ApproveLineResponse"/>
+  </message>
+  <message name="FindPositionsResponse">
+    <part name="FindPositionsResponse" element="authws:FindPositionsResponse"/>
+  </message>
+  <message name="GetNextApproverRequest">
+    <part name="GetNextApproverRequest" element="authws:GetNextApproverRequest"/>
+  </message>
+  <message name="SetDocumentToDraftAndCancelWFRequest">
+    <part name="SetDocumentToDraftAndCancelWFRequest" element="authws:SetDocumentToDraftAndCancelWFRequest"/>
+  </message>
+  <message name="GetDocumentMasterSettingsResponse">
+    <part name="GetDocumentMasterSettingsResponse" element="authws:GetDocumentMasterSettingsResponse"/>
+  </message>
+  <message name="HoldDocumentResponse">
+    <part name="HoldDocumentResponse" element="authws:HoldDocumentResponse"/>
+  </message>
+  <message name="SubmitDocumentForApprovalRequest">
+    <part name="SubmitDocumentForApprovalRequest" element="authws:SubmitDocumentForApprovalRequest"/>
+  </message>
+  <message name="SetDocumentToDraftRequest">
+    <part name="SetDocumentToDraftRequest" element="authws:SetDocumentToDraftRequest"/>
+  </message>
+  <message name="UpdateStatusOnCancelWorkflowRequest">
+    <part name="UpdateStatusOnCancelWorkflowRequest" element="authws:UpdateStatusOnCancelWorkflowRequest"/>
+  </message>
+  <message name="DeclineDocumentRequest">
+    <part name="DeclineDocumentRequest" element="authws:DeclineDocumentRequest"/>
+  </message>
+  <message name="DeclineLineRequest">
+    <part name="DeclineLineRequest" element="authws:DeclineLineRequest"/>
+  </message>
+  <message name="HoldDocumentRequest">
+    <part name="HoldDocumentRequest" element="authws:HoldDocumentRequest"/>
+  </message>
+  <message name="GetDocumentMasterSettingsRequest">
+    <part name="GetDocumentMasterSettingsRequest" element="authws:GetDocumentMasterSettingsRequest"/>
+  </message>
+  <message name="GetHigherlevelUsersResponse">
+    <part name="GetHigherlevelUsersResponse" element="authws:GetHigherlevelUsersResponse"/>
+  </message>
+  <portType name="POPAuthorisationServicePortTypes">
+    <operation name="SetDocumentToDraft">
+      <input message="authws:SetDocumentToDraftRequest"/>
+      <output message="authws:SetDocumentToDraftResponse"/>
+    </operation>
+    <operation name="GetNextlevelUsers">
+      <input message="authws:GetNextlevelUsersRequest"/>
+      <output message="authws:GetNextlevelUsersResponse"/>
+    </operation>
+    <operation name="UpdateStatusOnCancelWorkflow">
+      <input message="authws:UpdateStatusOnCancelWorkflowRequest"/>
+      <output message="authws:UpdateStatusOnCancelWorkflowResponse"/>
+    </operation>
+    <operation name="DeclineDocument">
+      <input message="authws:DeclineDocumentRequest"/>
+      <output message="authws:DeclineDocumentResponse"/>
+    </operation>
+    <operation name="FindPositions">
+      <input message="authws:FindPositionsRequest"/>
+      <output message="authws:FindPositionsResponse"/>
+    </operation>
+    <operation name="GetDocumentMasterSettings">
+      <input message="authws:GetDocumentMasterSettingsRequest"/>
+      <output message="authws:GetDocumentMasterSettingsResponse"/>
+    </operation>
+    <operation name="ApproveLine">
+      <input message="authws:ApproveLineRequest"/>
+      <output message="authws:ApproveLineResponse"/>
+    </operation>
+    <operation name="GetOwnerCanApprove">
+      <input message="authws:GetOwnerCanApproveRequest"/>
+      <output message="authws:GetOwnerCanApproveResponse"/>
+    </operation>
+    <operation name="IsUserWithinLimits">
+      <input message="authws:IsUserWithinLimitsRequest"/>
+      <output message="authws:IsUserWithinLimitsResponse"/>
+    </operation>
+    <operation name="GetNextApprover">
+      <input message="authws:GetNextApproverRequest"/>
+      <output message="authws:GetNextApproverResponse"/>
+    </operation>
+    <operation name="ApproveDocument">
+      <input message="authws:ApproveDocumentRequest"/>
+      <output message="authws:ApproveDocumentResponse"/>
+    </operation>
+    <operation name="DeclineLine">
+      <input message="authws:DeclineLineRequest"/>
+      <output message="authws:DeclineLineResponse"/>
+    </operation>
+    <operation name="SetDocumentToDraftAndCancelWF">
+      <input message="authws:SetDocumentToDraftAndCancelWFRequest"/>
+      <output message="authws:SetDocumentToDraftAndCancelWFResponse"/>
+    </operation>
+    <operation name="HoldDocument">
+      <input message="authws:HoldDocumentRequest"/>
+      <output message="authws:HoldDocumentResponse"/>
+    </operation>
+    <operation name="GetHigherlevelUsers">
+      <input message="authws:GetHigherlevelUsersRequest"/>
+      <output message="authws:GetHigherlevelUsersResponse"/>
+    </operation>
+    <operation name="SubmitDocumentForApproval">
+      <input message="authws:SubmitDocumentForApprovalRequest"/>
+      <output message="authws:SubmitDocumentForApprovalResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPAuthorisationServiceSOAPBinding" type="authws:POPAuthorisationServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="SetDocumentToDraft">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/SetDocumentToDraft" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetNextlevelUsers">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/GetNextlevelUsers" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateStatusOnCancelWorkflow">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/UpdateStatusOnCancelWorkflow" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeclineDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/DeclineDocument" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FindPositions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/FindPositions" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDocumentMasterSettings">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/GetDocumentMasterSettings" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ApproveLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/ApproveLine" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetOwnerCanApprove">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/GetOwnerCanApprove" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="IsUserWithinLimits">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/IsUserWithinLimits" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetNextApprover">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/GetNextApprover" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ApproveDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/ApproveDocument" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeclineLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/DeclineLine" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SetDocumentToDraftAndCancelWF">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/SetDocumentToDraftAndCancelWF" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="HoldDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/HoldDocument" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetHigherlevelUsers">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/GetHigherlevelUsers" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SubmitDocumentForApproval">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAuthorisation/SubmitDocumentForApproval" style="document"/>
+      <input>
+        <soap:header message="authws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPAuthorisationService">
+    <port name="POPAuthorisationServicePort" binding="authws:POPAuthorisationServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/authorisation/popauthorisation-12.0"/>
+    </port>
+  </service>
+</definitions>

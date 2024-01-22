@@ -1,0 +1,272 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/common/schemas/functionalsecurity</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/common/schemas/functionalsecurity</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>FunctionalSecurityRequest</h3>
+         <p>This document enables you to maintain functional security through the Administration
+            Console server.
+         </p>
+         <h3>FunctionalSecurityResponse</h3>
+         <p>This is the response document that is returned when you maintain functional security
+            through the Administration Console server.
+         </p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/common/schemas/functionalsecurity}FunctionalSecurityUnion"></a><h3>FunctionalSecurityUnion</h3>
+         <p>This element holds functional security parameters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Hash</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>A value which identifies a combination of the user capability and associated role
+                        timestamp values.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>CapabilityCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the capability master.</td>
+                  </tr>
+                  <tr>
+                     <td>CapabilityTimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The timestamp value for the capability master.</td>
+                  </tr>
+                  <tr>
+                     <td>Roles</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/functionalsecurity}RolesList" href="#{http://www.coda.com/common/schemas/functionalsecurity}RolesList">RolesList</a></td>
+                     <td>This element holds a list of role masters.</td>
+                  </tr>
+                  <tr>
+                     <td>FunctionalSecurityList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/capabilitymaster}FunctionalSecurityList" href="../capabilitymaster/capabilitymaster.html#{http://www.coda.com/common/schemas/capabilitymaster}FunctionalSecurityList">FunctionalSecurityList</a></td>
+                     <td>This element holds the functional security list.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/functionalsecurity}RolesList"></a><h3>RolesList</h3>
+         <p>This element holds a list of role masters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Role</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/functionalsecurity}RolesListItem" href="#{http://www.coda.com/common/schemas/functionalsecurity}RolesListItem">RolesListItem</a></td>
+                     <td>This element holds details of a role master</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/functionalsecurity}RolesListItem"></a><h3>RolesListItem</h3>
+         <p>This element holds details of a role master</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for this role master.</td>
+                  </tr>
+                  <tr>
+                     <td>TimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The timestamp value for this role master.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/functionalsecurity}GetRequest"></a><h3>GetRequest</h3>
+         <p>The GetRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/common/schemas/functionalsecurity}GetRequestVerb"></a><h3>GetRequestVerb</h3>
+         <p>The GetRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the functional security parameters from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/functionalsecurity}GetRequest" href="#{http://www.coda.com/common/schemas/functionalsecurity}GetRequest">GetRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/functionalsecurity}GetResponse"></a><h3>GetResponse</h3>
+         <p>The GetResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>FunctionalSecurityUnion</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/functionalsecurity}FunctionalSecurityUnion" href="#{http://www.coda.com/common/schemas/functionalsecurity}FunctionalSecurityUnion">FunctionalSecurityUnion</a></td>
+                     <td>A list of functional security items combined from the user capability and associated
+                        roles.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/functionalsecurity}GetResponseVerb"></a><h3>GetResponseVerb</h3>
+         <p>The GetResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/functionalsecurity}GetResponse" href="#{http://www.coda.com/common/schemas/functionalsecurity}GetResponse">GetResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/functionalsecurity}FunctionalSecurityRequest"></a><h3>FunctionalSecurityRequest</h3>
+         <p>The FunctionalSecurityRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This document enables you to maintain functional security through the Administration
+            Console server.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Get</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/functionalsecurity}GetRequestVerb" href="#{http://www.coda.com/common/schemas/functionalsecurity}GetRequestVerb">GetRequestVerb</a></td>
+                     <td>Retrieves the functional security parameters from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/functionalsecurity}FunctionalSecurityResponse"></a><h3>FunctionalSecurityResponse</h3>
+         <p>The FunctionalSecurityResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response document that is returned when you maintain functional security
+            through the Administration Console server.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Get</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/functionalsecurity}GetResponseVerb" href="#{http://www.coda.com/common/schemas/functionalsecurity}GetResponseVerb">GetResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

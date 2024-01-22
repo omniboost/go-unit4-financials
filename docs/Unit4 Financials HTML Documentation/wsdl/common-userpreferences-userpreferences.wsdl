@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/userpreferences/userpreferences-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:usrprefws="http://www.coda.com/common/schemas/userpreferences/userpreferences-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:usrpref="http://www.coda.com/common/schemas/userpreferences"
+    targetNamespace="http://www.coda.com/common/schemas/userpreferences/userpreferences-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/userpreferences" schemaLocation="../wsdl/common/userpreferences/userpreferences.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="GetMasterFavouritesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="usrpref:FavouritesKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the Favourites list you want to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateMasterFavouritesResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateMasterFavouritesFromListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MasterFavourites" type="usrpref:MasterFavourites">
+                    <xsd:annotation>
+                        <xsd:documentation>The original Favourites list.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MasterFavouritesList" type="usrpref:MasterFavouritesListData">
+                    <xsd:annotation>
+                        <xsd:documentation>The Favourites list you want
+                            to merge.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateMasterFavouritesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MasterFavourites" type="usrpref:MasterFavourites">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the Favourites list you want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateMasterFavouritesFromListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MasterFavourites" type="usrpref:MasterFavourites">
+                    <xsd:annotation>
+                        <xsd:documentation>The Favourites list that you
+                            attempted to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddMasterFavouriteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MasterFavourite" type="usrpref:MasterFavourites">
+                    <xsd:annotation>
+                        <xsd:documentation>This contains the Favourites
+                            list you want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MasterFavouriteElement" type="usrpref:MasterFavouritesListElement">
+                    <xsd:annotation>
+                        <xsd:documentation>This contains the items in a
+                            Favourites list you want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddMasterFavouriteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MasterFavourites" type="usrpref:MasterFavourites">
+                    <xsd:annotation>
+                        <xsd:documentation>The Favourites list that you
+                            want to add.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetMasterFavouritesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MasterFavourites" type="usrpref:MasterFavourites">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the Favourites list
+                            you have retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="UpdateMasterFavouritesFromListResponse">
+    <part name="UpdateMasterFavouritesFromListResponse" element="usrprefws:UpdateMasterFavouritesFromListResponse"/>
+  </message>
+  <message name="AddMasterFavouriteRequest">
+    <part name="AddMasterFavouriteRequest" element="usrprefws:AddMasterFavouriteRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="usrprefws:OptionsResponse"/>
+  </message>
+  <message name="UpdateMasterFavouritesRequest">
+    <part name="UpdateMasterFavouritesRequest" element="usrprefws:UpdateMasterFavouritesRequest"/>
+  </message>
+  <message name="UpdateMasterFavouritesFromListRequest">
+    <part name="UpdateMasterFavouritesFromListRequest" element="usrprefws:UpdateMasterFavouritesFromListRequest"/>
+  </message>
+  <message name="UpdateMasterFavouritesResponse">
+    <part name="UpdateMasterFavouritesResponse" element="usrprefws:UpdateMasterFavouritesResponse"/>
+  </message>
+  <message name="GetMasterFavouritesRequest">
+    <part name="GetMasterFavouritesRequest" element="usrprefws:GetMasterFavouritesRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="usrprefws:Options"/>
+  </message>
+  <message name="GetMasterFavouritesResponse">
+    <part name="GetMasterFavouritesResponse" element="usrprefws:GetMasterFavouritesResponse"/>
+  </message>
+  <message name="AddMasterFavouriteResponse">
+    <part name="AddMasterFavouriteResponse" element="usrprefws:AddMasterFavouriteResponse"/>
+  </message>
+  <portType name="UserPreferencesServicePortTypes">
+    <operation name="UpdateMasterFavouritesFromList">
+      <input message="usrprefws:UpdateMasterFavouritesFromListRequest"/>
+      <output message="usrprefws:UpdateMasterFavouritesFromListResponse"/>
+    </operation>
+    <operation name="GetMasterFavourites">
+      <input message="usrprefws:GetMasterFavouritesRequest"/>
+      <output message="usrprefws:GetMasterFavouritesResponse"/>
+    </operation>
+    <operation name="UpdateMasterFavourites">
+      <input message="usrprefws:UpdateMasterFavouritesRequest"/>
+      <output message="usrprefws:UpdateMasterFavouritesResponse"/>
+    </operation>
+    <operation name="AddMasterFavourite">
+      <input message="usrprefws:AddMasterFavouriteRequest"/>
+      <output message="usrprefws:AddMasterFavouriteResponse"/>
+    </operation>
+  </portType>
+  <binding name="UserPreferencesServiceSOAPBinding" type="usrprefws:UserPreferencesServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="UpdateMasterFavouritesFromList">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserPreferences/UpdateMasterFavouritesFromList" style="document"/>
+      <input>
+        <soap:header message="usrprefws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrprefws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetMasterFavourites">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserPreferences/GetMasterFavourites" style="document"/>
+      <input>
+        <soap:header message="usrprefws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrprefws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateMasterFavourites">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserPreferences/UpdateMasterFavourites" style="document"/>
+      <input>
+        <soap:header message="usrprefws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrprefws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AddMasterFavourite">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/UserPreferences/AddMasterFavourite" style="document"/>
+      <input>
+        <soap:header message="usrprefws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="usrprefws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="UserPreferencesService">
+    <port name="UserPreferencesServicePort" binding="usrprefws:UserPreferencesServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/userpreferences/userpreferences-12.0"/>
+    </port>
+  </service>
+</definitions>

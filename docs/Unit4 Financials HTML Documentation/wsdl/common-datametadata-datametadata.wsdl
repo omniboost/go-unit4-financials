@@ -1,0 +1,1209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/datametadata/datametadata-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:metws="http://www.coda.com/common/schemas/datametadata/datametadata-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:met="http://www.coda.com/common/schemas/datametadata"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:tra="http://www.coda.com/common/schemas/translation"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/datametadata/datametadata-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/translation" schemaLocation="common/translation/translation.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/datametadata" schemaLocation="../wsdl/common/datametadata/datametadata.xsd"/>
+    <xsd:element name="UpdateDataSourceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the data source
+                            definition master that you attempted to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetEnumerationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for an enumeration
+                            definition master you want to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetEnumerationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Enumeration" type="met:MetadataEnumeration">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the enumeration
+                            definition master your have retrieved from
+                            the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetMetadataObjectDefinitionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the metadata
+                            object definition master you want to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateMetadataObjectDefinitionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the object
+                            definition master you attempted to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateCodeAndAttributeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ObjectCode" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the object
+                            definition master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AttributeDescription" minOccurs="0" type="met:typeDataMetadataDescription">
+                    <xsd:annotation>
+                        <xsd:documentation>The description for the attribute.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AttributeKey" minOccurs="0" type="met:MetadataObjectAttributeKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key for the attribute.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindMetadataObjectDefinitionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="met:FindMetadataObjectDefinitionCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>Criteria that identify the
+                            metadata object definition masters you want
+                            to retrieve header information for.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RowLimit" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of rows to return.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListTablesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the data source
+                            master that represents the database whose
+                            tables you want to list.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Criteria" type="met:Table">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains criteria specifying
+                            which tables to list.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindMetadataObjectDefinitionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="List" type="met:BasicInfoList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of keys for the
+                            object definition masters that match the
+                            criteria you specified in the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateCodeAndAttributeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsValid" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>True if the specified
+                            attribute is a key attribute on the
+                            specified object definition master, false otherwise.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDataSourceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataSource" type="met:DataSource">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the data source
+                            definition master you have retrieved from
+                            the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetMetadataObjectDefinitionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MetadataObjectDefinition" type="met:MetadataObjectDefinition">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the object
+                            definition master you have retrieved from
+                            the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindDataSourceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataSourceList" type="met:DataSourceList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of data
+                            source definition masters retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateDataSourceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataSource" type="met:DataSource">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the data source definition master you want
+                            to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateMetadataObjectDefinitionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MetadataObjectDefinition" type="met:MetadataObjectDefinition">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the metadata object definition master you
+                            want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListDataSourceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataSourceList" type="met:DataSourceList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of data
+                            source definition masters retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetKeyAttributesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the object for
+                            which you want the list of all attributes
+                            that are key fields.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteMetadataObjectDefinitionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the metadata
+                            object definition master you want to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListTablesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TableList" type="met:TableList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            about the requested tables.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateMetadataObjectDefinitionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MetadataObjectDefinition" type="met:MetadataObjectDefinition">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains information for the
+                            metadata object you want to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListEnumerationDefinitionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="EnumerationDefinitionList" type="met:EnumerationDefinitionList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of header information
+                            for all the enumeration definition masters
+                            in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteEnumerationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for an enumeration
+                            definition master you want to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteEnumerationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the enumeration
+                            definition master you attempted to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteMetadataObjectDefinitionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the object
+                            definition master you attempted to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindDataSourceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="met:BasicInfo">
+                    <xsd:annotation>
+                        <xsd:documentation>Key information that
+                            identifies the data source definition master
+                            you want to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RowLimit" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of rows to
+                            be returned.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDefaultAttributesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MetadataObjectDefinition" type="met:MetadataObjectDefinition">
+                    <xsd:annotation>
+                        <xsd:documentation>The metadata object
+                            definition, populated with the list of all
+                            its attributes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDataSourceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the data source
+                            definition master you want to retrieve from
+                            the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteDataSourceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the data source
+                            definition master that you attempted to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateMetadataObjectDefinitionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the object
+                            definition master you attempted to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateEnumerationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Enumeration" type="met:MetadataEnumeration">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            an enumeration definition master you want to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDefaultAttributesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MetadataObjectDefinition" type="met:MetadataObjectDefinition">
+                    <xsd:annotation>
+                        <xsd:documentation>The metadata object
+                            definition which you want to be populated
+                            with the list of all its attributes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListEnumerationDefinitionRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetObjectHeadersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BasicInfoList" type="met:BasicInfoList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of key information
+                            that identifies the metadata objects for
+                            which you want header information.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindEnumerationDefinitionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="EnumerationDefinitionList" type="met:EnumerationDefinitionList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of header information
+                            for the specified enumeration definition masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListDataSourceRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateDataSourceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataSource" type="met:DataSource">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the data source definition master you want
+                            to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListColumnsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ColumnList" type="met:ColumnList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information
+                            about the requested columns.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateEnumerationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the enumeration
+                            definition master that you attempted to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateDataSourceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the data source
+                            definition master that you attempted to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteDataSourceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the data source
+                            definition master you want to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateEnumerationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the enumeration
+                            definition master you attempted to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindEnumerationDefinitionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="met:BasicInfo">
+                    <xsd:annotation>
+                        <xsd:documentation>Key information that
+                            identifies an enumeration definition master
+                            you want to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RowLimit" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of rows to return.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateEnumerationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Enumeration" type="met:MetadataEnumeration">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            an enumeration definition master you want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetObjectHeadersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MetadataObjectDefinitionHeaderList" type="met:MetadataObjectDefinitionHeaderList">
+                    <xsd:annotation>
+                        <xsd:documentation>Header information for the
+                            specified metadata object definition masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetKeyAttributesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AttributeDescriptionList" type="met:AttributeDescriptionList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of keys for all the
+                            attributes that are key fields in the
+                            database table that corresponds to the
+                            specified metadata object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListColumnsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the data source
+                            master that represents the database
+                            containing the table whose columns you want
+                            to list.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Table" type="met:Table">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies the table whose
+                            columns you want to list.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Options">
+    <part name="Options" element="metws:Options"/>
+  </message>
+  <message name="FindDataSourceRequest">
+    <part name="FindDataSourceRequest" element="metws:FindDataSourceRequest"/>
+  </message>
+  <message name="CreateEnumerationResponse">
+    <part name="CreateEnumerationResponse" element="metws:CreateEnumerationResponse"/>
+  </message>
+  <message name="UpdateDataSourceResponse">
+    <part name="UpdateDataSourceResponse" element="metws:UpdateDataSourceResponse"/>
+  </message>
+  <message name="GetObjectHeadersRequest">
+    <part name="GetObjectHeadersRequest" element="metws:GetObjectHeadersRequest"/>
+  </message>
+  <message name="FindDataSourceResponse">
+    <part name="FindDataSourceResponse" element="metws:FindDataSourceResponse"/>
+  </message>
+  <message name="ListDataSourceResponse">
+    <part name="ListDataSourceResponse" element="metws:ListDataSourceResponse"/>
+  </message>
+  <message name="ListColumnsRequest">
+    <part name="ListColumnsRequest" element="metws:ListColumnsRequest"/>
+  </message>
+  <message name="CreateEnumerationRequest">
+    <part name="CreateEnumerationRequest" element="metws:CreateEnumerationRequest"/>
+  </message>
+  <message name="CreateDataSourceRequest">
+    <part name="CreateDataSourceRequest" element="metws:CreateDataSourceRequest"/>
+  </message>
+  <message name="FindMetadataObjectDefinitionRequest">
+    <part name="FindMetadataObjectDefinitionRequest" element="metws:FindMetadataObjectDefinitionRequest"/>
+  </message>
+  <message name="DeleteMetadataObjectDefinitionResponse">
+    <part name="DeleteMetadataObjectDefinitionResponse" element="metws:DeleteMetadataObjectDefinitionResponse"/>
+  </message>
+  <message name="GetMetadataObjectDefinitionRequest">
+    <part name="GetMetadataObjectDefinitionRequest" element="metws:GetMetadataObjectDefinitionRequest"/>
+  </message>
+  <message name="ListDataSourceRequest">
+    <part name="ListDataSourceRequest" element="metws:ListDataSourceRequest"/>
+  </message>
+  <message name="GetMetadataObjectDefinitionResponse">
+    <part name="GetMetadataObjectDefinitionResponse" element="metws:GetMetadataObjectDefinitionResponse"/>
+  </message>
+  <message name="GetDataSourceResponse">
+    <part name="GetDataSourceResponse" element="metws:GetDataSourceResponse"/>
+  </message>
+  <message name="CreateDataSourceResponse">
+    <part name="CreateDataSourceResponse" element="metws:CreateDataSourceResponse"/>
+  </message>
+  <message name="ListTablesRequest">
+    <part name="ListTablesRequest" element="metws:ListTablesRequest"/>
+  </message>
+  <message name="ListEnumerationDefinitionResponse">
+    <part name="ListEnumerationDefinitionResponse" element="metws:ListEnumerationDefinitionResponse"/>
+  </message>
+  <message name="CreateMetadataObjectDefinitionRequest">
+    <part name="CreateMetadataObjectDefinitionRequest" element="metws:CreateMetadataObjectDefinitionRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="metws:OptionsResponse"/>
+  </message>
+  <message name="FindEnumerationDefinitionRequest">
+    <part name="FindEnumerationDefinitionRequest" element="metws:FindEnumerationDefinitionRequest"/>
+  </message>
+  <message name="ValidateCodeAndAttributeRequest">
+    <part name="ValidateCodeAndAttributeRequest" element="metws:ValidateCodeAndAttributeRequest"/>
+  </message>
+  <message name="UpdateMetadataObjectDefinitionResponse">
+    <part name="UpdateMetadataObjectDefinitionResponse" element="metws:UpdateMetadataObjectDefinitionResponse"/>
+  </message>
+  <message name="GetDefaultAttributesRequest">
+    <part name="GetDefaultAttributesRequest" element="metws:GetDefaultAttributesRequest"/>
+  </message>
+  <message name="UpdateMetadataObjectDefinitionRequest">
+    <part name="UpdateMetadataObjectDefinitionRequest" element="metws:UpdateMetadataObjectDefinitionRequest"/>
+  </message>
+  <message name="GetEnumerationRequest">
+    <part name="GetEnumerationRequest" element="metws:GetEnumerationRequest"/>
+  </message>
+  <message name="DeleteDataSourceRequest">
+    <part name="DeleteDataSourceRequest" element="metws:DeleteDataSourceRequest"/>
+  </message>
+  <message name="DeleteEnumerationRequest">
+    <part name="DeleteEnumerationRequest" element="metws:DeleteEnumerationRequest"/>
+  </message>
+  <message name="GetKeyAttributesRequest">
+    <part name="GetKeyAttributesRequest" element="metws:GetKeyAttributesRequest"/>
+  </message>
+  <message name="UpdateEnumerationResponse">
+    <part name="UpdateEnumerationResponse" element="metws:UpdateEnumerationResponse"/>
+  </message>
+  <message name="GetEnumerationResponse">
+    <part name="GetEnumerationResponse" element="metws:GetEnumerationResponse"/>
+  </message>
+  <message name="DeleteEnumerationResponse">
+    <part name="DeleteEnumerationResponse" element="metws:DeleteEnumerationResponse"/>
+  </message>
+  <message name="CreateMetadataObjectDefinitionResponse">
+    <part name="CreateMetadataObjectDefinitionResponse" element="metws:CreateMetadataObjectDefinitionResponse"/>
+  </message>
+  <message name="UpdateEnumerationRequest">
+    <part name="UpdateEnumerationRequest" element="metws:UpdateEnumerationRequest"/>
+  </message>
+  <message name="DeleteDataSourceResponse">
+    <part name="DeleteDataSourceResponse" element="metws:DeleteDataSourceResponse"/>
+  </message>
+  <message name="DeleteMetadataObjectDefinitionRequest">
+    <part name="DeleteMetadataObjectDefinitionRequest" element="metws:DeleteMetadataObjectDefinitionRequest"/>
+  </message>
+  <message name="GetObjectHeadersResponse">
+    <part name="GetObjectHeadersResponse" element="metws:GetObjectHeadersResponse"/>
+  </message>
+  <message name="GetDataSourceRequest">
+    <part name="GetDataSourceRequest" element="metws:GetDataSourceRequest"/>
+  </message>
+  <message name="ValidateCodeAndAttributeResponse">
+    <part name="ValidateCodeAndAttributeResponse" element="metws:ValidateCodeAndAttributeResponse"/>
+  </message>
+  <message name="GetKeyAttributesResponse">
+    <part name="GetKeyAttributesResponse" element="metws:GetKeyAttributesResponse"/>
+  </message>
+  <message name="UpdateDataSourceRequest">
+    <part name="UpdateDataSourceRequest" element="metws:UpdateDataSourceRequest"/>
+  </message>
+  <message name="FindEnumerationDefinitionResponse">
+    <part name="FindEnumerationDefinitionResponse" element="metws:FindEnumerationDefinitionResponse"/>
+  </message>
+  <message name="ListTablesResponse">
+    <part name="ListTablesResponse" element="metws:ListTablesResponse"/>
+  </message>
+  <message name="FindMetadataObjectDefinitionResponse">
+    <part name="FindMetadataObjectDefinitionResponse" element="metws:FindMetadataObjectDefinitionResponse"/>
+  </message>
+  <message name="ListEnumerationDefinitionRequest">
+    <part name="ListEnumerationDefinitionRequest" element="metws:ListEnumerationDefinitionRequest"/>
+  </message>
+  <message name="ListColumnsResponse">
+    <part name="ListColumnsResponse" element="metws:ListColumnsResponse"/>
+  </message>
+  <message name="GetDefaultAttributesResponse">
+    <part name="GetDefaultAttributesResponse" element="metws:GetDefaultAttributesResponse"/>
+  </message>
+  <portType name="DataMetadataServicePortTypes">
+    <operation name="ListColumns">
+      <input message="metws:ListColumnsRequest"/>
+      <output message="metws:ListColumnsResponse"/>
+    </operation>
+    <operation name="GetDataSource">
+      <input message="metws:GetDataSourceRequest"/>
+      <output message="metws:GetDataSourceResponse"/>
+    </operation>
+    <operation name="FindEnumerationDefinition">
+      <input message="metws:FindEnumerationDefinitionRequest"/>
+      <output message="metws:FindEnumerationDefinitionResponse"/>
+    </operation>
+    <operation name="ValidateCodeAndAttribute">
+      <input message="metws:ValidateCodeAndAttributeRequest"/>
+      <output message="metws:ValidateCodeAndAttributeResponse"/>
+    </operation>
+    <operation name="DeleteDataSource">
+      <input message="metws:DeleteDataSourceRequest"/>
+      <output message="metws:DeleteDataSourceResponse"/>
+    </operation>
+    <operation name="ListEnumerationDefinition">
+      <input message="metws:ListEnumerationDefinitionRequest"/>
+      <output message="metws:ListEnumerationDefinitionResponse"/>
+    </operation>
+    <operation name="GetDefaultAttributes">
+      <input message="metws:GetDefaultAttributesRequest"/>
+      <output message="metws:GetDefaultAttributesResponse"/>
+    </operation>
+    <operation name="FindDataSource">
+      <input message="metws:FindDataSourceRequest"/>
+      <output message="metws:FindDataSourceResponse"/>
+    </operation>
+    <operation name="GetEnumeration">
+      <input message="metws:GetEnumerationRequest"/>
+      <output message="metws:GetEnumerationResponse"/>
+    </operation>
+    <operation name="DeleteEnumeration">
+      <input message="metws:DeleteEnumerationRequest"/>
+      <output message="metws:DeleteEnumerationResponse"/>
+    </operation>
+    <operation name="CreateDataSource">
+      <input message="metws:CreateDataSourceRequest"/>
+      <output message="metws:CreateDataSourceResponse"/>
+    </operation>
+    <operation name="ListDataSource">
+      <input message="metws:ListDataSourceRequest"/>
+      <output message="metws:ListDataSourceResponse"/>
+    </operation>
+    <operation name="UpdateEnumeration">
+      <input message="metws:UpdateEnumerationRequest"/>
+      <output message="metws:UpdateEnumerationResponse"/>
+    </operation>
+    <operation name="FindMetadataObjectDefinition">
+      <input message="metws:FindMetadataObjectDefinitionRequest"/>
+      <output message="metws:FindMetadataObjectDefinitionResponse"/>
+    </operation>
+    <operation name="DeleteMetadataObjectDefinition">
+      <input message="metws:DeleteMetadataObjectDefinitionRequest"/>
+      <output message="metws:DeleteMetadataObjectDefinitionResponse"/>
+    </operation>
+    <operation name="GetObjectHeaders">
+      <input message="metws:GetObjectHeadersRequest"/>
+      <output message="metws:GetObjectHeadersResponse"/>
+    </operation>
+    <operation name="CreateMetadataObjectDefinition">
+      <input message="metws:CreateMetadataObjectDefinitionRequest"/>
+      <output message="metws:CreateMetadataObjectDefinitionResponse"/>
+    </operation>
+    <operation name="CreateEnumeration">
+      <input message="metws:CreateEnumerationRequest"/>
+      <output message="metws:CreateEnumerationResponse"/>
+    </operation>
+    <operation name="GetKeyAttributes">
+      <input message="metws:GetKeyAttributesRequest"/>
+      <output message="metws:GetKeyAttributesResponse"/>
+    </operation>
+    <operation name="UpdateMetadataObjectDefinition">
+      <input message="metws:UpdateMetadataObjectDefinitionRequest"/>
+      <output message="metws:UpdateMetadataObjectDefinitionResponse"/>
+    </operation>
+    <operation name="ListTables">
+      <input message="metws:ListTablesRequest"/>
+      <output message="metws:ListTablesResponse"/>
+    </operation>
+    <operation name="UpdateDataSource">
+      <input message="metws:UpdateDataSourceRequest"/>
+      <output message="metws:UpdateDataSourceResponse"/>
+    </operation>
+    <operation name="GetMetadataObjectDefinition">
+      <input message="metws:GetMetadataObjectDefinitionRequest"/>
+      <output message="metws:GetMetadataObjectDefinitionResponse"/>
+    </operation>
+  </portType>
+  <binding name="DataMetadataServiceSOAPBinding" type="metws:DataMetadataServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ListColumns">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/ListColumns" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDataSource">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/GetDataSource" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FindEnumerationDefinition">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/FindEnumerationDefinition" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateCodeAndAttribute">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/ValidateCodeAndAttribute" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeleteDataSource">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/DeleteDataSource" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListEnumerationDefinition">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/ListEnumerationDefinition" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDefaultAttributes">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/GetDefaultAttributes" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FindDataSource">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/FindDataSource" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetEnumeration">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/GetEnumeration" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeleteEnumeration">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/DeleteEnumeration" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CreateDataSource">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/CreateDataSource" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListDataSource">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/ListDataSource" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateEnumeration">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/UpdateEnumeration" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FindMetadataObjectDefinition">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/FindMetadataObjectDefinition" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeleteMetadataObjectDefinition">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/DeleteMetadataObjectDefinition" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetObjectHeaders">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/GetObjectHeaders" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CreateMetadataObjectDefinition">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/CreateMetadataObjectDefinition" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CreateEnumeration">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/CreateEnumeration" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetKeyAttributes">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/GetKeyAttributes" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateMetadataObjectDefinition">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/UpdateMetadataObjectDefinition" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListTables">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/ListTables" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateDataSource">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/UpdateDataSource" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetMetadataObjectDefinition">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/DataMetadata/GetMetadataObjectDefinition" style="document"/>
+      <input>
+        <soap:header message="metws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="metws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="DataMetadataService">
+    <port name="DataMetadataServicePort" binding="metws:DataMetadataServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/datametadata/datametadata-14.0"/>
+    </port>
+  </service>
+</definitions>

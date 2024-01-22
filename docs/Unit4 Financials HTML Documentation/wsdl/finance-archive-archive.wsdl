@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/archive/archive-2.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:arcws="http://www.coda.com/efinance/schemas/archive/archive-2.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:arc="http://www.coda.com/efinance/schemas/archive"
+    xmlns:prg="http://www.coda.com/efinance/schemas/progress"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/archive/archive-2.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/archive" schemaLocation="../wsdl/finance/archive/archive.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/progress" schemaLocation="finance/progress/progress.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="AbortRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            want to abort. This is given to you when you
+                            start the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProgressRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            started. This is given to you when you start
+                            the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PauseRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            want to pause. This is given to you when you
+                            start the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartArchivingDocumentsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ArchiveDocumentsParams" type="arc:ArchiveDocumentsParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the parameters for
+                            starting the Archive Documents process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetArchiveDocumentsInformationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which the Archive process is running.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ArchiveHeaderMasterCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the header master
+                            being used to archive documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ArchiveDocumentsInformation"
+                    minOccurs="0" type="arc:ArchiveDocumentsInformation">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the default
+                            parameters and current status for the
+                            Archive Documents process. The parameters
+                            can be edited if required.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProgressResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            are sending the request to. This is given to
+                            you when you start the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Progress" minOccurs="0" type="prg:ProgressData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains information about
+                            the status and progress of the process you
+                            are running.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ArchiveMonitor" minOccurs="0" type="arc:ArchiveMonitor">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of the
+                            progress made by the Archive process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Error" minOccurs="0" type="com:EmbeddedReason">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains information about an
+                            error that occurred.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetArchiveDocumentsInformationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ArchiveHeaderMasterKey" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the archive header master you want to use
+                            for archiving documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RestartResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which you attempted to restart a failed
+                            Archive process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ArchiveHeaderMasterCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the archive
+                            header master you specified for the
+                            restarted Archive process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of the
+                            Archive process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AbortResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special reference
+                            which identifies the process you want to abort.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResumeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            want to resume.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RestartRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ArchiveHeaderMasterKey" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the archive header master you want to use to
+                            restart the Archive process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResumeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            want to resume. This is given to you when
+                            you pause the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PauseResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            want to pause.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartArchivingDocumentsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which you are attempting to archive documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ArchiveHeaderMasterCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the archive
+                            header master you are using to archive documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BalanceWarning" minOccurs="0" type="arc:BalanceWarning">
+                    <xsd:annotation>
+                        <xsd:documentation>A warning that not all
+                            documents for the year have been archived.
+                            Archive Documents should be run before
+                            archiving balances.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of Archive Documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="StartArchivingDocumentsResponse">
+    <part name="StartArchivingDocumentsResponse" element="arcws:StartArchivingDocumentsResponse"/>
+  </message>
+  <message name="ResumeResponse">
+    <part name="ResumeResponse" element="arcws:ResumeResponse"/>
+  </message>
+  <message name="GetArchiveDocumentsInformationResponse">
+    <part name="GetArchiveDocumentsInformationResponse" element="arcws:GetArchiveDocumentsInformationResponse"/>
+  </message>
+  <message name="StartArchivingDocumentsRequest">
+    <part name="StartArchivingDocumentsRequest" element="arcws:StartArchivingDocumentsRequest"/>
+  </message>
+  <message name="AbortResponse">
+    <part name="AbortResponse" element="arcws:AbortResponse"/>
+  </message>
+  <message name="RestartRequest">
+    <part name="RestartRequest" element="arcws:RestartRequest"/>
+  </message>
+  <message name="GetProgressRequest">
+    <part name="GetProgressRequest" element="arcws:GetProgressRequest"/>
+  </message>
+  <message name="RestartResponse">
+    <part name="RestartResponse" element="arcws:RestartResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="arcws:Options"/>
+  </message>
+  <message name="PauseRequest">
+    <part name="PauseRequest" element="arcws:PauseRequest"/>
+  </message>
+  <message name="PauseResponse">
+    <part name="PauseResponse" element="arcws:PauseResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="arcws:OptionsResponse"/>
+  </message>
+  <message name="ResumeRequest">
+    <part name="ResumeRequest" element="arcws:ResumeRequest"/>
+  </message>
+  <message name="GetArchiveDocumentsInformationRequest">
+    <part name="GetArchiveDocumentsInformationRequest" element="arcws:GetArchiveDocumentsInformationRequest"/>
+  </message>
+  <message name="AbortRequest">
+    <part name="AbortRequest" element="arcws:AbortRequest"/>
+  </message>
+  <message name="GetProgressResponse">
+    <part name="GetProgressResponse" element="arcws:GetProgressResponse"/>
+  </message>
+  <portType name="ArchiveServicePortTypes">
+    <operation name="GetArchiveDocumentsInformation">
+      <input message="arcws:GetArchiveDocumentsInformationRequest"/>
+      <output message="arcws:GetArchiveDocumentsInformationResponse"/>
+    </operation>
+    <operation name="Abort">
+      <input message="arcws:AbortRequest"/>
+      <output message="arcws:AbortResponse"/>
+    </operation>
+    <operation name="Pause">
+      <input message="arcws:PauseRequest"/>
+      <output message="arcws:PauseResponse"/>
+    </operation>
+    <operation name="StartArchivingDocuments">
+      <input message="arcws:StartArchivingDocumentsRequest"/>
+      <output message="arcws:StartArchivingDocumentsResponse"/>
+    </operation>
+    <operation name="GetProgress">
+      <input message="arcws:GetProgressRequest"/>
+      <output message="arcws:GetProgressResponse"/>
+    </operation>
+    <operation name="Restart">
+      <input message="arcws:RestartRequest"/>
+      <output message="arcws:RestartResponse"/>
+    </operation>
+    <operation name="Resume">
+      <input message="arcws:ResumeRequest"/>
+      <output message="arcws:ResumeResponse"/>
+    </operation>
+  </portType>
+  <binding name="ArchiveServiceSOAPBinding" type="arcws:ArchiveServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetArchiveDocumentsInformation">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Archive/GetArchiveDocumentsInformation" style="document"/>
+      <input>
+        <soap:header message="arcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="arcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Abort">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Archive/Abort" style="document"/>
+      <input>
+        <soap:header message="arcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="arcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Pause">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Archive/Pause" style="document"/>
+      <input>
+        <soap:header message="arcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="arcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="StartArchivingDocuments">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Archive/StartArchivingDocuments" style="document"/>
+      <input>
+        <soap:header message="arcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="arcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProgress">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Archive/GetProgress" style="document"/>
+      <input>
+        <soap:header message="arcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="arcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Restart">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Archive/Restart" style="document"/>
+      <input>
+        <soap:header message="arcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="arcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Resume">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Archive/Resume" style="document"/>
+      <input>
+        <soap:header message="arcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="arcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ArchiveService">
+    <port name="ArchiveServicePort" binding="arcws:ArchiveServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/archive/archive-2.0"/>
+    </port>
+  </service>
+</definitions>

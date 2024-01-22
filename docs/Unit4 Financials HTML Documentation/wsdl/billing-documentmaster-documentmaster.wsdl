@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/billing/schemas/documentmaster/documentmaster-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:blsdocws="http://www.coda.com/billing/schemas/documentmaster/documentmaster-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:accmask="http://www.coda.com/billing/schemas/accountmask"
+    xmlns:blsdoc="http://www.coda.com/billing/schemas/documentmaster"
+    xmlns:billingtypes="http://www.coda.com/billing/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/billing/schemas/documentmaster/documentmaster-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/billing/schemas/documentmaster" schemaLocation="../wsdl/billing/documentmaster/documentmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/billing/schemas/common" schemaLocation="billing/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/billing/schemas/accountmask" schemaLocation="billing/accountmask/accountmask.xsd"/>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentMaster" type="blsdoc:DocumentMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole DocumentMaster
+                            object that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateDocumentMasterCodeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ValidateDocumentMasterCode" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            validateDocumentMasterCode function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the DocumentMaster objects
+                            that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentMaster" type="blsdoc:DocumentMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentMasterItemList" type="blsdoc:DocumentMasterItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the DocumentMaster objects
+                            that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentMaster" type="blsdoc:DocumentMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            update function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateDocumentMasterCodeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentMasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The billing document master code that
+                                we want to validate</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The company code</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentMaster" type="blsdoc:DocumentMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the add function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentMaster" type="blsdoc:DocumentMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole DocumentMaster
+                            object that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentMasterKey" type="blsdoc:DocumentMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the DocumentMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentMasterKey" type="blsdoc:DocumentMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the DocumentMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentMasterList" type="blsdoc:DocumentMasterList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="blsdocws:UpdateResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="blsdocws:AddRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="blsdocws:DeleteResponse"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="blsdocws:GetRequest"/>
+  </message>
+  <message name="ValidateDocumentMasterCodeResponse">
+    <part name="ValidateDocumentMasterCodeResponse" element="blsdocws:ValidateDocumentMasterCodeResponse"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="blsdocws:FindRequest"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="blsdocws:DeleteRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="blsdocws:OptionsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="blsdocws:Options"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="blsdocws:FindResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="blsdocws:ListRequest"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="blsdocws:UpdateRequest"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="blsdocws:ListResponse"/>
+  </message>
+  <message name="ValidateDocumentMasterCodeRequest">
+    <part name="ValidateDocumentMasterCodeRequest" element="blsdocws:ValidateDocumentMasterCodeRequest"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="blsdocws:GetResponse"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="blsdocws:AddResponse"/>
+  </message>
+  <portType name="DocumentMasterServicePortTypes">
+    <operation name="Delete">
+      <input message="blsdocws:DeleteRequest"/>
+      <output message="blsdocws:DeleteResponse"/>
+    </operation>
+    <operation name="Add">
+      <input message="blsdocws:AddRequest"/>
+      <output message="blsdocws:AddResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="blsdocws:GetRequest"/>
+      <output message="blsdocws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="blsdocws:FindRequest"/>
+      <output message="blsdocws:FindResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="blsdocws:ListRequest"/>
+      <output message="blsdocws:ListResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="blsdocws:UpdateRequest"/>
+      <output message="blsdocws:UpdateResponse"/>
+    </operation>
+    <operation name="ValidateDocumentMasterCode">
+      <input message="blsdocws:ValidateDocumentMasterCodeRequest"/>
+      <output message="blsdocws:ValidateDocumentMasterCodeResponse"/>
+    </operation>
+  </portType>
+  <binding name="DocumentMasterServiceSOAPBinding" type="blsdocws:DocumentMasterServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/billing/DocumentMaster/Delete" style="document"/>
+      <input>
+        <soap:header message="blsdocws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="blsdocws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/billing/DocumentMaster/Add" style="document"/>
+      <input>
+        <soap:header message="blsdocws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="blsdocws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/billing/DocumentMaster/Get" style="document"/>
+      <input>
+        <soap:header message="blsdocws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="blsdocws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/billing/DocumentMaster/Find" style="document"/>
+      <input>
+        <soap:header message="blsdocws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="blsdocws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/billing/DocumentMaster/List" style="document"/>
+      <input>
+        <soap:header message="blsdocws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="blsdocws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/billing/DocumentMaster/Update" style="document"/>
+      <input>
+        <soap:header message="blsdocws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="blsdocws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateDocumentMasterCode">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/billing/DocumentMaster/ValidateDocumentMasterCode" style="document"/>
+      <input>
+        <soap:header message="blsdocws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="blsdocws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="DocumentMasterService">
+    <port name="DocumentMasterServicePort" binding="blsdocws:DocumentMasterServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/billing/documentmaster/documentmaster-14.0"/>
+    </port>
+  </service>
+</definitions>

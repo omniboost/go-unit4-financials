@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/selectorpresenter/selectorpresenter-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:selpresws="http://www.coda.com/common/schemas/selectorpresenter/selectorpresenter-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:dvw="http://www.coda.com/common/schemas/dataview"
+    xmlns:selpres="http://www.coda.com/common/schemas/selectorpresenter"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:pre="http://www.coda.com/efinance/schemas/presenter"
+    targetNamespace="http://www.coda.com/common/schemas/selectorpresenter/selectorpresenter-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/selectorpresenter" schemaLocation="../wsdl/common/selectorpresenter/selectorpresenter.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/dataview" schemaLocation="common/dataview/dataview.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/presenter" schemaLocation="finance/presenter/presenter.xsd"/>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExportDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorPresenterExport" type="selpres:SelectorPresenterExport">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds details of
+                            exported metadata.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectorErrors" type="selpres:ExportErrorList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of errors which occurred while exporting selectors.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterErrors" type="selpres:ExportErrorList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of errors which occurred while exporting presenters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExportSuccess" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If set, indicates that the
+                            export process was successful.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ImportDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorPresenterExport" type="selpres:SelectorPresenterExport">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds details of
+                            exported metadata.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UpdateSelectorList" type="com:GlobalKeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of updated selectors.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UpdatePresenterList" type="com:GlobalKeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of updated presenters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UpdateDataViewList" type="com:GlobalKeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of updated data views.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UpdateObjectList" type="com:GlobalKeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of updated data objects.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UpdateEnumerationList" type="com:GlobalKeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of updated enumeration lists.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ImportDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorErrors" type="selpres:ExportErrorList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of errors which occurred while importing selectors.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterErrors" type="selpres:ExportErrorList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of errors which occurred while importing presenters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DataViewErrors" type="selpres:ExportErrorList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of errors which occurred while importing
+                            data views.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ObjectErrors" type="selpres:ExportErrorList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of errors which occurred while importing
+                            data objects.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="EnumerationErrors" type="selpres:ExportErrorList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of errors which occurred while importing enumerations.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DataSourceErrors" type="selpres:ExportErrorList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of errors which occurred while importing
+                            data sources.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Warnings" type="selpres:ExportErrorList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of warnings which occurred during the import process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExportDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selectors" type="com:KeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of selectors.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Presenters" type="com:KeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of presenters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="ExportDataRequest">
+    <part name="ExportDataRequest" element="selpresws:ExportDataRequest"/>
+  </message>
+  <message name="ExportDataResponse">
+    <part name="ExportDataResponse" element="selpresws:ExportDataResponse"/>
+  </message>
+  <message name="ImportDataRequest">
+    <part name="ImportDataRequest" element="selpresws:ImportDataRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="selpresws:OptionsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="selpresws:Options"/>
+  </message>
+  <message name="ImportDataResponse">
+    <part name="ImportDataResponse" element="selpresws:ImportDataResponse"/>
+  </message>
+  <portType name="SelectorPresenterServicePortTypes">
+    <operation name="ImportData">
+      <input message="selpresws:ImportDataRequest"/>
+      <output message="selpresws:ImportDataResponse"/>
+    </operation>
+    <operation name="ExportData">
+      <input message="selpresws:ExportDataRequest"/>
+      <output message="selpresws:ExportDataResponse"/>
+    </operation>
+  </portType>
+  <binding name="SelectorPresenterServiceSOAPBinding" type="selpresws:SelectorPresenterServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ImportData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SelectorPresenter/ImportData" style="document"/>
+      <input>
+        <soap:header message="selpresws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="selpresws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ExportData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SelectorPresenter/ExportData" style="document"/>
+      <input>
+        <soap:header message="selpresws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="selpresws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SelectorPresenterService">
+    <port name="SelectorPresenterServicePort" binding="selpresws:SelectorPresenterServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/selectorpresenter/selectorpresenter-13.0"/>
+    </port>
+  </service>
+</definitions>

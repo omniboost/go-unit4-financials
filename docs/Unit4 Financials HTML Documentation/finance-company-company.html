@@ -1,0 +1,551 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-CompanyService">
+            <h1>CompanyService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/company/company-14.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-company-company.wsdl" download="">finance-company-company.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/company/company-14.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#CompanyService-Add">Add</a></li>
+               <li><a href="#CompanyService-Delete">Delete</a></li>
+               <li><a href="#CompanyService-Get">Get</a></li>
+               <li><a href="#CompanyService-GetCmpKeysByUDFMasterCode">GetCmpKeysByUDFMasterCode</a></li>
+               <li><a href="#CompanyService-GetShrDepCmps">GetShrDepCmps</a></li>
+               <li><a href="#CompanyService-GetShrProvCmps">GetShrProvCmps</a></li>
+               <li><a href="#CompanyService-GetShrValidCmps">GetShrValidCmps</a></li>
+               <li><a href="#CompanyService-List">List</a></li>
+               <li><a href="#CompanyService-Update">Update</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="CompanyService-Add"></a>Add
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>AddRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Company</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/company}Company" href="finance/company/company.html#{http://www.coda.com/efinance/schemas/company}Company">Company</a></td>
+                              <td>Contains the information for
+                                 the company you want to create.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>AddResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company
+                                 master that you created or attempted to create.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>TimeStamp</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeWord" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeWord">typeWord</a></td>
+                              <td>The TimeStamp value for this
+                                 company master in the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CompanyService-Delete"></a>Delete
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>DeleteRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKey" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKey">GlobalKey</a></td>
+                              <td>Contains the key identifying
+                                 the company master you want to delete.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>DeleteResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company
+                                 master that you deleted or attempted to delete.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CompanyService-Get"></a>Get
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKey" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKey">GlobalKey</a></td>
+                              <td>Contains the key identifying
+                                 the company master you want to retrieve from
+                                 the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company
+                                 master that you retrieved or attempted to retrieve.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Company</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/company}Company" href="finance/company/company.html#{http://www.coda.com/efinance/schemas/company}Company">Company</a></td>
+                              <td>Contains a company master you
+                                 have retrieved from the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CompanyService-GetCmpKeysByUDFMasterCode"></a>GetCmpKeysByUDFMasterCode
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetCmpKeysByUDFMasterCodeRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKey" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKey">GlobalKey</a></td>
+                              <td>The UDF master code for which
+                                 you want the list of companies that feature
+                                 it on their company masters.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetCmpKeysByUDFMasterCodeResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Companies</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/company}CompanyCodeList" href="finance/company/company.html#{http://www.coda.com/efinance/schemas/company}CompanyCodeList">CompanyCodeList</a></td>
+                              <td>The list of companies whose
+                                 company masters hold the specified UDF
+                                 master code.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CompanyService-GetShrDepCmps"></a>GetShrDepCmps
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetShrDepCmpsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Filter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/company}ReqKeys" href="finance/company/company.html#{http://www.coda.com/efinance/schemas/company}ReqKeys">ReqKeys</a></td>
+                              <td>A key containing the code of
+                                 the provider company for which dependent
+                                 companies will be listed.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetShrDepCmpsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MaxKeys</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The maximum number of company
+                                 masters that can be returned in the list.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company
+                                 master(s) that you listed or attempted to list.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Keys</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}KeyData" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}KeyData">KeyData</a></td>
+                              <td>Contains the key information
+                                 for the listed company masters.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CompanyService-GetShrProvCmps"></a>GetShrProvCmps
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>This method has no input parameters.
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetShrProvCmpsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Keys</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}KeyData" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}KeyData">KeyData</a></td>
+                              <td>Contains the key information
+                                 for the listed company masters.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CompanyService-GetShrValidCmps"></a>GetShrValidCmps
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetShrValidCmpsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/company}ShrValidCmpsKey" href="finance/company/company.html#{http://www.coda.com/efinance/schemas/company}ShrValidCmpsKey">ShrValidCmpsKey</a></td>
+                              <td>Contains key information
+                                 determining the companies to be retrieved.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetShrValidCmpsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Home</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                              <td>The code of the
+                                 company's home currency.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Keys</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}KeyData" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}KeyData">KeyData</a></td>
+                              <td>Contains the key information
+                                 for the listed company masters.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CompanyService-List"></a>List
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ListRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Filter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/company}ReqKeys" href="finance/company/company.html#{http://www.coda.com/efinance/schemas/company}ReqKeys">ReqKeys</a></td>
+                              <td>A filter that selects the
+                                 company masters to be listed.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ListResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Filter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/company}PrintListKeys" href="finance/company/company.html#{http://www.coda.com/efinance/schemas/company}PrintListKeys">PrintListKeys</a></td>
+                              <td>The filter that was used to
+                                 select the company masters to be listed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Keys</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}KeyData" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}KeyData">KeyData</a></td>
+                              <td>Contains the key information
+                                 for the listed company masters.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CompanyService-Update"></a>Update
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Company</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/company}Company" href="finance/company/company.html#{http://www.coda.com/efinance/schemas/company}Company">Company</a></td>
+                              <td>Contains the information for
+                                 the company master you want to update.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company
+                                 master that you updated or attempted to update.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>TimeStamp</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeWord" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeWord">typeWord</a></td>
+                              <td>The TimeStamp value for this
+                                 company master in the database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

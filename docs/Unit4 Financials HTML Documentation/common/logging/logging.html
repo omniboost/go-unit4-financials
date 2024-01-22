@@ -1,0 +1,1659 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/common/schemas/logging</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/common/schemas/logging</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>LogHeader</h3>
+         <p>This element contains log header information.</p>
+         <h3>LoggingRequest</h3>
+         <p>This service allows you to maintain logs.</p>
+         <h3>LoggingResponse</h3>
+         <p>This is the response that is returned when you maintain logs.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/common/schemas/logging}GetListRequest"></a><h3>GetListRequest</h3>
+         <p>The GetListRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}ListFilter" href="#{http://www.coda.com/common/schemas/logging}ListFilter">ListFilter</a></td>
+                     <td>A filter for retrieving logs from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>IncludeTotals</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether to include total numbers of the different types of log lines in
+                        the response.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetListRequestVerb"></a><h3>GetListRequestVerb</h3>
+         <p>The GetListRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Lists the logs selected by the specified filter.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetListRequest" href="#{http://www.coda.com/common/schemas/logging}GetListRequest">GetListRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetListResponse"></a><h3>GetListResponse</h3>
+         <p>The GetListResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}ListFilter" href="#{http://www.coda.com/common/schemas/logging}ListFilter">ListFilter</a></td>
+                     <td>The filter sent with the GetListRequest corresponding to this response.</td>
+                  </tr>
+                  <tr>
+                     <td>Headers</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}HeaderData" href="#{http://www.coda.com/common/schemas/logging}HeaderData">HeaderData</a></td>
+                     <td>Contains header information identifying the logs that are listed.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetListResponseVerb"></a><h3>GetListResponseVerb</h3>
+         <p>The GetListResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetListResponse" href="#{http://www.coda.com/common/schemas/logging}GetListResponse">GetListResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetRequest"></a><h3>GetRequest</h3>
+         <p>The GetRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>Contains the key identifying the log you want to retrieve from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetRequestVerb"></a><h3>GetRequestVerb</h3>
+         <p>The GetRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the specified log from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetRequest" href="#{http://www.coda.com/common/schemas/logging}GetRequest">GetRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetResponse"></a><h3>GetResponse</h3>
+         <p>The GetResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>Contains the key identifying the log that you attempted to retrieve from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>Log</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}Log" href="#{http://www.coda.com/common/schemas/logging}Log">Log</a></td>
+                     <td>Contains the log that has been retrieved from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetResponseVerb"></a><h3>GetResponseVerb</h3>
+         <p>The GetResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetResponse" href="#{http://www.coda.com/common/schemas/logging}GetResponse">GetResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}DeleteRequest"></a><h3>DeleteRequest</h3>
+         <p>The DeleteRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>Contains the key identifying the log you want to delete.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}DeleteRequestVerb"></a><h3>DeleteRequestVerb</h3>
+         <p>The DeleteRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Deletes the specified log.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}DeleteRequest" href="#{http://www.coda.com/common/schemas/logging}DeleteRequest">DeleteRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}DeleteResponse"></a><h3>DeleteResponse</h3>
+         <p>The DeleteResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>Contains the key identifying the log that you attempted to delete.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}DeleteResponseVerb"></a><h3>DeleteResponseVerb</h3>
+         <p>The DeleteResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}DeleteResponse" href="#{http://www.coda.com/common/schemas/logging}DeleteResponse">DeleteResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}CreateRequest"></a><h3>CreateRequest</h3>
+         <p>The CreateRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Product</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The application to which the log relates.</td>
+                  </tr>
+                  <tr>
+                     <td>LogType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The process to which the log relates.</td>
+                  </tr>
+                  <tr>
+                     <td>Title</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLogTitle" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLogTitle">typeLogTitle</a></td>
+                     <td>The log title.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}CreateRequestVerb"></a><h3>CreateRequestVerb</h3>
+         <p>The CreateRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Creates new logs in the database using the log information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}CreateRequest" href="#{http://www.coda.com/common/schemas/logging}CreateRequest">CreateRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}CreateResponse"></a><h3>CreateResponse</h3>
+         <p>The CreateResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Product</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The application to which the log relates.</td>
+                  </tr>
+                  <tr>
+                     <td>LogType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The process to which the log relates.</td>
+                  </tr>
+                  <tr>
+                     <td>Title</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLogTitle" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLogTitle">typeLogTitle</a></td>
+                     <td>The log title.</td>
+                  </tr>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>The key for the log.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}CreateResponseVerb"></a><h3>CreateResponseVerb</h3>
+         <p>The CreateResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}CreateResponse" href="#{http://www.coda.com/common/schemas/logging}CreateResponse">CreateResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}AppendLinesRequest"></a><h3>AppendLinesRequest</h3>
+         <p>The AppendLinesRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>The key that identifies a log to which log lines should be appended.</td>
+                  </tr>
+                  <tr>
+                     <td>Lines</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LineDetailData" href="#{http://www.coda.com/common/schemas/logging}LineDetailData">LineDetailData</a></td>
+                     <td>The log lines to be appended to this log.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}AppendLinesRequestVerb"></a><h3>AppendLinesRequestVerb</h3>
+         <p>The AppendLinesRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Appends the specified log lines to the specified logs.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}AppendLinesRequest" href="#{http://www.coda.com/common/schemas/logging}AppendLinesRequest">AppendLinesRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}AppendLinesResponse"></a><h3>AppendLinesResponse</h3>
+         <p>The AppendLinesResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>The key that identifies this log.</td>
+                  </tr>
+                  <tr>
+                     <td>Lines</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LineDetailData" href="#{http://www.coda.com/common/schemas/logging}LineDetailData">LineDetailData</a></td>
+                     <td>The log lines that were appended.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}AppendLinesResponseVerb"></a><h3>AppendLinesResponseVerb</h3>
+         <p>The AppendLinesResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}AppendLinesResponse" href="#{http://www.coda.com/common/schemas/logging}AppendLinesResponse">AppendLinesResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}LoggingRequest"></a><h3>LoggingRequest</h3>
+         <p>The LoggingRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to maintain logs.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>List</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetListRequestVerb" href="#{http://www.coda.com/common/schemas/logging}GetListRequestVerb">GetListRequestVerb</a></td>
+                     <td>Lists the logs selected by the specified filter.</td>
+                  </tr>
+                  <tr>
+                     <td>Get</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetRequestVerb" href="#{http://www.coda.com/common/schemas/logging}GetRequestVerb">GetRequestVerb</a></td>
+                     <td>Retrieves the specified log from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>Delete</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}DeleteRequestVerb" href="#{http://www.coda.com/common/schemas/logging}DeleteRequestVerb">DeleteRequestVerb</a></td>
+                     <td>Deletes the specified log.</td>
+                  </tr>
+                  <tr>
+                     <td>GetFilteredLog</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetFilteredLogRequestVerb" href="#{http://www.coda.com/common/schemas/logging}GetFilteredLogRequestVerb">GetFilteredLogRequestVerb</a></td>
+                     <td>Retrieves the specified log from the database, but with the log lines filtered based
+                        on certain criteria.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>GetFilteredLogEx</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetFilteredLogExRequestVerb" href="#{http://www.coda.com/common/schemas/logging}GetFilteredLogExRequestVerb">GetFilteredLogExRequestVerb</a></td>
+                     <td>Retrieves the specified log from the database, but with the log lines filtered based
+                        on certain criteria.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Create</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}CreateRequestVerb" href="#{http://www.coda.com/common/schemas/logging}CreateRequestVerb">CreateRequestVerb</a></td>
+                     <td>Creates new logs in the database using the log information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>AppendLines</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}AppendLinesRequestVerb" href="#{http://www.coda.com/common/schemas/logging}AppendLinesRequestVerb">AppendLinesRequestVerb</a></td>
+                     <td>Appends the specified log lines to the specified logs.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}LoggingResponse"></a><h3>LoggingResponse</h3>
+         <p>The LoggingResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you maintain logs.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>List</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetListResponseVerb" href="#{http://www.coda.com/common/schemas/logging}GetListResponseVerb">GetListResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Get</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetResponseVerb" href="#{http://www.coda.com/common/schemas/logging}GetResponseVerb">GetResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Delete</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}DeleteResponseVerb" href="#{http://www.coda.com/common/schemas/logging}DeleteResponseVerb">DeleteResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetFilteredLog</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetFilteredLogResponseVerb" href="#{http://www.coda.com/common/schemas/logging}GetFilteredLogResponseVerb">GetFilteredLogResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetFilteredLogEx</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetFilteredLogExResponseVerb" href="#{http://www.coda.com/common/schemas/logging}GetFilteredLogExResponseVerb">GetFilteredLogExResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Create</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}CreateResponseVerb" href="#{http://www.coda.com/common/schemas/logging}CreateResponseVerb">CreateResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>AppendLines</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}AppendLinesResponseVerb" href="#{http://www.coda.com/common/schemas/logging}AppendLinesResponseVerb">AppendLinesResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetFilteredLogRequest"></a><h3>GetFilteredLogRequest</h3>
+         <p>The GetFilteredLogRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>Contains the key identifying the log you want to retrieve from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>LineFilter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LineListFilter" href="#{http://www.coda.com/common/schemas/logging}LineListFilter">LineListFilter</a></td>
+                     <td>Contains the criteria to use for filtering the log lines.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetFilteredLogRequestVerb"></a><h3>GetFilteredLogRequestVerb</h3>
+         <p>The GetFilteredLogRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the specified log from the database, but with the log lines filtered based
+            on certain criteria.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetFilteredLogRequest" href="#{http://www.coda.com/common/schemas/logging}GetFilteredLogRequest">GetFilteredLogRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetFilteredLogResponse"></a><h3>GetFilteredLogResponse</h3>
+         <p>The GetFilteredLogResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>Contains the key identifying the log that you attempted to retrieve from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>FilteredLog</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}FilteredLog" href="#{http://www.coda.com/common/schemas/logging}FilteredLog">FilteredLog</a></td>
+                     <td>Contains the filtered log that has been retrieved from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetFilteredLogResponseVerb"></a><h3>GetFilteredLogResponseVerb</h3>
+         <p>The GetFilteredLogResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetFilteredLogResponse" href="#{http://www.coda.com/common/schemas/logging}GetFilteredLogResponse">GetFilteredLogResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetFilteredLogExRequest"></a><h3>GetFilteredLogExRequest</h3>
+         <p>The GetFilteredLogExRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>Contains the key identifying the log you want to retrieve from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>LineFilter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LineListFilter" href="#{http://www.coda.com/common/schemas/logging}LineListFilter">LineListFilter</a></td>
+                     <td>Contains the criteria to use for filtering the log lines.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetFilteredLogExRequestVerb"></a><h3>GetFilteredLogExRequestVerb</h3>
+         <p>The GetFilteredLogExRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the specified log from the database, but with the log lines filtered based
+            on certain criteria.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetFilteredLogExRequest" href="#{http://www.coda.com/common/schemas/logging}GetFilteredLogExRequest">GetFilteredLogExRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetFilteredLogExResponse"></a><h3>GetFilteredLogExResponse</h3>
+         <p>The GetFilteredLogExResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>Contains the key identifying the log that you attempted to retrieve from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>FilteredLogEx</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}FilteredLogEx" href="#{http://www.coda.com/common/schemas/logging}FilteredLogEx">FilteredLogEx</a></td>
+                     <td>Contains the filtered log that has been retrieved from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}GetFilteredLogExResponseVerb"></a><h3>GetFilteredLogExResponseVerb</h3>
+         <p>The GetFilteredLogExResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}GetFilteredLogExResponse" href="#{http://www.coda.com/common/schemas/logging}GetFilteredLogExResponse">GetFilteredLogExResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}LogKey"></a><h3>LogKey</h3>
+         <p>This element is a key consisting of a product name, a log type and a log ID which
+            uniquely identifies a log.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Product</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The application for which the log was generated.</td>
+                  </tr>
+                  <tr>
+                     <td>LogType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The process that generated the log.</td>
+                  </tr>
+                  <tr>
+                     <td>LogID</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>A number uniquely identifying the log.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}LineTotals"></a><h3>LineTotals</h3>
+         <p>This element contains the total number of the different types of lines in the log.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>General</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number of Information lines in the log.</td>
+                  </tr>
+                  <tr>
+                     <td>Passed</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number of Success lines in the log.</td>
+                  </tr>
+                  <tr>
+                     <td>Failed</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number of Failure lines in the log.</td>
+                  </tr>
+                  <tr>
+                     <td>Warning</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number of Warning lines in the log.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}LogHeader"></a><h3>LogHeader</h3>
+         <p>This element contains log header information.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>This element is a key consisting of a product name, a log type and a log ID which
+                        uniquely identifies the log.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>CreateDateTime</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>The date and time when the log was created.</td>
+                  </tr>
+                  <tr>
+                     <td>Title</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLogTitle" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLogTitle">typeLogTitle</a></td>
+                     <td>The log title.</td>
+                  </tr>
+                  <tr>
+                     <td>UsrCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code of the user who ran the process which generated the log.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code of the company in which the log was generated.</td>
+                  </tr>
+                  <tr>
+                     <td>GenCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeB">typeCodeB</a></td>
+                     <td>A general purpose code relating to the log.</td>
+                  </tr>
+                  <tr>
+                     <td>FilterCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeB" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeB">typeCodeB</a></td>
+                     <td>A code that can be used for filtering a list of logs.</td>
+                  </tr>
+                  <tr>
+                     <td>Progress</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The log's percent complete.</td>
+                  </tr>
+                  <tr>
+                     <td>Totals</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LineTotals" href="#{http://www.coda.com/common/schemas/logging}LineTotals">LineTotals</a></td>
+                     <td>This element contains the total number of the different types of lines in the log.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}LogLine"></a><h3>LogLine</h3>
+         <p>This element contains data for a log line.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>A key to a log line.</td>
+                  </tr>
+                  <tr>
+                     <td>SequenceNumber</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The sequence number.</td>
+                  </tr>
+                  <tr>
+                     <td>LineType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The line type.</td>
+                  </tr>
+                  <tr>
+                     <td>Status</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtOneOfN" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtOneOfN">typeCtOneOfN</a></td>
+                     <td>The line status.</td>
+                  </tr>
+                  <tr>
+                     <td>Text</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLogText" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLogText">typeLogText</a></td>
+                     <td>The text of the log line entry.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}LogLineEx"></a><h3>LogLineEx</h3>
+         <p>This element contains a log line.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>This element is a key consisting of a product name, a log type and a log ID which
+                        uniquely identifies the log.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>SequenceNumber</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>A unique number assigned to this log line.</td>
+                  </tr>
+                  <tr>
+                     <td>LineType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The log line type.</td>
+                  </tr>
+                  <tr>
+                     <td>Status</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtOneOfN" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtOneOfN">typeCtOneOfN</a></td>
+                     <td>Indicates whether the line is an Information, Success, Failure or Warning line.</td>
+                  </tr>
+                  <tr>
+                     <td>Reason</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Reason" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Reason">Reason</a></td>
+                     <td>This element holds an explanation of why the operation failed.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}LogLineDetail"></a><h3>LogLineDetail</h3>
+         <p>Contains sufficient log line information to add one line to a given log.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>LineType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The log line type.</td>
+                  </tr>
+                  <tr>
+                     <td>Status</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtOneOfN" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtOneOfN">typeCtOneOfN</a></td>
+                     <td>Indicates whether the line is an Information, Success, Failure or Warning line.</td>
+                  </tr>
+                  <tr>
+                     <td>Text</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLogText" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLogText">typeLogText</a></td>
+                     <td>The text in the log line.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}LineData"></a><h3>LineData</h3>
+         <p>This element contains line data.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Line</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogLine" href="#{http://www.coda.com/common/schemas/logging}LogLine">LogLine</a></td>
+                     <td>This element contains data for a log line.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}LineDataEx"></a><h3>LineDataEx</h3>
+         <p>This element contains log lines.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Line</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogLineEx" href="#{http://www.coda.com/common/schemas/logging}LogLineEx">LogLineEx</a></td>
+                     <td>This element contains a log line.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}LineDetailData"></a><h3>LineDetailData</h3>
+         <p>This element contains log line information for adding lines to a given log.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Line</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogLineDetail" href="#{http://www.coda.com/common/schemas/logging}LogLineDetail">LogLineDetail</a></td>
+                     <td>Contains sufficient log line information to add one line to a given log.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}Log"></a><h3>Log</h3>
+         <p>This element contains a log.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Header</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogHeader" href="#{http://www.coda.com/common/schemas/logging}LogHeader">LogHeader</a></td>
+                     <td>This element contains log header information.</td>
+                  </tr>
+                  <tr>
+                     <td>Lines</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LineData" href="#{http://www.coda.com/common/schemas/logging}LineData">LineData</a></td>
+                     <td>This element contains log lines.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}LogEx"></a><h3>LogEx</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Header</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogHeader" href="#{http://www.coda.com/common/schemas/logging}LogHeader">LogHeader</a></td>
+                     <td>This element contains log header information.</td>
+                  </tr>
+                  <tr>
+                     <td>Lines</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LineDataEx" href="#{http://www.coda.com/common/schemas/logging}LineDataEx">LineDataEx</a></td>
+                     <td>This element contains log lines.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}FilteredLog"></a><h3>FilteredLog</h3>
+         <p>The FilteredLog type has <a title="{http://www.coda.com/common/schemas/logging}Log" href="#{http://www.coda.com/common/schemas/logging}Log">Log</a> as its base type.
+         </p>
+         <p>This element contains a filtered log that has been retrieved from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>LineFilter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LineListFilter" href="#{http://www.coda.com/common/schemas/logging}LineListFilter">LineListFilter</a></td>
+                     <td>This element contains the filter criteria that were used.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}FilteredLogEx"></a><h3>FilteredLogEx</h3>
+         <p>The FilteredLogEx type has <a title="{http://www.coda.com/common/schemas/logging}LogEx" href="#{http://www.coda.com/common/schemas/logging}LogEx">LogEx</a> as its base type.
+         </p>
+         <p>This element contains a filtered log that has been retrieved from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>LineFilter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LineListFilter" href="#{http://www.coda.com/common/schemas/logging}LineListFilter">LineListFilter</a></td>
+                     <td>This element contains the filter criteria that were used.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}HeaderData"></a><h3>HeaderData</h3>
+         <p>This element contains log header information.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Header</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogHeader" href="#{http://www.coda.com/common/schemas/logging}LogHeader">LogHeader</a></td>
+                     <td>This element contains log header information.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}ListFilter"></a><h3>ListFilter</h3>
+         <p>A filter for selecting logs.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Product</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The application in which the log was generated.</td>
+                  </tr>
+                  <tr>
+                     <td>LogType</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The process that generated the log.</td>
+                  </tr>
+                  <tr>
+                     <td>MinCreationDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>The earliest date when the log was generated.</td>
+                  </tr>
+                  <tr>
+                     <td>MaxCreationDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>The latest date when the log was generated.</td>
+                  </tr>
+                  <tr>
+                     <td>Title</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextWild" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextWild">typeTextWild</a></td>
+                     <td>The log title.</td>
+                  </tr>
+                  <tr>
+                     <td>UsrCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                     <td>The code of the user who ran the process which generated the log.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                     <td>The code of the company in which the log was generated. This value can be wildcarded.</td>
+                  </tr>
+                  <tr>
+                     <td>GenCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                     <td>A general purpose code relating to the log.</td>
+                  </tr>
+                  <tr>
+                     <td>Filter</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                     <td>A code that can be used for filtering a list of logs.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}LineListFilter"></a><h3>LineListFilter</h3>
+         <p>This element contains the filter criteria that were used.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>StatusList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}StatusList" href="#{http://www.coda.com/common/schemas/logging}StatusList">StatusList</a></td>
+                     <td>This element contains the list of statuses that were included in the filter.</td>
+                  </tr>
+                  <tr>
+                     <td>SequenceNumberFrom</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The unique log line number to filter from.</td>
+                  </tr>
+                  <tr>
+                     <td>SequenceNumberTo</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The unique log line number to filter to.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/logging}StatusList"></a><h3>StatusList</h3>
+         <p>This element contains the list of statuses that were included in the filter.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Status</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtOneOfN" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtOneOfN">typeCtOneOfN</a></td>
+                     <td>A status that was included in the filter. This can be Information, Success, Failure
+                        or Warning.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

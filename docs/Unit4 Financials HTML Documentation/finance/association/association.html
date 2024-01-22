@@ -1,0 +1,266 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/association</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/association</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>asoKey</h3>
+         <p>This element holds generic association key information identifying document lines
+            and statement lines.
+         </p>
+         <h3>asoKeyList</h3>
+         <p>Contains a list of the keys for the lines in the current folder.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/association}asoKey"></a><h3>asoKey</h3>
+         <p>This element holds generic association key information identifying document lines
+            and statement lines.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the company in which the line exists.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the document master or statement master containing the line.</td>
+                  </tr>
+                  <tr>
+                     <td>Number</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNumAlpha" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNumAlpha">typeDocNumAlpha</a></td>
+                     <td>The document number or statement number.</td>
+                  </tr>
+                  <tr>
+                     <td>LineNumber</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The line number.</td>
+                  </tr>
+                  <tr>
+                     <td>LineType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtAsoLineType" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtAsoLineType">typeCtAsoLineType</a></td>
+                     <td>Identifies whether the line is a document line or a statement line.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/association}asoKeyList"></a><h3>asoKeyList</h3>
+         <p>Contains a list of the keys for the lines in the current folder.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/association}asoKey" href="#{http://www.coda.com/efinance/schemas/association}asoKey">asoKey</a></td>
+                     <td>Contains association key information identifying document lines and statement lines.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/association}asoKeyFolder"></a><h3>asoKeyFolder</h3>
+         <p>Contains key information for the lines in this folder.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Keys</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/association}asoKeyList" href="#{http://www.coda.com/efinance/schemas/association}asoKeyList">asoKeyList</a></td>
+                     <td>Contains a list of the keys for the lines in this folder.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/association}asoKeyFolders"></a><h3>asoKeyFolders</h3>
+         <p>Contains the lists of debit and credit lines (when performing a MatchingRequest) or
+            the lists of document and statement lines (when performing a BankReconciliationRequest)
+            which the Assistant will attempt to sort into groups.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Folder</td>
+                     <td>1</td>
+                     <td>2</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/association}asoKeyFolder" href="#{http://www.coda.com/efinance/schemas/association}asoKeyFolder">asoKeyFolder</a></td>
+                     <td>Contains key information for the lines in this folder.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/association}AssistantScript"></a><h3>AssistantScript</h3>
+         <p>This element holds a script for use in Assisted Matching, Background Matching, Assisted
+            Reconciliation or Background Reconciliation.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Line</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeScriptText" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeScriptText">typeScriptText</a></td>
+                     <td>A line in the script.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/association}ProgressStatistics"></a><h3>ProgressStatistics</h3>
+         <p>This element contains statistics of the lines that the Assistant has processed so
+            far.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelectedLinesFolder1</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of lines in Folder 1.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectedLinesFolder2</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of lines in Folder 2.</td>
+                  </tr>
+                  <tr>
+                     <td>GroupedLinesFolder1</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of lines in Folder 1 that have been placed into groups.</td>
+                  </tr>
+                  <tr>
+                     <td>GroupedLinesFolder2</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of lines in Folder 2 that have been placed into groups.</td>
+                  </tr>
+                  <tr>
+                     <td>CommittedLinesFolder1</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of lines in Folder 1 that have been committed.</td>
+                  </tr>
+                  <tr>
+                     <td>CommittedLinesFolder2</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of lines in Folder 2 that have been committed.</td>
+                  </tr>
+                  <tr>
+                     <td>ComparisonsMade</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The total number of comparisons that the Assistant has made.</td>
+                  </tr>
+                  <tr>
+                     <td>GroupsCreated</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of groups that the Assistant has produced.</td>
+                  </tr>
+                  <tr>
+                     <td>GroupsCommitted</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The number of groups that the Assistant has committed.</td>
+                  </tr>
+                  <tr>
+                     <td>Phase</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtBrrPhase" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtBrrPhase">typeCtBrrPhase</a></td>
+                     <td>The stage that the assisted or background process has reached.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

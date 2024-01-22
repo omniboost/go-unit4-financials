@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/documentchain/popdocumentchain-1.0/webservice" xmlns:docchnws="http://www.coda.com/pop/schemas/documentchain/popdocumentchain-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:poptypes="http://www.coda.com/pop/schemas/common"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:poppurchaseorder="http://www.coda.com/pop/schemas/purchaseorder"
+    xmlns:popgrn="http://www.coda.com/pop/schemas/goodsreceivednote"
+    xmlns:docchn="http://www.coda.com/pop/schemas/documentchain"
+    xmlns:ns1="http://www.coda.com/common/schemas/domaingen"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:popreqisition="http://www.coda.com/pop/schemas/requisition"
+    targetNamespace="http://www.coda.com/pop/schemas/documentchain/popdocumentchain-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/pop/schemas/requisition" schemaLocation="pop/requisition/requisition.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/common" schemaLocation="pop/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/goodsreceivednote" schemaLocation="pop/goodsreceivednote/goodsreceivednote.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/documentchain" schemaLocation="../wsdl/pop/documentchain/documentchain.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/purchaseorder" schemaLocation="pop/purchaseorder/purchaseorder.xsd"/>
+    <xsd:element name="GetReceiptRelatedOrdersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PurchaseOrderItemList" type="poppurchaseorder:PurchaseOrderItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRelatedRequisitionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PurchaseOrderKey" type="poppurchaseorder:PurchaseOrderKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key that identifies the
+                            current purchase order.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequisitionRelatedOrdersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PurchaseOrderItemList" type="poppurchaseorder:PurchaseOrderItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRelatedReceiptsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PurchaseOrderKey" type="poppurchaseorder:PurchaseOrderKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key that identifies the
+                            current purchase order.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetReceiptRelatedOrdersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReceiptKey" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>The key that identifies the
+                            current GRN. This value is the External
+                            System Document Key used in Invoice
+                            Matching, comprising the document type,
+                            company code, document code and document
+                            number separated by #.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRelatedReceiptsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ExternalSystemKeyList" type="docchn:ExternalSystemKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>The External System Document
+                            Keys used in Invoice Matching, comprising
+                            the document type, company code, document
+                            code and document number separated by #.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRelatedRequisitionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RequisitionItemList" type="popreqisition:RequisitionItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequisitionRelatedOrdersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RequisitionKey" type="popreqisition:RequisitionKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key that identifies the
+                            current requisition.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetRelatedRequisitionsResponse">
+    <part name="GetRelatedRequisitionsResponse" element="docchnws:GetRelatedRequisitionsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="docchnws:Options"/>
+  </message>
+  <message name="GetRelatedRequisitionsRequest">
+    <part name="GetRelatedRequisitionsRequest" element="docchnws:GetRelatedRequisitionsRequest"/>
+  </message>
+  <message name="GetRequisitionRelatedOrdersResponse">
+    <part name="GetRequisitionRelatedOrdersResponse" element="docchnws:GetRequisitionRelatedOrdersResponse"/>
+  </message>
+  <message name="GetRelatedReceiptsRequest">
+    <part name="GetRelatedReceiptsRequest" element="docchnws:GetRelatedReceiptsRequest"/>
+  </message>
+  <message name="GetRelatedReceiptsResponse">
+    <part name="GetRelatedReceiptsResponse" element="docchnws:GetRelatedReceiptsResponse"/>
+  </message>
+  <message name="GetRequisitionRelatedOrdersRequest">
+    <part name="GetRequisitionRelatedOrdersRequest" element="docchnws:GetRequisitionRelatedOrdersRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="docchnws:OptionsResponse"/>
+  </message>
+  <message name="GetReceiptRelatedOrdersRequest">
+    <part name="GetReceiptRelatedOrdersRequest" element="docchnws:GetReceiptRelatedOrdersRequest"/>
+  </message>
+  <message name="GetReceiptRelatedOrdersResponse">
+    <part name="GetReceiptRelatedOrdersResponse" element="docchnws:GetReceiptRelatedOrdersResponse"/>
+  </message>
+  <portType name="POPDocumentChainServicePortTypes">
+    <operation name="GetRelatedRequisitions">
+      <input message="docchnws:GetRelatedRequisitionsRequest"/>
+      <output message="docchnws:GetRelatedRequisitionsResponse"/>
+    </operation>
+    <operation name="GetReceiptRelatedOrders">
+      <input message="docchnws:GetReceiptRelatedOrdersRequest"/>
+      <output message="docchnws:GetReceiptRelatedOrdersResponse"/>
+    </operation>
+    <operation name="GetRelatedReceipts">
+      <input message="docchnws:GetRelatedReceiptsRequest"/>
+      <output message="docchnws:GetRelatedReceiptsResponse"/>
+    </operation>
+    <operation name="GetRequisitionRelatedOrders">
+      <input message="docchnws:GetRequisitionRelatedOrdersRequest"/>
+      <output message="docchnws:GetRequisitionRelatedOrdersResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPDocumentChainServiceSOAPBinding" type="docchnws:POPDocumentChainServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetRelatedRequisitions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocumentChain/GetRelatedRequisitions" style="document"/>
+      <input>
+        <soap:header message="docchnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docchnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetReceiptRelatedOrders">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocumentChain/GetReceiptRelatedOrders" style="document"/>
+      <input>
+        <soap:header message="docchnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docchnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetRelatedReceipts">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocumentChain/GetRelatedReceipts" style="document"/>
+      <input>
+        <soap:header message="docchnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docchnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetRequisitionRelatedOrders">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocumentChain/GetRequisitionRelatedOrders" style="document"/>
+      <input>
+        <soap:header message="docchnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="docchnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPDocumentChainService">
+    <port name="POPDocumentChainServicePort" binding="docchnws:POPDocumentChainServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/documentchain/popdocumentchain-1.0"/>
+    </port>
+  </service>
+</definitions>

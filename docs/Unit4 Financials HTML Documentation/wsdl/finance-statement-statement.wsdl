@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/statement/statement-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:sprws="http://www.coda.com/efinance/schemas/statement/statement-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:spr="http://www.coda.com/efinance/schemas/statement"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:txn="http://www.coda.com/efinance/schemas/transaction"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/statement/statement-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/statement" schemaLocation="../wsdl/finance/statement/statement.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/transaction" schemaLocation="finance/transaction/transaction.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="PostResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FullKey" type="spr:FullKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key containing the codes
+                            of the masters and the statement you want to
+                            use in Statement Processing</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Folders" type="spr:FolderList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of folders
+                            and information on the lines held in the folders.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LockRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="spr:FullKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key containing the code
+                            of the company, the masters and the
+                            statement, identifying the statement you
+                            want to lock for your own use in Statement Processing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHeaderRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="spr:FullKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key containing the codes
+                            of the masters and the statement you want to
+                            use in Statement Processing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BrowseRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelType" type="gsl:DetailsLocation">
+                    <xsd:annotation>
+                        <xsd:documentation>The source of the data you
+                            want to browse: Books, Intray or Archive.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GslCode" type="com:typeGeneralCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the selector
+                            master you are using to select the statement lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WholeDocuments" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If TRUE, specifies that you
+                            want to browse whole documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RowLimit" minOccurs="0" type="com:typeULong">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of lines
+                            you want to retrieve for browsing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ApplicationFilter" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>The search criteria to be
+                            applied by the application when selecting
+                            the data. These are as set up in the
+                            selector master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserFilter" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>The additional search
+                            criteria specified by the user, to be
+                            applied when selecting the data. This may
+                            be, for example, a document code or a range
+                            of codes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HierarchyFilter" minOccurs="0" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>The additional search
+                            criteria which will be applied to select
+                            data within specified hierarchies.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>The columns in which the
+                            retrieved data will be displayed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetDetailsParams" type="spr:GetDetailsParams">
+                    <xsd:annotation>
+                        <xsd:documentation>The parameters for retrieving
+                            the statement lines for which you want to
+                            generate document proposals.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Params" type="spr:GenerateParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the parameters for
+                            generating documents for the statement lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogID" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The name of the log to which
+                            the details of the Generate process will be written.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Params" type="spr:GetDetailsParams">
+                    <xsd:annotation>
+                        <xsd:documentation>The parameters for retrieving
+                            the statement lines you are interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetDetailsParams" type="spr:GetDetailsParams">
+                    <xsd:annotation>
+                        <xsd:documentation>The parameters for retrieving
+                            the statement lines you want to validate.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Folders" type="spr:FolderList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains information about
+                            the folders in which the statement lines are held.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogID" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The name of the log to which
+                            the details of the Validate process will be written.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UnlockRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="spr:FullKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key containing the code
+                            of the company, the masters and the
+                            statement, identifying the statement you
+                            want to unlock.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LockResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="spr:FullKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key containing the codes
+                            of the company, the masters and the
+                            statement, identifying the statement you
+                            want to lock for your own use in Statement Processing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LockToken" minOccurs="0" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>A random alpha-numeric string
+                            which is returned when you send a request to
+                            lock a statement. You need the LockToken if
+                            you want to initiate any further processing
+                            for the locked statement, as it indicates
+                            that you are the user with write-access to
+                            that table.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UnlockResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="spr:FullKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key containing the code
+                            of the company, the masters and the
+                            statement, identifying the statement you
+                            want to unlock.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetDetailsParams" type="spr:GetDetailsParams">
+                    <xsd:annotation>
+                        <xsd:documentation>The parameters for retrieving
+                            the statement lines you want to post.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Folders" type="spr:FolderList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of folders
+                            containing the statement lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocProposals" minOccurs="0" type="spr:DocProposals">
+                    <xsd:annotation>
+                        <xsd:documentation>The proposed documents which
+                            were created using the Generate request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogID" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The name of the log to which
+                            the details of the Post process will be written.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FullKey" type="spr:FullKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key containing the codes
+                            of the masters and the statement you want to
+                            use in Statement Processing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Folders" type="spr:FolderList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of folders
+                            containing the statement lines, which have
+                            attempted to validate.               The
+                            folders element for this response will be
+                            taken from the Folders element of
+                            ValidateRequest.           The status values
+                            may be modified to indicate an error, or a
+                            change of posting location from
+                            books to Intray.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetReferenceNumbersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="spr:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>The key containing the
+                            selection criteria for the Reference Number map.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHeaderResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="spr:FullKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key containing the codes
+                            of the masters and the statement you want to
+                            use in Statement Processing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Header" minOccurs="0" type="spr:Header">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains details of the
+                            statement header.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BrowseResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" minOccurs="0" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            data you have selected for browsing, which
+                            is returned from the server.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetReferenceNumbersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="spr:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>The key containing the
+                            selection criteria for the Reference Number
+                            map. This contains statement master codes
+                            and the statement reference numbers valid
+                            for each.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ReferenceNumberMap" minOccurs="0" type="spr:ReferenceNumberMap">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of statement
+                            reference numbers mapped against statement
+                            masters, which you have received from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="spr:FullKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key containing the codes
+                            of the masters and the statement you want to
+                            use in Statement Processing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Details" minOccurs="0" type="spr:Details">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains information about
+                            the statement lines and statement value.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FullKey" type="spr:FullKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key containing the codes
+                            of the masters and the statement you want to
+                            use in Statement Processing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocProposals" minOccurs="0" type="spr:DocProposals">
+                    <xsd:annotation>
+                        <xsd:documentation>The generated documents
+                            containing the proposed transactions.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Folders" minOccurs="0" type="spr:FolderList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of folders
+                            and information about the lines held in the folders.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetDetailsRequest">
+    <part name="GetDetailsRequest" element="sprws:GetDetailsRequest"/>
+  </message>
+  <message name="BrowseResponse">
+    <part name="BrowseResponse" element="sprws:BrowseResponse"/>
+  </message>
+  <message name="ValidateResponse">
+    <part name="ValidateResponse" element="sprws:ValidateResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="sprws:Options"/>
+  </message>
+  <message name="UnlockRequest">
+    <part name="UnlockRequest" element="sprws:UnlockRequest"/>
+  </message>
+  <message name="GetDetailsResponse">
+    <part name="GetDetailsResponse" element="sprws:GetDetailsResponse"/>
+  </message>
+  <message name="BrowseRequest">
+    <part name="BrowseRequest" element="sprws:BrowseRequest"/>
+  </message>
+  <message name="GenerateResponse">
+    <part name="GenerateResponse" element="sprws:GenerateResponse"/>
+  </message>
+  <message name="ValidateRequest">
+    <part name="ValidateRequest" element="sprws:ValidateRequest"/>
+  </message>
+  <message name="GetHeaderResponse">
+    <part name="GetHeaderResponse" element="sprws:GetHeaderResponse"/>
+  </message>
+  <message name="LockResponse">
+    <part name="LockResponse" element="sprws:LockResponse"/>
+  </message>
+  <message name="GetHeaderRequest">
+    <part name="GetHeaderRequest" element="sprws:GetHeaderRequest"/>
+  </message>
+  <message name="GenerateRequest">
+    <part name="GenerateRequest" element="sprws:GenerateRequest"/>
+  </message>
+  <message name="GetReferenceNumbersResponse">
+    <part name="GetReferenceNumbersResponse" element="sprws:GetReferenceNumbersResponse"/>
+  </message>
+  <message name="PostRequest">
+    <part name="PostRequest" element="sprws:PostRequest"/>
+  </message>
+  <message name="GetReferenceNumbersRequest">
+    <part name="GetReferenceNumbersRequest" element="sprws:GetReferenceNumbersRequest"/>
+  </message>
+  <message name="LockRequest">
+    <part name="LockRequest" element="sprws:LockRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="sprws:OptionsResponse"/>
+  </message>
+  <message name="PostResponse">
+    <part name="PostResponse" element="sprws:PostResponse"/>
+  </message>
+  <message name="UnlockResponse">
+    <part name="UnlockResponse" element="sprws:UnlockResponse"/>
+  </message>
+  <portType name="StatementServicePortTypes">
+    <operation name="Browse">
+      <input message="sprws:BrowseRequest"/>
+      <output message="sprws:BrowseResponse"/>
+    </operation>
+    <operation name="GetDetails">
+      <input message="sprws:GetDetailsRequest"/>
+      <output message="sprws:GetDetailsResponse"/>
+    </operation>
+    <operation name="Validate">
+      <input message="sprws:ValidateRequest"/>
+      <output message="sprws:ValidateResponse"/>
+    </operation>
+    <operation name="Post">
+      <input message="sprws:PostRequest"/>
+      <output message="sprws:PostResponse"/>
+    </operation>
+    <operation name="Generate">
+      <input message="sprws:GenerateRequest"/>
+      <output message="sprws:GenerateResponse"/>
+    </operation>
+    <operation name="Unlock">
+      <input message="sprws:UnlockRequest"/>
+      <output message="sprws:UnlockResponse"/>
+    </operation>
+    <operation name="GetReferenceNumbers">
+      <input message="sprws:GetReferenceNumbersRequest"/>
+      <output message="sprws:GetReferenceNumbersResponse"/>
+    </operation>
+    <operation name="GetHeader">
+      <input message="sprws:GetHeaderRequest"/>
+      <output message="sprws:GetHeaderResponse"/>
+    </operation>
+    <operation name="Lock">
+      <input message="sprws:LockRequest"/>
+      <output message="sprws:LockResponse"/>
+    </operation>
+  </portType>
+  <binding name="StatementServiceSOAPBinding" type="sprws:StatementServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Browse">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Statement/Browse" style="document"/>
+      <input>
+        <soap:header message="sprws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sprws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Statement/GetDetails" style="document"/>
+      <input>
+        <soap:header message="sprws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sprws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Validate">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Statement/Validate" style="document"/>
+      <input>
+        <soap:header message="sprws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sprws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Post">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Statement/Post" style="document"/>
+      <input>
+        <soap:header message="sprws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sprws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Generate">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Statement/Generate" style="document"/>
+      <input>
+        <soap:header message="sprws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sprws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Unlock">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Statement/Unlock" style="document"/>
+      <input>
+        <soap:header message="sprws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sprws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetReferenceNumbers">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Statement/GetReferenceNumbers" style="document"/>
+      <input>
+        <soap:header message="sprws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sprws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetHeader">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Statement/GetHeader" style="document"/>
+      <input>
+        <soap:header message="sprws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sprws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Lock">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Statement/Lock" style="document"/>
+      <input>
+        <soap:header message="sprws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="sprws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="StatementService">
+    <port name="StatementServicePort" binding="sprws:StatementServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/statement/statement-14.0"/>
+    </port>
+  </service>
+</definitions>

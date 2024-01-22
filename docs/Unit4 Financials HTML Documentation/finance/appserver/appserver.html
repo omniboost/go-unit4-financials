@@ -1,0 +1,637 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/appserver</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/appserver</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>AppServerRequest</h3>
+         <p>This service allows you to request environment and user company information from the
+            server.
+         </p>
+         <h3>AppServerResponse</h3>
+         <p>This is the response that is returned when you request environment and user company
+            information from the server.
+         </p>
+         <h3>Environment</h3>
+         <p>This element contains information about the application server's environment. The
+            information returned depends upon the parameters used to obtain the authentication
+            token sent with the Request.
+         </p>
+         <h3>SoftToHardDateData</h3>
+         <p>This element contains details of a soft date for conversion to a hard date.</p>
+         <h3>UserCmpsListKey</h3>
+         <p>Contains key information for specifying the maximum number of companies to be returned
+            by the application server.
+         </p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/appserver}Environment"></a><h3>Environment</h3>
+         <p>This element contains information about the application server's environment. The
+            information returned depends upon the parameters used to obtain the authentication
+            token sent with the Request.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company master used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>CapCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the capability master used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>HomeCurr</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the home currency used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>DateOrder</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The date order used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>DateDisplay</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The date format used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>DateSep</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeChar" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeChar">typeChar</a></td>
+                     <td>The date separator character used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>HomeCurrDps</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDecPlace" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDecPlace">typeDecPlace</a></td>
+                     <td>The number of decimal places specified for the home currency used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>HomeCurrSymbol</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCurrSymbol" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCurrSymbol">typeCurrSymbol</a></td>
+                     <td>The currency symbol of the home currency used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>HomeCurrSymbolPos</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtAfterBefore" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtAfterBefore">typeCtAfterBefore</a></td>
+                     <td>The position of the currency symbol of the home currency used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>HomeCurrLinkType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtCurLinkType" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtCurLinkType">typeCtCurLinkType</a></td>
+                     <td>Indicates whether the home currency used by the Request is a parent, child, or independent
+                        currency.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>HomeCurrParent</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the currency that is parent/child to the home currency used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>CurrentPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                     <td>The current period of the company master used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpTimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The TimeStamp of the company master used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>CapTimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The TimeStamp of the capability master used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>UsrTimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The TimeStamp of the user master used by the Request.</td>
+                  </tr>
+                  <tr>
+                     <td>ServerVersion</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeServerVersion" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeServerVersion">typeServerVersion</a></td>
+                     <td>The full version number, including build number, of the Financials application server.</td>
+                  </tr>
+                  <tr>
+                     <td>SubsChar</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeChar" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeChar">typeChar</a></td>
+                     <td>The character that indicates element substitution in incomplete account codes during
+                        Input.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateData"></a><h3>SoftToHardDateData</h3>
+         <p>This element contains details of a soft date for conversion to a hard date.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Date</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeHSDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeHSDate">typeHSDate</a></td>
+                     <td>The soft date to convert.</td>
+                  </tr>
+                  <tr>
+                     <td>RelDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeHSDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeHSDate">typeHSDate</a></td>
+                     <td>The date to which the soft date is relative. Defaults to the current date.</td>
+                  </tr>
+                  <tr>
+                     <td>RelPeriod</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                     <td>For soft dates with period components, this is the period to which the soft date is
+                        relative. Defaults to the current period.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}UserCmpsListKey"></a><h3>UserCmpsListKey</h3>
+         <p>Contains key information for specifying the maximum number of companies to be returned
+            by the application server.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MaxKeys</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The maximum number of company codes to be returned. Used if Key contains a wildcard
+                        code.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKey" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKey">GlobalKey</a></td>
+                     <td>The company code.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}GetEnvironmentRequest"></a><h3>GetEnvironmentRequest</h3>
+         <p>The GetEnvironmentRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/efinance/schemas/appserver}GetEnvironmentRequestVerb"></a><h3>GetEnvironmentRequestVerb</h3>
+         <p>The GetEnvironmentRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Displays information about the application server's environment.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}GetEnvironmentRequest" href="#{http://www.coda.com/efinance/schemas/appserver}GetEnvironmentRequest">GetEnvironmentRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}GetEnvironmentResponse"></a><h3>GetEnvironmentResponse</h3>
+         <p>The GetEnvironmentResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Environment</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}Environment" href="#{http://www.coda.com/efinance/schemas/appserver}Environment">Environment</a></td>
+                     <td>Contains information about the application server's environment.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}GetEnvironmentResponseVerb"></a><h3>GetEnvironmentResponseVerb</h3>
+         <p>The GetEnvironmentResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}GetEnvironmentResponse" href="#{http://www.coda.com/efinance/schemas/appserver}GetEnvironmentResponse">GetEnvironmentResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}ListUserCompaniesRequest"></a><h3>ListUserCompaniesRequest</h3>
+         <p>The ListUserCompaniesRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}UserCmpsListKey" href="#{http://www.coda.com/efinance/schemas/appserver}UserCmpsListKey">UserCmpsListKey</a></td>
+                     <td>Contains the key identifying the user master whose visible companies you want to list.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}ListUserCompaniesRequestVerb"></a><h3>ListUserCompaniesRequestVerb</h3>
+         <p>The ListUserCompaniesRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves a list of the companies that are visible to the specified user.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}ListUserCompaniesRequest" href="#{http://www.coda.com/efinance/schemas/appserver}ListUserCompaniesRequest">ListUserCompaniesRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}ListUserCompaniesResponse"></a><h3>ListUserCompaniesResponse</h3>
+         <p>The ListUserCompaniesResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Companies</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}KeyData" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}KeyData">KeyData</a></td>
+                     <td>Contains the key information for the listed company masters.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}ListUserCompaniesResponseVerb"></a><h3>ListUserCompaniesResponseVerb</h3>
+         <p>The ListUserCompaniesResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}ListUserCompaniesResponse" href="#{http://www.coda.com/efinance/schemas/appserver}ListUserCompaniesResponse">ListUserCompaniesResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateRequest"></a><h3>SoftToHardDateRequest</h3>
+         <p>The SoftToHardDateRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SoftDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateData" href="#{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateData">SoftToHardDateData</a></td>
+                     <td>This element contains details of a soft date for conversion to a hard date.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateRequestVerb"></a><h3>SoftToHardDateRequestVerb</h3>
+         <p>The SoftToHardDateRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Converts a soft date to a hard date.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateRequest" href="#{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateRequest">SoftToHardDateRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateResponse"></a><h3>SoftToHardDateResponse</h3>
+         <p>The SoftToHardDateResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SoftDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateData" href="#{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateData">SoftToHardDateData</a></td>
+                     <td>Contains the soft date you specified in the SoftToHardDateRequest corresponding to
+                        this Response.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>HardDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>Contains the hard date resulting from the SoftToHardDateRequest corresponding to this
+                        Response. The hard date format is CCYY-MM-DDT00.00.00.000. For example, 2001-10-03T00:00:00.000.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateResponseVerb"></a><h3>SoftToHardDateResponseVerb</h3>
+         <p>The SoftToHardDateResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateResponse" href="#{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateResponse">SoftToHardDateResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}AppServerRequest"></a><h3>AppServerRequest</h3>
+         <p>The AppServerRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to request environment and user company information from the
+            server.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetEnvironment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}GetEnvironmentRequestVerb" href="#{http://www.coda.com/efinance/schemas/appserver}GetEnvironmentRequestVerb">GetEnvironmentRequestVerb</a></td>
+                     <td>Displays information about the application server's environment.</td>
+                  </tr>
+                  <tr>
+                     <td>ListUserCompanies</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}ListUserCompaniesRequestVerb" href="#{http://www.coda.com/efinance/schemas/appserver}ListUserCompaniesRequestVerb">ListUserCompaniesRequestVerb</a></td>
+                     <td>Retrieves a list of the companies that are visible to the specified user.</td>
+                  </tr>
+                  <tr>
+                     <td>SoftToHardDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateRequestVerb" href="#{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateRequestVerb">SoftToHardDateRequestVerb</a></td>
+                     <td>Converts a soft date to a hard date.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/appserver}AppServerResponse"></a><h3>AppServerResponse</h3>
+         <p>The AppServerResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you request environment and user company
+            information from the server.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetEnvironment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}GetEnvironmentResponseVerb" href="#{http://www.coda.com/efinance/schemas/appserver}GetEnvironmentResponseVerb">GetEnvironmentResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>ListUserCompanies</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}ListUserCompaniesResponseVerb" href="#{http://www.coda.com/efinance/schemas/appserver}ListUserCompaniesResponseVerb">ListUserCompaniesResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>SoftToHardDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateResponseVerb" href="#{http://www.coda.com/efinance/schemas/appserver}SoftToHardDateResponseVerb">SoftToHardDateResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

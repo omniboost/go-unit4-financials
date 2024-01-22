@@ -1,0 +1,465 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/pim/schemas/post</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/pim/schemas/post</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>PIMPostRequest</h3>
+         <p>This service allows you to post purchase invoice documents to Financials.</p>
+         <h3>PIMPostResponse</h3>
+         <p>This is the response that is returned when you post purchase invoices to Financials.</p>
+         <h3>PIMPostSelectorRequest</h3>
+         <p>This service allows you to select documents for posting.</p>
+         <h3>PIMPostSelectorResponse</h3>
+         <p>This is the response that is returned when you select documents for posting.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/pim/schemas/post}PostByKeysRequest"></a><h3>PostByKeysRequest</h3>
+         <p>The PostByKeysRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>PostByKeys.
+            <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sel="http://www.coda.com/efinance/schemas/selector" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:pre="http://www.coda.com/efinance/schemas/presenter" xmlns:pimpost="http://www.coda.com/pim/schemas/post" xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns:build="http://www.coda.com/common/schemas/funcsec">      Run the Post process for the given.     </p>    
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>LogTitle</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/common}typePimLogtitle" href="../common/common.html#{http://www.coda.com/pim/schemas/common}typePimLogtitle">typePimLogtitle</a></td>
+                     <td>A title for the log file that stores details of the posting process.</td>
+                  </tr>
+                  <tr>
+                     <td>LogDetailLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/common}typePimLogDetailLevel" href="../common/common.html#{http://www.coda.com/pim/schemas/common}typePimLogDetailLevel">typePimLogDetailLevel</a></td>
+                     <td>The level of detail to be recorded in the log file.</td>
+                  </tr>
+                  <tr>
+                     <td>InvoiceKeyList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/document}DocumentKeyList" href="../document/document.html#{http://www.coda.com/pim/schemas/document}DocumentKeyList">DocumentKeyList</a></td>
+                     <td>Contains key information identifying the documents to be posted.</td>
+                  </tr>
+                  <tr>
+                     <td>PostToCurrentYearPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Determines whether each document will be posted to the current year/period rather
+                        than the year/period specified on the document itself.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/post}PostByKeysRequestVerb"></a><h3>PostByKeysRequestVerb</h3>
+         <p>The PostByKeysRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Posts the documents identified by the specified document keys.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/post}PostByKeysRequest" href="#{http://www.coda.com/pim/schemas/post}PostByKeysRequest">PostByKeysRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/post}PostByKeysResponse"></a><h3>PostByKeysResponse</h3>
+         <p>The PostByKeysResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/pim/schemas/post}PostByKeysResponseVerb"></a><h3>PostByKeysResponseVerb</h3>
+         <p>The PostByKeysResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/post}PostByKeysResponse" href="#{http://www.coda.com/pim/schemas/post}PostByKeysResponse">PostByKeysResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/post}PostBySelectorRequest"></a><h3>PostBySelectorRequest</h3>
+         <p>The PostBySelectorRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>PostBySelector.
+            <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sel="http://www.coda.com/efinance/schemas/selector" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:pre="http://www.coda.com/efinance/schemas/presenter" xmlns:pimpost="http://www.coda.com/pim/schemas/post" xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns:build="http://www.coda.com/common/schemas/funcsec">      Run the Post process for the given.     </p>    
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>LogTitle</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/common}typePimLogtitle" href="../common/common.html#{http://www.coda.com/pim/schemas/common}typePimLogtitle">typePimLogtitle</a></td>
+                     <td>A title for the log file that stores details of the posting process.</td>
+                  </tr>
+                  <tr>
+                     <td>LogDetailLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/common}typePimLogDetailLevel" href="../common/common.html#{http://www.coda.com/pim/schemas/common}typePimLogDetailLevel">typePimLogDetailLevel</a></td>
+                     <td>The level of detail to be recorded in the log file.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectorMaster</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                     <td>The selector defining the search criteria for documents to be posted.</td>
+                  </tr>
+                  <tr>
+                     <td>PostToCurrentYearPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Determines whether each document will be posted to the current year/period rather
+                        than the year/period specified on the document itself.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/post}PostBySelectorRequestVerb"></a><h3>PostBySelectorRequestVerb</h3>
+         <p>The PostBySelectorRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Posts documents selected by the specified selector.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/post}PostBySelectorRequest" href="#{http://www.coda.com/pim/schemas/post}PostBySelectorRequest">PostBySelectorRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/post}PostBySelectorResponse"></a><h3>PostBySelectorResponse</h3>
+         <p>The PostBySelectorResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/pim/schemas/post}PostBySelectorResponseVerb"></a><h3>PostBySelectorResponseVerb</h3>
+         <p>The PostBySelectorResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/post}PostBySelectorResponse" href="#{http://www.coda.com/pim/schemas/post}PostBySelectorResponse">PostBySelectorResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/post}PIMPostRequest"></a><h3>PIMPostRequest</h3>
+         <p>The PIMPostRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to post purchase invoice documents to Financials.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PostByKeys</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/post}PostByKeysRequestVerb" href="#{http://www.coda.com/pim/schemas/post}PostByKeysRequestVerb">PostByKeysRequestVerb</a></td>
+                     <td>Posts the documents identified by the specified document keys.</td>
+                  </tr>
+                  <tr>
+                     <td>PostBySelector</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/post}PostBySelectorRequestVerb" href="#{http://www.coda.com/pim/schemas/post}PostBySelectorRequestVerb">PostBySelectorRequestVerb</a></td>
+                     <td>Posts documents selected by the specified selector.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/post}PIMPostResponse"></a><h3>PIMPostResponse</h3>
+         <p>The PIMPostResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you post purchase invoices to Financials.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PostByKeys</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/post}PostByKeysResponseVerb" href="#{http://www.coda.com/pim/schemas/post}PostByKeysResponseVerb">PostByKeysResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>PostBySelector</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/post}PostBySelectorResponseVerb" href="#{http://www.coda.com/pim/schemas/post}PostBySelectorResponseVerb">PostBySelectorResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/post}SelectRequest"></a><h3>SelectRequest</h3>
+         <p>The SelectRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>     The select function.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelectorMaster</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                     <td>The selector defining the search criteria for documents to be posted.</td>
+                  </tr>
+                  <tr>
+                     <td>PresenterMaster</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="../../finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                     <td>The presenter that will be used to list the documents.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/post}SelectRequestVerb"></a><h3>SelectRequestVerb</h3>
+         <p>The SelectRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Selects the documents that can be submitted for posting.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/post}SelectRequest" href="#{http://www.coda.com/pim/schemas/post}SelectRequest">SelectRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/post}SelectResponse"></a><h3>SelectResponse</h3>
+         <p>The SelectResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                     <td>The documents selected by the request.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/post}SelectResponseVerb"></a><h3>SelectResponseVerb</h3>
+         <p>The SelectResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/post}SelectResponse" href="#{http://www.coda.com/pim/schemas/post}SelectResponse">SelectResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/post}PIMPostSelectorRequest"></a><h3>PIMPostSelectorRequest</h3>
+         <p>The PIMPostSelectorRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to select documents for posting.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Select</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/post}SelectRequestVerb" href="#{http://www.coda.com/pim/schemas/post}SelectRequestVerb">SelectRequestVerb</a></td>
+                     <td>Selects the documents that can be submitted for posting.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/post}PIMPostSelectorResponse"></a><h3>PIMPostSelectorResponse</h3>
+         <p>The PIMPostSelectorResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you select documents for posting.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Select</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/post}SelectResponseVerb" href="#{http://www.coda.com/pim/schemas/post}SelectResponseVerb">SelectResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

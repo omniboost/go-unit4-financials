@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/printformatmaster/printformatmaster-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:priws="http://www.coda.com/common/schemas/printformatmaster/printformatmaster-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:fmt="http://www.coda.com/common/schemas/formatmaster"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:pri="http://www.coda.com/common/schemas/printformatmaster"
+    xmlns:for="http://www.coda.com/common/schemas/formtypemaster"
+    xmlns:atc="http://www.coda.com/common/schemas/attachment"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/printformatmaster/printformatmaster-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/printformatmaster" schemaLocation="../wsdl/common/printformatmaster/printformatmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/formatmaster" schemaLocation="common/formatmaster/formatmaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/attachment" schemaLocation="common/attachment/attachment.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/formtypemaster" schemaLocation="common/formtypemaster/formtypemaster.xsd"/>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormat" type="pri:PrintFormat">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            update function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTemplatesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CodeList" type="pri:PrintFormatMasterGetTemplatesCodeList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>This element holds a list of print
+                                format master codes.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExportTemplatesResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the PrintFormat objects that
+                            the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the PrintFormat objects that
+                            the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLocalesSupportedRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormatList" type="pri:PrintFormatList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ImportTemplatesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormatResults" minOccurs="0"
+                    maxOccurs="unbounded" type="pri:ImportResult">
+                    <xsd:annotation>
+                        <xsd:documentation>The printFormatResults is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FormatResults" minOccurs="0"
+                    maxOccurs="unbounded" type="pri:ImportResult">
+                    <xsd:annotation>
+                        <xsd:documentation>The formatResults is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FormatTypeResults" minOccurs="0"
+                    maxOccurs="unbounded" type="pri:ImportResult">
+                    <xsd:annotation>
+                        <xsd:documentation>The formatTypeResults is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTemplatesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TemplateExport" type="pri:TemplateExport">
+                    <xsd:annotation>
+                        <xsd:documentation>The templateExport is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExportErrors" minOccurs="0"
+                    maxOccurs="unbounded" type="com:typeTextAnyUnlimited">
+                    <xsd:annotation>
+                        <xsd:documentation>The exportErrors is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormat" type="pri:PrintFormat">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormat" type="pri:PrintFormat">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole PrintFormat object
+                            that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetLocalesSupportedResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetLocalesSupported" type="pri:LocalesSupported">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getLocalesSupported function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormatItemList" type="pri:PrintFormatItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExportTemplatesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Product" minOccurs="0" type="com:typeApplicationNameb">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A Coda application name.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CodeList" type="pri:PrintFormatMasterExportTemplatesCodeList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>This element holds a list of print
+                                format master codes.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormatKey" type="pri:PrintFormatKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the PrintFormat object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormat" type="pri:PrintFormat">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole PrintFormat object
+                            that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ImportTemplatesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TemplateData" type="pri:TemplateExport">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>This element holds one or more print
+                                format masters and their associated
+                                format type and format masters.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PrintFormatUpdateList" type="pri:PrintFormatMasterImportTemplatesPrintFormatUpdateList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>This element holds a list of details
+                                indicating whether individual print
+                                format masters should be renamed or
+                            overwritten.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormat" type="pri:PrintFormat">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the add function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormatKey" type="pri:PrintFormatKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the PrintFormat object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetRequest">
+    <part name="GetRequest" element="priws:GetRequest"/>
+  </message>
+  <message name="GetTemplatesResponse">
+    <part name="GetTemplatesResponse" element="priws:GetTemplatesResponse"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="priws:DeleteResponse"/>
+  </message>
+  <message name="GetLocalesSupportedResponse">
+    <part name="GetLocalesSupportedResponse" element="priws:GetLocalesSupportedResponse"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="priws:UpdateResponse"/>
+  </message>
+  <message name="ImportTemplatesResponse">
+    <part name="ImportTemplatesResponse" element="priws:ImportTemplatesResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="priws:AddRequest"/>
+  </message>
+  <message name="ExportTemplatesRequest">
+    <part name="ExportTemplatesRequest" element="priws:ExportTemplatesRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="priws:OptionsResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="priws:DeleteRequest"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="priws:FindRequest"/>
+  </message>
+  <message name="ExportTemplatesResponse">
+    <part name="ExportTemplatesResponse" element="priws:ExportTemplatesResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="priws:UpdateRequest"/>
+  </message>
+  <message name="ImportTemplatesRequest">
+    <part name="ImportTemplatesRequest" element="priws:ImportTemplatesRequest"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="priws:ListResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="priws:ListRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="priws:Options"/>
+  </message>
+  <message name="GetLocalesSupportedRequest">
+    <part name="GetLocalesSupportedRequest" element="priws:GetLocalesSupportedRequest"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="priws:FindResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="priws:GetResponse"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="priws:AddResponse"/>
+  </message>
+  <message name="GetTemplatesRequest">
+    <part name="GetTemplatesRequest" element="priws:GetTemplatesRequest"/>
+  </message>
+  <portType name="PrintFormatMasterServicePortTypes">
+    <operation name="Add">
+      <input message="priws:AddRequest"/>
+      <output message="priws:AddResponse"/>
+    </operation>
+    <operation name="Delete">
+      <input message="priws:DeleteRequest"/>
+      <output message="priws:DeleteResponse"/>
+    </operation>
+    <operation name="GetTemplates">
+      <input message="priws:GetTemplatesRequest"/>
+      <output message="priws:GetTemplatesResponse"/>
+    </operation>
+    <operation name="ExportTemplates">
+      <input message="priws:ExportTemplatesRequest"/>
+      <output message="priws:ExportTemplatesResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="priws:GetRequest"/>
+      <output message="priws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="priws:FindRequest"/>
+      <output message="priws:FindResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="priws:ListRequest"/>
+      <output message="priws:ListResponse"/>
+    </operation>
+    <operation name="GetLocalesSupported">
+      <input message="priws:GetLocalesSupportedRequest"/>
+      <output message="priws:GetLocalesSupportedResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="priws:UpdateRequest"/>
+      <output message="priws:UpdateResponse"/>
+    </operation>
+    <operation name="ImportTemplates">
+      <input message="priws:ImportTemplatesRequest"/>
+      <output message="priws:ImportTemplatesResponse"/>
+    </operation>
+  </portType>
+  <binding name="PrintFormatMasterServiceSOAPBinding" type="priws:PrintFormatMasterServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/PrintFormatMaster/Add" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/PrintFormatMaster/Delete" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetTemplates">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/PrintFormatMaster/GetTemplates" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ExportTemplates">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/PrintFormatMaster/ExportTemplates" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/PrintFormatMaster/Get" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/PrintFormatMaster/Find" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/PrintFormatMaster/List" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetLocalesSupported">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/PrintFormatMaster/GetLocalesSupported" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/PrintFormatMaster/Update" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ImportTemplates">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/PrintFormatMaster/ImportTemplates" style="document"/>
+      <input>
+        <soap:header message="priws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="priws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PrintFormatMasterService">
+    <port name="PrintFormatMasterServicePort" binding="priws:PrintFormatMasterServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/printformatmaster/printformatmaster-13.0"/>
+    </port>
+  </service>
+</definitions>

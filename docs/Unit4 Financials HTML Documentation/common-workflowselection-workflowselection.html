@@ -1,0 +1,188 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-WorkflowSelectionService">
+            <h1>WorkflowSelectionService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/common/schemas/workflowselection/workflowselection-1.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/common-workflowselection-workflowselection.wsdl" download="">common-workflowselection-workflowselection.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/common/workflowselection/workflowselection-1.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#WorkflowSelectionService-GetWorkflowLogs">GetWorkflowLogs</a></li>
+               <li><a href="#WorkflowSelectionService-Select">Select</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="WorkflowSelectionService-GetWorkflowLogs"></a>GetWorkflowLogs
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetWorkflowLogsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>WorkflowIds</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/workflowselection}WorkflowIds" href="common/workflowselection/workflowselection.html#{http://www.coda.com/common/schemas/workflowselection}WorkflowIds">WorkflowIds</a></td>
+                              <td>A list of workflow instance IDs.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetWorkflowLogsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LineList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LineData" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LineData">LineData</a></td>
+                              <td>The workflow log data.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="WorkflowSelectionService-Select"></a>Select
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorType" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorType">SelectorType</a></td>
+                              <td>Specifies the source of the
+                                 data from which the selection is made. The
+                                 data source is determined by the combination
+                                 of data class and data location.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>GslCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                              <td>The code of the selector
+                                 master you want to use. GslCode is used to
+                                 look up hints, and also overrides the
+                                 SelType above
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RowLimit</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                              <td>The maximum number of rows
+                                 you want your search to return.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ApplicationFilters</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}VocListDataList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}VocListDataList">VocListDataList</a></td>
+                              <td>The search criteria to be
+                                 applied by the application when selecting
+                                 the data. These are as set up in the
+                                 selector master.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>UserFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>The additional search
+                                 criteria specified by the user, to be
+                                 applied when selecting the data.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Columns</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                              <td>The columns representing
+                                 vocabulary items that you want the server to return.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The selected data returned to
+                                 you for browsing.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

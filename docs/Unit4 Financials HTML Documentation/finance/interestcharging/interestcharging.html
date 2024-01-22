@@ -1,0 +1,2168 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/interestcharging</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/interestcharging</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>InterestChargingRequest</h3>
+         <p>This service allows you to produce interest charges.</p>
+         <h3>InterestChargingResponse</h3>
+         <p>This is the response that is returned when you produce interest charges.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey"></a><h3>ProposalKey</h3>
+         <p>A key for the interest charge proposal consisting of the company code and the proposal
+            code.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>The code for the company in which the interest charge is produced.</td>
+                  </tr>
+                  <tr>
+                     <td>ProposalCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePrlCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePrlCode">typePrlCode</a></td>
+                     <td>The code that identifies the proposal. By default, this comprises the master code,
+                        the code of the creating user, and a two-letter identifier.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}Proposal"></a><h3>Proposal</h3>
+         <p>Contains the details of the proposal.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>Contains key information about the proposal.</td>
+                  </tr>
+                  <tr>
+                     <td>Status</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtIntPrlStatus" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtIntPrlStatus">typeCtIntPrlStatus</a></td>
+                     <td>The stage that the proposal has reached.</td>
+                  </tr>
+                  <tr>
+                     <td>CreationDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date that the proposal was created.</td>
+                  </tr>
+                  <tr>
+                     <td>InterestMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the interest master used to create the proposal.</td>
+                  </tr>
+                  <tr>
+                     <td>InterestMasterShortName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortName" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortName">typeShortName</a></td>
+                     <td>The short name for the interest master used to create the proposal.</td>
+                  </tr>
+                  <tr>
+                     <td>OpenBy</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code of the user who is currently working with the proposal.</td>
+                  </tr>
+                  <tr>
+                     <td>NumberOfSummaries</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number of currently active interest charges.</td>
+                  </tr>
+                  <tr>
+                     <td>NumberOfSummariesHeld</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number of detail lines that are held from the interest charge.</td>
+                  </tr>
+                  <tr>
+                     <td>Manipulated</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies that this proposal has reached the Manipulated stage of the process.</td>
+                  </tr>
+                  <tr>
+                     <td>Posted</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies that this proposal has been Posted.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}ProposalList"></a><h3>ProposalList</h3>
+         <p>Contains a list of proposals.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Proposal</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}Proposal" href="#{http://www.coda.com/efinance/schemas/interestcharging}Proposal">Proposal</a></td>
+                     <td>Contains the details of the proposal.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}NewProposalKey"></a><h3>NewProposalKey</h3>
+         <p>A key for the new interest charge proposal.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the company in which the interest charge is produced.</td>
+                  </tr>
+                  <tr>
+                     <td>InterestMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the interest master used to create the new proposal.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GenerateParams"></a><h3>GenerateParams</h3>
+         <p>This element contains the parameters required to generate the proposal.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>NewProposalKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}NewProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}NewProposalKey">NewProposalKey</a></td>
+                     <td>The key for the new interest charge proposal consisting of the company code and interest
+                        master code.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ProposalCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePrlCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePrlCode">typePrlCode</a></td>
+                     <td>The code that identifies the proposal. By default, this comprises the master code,
+                        the code of the creating user, and a two-letter identifier.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>SelectorVocabList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="../selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                     <td>The vocabulary specified in the selector master that is used to retrieve the required
+                        data from the database.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>SelectorFlexiFieldList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}FlexiFieldVocListData" href="../selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}FlexiFieldVocListData">FlexiFieldVocListData</a></td>
+                     <td>The flexi-fields specified in the selector master that is used to retrieve the required
+                        data from the database.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}NewProposalDetails"></a><h3>NewProposalDetails</h3>
+         <p>Contains details about the new interest charge proposals.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ProposalCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePrlCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePrlCode">typePrlCode</a></td>
+                     <td>The code that identifies the proposal. By default, this comprises the master code,
+                        the code of the creating user, and a two-letter identifier.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>SelCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the selector master used to retrieve the detail lines for inclusion in
+                        the proposal.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey"></a><h3>SummaryKey</h3>
+         <p>This element holds the key that contains the summary data for an interest charge.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ProposalKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>The key for the interest charge proposal consisting of the company code and the proposal
+                        code.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>LineID</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The identification number for each line in the list of interest charge proposal summaries.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}Summary"></a><h3>Summary</h3>
+         <p>Contains details about the interest charge summaries.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey">SummaryKey</a></td>
+                     <td>Contains the key for the interest charge summaries.</td>
+                  </tr>
+                  <tr>
+                     <td>Held</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies that this detail line is held from the interest charge.</td>
+                  </tr>
+                  <tr>
+                     <td>AccountCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeAcCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeAcCode">typeAcCode</a></td>
+                     <td>The code for the account to which the interest charge is posted.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmCode">typeElmCode</a></td>
+                     <td>The code of the element which specifies the currency in which interest is charged.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The level of the element which specifies the currency in which interest is charged.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortName" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortName">typeShortName</a></td>
+                     <td>The short name of the element which specifies the currency in which interest is charged.</td>
+                  </tr>
+                  <tr>
+                     <td>CurrCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The currency code for the document.</td>
+                  </tr>
+                  <tr>
+                     <td>Charge</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount to be charged, in charge currency.</td>
+                  </tr>
+                  <tr>
+                     <td>HomeCharge</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount to be charged, in home currency.</td>
+                  </tr>
+                  <tr>
+                     <td>Posted</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether or not the interest charge has been posted.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}SummaryList"></a><h3>SummaryList</h3>
+         <p>This element contains a list of the currently active interest charges retrieved from
+            the database.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Summary</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}Summary" href="#{http://www.coda.com/efinance/schemas/interestcharging}Summary">Summary</a></td>
+                     <td>This element contains the summary data for an interest charge.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}DetailKey"></a><h3>DetailKey</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SummaryKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey">SummaryKey</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>LineID</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}SummaryChangeItem"></a><h3>SummaryChangeItem</h3>
+         <p>Contains the item which has been edited.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>LineID</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The identification number for the item which has been edited.</td>
+                  </tr>
+                  <tr>
+                     <td>Deleted</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether or not the item has been deleted from the list.</td>
+                  </tr>
+                  <tr>
+                     <td>Held</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether the item is withheld from the interest charge proposal.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}SummaryChangeList"></a><h3>SummaryChangeList</h3>
+         <p>This element contains the list of changes to summary lines.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Change</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryChangeItem" href="#{http://www.coda.com/efinance/schemas/interestcharging}SummaryChangeItem">SummaryChangeItem</a></td>
+                     <td>Contains the item which has been edited.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}DetailChangeItem"></a><h3>DetailChangeItem</h3>
+         <p>Contains the item which has been edited.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>LineID</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The identification number for the item which has been edited.</td>
+                  </tr>
+                  <tr>
+                     <td>Held</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether the item is withheld from the interest charge proposal.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}DetailChangeList"></a><h3>DetailChangeList</h3>
+         <p>This element contains the list of changes to detail lines.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Change</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}DetailChangeItem" href="#{http://www.coda.com/efinance/schemas/interestcharging}DetailChangeItem">DetailChangeItem</a></td>
+                     <td>Contains the item which has been edited.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}HistoryLineItem"></a><h3>HistoryLineItem</h3>
+         <p>Contains historical information about an interest charge proposal line.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>The key for the interest charge proposal consisting of the company code and the proposal
+                        code.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>StartStatus</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtIntPrlStatus" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtIntPrlStatus">typeCtIntPrlStatus</a></td>
+                     <td>The status that the proposal had reached at the start of this stage.</td>
+                  </tr>
+                  <tr>
+                     <td>EndStatus</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtIntPrlStatus" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtIntPrlStatus">typeCtIntPrlStatus</a></td>
+                     <td>The final status that the proposal had reached at the end of this stage.</td>
+                  </tr>
+                  <tr>
+                     <td>User</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the user who worked on the proposal at this stage.</td>
+                  </tr>
+                  <tr>
+                     <td>StartDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date on which this stage started.</td>
+                  </tr>
+                  <tr>
+                     <td>StartTime</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTime" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTime">typeTime</a></td>
+                     <td>The time at which this stage started.</td>
+                  </tr>
+                  <tr>
+                     <td>EndDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date on which this stage ended.</td>
+                  </tr>
+                  <tr>
+                     <td>EndTime</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTime" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTime">typeTime</a></td>
+                     <td>The time at which this stage ended.</td>
+                  </tr>
+                  <tr>
+                     <td>ExitType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtExitType" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtExitType">typeCtExitType</a></td>
+                     <td>The method by which this stage ended.</td>
+                  </tr>
+                  <tr>
+                     <td>Message</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLogText" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeLogText">typeLogText</a></td>
+                     <td>The last message written to the log.</td>
+                  </tr>
+                  <tr>
+                     <td>LogID</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The identification number of the log.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}HistoryLineList"></a><h3>HistoryLineList</h3>
+         <p>This element contains the history of the interest charge proposals.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Line</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}HistoryLineItem" href="#{http://www.coda.com/efinance/schemas/interestcharging}HistoryLineItem">HistoryLineItem</a></td>
+                     <td>Contains historical information about an interest charge proposal line.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}PostParams"></a><h3>PostParams</h3>
+         <p>Contains the parameters required to post the proposal.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>The key for the interest charge proposal consisting of the company code and the proposal
+                        code.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DocPeriod</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                     <td>The year and period to which the document will be posted.</td>
+                  </tr>
+                  <tr>
+                     <td>DocDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date on the document to which the charges will be added for posting to the Books.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetProposalsRequest"></a><h3>GetProposalsRequest</h3>
+         <p>The GetProposalsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKey" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKey">GlobalKey</a></td>
+                     <td>This element is a key which uniquely identifies an interest charge proposal</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetProposalsRequestVerb"></a><h3>GetProposalsRequestVerb</h3>
+         <p>The GetProposalsRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the specified proposals from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetProposalsRequest" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetProposalsRequest">GetProposalsRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetProposalsResponse"></a><h3>GetProposalsResponse</h3>
+         <p>The GetProposalsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Proposals</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalList" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalList">ProposalList</a></td>
+                     <td>This element lists all the interest charge proposals in the company.</td>
+                  </tr>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}GlobalKey" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}GlobalKey">GlobalKey</a></td>
+                     <td>The key used to identify the interest charge proposals to be retrieved.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetProposalsResponseVerb"></a><h3>GetProposalsResponseVerb</h3>
+         <p>The GetProposalsResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetProposalsResponse" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetProposalsResponse">GetProposalsResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetNewProposalDetailsRequest"></a><h3>GetNewProposalDetailsRequest</h3>
+         <p>The GetNewProposalDetailsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}NewProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}NewProposalKey">NewProposalKey</a></td>
+                     <td>This key contains the company code and interest master code that will be used to generate
+                        the proposal.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetNewProposalDetailsRequestVerb"></a><h3>GetNewProposalDetailsRequestVerb</h3>
+         <p>The GetNewProposalDetailsRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Gets a new proposal code which may be used for the new proposal you create with Generate..</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetNewProposalDetailsRequest" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetNewProposalDetailsRequest">GetNewProposalDetailsRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetNewProposalDetailsResponse"></a><h3>GetNewProposalDetailsResponse</h3>
+         <p>The GetNewProposalDetailsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>NewProposalDetails</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}NewProposalDetails" href="#{http://www.coda.com/efinance/schemas/interestcharging}NewProposalDetails">NewProposalDetails</a></td>
+                     <td>This element holds the details for a new proposal.</td>
+                  </tr>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}NewProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}NewProposalKey">NewProposalKey</a></td>
+                     <td>This key contains the company code and interest master code that will be used to generate
+                        the proposal.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetNewProposalDetailsResponseVerb"></a><h3>GetNewProposalDetailsResponseVerb</h3>
+         <p>The GetNewProposalDetailsResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetNewProposalDetailsResponse" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetNewProposalDetailsResponse">GetNewProposalDetailsResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GenerateRequest"></a><h3>GenerateRequest</h3>
+         <p>The GenerateRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Params</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GenerateParams" href="#{http://www.coda.com/efinance/schemas/interestcharging}GenerateParams">GenerateParams</a></td>
+                     <td>Contains the parameters required to generate the proposals. The parameters include
+                        the interest master, selector master and proposal code.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GenerateRequestVerb"></a><h3>GenerateRequestVerb</h3>
+         <p>The GenerateRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Generates the proposals using the parameters you specify.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GenerateRequest" href="#{http://www.coda.com/efinance/schemas/interestcharging}GenerateRequest">GenerateRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GenerateResponse"></a><h3>GenerateResponse</h3>
+         <p>The GenerateResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ProgressKey</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>This key contains information about the progress of the Generate stage.</td>
+                  </tr>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>This element is a key which uniquely identifies a proposal.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GenerateResponseVerb"></a><h3>GenerateResponseVerb</h3>
+         <p>The GenerateResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GenerateResponse" href="#{http://www.coda.com/efinance/schemas/interestcharging}GenerateResponse">GenerateResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetSummariesRequest"></a><h3>GetSummariesRequest</h3>
+         <p>The GetSummariesRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>Contains the key identifying the interest charge summary lines you want to retrieve
+                        from the database.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetSummariesRequestVerb"></a><h3>GetSummariesRequestVerb</h3>
+         <p>The GetSummariesRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the specified interest charge summaries from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetSummariesRequest" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetSummariesRequest">GetSummariesRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetSummariesResponse"></a><h3>GetSummariesResponse</h3>
+         <p>The GetSummariesResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Summaries</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryList" href="#{http://www.coda.com/efinance/schemas/interestcharging}SummaryList">SummaryList</a></td>
+                     <td>Returns a list of interest charges contained within a proposal.</td>
+                  </tr>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>This element is a key which uniquely identifies a proposal..</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetSummariesResponseVerb"></a><h3>GetSummariesResponseVerb</h3>
+         <p>The GetSummariesResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetSummariesResponse" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetSummariesResponse">GetSummariesResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetDetailsRequest"></a><h3>GetDetailsRequest</h3>
+         <p>The GetDetailsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey">SummaryKey</a></td>
+                     <td>Contains the key identifying the interest charge summaries you want to retrieve from
+                        the database.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Columns</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}HeaderColumnList" href="../selector/selector.html#{http://www.coda.com/efinance/schemas/selector}HeaderColumnList">HeaderColumnList</a></td>
+                     <td>The list of vocabulary items you want to use to display the proposal details.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetDetailsRequestVerb"></a><h3>GetDetailsRequestVerb</h3>
+         <p>The GetDetailsRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the detail lines for the specified interest charge summaries from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetDetailsRequest" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetDetailsRequest">GetDetailsRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetDetailsResponse"></a><h3>GetDetailsResponse</h3>
+         <p>The GetDetailsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Details</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}SelectionWithFlexiFields" href="../selector/selector.html#{http://www.coda.com/efinance/schemas/selector}SelectionWithFlexiFields">SelectionWithFlexiFields</a></td>
+                     <td>Returns the specified details for manipulation.</td>
+                  </tr>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey">SummaryKey</a></td>
+                     <td>Contains the key identifying the interest charge summaries retrieved from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetDetailsResponseVerb"></a><h3>GetDetailsResponseVerb</h3>
+         <p>The GetDetailsResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetDetailsResponse" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetDetailsResponse">GetDetailsResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}HoldDetailsRequest"></a><h3>HoldDetailsRequest</h3>
+         <p>The HoldDetailsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey">SummaryKey</a></td>
+                     <td>Contains the summary key for the detail lines held from the interest charge.</td>
+                  </tr>
+                  <tr>
+                     <td>Changes</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}DetailChangeList" href="#{http://www.coda.com/efinance/schemas/interestcharging}DetailChangeList">DetailChangeList</a></td>
+                     <td>This element stores changes to individual detail lines within an interest charge.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}HoldDetailsRequestVerb"></a><h3>HoldDetailsRequestVerb</h3>
+         <p>The HoldDetailsRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Holds the specified detail lines back from inclusion in the interest charge.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}HoldDetailsRequest" href="#{http://www.coda.com/efinance/schemas/interestcharging}HoldDetailsRequest">HoldDetailsRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}HoldDetailsResponse"></a><h3>HoldDetailsResponse</h3>
+         <p>The HoldDetailsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Summary</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}Summary" href="#{http://www.coda.com/efinance/schemas/interestcharging}Summary">Summary</a></td>
+                     <td>Returns details of the retrieved interest charge.</td>
+                  </tr>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}SummaryKey">SummaryKey</a></td>
+                     <td>This element is a key which uniquely identifies an interest charge.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}HoldDetailsResponseVerb"></a><h3>HoldDetailsResponseVerb</h3>
+         <p>The HoldDetailsResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}HoldDetailsResponse" href="#{http://www.coda.com/efinance/schemas/interestcharging}HoldDetailsResponse">HoldDetailsResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}UpdateSummariesRequest"></a><h3>UpdateSummariesRequest</h3>
+         <p>The UpdateSummariesRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>This element contains parameters for you to specify which proposal to retrieve for
+                        manipulation.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Changes</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}SummaryChangeList" href="#{http://www.coda.com/efinance/schemas/interestcharging}SummaryChangeList">SummaryChangeList</a></td>
+                     <td>This element stores a list of changes to an interest charge.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}UpdateSummariesRequestVerb"></a><h3>UpdateSummariesRequestVerb</h3>
+         <p>The UpdateSummariesRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Saves the changes to the specified interest charges to the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}UpdateSummariesRequest" href="#{http://www.coda.com/efinance/schemas/interestcharging}UpdateSummariesRequest">UpdateSummariesRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}UpdateSummariesResponse"></a><h3>UpdateSummariesResponse</h3>
+         <p>The UpdateSummariesResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>This element is a key which uniquely identifies the proposal being updated.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}UpdateSummariesResponseVerb"></a><h3>UpdateSummariesResponseVerb</h3>
+         <p>The UpdateSummariesResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}UpdateSummariesResponse" href="#{http://www.coda.com/efinance/schemas/interestcharging}UpdateSummariesResponse">UpdateSummariesResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}PostRequest"></a><h3>PostRequest</h3>
+         <p>The PostRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Params</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}PostParams" href="#{http://www.coda.com/efinance/schemas/interestcharging}PostParams">PostParams</a></td>
+                     <td>Contains parameters specified for posting the proposals.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}PostRequestVerb"></a><h3>PostRequestVerb</h3>
+         <p>The PostRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Posts the selected interest charges to the destination specified in the interest master.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}PostRequest" href="#{http://www.coda.com/efinance/schemas/interestcharging}PostRequest">PostRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}PostResponse"></a><h3>PostResponse</h3>
+         <p>The PostResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ProgressKey</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>This key contains information about the progress of the Post stage.</td>
+                  </tr>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>This element is a key which uniquely identifies the proposal being posted.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}PostResponseVerb"></a><h3>PostResponseVerb</h3>
+         <p>The PostResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}PostResponse" href="#{http://www.coda.com/efinance/schemas/interestcharging}PostResponse">PostResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}RecoverRequest"></a><h3>RecoverRequest</h3>
+         <p>The RecoverRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>Contains the key identifying the interest charge you want to recover.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}RecoverRequestVerb"></a><h3>RecoverRequestVerb</h3>
+         <p>The RecoverRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Recovers the selected interest charge to its previous stage in the process.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}RecoverRequest" href="#{http://www.coda.com/efinance/schemas/interestcharging}RecoverRequest">RecoverRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}RecoverResponse"></a><h3>RecoverResponse</h3>
+         <p>The RecoverResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>This element is a key which uniquely identifies the proposal being recovered.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}RecoverResponseVerb"></a><h3>RecoverResponseVerb</h3>
+         <p>The RecoverResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}RecoverResponse" href="#{http://www.coda.com/efinance/schemas/interestcharging}RecoverResponse">RecoverResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}DeleteRequest"></a><h3>DeleteRequest</h3>
+         <p>The DeleteRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>Contains the key identifying the interest charges you want to delete.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}DeleteRequestVerb"></a><h3>DeleteRequestVerb</h3>
+         <p>The DeleteRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Deletes the selected interest charges from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}DeleteRequest" href="#{http://www.coda.com/efinance/schemas/interestcharging}DeleteRequest">DeleteRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}DeleteResponse"></a><h3>DeleteResponse</h3>
+         <p>The DeleteResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>This element is a key which uniquely identifies the proposal being deleted.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}DeleteResponseVerb"></a><h3>DeleteResponseVerb</h3>
+         <p>The DeleteResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}DeleteResponse" href="#{http://www.coda.com/efinance/schemas/interestcharging}DeleteResponse">DeleteResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetHistoryLinesRequest"></a><h3>GetHistoryLinesRequest</h3>
+         <p>The GetHistoryLinesRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>This element is a key which identifies the proposal for which you want to retrieve
+                        history information
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetHistoryLinesRequestVerb"></a><h3>GetHistoryLinesRequestVerb</h3>
+         <p>The GetHistoryLinesRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves history information for the specified proposal.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetHistoryLinesRequest" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetHistoryLinesRequest">GetHistoryLinesRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetHistoryLinesResponse"></a><h3>GetHistoryLinesResponse</h3>
+         <p>The GetHistoryLinesResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Lines</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}HistoryLineList" href="#{http://www.coda.com/efinance/schemas/interestcharging}HistoryLineList">HistoryLineList</a></td>
+                     <td>This element contains all the details of the actions taken on the specified proposal.</td>
+                  </tr>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey" href="#{http://www.coda.com/efinance/schemas/interestcharging}ProposalKey">ProposalKey</a></td>
+                     <td>This element is a key which uniquely identifies the proposal for which history lines
+                        are being retrieved.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}GetHistoryLinesResponseVerb"></a><h3>GetHistoryLinesResponseVerb</h3>
+         <p>The GetHistoryLinesResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetHistoryLinesResponse" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetHistoryLinesResponse">GetHistoryLinesResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}InterestChargingRequest"></a><h3>InterestChargingRequest</h3>
+         <p>The InterestChargingRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to produce interest charges.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetProposals</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetProposalsRequestVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetProposalsRequestVerb">GetProposalsRequestVerb</a></td>
+                     <td>Retrieves the specified proposals from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>GetNewProposalDetails</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetNewProposalDetailsRequestVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetNewProposalDetailsRequestVerb">GetNewProposalDetailsRequestVerb</a></td>
+                     <td>Gets a new proposal code which may be used for the new proposal you create with Generate..</td>
+                  </tr>
+                  <tr>
+                     <td>Generate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GenerateRequestVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}GenerateRequestVerb">GenerateRequestVerb</a></td>
+                     <td>Generates the proposals using the parameters you specify.</td>
+                  </tr>
+                  <tr>
+                     <td>GetSummaries</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetSummariesRequestVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetSummariesRequestVerb">GetSummariesRequestVerb</a></td>
+                     <td>Retrieves the specified interest charge summaries from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>GetDetails</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetDetailsRequestVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetDetailsRequestVerb">GetDetailsRequestVerb</a></td>
+                     <td>Retrieves the detail lines for the specified interest charge summaries from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>HoldDetails</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}HoldDetailsRequestVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}HoldDetailsRequestVerb">HoldDetailsRequestVerb</a></td>
+                     <td>Holds the specified detail lines back from inclusion in the interest charge.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateSummaries</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}UpdateSummariesRequestVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}UpdateSummariesRequestVerb">UpdateSummariesRequestVerb</a></td>
+                     <td>Saves the changes to the specified interest charges to the database.</td>
+                  </tr>
+                  <tr>
+                     <td>Post</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}PostRequestVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}PostRequestVerb">PostRequestVerb</a></td>
+                     <td>Posts the selected interest charges to the destination specified in the interest master.</td>
+                  </tr>
+                  <tr>
+                     <td>Recover</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}RecoverRequestVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}RecoverRequestVerb">RecoverRequestVerb</a></td>
+                     <td>Recovers the selected interest charge to its previous stage in the process.</td>
+                  </tr>
+                  <tr>
+                     <td>Delete</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}DeleteRequestVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}DeleteRequestVerb">DeleteRequestVerb</a></td>
+                     <td>Deletes the selected interest charges from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>GetHistoryLines</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetHistoryLinesRequestVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetHistoryLinesRequestVerb">GetHistoryLinesRequestVerb</a></td>
+                     <td>Retrieves history information for the specified proposal.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/interestcharging}InterestChargingResponse"></a><h3>InterestChargingResponse</h3>
+         <p>The InterestChargingResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you produce interest charges.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetProposals</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetProposalsResponseVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetProposalsResponseVerb">GetProposalsResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetNewProposalDetails</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetNewProposalDetailsResponseVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetNewProposalDetailsResponseVerb">GetNewProposalDetailsResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Generate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GenerateResponseVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}GenerateResponseVerb">GenerateResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetSummaries</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetSummariesResponseVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetSummariesResponseVerb">GetSummariesResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetDetails</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetDetailsResponseVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetDetailsResponseVerb">GetDetailsResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>HoldDetails</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}HoldDetailsResponseVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}HoldDetailsResponseVerb">HoldDetailsResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateSummaries</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}UpdateSummariesResponseVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}UpdateSummariesResponseVerb">UpdateSummariesResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Post</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}PostResponseVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}PostResponseVerb">PostResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Recover</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}RecoverResponseVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}RecoverResponseVerb">RecoverResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Delete</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}DeleteResponseVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}DeleteResponseVerb">DeleteResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetHistoryLines</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/interestcharging}GetHistoryLinesResponseVerb" href="#{http://www.coda.com/efinance/schemas/interestcharging}GetHistoryLinesResponseVerb">GetHistoryLinesResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

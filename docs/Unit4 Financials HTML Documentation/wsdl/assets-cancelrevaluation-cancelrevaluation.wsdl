@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/eassets/schemas/cancelrevaluation/cancelrevaluation-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:canrevws="http://www.coda.com/eassets/schemas/cancelrevaluation/cancelrevaluation-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:cancap="http://www.coda.com/eassets/schemas/cancelrevaluation"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:log="http://www.coda.com/common/schemas/logging"
+    xmlns:rev="http://www.coda.com/eassets/schemas/reviewtransactions"
+    xmlns:tdo="http://www.coda.com/eassets/schemas/temporarydoc"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:canrev="http://www.coda.com/eassets/schemas/cancelrevaluation"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/eassets/schemas/cancelrevaluation/cancelrevaluation-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/temporarydoc" schemaLocation="assets/temporarydoc/temporarydoc.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/cancelrevaluation" schemaLocation="../wsdl/assets/cancelrevaluation/cancelrevaluation.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/logging" schemaLocation="common/logging/logging.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/reviewtransactions" schemaLocation="assets/reviewtransactions/reviewtransactions.xsd"/>
+    <xsd:element name="PostReviewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CancelRevaluation" type="cancap:CancelRevaluation">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters specifying which revaluation
+                            values should be cancelled.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogKey" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Key information identifying
+                            the log in which the cancel revaluation
+                            details are recorded.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelReviewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="isCancelled" type="com:typeBool">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            CancelReviewRequest corresponding to this
+                            response was successful.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsPosted" type="com:typeBool">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            PostRequest corresponding to this response
+                            was successful.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to cancel revaluation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunNumber" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A number identifying this
+                            cancel revaluation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HasWarnings" minOccurs="0" type="com:typeBool">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether any
+                            warnings have been generated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ReviewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CancelRevaluation" type="cancap:CancelRevaluation">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters specifying which revaluation
+                            values should be cancelled.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelReviewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which revaluation is being cancelled.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunNumber" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A number identifying this
+                            cancel revaluation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogKey" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Key information identifying
+                            the log in which the cancel revaluation
+                            details are recorded.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostReviewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsPosted" type="com:typeBool">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            ReviewPostRequest corresponding to this
+                            response was successful.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to post the reviewed
+                            cancel revaluation values.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunNumber" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A number identifying this
+                            cancel revaluation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CancelRevaluation" type="cancap:CancelRevaluation">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters specifying which revaluation
+                            values should be cancelled.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ReviewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsReviewed" type="com:typeBool">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            ReviewRequest corresponding to this response
+                            was successful.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to review the cancel
+                            revaluation values.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunNumber" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A number identifying this
+                            cancel revaluation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ReviewTransactions" type="rev:ReviewTransactions">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the asset
+                            transactions and financial transactions
+                            generated by this cancel revaluation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogKey" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Key information identifying
+                            the log in which the cancel revaluation
+                            details are recorded.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HasWarnings" minOccurs="0" type="com:typeBool">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether any
+                            warnings have been generated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="CancelReviewRequest">
+    <part name="CancelReviewRequest" element="canrevws:CancelReviewRequest"/>
+  </message>
+  <message name="ReviewRequest">
+    <part name="ReviewRequest" element="canrevws:ReviewRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="canrevws:OptionsResponse"/>
+  </message>
+  <message name="PostReviewResponse">
+    <part name="PostReviewResponse" element="canrevws:PostReviewResponse"/>
+  </message>
+  <message name="CancelReviewResponse">
+    <part name="CancelReviewResponse" element="canrevws:CancelReviewResponse"/>
+  </message>
+  <message name="PostResponse">
+    <part name="PostResponse" element="canrevws:PostResponse"/>
+  </message>
+  <message name="ReviewResponse">
+    <part name="ReviewResponse" element="canrevws:ReviewResponse"/>
+  </message>
+  <message name="PostReviewRequest">
+    <part name="PostReviewRequest" element="canrevws:PostReviewRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="canrevws:Options"/>
+  </message>
+  <message name="PostRequest">
+    <part name="PostRequest" element="canrevws:PostRequest"/>
+  </message>
+  <portType name="CancelRevaluationServicePortTypes">
+    <operation name="PostReview">
+      <input message="canrevws:PostReviewRequest"/>
+      <output message="canrevws:PostReviewResponse"/>
+    </operation>
+    <operation name="CancelReview">
+      <input message="canrevws:CancelReviewRequest"/>
+      <output message="canrevws:CancelReviewResponse"/>
+    </operation>
+    <operation name="Post">
+      <input message="canrevws:PostRequest"/>
+      <output message="canrevws:PostResponse"/>
+    </operation>
+    <operation name="Review">
+      <input message="canrevws:ReviewRequest"/>
+      <output message="canrevws:ReviewResponse"/>
+    </operation>
+  </portType>
+  <binding name="CancelRevaluationServiceSOAPBinding" type="canrevws:CancelRevaluationServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="PostReview">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CancelRevaluation/PostReview" style="document"/>
+      <input>
+        <soap:header message="canrevws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="canrevws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CancelReview">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CancelRevaluation/CancelReview" style="document"/>
+      <input>
+        <soap:header message="canrevws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="canrevws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Post">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CancelRevaluation/Post" style="document"/>
+      <input>
+        <soap:header message="canrevws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="canrevws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Review">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CancelRevaluation/Review" style="document"/>
+      <input>
+        <soap:header message="canrevws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="canrevws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CancelRevaluationService">
+    <port name="CancelRevaluationServicePort" binding="canrevws:CancelRevaluationServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/assets/cancelrevaluation/cancelrevaluation-12.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/commitmentacc/popcommitmentaccounting-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:comaccws="http://www.coda.com/pop/schemas/commitmentacc/popcommitmentaccounting-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:popselector="http://www.coda.com/pop/schemas/popselector"
+    xmlns:poptypes="http://www.coda.com/pop/schemas/common"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:commbalance="http://www.coda.com/pop/schemas/commitmentbalance"
+    xmlns:comacc="http://www.coda.com/pop/schemas/commitmentacc"
+    xmlns:ns1="http://www.coda.com/common/schemas/domaingen"
+    xmlns:doc="http://www.coda.com/pop/schemas/document"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:datatypes="http://www.coda.com/common/schemas/datatypes"
+    targetNamespace="http://www.coda.com/pop/schemas/commitmentacc/popcommitmentaccounting-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/common/schemas/datatypes" schemaLocation="common/datatypes/datatypes.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/common" schemaLocation="pop/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/popselector" schemaLocation="pop/popselector/popselector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/document" schemaLocation="pop/document/document.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/commitmentacc" schemaLocation="../wsdl/pop/commitmentacc/commitmentacc.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/commitmentbalance" schemaLocation="pop/commitmentbalance/commitmentbalance.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:element name="CommitMatchedInvoiceLineResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BudgetStatus" type="com:typeGenericOon">
+                    <xsd:annotation>
+                        <xsd:documentation>The budgetStatus is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateAuditBalancesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Params" type="comacc:AuditParams">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>Audit start parameters and log and
+                                    progress keys.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BuildCommitmentsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocType" type="poptypes:typePopCommitDocumentType">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="LogTitle" type="com:typeTextAny">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DocumentCodeList" type="comacc:POPCommitmentAccountingBuildCommitmentsDocumentCodeList">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CommitUnmatchedInvoiceLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PimLineList" type="comacc:POPCommitmentAccountingCommitUnmatchedInvoiceLinePimLineList">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DiscrepancyPresent" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckBudgetExistingDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BudgetRejected" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The budgetRejected is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Budget" minOccurs="0"
+                    maxOccurs="unbounded" type="commbalance:ComBudgetInfo">
+                    <xsd:annotation>
+                        <xsd:documentation>The budget is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="HousekeepLRNResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckBudgetExistingLineResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BudgetRejected" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The budgetRejected is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Budget" minOccurs="0"
+                    maxOccurs="unbounded" type="commbalance:ComBudgetInfo">
+                    <xsd:annotation>
+                        <xsd:documentation>The budget is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BuildCommitmentsResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CommitMatchedInvoiceLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PimLineList" type="comacc:POPCommitmentAccountingCommitMatchedInvoiceLinePimLineList">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DiscrepancyPresent" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostAccrualWithReversingRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AccrualLineList" type="comacc:POPCommitmentAccountingPostAccrualWithReversingAccrualLineList">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="ReversalDate" type="com:typeDateTime">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LiquidateInvoiceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PimLineList" type="comacc:POPCommitmentAccountingLiquidateInvoicePimLineList">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DiscrepancyPresent" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckBudgetExistingLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Line" type="doc:ItemLineKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document to check.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" minOccurs="0" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The user to check the budget for. If
+                                    omitted use the logged in user</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LiquidateInvoiceResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckBudgetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="doc:Document">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document to check.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="HousekeepLRNRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LrnKeyList" type="comacc:POPCommitmentAccountingHousekeepLRNLrnKeyList">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CommitUnmatchedInvoiceLineResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckBudgetExistingDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Document" type="doc:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The document to check.</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthorisingUser" minOccurs="0" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The user to check the budget for. If
+                                    omitted use the logged in user</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateAuditBalancesResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckBudgetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BudgetRejected" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The budgetRejected is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Budget" minOccurs="0"
+                    maxOccurs="unbounded" type="commbalance:ComBudgetInfo">
+                    <xsd:annotation>
+                        <xsd:documentation>The budget is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostAccrualWithReversingResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="CheckBudgetExistingLineRequest">
+    <part name="CheckBudgetExistingLineRequest" element="comaccws:CheckBudgetExistingLineRequest"/>
+  </message>
+  <message name="CheckBudgetResponse">
+    <part name="CheckBudgetResponse" element="comaccws:CheckBudgetResponse"/>
+  </message>
+  <message name="CommitUnmatchedInvoiceLineRequest">
+    <part name="CommitUnmatchedInvoiceLineRequest" element="comaccws:CommitUnmatchedInvoiceLineRequest"/>
+  </message>
+  <message name="GenerateAuditBalancesResponse">
+    <part name="GenerateAuditBalancesResponse" element="comaccws:GenerateAuditBalancesResponse"/>
+  </message>
+  <message name="PostAccrualWithReversingRequest">
+    <part name="PostAccrualWithReversingRequest" element="comaccws:PostAccrualWithReversingRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="comaccws:Options"/>
+  </message>
+  <message name="HousekeepLRNRequest">
+    <part name="HousekeepLRNRequest" element="comaccws:HousekeepLRNRequest"/>
+  </message>
+  <message name="GenerateAuditBalancesRequest">
+    <part name="GenerateAuditBalancesRequest" element="comaccws:GenerateAuditBalancesRequest"/>
+  </message>
+  <message name="CommitMatchedInvoiceLineRequest">
+    <part name="CommitMatchedInvoiceLineRequest" element="comaccws:CommitMatchedInvoiceLineRequest"/>
+  </message>
+  <message name="LiquidateInvoiceRequest">
+    <part name="LiquidateInvoiceRequest" element="comaccws:LiquidateInvoiceRequest"/>
+  </message>
+  <message name="CommitMatchedInvoiceLineResponse">
+    <part name="CommitMatchedInvoiceLineResponse" element="comaccws:CommitMatchedInvoiceLineResponse"/>
+  </message>
+  <message name="HousekeepLRNResponse">
+    <part name="HousekeepLRNResponse" element="comaccws:HousekeepLRNResponse"/>
+  </message>
+  <message name="BuildCommitmentsResponse">
+    <part name="BuildCommitmentsResponse" element="comaccws:BuildCommitmentsResponse"/>
+  </message>
+  <message name="CheckBudgetExistingDocumentRequest">
+    <part name="CheckBudgetExistingDocumentRequest" element="comaccws:CheckBudgetExistingDocumentRequest"/>
+  </message>
+  <message name="LiquidateInvoiceResponse">
+    <part name="LiquidateInvoiceResponse" element="comaccws:LiquidateInvoiceResponse"/>
+  </message>
+  <message name="CheckBudgetExistingLineResponse">
+    <part name="CheckBudgetExistingLineResponse" element="comaccws:CheckBudgetExistingLineResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="comaccws:OptionsResponse"/>
+  </message>
+  <message name="PostAccrualWithReversingResponse">
+    <part name="PostAccrualWithReversingResponse" element="comaccws:PostAccrualWithReversingResponse"/>
+  </message>
+  <message name="CommitUnmatchedInvoiceLineResponse">
+    <part name="CommitUnmatchedInvoiceLineResponse" element="comaccws:CommitUnmatchedInvoiceLineResponse"/>
+  </message>
+  <message name="CheckBudgetExistingDocumentResponse">
+    <part name="CheckBudgetExistingDocumentResponse" element="comaccws:CheckBudgetExistingDocumentResponse"/>
+  </message>
+  <message name="CheckBudgetRequest">
+    <part name="CheckBudgetRequest" element="comaccws:CheckBudgetRequest"/>
+  </message>
+  <message name="BuildCommitmentsRequest">
+    <part name="BuildCommitmentsRequest" element="comaccws:BuildCommitmentsRequest"/>
+  </message>
+  <portType name="POPCommitmentAccountingServicePortTypes">
+    <operation name="GenerateAuditBalances">
+      <input message="comaccws:GenerateAuditBalancesRequest"/>
+      <output message="comaccws:GenerateAuditBalancesResponse"/>
+    </operation>
+    <operation name="CommitMatchedInvoiceLine">
+      <input message="comaccws:CommitMatchedInvoiceLineRequest"/>
+      <output message="comaccws:CommitMatchedInvoiceLineResponse"/>
+    </operation>
+    <operation name="PostAccrualWithReversing">
+      <input message="comaccws:PostAccrualWithReversingRequest"/>
+      <output message="comaccws:PostAccrualWithReversingResponse"/>
+    </operation>
+    <operation name="CheckBudget">
+      <input message="comaccws:CheckBudgetRequest"/>
+      <output message="comaccws:CheckBudgetResponse"/>
+    </operation>
+    <operation name="LiquidateInvoice">
+      <input message="comaccws:LiquidateInvoiceRequest"/>
+      <output message="comaccws:LiquidateInvoiceResponse"/>
+    </operation>
+    <operation name="CheckBudgetExistingDocument">
+      <input message="comaccws:CheckBudgetExistingDocumentRequest"/>
+      <output message="comaccws:CheckBudgetExistingDocumentResponse"/>
+    </operation>
+    <operation name="CommitUnmatchedInvoiceLine">
+      <input message="comaccws:CommitUnmatchedInvoiceLineRequest"/>
+      <output message="comaccws:CommitUnmatchedInvoiceLineResponse"/>
+    </operation>
+    <operation name="BuildCommitments">
+      <input message="comaccws:BuildCommitmentsRequest"/>
+      <output message="comaccws:BuildCommitmentsResponse"/>
+    </operation>
+    <operation name="CheckBudgetExistingLine">
+      <input message="comaccws:CheckBudgetExistingLineRequest"/>
+      <output message="comaccws:CheckBudgetExistingLineResponse"/>
+    </operation>
+    <operation name="HousekeepLRN">
+      <input message="comaccws:HousekeepLRNRequest"/>
+      <output message="comaccws:HousekeepLRNResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPCommitmentAccountingServiceSOAPBinding" type="comaccws:POPCommitmentAccountingServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GenerateAuditBalances">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPCommitmentAccounting/GenerateAuditBalances" style="document"/>
+      <input>
+        <soap:header message="comaccws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="comaccws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CommitMatchedInvoiceLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPCommitmentAccounting/CommitMatchedInvoiceLine" style="document"/>
+      <input>
+        <soap:header message="comaccws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="comaccws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PostAccrualWithReversing">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPCommitmentAccounting/PostAccrualWithReversing" style="document"/>
+      <input>
+        <soap:header message="comaccws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="comaccws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckBudget">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPCommitmentAccounting/CheckBudget" style="document"/>
+      <input>
+        <soap:header message="comaccws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="comaccws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LiquidateInvoice">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPCommitmentAccounting/LiquidateInvoice" style="document"/>
+      <input>
+        <soap:header message="comaccws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="comaccws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckBudgetExistingDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPCommitmentAccounting/CheckBudgetExistingDocument" style="document"/>
+      <input>
+        <soap:header message="comaccws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="comaccws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CommitUnmatchedInvoiceLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPCommitmentAccounting/CommitUnmatchedInvoiceLine" style="document"/>
+      <input>
+        <soap:header message="comaccws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="comaccws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="BuildCommitments">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPCommitmentAccounting/BuildCommitments" style="document"/>
+      <input>
+        <soap:header message="comaccws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="comaccws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckBudgetExistingLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPCommitmentAccounting/CheckBudgetExistingLine" style="document"/>
+      <input>
+        <soap:header message="comaccws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="comaccws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="HousekeepLRN">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPCommitmentAccounting/HousekeepLRN" style="document"/>
+      <input>
+        <soap:header message="comaccws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="comaccws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPCommitmentAccountingService">
+    <port name="POPCommitmentAccountingServicePort" binding="comaccws:POPCommitmentAccountingServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/commitmentacc/popcommitmentaccounting-12.0"/>
+    </port>
+  </service>
+</definitions>

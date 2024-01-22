@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/bankreconciliation/bankreconciliation-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:brrws="http://www.coda.com/efinance/schemas/bankreconciliation/bankreconciliation-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:brm="http://www.coda.com/efinance/schemas/bankreconciliationmaster"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:aso="http://www.coda.com/efinance/schemas/association"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:prg="http://www.coda.com/efinance/schemas/progress"
+    xmlns:brr="http://www.coda.com/efinance/schemas/bankreconciliation"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/bankreconciliation/bankreconciliation-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/bankreconciliation" schemaLocation="../wsdl/finance/bankreconciliation/bankreconciliation.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/progress" schemaLocation="finance/progress/progress.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/bankreconciliationmaster" schemaLocation="finance/bankreconciliationmaster/bankreconciliationmaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/association" schemaLocation="finance/association/association.xsd"/>
+    <xsd:element name="StartAssistantResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key that
+                            identifies the Assisted Interactive
+                            Reconciliation process that has been started.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogID" minOccurs="0" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A system-generated number
+                            identifying the log file in which this
+                            reconciliation session has been logged.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetReconciliationGroupsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Groups" type="brr:ReconciliationGroups">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the groups in the reconciliation session.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CommitRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReconciliationParams" type="brr:ReconciliationParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            reconciling Financials document lines with
+                            statement lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" type="brr:ReconciliationGroups">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the reconciliation groups in the
+                            reconciliation session.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetReconciliationGroupsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key that
+                            identifies the Assistant process for which
+                            you want to retrieve reconciliation group information.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProgressRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            started. This is given to you when you start
+                            the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AbortResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special reference
+                            which identifies the process you want to abort.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateParamsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which you are performing reconciliation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MasterCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the
+                            reconciliation master being used for the
+                            current reconciliation session.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UndoRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="UndoReconciliationParams" type="brr:UndoServiceParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters used by the UndoRequest,
+                            including the company code and log title.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" type="brr:UndoReconciliationGroups">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters identifying the reconciliation
+                            groups to be undone.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartAssistantRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReconciliationParams" type="brr:ReconciliationParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            reconciling Financials document lines with
+                            statement lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Folders" type="aso:asoKeyFolders">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of the folders in which the Financials
+                            document lines and statement lines are listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="StartAtGroupNumber" minOccurs="0" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The group number at which the
+                            assistant should start creating
+                            reconciliation groups. For example, the user
+                            might have manually created groups 1 and 2,
+                            and would                 therefore want the
+                            Assistant to create new groups starting from
+                            3.               </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProgressResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            are sending the request to. This is given to
+                            you when you start the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Progress" minOccurs="0" type="prg:ProgressData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains information about
+                            the status and progress of the process you
+                            are running.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Statistics" minOccurs="0" type="aso:ProgressStatistics">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            statistics of the lines that the Assistant
+                            has processed so far.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetWriteOffLimitsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Params" type="brr:ReconciliationWriteOffLimitParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which are specified to retrieve
+                            credit/debit write off tolerances.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetWriteOffLimitsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CreditWriteOffLimit" minOccurs="0" type="com:typeMoney">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum credit amount
+                            that may be written off for the specified value.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DebitWriteOffLimit" minOccurs="0" type="com:typeMoney">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum credit amount
+                            that may be written off for the specified value.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UndoResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="UndoReconciliationParams" type="brr:UndoServiceParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters you provided in the UndoRequest
+                            corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Groups" type="brr:UndoGroupResults">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            results of the UndoRequest corresponding to
+                            this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AbortRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            want to abort. This is given to you when you
+                            start the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartBackgroundResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key that
+                            identifies the Background Reconciliation
+                            process that has been started.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogID" minOccurs="0" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A system-generated number
+                            identifying the log file in which this
+                            reconciliation session has been logged.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CommitResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Results" type="brr:CommitGroupResults">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            results of the groups committed by the
+                            CommitRequest corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogID" minOccurs="0" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A system-generated number
+                            identifying the log file in which this
+                            reconciliation session has been logged.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateParamsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReconciliationParams" type="brr:ReconciliationParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            reconciling Financials document lines with
+                            statement lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartBackgroundRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReconciliationParams" type="brr:ReconciliationParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            reconciling Financials document lines with
+                            statement lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Selectors" type="brr:ReconciliationSelectors">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            selectors to use for selecting Financials
+                            document lines and statement lines for the
+                            Background Matching process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetProgressResponse">
+    <part name="GetProgressResponse" element="brrws:GetProgressResponse"/>
+  </message>
+  <message name="StartAssistantResponse">
+    <part name="StartAssistantResponse" element="brrws:StartAssistantResponse"/>
+  </message>
+  <message name="AbortRequest">
+    <part name="AbortRequest" element="brrws:AbortRequest"/>
+  </message>
+  <message name="GetWriteOffLimitsRequest">
+    <part name="GetWriteOffLimitsRequest" element="brrws:GetWriteOffLimitsRequest"/>
+  </message>
+  <message name="StartBackgroundRequest">
+    <part name="StartBackgroundRequest" element="brrws:StartBackgroundRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="brrws:OptionsResponse"/>
+  </message>
+  <message name="GetWriteOffLimitsResponse">
+    <part name="GetWriteOffLimitsResponse" element="brrws:GetWriteOffLimitsResponse"/>
+  </message>
+  <message name="GetProgressRequest">
+    <part name="GetProgressRequest" element="brrws:GetProgressRequest"/>
+  </message>
+  <message name="CommitRequest">
+    <part name="CommitRequest" element="brrws:CommitRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="brrws:Options"/>
+  </message>
+  <message name="AbortResponse">
+    <part name="AbortResponse" element="brrws:AbortResponse"/>
+  </message>
+  <message name="ValidateParamsRequest">
+    <part name="ValidateParamsRequest" element="brrws:ValidateParamsRequest"/>
+  </message>
+  <message name="ValidateParamsResponse">
+    <part name="ValidateParamsResponse" element="brrws:ValidateParamsResponse"/>
+  </message>
+  <message name="CommitResponse">
+    <part name="CommitResponse" element="brrws:CommitResponse"/>
+  </message>
+  <message name="UndoResponse">
+    <part name="UndoResponse" element="brrws:UndoResponse"/>
+  </message>
+  <message name="UndoRequest">
+    <part name="UndoRequest" element="brrws:UndoRequest"/>
+  </message>
+  <message name="GetReconciliationGroupsRequest">
+    <part name="GetReconciliationGroupsRequest" element="brrws:GetReconciliationGroupsRequest"/>
+  </message>
+  <message name="GetReconciliationGroupsResponse">
+    <part name="GetReconciliationGroupsResponse" element="brrws:GetReconciliationGroupsResponse"/>
+  </message>
+  <message name="StartAssistantRequest">
+    <part name="StartAssistantRequest" element="brrws:StartAssistantRequest"/>
+  </message>
+  <message name="StartBackgroundResponse">
+    <part name="StartBackgroundResponse" element="brrws:StartBackgroundResponse"/>
+  </message>
+  <portType name="BankReconciliationServicePortTypes">
+    <operation name="Abort">
+      <input message="brrws:AbortRequest"/>
+      <output message="brrws:AbortResponse"/>
+    </operation>
+    <operation name="Commit">
+      <input message="brrws:CommitRequest"/>
+      <output message="brrws:CommitResponse"/>
+    </operation>
+    <operation name="GetReconciliationGroups">
+      <input message="brrws:GetReconciliationGroupsRequest"/>
+      <output message="brrws:GetReconciliationGroupsResponse"/>
+    </operation>
+    <operation name="GetProgress">
+      <input message="brrws:GetProgressRequest"/>
+      <output message="brrws:GetProgressResponse"/>
+    </operation>
+    <operation name="Undo">
+      <input message="brrws:UndoRequest"/>
+      <output message="brrws:UndoResponse"/>
+    </operation>
+    <operation name="StartAssistant">
+      <input message="brrws:StartAssistantRequest"/>
+      <output message="brrws:StartAssistantResponse"/>
+    </operation>
+    <operation name="ValidateParams">
+      <input message="brrws:ValidateParamsRequest"/>
+      <output message="brrws:ValidateParamsResponse"/>
+    </operation>
+    <operation name="GetWriteOffLimits">
+      <input message="brrws:GetWriteOffLimitsRequest"/>
+      <output message="brrws:GetWriteOffLimitsResponse"/>
+    </operation>
+    <operation name="StartBackground">
+      <input message="brrws:StartBackgroundRequest"/>
+      <output message="brrws:StartBackgroundResponse"/>
+    </operation>
+  </portType>
+  <binding name="BankReconciliationServiceSOAPBinding" type="brrws:BankReconciliationServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Abort">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BankReconciliation/Abort" style="document"/>
+      <input>
+        <soap:header message="brrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Commit">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BankReconciliation/Commit" style="document"/>
+      <input>
+        <soap:header message="brrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetReconciliationGroups">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BankReconciliation/GetReconciliationGroups" style="document"/>
+      <input>
+        <soap:header message="brrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProgress">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BankReconciliation/GetProgress" style="document"/>
+      <input>
+        <soap:header message="brrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Undo">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BankReconciliation/Undo" style="document"/>
+      <input>
+        <soap:header message="brrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="StartAssistant">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BankReconciliation/StartAssistant" style="document"/>
+      <input>
+        <soap:header message="brrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateParams">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BankReconciliation/ValidateParams" style="document"/>
+      <input>
+        <soap:header message="brrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetWriteOffLimits">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BankReconciliation/GetWriteOffLimits" style="document"/>
+      <input>
+        <soap:header message="brrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="StartBackground">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/BankReconciliation/StartBackground" style="document"/>
+      <input>
+        <soap:header message="brrws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brrws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="BankReconciliationService">
+    <port name="BankReconciliationServicePort" binding="brrws:BankReconciliationServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/bankreconciliation/bankreconciliation-13.0"/>
+    </port>
+  </service>
+</definitions>

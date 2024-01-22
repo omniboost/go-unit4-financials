@@ -1,0 +1,172 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-POPReceiptingService">
+            <h1>POPReceiptingService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/pop/schemas/receipting/popreceipting-12.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/pop-receipting-popreceipting.wsdl" download="">pop-receipting-popreceipting.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/pop/receipting/popreceipting-12.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#POPReceiptingService-GenerateReceiptFromPurchaseOrder">GenerateReceiptFromPurchaseOrder</a></li>
+               <li><a href="#POPReceiptingService-RefreshTotals">RefreshTotals</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="POPReceiptingService-GenerateReceiptFromPurchaseOrder"></a>GenerateReceiptFromPurchaseOrder
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GenerateReceiptFromPurchaseOrderRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>InputTemplate</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/inputtemplatemaster}InputTemplateMasterKey" href="pop/inputtemplatemaster/inputtemplatemaster.html#{http://www.coda.com/pop/schemas/inputtemplatemaster}InputTemplateMasterKey">InputTemplateMasterKey</a></td>
+                              <td>         
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:popreceipting="http://www.coda.com/pop/schemas/receipting" xmlns:inputtemplate="http://www.coda.com/pop/schemas/inputtemplatemaster" xmlns:grn="http://www.coda.com/pop/schemas/goodsreceivednote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:pord="http://www.coda.com/pop/schemas/purchaseorder" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:popreceiptingws="http://www.coda.com/pop/schemas/receipting/popreceipting-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The Input
+                                    Template that is  used to create the
+                                    receipts. This is  a mandatory
+                                    field.
+                                 </p>        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocumentMasterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>         
+                                 <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:popreceipting="http://www.coda.com/pop/schemas/receipting" xmlns:inputtemplate="http://www.coda.com/pop/schemas/inputtemplatemaster" xmlns:grn="http://www.coda.com/pop/schemas/goodsreceivednote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:pord="http://www.coda.com/pop/schemas/purchaseorder" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:popreceiptingws="http://www.coda.com/pop/schemas/receipting/popreceipting-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">The document code
+                                    to use when creating the document. If
+                                    the template can be applied to multiple
+                                    documents then use this field to specify
+                                    which document to use.  If  the template
+                                    can be applied to
+                                    a single document then this field does
+                                    not have to be populated as the function
+                                    will retrieve the
+                                    document code.
+                                 </p>        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>OrderKeys</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderKeyList" href="pop/purchaseorder/purchaseorder.html#{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderKeyList">PurchaseOrderKeyList</a></td>
+                              <td>The purchase orders for which
+                                 GRNs are to be created.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GenerateReceiptFromPurchaseOrderResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>GRNList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNoteList" href="pop/goodsreceivednote/goodsreceivednote.html#{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNoteList">GoodsReceivedNoteList</a></td>
+                              <td>The GRNList is an out
+                                 argument, so the server will put it here.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="POPReceiptingService-RefreshTotals"></a>RefreshTotals
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>RefreshTotalsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>GoodsReceivedNote</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNote" href="pop/goodsreceivednote/goodsreceivednote.html#{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNote">GoodsReceivedNote</a></td>
+                              <td>The details of the GRN whose
+                                 totals are to be recalculated.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>RefreshTotalsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RefreshTotals</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNote" href="pop/goodsreceivednote/goodsreceivednote.html#{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNote">GoodsReceivedNote</a></td>
+                              <td>The return value of the
+                                 refreshTotals function.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

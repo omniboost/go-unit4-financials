@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/browsemetadata/browsemetadata-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:brsmws="http://www.coda.com/common/schemas/browsemetadata/browsemetadata-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:brsm="http://www.coda.com/common/schemas/browsemetadata"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/browsemetadata/browsemetadata-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/browsemetadata" schemaLocation="../wsdl/common/browsemetadata/browsemetadata.xsd"/>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPresentationDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetPresentationData" type="brsm:PresentationData">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            information retrieved by the request
+                            corresponding to this response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPresentationDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataviewCode" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the dataview
+                            master being browsed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresKey" minOccurs="0" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>A key identifying the
+                            presenter you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelKey" minOccurs="0" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>A key identifying the
+                            selector you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="VocabList" type="brsm:ExtraVocabList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of additional
+                            vocabulary items to be returned in the
+                            presentation results.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetPresentationDataRequest">
+    <part name="GetPresentationDataRequest" element="brsmws:GetPresentationDataRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="brsmws:OptionsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="brsmws:Options"/>
+  </message>
+  <message name="GetPresentationDataResponse">
+    <part name="GetPresentationDataResponse" element="brsmws:GetPresentationDataResponse"/>
+  </message>
+  <portType name="BrowseMetadataServicePortTypes">
+    <operation name="GetPresentationData">
+      <input message="brsmws:GetPresentationDataRequest"/>
+      <output message="brsmws:GetPresentationDataResponse"/>
+    </operation>
+  </portType>
+  <binding name="BrowseMetadataServiceSOAPBinding" type="brsmws:BrowseMetadataServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetPresentationData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/BrowseMetadata/GetPresentationData" style="document"/>
+      <input>
+        <soap:header message="brsmws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="brsmws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="BrowseMetadataService">
+    <port name="BrowseMetadataServicePort" binding="brsmws:BrowseMetadataServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/browsemetadata/browsemetadata-13.0"/>
+    </port>
+  </service>
+</definitions>

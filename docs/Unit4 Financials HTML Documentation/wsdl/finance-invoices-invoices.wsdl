@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/invoices/invoices-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invprintws="http://www.coda.com/efinance/schemas/invoices/invoices-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:invprint="http://www.coda.com/efinance/schemas/invoices"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/invoices/invoices-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/invoices" schemaLocation="../wsdl/finance/invoices/invoices.xsd"/>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Print" type="invprint:InvoicesPrint">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the print function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintFormatMasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The code for the print
+                                format master.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OutputDeviceMasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The code for the output
+                                device master.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogTitle" type="com:typeComLogtitle">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The title for the log.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="EmailSubject" minOccurs="0" type="com:typeLongDescription">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The text that is
+                                displayed in the Subject field of the
+                                e-mail, if the output is sent to an
+                                e-mail address.              To be used
+                                if the email template master code is not
+                                set.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="EmailBody" minOccurs="0" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The text to be inserted
+                                as the body of the e-mail.
+                                To be used if the email template master
+                                code is not set.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="EmailMasterTemplate" minOccurs="0" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The code for an e-mail
+                                template master.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MaxDocumentsPerFile" type="com:typePositiveWord">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             The maximum number of
+                                documents to combine into a single
+                                repository file.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="InvoiceList" type="invprint:InvoicesPrintInvoiceList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>             A list of invoice
+                                documents to print.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="PrintRequest">
+    <part name="PrintRequest" element="invprintws:PrintRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="invprintws:Options"/>
+  </message>
+  <message name="PrintResponse">
+    <part name="PrintResponse" element="invprintws:PrintResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="invprintws:OptionsResponse"/>
+  </message>
+  <portType name="InvoicesServicePortTypes">
+    <operation name="Print">
+      <input message="invprintws:PrintRequest"/>
+      <output message="invprintws:PrintResponse"/>
+    </operation>
+  </portType>
+  <binding name="InvoicesServiceSOAPBinding" type="invprintws:InvoicesServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Print">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Invoices/Print" style="document"/>
+      <input>
+        <soap:header message="invprintws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invprintws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="InvoicesService">
+    <port name="InvoicesServicePort" binding="invprintws:InvoicesServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/invoices/invoices-13.0"/>
+    </port>
+  </service>
+</definitions>

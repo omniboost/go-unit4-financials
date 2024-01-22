@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/currencycalculation/currencycalculation-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:curcalcws="http://www.coda.com/efinance/schemas/currencycalculation/currencycalculation-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:curcalc="http://www.coda.com/efinance/schemas/currencycalculation"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:datatypes="http://www.coda.com/common/schemas/datatypes"
+    targetNamespace="http://www.coda.com/efinance/schemas/currencycalculation/currencycalculation-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/currencycalculation" schemaLocation="../wsdl/finance/currencycalculation/currencycalculation.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/datatypes" schemaLocation="common/datatypes/datatypes.xsd"/>
+    <xsd:element name="GetRatesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CurCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The source currency.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Date" type="com:typeHard">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The exchange rate date.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRatesUsingExchangeRateRuleResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CurrencyCalculationRates" type="curcalc:CurrencyCalculationRates">
+                    <xsd:annotation>
+                        <xsd:documentation>The CurrencyCalculationRates
+                            is an out argument, so the server will put
+                            it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRatesUsingExchangeRateRuleRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CurCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The source currency.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Date" type="com:typeHard">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The exchange rate date.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRatesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CurrencyCalculationRates" type="curcalc:CurrencyCalculationRates">
+                    <xsd:annotation>
+                        <xsd:documentation>The CurrencyCalculationRates
+                            is an out argument, so the server will put
+                            it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetRatesResponse">
+    <part name="GetRatesResponse" element="curcalcws:GetRatesResponse"/>
+  </message>
+  <message name="GetRatesUsingExchangeRateRuleResponse">
+    <part name="GetRatesUsingExchangeRateRuleResponse" element="curcalcws:GetRatesUsingExchangeRateRuleResponse"/>
+  </message>
+  <message name="GetRatesUsingExchangeRateRuleRequest">
+    <part name="GetRatesUsingExchangeRateRuleRequest" element="curcalcws:GetRatesUsingExchangeRateRuleRequest"/>
+  </message>
+  <message name="GetRatesRequest">
+    <part name="GetRatesRequest" element="curcalcws:GetRatesRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="curcalcws:OptionsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="curcalcws:Options"/>
+  </message>
+  <portType name="CurrencyCalculationServicePortTypes">
+    <operation name="GetRates">
+      <input message="curcalcws:GetRatesRequest"/>
+      <output message="curcalcws:GetRatesResponse"/>
+    </operation>
+    <operation name="GetRatesUsingExchangeRateRule">
+      <input message="curcalcws:GetRatesUsingExchangeRateRuleRequest"/>
+      <output message="curcalcws:GetRatesUsingExchangeRateRuleResponse"/>
+    </operation>
+  </portType>
+  <binding name="CurrencyCalculationServiceSOAPBinding" type="curcalcws:CurrencyCalculationServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetRates">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/CurrencyCalculation/GetRates" style="document"/>
+      <input>
+        <soap:header message="curcalcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curcalcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetRatesUsingExchangeRateRule">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/CurrencyCalculation/GetRatesUsingExchangeRateRule" style="document"/>
+      <input>
+        <soap:header message="curcalcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curcalcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CurrencyCalculationService">
+    <port name="CurrencyCalculationServicePort" binding="curcalcws:CurrencyCalculationServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/currencycalculation/currencycalculation-14.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,954 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/common/schemas/userpreferences</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/common/schemas/userpreferences</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>UserPreferencesRequest</h3>
+         <p>This service allows you to maintain Favourites lists.</p>
+         <h3>UserPreferencesResponse</h3>
+         <p>This is the response that is returned when you maintain Favourites lists.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/common/schemas/userpreferences}FavouritesKey"></a><h3>FavouritesKey</h3>
+         <p>This element holds the keys used to identify a Favourites list.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UserCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The code that identifies a user master.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The code identifying the company in which this Favourites list is held.</td>
+                  </tr>
+                  <tr>
+                     <td>Location</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>Identifies the area within the product to which this Favourites list applies.</td>
+                  </tr>
+                  <tr>
+                     <td>Context</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The context in which the Favourites list applies.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmLevel</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The element level for settings.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}Favourite"></a><h3>Favourite</h3>
+         <p>The Favourite type has <a title="{http://www.coda.com/common/schemas/userpreferences}FavouritesKey" href="#{http://www.coda.com/common/schemas/userpreferences}FavouritesKey">FavouritesKey</a> as its base type.
+         </p>
+         <p>This element holds information about a Favourites list, such as the number of lines
+            that will be displayed in the list.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MaxLines</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The maximum number of lines to display in the list.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}MasterFavourites"></a><h3>MasterFavourites</h3>
+         <p>This element holds all the information for a Favourites list.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Favourite</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}Favourite" href="#{http://www.coda.com/common/schemas/userpreferences}Favourite">Favourite</a></td>
+                     <td>This element holds information about a Favourites list, such as the number of lines
+                        that will be displayed in the list.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>List</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}MasterFavouritesListData" href="#{http://www.coda.com/common/schemas/userpreferences}MasterFavouritesListData">MasterFavouritesListData</a></td>
+                     <td>This element holds the items in a Favourites list.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}MasterFavouritesListData"></a><h3>MasterFavouritesListData</h3>
+         <p>This element holds the items in a Favourites list.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Item</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}MasterFavouritesListElement" href="#{http://www.coda.com/common/schemas/userpreferences}MasterFavouritesListElement">MasterFavouritesListElement</a></td>
+                     <td>This element holds information about an item in a Favourites list.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}MasterFavouritesListElement"></a><h3>MasterFavouritesListElement</h3>
+         <p>This element holds information about an item in a Favourites list.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>LineNumber</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The line number of the item.</td>
+                  </tr>
+                  <tr>
+                     <td>UserCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The code that identifies a user master.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The code identifying the company in which this Favourites list is held.</td>
+                  </tr>
+                  <tr>
+                     <td>Location</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>Identifies the area within the product to which this Favourites list applies.</td>
+                  </tr>
+                  <tr>
+                     <td>Context</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The context in which the Favourites list applies</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The code that identifies a master.</td>
+                  </tr>
+                  <tr>
+                     <td>Name</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The descriptive name for the master.</td>
+                  </tr>
+                  <tr>
+                     <td>ShortName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The abbreviated name for the master.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The level within the account code if this Favourites item is an element master.</td>
+                  </tr>
+                  <tr>
+                     <td>ElmLevelOneOfN</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>An internal representation of the element ElmLevel.</td>
+                  </tr>
+                  <tr>
+                     <td>TypeOneOfN</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeComFavouritesType" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeComFavouritesType">typeComFavouritesType</a></td>
+                     <td>An internal representation of the element Type.</td>
+                  </tr>
+                  <tr>
+                     <td>Type</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>Specifies the item type - whether the row details are derived from the most recently
+                        used reports (Dynamic), or defined by the user (Static).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>IsDynamic</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether the Favourites item is dynamic, which means it is derived from the
+                        most recently used Favourites items.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>LastAccessed</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>The date and time at which this Favourites item was last selected.</td>
+                  </tr>
+                  <tr>
+                     <td>CodeTip</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The tooltip for the icon beside the Code field when the row type is Static.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}EditMasterFavouritesParams"></a><h3>EditMasterFavouritesParams</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MasterFavourites</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}MasterFavourites" href="#{http://www.coda.com/common/schemas/userpreferences}MasterFavourites">MasterFavourites</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Title</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>CodeType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>PickerArgs</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>AssetType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>LedgerType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>DetailsType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>BalanceType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>DocumentType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}EditMasterFavouritesCallback"></a><h3>EditMasterFavouritesCallback</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Name</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ShortName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}MasterFavouriteKey"></a><h3>MasterFavouriteKey</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>UserCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Location</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Context</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ElmLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}GetMasterFavouritesRequest"></a><h3>GetMasterFavouritesRequest</h3>
+         <p>The GetMasterFavouritesRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}FavouritesKey" href="#{http://www.coda.com/common/schemas/userpreferences}FavouritesKey">FavouritesKey</a></td>
+                     <td>Contains the key identifying the Favourites list you want to retrieve.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}GetMasterFavouritesRequestVerb"></a><h3>GetMasterFavouritesRequestVerb</h3>
+         <p>The GetMasterFavouritesRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the specified Favourites lists from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}GetMasterFavouritesRequest" href="#{http://www.coda.com/common/schemas/userpreferences}GetMasterFavouritesRequest">GetMasterFavouritesRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}GetMasterFavouritesResponse"></a><h3>GetMasterFavouritesResponse</h3>
+         <p>The GetMasterFavouritesResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MasterFavourites</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}MasterFavourites" href="#{http://www.coda.com/common/schemas/userpreferences}MasterFavourites">MasterFavourites</a></td>
+                     <td>Contains the Favourites list you have retrieved from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}GetMasterFavouritesResponseVerb"></a><h3>GetMasterFavouritesResponseVerb</h3>
+         <p>The GetMasterFavouritesResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}GetMasterFavouritesResponse" href="#{http://www.coda.com/common/schemas/userpreferences}GetMasterFavouritesResponse">GetMasterFavouritesResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesRequest"></a><h3>UpdateMasterFavouritesRequest</h3>
+         <p>The UpdateMasterFavouritesRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MasterFavourites</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}MasterFavourites" href="#{http://www.coda.com/common/schemas/userpreferences}MasterFavourites">MasterFavourites</a></td>
+                     <td>Contains the information for the Favourites list you want to update.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesRequestVerb"></a><h3>UpdateMasterFavouritesRequestVerb</h3>
+         <p>The UpdateMasterFavouritesRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Updates Favourites lists in the database using the information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesRequest" href="#{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesRequest">UpdateMasterFavouritesRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesResponse"></a><h3>UpdateMasterFavouritesResponse</h3>
+         <p>The UpdateMasterFavouritesResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesResponseVerb"></a><h3>UpdateMasterFavouritesResponseVerb</h3>
+         <p>The UpdateMasterFavouritesResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesResponse" href="#{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesResponse">UpdateMasterFavouritesResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}AddMasterFavouriteRequest"></a><h3>AddMasterFavouriteRequest</h3>
+         <p>The AddMasterFavouriteRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MasterFavourite</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}MasterFavourites" href="#{http://www.coda.com/common/schemas/userpreferences}MasterFavourites">MasterFavourites</a></td>
+                     <td>This contains the Favourites list you want to update.</td>
+                  </tr>
+                  <tr>
+                     <td>MasterFavouriteElement</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}MasterFavouritesListElement" href="#{http://www.coda.com/common/schemas/userpreferences}MasterFavouritesListElement">MasterFavouritesListElement</a></td>
+                     <td>This contains the items in a Favourites list you want to update.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}AddMasterFavouriteRequestVerb"></a><h3>AddMasterFavouriteRequestVerb</h3>
+         <p>The AddMasterFavouriteRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Creates new Favourites lists in the database using the information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}AddMasterFavouriteRequest" href="#{http://www.coda.com/common/schemas/userpreferences}AddMasterFavouriteRequest">AddMasterFavouriteRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}AddMasterFavouriteResponse"></a><h3>AddMasterFavouriteResponse</h3>
+         <p>The AddMasterFavouriteResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MasterFavourites</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}MasterFavourites" href="#{http://www.coda.com/common/schemas/userpreferences}MasterFavourites">MasterFavourites</a></td>
+                     <td>The Favourites list that you want to add.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}AddMasterFavouriteResponseVerb"></a><h3>AddMasterFavouriteResponseVerb</h3>
+         <p>The AddMasterFavouriteResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}AddMasterFavouriteResponse" href="#{http://www.coda.com/common/schemas/userpreferences}AddMasterFavouriteResponse">AddMasterFavouriteResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesFromListRequest"></a><h3>UpdateMasterFavouritesFromListRequest</h3>
+         <p>The UpdateMasterFavouritesFromListRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MasterFavourites</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}MasterFavourites" href="#{http://www.coda.com/common/schemas/userpreferences}MasterFavourites">MasterFavourites</a></td>
+                     <td>The original Favourites list.</td>
+                  </tr>
+                  <tr>
+                     <td>MasterFavouritesList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}MasterFavouritesListData" href="#{http://www.coda.com/common/schemas/userpreferences}MasterFavouritesListData">MasterFavouritesListData</a></td>
+                     <td>The Favourites list you want to merge.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesFromListRequestVerb"></a><h3>UpdateMasterFavouritesFromListRequestVerb</h3>
+         <p>The UpdateMasterFavouritesFromListRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Merges an existing Favourites list with another list.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesFromListRequest" href="#{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesFromListRequest">UpdateMasterFavouritesFromListRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesFromListResponse"></a><h3>UpdateMasterFavouritesFromListResponse</h3>
+         <p>The UpdateMasterFavouritesFromListResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MasterFavourites</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}MasterFavourites" href="#{http://www.coda.com/common/schemas/userpreferences}MasterFavourites">MasterFavourites</a></td>
+                     <td>The Favourites list that you attempted to update.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesFromListResponseVerb"></a><h3>UpdateMasterFavouritesFromListResponseVerb</h3>
+         <p>The UpdateMasterFavouritesFromListResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesFromListResponse" href="#{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesFromListResponse">UpdateMasterFavouritesFromListResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}UserPreferencesRequest"></a><h3>UserPreferencesRequest</h3>
+         <p>The UserPreferencesRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to maintain Favourites lists.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetMasterFavourites</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}GetMasterFavouritesRequestVerb" href="#{http://www.coda.com/common/schemas/userpreferences}GetMasterFavouritesRequestVerb">GetMasterFavouritesRequestVerb</a></td>
+                     <td>Retrieves the specified Favourites lists from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateMasterFavourites</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesRequestVerb" href="#{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesRequestVerb">UpdateMasterFavouritesRequestVerb</a></td>
+                     <td>Updates Favourites lists in the database using the information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>AddMasterFavourite</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}AddMasterFavouriteRequestVerb" href="#{http://www.coda.com/common/schemas/userpreferences}AddMasterFavouriteRequestVerb">AddMasterFavouriteRequestVerb</a></td>
+                     <td>Creates new Favourites lists in the database using the information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateMasterFavouritesFromList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesFromListRequestVerb" href="#{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesFromListRequestVerb">UpdateMasterFavouritesFromListRequestVerb</a></td>
+                     <td>Merges an existing Favourites list with another list.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/common/schemas/userpreferences}UserPreferencesResponse"></a><h3>UserPreferencesResponse</h3>
+         <p>The UserPreferencesResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you maintain Favourites lists.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GetMasterFavourites</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}GetMasterFavouritesResponseVerb" href="#{http://www.coda.com/common/schemas/userpreferences}GetMasterFavouritesResponseVerb">GetMasterFavouritesResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateMasterFavourites</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesResponseVerb" href="#{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesResponseVerb">UpdateMasterFavouritesResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>AddMasterFavourite</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}AddMasterFavouriteResponseVerb" href="#{http://www.coda.com/common/schemas/userpreferences}AddMasterFavouriteResponseVerb">AddMasterFavouriteResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>UpdateMasterFavouritesFromList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesFromListResponseVerb" href="#{http://www.coda.com/common/schemas/userpreferences}UpdateMasterFavouritesFromListResponseVerb">UpdateMasterFavouritesFromListResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

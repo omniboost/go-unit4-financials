@@ -1,0 +1,1486 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-MatchingService">
+            <h1>MatchingService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/matching/matching-14.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-matching-matching.wsdl" download="">finance-matching-matching.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/matching/matching-14.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#MatchingService-Abort">Abort</a></li>
+               <li><a href="#MatchingService-Commit">Commit</a></li>
+               <li><a href="#MatchingService-Discount">Discount</a></li>
+               <li><a href="#MatchingService-Disperse">Disperse</a></li>
+               <li><a href="#MatchingService-GetDiscounts">GetDiscounts</a></li>
+               <li><a href="#MatchingService-GetDocumentChain">GetDocumentChain</a></li>
+               <li><a href="#MatchingService-GetDrivingLineInfo">GetDrivingLineInfo</a></li>
+               <li><a href="#MatchingService-GetGroupLines">GetGroupLines</a></li>
+               <li><a href="#MatchingService-GetLineValues">GetLineValues</a></li>
+               <li><a href="#MatchingService-GetPayDetailsSources">GetPayDetailsSources</a></li>
+               <li><a href="#MatchingService-GetProgress">GetProgress</a></li>
+               <li><a href="#MatchingService-GetTotals">GetTotals</a></li>
+               <li><a href="#MatchingService-PartMatch">PartMatch</a></li>
+               <li><a href="#MatchingService-SelectLines">SelectLines</a></li>
+               <li><a href="#MatchingService-SelectMaster">SelectMaster</a></li>
+               <li><a href="#MatchingService-StartAssistant">StartAssistant</a></li>
+               <li><a href="#MatchingService-StartBackground">StartBackground</a></li>
+               <li><a href="#MatchingService-ValidateParams">ValidateParams</a></li>
+               <li><a href="#MatchingService-WriteOff">WriteOff</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="MatchingService-Abort"></a>Abort
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>AbortRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, which identifies the process you
+                                 want to abort. This is given to you when you
+                                 start the process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>AbortResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special reference
+                                 which identifies the process you want to abort.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-Commit"></a>Commit
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CommitRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 matching debit and credit entries.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Groups</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchGroups" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchGroups">MatchGroups</a></td>
+                              <td>This element contains details
+                                 of the matching groups in the matching session.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CommitResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 matching parameters you specified in the
+                                 CommitRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Results</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}GroupResults" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}GroupResults">GroupResults</a></td>
+                              <td>This element contains the
+                                 results of the matches committed by the
+                                 CommitRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-Discount"></a>Discount
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>DiscountRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 matching debit and credit entries.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Details</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchDetails" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchDetails">MatchDetails</a></td>
+                              <td>This element contains the
+                                 match details for the specified document line.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Edits</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}DetailEdits" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}DetailEdits">DetailEdits</a></td>
+                              <td>This element contains changed
+                                 currency values and/or rates for the
+                                 document line specified in the Details element.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>DiscountResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 matching parameters you specified in the
+                                 DiscountRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Details</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchDetails" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchDetails">MatchDetails</a></td>
+                              <td>This element contains the
+                                 match details for the specified document line.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-Disperse"></a>Disperse
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>DisperseRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 matching debit and credit entries.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Groups</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchGroups" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchGroups">MatchGroups</a></td>
+                              <td>This element contains details
+                                 of the matching groups in the matching session.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>DisperseResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 matching parameters you specified in the
+                                 DisperseRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Results</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}GroupResults" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}GroupResults">GroupResults</a></td>
+                              <td>This element contains the
+                                 results of the matches dispersed by the
+                                 DisperseRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-GetDiscounts"></a>GetDiscounts
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDiscountsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/association}asoKey" href="finance/association/association.html#{http://www.coda.com/efinance/schemas/association}asoKey">asoKey</a></td>
+                              <td>Contains a key that
+                                 identifies the document line.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CurrCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the currency in
+                                 which you want to obtain the discount values.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDiscountsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/association}asoKey" href="finance/association/association.html#{http://www.coda.com/efinance/schemas/association}asoKey">asoKey</a></td>
+                              <td>This element contains a key
+                                 that identifies the document line.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CurrCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the currency in
+                                 which the discount values are supplied.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Discounts</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}Discounts" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}Discounts">Discounts</a></td>
+                              <td>This element contains the
+                                 discount rates available for this document line.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-GetDocumentChain"></a>GetDocumentChain
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDocumentChainRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>DocChainSelectKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}DocChainSelectKey" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}DocChainSelectKey">DocChainSelectKey</a></td>
+                              <td>The key used to retrieve the
+                                 document chain information.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDocumentChainResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>DocChainSelectKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}DocChainSelectKey" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}DocChainSelectKey">DocChainSelectKey</a></td>
+                              <td>The key used to retrieve the
+                                 document chain information.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectDocType</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGenericOon" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGenericOon">typeGenericOon</a></td>
+                              <td>The type of document.</td>
+                           </tr>
+                           <tr>
+                              <td>DocChainKeyList</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}DocChainKeyList" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}DocChainKeyList">DocChainKeyList</a></td>
+                              <td>A list of document keys (made
+                                 up of company code, document code and
+                                 document number).
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-GetDrivingLineInfo"></a>GetDrivingLineInfo
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDrivingLineInfoRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 matching debit and credit entries.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Groups</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchGroups" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchGroups">MatchGroups</a></td>
+                              <td>This element contains details
+                                 of the matching groups in the matching session.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDrivingLineInfoResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 matching parameters you specified in the
+                                 GetDrivingLineInfoRequest corresponding to
+                                 this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Groups</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchGroups" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchGroups">MatchGroups</a></td>
+                              <td>This element contains details
+                                 of the matching group you specified in the
+                                 GetDrivingLineInfoRequest corresponding to
+                                 this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DrivingLineInfo</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingDataSources" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingDataSources">MatchingDataSources</a></td>
+                              <td>This element contains
+                                 information about the document lines which
+                                 can be selected as the driving line.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-GetGroupLines"></a>GetGroupLines
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetGroupLinesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>Contains a key that
+                                 identifies the Assistant process for which
+                                 you want to retrieve matching group information.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetGroupLinesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>Contains a key that
+                                 identifies the Assistant process for which
+                                 matching group information has been retrieved.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Groups</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchGroups" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchGroups">MatchGroups</a></td>
+                              <td>This element contains details
+                                 of the matching groups in the matching session.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-GetLineValues"></a>GetLineValues
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetLineValuesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 matching debit and credit entries.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Details</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchDetails" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchDetails">MatchDetails</a></td>
+                              <td>This element contains the
+                                 match details for the specified document line.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetLineValuesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 matching parameters you specified in the
+                                 GetLineValuesRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Details</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchDetails" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchDetails">MatchDetails</a></td>
+                              <td>This element contains the
+                                 match details for the specified document line.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-GetPayDetailsSources"></a>GetPayDetailsSources
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetPayDetailsSourcesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 matching debit and credit entries.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Groups</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchGroups" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchGroups">MatchGroups</a></td>
+                              <td>This element contains details
+                                 of the matching groups in the matching session.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetPayDetailsSourcesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 matching parameters you specified in the
+                                 GetPayDetailsSourcesRequest corresponding to
+                                 this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Groups</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchGroups" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchGroups">MatchGroups</a></td>
+                              <td>This element contains details
+                                 of the matching group you specified in the
+                                 GetPayDetailsSourcesRequest corresponding to
+                                 this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Sources</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingDataSources" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingDataSources">MatchingDataSources</a></td>
+                              <td>This element contains
+                                 information about the document lines which
+                                 can be selected as the source for data propagation.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-GetProgress"></a>GetProgress
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetProgressRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, which identifies the process you
+                                 started. This is given to you when you start
+                                 the process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetProgressResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, which identifies the process you
+                                 are sending the request to. This is given to
+                                 you when you start the process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Progress</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressData" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressData">ProgressData</a></td>
+                              <td>Contains information about
+                                 the status and progress of the process you
+                                 are running.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Statistics</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/association}ProgressStatistics" href="finance/association/association.html#{http://www.coda.com/efinance/schemas/association}ProgressStatistics">ProgressStatistics</a></td>
+                              <td>This element contains
+                                 statistics of the lines that the Assistant
+                                 has processed so far.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-GetTotals"></a>GetTotals
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetTotalsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 matching debit and credit entries.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Groups</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchGroups" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchGroups">MatchGroups</a></td>
+                              <td>This element contains details
+                                 of the matching groups in the matching session.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetTotalsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 matching parameters you specified in the
+                                 GetTotalsRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Groups</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchGroups" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchGroups">MatchGroups</a></td>
+                              <td>This element contains details
+                                 of the matching group you specified in the
+                                 GetTotalsRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Totals</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchTotals" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchTotals">MatchTotals</a></td>
+                              <td>This element contains the
+                                 total value (in matching, home and dual
+                                 currency) of all the document lines included
+                                 in the match.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-PartMatch"></a>PartMatch
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PartMatchRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 matching debit and credit entries.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Details</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchDetails" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchDetails">MatchDetails</a></td>
+                              <td>This element contains the
+                                 match details for the specified document line.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Edits</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}DetailEdits" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}DetailEdits">DetailEdits</a></td>
+                              <td>This element contains changed
+                                 currency values and/or rates for the
+                                 document line specified in the Details element.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PartMatchResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 matching parameters you specified in the
+                                 PartMatchRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Details</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchDetails" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchDetails">MatchDetails</a></td>
+                              <td>This element contains the
+                                 match details for the specified document line.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-SelectLines"></a>SelectLines
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectLinesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 matching debit and credit entries.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Folders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}SelectFolders" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}SelectFolders">SelectFolders</a></td>
+                              <td>This element contains details
+                                 of the matching folders in which the debit
+                                 and credit entries are listed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RequiredLines</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}LineKeyList" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}LineKeyList">LineKeyList</a></td>
+                              <td>A list of line keys.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectLinesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 matching parameters you specified in the
+                                 SelectLinesRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Folders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingFolders" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingFolders">MatchingFolders</a></td>
+                              <td>This element contains the
+                                 matching folders you specified in the
+                                 SelectLinesRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-SelectMaster"></a>SelectMaster
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectMasterRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                              <td>Contains the key identifying
+                                 the matching master you want to select.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectMasterResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to perform matching.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Code</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the matching
+                                 master that you chose to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>MatchingMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matchingmaster}MatchingMaster" href="finance/matchingmaster/matchingmaster.html#{http://www.coda.com/efinance/schemas/matchingmaster}MatchingMaster">MatchingMaster</a></td>
+                              <td>Contains the matching master
+                                 that you chose to use.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-StartAssistant"></a>StartAssistant
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>StartAssistantRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 matching debit and credit entries.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Folders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/association}asoKeyFolders" href="finance/association/association.html#{http://www.coda.com/efinance/schemas/association}asoKeyFolders">asoKeyFolders</a></td>
+                              <td>This element contains details
+                                 of the matching folders in which the debit
+                                 and credit entries are listed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Assistant</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/association}AssistantScript" href="finance/association/association.html#{http://www.coda.com/efinance/schemas/association}AssistantScript">AssistantScript</a></td>
+                              <td>This element holds the script
+                                 used by the Assisted Interactive Matching process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>StartAtGroupNumber</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The group number at which the
+                                 assistant should start creating matching
+                                 groups. For example, the user might have
+                                 manually created groups 1 and 2, and would
+                                 therefore want the Assistant to create new
+                                 groups starting from 3.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>StartAssistantResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 matching parameters you specified in the
+                                 StartAssistantRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>Contains a key that
+                                 identifies the Assisted Interactive Matching
+                                 process that has been started.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-StartBackground"></a>StartBackground
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>StartBackgroundRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 matching debit and credit entries.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Folders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}SelectFolders" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}SelectFolders">SelectFolders</a></td>
+                              <td>This element contains details
+                                 of the matching folders in which the debit
+                                 and credit entries are listed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Assistant</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/association}AssistantScript" href="finance/association/association.html#{http://www.coda.com/efinance/schemas/association}AssistantScript">AssistantScript</a></td>
+                              <td>This element holds the script
+                                 used by the Background Matching process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>StartBackgroundResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 matching parameters you specified in the
+                                 StartBackgroundRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>Contains a key that
+                                 identifies the Background Matching process
+                                 that has been started.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-ValidateParams"></a>ValidateParams
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidateParamsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 matching debit and credit entries.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ValidateParamsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Warning</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Warning" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Warning">Warning</a></td>
+                              <td>Contains a warning message.</td>
+                           </tr>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 matching parameters you specified in the
+                                 ValidateParamsRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="MatchingService-WriteOff"></a>WriteOff
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>WriteOffRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 matching debit and credit entries.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Details</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchDetails" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchDetails">MatchDetails</a></td>
+                              <td>This element contains the
+                                 match details for the specified document line.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Edits</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}DetailEdits" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}DetailEdits">DetailEdits</a></td>
+                              <td>This element contains changed
+                                 currency values and/or rates for the
+                                 document line specified in the Details element.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>WriteOffResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>This element contains the
+                                 matching parameters you specified in the
+                                 WriteOffRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Details</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchDetails" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchDetails">MatchDetails</a></td>
+                              <td>This element contains the
+                                 match details for the specified document line.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

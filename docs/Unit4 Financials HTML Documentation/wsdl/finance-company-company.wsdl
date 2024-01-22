@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/company/company-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:cmpws="http://www.coda.com/efinance/schemas/company/company-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:cmp="http://www.coda.com/efinance/schemas/company"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/company/company-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/company" schemaLocation="../wsdl/finance/company/company.xsd"/>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company
+                            master that you updated or attempted to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            company master in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetCmpKeysByUDFMasterCodeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="cmp:CompanyCodeList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of companies whose
+                            company masters hold the specified UDF
+                            master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetShrProvCmpsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Keys" minOccurs="0" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key information
+                            for the listed company masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetShrProvCmpsRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company
+                            master that you deleted or attempted to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetShrDepCmpsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MaxKeys" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of company
+                            masters that can be returned in the list.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company
+                            master(s) that you listed or attempted to list.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key information
+                            for the listed company masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="cmp:ReqKeys">
+                    <xsd:annotation>
+                        <xsd:documentation>A filter that selects the
+                            company masters to be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetShrDepCmpsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="cmp:ReqKeys">
+                    <xsd:annotation>
+                        <xsd:documentation>A key containing the code of
+                            the provider company for which dependent
+                            companies will be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetCmpKeysByUDFMasterCodeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:GlobalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The UDF master code for which
+                            you want the list of companies that feature
+                            it on their company masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetShrValidCmpsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Home" type="com:typeGeneralCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the
+                            company&apos;s home currency.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key information
+                            for the listed company masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company
+                            master that you retrieved or attempted to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Company" minOccurs="0" type="cmp:Company">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a company master you
+                            have retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Company" type="cmp:Company">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the company master you want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="cmp:PrintListKeys">
+                    <xsd:annotation>
+                        <xsd:documentation>The filter that was used to
+                            select the company masters to be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key information
+                            for the listed company masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:GlobalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the company master you want to retrieve from
+                            the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Company" type="cmp:Company">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the company you want to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company
+                            master that you created or attempted to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            company master in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetShrValidCmpsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="cmp:ShrValidCmpsKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            determining the companies to be retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:GlobalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the company master you want to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetShrProvCmpsResponse">
+    <part name="GetShrProvCmpsResponse" element="cmpws:GetShrProvCmpsResponse"/>
+  </message>
+  <message name="GetShrDepCmpsRequest">
+    <part name="GetShrDepCmpsRequest" element="cmpws:GetShrDepCmpsRequest"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="cmpws:GetResponse"/>
+  </message>
+  <message name="GetShrValidCmpsRequest">
+    <part name="GetShrValidCmpsRequest" element="cmpws:GetShrValidCmpsRequest"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="cmpws:AddResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="cmpws:ListRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="cmpws:Options"/>
+  </message>
+  <message name="GetCmpKeysByUDFMasterCodeRequest">
+    <part name="GetCmpKeysByUDFMasterCodeRequest" element="cmpws:GetCmpKeysByUDFMasterCodeRequest"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="cmpws:UpdateRequest"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="cmpws:ListResponse"/>
+  </message>
+  <message name="GetCmpKeysByUDFMasterCodeResponse">
+    <part name="GetCmpKeysByUDFMasterCodeResponse" element="cmpws:GetCmpKeysByUDFMasterCodeResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="cmpws:OptionsResponse"/>
+  </message>
+  <message name="GetShrDepCmpsResponse">
+    <part name="GetShrDepCmpsResponse" element="cmpws:GetShrDepCmpsResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="cmpws:DeleteRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="cmpws:DeleteResponse"/>
+  </message>
+  <message name="GetShrProvCmpsRequest">
+    <part name="GetShrProvCmpsRequest" element="cmpws:GetShrProvCmpsRequest"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="cmpws:UpdateResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="cmpws:AddRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="cmpws:GetRequest"/>
+  </message>
+  <message name="GetShrValidCmpsResponse">
+    <part name="GetShrValidCmpsResponse" element="cmpws:GetShrValidCmpsResponse"/>
+  </message>
+  <portType name="CompanyServicePortTypes">
+    <operation name="Add">
+      <input message="cmpws:AddRequest"/>
+      <output message="cmpws:AddResponse"/>
+    </operation>
+    <operation name="Delete">
+      <input message="cmpws:DeleteRequest"/>
+      <output message="cmpws:DeleteResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="cmpws:GetRequest"/>
+      <output message="cmpws:GetResponse"/>
+    </operation>
+    <operation name="GetShrDepCmps">
+      <input message="cmpws:GetShrDepCmpsRequest"/>
+      <output message="cmpws:GetShrDepCmpsResponse"/>
+    </operation>
+    <operation name="GetCmpKeysByUDFMasterCode">
+      <input message="cmpws:GetCmpKeysByUDFMasterCodeRequest"/>
+      <output message="cmpws:GetCmpKeysByUDFMasterCodeResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="cmpws:ListRequest"/>
+      <output message="cmpws:ListResponse"/>
+    </operation>
+    <operation name="GetShrProvCmps">
+      <input message="cmpws:GetShrProvCmpsRequest"/>
+      <output message="cmpws:GetShrProvCmpsResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="cmpws:UpdateRequest"/>
+      <output message="cmpws:UpdateResponse"/>
+    </operation>
+    <operation name="GetShrValidCmps">
+      <input message="cmpws:GetShrValidCmpsRequest"/>
+      <output message="cmpws:GetShrValidCmpsResponse"/>
+    </operation>
+  </portType>
+  <binding name="CompanyServiceSOAPBinding" type="cmpws:CompanyServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Company/Add" style="document"/>
+      <input>
+        <soap:header message="cmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Company/Delete" style="document"/>
+      <input>
+        <soap:header message="cmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Company/Get" style="document"/>
+      <input>
+        <soap:header message="cmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetShrDepCmps">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Company/GetShrDepCmps" style="document"/>
+      <input>
+        <soap:header message="cmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetCmpKeysByUDFMasterCode">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Company/GetCmpKeysByUDFMasterCode" style="document"/>
+      <input>
+        <soap:header message="cmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Company/List" style="document"/>
+      <input>
+        <soap:header message="cmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetShrProvCmps">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Company/GetShrProvCmps" style="document"/>
+      <input>
+        <soap:header message="cmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Company/Update" style="document"/>
+      <input>
+        <soap:header message="cmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetShrValidCmps">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Company/GetShrValidCmps" style="document"/>
+      <input>
+        <soap:header message="cmpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="cmpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CompanyService">
+    <port name="CompanyServicePort" binding="cmpws:CompanyServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/company/company-14.0"/>
+    </port>
+  </service>
+</definitions>

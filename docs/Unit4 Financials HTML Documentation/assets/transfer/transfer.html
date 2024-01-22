@@ -1,0 +1,1966 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/eassets/schemas/transfer</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/eassets/schemas/transfer</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>Transfer</h3>
+         <p>This element contains the parameters which can be specified when transferring assets.</p>
+         <h3>TransferPostings</h3>
+         <p>Contains the postings that will be generated (or have been generated) by the current
+            transfer request.
+         </p>
+         <h3>TransferRequest</h3>
+         <p>This service allows you to transfer assets.</p>
+         <h3>TransferResponse</h3>
+         <p>This is the response that is returned when you transfer assets.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/eassets/schemas/transfer}Transfer"></a><h3>Transfer</h3>
+         <p>This element contains the parameters which can be specified when transferring assets.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>TransferLog</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeText" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeText">typeText</a></td>
+                     <td>The name for a log file to store details of this transfer process.</td>
+                  </tr>
+                  <tr>
+                     <td>AssetKeys</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}AssetKeyList" href="#{http://www.coda.com/eassets/schemas/transfer}AssetKeyList">AssetKeyList</a></td>
+                     <td>Contains a list of key information for the specified assets.</td>
+                  </tr>
+                  <tr>
+                     <td>Assets</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}AssetList" href="#{http://www.coda.com/eassets/schemas/transfer}AssetList">AssetList</a></td>
+                     <td>This element contains a list of assets and their details.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/common}typeTransfer" href="../common/common.html#{http://www.coda.com/eassets/schemas/common}typeTransfer">typeTransfer</a></td>
+                     <td>Specify whether to transfer the asset from one cost centre to another, or whether
+                        to transfer the asset to another asset.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>CurrentCostCentre</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the asset's current cost centre element.</td>
+                  </tr>
+                  <tr>
+                     <td>NewCostCentreLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmLevel" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmLevel">typeElmLevel</a></td>
+                     <td>The element level in the account code at which the cost centre element is found.</td>
+                  </tr>
+                  <tr>
+                     <td>NewCostCentreValue</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the element you wish to use as the asset's new cost centre.</td>
+                  </tr>
+                  <tr>
+                     <td>NewCostCentreSettings</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}UDFTransferList" href="#{http://www.coda.com/eassets/schemas/transfer}UDFTransferList">UDFTransferList</a></td>
+                     <td>If element user-defined fields are set up for inclusion in cost centre transfers,
+                        this contains details of the current cost centre and the new cost centre.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>TransferToAssetKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKey" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKey">AssetKey</a></td>
+                     <td>Contains key information identifying the asset to which this asset will be transferred.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferToNewAsset</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                     <td>This element holds the details of the new asset that will be created if appropriate.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferDepreciation</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>When performing a cost centre transfer, set this to TRUE to transfer the asset's year-to-date
+                        depreciation to the new cost centre as a profit and loss depreciation charge; set
+                        this to FALSE if you do not want to transfer the asset's year-to-date depreciation.
+                        The asset's accumulated depreciation is always transferred to the new cost centre,
+                        irrespective of this setting.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>TransferChildren</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Set this to TRUE to transfer child assets along with their parent asset.</td>
+                  </tr>
+                  <tr>
+                     <td>AssetToAssetTransferType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/common}typeToAssetTransfer" href="../common/common.html#{http://www.coda.com/eassets/schemas/common}typeToAssetTransfer">typeToAssetTransfer</a></td>
+                     <td>Specify whether to transfer the asset to a new asset (creating a new standalone asset),
+                        or to transfer it to another existing asset (making an asset addition).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>PartialTransferType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/common}typeTransferDetails" href="../common/common.html#{http://www.coda.com/eassets/schemas/common}typeTransferDetails">typeTransferDetails</a></td>
+                     <td>When making a partial transfer, specify whether the partial amount will be set as
+                        a monetary value, a percentage, or a quantity of the selected asset.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>PartialTransferPercentage</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePercent" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePercent">typePercent</a></td>
+                     <td>The partial transfer amount as a percentage. Supply this amount if PartialTransferType
+                        is set to percentage.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>PartialTransferQuantity</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>The partial transfer amount as a quantity. Supply this amount if PartialTransferType
+                        is set to quantity.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>PostingYearPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                     <td>The year and period to which the transfer postings will be made.</td>
+                  </tr>
+                  <tr>
+                     <td>PostingDocumentDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The document date that will be used for the postings.</td>
+                  </tr>
+                  <tr>
+                     <td>PostingTerminalDepreciation</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/common}typeDisposalDepreciation" href="../common/common.html#{http://www.coda.com/eassets/schemas/common}typeDisposalDepreciation">typeDisposalDepreciation</a></td>
+                     <td>Specify the method for calculating the asset's final amount of depreciation.</td>
+                  </tr>
+                  <tr>
+                     <td>PostingAggregatePostings</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Set to TRUE if you want the posting lines to be aggregated when they are posted to
+                        the Coda-Financials database.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>PostingRunID</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}RunIdList" href="#{http://www.coda.com/eassets/schemas/transfer}RunIdList">RunIdList</a></td>
+                     <td>This element contains a list of companies in which the transfer process will be run.</td>
+                  </tr>
+                  <tr>
+                     <td>PostingInformation</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}TransferPostings" href="#{http://www.coda.com/eassets/schemas/transfer}TransferPostings">TransferPostings</a></td>
+                     <td>This element contains the values that will be posted by the transfer process.</td>
+                  </tr>
+                  <tr>
+                     <td>IsReviewed</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Specifies whether the transfer values are reviewed before being posted.</td>
+                  </tr>
+                  <tr>
+                     <td>CapitalisationYearPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                     <td>The capitalisation year and period for transferred WIP assets.</td>
+                  </tr>
+                  <tr>
+                     <td>CapitalisationCost</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The capital cost of transferred WIP assets.</td>
+                  </tr>
+                  <tr>
+                     <td>MultipleAssets</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Specifies whether multiple WIP assets are being transferred.</td>
+                  </tr>
+                  <tr>
+                     <td>NewAssetsFromWIP</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}AssetList" href="#{http://www.coda.com/eassets/schemas/transfer}AssetList">AssetList</a></td>
+                     <td>This element contains the new assets that will be created from the transferred WIP
+                        assets.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DepreciationStartYearPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                     <td>The depreciation start year and period for transferred WIP assets.</td>
+                  </tr>
+                  <tr>
+                     <td>DepreciationStartDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The depreciation start date for transferred WIP assets.</td>
+                  </tr>
+                  <tr>
+                     <td>PartialTransferBookList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}PartialTransferBookList" href="#{http://www.coda.com/eassets/schemas/transfer}PartialTransferBookList">PartialTransferBookList</a></td>
+                     <td>A list of asset books used for the partial transfer.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}PartialTransferBookList"></a><h3>PartialTransferBookList</h3>
+         <p>A list of asset books used for the partial transfer.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PartialTransferBook</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}PartialTransferBook" href="#{http://www.coda.com/eassets/schemas/transfer}PartialTransferBook">PartialTransferBook</a></td>
+                     <td>Posting book details for the partial transfer.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}PartialTransferBook"></a><h3>PartialTransferBook</h3>
+         <p>Posting book details for the partial transfer.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>BookCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>The posting book code.</td>
+                  </tr>
+                  <tr>
+                     <td>PartialTransferValue</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The partial transfer value.</td>
+                  </tr>
+                  <tr>
+                     <td>PartialTransferCurrencyDataList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetCurrencyDataList" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetCurrencyDataList">AssetCurrencyDataList</a></td>
+                     <td>A list of values expressed in different currencies.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}AssetList"></a><h3>AssetList</h3>
+         <p>This element contains a list of assets and their details.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Asset</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                     <td>This element holds the details for an asset.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}AssetKeyList"></a><h3>AssetKeyList</h3>
+         <p>Contains a list of key information for the specified assets.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AssetKey</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKey" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKey">AssetKey</a></td>
+                     <td>Contains key information for the specified asset.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}RunIdList"></a><h3>RunIdList</h3>
+         <p>This element contains a list of companies in which the transfer process will be run.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>List</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}RunDetails" href="#{http://www.coda.com/eassets/schemas/transfer}RunDetails">RunDetails</a></td>
+                     <td>Contains details of a company in which the transfer process will be run.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}RunDetails"></a><h3>RunDetails</h3>
+         <p>Contains details of a company in which the transfer process will be run.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Company</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>The code of the company in which the transfer process will be run.</td>
+                  </tr>
+                  <tr>
+                     <td>RunID</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                     <td>A number identifying the transfer process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}UDFTransferList"></a><h3>UDFTransferList</h3>
+         <p>If element user-defined fields are set up for inclusion in cost centre transfers,
+            this contains details of the current cost centre and the new cost centre.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>UDFTransfer</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}UDFTransferItem" href="#{http://www.coda.com/eassets/schemas/transfer}UDFTransferItem">UDFTransferItem</a></td>
+                     <td>This contains details of the current cost centre and the new cost centre when element
+                        user-defined fields are set up for inclusion in cost centre transfers.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}UDFTransferItem"></a><h3>UDFTransferItem</h3>
+         <p>This contains details of the current cost centre and the new cost centre when element
+            user-defined fields are set up for inclusion in cost centre transfers.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ElementLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmLevel" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmLevel">typeElmLevel</a></td>
+                     <td>The element level at which the element is found.</td>
+                  </tr>
+                  <tr>
+                     <td>CurrentSetting</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmCode">typeElmCode</a></td>
+                     <td>The code of the element at the specified element level.</td>
+                  </tr>
+                  <tr>
+                     <td>NewSetting</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmCode">typeElmCode</a></td>
+                     <td>The code of the element you wish to use in the asset's new cost centre at the specified
+                        element level.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>UserFieldIndex</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}integer" href="http://www.w3.org/TR/xmlschema11-2/#integer">integer</a></td>
+                     <td>A unique index for this UDFTransfer element.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}TransferPostings"></a><h3>TransferPostings</h3>
+         <p>Contains the postings that will be generated (or have been generated) by the current
+            transfer request.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PostingDetails</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}PostingDetails" href="#{http://www.coda.com/eassets/schemas/transfer}PostingDetails">PostingDetails</a></td>
+                     <td>Contains transfer postings. The asset and other parameters used to calculate these
+                        postings are contained within this element.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}PostingDetails"></a><h3>PostingDetails</h3>
+         <p>Contains transfer postings. The asset and other parameters used to calculate these
+            postings are contained within this element.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsParent</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether the specified asset is a parent asset.</td>
+                  </tr>
+                  <tr>
+                     <td>Asset</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                     <td>This element holds details of the asset being transferred.</td>
+                  </tr>
+                  <tr>
+                     <td>Books</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}BookList" href="#{http://www.coda.com/eassets/schemas/transfer}BookList">BookList</a></td>
+                     <td>This element holds details for the asset books in which the specified asset is being
+                        transferred.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>RunID</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>A string that uniquely identifies this transfer process.</td>
+                  </tr>
+                  <tr>
+                     <td>DepreciationRunID</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>A number identifying the depreciation run that is invoked to bring the asset's depreciation
+                        up to date prior to its transfer.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}BookList"></a><h3>BookList</h3>
+         <p>This element holds details for the asset books in which the specified asset is being
+            transferred.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AssetBook</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetBooks" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetBooks">AssetBooks</a></td>
+                     <td>This element holds details for an asset book in which the specified asset is being
+                        transferred.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>TransferAmount</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount of capital cost being transferred.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferResidualAmount</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount of residual value being transferred.</td>
+                  </tr>
+                  <tr>
+                     <td>DepreciationTransferAmount</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The total amount of accumulated depreciation being transferred.</td>
+                  </tr>
+                  <tr>
+                     <td>StandardDepreciationAmount</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount of accumulated standard depreciation being transferred.</td>
+                  </tr>
+                  <tr>
+                     <td>StandardDepreciationPeriods</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}DepreciationPeriods" href="#{http://www.coda.com/eassets/schemas/transfer}DepreciationPeriods">DepreciationPeriods</a></td>
+                     <td>This element contains the standard depreciation amount for each period of the asset's
+                        life to date.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>SpecialDepreciationAmount</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount of accumulated special depreciation being transferred.</td>
+                  </tr>
+                  <tr>
+                     <td>SpecialDepreciationPeriods</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}DepreciationPeriods" href="#{http://www.coda.com/eassets/schemas/transfer}DepreciationPeriods">DepreciationPeriods</a></td>
+                     <td>This element contains the special depreciation amount for each period of the asset's
+                        life to date.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>PostingBook</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether this asset book is set up to be the posting book.</td>
+                  </tr>
+                  <tr>
+                     <td>Postings</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}PostingValues" href="#{http://www.coda.com/eassets/schemas/transfer}PostingValues">PostingValues</a></td>
+                     <td>Contains the values that will be posted (or have been posted) to the Books to record
+                        this transfer.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>IsPosted</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether these values have been posted to the Coda-Financials Books.</td>
+                  </tr>
+                  <tr>
+                     <td>YTDDepreciationTransferAmount</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount of year-to-date depreciation being transferred.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}DepreciationPeriods"></a><h3>DepreciationPeriods</h3>
+         <p>This element contains the standard depreciation amount for each period of the asset's
+            life to date.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>PeriodValues</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}PeriodDepValues" href="#{http://www.coda.com/eassets/schemas/transfer}PeriodDepValues">PeriodDepValues</a></td>
+                     <td>This element contains the standard depreciation amount for a period of the asset's
+                        life.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}PeriodDepValues"></a><h3>PeriodDepValues</h3>
+         <p>This element contains the standard depreciation amount for a period of the asset's
+            life.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Value</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount of standard depreciation for this period.</td>
+                  </tr>
+                  <tr>
+                     <td>Period</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriods" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriods">typePeriods</a></td>
+                     <td>The period to which this standard depreciation amount applies.</td>
+                  </tr>
+                  <tr>
+                     <td>Year</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeWord" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeWord">typeWord</a></td>
+                     <td>The year to which this standard depreciation amount applies.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}PostingValues"></a><h3>PostingValues</h3>
+         <p>Contains the values that will be posted (or have been posted) to the Books to record
+            this transfer.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CapitalCostSource</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount credited to the capitalisation account of the source asset.</td>
+                  </tr>
+                  <tr>
+                     <td>CapitalCostDestination</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount debited from the capitalisation account of the destination asset.</td>
+                  </tr>
+                  <tr>
+                     <td>AccumulatedDepreciationSource</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount debited from the accumulated depreciation account of the source asset.</td>
+                  </tr>
+                  <tr>
+                     <td>AccumulatedDepreciationDestination</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount credited to the accumulated depreciation account of the destination asset.</td>
+                  </tr>
+                  <tr>
+                     <td>RevalCostSource</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount credited to the revalued capital cost account of the source asset. This
+                        posting is only made if the asset has been revalued and ComplexDisp is set to TRUE
+                        for the PostRuleMaster used by this asset.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>RevalCostDestination</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount debited from the revalued capital cost account of the destination asset.
+                        This will use the same account code as RevalCostSource except that the cost centre
+                        element will be the new cost centre. This posting is only made if the asset has been
+                        revalued and ComplexDisp is set to TRUE for the PostRuleMaster used by this asset.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>RevalDepnSource</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount credited to the revalued accumulated depreciation account of the source
+                        asset. This posting is only made if the asset has been revalued and ComplexDisp is
+                        set to TRUE for the PostRuleMaster used by this asset.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>RevalDepnDestination</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount debited from the revalued accumulated depreciation account of the destination
+                        asset. This will use the same account code as RevalDepnSource except that the cost
+                        centre element will be the new cost centre. This posting is only made if the asset
+                        has been revalued and ComplexDisp is set to TRUE for the PostRuleMaster used by this
+                        asset.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>RevalResSource</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount credited to the revaluation reserve account of the source asset. This posting
+                        is only made if the asset has been revalued and ComplexDisp is set to TRUE for the
+                        PostRuleMaster used by this asset.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>RevalResDestination</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount debited from the revaluation reserve account of the destination asset.
+                        This will use the same account code as RevalResSource except that the cost centre
+                        element will be the new cost centre. This posting is only made if the asset has been
+                        revalued and ComplexDisp is set to TRUE for the PostRuleMaster used by this asset.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>YTDDepreciationSource</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>This posting is only made when performing a cost centre transfer and TransferDepreciation
+                        is set to TRUE for the transfer process. It is the amount credited to the depreciation
+                        charge account of the source asset (the old cost centre).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>YTDDepreciationDestination</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>This posting is only made when performing a cost centre transfer and TransferDepreciation
+                        is set to TRUE for the transfer process. It is the amount debited from the depreciation
+                        charge account of the destination asset (the new cost centre).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>CategoryOut</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>This posting is only made when performing a category transfer. It is the amount credited
+                        to reverse out the original WIP capitalisation postings.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>CategoryIn</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>This posting is only made when performing a category transfer. It is the amount debited
+                        for the new assets created by the category transfer process.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>AcceleratedDepreciation</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>If TRUE, indicates that the Accelerated Depreciation flag is set on the category master.</td>
+                  </tr>
+                  <tr>
+                     <td>AcceleratedDepreciationProfit</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>If TRUE, indicates that the Accelerated Depreciation value is the profit value.</td>
+                  </tr>
+                  <tr>
+                     <td>NegateAcceleratedDepreciation</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Not currently used.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferResidualAmount</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The amount of residual value transferred to the destination asset.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}AssetRequest"></a><h3>AssetRequest</h3>
+         <p>The AssetRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Transfer</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}Transfer" href="#{http://www.coda.com/eassets/schemas/transfer}Transfer">Transfer</a></td>
+                     <td>This element contains the parameters which can be specified when transferring assets.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}AssetRequestVerb"></a><h3>AssetRequestVerb</h3>
+         <p>The AssetRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Sets up the transfer of assets from one asset to another, using the parameters you
+            specify.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}AssetRequest" href="#{http://www.coda.com/eassets/schemas/transfer}AssetRequest">AssetRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}AssetResponse"></a><h3>AssetResponse</h3>
+         <p>The AssetResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsCreated</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether the AssetDocumentRequest corresponding to this response was successful.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferPostings</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}TransferPostings" href="#{http://www.coda.com/eassets/schemas/transfer}TransferPostings">TransferPostings</a></td>
+                     <td>Contains the postings that will be generated by this transfer process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}AssetResponseVerb"></a><h3>AssetResponseVerb</h3>
+         <p>The AssetResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}AssetResponse" href="#{http://www.coda.com/eassets/schemas/transfer}AssetResponse">AssetResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}CostCentreRequest"></a><h3>CostCentreRequest</h3>
+         <p>The CostCentreRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Transfer</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}Transfer" href="#{http://www.coda.com/eassets/schemas/transfer}Transfer">Transfer</a></td>
+                     <td>This element contains the parameters which can be specified when transferring assets.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}CostCentreRequestVerb"></a><h3>CostCentreRequestVerb</h3>
+         <p>The CostCentreRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Sets up the transfer of assets from one cost centre to another, using the parameters
+            you specify.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}CostCentreRequest" href="#{http://www.coda.com/eassets/schemas/transfer}CostCentreRequest">CostCentreRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}CostCentreResponse"></a><h3>CostCentreResponse</h3>
+         <p>The CostCentreResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsCreated</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether the CostCentreDocumentRequest corresponding to this response was
+                        successful.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>TransferPostings</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}TransferPostings" href="#{http://www.coda.com/eassets/schemas/transfer}TransferPostings">TransferPostings</a></td>
+                     <td>Contains the postings that will be generated by this transfer process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}CostCentreResponseVerb"></a><h3>CostCentreResponseVerb</h3>
+         <p>The CostCentreResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}CostCentreResponse" href="#{http://www.coda.com/eassets/schemas/transfer}CostCentreResponse">CostCentreResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}CategoryRequest"></a><h3>CategoryRequest</h3>
+         <p>The CategoryRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Transfer</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}Transfer" href="#{http://www.coda.com/eassets/schemas/transfer}Transfer">Transfer</a></td>
+                     <td>This element contains the parameters which can be specified when transferring assets.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}CategoryRequestVerb"></a><h3>CategoryRequestVerb</h3>
+         <p>The CategoryRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Sets up the transfer of WIP assets to another category, using the parameters you specify.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}CategoryRequest" href="#{http://www.coda.com/eassets/schemas/transfer}CategoryRequest">CategoryRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}CategoryResponse"></a><h3>CategoryResponse</h3>
+         <p>The CategoryResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsCreated</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether the CategoryDocumentRequest corresponding to this response was successful.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferPostings</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}TransferPostings" href="#{http://www.coda.com/eassets/schemas/transfer}TransferPostings">TransferPostings</a></td>
+                     <td>Contains the postings that will be generated by this transfer process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}CategoryResponseVerb"></a><h3>CategoryResponseVerb</h3>
+         <p>The CategoryResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}CategoryResponse" href="#{http://www.coda.com/eassets/schemas/transfer}CategoryResponse">CategoryResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}ValidateCategoryTransferRequest"></a><h3>ValidateCategoryTransferRequest</h3>
+         <p>The ValidateCategoryTransferRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AssetKeys</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}AssetKeyList" href="#{http://www.coda.com/eassets/schemas/transfer}AssetKeyList">AssetKeyList</a></td>
+                     <td>Contains a list of keys identifying assets selected for category transfer.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}ValidateCategoryTransferRequestVerb"></a><h3>ValidateCategoryTransferRequestVerb</h3>
+         <p>The ValidateCategoryTransferRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Validates whether the specified assets can undergo a category transfer.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}ValidateCategoryTransferRequest" href="#{http://www.coda.com/eassets/schemas/transfer}ValidateCategoryTransferRequest">ValidateCategoryTransferRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}ValidateCategoryTransferResponse"></a><h3>ValidateCategoryTransferResponse</h3>
+         <p>The ValidateCategoryTransferResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>WIPCategoryCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The WIP category code of the assets selected in the request corresponding to this
+                        response.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>AssociatedCategoryCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The category code associated with that WIP category.</td>
+                  </tr>
+                  <tr>
+                     <td>AmendableNumberRule</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether the number rule master from the associated category is amendable.</td>
+                  </tr>
+                  <tr>
+                     <td>SingleAssetCost</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The total cost of the assets selected (if transferring to a single asset).</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}ValidateCategoryTransferResponseVerb"></a><h3>ValidateCategoryTransferResponseVerb</h3>
+         <p>The ValidateCategoryTransferResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}ValidateCategoryTransferResponse" href="#{http://www.coda.com/eassets/schemas/transfer}ValidateCategoryTransferResponse">ValidateCategoryTransferResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}ReviewRequest"></a><h3>ReviewRequest</h3>
+         <p>The ReviewRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Transfer</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}Transfer" href="#{http://www.coda.com/eassets/schemas/transfer}Transfer">Transfer</a></td>
+                     <td>This element contains the parameters which can be specified when transferring assets.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferPostings</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}TransferPostings" href="#{http://www.coda.com/eassets/schemas/transfer}TransferPostings">TransferPostings</a></td>
+                     <td>This element contains the values that will be posted by the transfer process..</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}ReviewRequestVerb"></a><h3>ReviewRequestVerb</h3>
+         <p>The ReviewRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Allows you to review the postings that will be generated if the transfer is performed
+            using the parameters you specify.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}ReviewRequest" href="#{http://www.coda.com/eassets/schemas/transfer}ReviewRequest">ReviewRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}ReviewResponse"></a><h3>ReviewResponse</h3>
+         <p>The ReviewResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsReviewed</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether the ReviewDocumentRequest corresponding to this response was successful.</td>
+                  </tr>
+                  <tr>
+                     <td>RunIDs</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}RunIdList" href="#{http://www.coda.com/eassets/schemas/transfer}RunIdList">RunIdList</a></td>
+                     <td>This element contains a list of companies in which the transfer process will be run.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferPostings</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}TransferPostings" href="#{http://www.coda.com/eassets/schemas/transfer}TransferPostings">TransferPostings</a></td>
+                     <td>Contains the postings that will be generated by this transfer process.</td>
+                  </tr>
+                  <tr>
+                     <td>ReviewTransactions</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions" href="../reviewtransactions/reviewtransactions.html#{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions">ReviewTransactions</a></td>
+                     <td>Contains the financial transactions that will be generated by this transfer process.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferToNewAsset</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}Asset" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}Asset">Asset</a></td>
+                     <td>Contains the details of the new asset that will be created if appropriate.</td>
+                  </tr>
+                  <tr>
+                     <td>NewAssetsFromWIP</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}AssetList" href="#{http://www.coda.com/eassets/schemas/transfer}AssetList">AssetList</a></td>
+                     <td>Contains the list of new assets that will be created from WIP assets if appropriate.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}ReviewResponseVerb"></a><h3>ReviewResponseVerb</h3>
+         <p>The ReviewResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}ReviewResponse" href="#{http://www.coda.com/eassets/schemas/transfer}ReviewResponse">ReviewResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}PostRequest"></a><h3>PostRequest</h3>
+         <p>The PostRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Transfer</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}Transfer" href="#{http://www.coda.com/eassets/schemas/transfer}Transfer">Transfer</a></td>
+                     <td>This element contains the parameters which can be specified when transferring assets.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferPostings</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}TransferPostings" href="#{http://www.coda.com/eassets/schemas/transfer}TransferPostings">TransferPostings</a></td>
+                     <td>This element contains the values that will be posted by the transfer process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}PostRequestVerb"></a><h3>PostRequestVerb</h3>
+         <p>The PostRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Posts the transfer using the parameters you specify.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}PostRequest" href="#{http://www.coda.com/eassets/schemas/transfer}PostRequest">PostRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}PostResponse"></a><h3>PostResponse</h3>
+         <p>The PostResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsPosted</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether the PostDocumentRequest corresponding to this response was successful.</td>
+                  </tr>
+                  <tr>
+                     <td>RunIDs</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}RunIdList" href="#{http://www.coda.com/eassets/schemas/transfer}RunIdList">RunIdList</a></td>
+                     <td>This element contains a list of companies in which the transfer process has been run.</td>
+                  </tr>
+                  <tr>
+                     <td>NewAsset</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKey" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKey">AssetKey</a></td>
+                     <td>Contains key information for the new asset.</td>
+                  </tr>
+                  <tr>
+                     <td>TransferPostings</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}TransferPostings" href="#{http://www.coda.com/eassets/schemas/transfer}TransferPostings">TransferPostings</a></td>
+                     <td>Contains the postings that have been generated by this transfer process.</td>
+                  </tr>
+                  <tr>
+                     <td>NewAssetsFromWIP</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}AssetList" href="#{http://www.coda.com/eassets/schemas/transfer}AssetList">AssetList</a></td>
+                     <td>Contains the list of new assets that have been created from WIP assets if appropriate.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}PostResponseVerb"></a><h3>PostResponseVerb</h3>
+         <p>The PostResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}PostResponse" href="#{http://www.coda.com/eassets/schemas/transfer}PostResponse">PostResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}CancelPostRequest"></a><h3>CancelPostRequest</h3>
+         <p>The CancelPostRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>RunIDs</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}RunIdList" href="#{http://www.coda.com/eassets/schemas/transfer}RunIdList">RunIdList</a></td>
+                     <td>This element contains a list of companies in which the transfer process would have
+                        been run.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Transfer</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}Transfer" href="#{http://www.coda.com/eassets/schemas/transfer}Transfer">Transfer</a></td>
+                     <td>This element contains the parameters of the transfer process that you wish to cancel.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}CancelPostRequestVerb"></a><h3>CancelPostRequestVerb</h3>
+         <p>The CancelPostRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Cancels the transfer process that would have used the specified parameters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}CancelPostRequest" href="#{http://www.coda.com/eassets/schemas/transfer}CancelPostRequest">CancelPostRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}CancelPostResponse"></a><h3>CancelPostResponse</h3>
+         <p>The CancelPostResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsCancelled</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether the CancelPostRequest corresponding to this response was successful.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}CancelPostResponseVerb"></a><h3>CancelPostResponseVerb</h3>
+         <p>The CancelPostResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}CancelPostResponse" href="#{http://www.coda.com/eassets/schemas/transfer}CancelPostResponse">CancelPostResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}TransferRequest"></a><h3>TransferRequest</h3>
+         <p>The TransferRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to transfer assets.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AssetDocument</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}AssetRequestVerb" href="#{http://www.coda.com/eassets/schemas/transfer}AssetRequestVerb">AssetRequestVerb</a></td>
+                     <td>Sets up the transfer of assets from one asset to another, using the parameters you
+                        specify.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>CostCentreDocument</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}CostCentreRequestVerb" href="#{http://www.coda.com/eassets/schemas/transfer}CostCentreRequestVerb">CostCentreRequestVerb</a></td>
+                     <td>Sets up the transfer of assets from one cost centre to another, using the parameters
+                        you specify.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ReviewDocument</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}ReviewRequestVerb" href="#{http://www.coda.com/eassets/schemas/transfer}ReviewRequestVerb">ReviewRequestVerb</a></td>
+                     <td>Allows you to review the postings that will be generated if the transfer is performed
+                        using the parameters you specify.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>PostDocument</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}PostRequestVerb" href="#{http://www.coda.com/eassets/schemas/transfer}PostRequestVerb">PostRequestVerb</a></td>
+                     <td>Posts the transfer using the parameters you specify.</td>
+                  </tr>
+                  <tr>
+                     <td>CancelPost</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}CancelPostRequestVerb" href="#{http://www.coda.com/eassets/schemas/transfer}CancelPostRequestVerb">CancelPostRequestVerb</a></td>
+                     <td>Cancels the transfer process that would have used the specified parameters.</td>
+                  </tr>
+                  <tr>
+                     <td>CategoryDocument</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}CategoryRequestVerb" href="#{http://www.coda.com/eassets/schemas/transfer}CategoryRequestVerb">CategoryRequestVerb</a></td>
+                     <td>Sets up the transfer of WIP assets to another category, using the parameters you specify.</td>
+                  </tr>
+                  <tr>
+                     <td>ValidateCategoryTransfer</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}ValidateCategoryTransferRequestVerb" href="#{http://www.coda.com/eassets/schemas/transfer}ValidateCategoryTransferRequestVerb">ValidateCategoryTransferRequestVerb</a></td>
+                     <td>Validates whether the specified assets can undergo a category transfer.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/transfer}TransferResponse"></a><h3>TransferResponse</h3>
+         <p>The TransferResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you transfer assets.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AssetDocument</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}AssetResponseVerb" href="#{http://www.coda.com/eassets/schemas/transfer}AssetResponseVerb">AssetResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>CostCentreDocument</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}CostCentreResponseVerb" href="#{http://www.coda.com/eassets/schemas/transfer}CostCentreResponseVerb">CostCentreResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>ReviewDocument</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}ReviewResponseVerb" href="#{http://www.coda.com/eassets/schemas/transfer}ReviewResponseVerb">ReviewResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>PostDocument</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}PostResponseVerb" href="#{http://www.coda.com/eassets/schemas/transfer}PostResponseVerb">PostResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>CancelPost</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}CancelPostResponseVerb" href="#{http://www.coda.com/eassets/schemas/transfer}CancelPostResponseVerb">CancelPostResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>CategoryDocument</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}CategoryResponseVerb" href="#{http://www.coda.com/eassets/schemas/transfer}CategoryResponseVerb">CategoryResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>ValidateCategoryTransfer</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/transfer}ValidateCategoryTransferResponseVerb" href="#{http://www.coda.com/eassets/schemas/transfer}ValidateCategoryTransferResponseVerb">ValidateCategoryTransferResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

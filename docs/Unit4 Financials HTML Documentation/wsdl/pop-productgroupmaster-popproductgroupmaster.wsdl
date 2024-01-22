@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/productgroupmaster/popproductgroupmaster-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:popprdgrpmasws="http://www.coda.com/pop/schemas/productgroupmaster/popproductgroupmaster-1.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:poptypes="http://www.coda.com/pop/schemas/common"
+    xmlns:acmask="http://www.coda.com/pop/schemas/accountmask"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:docmas="http://www.coda.com/pop/schemas/documentmaster"
+    xmlns:buy="http://www.coda.com/pop/schemas/buyer"
+    xmlns:popprdgrpmas="http://www.coda.com/pop/schemas/productgroupmaster"
+    xmlns:ns1="http://www.coda.com/common/schemas/domaingen"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/pop/schemas/productgroupmaster/popproductgroupmaster-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/productgroupmaster" schemaLocation="../wsdl/pop/productgroupmaster/productgroupmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/accountmask" schemaLocation="pop/accountmask/accountmask.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/documentmaster" schemaLocation="pop/documentmaster/documentmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/common" schemaLocation="pop/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/buyer" schemaLocation="pop/buyer/buyer.xsd"/>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="ProductGroupMaster" type="popprdgrpmas:ProductGroupMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            update function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTreeDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSummaryRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProductGroupMaster" type="popprdgrpmas:ProductGroupMasterKey">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the ProductGroupMaster
+                            objects that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the ProductGroupMaster
+                            objects that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSummaryResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetSummary" type="popprdgrpmas:GroupSummary">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getSummary function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProductGroupMasterList" type="popprdgrpmas:ProductGroupMasterList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProductGroupMaster" type="popprdgrpmas:ProductGroupMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="popprdgrpmas:FindSummariesFilter">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="DocumentMaster" minOccurs="0" type="docmas:DocumentMasterKey">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetTreeDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProdGrpTree" type="popprdgrpmas:ProdGrpTree">
+                    <xsd:annotation>
+                        <xsd:documentation>The ProdGrpTree is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="ProductGroupMaster" type="popprdgrpmas:ProductGroupMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole ProductGroupMaster
+                            object that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProductGroupMasterItemList" type="popprdgrpmas:ProductGroupMasterItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProductGroupMasterKey" type="popprdgrpmas:ProductGroupMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            ProductGroupMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="ProductGroupMaster" type="popprdgrpmas:ProductGroupMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole ProductGroupMaster
+                            object that is to be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="ProductGroupMaster" type="popprdgrpmas:ProductGroupMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the add function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FindSummaries" type="popprdgrpmas:GroupSummaries">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            findSummaries function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProductGroupMasterKey" type="popprdgrpmas:ProductGroupMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            ProductGroupMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="popprdgrpmasws:UpdateRequest"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="popprdgrpmasws:ListResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="popprdgrpmasws:Options"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="popprdgrpmasws:FindResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="popprdgrpmasws:ListRequest"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="popprdgrpmasws:GetResponse"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="popprdgrpmasws:AddResponse"/>
+  </message>
+  <message name="FindSummariesRequest">
+    <part name="FindSummariesRequest" element="popprdgrpmasws:FindSummariesRequest"/>
+  </message>
+  <message name="GetTreeDataResponse">
+    <part name="GetTreeDataResponse" element="popprdgrpmasws:GetTreeDataResponse"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="popprdgrpmasws:GetRequest"/>
+  </message>
+  <message name="GetSummaryResponse">
+    <part name="GetSummaryResponse" element="popprdgrpmasws:GetSummaryResponse"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="popprdgrpmasws:UpdateResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="popprdgrpmasws:AddRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="popprdgrpmasws:DeleteResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="popprdgrpmasws:DeleteRequest"/>
+  </message>
+  <message name="GetTreeDataRequest">
+    <part name="GetTreeDataRequest" element="popprdgrpmasws:GetTreeDataRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="popprdgrpmasws:OptionsResponse"/>
+  </message>
+  <message name="GetSummaryRequest">
+    <part name="GetSummaryRequest" element="popprdgrpmasws:GetSummaryRequest"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="popprdgrpmasws:FindRequest"/>
+  </message>
+  <message name="FindSummariesResponse">
+    <part name="FindSummariesResponse" element="popprdgrpmasws:FindSummariesResponse"/>
+  </message>
+  <portType name="POPProductGroupMasterServicePortTypes">
+    <operation name="Delete">
+      <input message="popprdgrpmasws:DeleteRequest"/>
+      <output message="popprdgrpmasws:DeleteResponse"/>
+    </operation>
+    <operation name="Add">
+      <input message="popprdgrpmasws:AddRequest"/>
+      <output message="popprdgrpmasws:AddResponse"/>
+    </operation>
+    <operation name="GetSummary">
+      <input message="popprdgrpmasws:GetSummaryRequest"/>
+      <output message="popprdgrpmasws:GetSummaryResponse"/>
+    </operation>
+    <operation name="GetTreeData">
+      <input message="popprdgrpmasws:GetTreeDataRequest"/>
+      <output message="popprdgrpmasws:GetTreeDataResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="popprdgrpmasws:GetRequest"/>
+      <output message="popprdgrpmasws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="popprdgrpmasws:FindRequest"/>
+      <output message="popprdgrpmasws:FindResponse"/>
+    </operation>
+    <operation name="FindSummaries">
+      <input message="popprdgrpmasws:FindSummariesRequest"/>
+      <output message="popprdgrpmasws:FindSummariesResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="popprdgrpmasws:ListRequest"/>
+      <output message="popprdgrpmasws:ListResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="popprdgrpmasws:UpdateRequest"/>
+      <output message="popprdgrpmasws:UpdateResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPProductGroupMasterServiceSOAPBinding" type="popprdgrpmasws:POPProductGroupMasterServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPProductGroupMaster/Delete" style="document"/>
+      <input>
+        <soap:header message="popprdgrpmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprdgrpmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPProductGroupMaster/Add" style="document"/>
+      <input>
+        <soap:header message="popprdgrpmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprdgrpmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetSummary">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPProductGroupMaster/GetSummary" style="document"/>
+      <input>
+        <soap:header message="popprdgrpmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprdgrpmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetTreeData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPProductGroupMaster/GetTreeData" style="document"/>
+      <input>
+        <soap:header message="popprdgrpmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprdgrpmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPProductGroupMaster/Get" style="document"/>
+      <input>
+        <soap:header message="popprdgrpmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprdgrpmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPProductGroupMaster/Find" style="document"/>
+      <input>
+        <soap:header message="popprdgrpmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprdgrpmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FindSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPProductGroupMaster/FindSummaries" style="document"/>
+      <input>
+        <soap:header message="popprdgrpmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprdgrpmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPProductGroupMaster/List" style="document"/>
+      <input>
+        <soap:header message="popprdgrpmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprdgrpmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPProductGroupMaster/Update" style="document"/>
+      <input>
+        <soap:header message="popprdgrpmasws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprdgrpmasws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPProductGroupMasterService">
+    <port name="POPProductGroupMasterServicePort" binding="popprdgrpmasws:POPProductGroupMasterServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/productgroupmaster/popproductgroupmaster-1.0"/>
+    </port>
+  </service>
+</definitions>

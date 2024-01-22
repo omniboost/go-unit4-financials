@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/eassets/schemas/canceldepreciation/canceldepreciation-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:candepws="http://www.coda.com/eassets/schemas/canceldepreciation/canceldepreciation-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:rev="http://www.coda.com/eassets/schemas/reviewtransactions"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:log="http://www.coda.com/common/schemas/logging"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:tdo="http://www.coda.com/eassets/schemas/temporarydoc"
+    xmlns:candep="http://www.coda.com/eassets/schemas/canceldepreciation"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/eassets/schemas/canceldepreciation/canceldepreciation-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/temporarydoc" schemaLocation="assets/temporarydoc/temporarydoc.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/canceldepreciation" schemaLocation="../wsdl/assets/canceldepreciation/canceldepreciation.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/logging" schemaLocation="common/logging/logging.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/reviewtransactions" schemaLocation="assets/reviewtransactions/reviewtransactions.xsd"/>
+    <xsd:element name="PostReviewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CancelDepreciation" type="candep:CancelDepreciation"/>
+                <xsd:element name="LogKey" type="log:LogKey"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelReviewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="isCancelled" type="com:typeBool"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsPosted" type="com:typeBool"/>
+                <xsd:element name="CmpCode" type="com:typeCode"/>
+                <xsd:element name="RunNumber" type="xsd:int"/>
+                <xsd:element name="HasWarnings" minOccurs="0" type="com:typeBool"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ReviewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CancelDepreciation" type="candep:CancelDepreciation"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelReviewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCode"/>
+                <xsd:element name="RunNumber" type="xsd:int"/>
+                <xsd:element name="LogKey" type="log:LogKey"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostReviewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsPosted" type="com:typeBool"/>
+                <xsd:element name="CmpCode" type="com:typeCode"/>
+                <xsd:element name="RunNumber" type="xsd:int"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CancelDepreciation" type="candep:CancelDepreciation"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ReviewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="IsReviewed" type="com:typeBool"/>
+                <xsd:element name="CmpCode" type="com:typeCode"/>
+                <xsd:element name="RunNumber" type="xsd:int"/>
+                <xsd:element name="ReviewTransactions" type="rev:ReviewTransactions"/>
+                <xsd:element name="LogKey" type="log:LogKey"/>
+                <xsd:element name="HasWarnings" minOccurs="0" type="com:typeBool"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="PostReviewRequest">
+    <part name="PostReviewRequest" element="candepws:PostReviewRequest"/>
+  </message>
+  <message name="PostResponse">
+    <part name="PostResponse" element="candepws:PostResponse"/>
+  </message>
+  <message name="ReviewResponse">
+    <part name="ReviewResponse" element="candepws:ReviewResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="candepws:OptionsResponse"/>
+  </message>
+  <message name="PostReviewResponse">
+    <part name="PostReviewResponse" element="candepws:PostReviewResponse"/>
+  </message>
+  <message name="CancelReviewResponse">
+    <part name="CancelReviewResponse" element="candepws:CancelReviewResponse"/>
+  </message>
+  <message name="CancelReviewRequest">
+    <part name="CancelReviewRequest" element="candepws:CancelReviewRequest"/>
+  </message>
+  <message name="ReviewRequest">
+    <part name="ReviewRequest" element="candepws:ReviewRequest"/>
+  </message>
+  <message name="PostRequest">
+    <part name="PostRequest" element="candepws:PostRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="candepws:Options"/>
+  </message>
+  <portType name="CancelDepreciationServicePortTypes">
+    <operation name="PostReview">
+      <input message="candepws:PostReviewRequest"/>
+      <output message="candepws:PostReviewResponse"/>
+    </operation>
+    <operation name="CancelReview">
+      <input message="candepws:CancelReviewRequest"/>
+      <output message="candepws:CancelReviewResponse"/>
+    </operation>
+    <operation name="Post">
+      <input message="candepws:PostRequest"/>
+      <output message="candepws:PostResponse"/>
+    </operation>
+    <operation name="Review">
+      <input message="candepws:ReviewRequest"/>
+      <output message="candepws:ReviewResponse"/>
+    </operation>
+  </portType>
+  <binding name="CancelDepreciationServiceSOAPBinding" type="candepws:CancelDepreciationServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="PostReview">
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CancelDepreciation/PostReview" style="document"/>
+      <input>
+        <soap:header message="candepws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="candepws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CancelReview">
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CancelDepreciation/CancelReview" style="document"/>
+      <input>
+        <soap:header message="candepws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="candepws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Post">
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CancelDepreciation/Post" style="document"/>
+      <input>
+        <soap:header message="candepws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="candepws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Review">
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/CancelDepreciation/Review" style="document"/>
+      <input>
+        <soap:header message="candepws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="candepws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CancelDepreciationService">
+    <port name="CancelDepreciationServicePort" binding="candepws:CancelDepreciationServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/assets/canceldepreciation/canceldepreciation-12.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/securityvariables/securityvariables-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:secvws="http://www.coda.com/common/schemas/securityvariables/securityvariables-1.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:secv="http://www.coda.com/common/schemas/securityvariables"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/securityvariables/securityvariables-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/securityvariables" schemaLocation="../wsdl/common/securityvariables/securityvariables.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SecurityVariables" minOccurs="0" type="secv:SecurityVariables">
+                    <xsd:annotation>
+                        <xsd:documentation>Reserved for future use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SecurityVariables" minOccurs="0" type="secv:SecurityVariables">
+                    <xsd:annotation>
+                        <xsd:documentation>Reserved for future use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TimeStamp" minOccurs="0" type="xsd:short">
+                    <xsd:annotation>
+                        <xsd:documentation>Reserved for future use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="secvws:OptionsResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="secvws:GetResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="secvws:Options"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="secvws:UpdateResponse"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="secvws:GetRequest"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="secvws:UpdateRequest"/>
+  </message>
+  <portType name="SecurityVariablesServicePortTypes">
+    <operation name="Get">
+      <input message="secvws:GetRequest"/>
+      <output message="secvws:GetResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="secvws:UpdateRequest"/>
+      <output message="secvws:UpdateResponse"/>
+    </operation>
+  </portType>
+  <binding name="SecurityVariablesServiceSOAPBinding" type="secvws:SecurityVariablesServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SecurityVariables/Get" style="document"/>
+      <input>
+        <soap:header message="secvws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="secvws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SecurityVariables/Update" style="document"/>
+      <input>
+        <soap:header message="secvws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="secvws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SecurityVariablesService">
+    <port name="SecurityVariablesServicePort" binding="secvws:SecurityVariablesServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/securityvariables/securityvariables-1.0"/>
+    </port>
+  </service>
+</definitions>

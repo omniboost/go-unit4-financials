@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/capabilitymaster/popcapabilitymaster-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:popcapws="http://www.coda.com/pop/schemas/capabilitymaster/popcapabilitymaster-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:Poptypes="http://www.coda.com/pop/schemas/common"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:cap="http://www.coda.com/common/schemas/capabilitymaster"
+    xmlns:popcap="http://www.coda.com/pop/schemas/capabilitymaster"
+    xmlns:mas="http://www.coda.com/pop/schemas/master"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:popusr="http://www.coda.com/pop/schemas/usermaster"
+    targetNamespace="http://www.coda.com/pop/schemas/capabilitymaster/popcapabilitymaster-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/pop/schemas/usermaster" schemaLocation="pop/usermaster/usermaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/capabilitymaster" schemaLocation="../wsdl/pop/capabilitymaster/capabilitymaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/common" schemaLocation="pop/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/master" schemaLocation="pop/master/master.xsd"/>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Capability" type="popcap:POPCapability">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the capability
+                            master you have retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CapabilityKey" type="com:GlobalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the contract
+                            master that you want to retrieve from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Options">
+    <part name="Options" element="popcapws:Options"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="popcapws:GetRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="popcapws:OptionsResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="popcapws:GetResponse"/>
+  </message>
+  <portType name="POPCapabilityMasterServicePortTypes">
+    <operation name="Get">
+      <input message="popcapws:GetRequest"/>
+      <output message="popcapws:GetResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPCapabilityMasterServiceSOAPBinding" type="popcapws:POPCapabilityMasterServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPCapabilityMaster/Get" style="document"/>
+      <input>
+        <soap:header message="popcapws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popcapws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPCapabilityMasterService">
+    <port name="POPCapabilityMasterServicePort" binding="popcapws:POPCapabilityMasterServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/capabilitymaster/popcapabilitymaster-12.0"/>
+    </port>
+  </service>
+</definitions>

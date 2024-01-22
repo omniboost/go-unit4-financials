@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/attachment/attachment-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:atcws="http://www.coda.com/common/schemas/attachment/attachment-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:rep="http://www.coda.com/common/schemas/repository"
+    xmlns:atc="http://www.coda.com/common/schemas/attachment"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/attachment/attachment-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/repository" schemaLocation="common/repository/repository.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/attachment" schemaLocation="../wsdl/common/attachment/attachment.xsd"/>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Attachment" type="atc:Attachment">
+                    <xsd:annotation>
+                        <xsd:documentation>The attachment is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SummariseObjectUsageResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Summary" minOccurs="0"
+                    maxOccurs="unbounded" type="atc:ObjectUsageSummary">
+                    <xsd:annotation>
+                        <xsd:documentation>The summary is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateReferenceAttachmentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Input" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The user input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SummariseObjectUsageRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="atc:ObjectUsageSummaryFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Filter criteria</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetReferenceAttachmentDisplayURLRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AttachmentID" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The ID of the attachment to get.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetReferenceAttachmentDisplayURLResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Url" type="com:typeUri">
+                    <xsd:annotation>
+                        <xsd:documentation>The url is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateReferenceAttachmentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Output" type="com:typeUri">
+                    <xsd:annotation>
+                        <xsd:documentation>The output is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Filename" type="com:typeText">
+                    <xsd:annotation>
+                        <xsd:documentation>The filename is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Id" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The ID of the attachment to get.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="atcws:OptionsResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="atcws:GetResponse"/>
+  </message>
+  <message name="ValidateReferenceAttachmentRequest">
+    <part name="ValidateReferenceAttachmentRequest" element="atcws:ValidateReferenceAttachmentRequest"/>
+  </message>
+  <message name="GetReferenceAttachmentDisplayURLRequest">
+    <part name="GetReferenceAttachmentDisplayURLRequest" element="atcws:GetReferenceAttachmentDisplayURLRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="atcws:GetRequest"/>
+  </message>
+  <message name="ValidateReferenceAttachmentResponse">
+    <part name="ValidateReferenceAttachmentResponse" element="atcws:ValidateReferenceAttachmentResponse"/>
+  </message>
+  <message name="SummariseObjectUsageRequest">
+    <part name="SummariseObjectUsageRequest" element="atcws:SummariseObjectUsageRequest"/>
+  </message>
+  <message name="SummariseObjectUsageResponse">
+    <part name="SummariseObjectUsageResponse" element="atcws:SummariseObjectUsageResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="atcws:Options"/>
+  </message>
+  <message name="GetReferenceAttachmentDisplayURLResponse">
+    <part name="GetReferenceAttachmentDisplayURLResponse" element="atcws:GetReferenceAttachmentDisplayURLResponse"/>
+  </message>
+  <portType name="AttachmentServicePortTypes">
+    <operation name="GetReferenceAttachmentDisplayURL">
+      <input message="atcws:GetReferenceAttachmentDisplayURLRequest"/>
+      <output message="atcws:GetReferenceAttachmentDisplayURLResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="atcws:GetRequest"/>
+      <output message="atcws:GetResponse"/>
+    </operation>
+    <operation name="ValidateReferenceAttachment">
+      <input message="atcws:ValidateReferenceAttachmentRequest"/>
+      <output message="atcws:ValidateReferenceAttachmentResponse"/>
+    </operation>
+    <operation name="SummariseObjectUsage">
+      <input message="atcws:SummariseObjectUsageRequest"/>
+      <output message="atcws:SummariseObjectUsageResponse"/>
+    </operation>
+  </portType>
+  <binding name="AttachmentServiceSOAPBinding" type="atcws:AttachmentServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetReferenceAttachmentDisplayURL">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Attachment/GetReferenceAttachmentDisplayURL" style="document"/>
+      <input>
+        <soap:header message="atcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="atcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Attachment/Get" style="document"/>
+      <input>
+        <soap:header message="atcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="atcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateReferenceAttachment">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Attachment/ValidateReferenceAttachment" style="document"/>
+      <input>
+        <soap:header message="atcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="atcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SummariseObjectUsage">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Attachment/SummariseObjectUsage" style="document"/>
+      <input>
+        <soap:header message="atcws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="atcws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AttachmentService">
+    <port name="AttachmentServicePort" binding="atcws:AttachmentServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/attachment/attachment-13.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/transaction/account-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:txnws="http://www.coda.com/efinance/schemas/transaction/account-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:ffd="http://www.coda.com/common/schemas/flexifield"
+    xmlns:txn="http://www.coda.com/efinance/schemas/transaction"
+    xmlns:atc="http://www.coda.com/common/schemas/attachment"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/transaction/account-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/transaction" schemaLocation="../wsdl/finance/transaction/transaction.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/flexifield" schemaLocation="common/flexifield/flexifield.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/attachment" schemaLocation="common/attachment/attachment.xsd"/>
+    <xsd:element name="GetResponsibleUsersWithToleranceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ResponsibleUsersWithTolerance"
+                    minOccurs="0" type="txn:UsersAndTolerances">
+                    <xsd:annotation>
+                        <xsd:documentation>Details of tolerances
+                            associated with users.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckElementResponsibilityAccountAccessResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="NotResponsibleAccounts" minOccurs="0" type="txn:DeniedAccounts">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of accounts to which
+                            the specified user has no access.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponsibleUsersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A company code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Accounts" minOccurs="0" type="txn:DestAndAccountList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of destination and
+                            account combinations</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Usage" type="com:typeCtResponsibilityUsage">
+                    <xsd:annotation>
+                        <xsd:documentation>The scope of an element responsibilty.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Users" minOccurs="0" type="txn:UserCodeList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of user codes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CurrencyCode" minOccurs="0" type="com:typeGeneralCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>A currency code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Value" minOccurs="0" type="com:typeMoneyB">
+                    <xsd:annotation>
+                        <xsd:documentation>A monetary value.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ResponsibleUsers" minOccurs="0" type="txn:UserCodeList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of responsible user codes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FirstFailedAccount" minOccurs="0" type="txn:DestAndAccount">
+                    <xsd:annotation>
+                        <xsd:documentation>The details of the first
+                            failed account.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OverLimit" minOccurs="0" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the values
+                            exceeds the specified limit.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAccessLevelResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AccessLevelParams" type="txn:AccessLevelParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of access level parameters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AccessLevel" minOccurs="0" type="com:typeCtAcCodeAccessLevel">
+                    <xsd:annotation>
+                        <xsd:documentation>The type of access available.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDefaultTaxCodeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A company code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DestinationCode" minOccurs="0" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>An intercompany destination code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AccountCode" type="com:typeAcCode">
+                    <xsd:annotation>
+                        <xsd:documentation>An account code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckCodeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Answer" minOccurs="0" type="txn:ChkAccCodeAnswer">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the result
+                            of the validation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDefaultTaxCodeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A company code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DestinationCode" minOccurs="0" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>An intercompany destination code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AccountCode" type="com:typeAcCode">
+                    <xsd:annotation>
+                        <xsd:documentation>An account code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TaxCode" minOccurs="0" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A tax code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAccessLevelRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AccessLevelParams" type="txn:AccessLevelParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of access level parameters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SubstituteAccountResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SubstituteAccount" type="txn:SubstituteAccountParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of substitute account parameters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AccountCode" minOccurs="0" type="com:typeAcCode">
+                    <xsd:annotation>
+                        <xsd:documentation>An account code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SubstituteAccountRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SubstituteAccount" type="txn:SubstituteAccountParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of substitute account parameters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDestCmpRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DestCmpSource" type="txn:GetDestSource">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the
+                            company code and InterCompany destination code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponsibleUsersWithReasonRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A company code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Account" type="txn:DestAndAccount">
+                    <xsd:annotation>
+                        <xsd:documentation>A destination and account combination.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Usage" type="com:typeCtResponsibilityUsage">
+                    <xsd:annotation>
+                        <xsd:documentation>The scope of an element responsibilty.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Users" minOccurs="0" type="txn:UserCodeList">
+                    <xsd:annotation>
+                        <xsd:documentation>The initial list of user codes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ReasonCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The discrepancy reason code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponsibleUsersWithReasonResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ResponsibleUsers" minOccurs="0" type="txn:UserCodeList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of users with
+                            responsibility for the specified account
+                            code and discrepancy reason code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckElementResponsibilityAccountAccessRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A company code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Accounts" minOccurs="0" type="txn:DestAndAccountList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of destination and
+                            account combinations</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Usage" type="com:typeCtResponsibilityUsage">
+                    <xsd:annotation>
+                        <xsd:documentation>The scope of an element responsibilty.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="User" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A user code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDestCmpResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Company" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The company code retrieved
+                            from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Destination" minOccurs="0" type="com:typeGeneralCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The InterCompany destination
+                            code retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponsibleUsersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A company code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Accounts" minOccurs="0" type="txn:DestAndAccountList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of destination and
+                            account combinations</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Usage" type="com:typeCtResponsibilityUsage">
+                    <xsd:annotation>
+                        <xsd:documentation>The scope of an element responsibilty.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Users" minOccurs="0" type="txn:UserCodeList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of user codes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CurrencyCode" minOccurs="0" type="com:typeGeneralCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>A currency code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Value" minOccurs="0" type="com:typeMoneyB">
+                    <xsd:annotation>
+                        <xsd:documentation>A monetary value.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponsibleUsersWithToleranceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A company code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Account" type="txn:DestAndAccount">
+                    <xsd:annotation>
+                        <xsd:documentation>A destination and account combination.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Usage" type="com:typeCtResponsibilityUsage">
+                    <xsd:annotation>
+                        <xsd:documentation>The scope of an element responsibilty.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Users" minOccurs="0" type="txn:UserCodeList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of user codes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckCodeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ChkCodeData" type="txn:ChkAccCodeData">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds details of
+                            the account code you want to validate and
+                            the type of validation you want to perform.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="CheckCodeRequest">
+    <part name="CheckCodeRequest" element="txnws:CheckCodeRequest"/>
+  </message>
+  <message name="GetDefaultTaxCodeRequest">
+    <part name="GetDefaultTaxCodeRequest" element="txnws:GetDefaultTaxCodeRequest"/>
+  </message>
+  <message name="GetDestCmpResponse">
+    <part name="GetDestCmpResponse" element="txnws:GetDestCmpResponse"/>
+  </message>
+  <message name="CheckElementResponsibilityAccountAccessResponse">
+    <part name="CheckElementResponsibilityAccountAccessResponse" element="txnws:CheckElementResponsibilityAccountAccessResponse"/>
+  </message>
+  <message name="GetResponsibleUsersWithToleranceRequest">
+    <part name="GetResponsibleUsersWithToleranceRequest" element="txnws:GetResponsibleUsersWithToleranceRequest"/>
+  </message>
+  <message name="GetResponsibleUsersWithReasonRequest">
+    <part name="GetResponsibleUsersWithReasonRequest" element="txnws:GetResponsibleUsersWithReasonRequest"/>
+  </message>
+  <message name="GetAccessLevelResponse">
+    <part name="GetAccessLevelResponse" element="txnws:GetAccessLevelResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="txnws:OptionsResponse"/>
+  </message>
+  <message name="GetDefaultTaxCodeResponse">
+    <part name="GetDefaultTaxCodeResponse" element="txnws:GetDefaultTaxCodeResponse"/>
+  </message>
+  <message name="GetResponsibleUsersResponse">
+    <part name="GetResponsibleUsersResponse" element="txnws:GetResponsibleUsersResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="txnws:Options"/>
+  </message>
+  <message name="GetAccessLevelRequest">
+    <part name="GetAccessLevelRequest" element="txnws:GetAccessLevelRequest"/>
+  </message>
+  <message name="GetResponsibleUsersRequest">
+    <part name="GetResponsibleUsersRequest" element="txnws:GetResponsibleUsersRequest"/>
+  </message>
+  <message name="CheckElementResponsibilityAccountAccessRequest">
+    <part name="CheckElementResponsibilityAccountAccessRequest" element="txnws:CheckElementResponsibilityAccountAccessRequest"/>
+  </message>
+  <message name="GetDestCmpRequest">
+    <part name="GetDestCmpRequest" element="txnws:GetDestCmpRequest"/>
+  </message>
+  <message name="GetResponsibleUsersWithToleranceResponse">
+    <part name="GetResponsibleUsersWithToleranceResponse" element="txnws:GetResponsibleUsersWithToleranceResponse"/>
+  </message>
+  <message name="SubstituteAccountRequest">
+    <part name="SubstituteAccountRequest" element="txnws:SubstituteAccountRequest"/>
+  </message>
+  <message name="SubstituteAccountResponse">
+    <part name="SubstituteAccountResponse" element="txnws:SubstituteAccountResponse"/>
+  </message>
+  <message name="GetResponsibleUsersWithReasonResponse">
+    <part name="GetResponsibleUsersWithReasonResponse" element="txnws:GetResponsibleUsersWithReasonResponse"/>
+  </message>
+  <message name="CheckCodeResponse">
+    <part name="CheckCodeResponse" element="txnws:CheckCodeResponse"/>
+  </message>
+  <portType name="AccountServicePortTypes">
+    <operation name="SubstituteAccount">
+      <input message="txnws:SubstituteAccountRequest"/>
+      <output message="txnws:SubstituteAccountResponse"/>
+    </operation>
+    <operation name="CheckCode">
+      <input message="txnws:CheckCodeRequest"/>
+      <output message="txnws:CheckCodeResponse"/>
+    </operation>
+    <operation name="GetDefaultTaxCode">
+      <input message="txnws:GetDefaultTaxCodeRequest"/>
+      <output message="txnws:GetDefaultTaxCodeResponse"/>
+    </operation>
+    <operation name="GetResponsibleUsers">
+      <input message="txnws:GetResponsibleUsersRequest"/>
+      <output message="txnws:GetResponsibleUsersResponse"/>
+    </operation>
+    <operation name="GetAccessLevel">
+      <input message="txnws:GetAccessLevelRequest"/>
+      <output message="txnws:GetAccessLevelResponse"/>
+    </operation>
+    <operation name="GetDestCmp">
+      <input message="txnws:GetDestCmpRequest"/>
+      <output message="txnws:GetDestCmpResponse"/>
+    </operation>
+    <operation name="GetResponsibleUsersWithTolerance">
+      <input message="txnws:GetResponsibleUsersWithToleranceRequest"/>
+      <output message="txnws:GetResponsibleUsersWithToleranceResponse"/>
+    </operation>
+    <operation name="CheckElementResponsibilityAccountAccess">
+      <input message="txnws:CheckElementResponsibilityAccountAccessRequest"/>
+      <output message="txnws:CheckElementResponsibilityAccountAccessResponse"/>
+    </operation>
+    <operation name="GetResponsibleUsersWithReason">
+      <input message="txnws:GetResponsibleUsersWithReasonRequest"/>
+      <output message="txnws:GetResponsibleUsersWithReasonResponse"/>
+    </operation>
+  </portType>
+  <binding name="AccountServiceSOAPBinding" type="txnws:AccountServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="SubstituteAccount">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Account/SubstituteAccount" style="document"/>
+      <input>
+        <soap:header message="txnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="txnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckCode">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Account/CheckCode" style="document"/>
+      <input>
+        <soap:header message="txnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="txnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDefaultTaxCode">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Account/GetDefaultTaxCode" style="document"/>
+      <input>
+        <soap:header message="txnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="txnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetResponsibleUsers">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Account/GetResponsibleUsers" style="document"/>
+      <input>
+        <soap:header message="txnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="txnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetAccessLevel">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Account/GetAccessLevel" style="document"/>
+      <input>
+        <soap:header message="txnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="txnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDestCmp">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Account/GetDestCmp" style="document"/>
+      <input>
+        <soap:header message="txnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="txnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetResponsibleUsersWithTolerance">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Account/GetResponsibleUsersWithTolerance" style="document"/>
+      <input>
+        <soap:header message="txnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="txnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckElementResponsibilityAccountAccess">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Account/CheckElementResponsibilityAccountAccess" style="document"/>
+      <input>
+        <soap:header message="txnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="txnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetResponsibleUsersWithReason">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Account/GetResponsibleUsersWithReason" style="document"/>
+      <input>
+        <soap:header message="txnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="txnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AccountService">
+    <port name="AccountServicePort" binding="txnws:AccountServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/transaction/account-12.0"/>
+    </port>
+  </service>
+</definitions>

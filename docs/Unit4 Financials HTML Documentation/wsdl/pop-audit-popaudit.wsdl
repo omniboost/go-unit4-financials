@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/audit/popaudit-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:auditws="http://www.coda.com/pop/schemas/audit/popaudit-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:audit="http://www.coda.com/pop/schemas/audit"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/pop/schemas/audit/popaudit-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/pop/schemas/audit" schemaLocation="../wsdl/pop/audit/audit.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="AuditYearEndChangeRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LogID" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>       Contains a key to the year end
+                                change audit log.      </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="NumberOfPeriods" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>       The new number of periods for
+                                the current year.      </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuditYearEndChangeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AuditPassed" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The auditPassed is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="auditws:OptionsResponse"/>
+  </message>
+  <message name="AuditYearEndChangeResponse">
+    <part name="AuditYearEndChangeResponse" element="auditws:AuditYearEndChangeResponse"/>
+  </message>
+  <message name="AuditYearEndChangeRequest">
+    <part name="AuditYearEndChangeRequest" element="auditws:AuditYearEndChangeRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="auditws:Options"/>
+  </message>
+  <portType name="POPAuditServicePortTypes">
+    <operation name="AuditYearEndChange">
+      <input message="auditws:AuditYearEndChangeRequest"/>
+      <output message="auditws:AuditYearEndChangeResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPAuditServiceSOAPBinding" type="auditws:POPAuditServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="AuditYearEndChange">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPAudit/AuditYearEndChange" style="document"/>
+      <input>
+        <soap:header message="auditws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="auditws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPAuditService">
+    <port name="POPAuditServicePort" binding="auditws:POPAuditServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/audit/popaudit-12.0"/>
+    </port>
+  </service>
+</definitions>

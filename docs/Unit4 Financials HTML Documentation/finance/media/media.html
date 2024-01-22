@@ -1,0 +1,983 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/media</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/media</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>MediaMaster</h3>
+         <p>This element contains a media master.</p>
+         <h3>MediaReqKeys</h3>
+         <p>This is a media master key used when requesting a list of media masters. It incorporates
+            the company within which the media master exists and a value for the maximum number
+            of items to return.
+         </p>
+         <h3>MediaRequest</h3>
+         <p>This service allows you to maintain media masters.</p>
+         <h3>MediaResponse</h3>
+         <p>This is the response that is returned when you maintain media masters.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/media}MediaMaster"></a><h3>MediaMaster</h3>
+         <p>This element contains a media master.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>TimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The TimeStamp value for this media master in the database.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code of the company in which the media master exists.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the media master.</td>
+                  </tr>
+                  <tr>
+                     <td>Name</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeName" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeName">typeName</a></td>
+                     <td>The full name for the media master.</td>
+                  </tr>
+                  <tr>
+                     <td>ShortName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The abbreviated name for the media master.</td>
+                  </tr>
+                  <tr>
+                     <td>PayMethod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtPayMedia" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtPayMedia">typeCtPayMedia</a></td>
+                     <td>The method by which the payment will be made, either electronic or paper.</td>
+                  </tr>
+                  <tr>
+                     <td>ElecMethod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtElectronicMethod" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtElectronicMethod">typeCtElectronicMethod</a></td>
+                     <td>For electronic methods, specifies whether the payment is a Direct Debit or Credit
+                        Transfer.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>MaxTransaction</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The maximum value of an individual payable instrument. Valid for an electronic payment.</td>
+                  </tr>
+                  <tr>
+                     <td>MaxTotal</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The maximum of the sum of all the payable instrument values. Valid for an electronic
+                        payment.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>LinesPerPage</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The number of lines to be printed per page of the remittance advice. Valid for an
+                        electronic payment.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>AutoNumber</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that the documents are numbered automatically at the appropriate
+                        time. Valid for an electronic payment.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>NoSummarization</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that the element summary and split levels are ignored when being
+                        paid by the current medium.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>PreNum</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that documents will be numbered before the production stage of
+                        a payment or collection process.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>SeperateChequeAndRemittance</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that separate stationery for printing cheques and remittance notes
+                        will be used.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}MediaReqKeys"></a><h3>MediaReqKeys</h3>
+         <p>This is a media master key used when requesting a list of media masters. It incorporates
+            the company within which the media master exists and a value for the maximum number
+            of items to return.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MaxKeys</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The maximum number of items to be returned.</td>
+                  </tr>
+                  <tr>
+                     <td>Key</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>A key consisting of a company code and a media master code.</td>
+                  </tr>
+                  <tr>
+                     <td>WantElectronic</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether media masters with an electronic payment method should be included
+                        in the list.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>WantPaper</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether media masters with a paper payment method should be included in
+                        the list.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ElmKey</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/elementmaster}elmFullKey" href="../elementmaster/elementmaster.html#{http://www.coda.com/efinance/schemas/elementmaster}elmFullKey">elmFullKey</a></td>
+                     <td>An element key that is used to filter the list of media masters returned. The list
+                        contains only the media masters appropriate to this element.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}MediaKeyDataElement"></a><h3>MediaKeyDataElement</h3>
+         <p>Contains the extended key information for one media master.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the media master.</td>
+                  </tr>
+                  <tr>
+                     <td>ShortName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The abbreviated name for the media master.</td>
+                  </tr>
+                  <tr>
+                     <td>PayMethod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtPayMedia" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtPayMedia">typeCtPayMedia</a></td>
+                     <td>The payment method.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}MediaKeyData"></a><h3>MediaKeyData</h3>
+         <p>Contains the extended key information for the specified media masters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}MediaKeyDataElement" href="#{http://www.coda.com/efinance/schemas/media}MediaKeyDataElement">MediaKeyDataElement</a></td>
+                     <td>Contains the extended key information for one media master.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}GetRequest"></a><h3>GetRequest</h3>
+         <p>The GetRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>Contains the key identifying the media master you want to retrieve from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}GetRequestVerb"></a><h3>GetRequestVerb</h3>
+         <p>The GetRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the specified media masters from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}GetRequest" href="#{http://www.coda.com/efinance/schemas/media}GetRequest">GetRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}GetResponse"></a><h3>GetResponse</h3>
+         <p>The GetResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which you attempted to retrieve the media master.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the media master you attempted to retrieve.</td>
+                  </tr>
+                  <tr>
+                     <td>MediaMaster</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}MediaMaster" href="#{http://www.coda.com/efinance/schemas/media}MediaMaster">MediaMaster</a></td>
+                     <td>Contains the media master you have retrieved from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}GetResponseVerb"></a><h3>GetResponseVerb</h3>
+         <p>The GetResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}GetResponse" href="#{http://www.coda.com/efinance/schemas/media}GetResponse">GetResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}AddRequest"></a><h3>AddRequest</h3>
+         <p>The AddRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MediaMaster</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}MediaMaster" href="#{http://www.coda.com/efinance/schemas/media}MediaMaster">MediaMaster</a></td>
+                     <td>Contains the information for a media master you want to create.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}AddRequestVerb"></a><h3>AddRequestVerb</h3>
+         <p>The AddRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}MultiCompanyRequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}MultiCompanyRequestVerb">MultiCompanyRequestVerb</a> as its base type.
+         </p>
+         <p>Creates new media masters in the database using the media information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}AddRequest" href="#{http://www.coda.com/efinance/schemas/media}AddRequest">AddRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}AddResponse"></a><h3>AddResponse</h3>
+         <p>The AddResponse type has <a title="{http://www.coda.com/efinance/schemas/common}MultiCompanyResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}MultiCompanyResponse">MultiCompanyResponse</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which you attempted to create the media master.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the media master that you attempted to create.</td>
+                  </tr>
+                  <tr>
+                     <td>TimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeWord" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeWord">typeWord</a></td>
+                     <td>The TimeStamp value for this media master in the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}AddResponseVerb"></a><h3>AddResponseVerb</h3>
+         <p>The AddResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Companies</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Companies" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Companies">Companies</a></td>
+                     <td>Contains the list of additional companies in which you want to create the masters.
+                        This is part of the multi-company functionality for maintaining masters in multiple
+                        companies.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}AddResponse" href="#{http://www.coda.com/efinance/schemas/media}AddResponse">AddResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}UpdateRequest"></a><h3>UpdateRequest</h3>
+         <p>The UpdateRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MediaMaster</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}MediaMaster" href="#{http://www.coda.com/efinance/schemas/media}MediaMaster">MediaMaster</a></td>
+                     <td>Contains the information for a media master you want to update.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}UpdateRequestVerb"></a><h3>UpdateRequestVerb</h3>
+         <p>The UpdateRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}MultiCompanyRequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}MultiCompanyRequestVerb">MultiCompanyRequestVerb</a> as its base type.
+         </p>
+         <p>Updates media masters in the database using the media information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}UpdateRequest" href="#{http://www.coda.com/efinance/schemas/media}UpdateRequest">UpdateRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}UpdateResponse"></a><h3>UpdateResponse</h3>
+         <p>The UpdateResponse type has <a title="{http://www.coda.com/efinance/schemas/common}MultiCompanyResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}MultiCompanyResponse">MultiCompanyResponse</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which you attempted to update the media master.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the media master that you attempted to update.</td>
+                  </tr>
+                  <tr>
+                     <td>TimeStamp</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeWord" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeWord">typeWord</a></td>
+                     <td>The TimeStamp value for this media master in the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}UpdateResponseVerb"></a><h3>UpdateResponseVerb</h3>
+         <p>The UpdateResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Companies</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Companies" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Companies">Companies</a></td>
+                     <td>Contains the list of additional companies in which you want to update the masters.
+                        This is part of the multi-company functionality for maintaining masters in multiple
+                        companies.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}UpdateResponse" href="#{http://www.coda.com/efinance/schemas/media}UpdateResponse">UpdateResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}DeleteRequest"></a><h3>DeleteRequest</h3>
+         <p>The DeleteRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>Contains the key identifying a media master you want to delete.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}DeleteRequestVerb"></a><h3>DeleteRequestVerb</h3>
+         <p>The DeleteRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Deletes the specified media masters from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}DeleteRequest" href="#{http://www.coda.com/efinance/schemas/media}DeleteRequest">DeleteRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}DeleteResponse"></a><h3>DeleteResponse</h3>
+         <p>The DeleteResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which you attempted to delete the media master.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the media master that you attempted to delete.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}DeleteResponseVerb"></a><h3>DeleteResponseVerb</h3>
+         <p>The DeleteResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}DeleteResponse" href="#{http://www.coda.com/efinance/schemas/media}DeleteResponse">DeleteResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}ListRequest"></a><h3>ListRequest</h3>
+         <p>The ListRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}MediaReqKeys" href="#{http://www.coda.com/efinance/schemas/media}MediaReqKeys">MediaReqKeys</a></td>
+                     <td>A filter that selects the media masters to be listed.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}ListRequestVerb"></a><h3>ListRequestVerb</h3>
+         <p>The ListRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves extended key information for the specified media masters from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}ListRequest" href="#{http://www.coda.com/efinance/schemas/media}ListRequest">ListRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}ListResponse"></a><h3>ListResponse</h3>
+         <p>The ListResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}MediaReqKeys" href="#{http://www.coda.com/efinance/schemas/media}MediaReqKeys">MediaReqKeys</a></td>
+                     <td>The filter that was used to select the media masters to be listed.</td>
+                  </tr>
+                  <tr>
+                     <td>Keys</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}MediaKeyData" href="#{http://www.coda.com/efinance/schemas/media}MediaKeyData">MediaKeyData</a></td>
+                     <td>Contains extended key information for the listed media masters.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}ListResponseVerb"></a><h3>ListResponseVerb</h3>
+         <p>The ListResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}ListResponse" href="#{http://www.coda.com/efinance/schemas/media}ListResponse">ListResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}MediaRequest"></a><h3>MediaRequest</h3>
+         <p>The MediaRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to maintain media masters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>List</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}ListRequestVerb" href="#{http://www.coda.com/efinance/schemas/media}ListRequestVerb">ListRequestVerb</a></td>
+                     <td>Retrieves extended key information for the specified media masters from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>Get</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}GetRequestVerb" href="#{http://www.coda.com/efinance/schemas/media}GetRequestVerb">GetRequestVerb</a></td>
+                     <td>Retrieves the specified media masters from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>Add</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}AddRequestVerb" href="#{http://www.coda.com/efinance/schemas/media}AddRequestVerb">AddRequestVerb</a></td>
+                     <td>Creates new media masters in the database using the media information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>Update</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}UpdateRequestVerb" href="#{http://www.coda.com/efinance/schemas/media}UpdateRequestVerb">UpdateRequestVerb</a></td>
+                     <td>Updates media masters in the database using the media information you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>Delete</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}DeleteRequestVerb" href="#{http://www.coda.com/efinance/schemas/media}DeleteRequestVerb">DeleteRequestVerb</a></td>
+                     <td>Deletes the specified media masters from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/media}MediaResponse"></a><h3>MediaResponse</h3>
+         <p>The MediaResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you maintain media masters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>List</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}ListResponseVerb" href="#{http://www.coda.com/efinance/schemas/media}ListResponseVerb">ListResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Get</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}GetResponseVerb" href="#{http://www.coda.com/efinance/schemas/media}GetResponseVerb">GetResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Add</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}AddResponseVerb" href="#{http://www.coda.com/efinance/schemas/media}AddResponseVerb">AddResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Update</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}UpdateResponseVerb" href="#{http://www.coda.com/efinance/schemas/media}UpdateResponseVerb">UpdateResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Delete</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/media}DeleteResponseVerb" href="#{http://www.coda.com/efinance/schemas/media}DeleteResponseVerb">DeleteResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

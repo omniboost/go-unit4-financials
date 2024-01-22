@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/returntosupplier/popreturntosupplier-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:rtnws="http://www.coda.com/pop/schemas/returntosupplier/popreturntosupplier-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:poptypes="http://www.coda.com/pop/schemas/common"
+    xmlns:elmmas="http://www.coda.com/pop/schemas/elementmaster"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:inputtemplatemaster="http://www.coda.com/pop/schemas/inputtemplatemaster"
+    xmlns:rtn="http://www.coda.com/pop/schemas/returntosupplier"
+    xmlns:ns1="http://www.coda.com/common/schemas/domaingen"
+    xmlns:address="http://www.coda.com/pop/schemas/address"
+    xmlns:doc="http://www.coda.com/pop/schemas/document"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:popcommon="http://www.coda.com/pop/schemas/popcommon"
+    xmlns:popitem="http://www.coda.com/pop/schemas/item"
+    xmlns:grn="http://www.coda.com/pop/schemas/goodsreceivednote"
+    xmlns:datatypes="http://www.coda.com/common/schemas/datatypes"
+    targetNamespace="http://www.coda.com/pop/schemas/returntosupplier/popreturntosupplier-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/common/schemas/datatypes" schemaLocation="common/datatypes/datatypes.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/common" schemaLocation="pop/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/goodsreceivednote" schemaLocation="pop/goodsreceivednote/goodsreceivednote.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/item" schemaLocation="pop/item/item.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/popcommon" schemaLocation="pop/popcommon/popcommon.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/document" schemaLocation="pop/document/document.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/returntosupplier" schemaLocation="../wsdl/pop/returntosupplier/returntosupplier.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/address" schemaLocation="pop/address/address.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/inputtemplatemaster" schemaLocation="pop/inputtemplatemaster/inputtemplatemaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/elementmaster" schemaLocation="pop/elementmaster/elementmaster.xsd"/>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateReturnFromGRNRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InputTemplate" type="inputtemplatemaster:InputTemplateMasterKey">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="GoodsReceivedNoteDualList" type="rtn:GoodsReceivedNoteDualList">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="Document" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SaveAfterBrowseRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplierList" type="rtn:ReturnToSupplierList">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateSplitsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplier" type="rtn:ReturnToSupplier">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="LineNum" minOccurs="0" type="com:typeLong">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="EditSplitAmountsCapability"
+                    minOccurs="0" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="EnteringSplitMaintenance"
+                    minOccurs="0" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RefreshTotalsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RefreshTotals" type="rtn:ReturnToSupplier">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            RefreshTotals function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RefreshTotalsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplier" type="rtn:ReturnToSupplier">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RTSAccountToAccountDescriptionResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RTSAccountAllocation" type="rtn:RTSAccountAllocation">
+                    <xsd:annotation>
+                        <xsd:documentation>The RTSAccountAllocation is
+                            an out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AccountDescription" type="com:typeDescriptionf">
+                    <xsd:annotation>
+                        <xsd:documentation>The AccountDescription is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the ReturnToSupplier objects
+                            that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckSplitsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplier" type="rtn:ReturnToSupplier">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="LineNum" minOccurs="0" type="com:typeLong">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the ReturnToSupplier objects
+                            that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateSplitsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplier" type="rtn:ReturnToSupplier">
+                    <xsd:annotation>
+                        <xsd:documentation>The returnToSupplier is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetItemDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ItemCode" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="GrnDocCode" type="com:typeCode">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="GrnDocNum" type="poptypes:typePopDocnum">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="GrnLineNum" type="com:typeLong">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SaveResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SaveResult" minOccurs="0"
+                    maxOccurs="unbounded" type="rtn:RTSData">
+                    <xsd:annotation>
+                        <xsd:documentation>The SaveResult is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetItemDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnedItems" type="popitem:OrderItemDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>The returnedItems is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplierList" type="rtn:ReturnToSupplierList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateReturnFromGRNResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Returns" maxOccurs="unbounded" type="rtn:ReturnToSupplier">
+                    <xsd:annotation>
+                        <xsd:documentation>The returns is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExitReturnMaintenanceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplier" type="rtn:ReturnToSupplier">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="LineNum" minOccurs="0" type="com:typeLong">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="EditSplitAmountsCapability"
+                    minOccurs="0" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="ReturnAll" minOccurs="0" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+                <xsd:element name="EnteringSplitMaintenance"
+                    minOccurs="0" type="com:typeBoolean">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplier" type="rtn:ReturnToSupplier">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExitReturnMaintenanceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplier" type="rtn:ReturnToSupplier">
+                    <xsd:annotation>
+                        <xsd:documentation>The returnToSupplier is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SaveAfterBrowseResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplierItemList" type="rtn:ReturnToSupplierItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckRTSRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplier" type="rtn:ReturnToSupplier">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SaveRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplierList" type="rtn:ReturnToSupplierList">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplierKey" type="rtn:ReturnToSupplierKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            ReturnToSupplier object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckRTSResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CheckRTS" type="rtn:ReturnToSupplier">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            CheckRTS function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RTSAccountToAccountDescriptionRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RTSAccountAllocation" type="rtn:RTSAccountAllocation">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckSplitsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ReturnToSupplier" type="rtn:ReturnToSupplier">
+                    <xsd:annotation>
+                        <xsd:documentation>The returnToSupplier is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="CheckRTSResponse">
+    <part name="CheckRTSResponse" element="rtnws:CheckRTSResponse"/>
+  </message>
+  <message name="SaveRequest">
+    <part name="SaveRequest" element="rtnws:SaveRequest"/>
+  </message>
+  <message name="GenerateReturnFromGRNRequest">
+    <part name="GenerateReturnFromGRNRequest" element="rtnws:GenerateReturnFromGRNRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="rtnws:GetRequest"/>
+  </message>
+  <message name="SaveResponse">
+    <part name="SaveResponse" element="rtnws:SaveResponse"/>
+  </message>
+  <message name="UpdateSplitsResponse">
+    <part name="UpdateSplitsResponse" element="rtnws:UpdateSplitsResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="rtnws:OptionsResponse"/>
+  </message>
+  <message name="GetItemDetailsResponse">
+    <part name="GetItemDetailsResponse" element="rtnws:GetItemDetailsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="rtnws:Options"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="rtnws:FindResponse"/>
+  </message>
+  <message name="RTSAccountToAccountDescriptionResponse">
+    <part name="RTSAccountToAccountDescriptionResponse" element="rtnws:RTSAccountToAccountDescriptionResponse"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="rtnws:ListResponse"/>
+  </message>
+  <message name="GetItemDetailsRequest">
+    <part name="GetItemDetailsRequest" element="rtnws:GetItemDetailsRequest"/>
+  </message>
+  <message name="ExitReturnMaintenanceRequest">
+    <part name="ExitReturnMaintenanceRequest" element="rtnws:ExitReturnMaintenanceRequest"/>
+  </message>
+  <message name="RefreshTotalsResponse">
+    <part name="RefreshTotalsResponse" element="rtnws:RefreshTotalsResponse"/>
+  </message>
+  <message name="CheckSplitsResponse">
+    <part name="CheckSplitsResponse" element="rtnws:CheckSplitsResponse"/>
+  </message>
+  <message name="SaveAfterBrowseRequest">
+    <part name="SaveAfterBrowseRequest" element="rtnws:SaveAfterBrowseRequest"/>
+  </message>
+  <message name="RefreshTotalsRequest">
+    <part name="RefreshTotalsRequest" element="rtnws:RefreshTotalsRequest"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="rtnws:FindRequest"/>
+  </message>
+  <message name="ExitReturnMaintenanceResponse">
+    <part name="ExitReturnMaintenanceResponse" element="rtnws:ExitReturnMaintenanceResponse"/>
+  </message>
+  <message name="UpdateSplitsRequest">
+    <part name="UpdateSplitsRequest" element="rtnws:UpdateSplitsRequest"/>
+  </message>
+  <message name="GenerateReturnFromGRNResponse">
+    <part name="GenerateReturnFromGRNResponse" element="rtnws:GenerateReturnFromGRNResponse"/>
+  </message>
+  <message name="RTSAccountToAccountDescriptionRequest">
+    <part name="RTSAccountToAccountDescriptionRequest" element="rtnws:RTSAccountToAccountDescriptionRequest"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="rtnws:ListRequest"/>
+  </message>
+  <message name="CheckRTSRequest">
+    <part name="CheckRTSRequest" element="rtnws:CheckRTSRequest"/>
+  </message>
+  <message name="CheckSplitsRequest">
+    <part name="CheckSplitsRequest" element="rtnws:CheckSplitsRequest"/>
+  </message>
+  <message name="SaveAfterBrowseResponse">
+    <part name="SaveAfterBrowseResponse" element="rtnws:SaveAfterBrowseResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="rtnws:GetResponse"/>
+  </message>
+  <portType name="POPReturnToSupplierServicePortTypes">
+    <operation name="RTSAccountToAccountDescription">
+      <input message="rtnws:RTSAccountToAccountDescriptionRequest"/>
+      <output message="rtnws:RTSAccountToAccountDescriptionResponse"/>
+    </operation>
+    <operation name="UpdateSplits">
+      <input message="rtnws:UpdateSplitsRequest"/>
+      <output message="rtnws:UpdateSplitsResponse"/>
+    </operation>
+    <operation name="RefreshTotals">
+      <input message="rtnws:RefreshTotalsRequest"/>
+      <output message="rtnws:RefreshTotalsResponse"/>
+    </operation>
+    <operation name="GenerateReturnFromGRN">
+      <input message="rtnws:GenerateReturnFromGRNRequest"/>
+      <output message="rtnws:GenerateReturnFromGRNResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="rtnws:GetRequest"/>
+      <output message="rtnws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="rtnws:FindRequest"/>
+      <output message="rtnws:FindResponse"/>
+    </operation>
+    <operation name="Save">
+      <input message="rtnws:SaveRequest"/>
+      <output message="rtnws:SaveResponse"/>
+    </operation>
+    <operation name="GetItemDetails">
+      <input message="rtnws:GetItemDetailsRequest"/>
+      <output message="rtnws:GetItemDetailsResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="rtnws:ListRequest"/>
+      <output message="rtnws:ListResponse"/>
+    </operation>
+    <operation name="CheckRTS">
+      <input message="rtnws:CheckRTSRequest"/>
+      <output message="rtnws:CheckRTSResponse"/>
+    </operation>
+    <operation name="ExitReturnMaintenance">
+      <input message="rtnws:ExitReturnMaintenanceRequest"/>
+      <output message="rtnws:ExitReturnMaintenanceResponse"/>
+    </operation>
+    <operation name="SaveAfterBrowse">
+      <input message="rtnws:SaveAfterBrowseRequest"/>
+      <output message="rtnws:SaveAfterBrowseResponse"/>
+    </operation>
+    <operation name="CheckSplits">
+      <input message="rtnws:CheckSplitsRequest"/>
+      <output message="rtnws:CheckSplitsResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPReturnToSupplierServiceSOAPBinding" type="rtnws:POPReturnToSupplierServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="RTSAccountToAccountDescription">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPReturnToSupplier/RTSAccountToAccountDescription" style="document"/>
+      <input>
+        <soap:header message="rtnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rtnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateSplits">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPReturnToSupplier/UpdateSplits" style="document"/>
+      <input>
+        <soap:header message="rtnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rtnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RefreshTotals">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPReturnToSupplier/RefreshTotals" style="document"/>
+      <input>
+        <soap:header message="rtnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rtnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GenerateReturnFromGRN">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPReturnToSupplier/GenerateReturnFromGRN" style="document"/>
+      <input>
+        <soap:header message="rtnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rtnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPReturnToSupplier/Get" style="document"/>
+      <input>
+        <soap:header message="rtnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rtnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPReturnToSupplier/Find" style="document"/>
+      <input>
+        <soap:header message="rtnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rtnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Save">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPReturnToSupplier/Save" style="document"/>
+      <input>
+        <soap:header message="rtnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rtnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetItemDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPReturnToSupplier/GetItemDetails" style="document"/>
+      <input>
+        <soap:header message="rtnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rtnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPReturnToSupplier/List" style="document"/>
+      <input>
+        <soap:header message="rtnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rtnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckRTS">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPReturnToSupplier/CheckRTS" style="document"/>
+      <input>
+        <soap:header message="rtnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rtnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ExitReturnMaintenance">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPReturnToSupplier/ExitReturnMaintenance" style="document"/>
+      <input>
+        <soap:header message="rtnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rtnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SaveAfterBrowse">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPReturnToSupplier/SaveAfterBrowse" style="document"/>
+      <input>
+        <soap:header message="rtnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rtnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckSplits">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPReturnToSupplier/CheckSplits" style="document"/>
+      <input>
+        <soap:header message="rtnws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="rtnws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPReturnToSupplierService">
+    <port name="POPReturnToSupplierServicePort" binding="rtnws:POPReturnToSupplierServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/returntosupplier/popreturntosupplier-12.0"/>
+    </port>
+  </service>
+</definitions>

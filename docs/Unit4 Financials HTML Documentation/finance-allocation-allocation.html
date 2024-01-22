@@ -1,0 +1,508 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-AllocationService">
+            <h1>AllocationService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/allocation/allocation-14.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-allocation-allocation.wsdl" download="">finance-allocation-allocation.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/allocation/allocation-14.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#AllocationService-Post">Post</a></li>
+               <li><a href="#AllocationService-PrepareChain">PrepareChain</a></li>
+               <li><a href="#AllocationService-PrepareRule">PrepareRule</a></li>
+               <li><a href="#AllocationService-RunChain">RunChain</a></li>
+               <li><a href="#AllocationService-RunRuleAndPost">RunRuleAndPost</a></li>
+               <li><a href="#AllocationService-RunRuleAndView">RunRuleAndView</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="AllocationService-Post"></a>Post
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RuleData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}RuleParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}RuleParams">RuleParams</a></td>
+                              <td>Contains the information
+                                 required to start an Allocation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>The allocation document
+                                 listing the proposed allocation values,
+                                 produced by RunRuleAndView.        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Balances</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/balance}BalanceList" href="finance/balance/balance.html#{http://www.coda.com/efinance/schemas/balance}BalanceList">BalanceList</a></td>
+                              <td>The list of balances which
+                                 will be updated, produced by RunRuleAndView.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>This method returns no data.
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AllocationService-PrepareChain"></a>PrepareChain
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PrepareChainRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ChainData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}ChainParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}ChainParams">ChainParams</a></td>
+                              <td>Contains the information
+                                 required to start an allocation chain.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PrepareChainResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ChainData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}ChainParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}ChainParams">ChainParams</a></td>
+                              <td>Contains the information
+                                 required to start an allocation chain.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of
+                                 Allocation.        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RequirementsList</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}AllocationRequirementsList" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}AllocationRequirementsList">AllocationRequirementsList</a></td>
+                              <td>Contains details of
+                                 parameters which are still required, for
+                                 each rule within the chain.        
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AllocationService-PrepareRule"></a>PrepareRule
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PrepareRuleRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RuleData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}RuleParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}RuleParams">RuleParams</a></td>
+                              <td>Contains the information
+                                 required to start an Allocation process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PrepareRuleResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RuleData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}RuleParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}RuleParams">RuleParams</a></td>
+                              <td>Contains the information
+                                 required to start an Allocation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of
+                                 Allocation.        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Requirements</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}AllocationRequirements" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}AllocationRequirements">AllocationRequirements</a></td>
+                              <td>Contains details of
+                                 parameters which are still required for this
+                                 allocation rule.        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PreCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the presenter you
+                                 want Alloction to use.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AllocationService-RunChain"></a>RunChain
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>RunChainRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ChainData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}ChainParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}ChainParams">ChainParams</a></td>
+                              <td>Contains the information
+                                 required to start an allocation chain.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PromptList</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}AllocationPromptsList" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}AllocationPromptsList">AllocationPromptsList</a></td>
+                              <td>Contains those values which
+                                 have not been specified in any rule masters
+                                 in the chain, but are         required by
+                                 the allocation process.        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of
+                                 Allocation.        
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>RunChainResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of Allocation.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AllocationService-RunRuleAndPost"></a>RunRuleAndPost
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>RunRuleAndPostRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RuleData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}RuleParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}RuleParams">RuleParams</a></td>
+                              <td>Contains the information
+                                 required to start an Allocation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PromptData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}AllocationPrompts" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}AllocationPrompts">AllocationPrompts</a></td>
+                              <td>Contains those values which
+                                 have not been specified in the rule master,
+                                 but are required by         the Allocation
+                                 run.        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of
+                                 Allocation.        
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>RunRuleAndPostResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of
+                                 Allocation.        
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="AllocationService-RunRuleAndView"></a>RunRuleAndView
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>RunRuleAndViewRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>RuleData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}RuleParams" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}RuleParams">RuleParams</a></td>
+                              <td>Contains the information
+                                 required to start an Allocation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PromptData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/allocation}AllocationPrompts" href="finance/allocation/allocation.html#{http://www.coda.com/efinance/schemas/allocation}AllocationPrompts">AllocationPrompts</a></td>
+                              <td>Contains those values which
+                                 have not been specified in the rule master,
+                                 but are required by         the Allocation
+                                 process.        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, given to you for requesting
+                                 information about the progress of
+                                 Allocation.        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Columns</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}VocabIDList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}VocabIDList">VocabIDList</a></td>
+                              <td>The list of vocabulary items
+                                 you want to look at when you receive the
+                                 response.        
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>RunRuleAndViewResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The list of accounts or
+                                 balances selected for updating, when the
+                                 allocation rule was run.        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>The allocation document
+                                 containing details of the proposed
+                                 allocation values.        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Balances</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/balance}BalanceList" href="finance/balance/balance.html#{http://www.coda.com/efinance/schemas/balance}BalanceList">BalanceList</a></td>
+                              <td>The list of balances,
+                                 containing details of the proposed
+                                 allocation values.        
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Warning</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Reason" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Reason">Reason</a></td>
+                              <td>A message indicating that the
+                                 update failed and giving a detailed reason
+                                 for the failure.        
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

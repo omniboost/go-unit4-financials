@@ -1,0 +1,501 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/pim/schemas/selfbilling</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/pim/schemas/selfbilling</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>PIMSelfBillingRequest</h3>
+         <p>This service allows you to run self-billing.</p>
+         <h3>PIMSelfBillingResponse</h3>
+         <p>This is the response that is returned when you run self-billing.</p>
+         <h3>PIMSelfBillingSelectorRequest</h3>
+         <p>This service allows you to select documents that will be included in a self-billing
+            process.
+         </p>
+         <h3>PIMSelfBillingSelectorResponse</h3>
+         <p>This is the response that is returned when you select documents that will be included
+            in a self-billing process.
+         </p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/pim/schemas/selfbilling}SelfBillingInvoiceList"></a><h3>SelfBillingInvoiceList</h3>
+         <p>Contains the list of invoices that will be created by the self-billing process.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Invoice</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/selfbilling}SelfBillingInvoice" href="#{http://www.coda.com/pim/schemas/selfbilling}SelfBillingInvoice">SelfBillingInvoice</a></td>
+                     <td>Contains an invoice that will be created by the self-billing process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/selfbilling}SelfBillingInvoice"></a><h3>SelfBillingInvoice</h3>
+         <p>Contains an invoice that will be created by the self-billing process.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Company</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>The code of the company in which the invoice is held.</td>
+                  </tr>
+                  <tr>
+                     <td>Supplier</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>The code of the supplier element.</td>
+                  </tr>
+                  <tr>
+                     <td>SupplierLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The supplier element level.</td>
+                  </tr>
+                  <tr>
+                     <td>Department</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>The code of the department element.</td>
+                  </tr>
+                  <tr>
+                     <td>DepartmentLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The department element level.</td>
+                  </tr>
+                  <tr>
+                     <td>Currency</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCurcode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCurcode">typeCurcode</a></td>
+                     <td>The invoice currency.</td>
+                  </tr>
+                  <tr>
+                     <td>Date</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The invoice date.</td>
+                  </tr>
+                  <tr>
+                     <td>ExchangeRateDate</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The date to use for the exchange rate when calculating currency values.</td>
+                  </tr>
+                  <tr>
+                     <td>Value</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The invoice value.</td>
+                  </tr>
+                  <tr>
+                     <td>TaxValue</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The tax value on the invoice.</td>
+                  </tr>
+                  <tr>
+                     <td>Quantity</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeNumber" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeNumber">typeNumber</a></td>
+                     <td>The quantity on the invoice.</td>
+                  </tr>
+                  <tr>
+                     <td>LRNLineKeys</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/logicalreceiptnote}LRNLineKeyList" href="../logicalreceiptnote/logicalreceiptnote.html#{http://www.coda.com/pim/schemas/logicalreceiptnote}LRNLineKeyList">LRNLineKeyList</a></td>
+                     <td>Contains key information identifying the LRN lines that are processed by this invoice.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/selfbilling}RunSelfBillingRequest"></a><h3>RunSelfBillingRequest</h3>
+         <p>The RunSelfBillingRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>RunSelfBilling.
+            <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote" xmlns:sel="http://www.coda.com/efinance/schemas/selector" xmlns:sbm="http://www.coda.com/pim/schemas/selfbillingmaster" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster" xmlns:slfbillmas="http://www.coda.com/pim/schemas/selfbillingmaster" xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster" xmlns:selfbilling="http://www.coda.com/pim/schemas/selfbilling" xmlns:pimtypes="http://www.coda.com/pim/schemas/common" xmlns:presmas="http://www.coda.com/efinance/schemas/presenter" xmlns:doc="http://www.coda.com/pim/schemas/document" xmlns:build="http://www.coda.com/common/schemas/funcsec">      Run the Invoice house keeping process for the given, possibly modified Invoice
+               House-keeping Master.     
+            </p>    
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelfBillingMaster</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/selfbillingmaster}SelfBillingMaster" href="../selfbillingmaster/selfbillingmaster.html#{http://www.coda.com/pim/schemas/selfbillingmaster}SelfBillingMaster">SelfBillingMaster</a></td>
+                     <td>The self-billing master to use.</td>
+                  </tr>
+                  <tr>
+                     <td>LogTitle</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/common}typePimLogtitle" href="../common/common.html#{http://www.coda.com/pim/schemas/common}typePimLogtitle">typePimLogtitle</a></td>
+                     <td>The title of the log file in which details of the self-billing process will be stored.</td>
+                  </tr>
+                  <tr>
+                     <td>LogDetailLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/common}typePimLogDetailLevel" href="../common/common.html#{http://www.coda.com/pim/schemas/common}typePimLogDetailLevel">typePimLogDetailLevel</a></td>
+                     <td>The level of detail that will be recorded in the log.</td>
+                  </tr>
+                  <tr>
+                     <td>InvoiceList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/selfbilling}SelfBillingInvoiceList" href="#{http://www.coda.com/pim/schemas/selfbilling}SelfBillingInvoiceList">SelfBillingInvoiceList</a></td>
+                     <td>Contains the list of invoices that will be created by the self-billing process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/selfbilling}RunSelfBillingRequestVerb"></a><h3>RunSelfBillingRequestVerb</h3>
+         <p>The RunSelfBillingRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Runs self-billing using the information you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/selfbilling}RunSelfBillingRequest" href="#{http://www.coda.com/pim/schemas/selfbilling}RunSelfBillingRequest">RunSelfBillingRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/selfbilling}RunSelfBillingResponse"></a><h3>RunSelfBillingResponse</h3>
+         <p>The RunSelfBillingResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/pim/schemas/selfbilling}RunSelfBillingResponseVerb"></a><h3>RunSelfBillingResponseVerb</h3>
+         <p>The RunSelfBillingResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/selfbilling}RunSelfBillingResponse" href="#{http://www.coda.com/pim/schemas/selfbilling}RunSelfBillingResponse">RunSelfBillingResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/selfbilling}PIMSelfBillingRequest"></a><h3>PIMSelfBillingRequest</h3>
+         <p>The PIMSelfBillingRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to run self-billing.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>RunSelfBilling</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/selfbilling}RunSelfBillingRequestVerb" href="#{http://www.coda.com/pim/schemas/selfbilling}RunSelfBillingRequestVerb">RunSelfBillingRequestVerb</a></td>
+                     <td>Runs self-billing using the information you provide.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/selfbilling}PIMSelfBillingResponse"></a><h3>PIMSelfBillingResponse</h3>
+         <p>The PIMSelfBillingResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you run self-billing.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>RunSelfBilling</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/selfbilling}RunSelfBillingResponseVerb" href="#{http://www.coda.com/pim/schemas/selfbilling}RunSelfBillingResponseVerb">RunSelfBillingResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/selfbilling}SelectRequest"></a><h3>SelectRequest</h3>
+         <p>The SelectRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>     The select function.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelectorMaster</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                     <td>The selector defining the search criteria for documents to be included in the self-billing
+                        process.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>PresenterMaster</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="../../finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                     <td>The presenter to use to display the selection.</td>
+                  </tr>
+                  <tr>
+                     <td>InvoicePresenterMaster</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="../../finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                     <td>The presenter to use to display an exploded self-billing invoice.</td>
+                  </tr>
+                  <tr>
+                     <td>SelfBillingMaster</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/selfbillingmaster}SelfBillingMaster" href="../selfbillingmaster/selfbillingmaster.html#{http://www.coda.com/pim/schemas/selfbillingmaster}SelfBillingMaster">SelfBillingMaster</a></td>
+                     <td>The self-billing master to use.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/selfbilling}SelectRequestVerb"></a><h3>SelectRequestVerb</h3>
+         <p>The SelectRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Selects the documents that will be included in the self-billing process.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/selfbilling}SelectRequest" href="#{http://www.coda.com/pim/schemas/selfbilling}SelectRequest">SelectRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/selfbilling}SelectResponse"></a><h3>SelectResponse</h3>
+         <p>The SelectResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                     <td>The documents selected by the request.</td>
+                  </tr>
+                  <tr>
+                     <td>LineSelection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                     <td>The document lines selected by the request.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/selfbilling}SelectResponseVerb"></a><h3>SelectResponseVerb</h3>
+         <p>The SelectResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/selfbilling}SelectResponse" href="#{http://www.coda.com/pim/schemas/selfbilling}SelectResponse">SelectResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/selfbilling}PIMSelfBillingSelectorRequest"></a><h3>PIMSelfBillingSelectorRequest</h3>
+         <p>The PIMSelfBillingSelectorRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to select documents that will be included in a self-billing
+            process.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Select</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/selfbilling}SelectRequestVerb" href="#{http://www.coda.com/pim/schemas/selfbilling}SelectRequestVerb">SelectRequestVerb</a></td>
+                     <td>Selects the documents that will be included in the self-billing process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pim/schemas/selfbilling}PIMSelfBillingSelectorResponse"></a><h3>PIMSelfBillingSelectorResponse</h3>
+         <p>The PIMSelfBillingSelectorResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you select documents that will be included
+            in a self-billing process.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Select</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pim/schemas/selfbilling}SelectResponseVerb" href="#{http://www.coda.com/pim/schemas/selfbilling}SelectResponseVerb">SelectResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

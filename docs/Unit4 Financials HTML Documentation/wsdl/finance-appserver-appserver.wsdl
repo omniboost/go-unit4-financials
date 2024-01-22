@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/appserver/appserver-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:apsws="http://www.coda.com/efinance/schemas/appserver/appserver-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:aps="http://www.coda.com/efinance/schemas/appserver"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/appserver/appserver-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/appserver" schemaLocation="../wsdl/finance/appserver/appserver.xsd"/>
+    <xsd:element name="GetEnvironmentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Environment" type="aps:Environment">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains information about
+                            the application server&apos;s environment.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SoftToHardDateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SoftDate" type="aps:SoftToHardDateData">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains details
+                            of a soft date for conversion to a hard date.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListUserCompaniesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="aps:UserCmpsListKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the user master whose visible companies you
+                            want to list.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SoftToHardDateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SoftDate" type="aps:SoftToHardDateData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the soft date you
+                            specified in the SoftToHardDateRequest
+                            corresponding to this Response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HardDate" minOccurs="0" type="com:typeDate">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the hard date
+                            resulting from the SoftToHardDateRequest
+                            corresponding to this Response. The hard
+                            date format is CCYY-MM-DDT00.00.00.000. For
+                            example, 2001-10-03T00:00:00.000.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListUserCompaniesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key information
+                            for the listed company masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetEnvironmentRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Options">
+    <part name="Options" element="apsws:Options"/>
+  </message>
+  <message name="ListUserCompaniesRequest">
+    <part name="ListUserCompaniesRequest" element="apsws:ListUserCompaniesRequest"/>
+  </message>
+  <message name="SoftToHardDateResponse">
+    <part name="SoftToHardDateResponse" element="apsws:SoftToHardDateResponse"/>
+  </message>
+  <message name="GetEnvironmentResponse">
+    <part name="GetEnvironmentResponse" element="apsws:GetEnvironmentResponse"/>
+  </message>
+  <message name="ListUserCompaniesResponse">
+    <part name="ListUserCompaniesResponse" element="apsws:ListUserCompaniesResponse"/>
+  </message>
+  <message name="GetEnvironmentRequest">
+    <part name="GetEnvironmentRequest" element="apsws:GetEnvironmentRequest"/>
+  </message>
+  <message name="SoftToHardDateRequest">
+    <part name="SoftToHardDateRequest" element="apsws:SoftToHardDateRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="apsws:OptionsResponse"/>
+  </message>
+  <portType name="AppServerServicePortTypes">
+    <operation name="GetEnvironment">
+      <input message="apsws:GetEnvironmentRequest"/>
+      <output message="apsws:GetEnvironmentResponse"/>
+    </operation>
+    <operation name="ListUserCompanies">
+      <input message="apsws:ListUserCompaniesRequest"/>
+      <output message="apsws:ListUserCompaniesResponse"/>
+    </operation>
+    <operation name="SoftToHardDate">
+      <input message="apsws:SoftToHardDateRequest"/>
+      <output message="apsws:SoftToHardDateResponse"/>
+    </operation>
+  </portType>
+  <binding name="AppServerServiceSOAPBinding" type="apsws:AppServerServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetEnvironment">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/AppServer/GetEnvironment" style="document"/>
+      <input>
+        <soap:header message="apsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="apsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListUserCompanies">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/AppServer/ListUserCompanies" style="document"/>
+      <input>
+        <soap:header message="apsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="apsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SoftToHardDate">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/AppServer/SoftToHardDate" style="document"/>
+      <input>
+        <soap:header message="apsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="apsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AppServerService">
+    <port name="AppServerServicePort" binding="apsws:AppServerServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/appserver/appserver-12.0"/>
+    </port>
+  </service>
+</definitions>

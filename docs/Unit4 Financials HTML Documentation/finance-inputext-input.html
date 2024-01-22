@@ -1,0 +1,3103 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-InputService">
+            <h1>InputService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/inputext/input-14.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-inputext-input.wsdl" download="">finance-inputext-input.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/inputext/input-14.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#InputService-AutoBalanceTax">AutoBalanceTax</a></li>
+               <li><a href="#InputService-BalancingReview">BalancingReview</a></li>
+               <li><a href="#InputService-CalcCurrencies">CalcCurrencies</a></li>
+               <li><a href="#InputService-CancelDoc">CancelDoc</a></li>
+               <li><a href="#InputService-CheckPost">CheckPost</a></li>
+               <li><a href="#InputService-CheckPostWithoutTemplate">CheckPostWithoutTemplate</a></li>
+               <li><a href="#InputService-CopyDoc">CopyDoc</a></li>
+               <li><a href="#InputService-CurrReview">CurrReview</a></li>
+               <li><a href="#InputService-DeriveFields">DeriveFields</a></li>
+               <li><a href="#InputService-GenerateBalancingLines">GenerateBalancingLines</a></li>
+               <li><a href="#InputService-GenerateTax">GenerateTax</a></li>
+               <li><a href="#InputService-GenerateTaxWithoutTemplate">GenerateTaxWithoutTemplate</a></li>
+               <li><a href="#InputService-GetCopyDocParams">GetCopyDocParams</a></li>
+               <li><a href="#InputService-GetCustomerSupplierElmSummary">GetCustomerSupplierElmSummary</a></li>
+               <li><a href="#InputService-GetElmAddresses">GetElmAddresses</a></li>
+               <li><a href="#InputService-GetElmBanks">GetElmBanks</a></li>
+               <li><a href="#InputService-GetHardenedDates">GetHardenedDates</a></li>
+               <li><a href="#InputService-GetMissingDocNumbers">GetMissingDocNumbers</a></li>
+               <li><a href="#InputService-GetMissingStatus">GetMissingStatus</a></li>
+               <li><a href="#InputService-GetUserStatus">GetUserStatus</a></li>
+               <li><a href="#InputService-IntrayAutoPost">IntrayAutoPost</a></li>
+               <li><a href="#InputService-IntrayDelete">IntrayDelete</a></li>
+               <li><a href="#InputService-IntrayLoad">IntrayLoad</a></li>
+               <li><a href="#InputService-IntrayUnAuthorise">IntrayUnAuthorise</a></li>
+               <li><a href="#InputService-Post">Post</a></li>
+               <li><a href="#InputService-PostToBooks">PostToBooks</a></li>
+               <li><a href="#InputService-PostToIntray">PostToIntray</a></li>
+               <li><a href="#InputService-RefreshTotals">RefreshTotals</a></li>
+               <li><a href="#InputService-Resolve">Resolve</a></li>
+               <li><a href="#InputService-SelectIntray">SelectIntray</a></li>
+               <li><a href="#InputService-SelectTemplate">SelectTemplate</a></li>
+               <li><a href="#InputService-SetHeader">SetHeader</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="InputService-AutoBalanceTax"></a>AutoBalanceTax
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>AutoBalanceTaxRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>AutoBalanceTaxResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details, including the adjusted tax line.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-BalancingReview"></a>BalancingReview
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>BalancingReviewRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>BalancingReviewResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Results</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}BalancingReview" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}BalancingReview">BalancingReview</a></td>
+                              <td>Contains results information
+                                 for the BalancingReview request
+                                 corresponding to this response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-CalcCurrencies"></a>CalcCurrencies
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CalcCurrenciesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used for posting the document, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LineNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeLong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLong">typeLong</a></td>
+                              <td>The number of the document
+                                 line to which you want to make currency edits.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Edits</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}CurrEdits" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}CurrEdits">CurrEdits</a></td>
+                              <td>Contains the currency edits.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CalcCurrenciesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details, including any changes resulting
+                                 from the currency edits.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CurrData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}CurrData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}CurrData">CurrData</a></td>
+                              <td>Contains information about
+                                 the currencies edited in the request
+                                 corresponding to this response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-CancelDoc"></a>CancelDoc
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CancelDocRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CancelDoc</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}CancelDoc" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}CancelDoc">CancelDoc</a></td>
+                              <td>Contains parameters which can
+                                 be specified when cancelling a single
+                                 document or multiple documents.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CancelDocResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CancelDoc</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}CancelDocResults" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}CancelDocResults">CancelDocResults</a></td>
+                              <td>Contains results information
+                                 for the CancelDoc request corresponding to
+                                 this response
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-CheckPost"></a>CheckPost
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CheckPostRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CheckPostOptions</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://schemas.xmlsoap.org/wsdl/}" href="//appwizer.sharepoint.com///#{http://schemas.xmlsoap.org/wsdl/}"></a></td>
+                              <td></td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CheckPostResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Problems</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}Problems" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}Problems">Problems</a></td>
+                              <td>Contains details of any
+                                 problems that invalidate the specified
+                                 document for posting to the Books or the Intray.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-CheckPostWithoutTemplate"></a>CheckPostWithoutTemplate
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CheckPostWithoutTemplateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CheckPostWithoutTemplateOptions</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://schemas.xmlsoap.org/wsdl/}" href="//appwizer.sharepoint.com///#{http://schemas.xmlsoap.org/wsdl/}"></a></td>
+                              <td></td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CheckPostWithoutTemplateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Problems</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}Problems" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}Problems">Problems</a></td>
+                              <td>Contains details of any
+                                 problems that invalidate the specified
+                                 document for posting to the Books or the Intray.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-CopyDoc"></a>CopyDoc
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CopyDocRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>Contains a key uniquely
+                                 identifying a document within the Financials database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>NewDate</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                              <td>The document date for the new document.</td>
+                           </tr>
+                           <tr>
+                              <td>NewPeriod</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                              <td>The year/period to which the
+                                 new document should be posted.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>InputTemplateCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the input
+                                 template master to associate with the new document.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CopyDocResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>InputTemplate</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputtemplate}InputTemplate" href="finance/inputtemplate/inputtemplate.html#{http://www.coda.com/efinance/schemas/inputtemplate}InputTemplate">InputTemplate</a></td>
+                              <td>The code of the input
+                                 template master associated with the new document.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocumentMaster</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/documentmaster}DocumentMaster" href="finance/documentmaster/documentmaster.html#{http://www.coda.com/efinance/schemas/documentmaster}DocumentMaster">DocumentMaster</a></td>
+                              <td>The document master of the
+                                 new document.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the new
+                                 document's transaction details.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AddedLine</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Line" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Line">Line</a></td>
+                              <td>Contains the default
+                                 additional line values as determined by the
+                                 input template master.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-CurrReview"></a>CurrReview
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CurrReviewRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CurrReviewResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Results</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}CurrReview" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}CurrReview">CurrReview</a></td>
+                              <td>Contains results information
+                                 for the CurrReview request corresponding to
+                                 this response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-DeriveFields"></a>DeriveFields
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>DeriveFieldsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>DeriveFieldsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details, including the derived data.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-GenerateBalancingLines"></a>GenerateBalancingLines
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GenerateBalancingLinesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GenerateBalancingLinesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details, including the balancing lines.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-GenerateTax"></a>GenerateTax
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GenerateTaxRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GenerateTaxResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details, including the generated tax lines.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-GenerateTaxWithoutTemplate"></a>GenerateTaxWithoutTemplate
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GenerateTaxWithoutTemplateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GenerateTaxWithoutTemplateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details, including the generated tax lines.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-GetCopyDocParams"></a>GetCopyDocParams
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetCopyDocParamsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>Contains a key uniquely
+                                 identifying a document within the Financials database.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetCopyDocParamsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>Contains a key uniquely
+                                 identifying the new document.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>NewDate</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                              <td>The document date of the new document.</td>
+                           </tr>
+                           <tr>
+                              <td>NewPeriod</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                              <td>The year/period to which the
+                                 new document should be posted.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>InputTemplateCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the input
+                                 template master associated with the new document.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>HeaderDescription</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>A document description for
+                                 the new document.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-GetCustomerSupplierElmSummary"></a>GetCustomerSupplierElmSummary
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetCustomerSupplierElmSummaryRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetCustomerSupplierElmSummaryResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Results</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}CustomerSupplierElmSummary" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}CustomerSupplierElmSummary">CustomerSupplierElmSummary</a></td>
+                              <td>Contains results information
+                                 for the GetCustomerSupplierElmSummary
+                                 request corresponding to this response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-GetElmAddresses"></a>GetElmAddresses
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetElmAddressesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LineNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeLong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLong">typeLong</a></td>
+                              <td>The number of the document
+                                 line featuring the element whose address
+                                 details you want to retrieve.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetElmAddressesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Addresses</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/elementmaster}AddressData" href="finance/elementmaster/elementmaster.html#{http://www.coda.com/efinance/schemas/elementmaster}AddressData">AddressData</a></td>
+                              <td>Contains details of the
+                                 specified element's addresses.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-GetElmBanks"></a>GetElmBanks
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetElmBanksRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LineNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeLong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLong">typeLong</a></td>
+                              <td>The number of the document
+                                 line featuring the element whose bank
+                                 details you want to retrieve.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetElmBanksResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Banks</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/elementmaster}BankData" href="finance/elementmaster/elementmaster.html#{http://www.coda.com/efinance/schemas/elementmaster}BankData">BankData</a></td>
+                              <td>Contains details of the
+                                 specified element's banks.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-GetHardenedDates"></a>GetHardenedDates
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetHardenedDatesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Params</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}HardenedDatesParams" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}HardenedDatesParams">HardenedDatesParams</a></td>
+                              <td>Contains parameters which can
+                                 be specified when resolving soft dates.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetHardenedDatesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Results</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}HardenedDatesResults" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}HardenedDatesResults">HardenedDatesResults</a></td>
+                              <td>Contains results information
+                                 for the GetHardenedDates request
+                                 corresponding to this response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-GetMissingDocNumbers"></a>GetMissingDocNumbers
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetMissingDocNumbersRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                              <td>The code of the country in
+                                 which to search for missing document
+                                 numbers. This can be wildcarded.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                              <td>The code of the document
+                                 master to search for missing document
+                                 numbers. This can be wildcarded.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocNum</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNumWild" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNumWild">typeDocNumWild</a></td>
+                              <td>The missing document number
+                                 to search for. This can be wildcarded.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Period</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriodAny" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriodAny">typePeriodAny</a></td>
+                              <td>The year/period to search for
+                                 missing document numbers. This can be wildcarded.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Description</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextAny" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextAny">typeTextAny</a></td>
+                              <td>The reason why the document
+                                 number was not used. This can be wildcarded.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetMissingDocNumbersResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                              <td>The code of the country in
+                                 which you attempted to search for missing
+                                 document numbers.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                              <td>The code of the document
+                                 master you attempted to search for missing
+                                 document numbers.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocNum</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNumWild" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNumWild">typeDocNumWild</a></td>
+                              <td>The missing document number
+                                 you attempted to search for.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Period</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriodAny" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriodAny">typePeriodAny</a></td>
+                              <td>The year/period you attempted
+                                 to search for missing document numbers.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Description</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextAny" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextAny">typeTextAny</a></td>
+                              <td>The reason why the document
+                                 number was not used.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>MissingDocNumbers</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}MissingDocNumbers" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}MissingDocNumbers">MissingDocNumbers</a></td>
+                              <td>Contains the missing document
+                                 numbers retrieved by the GetMissingDocNumbersRequest.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-GetMissingStatus"></a>GetMissingStatus
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetMissingStatusRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the company in
+                                 which the document exists.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the document master.</td>
+                           </tr>
+                           <tr>
+                              <td>DocNum</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNumAlpha" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNumAlpha">typeDocNumAlpha</a></td>
+                              <td>The document number.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetMissingStatusResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the company in
+                                 which the document exists.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the document master.</td>
+                           </tr>
+                           <tr>
+                              <td>DocNum</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNumAlpha" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNumAlpha">typeDocNumAlpha</a></td>
+                              <td>The document number.</td>
+                           </tr>
+                           <tr>
+                              <td>IsMissing</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Indicates whether the
+                                 document is a missing document number.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-GetUserStatus"></a>GetUserStatus
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetUserStatusRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LineNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeLong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLong">typeLong</a></td>
+                              <td>The number of the document
+                                 line where the user status needs to be resolved.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetUserStatusResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UserStatus</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeStatUserB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeStatUserB">typeStatUserB</a></td>
+                              <td>The user status value that
+                                 has been derived.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-IntrayAutoPost"></a>IntrayAutoPost
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>IntrayAutoPostRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IntrayAutoPostInfo</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}IntrayAutoPostInfo" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}IntrayAutoPostInfo">IntrayAutoPostInfo</a></td>
+                              <td>Contains information used for
+                                 posting the documents on the Intray, to the Books.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Keys</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}IntrayPostKeys" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}IntrayPostKeys">IntrayPostKeys</a></td>
+                              <td>Contains key information
+                                 identifying which document(s) on the Intray
+                                 will be posted to the Books.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>IntrayAutoPostResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IntrayResults</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}IntrayAutoPostResults" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}IntrayAutoPostResults">IntrayAutoPostResults</a></td>
+                              <td>Contains results information
+                                 for the documents posted by the
+                                 IntrayAutoPost request corresponding to this response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-IntrayDelete"></a>IntrayDelete
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>IntrayDeleteRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IntrayDeleteInfo</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}IntrayDeleteInfo" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}IntrayDeleteInfo">IntrayDeleteInfo</a></td>
+                              <td>Contains the reason why the
+                                 document on the Intray is being deleted.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Keys</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}IntrayKeys" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}IntrayKeys">IntrayKeys</a></td>
+                              <td>Contains key information
+                                 identifying which document(s) on the Intray
+                                 will be deleted.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>IntrayDeleteResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IntrayResults</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}IntrayDeleteResults" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}IntrayDeleteResults">IntrayDeleteResults</a></td>
+                              <td>Contains results information
+                                 for the documents deleted by the
+                                 IntrayDelete request corresponding to this response
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-IntrayLoad"></a>IntrayLoad
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>IntrayLoadRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>TemplateCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the input
+                                 template master used to input the document
+                                 that you want to load.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>A key identifying the
+                                 document on the Intray that will be loaded.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>IntrayLoadResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>InputTemplate</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputtemplate}InputTemplate" href="finance/inputtemplate/inputtemplate.html#{http://www.coda.com/efinance/schemas/inputtemplate}InputTemplate">InputTemplate</a></td>
+                              <td>Contains the input template
+                                 master you specified in the request
+                                 corresponding to this response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocumentMaster</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/documentmaster}DocumentMaster" href="finance/documentmaster/documentmaster.html#{http://www.coda.com/efinance/schemas/documentmaster}DocumentMaster">DocumentMaster</a></td>
+                              <td>Contains the document master
+                                 linked to the specified input template
+                                 master, and used when inputting the document.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AddedLine</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Line" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Line">Line</a></td>
+                              <td>Contains the default
+                                 additional line values as determined by the
+                                 input template master.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>MatchingParams</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchingParams" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchingParams">MatchingParams</a></td>
+                              <td>Contains matching details.</td>
+                           </tr>
+                           <tr>
+                              <td>Groups</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}MatchGroups" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}MatchGroups">MatchGroups</a></td>
+                              <td>Contains details of the
+                                 matching groups in the matching session.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-IntrayUnAuthorise"></a>IntrayUnAuthorise
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>IntrayUnAuthoriseRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Keys</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}IntrayKeys" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}IntrayKeys">IntrayKeys</a></td>
+                              <td>Contains key information
+                                 identifying which document(s) on the Intray
+                                 will be unauthorised.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>IntrayUnAuthoriseResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UnAuthorisedKeys</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}IntrayKeys" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}IntrayKeys">IntrayKeys</a></td>
+                              <td>Contains the keys information
+                                 you supplied in the request corresponding to
+                                 this response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-Post"></a>Post
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PostOptions</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://schemas.xmlsoap.org/wsdl/}" href="//appwizer.sharepoint.com///#{http://schemas.xmlsoap.org/wsdl/}"></a></td>
+                              <td></td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the document you
+                                 want to post.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Matching</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}InputMatchingInfo" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}InputMatchingInfo">InputMatchingInfo</a></td>
+                              <td>Contains matching details
+                                 added during Input.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PostResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>Contains the extended key
+                                 information for the transaction you posted.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SuppliedNumber</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The document number you may
+                                 have supplied (applies to Batch Load).
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Problems</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}Problems" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}Problems">Problems</a></td>
+                              <td>Contains details of any
+                                 problems that invalidate the specified
+                                 document for posting to the Books or the Intray.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-PostToBooks"></a>PostToBooks
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostToBooksRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PostToBooksOptions</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://schemas.xmlsoap.org/wsdl/}" href="//appwizer.sharepoint.com///#{http://schemas.xmlsoap.org/wsdl/}"></a></td>
+                              <td></td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the document you
+                                 want to post.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Matching</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}InputMatchingInfo" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}InputMatchingInfo">InputMatchingInfo</a></td>
+                              <td>Contains matching details
+                                 added during Input.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PostToBooksResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>Contains the extended key
+                                 information for the transaction you posted.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SuppliedNumber</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>Contains the suppled document
+                                 number.                SuppliedNumber is the
+                                 number from the original XML transaction,
+                                 where the final document was renumbered
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Problems</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}Problems" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}Problems">Problems</a></td>
+                              <td>Contains details of any
+                                 problems that invalidate the specified
+                                 document for posting to the Books or the Intray.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-PostToIntray"></a>PostToIntray
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostToIntrayRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>PostToIntrayOptions</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://schemas.xmlsoap.org/wsdl/}" href="//appwizer.sharepoint.com///#{http://schemas.xmlsoap.org/wsdl/}"></a></td>
+                              <td></td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the document you
+                                 want to post.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Matching</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/matching}InputMatchingInfo" href="finance/matching/matching.html#{http://www.coda.com/efinance/schemas/matching}InputMatchingInfo">InputMatchingInfo</a></td>
+                              <td>Contains matching details
+                                 added during Input.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PostToIntrayResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}txnKey" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}txnKey">txnKey</a></td>
+                              <td>Contains the extended key
+                                 information for the transaction you posted.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SuppliedNumber</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>Contains the suppled document
+                                 number.                SuppliedNumber is the
+                                 number from the original XML transaction,
+                                 where the final document was renumbered
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Problems</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}Problems" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}Problems">Problems</a></td>
+                              <td>Contains details of any
+                                 problems that invalidate the specified
+                                 document for posting to the Books or the Intray.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-RefreshTotals"></a>RefreshTotals
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>RefreshTotalsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>RefreshTotalsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Totals</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}DocTotals" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}DocTotals">DocTotals</a></td>
+                              <td>Contains the document totals
+                                 in document, home and dual currencies.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-Resolve"></a>Resolve
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ResolveRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>Contains a value selected
+                                 from the database using the selector defined
+                                 on the input template and is in the currency
+                                 defined on the input template. Other fields
+                                 may be derived from the SelectedValue which
+                                 is why it should be supplied.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ResolveResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details, including the resolved data.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-SelectIntray"></a>SelectIntray
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectIntrayRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IntrayFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}IntrayFilter" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}IntrayFilter">IntrayFilter</a></td>
+                              <td>Contains criteria for
+                                 selecting documents on the Intray.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectIntrayResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Items</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}IntrayItems" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}IntrayItems">IntrayItems</a></td>
+                              <td>Contains the documents on the
+                                 Intray that have been returned by the
+                                 request corresponding to this response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-SelectTemplate"></a>SelectTemplate
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectTemplateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                              <td>This element is a key
+                                 consisting of a company code and an input
+                                 template master code.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the document
+                                 master you wish to use. This is only
+                                 relevant if the specified input template
+                                 master is linked to more than one document master.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CheckForCorrectiveJournal</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>If set to true, document
+                                 masters that are not suitable for corrective
+                                 journals are filtered out of the list of
+                                 document master codes returned in the
+                                 DocCodeList element in the response. If set
+                                 to false, this filtering is not applied.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectTemplateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>InputTemplate</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputtemplate}InputTemplate" href="finance/inputtemplate/inputtemplate.html#{http://www.coda.com/efinance/schemas/inputtemplate}InputTemplate">InputTemplate</a></td>
+                              <td>Contains the input template
+                                 master you specified in the request
+                                 corresponding to this response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocumentMaster</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/documentmaster}DocumentMaster" href="finance/documentmaster/documentmaster.html#{http://www.coda.com/efinance/schemas/documentmaster}DocumentMaster">DocumentMaster</a></td>
+                              <td>Contains the document master
+                                 linked to the specified input template
+                                 master. If the input template master is
+                                 linked to multiple document masters, the
+                                 document masters are returned in
+                                 DocCodeList. You should repeat the
+                                 SelectTemplateRequest, supplying the code of
+                                 the document master you wish to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the default
+                                 transaction details as determined by the
+                                 input template master.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AddedLine</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Line" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Line">Line</a></td>
+                              <td>Contains the default
+                                 additional line values as determined by the
+                                 input template master.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocCodeList</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputtemplate}DocCodeList" href="finance/inputtemplate/inputtemplate.html#{http://www.coda.com/efinance/schemas/inputtemplate}DocCodeList">DocCodeList</a></td>
+                              <td>When the specified input
+                                 template master is linked to multiple
+                                 document masters, this element lists the
+                                 codes of the linked document masters. If
+                                 this list is returned, you should repeat the
+                                 SelectTemplateRequest, supplying the code of
+                                 the document master you wish to use.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="InputService-SetHeader"></a>SetHeader
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SetHeaderRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>NewHeader</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Header" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Header">Header</a></td>
+                              <td>Contains the new document
+                                 header information.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>NewDocWideData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}DocumentWideData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}DocumentWideData">DocumentWideData</a></td>
+                              <td>Contains the new
+                                 document-wide data consisting of due date,
+                                 value date and external references.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction details.</td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SetHeaderResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details, with the new header information.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DerivedTransaction</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/transaction}Transaction" href="finance/transaction/transaction.html#{http://www.coda.com/efinance/schemas/transaction}Transaction">Transaction</a></td>
+                              <td>Contains the transaction
+                                 details for a derived field.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PostData</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/inputext}PostData" href="finance/inputext/inputext.html#{http://www.coda.com/efinance/schemas/inputext}PostData">PostData</a></td>
+                              <td>Contains details that are
+                                 used when the document is posted, or when
+                                 checking that the document is postable.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>NumberOfDecimals</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeDecPlace" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeDecPlace">typeDecPlace</a></td>
+                              <td>The number of decimal places
+                                 in the document currency.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedValue</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoneyB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoneyB">typeMoneyB</a></td>
+                              <td>The SelectedValue supplied in
+                                 the request corresponding to this response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/workflow/financialsworkflow-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wflws="http://www.coda.com/efinance/schemas/workflow/financialsworkflow-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:wfl="http://www.coda.com/efinance/schemas/workflow"
+    xmlns:txn="http://www.coda.com/efinance/schemas/transaction"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/workflow/financialsworkflow-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/transaction" schemaLocation="finance/transaction/transaction.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/workflow" schemaLocation="../wsdl/finance/workflow/workflow.xsd"/>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPendingCancellingDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RequestId" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>A request ID.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of columns.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetParamsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Parameters" type="wfl:WorkflowParameters">
+                    <xsd:annotation>
+                        <xsd:documentation>The parameters used for a
+                            workflow request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPendingCancellingDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RequestId" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>A request ID.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HeaderCells" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of header cells.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Details" minOccurs="0" type="wfl:PendingCancellationDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>Details of the documents
+                            pending cancellation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DenyDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="wfl:DocWorkflowKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a workflow document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WorkflowInstanceAlreadyCancelled"
+                    minOccurs="0" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If true, indicates the
+                            workflow instance is already cancelled.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthoriseLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnLineKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LineApprover" minOccurs="0" type="com:typeGeneralCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code that identifies the
+                            approver of the line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DenyCancellingDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RequestId" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>A request ID.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DenyDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="wfl:DocWorkflowKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a workflow document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthoriseDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PostedToBooks" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If true, indicates that the
+                            document was posted to the Books.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Warning" minOccurs="0" type="com:Warning">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a warning.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthoriseLineResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnLineKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RestartRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Parameters" type="wfl:WorkflowParameters">
+                    <xsd:annotation>
+                        <xsd:documentation>The parameters for a workflow request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetParamsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DenyLineResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnLineKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DenyLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnLineKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a document line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthoriseCancellingDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RequestId" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>A request ID.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentWorkflowHistoryRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DenyCancellingDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RequestId" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>A request ID.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthoriseCancellingDocumentResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RequestId" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>A request ID.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TotalDocuments" minOccurs="0" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>The total number of documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CancelledDocuments" minOccurs="0" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>The number of documents cancelled.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FailedDocuments" minOccurs="0" type="com:typeLong">
+                    <xsd:annotation>
+                        <xsd:documentation>The number of failed documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CmpCode" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A company code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UsrCode" minOccurs="0" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A user code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogId" minOccurs="0" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A log ID.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RestartResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Parameters" type="wfl:WorkflowParameters">
+                    <xsd:annotation>
+                        <xsd:documentation>The parameters used for a
+                            workflow request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDocumentWorkflowHistoryResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WorkflowHistory" type="wfl:WorkflowHistory">
+                    <xsd:annotation>
+                        <xsd:documentation>Workflow history details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthoriseDocumentRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="txn:txnKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentApprover" minOccurs="0" type="com:typeGeneralCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code that identifies the
+                            approver of the document.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PostToBooks" minOccurs="0" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If true, indicates that the
+                            posting destination is the Books.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UseCurrentPeriod" minOccurs="0" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies that the document
+                            is posted to the current period.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AuthoriseAllLines" minOccurs="0" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Authorises all selected lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetDocumentWorkflowHistoryRequest">
+    <part name="GetDocumentWorkflowHistoryRequest" element="wflws:GetDocumentWorkflowHistoryRequest"/>
+  </message>
+  <message name="GetDocumentWorkflowHistoryResponse">
+    <part name="GetDocumentWorkflowHistoryResponse" element="wflws:GetDocumentWorkflowHistoryResponse"/>
+  </message>
+  <message name="AuthoriseDocumentResponse">
+    <part name="AuthoriseDocumentResponse" element="wflws:AuthoriseDocumentResponse"/>
+  </message>
+  <message name="AuthoriseDocumentRequest">
+    <part name="AuthoriseDocumentRequest" element="wflws:AuthoriseDocumentRequest"/>
+  </message>
+  <message name="GetPendingCancellingDocumentRequest">
+    <part name="GetPendingCancellingDocumentRequest" element="wflws:GetPendingCancellingDocumentRequest"/>
+  </message>
+  <message name="RestartResponse">
+    <part name="RestartResponse" element="wflws:RestartResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="wflws:Options"/>
+  </message>
+  <message name="AuthoriseCancellingDocumentRequest">
+    <part name="AuthoriseCancellingDocumentRequest" element="wflws:AuthoriseCancellingDocumentRequest"/>
+  </message>
+  <message name="RestartRequest">
+    <part name="RestartRequest" element="wflws:RestartRequest"/>
+  </message>
+  <message name="CancelResponse">
+    <part name="CancelResponse" element="wflws:CancelResponse"/>
+  </message>
+  <message name="CancelRequest">
+    <part name="CancelRequest" element="wflws:CancelRequest"/>
+  </message>
+  <message name="DenyLineRequest">
+    <part name="DenyLineRequest" element="wflws:DenyLineRequest"/>
+  </message>
+  <message name="AuthoriseLineResponse">
+    <part name="AuthoriseLineResponse" element="wflws:AuthoriseLineResponse"/>
+  </message>
+  <message name="DenyDocumentResponse">
+    <part name="DenyDocumentResponse" element="wflws:DenyDocumentResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="wflws:OptionsResponse"/>
+  </message>
+  <message name="DenyCancellingDocumentRequest">
+    <part name="DenyCancellingDocumentRequest" element="wflws:DenyCancellingDocumentRequest"/>
+  </message>
+  <message name="GetParamsResponse">
+    <part name="GetParamsResponse" element="wflws:GetParamsResponse"/>
+  </message>
+  <message name="AuthoriseCancellingDocumentResponse">
+    <part name="AuthoriseCancellingDocumentResponse" element="wflws:AuthoriseCancellingDocumentResponse"/>
+  </message>
+  <message name="GetPendingCancellingDocumentResponse">
+    <part name="GetPendingCancellingDocumentResponse" element="wflws:GetPendingCancellingDocumentResponse"/>
+  </message>
+  <message name="GetParamsRequest">
+    <part name="GetParamsRequest" element="wflws:GetParamsRequest"/>
+  </message>
+  <message name="AuthoriseLineRequest">
+    <part name="AuthoriseLineRequest" element="wflws:AuthoriseLineRequest"/>
+  </message>
+  <message name="DenyDocumentRequest">
+    <part name="DenyDocumentRequest" element="wflws:DenyDocumentRequest"/>
+  </message>
+  <message name="DenyCancellingDocumentResponse">
+    <part name="DenyCancellingDocumentResponse" element="wflws:DenyCancellingDocumentResponse"/>
+  </message>
+  <message name="DenyLineResponse">
+    <part name="DenyLineResponse" element="wflws:DenyLineResponse"/>
+  </message>
+  <portType name="FinancialsWorkflowServicePortTypes">
+    <operation name="AuthoriseCancellingDocument">
+      <input message="wflws:AuthoriseCancellingDocumentRequest"/>
+      <output message="wflws:AuthoriseCancellingDocumentResponse"/>
+    </operation>
+    <operation name="GetPendingCancellingDocument">
+      <input message="wflws:GetPendingCancellingDocumentRequest"/>
+      <output message="wflws:GetPendingCancellingDocumentResponse"/>
+    </operation>
+    <operation name="AuthoriseDocument">
+      <input message="wflws:AuthoriseDocumentRequest"/>
+      <output message="wflws:AuthoriseDocumentResponse"/>
+    </operation>
+    <operation name="Cancel">
+      <input message="wflws:CancelRequest"/>
+      <output message="wflws:CancelResponse"/>
+    </operation>
+    <operation name="DenyLine">
+      <input message="wflws:DenyLineRequest"/>
+      <output message="wflws:DenyLineResponse"/>
+    </operation>
+    <operation name="GetParams">
+      <input message="wflws:GetParamsRequest"/>
+      <output message="wflws:GetParamsResponse"/>
+    </operation>
+    <operation name="AuthoriseLine">
+      <input message="wflws:AuthoriseLineRequest"/>
+      <output message="wflws:AuthoriseLineResponse"/>
+    </operation>
+    <operation name="GetDocumentWorkflowHistory">
+      <input message="wflws:GetDocumentWorkflowHistoryRequest"/>
+      <output message="wflws:GetDocumentWorkflowHistoryResponse"/>
+    </operation>
+    <operation name="Restart">
+      <input message="wflws:RestartRequest"/>
+      <output message="wflws:RestartResponse"/>
+    </operation>
+    <operation name="DenyCancellingDocument">
+      <input message="wflws:DenyCancellingDocumentRequest"/>
+      <output message="wflws:DenyCancellingDocumentResponse"/>
+    </operation>
+    <operation name="DenyDocument">
+      <input message="wflws:DenyDocumentRequest"/>
+      <output message="wflws:DenyDocumentResponse"/>
+    </operation>
+  </portType>
+  <binding name="FinancialsWorkflowServiceSOAPBinding" type="wflws:FinancialsWorkflowServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="AuthoriseCancellingDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/FinancialsWorkflow/AuthoriseCancellingDocument" style="document"/>
+      <input>
+        <soap:header message="wflws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="wflws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetPendingCancellingDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/FinancialsWorkflow/GetPendingCancellingDocument" style="document"/>
+      <input>
+        <soap:header message="wflws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="wflws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AuthoriseDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/FinancialsWorkflow/AuthoriseDocument" style="document"/>
+      <input>
+        <soap:header message="wflws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="wflws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Cancel">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/FinancialsWorkflow/Cancel" style="document"/>
+      <input>
+        <soap:header message="wflws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="wflws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DenyLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/FinancialsWorkflow/DenyLine" style="document"/>
+      <input>
+        <soap:header message="wflws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="wflws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetParams">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/FinancialsWorkflow/GetParams" style="document"/>
+      <input>
+        <soap:header message="wflws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="wflws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AuthoriseLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/FinancialsWorkflow/AuthoriseLine" style="document"/>
+      <input>
+        <soap:header message="wflws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="wflws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDocumentWorkflowHistory">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/FinancialsWorkflow/GetDocumentWorkflowHistory" style="document"/>
+      <input>
+        <soap:header message="wflws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="wflws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Restart">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/FinancialsWorkflow/Restart" style="document"/>
+      <input>
+        <soap:header message="wflws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="wflws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DenyCancellingDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/FinancialsWorkflow/DenyCancellingDocument" style="document"/>
+      <input>
+        <soap:header message="wflws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="wflws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DenyDocument">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/FinancialsWorkflow/DenyDocument" style="document"/>
+      <input>
+        <soap:header message="wflws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="wflws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="FinancialsWorkflowService">
+    <port name="FinancialsWorkflowServicePort" binding="wflws:FinancialsWorkflowServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/workflow/financialsworkflow-12.0"/>
+    </port>
+  </service>
+</definitions>

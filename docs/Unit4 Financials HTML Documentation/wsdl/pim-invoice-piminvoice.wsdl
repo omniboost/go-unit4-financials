@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invws="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:inv="http://www.coda.com/pim/schemas/invoice"
+    xmlns:atc="http://www.coda.com/common/schemas/attachment"
+    xmlns:elmmas="http://www.coda.com/pim/schemas/elementmaster"
+    xmlns:pimusr="http://www.coda.com/pim/schemas/user"
+    xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:crn="http://www.coda.com/pim/schemas/creditnote"
+    xmlns:itm="http://www.coda.com/pim/schemas/inputtemplatemaster"
+    xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster"
+    xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster"
+    xmlns:group="http://www.coda.com/pim/schemas/group"
+    xmlns:cmp="http://www.coda.com/pim/schemas/company"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:tolmas="http://www.coda.com/pim/schemas/tolerancemaster"
+    xmlns:pinv="http://www.coda.com/pim/schemas/purchaseinvoice"
+    xmlns:post="http://www.coda.com/pim/schemas/postingdocument"
+    xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster"
+    xmlns:datatypes="http://www.coda.com/common/schemas/datatypes"
+    xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster"
+    xmlns:doc="http://www.coda.com/pim/schemas/document"
+    targetNamespace="http://www.coda.com/pim/schemas/invoice/piminvoice-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/pim/schemas/document" schemaLocation="pim/document/document.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/datatypes" schemaLocation="common/datatypes/datatypes.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/creditnote" schemaLocation="pim/creditnote/creditnote.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/tolerancemaster" schemaLocation="pim/tolerancemaster/tolerancemaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/postingdocument" schemaLocation="pim/postingdocument/postingdocument.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/documentmaster" schemaLocation="pim/documentmaster/documentmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/company" schemaLocation="pim/company/company.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/sundrylinemaster" schemaLocation="pim/sundrylinemaster/sundrylinemaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/invoice" schemaLocation="../wsdl/pim/invoice/invoice.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/group" schemaLocation="pim/group/group.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/user" schemaLocation="pim/user/user.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/purchaseinvoice" schemaLocation="pim/purchaseinvoice/purchaseinvoice.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/matchingmaster" schemaLocation="pim/matchingmaster/matchingmaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/attachment" schemaLocation="common/attachment/attachment.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/logicalreceiptnote" schemaLocation="pim/logicalreceiptnote/logicalreceiptnote.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/elementmaster" schemaLocation="pim/elementmaster/elementmaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/inputtemplatemaster" schemaLocation="pim/inputtemplatemaster/inputtemplatemaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/taxmaster" schemaLocation="pim/taxmaster/taxmaster.xsd"/>
+    <xsd:element name="ValidateForDeferredMatchingRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceKey" type="inv:InvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The company that the invoice exists
+                            in</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidationSuccessfulResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPurchaseInvoiceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PurchaseInvoice" type="pinv:PurchaseInvoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getPurchaseInvoice function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidationFailedRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyMasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The company that the invoice exists
+                            in</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The invoice id</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateForDeferredMatchingResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the Invoice objects that the
+                            user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResetValidationStatusRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyMasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The company that the invoice exists
+                            in</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The invoice id</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="MarkForDeferredMatchingRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceKey" type="inv:InvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The company that the invoice exists
+                            in</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetCreditNoteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CreditNoteKey" type="crn:CreditNoteKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the CreditNote object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UnmarkForDeferredMatchingRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceKey" type="inv:InvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The company that the invoice exists
+                            in</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResetValidationStatusResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceList" type="inv:InvoiceList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPurchaseInvoiceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PurchaseInvoiceKey" type="pinv:PurchaseInvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            PurchaseInvoice object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetCreditNoteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CreditNote" type="crn:CreditNote">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getCreditNote function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidationFailedResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UnmarkForDeferredMatchingResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="UnmarkForDeferredMatching" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            unmarkForDeferredMatching function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceKey" type="inv:InvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the Invoice object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidationSuccessfulRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyMasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The company that the invoice exists
+                            in</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentId" type="com:typeDbGuid">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The invoice id</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="MarkForDeferredMatchingResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MarkForDeferredMatching" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            markForDeferredMatching function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAssociatedInvoicesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The companyCode is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The documentCode is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="com:typeDocNumAlpha">
+                    <xsd:annotation>
+                        <xsd:documentation>The documentNumber is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AssociatedInvoices" minOccurs="0"
+                    maxOccurs="unbounded" type="inv:Association">
+                    <xsd:annotation>
+                        <xsd:documentation>The associatedInvoices is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="InvoiceKey" type="inv:InvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The invoice is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="InvoiceAttachmentKeyKey" type="atc:AttachmentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The invoiceAttachmentKey is
+                            an out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="InvoiceType" type="pimtypes:typePimDocumentType">
+                    <xsd:annotation>
+                        <xsd:documentation>The invoiceType is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAssociatedInvoicesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CompanyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The company code</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The document code</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumber" type="com:typeDocNumAlpha">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The document number</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="MarkForDeferredMatchingResponse">
+    <part name="MarkForDeferredMatchingResponse" element="invws:MarkForDeferredMatchingResponse"/>
+  </message>
+  <message name="GetAssociatedInvoicesRequest">
+    <part name="GetAssociatedInvoicesRequest" element="invws:GetAssociatedInvoicesRequest"/>
+  </message>
+  <message name="ValidateForDeferredMatchingResponse">
+    <part name="ValidateForDeferredMatchingResponse" element="invws:ValidateForDeferredMatchingResponse"/>
+  </message>
+  <message name="GetCreditNoteResponse">
+    <part name="GetCreditNoteResponse" element="invws:GetCreditNoteResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="invws:GetResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="invws:Options"/>
+  </message>
+  <message name="MarkForDeferredMatchingRequest">
+    <part name="MarkForDeferredMatchingRequest" element="invws:MarkForDeferredMatchingRequest"/>
+  </message>
+  <message name="ValidationFailedRequest">
+    <part name="ValidationFailedRequest" element="invws:ValidationFailedRequest"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="invws:FindResponse"/>
+  </message>
+  <message name="ValidationFailedResponse">
+    <part name="ValidationFailedResponse" element="invws:ValidationFailedResponse"/>
+  </message>
+  <message name="ResetValidationStatusResponse">
+    <part name="ResetValidationStatusResponse" element="invws:ResetValidationStatusResponse"/>
+  </message>
+  <message name="UnmarkForDeferredMatchingRequest">
+    <part name="UnmarkForDeferredMatchingRequest" element="invws:UnmarkForDeferredMatchingRequest"/>
+  </message>
+  <message name="UnmarkForDeferredMatchingResponse">
+    <part name="UnmarkForDeferredMatchingResponse" element="invws:UnmarkForDeferredMatchingResponse"/>
+  </message>
+  <message name="GetCreditNoteRequest">
+    <part name="GetCreditNoteRequest" element="invws:GetCreditNoteRequest"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="invws:FindRequest"/>
+  </message>
+  <message name="ValidationSuccessfulResponse">
+    <part name="ValidationSuccessfulResponse" element="invws:ValidationSuccessfulResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="invws:OptionsResponse"/>
+  </message>
+  <message name="GetPurchaseInvoiceRequest">
+    <part name="GetPurchaseInvoiceRequest" element="invws:GetPurchaseInvoiceRequest"/>
+  </message>
+  <message name="ValidateForDeferredMatchingRequest">
+    <part name="ValidateForDeferredMatchingRequest" element="invws:ValidateForDeferredMatchingRequest"/>
+  </message>
+  <message name="ResetValidationStatusRequest">
+    <part name="ResetValidationStatusRequest" element="invws:ResetValidationStatusRequest"/>
+  </message>
+  <message name="GetAssociatedInvoicesResponse">
+    <part name="GetAssociatedInvoicesResponse" element="invws:GetAssociatedInvoicesResponse"/>
+  </message>
+  <message name="GetPurchaseInvoiceResponse">
+    <part name="GetPurchaseInvoiceResponse" element="invws:GetPurchaseInvoiceResponse"/>
+  </message>
+  <message name="ValidationSuccessfulRequest">
+    <part name="ValidationSuccessfulRequest" element="invws:ValidationSuccessfulRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="invws:GetRequest"/>
+  </message>
+  <portType name="PIMInvoiceServicePortTypes">
+    <operation name="ValidationSuccessful">
+      <input message="invws:ValidationSuccessfulRequest"/>
+      <output message="invws:ValidationSuccessfulResponse"/>
+    </operation>
+    <operation name="ValidateForDeferredMatching">
+      <input message="invws:ValidateForDeferredMatchingRequest"/>
+      <output message="invws:ValidateForDeferredMatchingResponse"/>
+    </operation>
+    <operation name="MarkForDeferredMatching">
+      <input message="invws:MarkForDeferredMatchingRequest"/>
+      <output message="invws:MarkForDeferredMatchingResponse"/>
+    </operation>
+    <operation name="GetAssociatedInvoices">
+      <input message="invws:GetAssociatedInvoicesRequest"/>
+      <output message="invws:GetAssociatedInvoicesResponse"/>
+    </operation>
+    <operation name="ValidationFailed">
+      <input message="invws:ValidationFailedRequest"/>
+      <output message="invws:ValidationFailedResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="invws:GetRequest"/>
+      <output message="invws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="invws:FindRequest"/>
+      <output message="invws:FindResponse"/>
+    </operation>
+    <operation name="ResetValidationStatus">
+      <input message="invws:ResetValidationStatusRequest"/>
+      <output message="invws:ResetValidationStatusResponse"/>
+    </operation>
+    <operation name="GetPurchaseInvoice">
+      <input message="invws:GetPurchaseInvoiceRequest"/>
+      <output message="invws:GetPurchaseInvoiceResponse"/>
+    </operation>
+    <operation name="GetCreditNote">
+      <input message="invws:GetCreditNoteRequest"/>
+      <output message="invws:GetCreditNoteResponse"/>
+    </operation>
+    <operation name="UnmarkForDeferredMatching">
+      <input message="invws:UnmarkForDeferredMatchingRequest"/>
+      <output message="invws:UnmarkForDeferredMatchingResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMInvoiceServiceSOAPBinding" type="invws:PIMInvoiceServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ValidationSuccessful">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoice/ValidationSuccessful" style="document"/>
+      <input>
+        <soap:header message="invws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateForDeferredMatching">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoice/ValidateForDeferredMatching" style="document"/>
+      <input>
+        <soap:header message="invws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="MarkForDeferredMatching">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoice/MarkForDeferredMatching" style="document"/>
+      <input>
+        <soap:header message="invws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetAssociatedInvoices">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoice/GetAssociatedInvoices" style="document"/>
+      <input>
+        <soap:header message="invws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidationFailed">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoice/ValidationFailed" style="document"/>
+      <input>
+        <soap:header message="invws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoice/Get" style="document"/>
+      <input>
+        <soap:header message="invws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoice/Find" style="document"/>
+      <input>
+        <soap:header message="invws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ResetValidationStatus">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoice/ResetValidationStatus" style="document"/>
+      <input>
+        <soap:header message="invws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetPurchaseInvoice">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoice/GetPurchaseInvoice" style="document"/>
+      <input>
+        <soap:header message="invws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetCreditNote">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoice/GetCreditNote" style="document"/>
+      <input>
+        <soap:header message="invws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UnmarkForDeferredMatching">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoice/UnmarkForDeferredMatching" style="document"/>
+      <input>
+        <soap:header message="invws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMInvoiceService">
+    <port name="PIMInvoiceServicePort" binding="invws:PIMInvoiceServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/invoice/piminvoice-13.0"/>
+    </port>
+  </service>
+</definitions>

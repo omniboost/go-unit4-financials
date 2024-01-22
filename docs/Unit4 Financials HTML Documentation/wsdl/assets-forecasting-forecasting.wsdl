@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/eassets/schemas/forecasting/forecasting-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:forws="http://www.coda.com/eassets/schemas/forecasting/forecasting-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:tdt="http://www.coda.com/eassets/schemas/transactiondetails"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:for="http://www.coda.com/eassets/schemas/forecasting"
+    xmlns:tdo="http://www.coda.com/eassets/schemas/temporarydoc"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/eassets/schemas/forecasting/forecasting-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/temporarydoc" schemaLocation="assets/temporarydoc/temporarydoc.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/forecasting" schemaLocation="../wsdl/assets/forecasting/forecasting.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/eassets/schemas/transactiondetails" schemaLocation="assets/transactiondetails/transactiondetails.xsd"/>
+    <xsd:element name="LogsWithSpreadsheetDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which you want to search for forecasting
+                            logs that have spreadsheet data available
+                            for download.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SpreadsheetDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FinancialData" type="tdo:TemporaryDocumentDetailList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the financial
+                            transactions forecast data that has been
+                            generated for export to a spreadsheet file.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AssetData" minOccurs="0" type="tdt:TransactionTempDetailList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the asset
+                            transactions forecast data that has been
+                            generated for export to a spreadsheet file.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which forecasting has been performed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunNumber" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A number identifying the
+                            forecast depreciation run.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogID" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The log number.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ProgressResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PercentCompleteMessage" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>A message indicating the
+                            percent complete of the forecasting process</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="StartRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Forecasting" type="for:Forecasting">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            forecasting depreciation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BalanceSaveResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="WrittenCount" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the balance of the
+                            specified Coda non-maintained balance code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LogsWithSpreadsheetDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Response" minOccurs="0" type="for:LogsWithSpreadsheetDataList"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ProgressRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which forecasting is being performed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogID" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The log number.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BalanceSaveRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which forecasting is being performed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunNumber" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A number identifying the
+                            forecast depreciation run.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="BalanceCode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The Coda non-maintained
+                            balance code to which the forecast
+                            information will be saved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SpreadsheetDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the company in
+                            which forecasting is being performed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunNumber" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A number identifying the
+                            forecast depreciation run.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="IncludeAssetTransactions" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies whether to include
+                            asset transactions in the forecast
+                            information. When FALSE, only financial
+                            transactions are included.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="LogsWithSpreadsheetDataResponse">
+    <part name="LogsWithSpreadsheetDataResponse" element="forws:LogsWithSpreadsheetDataResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="forws:Options"/>
+  </message>
+  <message name="BalanceSaveRequest">
+    <part name="BalanceSaveRequest" element="forws:BalanceSaveRequest"/>
+  </message>
+  <message name="LogsWithSpreadsheetDataRequest">
+    <part name="LogsWithSpreadsheetDataRequest" element="forws:LogsWithSpreadsheetDataRequest"/>
+  </message>
+  <message name="SpreadsheetDataRequest">
+    <part name="SpreadsheetDataRequest" element="forws:SpreadsheetDataRequest"/>
+  </message>
+  <message name="BalanceSaveResponse">
+    <part name="BalanceSaveResponse" element="forws:BalanceSaveResponse"/>
+  </message>
+  <message name="StartResponse">
+    <part name="StartResponse" element="forws:StartResponse"/>
+  </message>
+  <message name="StartRequest">
+    <part name="StartRequest" element="forws:StartRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="forws:OptionsResponse"/>
+  </message>
+  <message name="ProgressRequest">
+    <part name="ProgressRequest" element="forws:ProgressRequest"/>
+  </message>
+  <message name="ProgressResponse">
+    <part name="ProgressResponse" element="forws:ProgressResponse"/>
+  </message>
+  <message name="SpreadsheetDataResponse">
+    <part name="SpreadsheetDataResponse" element="forws:SpreadsheetDataResponse"/>
+  </message>
+  <portType name="ForecastingServicePortTypes">
+    <operation name="Progress">
+      <input message="forws:ProgressRequest"/>
+      <output message="forws:ProgressResponse"/>
+    </operation>
+    <operation name="Start">
+      <input message="forws:StartRequest"/>
+      <output message="forws:StartResponse"/>
+    </operation>
+    <operation name="LogsWithSpreadsheetData">
+      <input message="forws:LogsWithSpreadsheetDataRequest"/>
+      <output message="forws:LogsWithSpreadsheetDataResponse"/>
+    </operation>
+    <operation name="BalanceSave">
+      <input message="forws:BalanceSaveRequest"/>
+      <output message="forws:BalanceSaveResponse"/>
+    </operation>
+    <operation name="SpreadsheetData">
+      <input message="forws:SpreadsheetDataRequest"/>
+      <output message="forws:SpreadsheetDataResponse"/>
+    </operation>
+  </portType>
+  <binding name="ForecastingServiceSOAPBinding" type="forws:ForecastingServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Progress">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Forecasting/Progress" style="document"/>
+      <input>
+        <soap:header message="forws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="forws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Start">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Forecasting/Start" style="document"/>
+      <input>
+        <soap:header message="forws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="forws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LogsWithSpreadsheetData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Forecasting/LogsWithSpreadsheetData" style="document"/>
+      <input>
+        <soap:header message="forws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="forws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="BalanceSave">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Forecasting/BalanceSave" style="document"/>
+      <input>
+        <soap:header message="forws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="forws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SpreadsheetData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/assets/Forecasting/SpreadsheetData" style="document"/>
+      <input>
+        <soap:header message="forws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="forws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ForecastingService">
+    <port name="ForecastingServicePort" binding="forws:ForecastingServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/assets/forecasting/forecasting-12.0"/>
+    </port>
+  </service>
+</definitions>

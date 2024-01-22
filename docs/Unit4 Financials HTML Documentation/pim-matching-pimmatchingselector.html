@@ -1,0 +1,617 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-PIMMatchingSelectorService">
+            <h1>PIMMatchingSelectorService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/pim/schemas/matching/pimmatchingselector-13.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/pim-matching-pimmatchingselector.wsdl" download="">pim-matching-pimmatchingselector.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/pim/matching/pimmatchingselector-13.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#PIMMatchingSelectorService-ExplodeMatch">ExplodeMatch</a></li>
+               <li><a href="#PIMMatchingSelectorService-RunGroupingAssistant">RunGroupingAssistant</a></li>
+               <li><a href="#PIMMatchingSelectorService-Select">Select</a></li>
+               <li><a href="#PIMMatchingSelectorService-SelectFolders">SelectFolders</a></li>
+               <li><a href="#PIMMatchingSelectorService-SelectMatchedInvoicesToUndo">SelectMatchedInvoicesToUndo</a></li>
+               <li><a href="#PIMMatchingSelectorService-SelectWIPInvoices">SelectWIPInvoices</a></li>
+               <li><a href="#PIMMatchingSelectorService-SingleInvoiceSelect">SingleInvoiceSelect</a></li>
+               <li><a href="#PIMMatchingSelectorService-SingleInvoiceSelectWIPInvoices">SingleInvoiceSelectWIPInvoices</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="PIMMatchingSelectorService-ExplodeMatch"></a>ExplodeMatch
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ExplodeMatchRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Invoice</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/invoice}InvoiceKey" href="pim/invoice/invoice.html#{http://www.coda.com/pim/schemas/invoice}InvoiceKey">InvoiceKey</a></td>
+                              <td>Contains the key identifying
+                                 the matched invoice that you want to explode.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ExplodeInvoicePresenterMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                              <td>The code for the presenter
+                                 master you want to use to display the
+                                 exploded invoice details.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ExplodeLRNPresenterMaster</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                              <td>The code for the presenter
+                                 master you want to use to display the
+                                 exploded LRN details
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ExplodeMatchResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>InvoiceSelection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The purchase invoices in the
+                                 exploded match.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LRNSelection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The LRNs in the exploded match.</td>
+                           </tr>
+                           <tr>
+                              <td>MatchReference</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                              <td>The match reference.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMMatchingSelectorService-RunGroupingAssistant"></a>RunGroupingAssistant
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>RunGroupingAssistantRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/matchingmaster}MatchingMaster" href="pim/matchingmaster/matchingmaster.html#{http://www.coda.com/pim/schemas/matchingmaster}MatchingMaster">MatchingMaster</a></td>
+                              <td>The code of the matching
+                                 master you want to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Invoices</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The purchase invoice
+                                 documents available for grouping.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LRNLines</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The LRN lines available for grouping.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>RunGroupingAssistantResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Group</td>
+                              <td>0</td>
+                              <td>unbounded</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/group}Group" href="pim/group/group.html#{http://www.coda.com/pim/schemas/group}Group">Group</a></td>
+                              <td>This element contains a group
+                                 created by the grouping assistant.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>GroupedInvoice</td>
+                              <td>0</td>
+                              <td>unbounded</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/invoice}InvoiceKey" href="pim/invoice/invoice.html#{http://www.coda.com/pim/schemas/invoice}InvoiceKey">InvoiceKey</a></td>
+                              <td>Identifies the selected
+                                 purchase invoice documents that have been grouped.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>UngroupedInvoice</td>
+                              <td>0</td>
+                              <td>unbounded</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/invoice}InvoiceKey" href="pim/invoice/invoice.html#{http://www.coda.com/pim/schemas/invoice}InvoiceKey">InvoiceKey</a></td>
+                              <td>Identifies any selected
+                                 purchase invoices that have not been grouped.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>GroupedLRNLine</td>
+                              <td>0</td>
+                              <td>unbounded</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/logicalreceiptnote}LRNLineKey" href="pim/logicalreceiptnote/logicalreceiptnote.html#{http://www.coda.com/pim/schemas/logicalreceiptnote}LRNLineKey">LRNLineKey</a></td>
+                              <td>Identifies the selected LRN
+                                 lines that have been grouped.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>UngroupedLRNLine</td>
+                              <td>0</td>
+                              <td>unbounded</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/logicalreceiptnote}LRNLineKey" href="pim/logicalreceiptnote/logicalreceiptnote.html#{http://www.coda.com/pim/schemas/logicalreceiptnote}LRNLineKey">LRNLineKey</a></td>
+                              <td>Identifies any selected LRN
+                                 lines that have not been grouped.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMMatchingSelectorService-Select"></a>Select
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/matchingmaster}MatchingMaster" href="pim/matchingmaster/matchingmaster.html#{http://www.coda.com/pim/schemas/matchingmaster}MatchingMaster">MatchingMaster</a></td>
+                              <td>The code of the matching
+                                 master you want to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectorMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>The selector defining the
+                                 search criteria to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PresenterMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                              <td>The presenter used to display
+                                 the selected documents.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The documents selected by the request.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMMatchingSelectorService-SelectFolders"></a>SelectFolders
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectFoldersRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/matchingmaster}MatchingMaster" href="pim/matchingmaster/matchingmaster.html#{http://www.coda.com/pim/schemas/matchingmaster}MatchingMaster">MatchingMaster</a></td>
+                              <td>The code of the matching
+                                 master you want to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SkipSelection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>When True, only document
+                                 headers are retrieved.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectFoldersResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>InvoiceSelection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The purchase invoice
+                                 documents selected by the request.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LRNSelection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The LRN documents selected by
+                                 the request.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMMatchingSelectorService-SelectMatchedInvoicesToUndo"></a>SelectMatchedInvoicesToUndo
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectMatchedInvoicesToUndoRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelectorMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>The code for the selector
+                                 master you want to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PresenterMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                              <td>The code for the presenter
+                                 master you want to use.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectMatchedInvoicesToUndoResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The purchase invoices
+                                 selected by the request.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMMatchingSelectorService-SelectWIPInvoices"></a>SelectWIPInvoices
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectWIPInvoicesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>MatchingMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/matchingmaster}MatchingMaster" href="pim/matchingmaster/matchingmaster.html#{http://www.coda.com/pim/schemas/matchingmaster}MatchingMaster">MatchingMaster</a></td>
+                              <td>The code of the matching
+                                 master you want to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectorMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>The code for the selector
+                                 master you want to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PresenterMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                              <td>The code for the presenter
+                                 master you want to use.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectWIPInvoicesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The WIP matches selected for
+                                 interactive matching.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMMatchingSelectorService-SingleInvoiceSelect"></a>SingleInvoiceSelect
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SingleInvoiceSelectRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelectorMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>The code for the selector
+                                 master you want to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PresenterMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                              <td>The code for the presenter
+                                 master you want to use.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SingleInvoiceSelectResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The purchase invoice
+                                 documents selected for single invoice matching.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMMatchingSelectorService-SingleInvoiceSelectWIPInvoices"></a>SingleInvoiceSelectWIPInvoices
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SingleInvoiceSelectWIPInvoicesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelectorMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>The code for the selector
+                                 master you want to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PresenterMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                              <td>The code for the presenter
+                                 master you want to use.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SingleInvoiceSelectWIPInvoicesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>The WIP matches selected for
+                                 single invoice matching.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

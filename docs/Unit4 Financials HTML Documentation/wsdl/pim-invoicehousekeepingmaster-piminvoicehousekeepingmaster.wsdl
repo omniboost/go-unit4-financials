@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/invoicehousekeepingmaster/piminvoicehousekeepingmaster-11.1/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:invhkeepws="http://www.coda.com/pim/schemas/invoicehousekeepingmaster/piminvoicehousekeepingmaster-11.1/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:invhkeep="http://www.coda.com/pim/schemas/invoicehousekeepingmaster"
+    xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster"
+    xmlns:pimsel="http://www.coda.com/pim/schemas/selector"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/pim/schemas/invoicehousekeepingmaster/piminvoicehousekeepingmaster-11.1/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/documentmaster" schemaLocation="pim/documentmaster/documentmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/selector" schemaLocation="pim/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/invoicehousekeepingmaster" schemaLocation="../wsdl/pim/invoicehousekeepingmaster/invoicehousekeepingmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="InvoiceHousekeepingMaster" type="invhkeep:InvoiceHousekeepingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole
+                            InvoiceHousekeepingMaster object that is to
+                            be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the
+                            InvoiceHousekeepingMaster objects that the
+                            user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceHousekeepingMaster" type="invhkeep:InvoiceHousekeepingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceHousekeepingMasterItemList" type="invhkeep:InvoiceHousekeepingMasterItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the list function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the
+                            InvoiceHousekeepingMaster objects that the
+                            user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="InvoiceHousekeepingMaster" type="invhkeep:InvoiceHousekeepingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            update function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="InvoiceHousekeepingMaster" type="invhkeep:InvoiceHousekeepingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the add function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="InvoiceHousekeepingMaster" type="invhkeep:InvoiceHousekeepingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The whole
+                            InvoiceHousekeepingMaster object that is to
+                            be persisted in the system.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceHousekeepingMasterKey" type="invhkeep:InvoiceHousekeepingMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            InvoiceHousekeepingMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceHousekeepingMasterKey" type="invhkeep:InvoiceHousekeepingMasterKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            InvoiceHousekeepingMaster object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceHousekeepingMasterList" type="invhkeep:InvoiceHousekeepingMasterList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetResponse">
+    <part name="GetResponse" element="invhkeepws:GetResponse"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="invhkeepws:AddResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="invhkeepws:ListRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="invhkeepws:Options"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="invhkeepws:FindResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="invhkeepws:UpdateRequest"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="invhkeepws:ListResponse"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="invhkeepws:FindRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="invhkeepws:OptionsResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="invhkeepws:DeleteRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="invhkeepws:DeleteResponse"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="invhkeepws:UpdateResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="invhkeepws:AddRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="invhkeepws:GetRequest"/>
+  </message>
+  <portType name="PIMInvoiceHousekeepingMasterServicePortTypes">
+    <operation name="Delete">
+      <input message="invhkeepws:DeleteRequest"/>
+      <output message="invhkeepws:DeleteResponse"/>
+    </operation>
+    <operation name="Add">
+      <input message="invhkeepws:AddRequest"/>
+      <output message="invhkeepws:AddResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="invhkeepws:GetRequest"/>
+      <output message="invhkeepws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="invhkeepws:FindRequest"/>
+      <output message="invhkeepws:FindResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="invhkeepws:ListRequest"/>
+      <output message="invhkeepws:ListResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="invhkeepws:UpdateRequest"/>
+      <output message="invhkeepws:UpdateResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMInvoiceHousekeepingMasterServiceSOAPBinding" type="invhkeepws:PIMInvoiceHousekeepingMasterServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoiceHousekeepingMaster/Delete" style="document"/>
+      <input>
+        <soap:header message="invhkeepws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invhkeepws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoiceHousekeepingMaster/Add" style="document"/>
+      <input>
+        <soap:header message="invhkeepws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invhkeepws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoiceHousekeepingMaster/Get" style="document"/>
+      <input>
+        <soap:header message="invhkeepws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invhkeepws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoiceHousekeepingMaster/Find" style="document"/>
+      <input>
+        <soap:header message="invhkeepws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invhkeepws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoiceHousekeepingMaster/List" style="document"/>
+      <input>
+        <soap:header message="invhkeepws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invhkeepws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInvoiceHousekeepingMaster/Update" style="document"/>
+      <input>
+        <soap:header message="invhkeepws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="invhkeepws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMInvoiceHousekeepingMasterService">
+    <port name="PIMInvoiceHousekeepingMasterServicePort" binding="invhkeepws:PIMInvoiceHousekeepingMasterServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/invoicehousekeepingmaster/piminvoicehousekeepingmaster-11.1"/>
+    </port>
+  </service>
+</definitions>

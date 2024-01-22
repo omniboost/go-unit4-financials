@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/currency/currency-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:curws="http://www.coda.com/efinance/schemas/currency/currency-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:cur="http://www.coda.com/efinance/schemas/currency"
+    targetNamespace="http://www.coda.com/efinance/schemas/currency/currency-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/currency" schemaLocation="../wsdl/finance/currency/currency.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to update the currency master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the currency
+                            master that you attempted to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            currency master in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to delete the currency master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the currency
+                            master that you attempted to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRatesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to update exchange rate information.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the currency
+                            master whose exchange rate you attempted to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MasterTimeStamp" minOccurs="0" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for the
+                            currency master in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRatesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="Currency" type="cur:CurrencyExchangeRate">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the exchange rate
+                            information that you want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRatesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RateInfo" type="cur:CurrencyRate">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the exchange rate
+                            information you have retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SearchRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="com:SearchFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The search criteria.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="cur:CurrencyListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>A filter that selects the
+                            currencies to be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRatesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="Currency" type="cur:CurrencyExchangeRate">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the exchange rate
+                            information that you want to add.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListAllRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="com:ReqAllKeys">
+                    <xsd:annotation>
+                        <xsd:documentation>A filter where you specify
+                            the maximum number of currencies to be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListChildrenResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="cur:CurrencyListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The filter that was used to
+                            select the currencies to be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key information
+                            for the listed currency masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListParentsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="cur:CurrencyListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>A filter that selects the
+                            currencies to be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRatesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CurrencyRateKey" type="cur:CurrencyRateKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the exchange rates you want to retrieve from
+                            the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Currency" minOccurs="0" type="cur:Currency">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the currency master
+                            you have retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SearchResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="com:SearchFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The search criteria.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>The search results.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ListIsComplete" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If true, the records returned
+                            are the complete results of the search. If
+                            false, the results were truncated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListParentsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="cur:CurrencyListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The filter that was used to
+                            select the currencies to be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key information
+                            for the listed currency masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="Currency" type="cur:Currency">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the currency master you want to update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="cur:CurrencyListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The filter that was used to
+                            select the currencies to be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key information
+                            for the listed currency masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListChildrenRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="cur:CurrencyListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>A filter that selects the
+                            currencies to be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the currency master you want to retrieve
+                            from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRatesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to add exchange rates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the currency
+                            master to which you attempted to add
+                            exchange rates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MasterTimeStamp" minOccurs="0" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for the
+                            currency master in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Companies" minOccurs="0" type="com:Companies"/>
+                <xsd:element name="Currency" type="cur:Currency">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the information for
+                            the currency master you want to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MultiCompany" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Companies" type="com:Companies"/>
+                            <xsd:element name="Warning" type="com:Reason"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="CmpCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which you attempted to create the currency master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Code" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the currency
+                            master that you attempted to create.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TimeStamp" type="com:typeWord">
+                    <xsd:annotation>
+                        <xsd:documentation>The TimeStamp value for this
+                            currency master in the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListAllResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="com:ReqAllKeys">
+                    <xsd:annotation>
+                        <xsd:documentation>The filter that was used to
+                            select the currencies to be listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="com:AllKeysData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key information
+                            for the listed currency masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the currency master you want to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="ListResponse">
+    <part name="ListResponse" element="curws:ListResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="curws:Options"/>
+  </message>
+  <message name="SearchRequest">
+    <part name="SearchRequest" element="curws:SearchRequest"/>
+  </message>
+  <message name="ListAllRequest">
+    <part name="ListAllRequest" element="curws:ListAllRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="curws:GetRequest"/>
+  </message>
+  <message name="ListAllResponse">
+    <part name="ListAllResponse" element="curws:ListAllResponse"/>
+  </message>
+  <message name="AddRatesRequest">
+    <part name="AddRatesRequest" element="curws:AddRatesRequest"/>
+  </message>
+  <message name="UpdateRatesRequest">
+    <part name="UpdateRatesRequest" element="curws:UpdateRatesRequest"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="curws:UpdateResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="curws:AddRequest"/>
+  </message>
+  <message name="ListChildrenResponse">
+    <part name="ListChildrenResponse" element="curws:ListChildrenResponse"/>
+  </message>
+  <message name="ListParentsRequest">
+    <part name="ListParentsRequest" element="curws:ListParentsRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="curws:OptionsResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="curws:UpdateRequest"/>
+  </message>
+  <message name="AddRatesResponse">
+    <part name="AddRatesResponse" element="curws:AddRatesResponse"/>
+  </message>
+  <message name="ListRequest">
+    <part name="ListRequest" element="curws:ListRequest"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="curws:GetResponse"/>
+  </message>
+  <message name="GetRatesRequest">
+    <part name="GetRatesRequest" element="curws:GetRatesRequest"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="curws:AddResponse"/>
+  </message>
+  <message name="SearchResponse">
+    <part name="SearchResponse" element="curws:SearchResponse"/>
+  </message>
+  <message name="ListChildrenRequest">
+    <part name="ListChildrenRequest" element="curws:ListChildrenRequest"/>
+  </message>
+  <message name="GetRatesResponse">
+    <part name="GetRatesResponse" element="curws:GetRatesResponse"/>
+  </message>
+  <message name="UpdateRatesResponse">
+    <part name="UpdateRatesResponse" element="curws:UpdateRatesResponse"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="curws:DeleteResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="curws:DeleteRequest"/>
+  </message>
+  <message name="ListParentsResponse">
+    <part name="ListParentsResponse" element="curws:ListParentsResponse"/>
+  </message>
+  <portType name="CurrencyServicePortTypes">
+    <operation name="Add">
+      <input message="curws:AddRequest"/>
+      <output message="curws:AddResponse"/>
+    </operation>
+    <operation name="Delete">
+      <input message="curws:DeleteRequest"/>
+      <output message="curws:DeleteResponse"/>
+    </operation>
+    <operation name="GetRates">
+      <input message="curws:GetRatesRequest"/>
+      <output message="curws:GetRatesResponse"/>
+    </operation>
+    <operation name="UpdateRates">
+      <input message="curws:UpdateRatesRequest"/>
+      <output message="curws:UpdateRatesResponse"/>
+    </operation>
+    <operation name="ListChildren">
+      <input message="curws:ListChildrenRequest"/>
+      <output message="curws:ListChildrenResponse"/>
+    </operation>
+    <operation name="ListParents">
+      <input message="curws:ListParentsRequest"/>
+      <output message="curws:ListParentsResponse"/>
+    </operation>
+    <operation name="ListAll">
+      <input message="curws:ListAllRequest"/>
+      <output message="curws:ListAllResponse"/>
+    </operation>
+    <operation name="AddRates">
+      <input message="curws:AddRatesRequest"/>
+      <output message="curws:AddRatesResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="curws:GetRequest"/>
+      <output message="curws:GetResponse"/>
+    </operation>
+    <operation name="Search">
+      <input message="curws:SearchRequest"/>
+      <output message="curws:SearchResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="curws:ListRequest"/>
+      <output message="curws:ListResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="curws:UpdateRequest"/>
+      <output message="curws:UpdateResponse"/>
+    </operation>
+  </portType>
+  <binding name="CurrencyServiceSOAPBinding" type="curws:CurrencyServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Currency/Add" style="document"/>
+      <input>
+        <soap:header message="curws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Currency/Delete" style="document"/>
+      <input>
+        <soap:header message="curws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetRates">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Currency/GetRates" style="document"/>
+      <input>
+        <soap:header message="curws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateRates">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Currency/UpdateRates" style="document"/>
+      <input>
+        <soap:header message="curws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListChildren">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Currency/ListChildren" style="document"/>
+      <input>
+        <soap:header message="curws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListParents">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Currency/ListParents" style="document"/>
+      <input>
+        <soap:header message="curws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ListAll">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Currency/ListAll" style="document"/>
+      <input>
+        <soap:header message="curws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AddRates">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Currency/AddRates" style="document"/>
+      <input>
+        <soap:header message="curws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Currency/Get" style="document"/>
+      <input>
+        <soap:header message="curws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Search">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Currency/Search" style="document"/>
+      <input>
+        <soap:header message="curws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Currency/List" style="document"/>
+      <input>
+        <soap:header message="curws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Currency/Update" style="document"/>
+      <input>
+        <soap:header message="curws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="curws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CurrencyService">
+    <port name="CurrencyServicePort" binding="curws:CurrencyServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/currency/currency-12.0"/>
+    </port>
+  </service>
+</definitions>

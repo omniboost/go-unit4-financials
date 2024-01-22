@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/repository/repository-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:repws="http://www.coda.com/common/schemas/repository/repository-13.0/webservice">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:fld="http://www.coda.com/common/schemas/repositoryfolder"
+    xmlns:rep="http://www.coda.com/common/schemas/repository"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/repository/repository-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/repositoryfolder" schemaLocation="common/repositoryfolder/repositoryfolder.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/repository" schemaLocation="../wsdl/common/repository/repository.xsd"/>
+    <xsd:element name="ListRepositoryFolderDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RepositoryObject" minOccurs="0"
+                    maxOccurs="unbounded" type="rep:LightweightRepositoryObjectData">
+                    <xsd:annotation>
+                        <xsd:documentation>The repositoryObject is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UploadResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RepositoryObjectTreeData" type="rep:RepoTreeItem">
+                    <xsd:annotation>
+                        <xsd:documentation>The repositoryObjectTreeData
+                            is an out argument, so the server will put
+                            it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CopyFolderLinksRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RepositoryObjectIdList" type="rep:RepositoryCopyFolderLinksRepositoryObjectIdList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A list of repository object IDs.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TargetFolder" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The target repository folder for the
+                                copy operation.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TargetCompany" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The target company folder for the
+                                copy operation.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteFolderLinksResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="MoveFolderLinksResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CreatedFolderLinkKey" minOccurs="0"
+                    maxOccurs="unbounded" type="rep:FolderLinkKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The createdFolderLink is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRepositoryDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RepositoryObjectIdsList" type="rep:RepositoryFindRepositoryDataRepositoryObjectIdsList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A list of repository object IDs.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the RepositoryObject objects
+                            that the user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRepositoryFolderDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FolderCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A repository folder code.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RepositoryObjectList" type="rep:RepositoryObjectList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRepositoryFolderTreeRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RepositoryObject" type="rep:RepositoryObject">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="MoveFolderLinksRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FolderLinkKeyList" type="rep:FolderLinkKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A list of keys to folder links.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TargetFolder" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The target repository folder for the
+                                move operation.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="TargetCompany" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The target company folder for the
+                                move operation.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRepositoryDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RepositoryObjectData" type="rep:RepositoryObjectData">
+                    <xsd:annotation>
+                        <xsd:documentation>The repositoryObjectData is
+                            an out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UploadRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RepositoryObjectData" type="rep:RepositoryObjectData">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>       This element holds details of
+                                the data for a repository object.
+                            </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRepositoryFolderTreeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Data" type="rep:BrowseRepositoryTree">
+                    <xsd:annotation>
+                        <xsd:documentation>The data is an out argument,
+                            so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CopyFolderLinksResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CreatedFolderLinkKey" minOccurs="0"
+                    maxOccurs="unbounded" type="rep:FolderLinkKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The createdFolderLink is an
+                            out argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="RepositoryObjectKey" type="rep:RepositoryObjectKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the
+                            RepositoryObject object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteFolderLinksRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FolderLinkKeyList" type="rep:FolderLinkKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A list of keys to folder links.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="FindRepositoryDataResponse">
+    <part name="FindRepositoryDataResponse" element="repws:FindRepositoryDataResponse"/>
+  </message>
+  <message name="CopyFolderLinksResponse">
+    <part name="CopyFolderLinksResponse" element="repws:CopyFolderLinksResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="repws:GetResponse"/>
+  </message>
+  <message name="FindRepositoryDataRequest">
+    <part name="FindRepositoryDataRequest" element="repws:FindRepositoryDataRequest"/>
+  </message>
+  <message name="DeleteFolderLinksResponse">
+    <part name="DeleteFolderLinksResponse" element="repws:DeleteFolderLinksResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="repws:Options"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="repws:FindResponse"/>
+  </message>
+  <message name="MoveFolderLinksResponse">
+    <part name="MoveFolderLinksResponse" element="repws:MoveFolderLinksResponse"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="repws:FindRequest"/>
+  </message>
+  <message name="ListRepositoryFolderDataResponse">
+    <part name="ListRepositoryFolderDataResponse" element="repws:ListRepositoryFolderDataResponse"/>
+  </message>
+  <message name="FindRepositoryFolderTreeResponse">
+    <part name="FindRepositoryFolderTreeResponse" element="repws:FindRepositoryFolderTreeResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="repws:OptionsResponse"/>
+  </message>
+  <message name="DeleteFolderLinksRequest">
+    <part name="DeleteFolderLinksRequest" element="repws:DeleteFolderLinksRequest"/>
+  </message>
+  <message name="ListRepositoryFolderDataRequest">
+    <part name="ListRepositoryFolderDataRequest" element="repws:ListRepositoryFolderDataRequest"/>
+  </message>
+  <message name="UploadResponse">
+    <part name="UploadResponse" element="repws:UploadResponse"/>
+  </message>
+  <message name="CopyFolderLinksRequest">
+    <part name="CopyFolderLinksRequest" element="repws:CopyFolderLinksRequest"/>
+  </message>
+  <message name="MoveFolderLinksRequest">
+    <part name="MoveFolderLinksRequest" element="repws:MoveFolderLinksRequest"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="repws:GetRequest"/>
+  </message>
+  <message name="FindRepositoryFolderTreeRequest">
+    <part name="FindRepositoryFolderTreeRequest" element="repws:FindRepositoryFolderTreeRequest"/>
+  </message>
+  <message name="UploadRequest">
+    <part name="UploadRequest" element="repws:UploadRequest"/>
+  </message>
+  <portType name="RepositoryServicePortTypes">
+    <operation name="ListRepositoryFolderData">
+      <input message="repws:ListRepositoryFolderDataRequest"/>
+      <output message="repws:ListRepositoryFolderDataResponse"/>
+    </operation>
+    <operation name="CopyFolderLinks">
+      <input message="repws:CopyFolderLinksRequest"/>
+      <output message="repws:CopyFolderLinksResponse"/>
+    </operation>
+    <operation name="MoveFolderLinks">
+      <input message="repws:MoveFolderLinksRequest"/>
+      <output message="repws:MoveFolderLinksResponse"/>
+    </operation>
+    <operation name="FindRepositoryData">
+      <input message="repws:FindRepositoryDataRequest"/>
+      <output message="repws:FindRepositoryDataResponse"/>
+    </operation>
+    <operation name="DeleteFolderLinks">
+      <input message="repws:DeleteFolderLinksRequest"/>
+      <output message="repws:DeleteFolderLinksResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="repws:GetRequest"/>
+      <output message="repws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="repws:FindRequest"/>
+      <output message="repws:FindResponse"/>
+    </operation>
+    <operation name="Upload">
+      <input message="repws:UploadRequest"/>
+      <output message="repws:UploadResponse"/>
+    </operation>
+    <operation name="FindRepositoryFolderTree">
+      <input message="repws:FindRepositoryFolderTreeRequest"/>
+      <output message="repws:FindRepositoryFolderTreeResponse"/>
+    </operation>
+  </portType>
+  <binding name="RepositoryServiceSOAPBinding" type="repws:RepositoryServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ListRepositoryFolderData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Repository/ListRepositoryFolderData" style="document"/>
+      <input>
+        <soap:header message="repws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="repws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CopyFolderLinks">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Repository/CopyFolderLinks" style="document"/>
+      <input>
+        <soap:header message="repws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="repws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="MoveFolderLinks">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Repository/MoveFolderLinks" style="document"/>
+      <input>
+        <soap:header message="repws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="repws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FindRepositoryData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Repository/FindRepositoryData" style="document"/>
+      <input>
+        <soap:header message="repws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="repws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DeleteFolderLinks">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Repository/DeleteFolderLinks" style="document"/>
+      <input>
+        <soap:header message="repws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="repws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Repository/Get" style="document"/>
+      <input>
+        <soap:header message="repws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="repws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Repository/Find" style="document"/>
+      <input>
+        <soap:header message="repws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="repws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Upload">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Repository/Upload" style="document"/>
+      <input>
+        <soap:header message="repws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="repws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FindRepositoryFolderTree">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Repository/FindRepositoryFolderTree" style="document"/>
+      <input>
+        <soap:header message="repws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="repws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="RepositoryService">
+    <port name="RepositoryServicePort" binding="repws:RepositoryServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/repository/repository-13.0"/>
+    </port>
+  </service>
+</definitions>

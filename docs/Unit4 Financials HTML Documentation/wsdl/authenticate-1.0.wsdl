@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions
+	targetNamespace="http://www.coda.com/wsadapter/schemas/authenticate/authenticate-1.0/webservice"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:auth="http://www.coda.com/wsadapter/schemas/authenticate/authenticate-1.0/webservice">
+	<documentation>Authentication web service.</documentation>
+	<types>
+		<xs:schema
+			targetNamespace="http://www.coda.com/wsadapter/schemas/authenticate/authenticate-1.0/webservice"
+			attributeFormDefault="unqualified" elementFormDefault="qualified">
+			<xs:annotation>
+				<xs:documentation>Authentication web service.</xs:documentation>
+			</xs:annotation>
+			<xs:element name="AuthenticateRequest">
+				<xs:annotation>
+					<xs:documentation>Request to authenticate.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="NewPassword" type="xs:string"
+							minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>By specifying a new password the request will
+									update the Coda user master with the new password.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="SuppressDefaultUser" type="xs:boolean"
+							minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>
+									If a domain user has a default Coda user mapped, authentication
+									would normally use this if no Coda user code were specified.
+									Pass
+									<code>true</code>
+									here in order to bypass this defaulting.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AuthenticateResponse">
+				<xs:annotation>
+					<xs:documentation>The response from the authenticate method.
+					</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:annotation>
+						<xs:documentation>The response information.</xs:documentation>
+					</xs:annotation>
+					<xs:sequence>
+						<xs:element name="User" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The code of the Coda user authenticated
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="UserTimestamp" type="xs:long"
+							minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The timestamp of the authenticated Coda user.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Company" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The code of the company logged into.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Capability" type="xs:string"
+							minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The code of the capability master used by the
+									Coda user.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CapabilityTimestamp" type="xs:int"
+							minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The timestamp of the capability master.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Companies" type="auth:Company"
+							minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>If no company was specified in the request and
+									no default company is declared on the Coda user master, the
+									response will contain a list of possible company codes.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Users" type="auth:User" minOccurs="0"
+							maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>
+									If no Coda user code was specified and the authenticating user
+									has permission to authenticate as a number of Coda user
+									masters, and there was either no default user or
+									<var>SuppressDefaultUser</var>
+									was
+									<code>true</code>
+									, the response will contain a list of possible user codes.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="PasswordExpiryDate" type="xs:date"
+							minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The date the Coda user master's password will
+									expire.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="PasswordExpiryWarning" type="xs:boolean"
+							minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Whether the client should warn the user their
+									password is soon to expire.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="RecordLogoff" type="xs:boolean"
+							minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Whether to record the log off.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="FunctionalSecurityHash" type="xs:string"
+							minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>A hash of the functional security.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Session" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>The session ID</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Reserved" type="xs:boolean"
+							minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Reserved for Coda use.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Options">
+				<xs:annotation>
+					<xs:documentation>Options</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:annotation>
+						<xs:documentation></xs:documentation>
+					</xs:annotation>
+					<xs:attribute name="locale" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>
+								ISO 639 two letter language codes. A list is available at
+								<a href="http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt">http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt</a>
+								.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="user" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>User code.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="password" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Password.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="company" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Company.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="Company">
+				<xs:annotation>
+					<xs:documentation>Information about a company. Used to allow a
+						client to provide an authenticating user with a friendly list of
+						companies to choose from.
+					</xs:documentation>
+				</xs:annotation>
+				<xs:sequence>
+					<xs:element name="Code" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>The code of the company master.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ShortName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The short name of the company.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="User">
+				<xs:annotation>
+					<xs:documentation>Information about a Coda user. Used to allow a
+						client to provide an authenticating user with a friendly list of
+						user masters to choose from.
+					</xs:documentation>
+				</xs:annotation>
+				<xs:sequence>
+					<xs:element name="Code" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>The user master code.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ShortName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The short name of the user master.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</types>
+	<message name="AuthenticateRequest">
+		<part name="AuthenticateRequest" element="auth:AuthenticateRequest" />
+	</message>
+	<message name="AuthenticateResponse">
+		<part name="AuthenticateResponse" element="auth:AuthenticateResponse" />
+	</message>
+	<message name="Options">
+		<part name="Options" element="auth:Options" />
+	</message>
+	<portType name="AuthenticateServicePortTypes">
+		<operation name="Authenticate">
+			<input message="auth:AuthenticateRequest" />
+			<output message="auth:AuthenticateResponse" />
+		</operation>
+	</portType>
+	<binding name="AuthenticateServiceSOAPBinding" type="auth:AuthenticateServicePortTypes">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="Authenticate">
+			<documentation>Authenticate with Coda</documentation>
+			<soap:operation
+				soapAction="uri-coda-webservice/01.100.0000/wsadapter/authenticate/Authenticate"
+				style="document" />
+			<input>
+				<soap:header message="auth:Options" part="Options" use="literal" />
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="AuthenticateService">
+		<documentation>The authentication service.</documentation>
+		<port name="AuthenticateService" binding="auth:AuthenticateServiceSOAPBinding">
+			<soap:address
+				location="http://localhost/coda/services/wsadapter/authenticate/authenticate-1.0" />
+		</port>
+	</service>
+</definitions>

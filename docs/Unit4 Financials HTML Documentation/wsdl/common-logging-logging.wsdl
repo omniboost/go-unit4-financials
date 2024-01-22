@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/logging/logging-12.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:logws="http://www.coda.com/common/schemas/logging/logging-12.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:log="http://www.coda.com/common/schemas/logging"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/logging/logging-12.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/logging" schemaLocation="../wsdl/common/logging/logging.xsd"/>
+    <xsd:element name="AppendLinesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key that identifies this log.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Lines" type="log:LineDetailData">
+                    <xsd:annotation>
+                        <xsd:documentation>The log lines that were appended.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetFilteredLogResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the log that you attempted to retrieve from
+                            the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FilteredLog" type="log:FilteredLog">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the filtered log
+                            that has been retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="log:ListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>A filter for retrieving logs
+                            from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="IncludeTotals" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies whether to include
+                            total numbers of the different types of log
+                            lines in the response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the log that you attempted to retrieve from
+                            the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Log" minOccurs="0" type="log:Log">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the log that has
+                            been retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Product" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The application to which the
+                            log relates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogType" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The process to which the log relates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Title" type="com:typeLogTitle">
+                    <xsd:annotation>
+                        <xsd:documentation>The log title.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key for the log.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetFilteredLogExResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the log that you attempted to retrieve from
+                            the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FilteredLogEx" type="log:FilteredLogEx">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the filtered log
+                            that has been retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetFilteredLogExRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the log you want to retrieve from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LineFilter" type="log:LineListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the criteria to use
+                            for filtering the log lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Filter" type="log:ListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>The filter sent with the
+                            GetListRequest corresponding to this response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Headers" minOccurs="0" type="log:HeaderData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains header information
+                            identifying the logs that are listed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the log that you attempted to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AppendLinesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key that identifies a log
+                            to which log lines should be appended.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Lines" type="log:LineDetailData">
+                    <xsd:annotation>
+                        <xsd:documentation>The log lines to be appended
+                            to this log.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the log you want to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the log you want to retrieve from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CreateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Product" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The application to which the
+                            log relates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogType" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The process to which the log relates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Title" type="com:typeLogTitle">
+                    <xsd:annotation>
+                        <xsd:documentation>The log title.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetFilteredLogRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="log:LogKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the log you want to retrieve from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LineFilter" type="log:LineListFilter">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the criteria to use
+                            for filtering the log lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="ListRequest">
+    <part name="ListRequest" element="logws:ListRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="logws:Options"/>
+  </message>
+  <message name="GetFilteredLogExRequest">
+    <part name="GetFilteredLogExRequest" element="logws:GetFilteredLogExRequest"/>
+  </message>
+  <message name="GetFilteredLogRequest">
+    <part name="GetFilteredLogRequest" element="logws:GetFilteredLogRequest"/>
+  </message>
+  <message name="CreateRequest">
+    <part name="CreateRequest" element="logws:CreateRequest"/>
+  </message>
+  <message name="CreateResponse">
+    <part name="CreateResponse" element="logws:CreateResponse"/>
+  </message>
+  <message name="ListResponse">
+    <part name="ListResponse" element="logws:ListResponse"/>
+  </message>
+  <message name="AppendLinesRequest">
+    <part name="AppendLinesRequest" element="logws:AppendLinesRequest"/>
+  </message>
+  <message name="AppendLinesResponse">
+    <part name="AppendLinesResponse" element="logws:AppendLinesResponse"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="logws:GetResponse"/>
+  </message>
+  <message name="GetFilteredLogResponse">
+    <part name="GetFilteredLogResponse" element="logws:GetFilteredLogResponse"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="logws:DeleteResponse"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="logws:GetRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="logws:OptionsResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="logws:DeleteRequest"/>
+  </message>
+  <message name="GetFilteredLogExResponse">
+    <part name="GetFilteredLogExResponse" element="logws:GetFilteredLogExResponse"/>
+  </message>
+  <portType name="LoggingServicePortTypes">
+    <operation name="Delete">
+      <input message="logws:DeleteRequest"/>
+      <output message="logws:DeleteResponse"/>
+    </operation>
+    <operation name="GetFilteredLogEx">
+      <input message="logws:GetFilteredLogExRequest"/>
+      <output message="logws:GetFilteredLogExResponse"/>
+    </operation>
+    <operation name="Create">
+      <input message="logws:CreateRequest"/>
+      <output message="logws:CreateResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="logws:GetRequest"/>
+      <output message="logws:GetResponse"/>
+    </operation>
+    <operation name="GetFilteredLog">
+      <input message="logws:GetFilteredLogRequest"/>
+      <output message="logws:GetFilteredLogResponse"/>
+    </operation>
+    <operation name="AppendLines">
+      <input message="logws:AppendLinesRequest"/>
+      <output message="logws:AppendLinesResponse"/>
+    </operation>
+    <operation name="List">
+      <input message="logws:ListRequest"/>
+      <output message="logws:ListResponse"/>
+    </operation>
+  </portType>
+  <binding name="LoggingServiceSOAPBinding" type="logws:LoggingServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Logging/Delete" style="document"/>
+      <input>
+        <soap:header message="logws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="logws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetFilteredLogEx">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Logging/GetFilteredLogEx" style="document"/>
+      <input>
+        <soap:header message="logws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="logws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Create">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Logging/Create" style="document"/>
+      <input>
+        <soap:header message="logws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="logws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Logging/Get" style="document"/>
+      <input>
+        <soap:header message="logws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="logws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetFilteredLog">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Logging/GetFilteredLog" style="document"/>
+      <input>
+        <soap:header message="logws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="logws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AppendLines">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Logging/AppendLines" style="document"/>
+      <input>
+        <soap:header message="logws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="logws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="List">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/Logging/List" style="document"/>
+      <input>
+        <soap:header message="logws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="logws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="LoggingService">
+    <port name="LoggingServicePort" binding="logws:LoggingServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/logging/logging-12.0"/>
+    </port>
+  </service>
+</definitions>

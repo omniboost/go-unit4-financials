@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/authorisation/pimauthorisationselector-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:authorisationws="http://www.coda.com/pim/schemas/authorisation/pimauthorisationselector-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:pimusr="http://www.coda.com/pim/schemas/user"
+    xmlns:pres="http://www.coda.com/pim/schemas/presenter"
+    xmlns:authorisation="http://www.coda.com/pim/schemas/authorisation"
+    xmlns:selct="http://www.coda.com/efinance/schemas/selector"
+    xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:presmas="http://www.coda.com/efinance/schemas/presenter"
+    xmlns:doc="http://www.coda.com/pim/schemas/document"
+    xmlns:group="http://www.coda.com/pim/schemas/group"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:pimsel="http://www.coda.com/pim/schemas/selector"
+    targetNamespace="http://www.coda.com/pim/schemas/authorisation/pimauthorisationselector-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/pim/schemas/presenter" schemaLocation="pim/presenter/presenter.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/authorisation" schemaLocation="../wsdl/pim/authorisation/authorisation.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/group" schemaLocation="pim/group/group.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/user" schemaLocation="pim/user/user.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/selector" schemaLocation="pim/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/presenter" schemaLocation="finance/presenter/presenter.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/matchingmaster" schemaLocation="pim/matchingmaster/matchingmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/document" schemaLocation="pim/document/document.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/documentmaster" schemaLocation="pim/documentmaster/documentmaster.xsd"/>
+    <xsd:element name="SelectPendingResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="selct:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The documents selected by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector defining the
+                            search criteria for invoice documents to be
+                            included in the authorisation process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterMaster" type="presmas:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The presenter used to display
+                            the selected documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Authorisation" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the authorisation workflow.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="selct:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The documents selected by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectPendingRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector defining the
+                            search criteria you wish to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterMaster" type="presmas:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The presenter used to display
+                            the selected documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="SelectPendingRequest">
+    <part name="SelectPendingRequest" element="authorisationws:SelectPendingRequest"/>
+  </message>
+  <message name="SelectResponse">
+    <part name="SelectResponse" element="authorisationws:SelectResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="authorisationws:OptionsResponse"/>
+  </message>
+  <message name="SelectRequest">
+    <part name="SelectRequest" element="authorisationws:SelectRequest"/>
+  </message>
+  <message name="SelectPendingResponse">
+    <part name="SelectPendingResponse" element="authorisationws:SelectPendingResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="authorisationws:Options"/>
+  </message>
+  <portType name="PIMAuthorisationSelectorServicePortTypes">
+    <operation name="SelectPending">
+      <input message="authorisationws:SelectPendingRequest"/>
+      <output message="authorisationws:SelectPendingResponse"/>
+    </operation>
+    <operation name="Select">
+      <input message="authorisationws:SelectRequest"/>
+      <output message="authorisationws:SelectResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMAuthorisationSelectorServiceSOAPBinding" type="authorisationws:PIMAuthorisationSelectorServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="SelectPending">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisationSelector/SelectPending" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Select">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAuthorisationSelector/Select" style="document"/>
+      <input>
+        <soap:header message="authorisationws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="authorisationws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMAuthorisationSelectorService">
+    <port name="PIMAuthorisationSelectorServicePort" binding="authorisationws:PIMAuthorisationSelectorServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/authorisation/pimauthorisationselector-13.0"/>
+    </port>
+  </service>
+</definitions>

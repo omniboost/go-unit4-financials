@@ -1,0 +1,582 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/pop/schemas/receipting</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/pop/schemas/receipting</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>POPReceiptingRequest</h3>
+         <p>This service allows you to create a GRN from a purchase order.</p>
+         <h3>POPReceiptingResponse</h3>
+         <p>This is the response that is returned when you submit the request to create a GRN.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/pop/schemas/receipting}GenerateReceiptFromPurchaseOrderRequest"></a><h3>GenerateReceiptFromPurchaseOrderRequest</h3>
+         <p>The GenerateReceiptFromPurchaseOrderRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>GenerateReceiptFromPurchaseOrder.
+            <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:popreceipting="http://www.coda.com/pop/schemas/receipting" xmlns:inputtemplate="http://www.coda.com/pop/schemas/inputtemplatemaster" xmlns:grn="http://www.coda.com/pop/schemas/goodsreceivednote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:pord="http://www.coda.com/pop/schemas/purchaseorder">Takes                     a list of one or more orders and generates receipts.</p>    
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>InputTemplate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/inputtemplatemaster}InputTemplateMasterKey" href="../inputtemplatemaster/inputtemplatemaster.html#{http://www.coda.com/pop/schemas/inputtemplatemaster}InputTemplateMasterKey">InputTemplateMasterKey</a></td>
+                     <td>         
+                        <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:popreceipting="http://www.coda.com/pop/schemas/receipting" xmlns:inputtemplate="http://www.coda.com/pop/schemas/inputtemplatemaster" xmlns:grn="http://www.coda.com/pop/schemas/goodsreceivednote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:pord="http://www.coda.com/pop/schemas/purchaseorder">The Input Template that is  used to create the receipts. This is  a mandatory field.</p>        
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DocumentMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>         
+                        <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:popreceipting="http://www.coda.com/pop/schemas/receipting" xmlns:inputtemplate="http://www.coda.com/pop/schemas/inputtemplatemaster" xmlns:grn="http://www.coda.com/pop/schemas/goodsreceivednote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:pord="http://www.coda.com/pop/schemas/purchaseorder">The document code to use when creating the document. If the template can be applied
+                           to multiple                                         documents then use this field
+                           to specify which document to use.  If  the template can be applied to            
+                           a single document then this field does not have to be populated as the function will
+                           retrieve the                                         document code.
+                        </p>        
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>OrderKeys</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderKeyList" href="../purchaseorder/purchaseorder.html#{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderKeyList">PurchaseOrderKeyList</a></td>
+                     <td>The purchase orders for which GRNs are to be created.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}GenerateReceiptFromPurchaseOrderRequestVerb"></a><h3>GenerateReceiptFromPurchaseOrderRequestVerb</h3>
+         <p>The GenerateReceiptFromPurchaseOrderRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Starts the process of creating the GRN.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}GenerateReceiptFromPurchaseOrderRequest" href="#{http://www.coda.com/pop/schemas/receipting}GenerateReceiptFromPurchaseOrderRequest">GenerateReceiptFromPurchaseOrderRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}GenerateReceiptFromPurchaseOrderResponse"></a><h3>GenerateReceiptFromPurchaseOrderResponse</h3>
+         <p>The GenerateReceiptFromPurchaseOrderResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GRNList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNoteList" href="../goodsreceivednote/goodsreceivednote.html#{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNoteList">GoodsReceivedNoteList</a></td>
+                     <td>The GRNList is an out argument, so the server will put it here.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}GenerateReceiptFromPurchaseOrderResponseVerb"></a><h3>GenerateReceiptFromPurchaseOrderResponseVerb</h3>
+         <p>The GenerateReceiptFromPurchaseOrderResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}GenerateReceiptFromPurchaseOrderResponse" href="#{http://www.coda.com/pop/schemas/receipting}GenerateReceiptFromPurchaseOrderResponse">GenerateReceiptFromPurchaseOrderResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}ReceiveAllOutstandingQuantitiesRequest"></a><h3>ReceiveAllOutstandingQuantitiesRequest</h3>
+         <p>The ReceiveAllOutstandingQuantitiesRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>ReceiveAllOutstandingQuantities.
+            <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:popreceipting="http://www.coda.com/pop/schemas/receipting" xmlns:inputtemplate="http://www.coda.com/pop/schemas/inputtemplatemaster" xmlns:grn="http://www.coda.com/pop/schemas/goodsreceivednote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:pord="http://www.coda.com/pop/schemas/purchaseorder">Takes  a list of receipts and full receives them.</p>    
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GoodsReceivedNoteCollection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}GoodsReceivedNoteCollection" href="#{http://www.coda.com/pop/schemas/receipting}GoodsReceivedNoteCollection">GoodsReceivedNoteCollection</a></td>
+                     <td>         
+                        <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:popreceipting="http://www.coda.com/pop/schemas/receipting" xmlns:inputtemplate="http://www.coda.com/pop/schemas/inputtemplatemaster" xmlns:grn="http://www.coda.com/pop/schemas/goodsreceivednote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:pord="http://www.coda.com/pop/schemas/purchaseorder">The GRNs that we want to 'Recevive All' on.</p>        
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}GoodsReceivedNoteCollection"></a><h3>GoodsReceivedNoteCollection</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GoodsReceivedNote</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNote" href="../goodsreceivednote/goodsreceivednote.html#{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNote">GoodsReceivedNote</a></td>
+                     <td>As the goodsReceivedNote argument is a collection argument, this type is used to 
+                        hold the instances of the goodsReceivedNote argument.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}ReceiveAllOutstandingQuantitiesRequestVerb"></a><h3>ReceiveAllOutstandingQuantitiesRequestVerb</h3>
+         <p>The ReceiveAllOutstandingQuantitiesRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}ReceiveAllOutstandingQuantitiesRequest" href="#{http://www.coda.com/pop/schemas/receipting}ReceiveAllOutstandingQuantitiesRequest">ReceiveAllOutstandingQuantitiesRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}ReceiveAllOutstandingQuantitiesResponse"></a><h3>ReceiveAllOutstandingQuantitiesResponse</h3>
+         <p>The ReceiveAllOutstandingQuantitiesResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GoodsReceivedNote</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNote" href="../goodsreceivednote/goodsreceivednote.html#{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNote">GoodsReceivedNote</a></td>
+                     <td>The goodsReceivedNote is an out argument, so the server will put it here.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}ReceiveAllOutstandingQuantitiesResponseVerb"></a><h3>ReceiveAllOutstandingQuantitiesResponseVerb</h3>
+         <p>The ReceiveAllOutstandingQuantitiesResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}ReceiveAllOutstandingQuantitiesResponse" href="#{http://www.coda.com/pop/schemas/receipting}ReceiveAllOutstandingQuantitiesResponse">ReceiveAllOutstandingQuantitiesResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}RefreshTotalsRequest"></a><h3>RefreshTotalsRequest</h3>
+         <p>The RefreshTotalsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>RefreshTotals.
+            <p xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:popreceipting="http://www.coda.com/pop/schemas/receipting" xmlns:inputtemplate="http://www.coda.com/pop/schemas/inputtemplatemaster" xmlns:grn="http://www.coda.com/pop/schemas/goodsreceivednote" xmlns:com="http://www.coda.com/efinance/schemas/common" xmlns:pord="http://www.coda.com/pop/schemas/purchaseorder">Recalculates all the totals on the passed GRN.</p>    
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GoodsReceivedNote</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNote" href="../goodsreceivednote/goodsreceivednote.html#{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNote">GoodsReceivedNote</a></td>
+                     <td>The details of the GRN whose totals are to be recalculated.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}RefreshTotalsRequestVerb"></a><h3>RefreshTotalsRequestVerb</h3>
+         <p>The RefreshTotalsRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Recalculates the totals on a GRN.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}RefreshTotalsRequest" href="#{http://www.coda.com/pop/schemas/receipting}RefreshTotalsRequest">RefreshTotalsRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}RefreshTotalsResponse"></a><h3>RefreshTotalsResponse</h3>
+         <p>The RefreshTotalsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>RefreshTotals</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNote" href="../goodsreceivednote/goodsreceivednote.html#{http://www.coda.com/pop/schemas/goodsreceivednote}GoodsReceivedNote">GoodsReceivedNote</a></td>
+                     <td>The return value of the refreshTotals function.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}RefreshTotalsResponseVerb"></a><h3>RefreshTotalsResponseVerb</h3>
+         <p>The RefreshTotalsResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}RefreshTotalsResponse" href="#{http://www.coda.com/pop/schemas/receipting}RefreshTotalsResponse">RefreshTotalsResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}POPReceiptingRequest"></a><h3>POPReceiptingRequest</h3>
+         <p>The POPReceiptingRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to create a GRN from a purchase order.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GenerateReceiptFromPurchaseOrder</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}GenerateReceiptFromPurchaseOrderRequestVerb" href="#{http://www.coda.com/pop/schemas/receipting}GenerateReceiptFromPurchaseOrderRequestVerb">GenerateReceiptFromPurchaseOrderRequestVerb</a></td>
+                     <td>The request to the generateReceiptFromPurchaseOrder function.</td>
+                  </tr>
+                  <tr>
+                     <td>RefreshTotals</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}RefreshTotalsRequestVerb" href="#{http://www.coda.com/pop/schemas/receipting}RefreshTotalsRequestVerb">RefreshTotalsRequestVerb</a></td>
+                     <td>The request to the refreshTotals function.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}POPReceiptingResponse"></a><h3>POPReceiptingResponse</h3>
+         <p>The POPReceiptingResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you submit the request to create a GRN.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GenerateReceiptFromPurchaseOrder</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}GenerateReceiptFromPurchaseOrderResponseVerb" href="#{http://www.coda.com/pop/schemas/receipting}GenerateReceiptFromPurchaseOrderResponseVerb">GenerateReceiptFromPurchaseOrderResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>RefreshTotals</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}RefreshTotalsResponseVerb" href="#{http://www.coda.com/pop/schemas/receipting}RefreshTotalsResponseVerb">RefreshTotalsResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}GRNOrderMappings"></a><h3>GRNOrderMappings</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>MappingList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}GRNOrderMappingsMappingList" href="#{http://www.coda.com/pop/schemas/receipting}GRNOrderMappingsMappingList">GRNOrderMappingsMappingList</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}GRNOrderMappingsMappingList"></a><h3>GRNOrderMappingsMappingList</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Mapping</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}GRNOrderMapping" href="#{http://www.coda.com/pop/schemas/receipting}GRNOrderMapping">GRNOrderMapping</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}GRNOrderMappingsList"></a><h3>GRNOrderMappingsList</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GRNOrderMappings</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}GRNOrderMappings" href="#{http://www.coda.com/pop/schemas/receipting}GRNOrderMappings">GRNOrderMappings</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}GRNOrderMapping"></a><h3>GRNOrderMapping</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GoodReceivedNoteLine</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/goodsreceivednote}ReceiptItemLineKey" href="../goodsreceivednote/goodsreceivednote.html#{http://www.coda.com/pop/schemas/goodsreceivednote}ReceiptItemLineKey">ReceiptItemLineKey</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>PurchaseOrderLine</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderItemLineKey" href="../purchaseorder/purchaseorder.html#{http://www.coda.com/pop/schemas/purchaseorder}PurchaseOrderItemLineKey">PurchaseOrderItemLineKey</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/receipting}GRNOrderMappingList"></a><h3>GRNOrderMappingList</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GRNOrderMapping</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/receipting}GRNOrderMapping" href="#{http://www.coda.com/pop/schemas/receipting}GRNOrderMapping">GRNOrderMapping</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

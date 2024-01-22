@@ -1,0 +1,374 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-CancelRevaluationService">
+            <h1>CancelRevaluationService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/eassets/schemas/cancelrevaluation/cancelrevaluation-12.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/assets-cancelrevaluation-cancelrevaluation.wsdl" download="">assets-cancelrevaluation-cancelrevaluation.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/assets/cancelrevaluation/cancelrevaluation-12.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#CancelRevaluationService-CancelReview">CancelReview</a></li>
+               <li><a href="#CancelRevaluationService-Post">Post</a></li>
+               <li><a href="#CancelRevaluationService-PostReview">PostReview</a></li>
+               <li><a href="#CancelRevaluationService-Review">Review</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="CancelRevaluationService-CancelReview"></a>CancelReview
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CancelReviewRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code for the company in
+                                 which revaluation is being cancelled.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number identifying this
+                                 cancel revaluation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Key information identifying
+                                 the log in which the cancel revaluation
+                                 details are recorded.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CancelReviewResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>isCancelled</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether the
+                                 CancelReviewRequest corresponding to this
+                                 response was successful.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CancelRevaluationService-Post"></a>Post
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CancelRevaluation</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/cancelrevaluation}CancelRevaluation" href="assets/cancelrevaluation/cancelrevaluation.html#{http://www.coda.com/eassets/schemas/cancelrevaluation}CancelRevaluation">CancelRevaluation</a></td>
+                              <td>This element contains
+                                 parameters specifying which revaluation
+                                 values should be cancelled.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PostResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IsPosted</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether the
+                                 PostRequest corresponding to this response
+                                 was successful.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to cancel revaluation.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number identifying this
+                                 cancel revaluation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>HasWarnings</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether any
+                                 warnings have been generated.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CancelRevaluationService-PostReview"></a>PostReview
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostReviewRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CancelRevaluation</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/cancelrevaluation}CancelRevaluation" href="assets/cancelrevaluation/cancelrevaluation.html#{http://www.coda.com/eassets/schemas/cancelrevaluation}CancelRevaluation">CancelRevaluation</a></td>
+                              <td>This element contains
+                                 parameters specifying which revaluation
+                                 values should be cancelled.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Key information identifying
+                                 the log in which the cancel revaluation
+                                 details are recorded.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PostReviewResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IsPosted</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether the
+                                 ReviewPostRequest corresponding to this
+                                 response was successful.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to post the reviewed
+                                 cancel revaluation values.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number identifying this
+                                 cancel revaluation process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="CancelRevaluationService-Review"></a>Review
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ReviewRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CancelRevaluation</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/cancelrevaluation}CancelRevaluation" href="assets/cancelrevaluation/cancelrevaluation.html#{http://www.coda.com/eassets/schemas/cancelrevaluation}CancelRevaluation">CancelRevaluation</a></td>
+                              <td>This element contains
+                                 parameters specifying which revaluation
+                                 values should be cancelled.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ReviewResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>IsReviewed</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether the
+                                 ReviewRequest corresponding to this response
+                                 was successful.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code for the company in
+                                 which you attempted to review the cancel
+                                 revaluation values.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RunNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A number identifying this
+                                 cancel revaluation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ReviewTransactions</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions" href="assets/reviewtransactions/reviewtransactions.html#{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions">ReviewTransactions</a></td>
+                              <td>Contains the asset
+                                 transactions and financial transactions
+                                 generated by this cancel revaluation process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                              <td>Key information identifying
+                                 the log in which the cancel revaluation
+                                 details are recorded.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>HasWarnings</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                              <td>Indicates whether any
+                                 warnings have been generated.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

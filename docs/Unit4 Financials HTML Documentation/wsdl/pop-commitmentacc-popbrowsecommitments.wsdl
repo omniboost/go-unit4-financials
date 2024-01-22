@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/commitmentacc/popbrowsecommitments-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:comaccws="http://www.coda.com/pop/schemas/commitmentacc/popbrowsecommitments-1.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:popselector="http://www.coda.com/pop/schemas/popselector"
+    xmlns:poptypes="http://www.coda.com/pop/schemas/common"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:commbalance="http://www.coda.com/pop/schemas/commitmentbalance"
+    xmlns:comacc="http://www.coda.com/pop/schemas/commitmentacc"
+    xmlns:ns1="http://www.coda.com/common/schemas/domaingen"
+    xmlns:doc="http://www.coda.com/pop/schemas/document"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:datatypes="http://www.coda.com/common/schemas/datatypes"
+    targetNamespace="http://www.coda.com/pop/schemas/commitmentacc/popbrowsecommitments-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/common/schemas/datatypes" schemaLocation="common/datatypes/datatypes.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/common" schemaLocation="pop/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/popselector" schemaLocation="pop/popselector/popselector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/document" schemaLocation="pop/document/document.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/commitmentacc" schemaLocation="../wsdl/pop/commitmentacc/commitmentacc.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/commitmentbalance" schemaLocation="pop/commitmentbalance/commitmentbalance.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:element name="BrowseCommitmentDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectionType" type="selmas:SelectorType">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies the source of the
+                            data from which the selection is made.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Filter" type="selmas:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>The criteria to be applied
+                            when selecting the data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>The columns that will hold
+                            the selected data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocType" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The type of commitment to
+                            which the selected data relates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Document" type="doc:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The commitments document key
+                            (company code, document code, and document number).</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PeriodEnd" type="com:typePeriodB">
+                    <xsd:annotation>
+                        <xsd:documentation>The period end to be used for
+                            period-end commitments.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ViewName" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The name of the dataview used
+                            by the selector.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BrowseCommitmentsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CommitmentReply" type="comacc:CommitmentReply">
+                    <xsd:annotation>
+                        <xsd:documentation>The response to the request
+                            for the commitments data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BrowseCommitmentsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ViewCommitments" type="comacc:ViewCommitments">
+                    <xsd:annotation>
+                        <xsd:documentation>The commitments data to be
+                            returned to you for browsing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectionType" type="selmas:SelectorType">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies the source of the
+                            data from which the selection is made.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Function" type="poptypes:typePopProcesses">
+                    <xsd:annotation>
+                        <xsd:documentation>The process for which the
+                            data is being selected.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ViewName" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The name of the dataview used
+                            by the selector.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BrowseCommitmentDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="popselector:PopSelection">
+                    <xsd:annotation>
+                        <xsd:documentation>The selected data returned to
+                            you for browsing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="BrowseCommitmentDetailsRequest">
+    <part name="BrowseCommitmentDetailsRequest" element="comaccws:BrowseCommitmentDetailsRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="comaccws:OptionsResponse"/>
+  </message>
+  <message name="BrowseCommitmentsRequest">
+    <part name="BrowseCommitmentsRequest" element="comaccws:BrowseCommitmentsRequest"/>
+  </message>
+  <message name="BrowseCommitmentsResponse">
+    <part name="BrowseCommitmentsResponse" element="comaccws:BrowseCommitmentsResponse"/>
+  </message>
+  <message name="BrowseCommitmentDetailsResponse">
+    <part name="BrowseCommitmentDetailsResponse" element="comaccws:BrowseCommitmentDetailsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="comaccws:Options"/>
+  </message>
+  <portType name="POPBrowseCommitmentsServicePortTypes">
+    <operation name="BrowseCommitments">
+      <input message="comaccws:BrowseCommitmentsRequest"/>
+      <output message="comaccws:BrowseCommitmentsResponse"/>
+    </operation>
+    <operation name="BrowseCommitmentDetails">
+      <input message="comaccws:BrowseCommitmentDetailsRequest"/>
+      <output message="comaccws:BrowseCommitmentDetailsResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPBrowseCommitmentsServiceSOAPBinding" type="comaccws:POPBrowseCommitmentsServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="BrowseCommitments">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPBrowseCommitments/BrowseCommitments" style="document"/>
+      <input>
+        <soap:header message="comaccws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="comaccws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="BrowseCommitmentDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPBrowseCommitments/BrowseCommitmentDetails" style="document"/>
+      <input>
+        <soap:header message="comaccws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="comaccws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPBrowseCommitmentsService">
+    <port name="POPBrowseCommitmentsServicePort" binding="comaccws:POPBrowseCommitmentsServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/commitmentacc/popbrowsecommitments-1.0"/>
+    </port>
+  </service>
+</definitions>

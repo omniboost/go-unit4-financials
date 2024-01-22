@@ -1,0 +1,573 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-HomePageService">
+            <h1>HomePageService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/common/schemas/homepage/homepage-3.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/common-homepage-homepage.wsdl" download="">common-homepage-homepage.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/common/homepage/homepage-3.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#HomePageService-Get">Get</a></li>
+               <li><a href="#HomePageService-GetContent">GetContent</a></li>
+               <li><a href="#HomePageService-GetFrame">GetFrame</a></li>
+               <li><a href="#HomePageService-GetFramesetContent">GetFramesetContent</a></li>
+               <li><a href="#HomePageService-GetPage">GetPage</a></li>
+               <li><a href="#HomePageService-Update">Update</a></li>
+               <li><a href="#HomePageService-UpdateContent">UpdateContent</a></li>
+               <li><a href="#HomePageService-UpdateFrame">UpdateFrame</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="HomePageService-Get"></a>Get
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>This method has no input parameters.
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Page</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Page" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Page">Page</a></td>
+                              <td>Contains the definition of
+                                 the Home Page that has been retrieved from
+                                 the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Contents</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Contents" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Contents">Contents</a></td>
+                              <td>Contains the content
+                                 available in frames on this Home Page.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ContentProviders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}ContentProviderList" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}ContentProviderList">ContentProviderList</a></td>
+                              <td>Contains details of the
+                                 content provider masters available to this
+                                 Home Page.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="HomePageService-GetContent"></a>GetContent
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetContentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ContentProviderCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the content
+                                 provider master to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Configuration</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}FrameConfiguration" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}FrameConfiguration">FrameConfiguration</a></td>
+                              <td>This element holds the
+                                 settings which may be configured for the frame.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LastUpdate</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                              <td>The date and time when the
+                                 content was last updated.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetContentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Content</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Content" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Content">Content</a></td>
+                              <td>Contains the content that has
+                                 been retrieved in accordance with the
+                                 parameters specified in the corresponding Request.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ContentProvider</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}ContentProviderListItem" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}ContentProviderListItem">ContentProviderListItem</a></td>
+                              <td>Contains details of the
+                                 content provider master used to provide this content.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="HomePageService-GetFrame"></a>GetFrame
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetFrameRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>FrameID</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The ID of the frame you want
+                                 to retrieve. Frame IDs are unique per frameset.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetFrameResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Frame</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Frame" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Frame">Frame</a></td>
+                              <td>Contains the frame that has
+                                 been retrieved from the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Content</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Content" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Content">Content</a></td>
+                              <td>Contains the content
+                                 available in this frame.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ContentProvider</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}ContentProviderListItem" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}ContentProviderListItem">ContentProviderListItem</a></td>
+                              <td>Contains details of the
+                                 content provider master used in this frame.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="HomePageService-GetFramesetContent"></a>GetFramesetContent
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetFramesetContentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>FramesetIndex</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The index identifying the frameset.</td>
+                           </tr>
+                           <tr>
+                              <td>Page</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Page" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Page">Page</a></td>
+                              <td>The Home Page containing the
+                                 specified frameset.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ContentProviders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}ContentProviderList" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}ContentProviderList">ContentProviderList</a></td>
+                              <td>The content provider masters
+                                 available to this Home Page.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetFramesetContentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Page</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Page" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Page">Page</a></td>
+                              <td>Contains the Home Page
+                                 specified in the corresponding Request.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Contents</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Contents" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Contents">Contents</a></td>
+                              <td>Contains the content
+                                 available in frames on this Home Page.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ContentProviders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}ContentProviderList" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}ContentProviderList">ContentProviderList</a></td>
+                              <td>Contains details of the
+                                 content provider masters available to this
+                                 Home Page.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="HomePageService-GetPage"></a>GetPage
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>This method has no input parameters.
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetPageResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Page</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Page" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Page">Page</a></td>
+                              <td>Contains the definition of
+                                 the Home Page that has been retrieved from
+                                 the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ContentProviders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}ContentProviderList" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}ContentProviderList">ContentProviderList</a></td>
+                              <td>Contains details of the
+                                 content provider masters available to this
+                                 Home Page.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="HomePageService-Update"></a>Update
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Page</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Page" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Page">Page</a></td>
+                              <td>Contains the Home Page to be
+                                 updated. This is the Home Page of the
+                                 current user.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Page</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Page" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Page">Page</a></td>
+                              <td>Contains the updated Home
+                                 Page. This is the Home Page of the current user.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Contents</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Contents" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Contents">Contents</a></td>
+                              <td>Contains the content
+                                 available in frames on this Home Page.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ContentProviders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}ContentProviderList" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}ContentProviderList">ContentProviderList</a></td>
+                              <td>Contains details of the
+                                 content provider masters available to this
+                                 Home Page.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="HomePageService-UpdateContent"></a>UpdateContent
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateContentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ContentID</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The number identifying the
+                                 frame and content configuration to be refreshed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LastUpdate</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                              <td>The date and time when this
+                                 content configuration was last updated.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateContentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Content</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Content" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Content">Content</a></td>
+                              <td>Contains the refreshed content.</td>
+                           </tr>
+                           <tr>
+                              <td>ContentProvider</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}ContentProviderListItem" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}ContentProviderListItem">ContentProviderListItem</a></td>
+                              <td>Contains details of the
+                                 content provider master used to provide this content.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="HomePageService-UpdateFrame"></a>UpdateFrame
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateFrameRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Frame</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Frame" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Frame">Frame</a></td>
+                              <td>Contains the frame to be updated.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateFrameResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Frame</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Frame" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Frame">Frame</a></td>
+                              <td>Contains the updated frame.</td>
+                           </tr>
+                           <tr>
+                              <td>Content</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}Content" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}Content">Content</a></td>
+                              <td>Contains the content in this frame.</td>
+                           </tr>
+                           <tr>
+                              <td>ContentProvider</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/homepage}ContentProviderListItem" href="common/homepage/homepage.html#{http://www.coda.com/common/schemas/homepage}ContentProviderListItem">ContentProviderListItem</a></td>
+                              <td>Contains details of the
+                                 content provider master used to provide the
+                                 content in this frame.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

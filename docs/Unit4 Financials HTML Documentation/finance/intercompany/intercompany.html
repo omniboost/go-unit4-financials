@@ -1,0 +1,386 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/intercompany</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/intercompany</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>InterCompanyRequest</h3>
+         <p>This service allows you to process InterCompany documents.</p>
+         <h3>InterCompanyResponse</h3>
+         <p>This is the response that is returned when you process the InterCompany documents.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/intercompany}OverrideData"></a><h3>OverrideData</h3>
+         <p>Specifies that you can override some of the values supplied by the designated receiver
+            master with your own values.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ReceivingDocCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the document master to be used to post details in the receiving company.</td>
+                  </tr>
+                  <tr>
+                     <td>InitialLocation</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtRecInitialLoc" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtRecInitialLoc">typeCtRecInitialLoc</a></td>
+                     <td>Specifies where in the receiving company the receiving process attempts to post document
+                        lines retrieved from the InterCompany Trace.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>YearPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                     <td>This year and period overrides the year and period calculated using the rule on the
+                        receiver master. The values entered must be a valid year and period for the receiving
+                        company.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ForwardDestination</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The destination code for the company to which the document line is to be forwarded.
+                        If this code is left blank, any forward destination on the receiver master is overridden
+                        and the retrieved document lines are not forwarded, but posted in the current receiving
+                        company.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/intercompany}ReceiverData"></a><h3>ReceiverData</h3>
+         <p>This element contains information about the receiver process.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>GslCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The code for the selector master used to retrieve document lines from the InterCompany
+                        Trace.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>TreatWarningsAsErrors</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies that a warning is treated as an error.</td>
+                  </tr>
+                  <tr>
+                     <td>StopRunOnErrors</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Stops the InterCompany process when an error is encountered.</td>
+                  </tr>
+                  <tr>
+                     <td>ContinueForwarding</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies that InterCompany forwarding continues automatically through the intermediate
+                        companies until the selector can no longer select any transactions from the InterCompany
+                        Trace.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>AccumulateLines</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies that lines from the same original document that are posted to the same company
+                        are included in the same posting document.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>AccumulationLimit</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The maximum number of accumulated lines in a document. The maximum you can specify
+                        is 999,999. Any lines above the specified limit are accumulated into another document.
+                        A limit of 0 means that all lines are accumulated into one document, not that no lines
+                        are accumulated.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Overrides</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/intercompany}OverrideData" href="#{http://www.coda.com/efinance/schemas/intercompany}OverrideData">OverrideData</a></td>
+                     <td>Specifies that you can override some of the values supplied by the designated receiver
+                        master with your own values.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Selection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="../selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                     <td>The selection criteria that determines which document lines are selected for inclusion
+                        in the receiver process.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/intercompany}BasicProcessData"></a><h3>BasicProcessData</h3>
+         <p>This element contains information about the basic InterCompany processes.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>LogTitle</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLogTitle" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeLogTitle">typeLogTitle</a></td>
+                     <td>The title of the log that will be generated by the process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/intercompany}ProcessData"></a><h3>ProcessData</h3>
+         <p>This element contains data about the two InterCompany processes: the Receiver process
+            and the Cross-database process.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>BasicProcessData</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/intercompany}BasicProcessData" href="#{http://www.coda.com/efinance/schemas/intercompany}BasicProcessData">BasicProcessData</a></td>
+                     <td>This element contains information about the basic InterCompany processes.</td>
+                  </tr>
+                  <tr>
+                     <td>ReceiverData</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/intercompany}ReceiverData" href="#{http://www.coda.com/efinance/schemas/intercompany}ReceiverData">ReceiverData</a></td>
+                     <td>This element contains information about the receiver process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/intercompany}StartRequest"></a><h3>StartRequest</h3>
+         <p>The StartRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ProcessData</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/intercompany}ProcessData" href="#{http://www.coda.com/efinance/schemas/intercompany}ProcessData">ProcessData</a></td>
+                     <td>This element specifies the data you want to process. The two InterCompany processes
+                        are Receiver and Cross-database.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/intercompany}StartRequestVerb"></a><h3>StartRequestVerb</h3>
+         <p>The StartRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Starts the InterCompany process using the parameters you specify.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/intercompany}StartRequest" href="#{http://www.coda.com/efinance/schemas/intercompany}StartRequest">StartRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/intercompany}StartResponse"></a><h3>StartResponse</h3>
+         <p>The StartResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ReceiverProgressKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>This key contains information about the progress of the receiver process.</td>
+                  </tr>
+                  <tr>
+                     <td>AbortingProgressKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>This key contains information for aborting (stopping) the InterCompany process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/intercompany}StartResponseVerb"></a><h3>StartResponseVerb</h3>
+         <p>The StartResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/intercompany}StartResponse" href="#{http://www.coda.com/efinance/schemas/intercompany}StartResponse">StartResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/intercompany}InterCompanyRequest"></a><h3>InterCompanyRequest</h3>
+         <p>The InterCompanyRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to process InterCompany documents.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Start</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/intercompany}StartRequestVerb" href="#{http://www.coda.com/efinance/schemas/intercompany}StartRequestVerb">StartRequestVerb</a></td>
+                     <td>Starts the InterCompany process using the parameters you specify.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/intercompany}InterCompanyResponse"></a><h3>InterCompanyResponse</h3>
+         <p>The InterCompanyResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you process the InterCompany documents.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Start</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/intercompany}StartResponseVerb" href="#{http://www.coda.com/efinance/schemas/intercompany}StartResponseVerb">StartResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

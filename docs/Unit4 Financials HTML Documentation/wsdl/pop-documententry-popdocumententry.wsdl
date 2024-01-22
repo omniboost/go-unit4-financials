@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/documententry/popdocumententry-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:documententryws="http://www.coda.com/pop/schemas/documententry/popdocumententry-1.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:documententry="http://www.coda.com/pop/schemas/documententry"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/pop/schemas/documententry/popdocumententry-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pop/schemas/documententry" schemaLocation="../wsdl/pop/documententry/documententry.xsd"/>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentObject" type="documententry:DocumentObject">
+                    <xsd:annotation>
+                        <xsd:documentation>The document to create or update.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentObject" type="documententry:DocumentObjectView">
+                    <xsd:annotation>
+                        <xsd:documentation>The document that has been
+                            created or updated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ViewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentObject" type="documententry:DocumentObjectView">
+                    <xsd:annotation>
+                        <xsd:documentation>The document to be viewed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ViewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentObject" type="documententry:DocumentKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The document that you want to view.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="ViewRequest">
+    <part name="ViewRequest" element="documententryws:ViewRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="documententryws:OptionsResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="documententryws:UpdateRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="documententryws:Options"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="documententryws:UpdateResponse"/>
+  </message>
+  <message name="ViewResponse">
+    <part name="ViewResponse" element="documententryws:ViewResponse"/>
+  </message>
+  <portType name="POPDocumentEntryServicePortTypes">
+    <operation name="Update">
+      <input message="documententryws:UpdateRequest"/>
+      <output message="documententryws:UpdateResponse"/>
+    </operation>
+    <operation name="View">
+      <input message="documententryws:ViewRequest"/>
+      <output message="documententryws:ViewResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPDocumentEntryServiceSOAPBinding" type="documententryws:POPDocumentEntryServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocumentEntry/Update" style="document"/>
+      <input>
+        <soap:header message="documententryws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="documententryws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="View">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPDocumentEntry/View" style="document"/>
+      <input>
+        <soap:header message="documententryws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="documententryws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPDocumentEntryService">
+    <port name="POPDocumentEntryServicePort" binding="documententryws:POPDocumentEntryServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/documententry/popdocumententry-1.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/matching/pimmatchingselector-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:matchingws="http://www.coda.com/pim/schemas/matching/pimmatchingselector-13.0/webservice">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:inv="http://www.coda.com/pim/schemas/invoice"
+    xmlns:presmas="http://www.coda.com/efinance/schemas/presenter"
+    xmlns:matng="http://www.coda.com/pim/schemas/matching"
+    xmlns:pimusr="http://www.coda.com/pim/schemas/user"
+    xmlns:lrn="http://www.coda.com/pim/schemas/logicalreceiptnote"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:docmas="http://www.coda.com/pim/schemas/documentmaster"
+    xmlns:matching="http://www.coda.com/pim/schemas/matching"
+    xmlns:dbn="http://www.coda.com/pim/schemas/debitnote"
+    xmlns:matmas="http://www.coda.com/pim/schemas/matchingmaster"
+    xmlns:group="http://www.coda.com/pim/schemas/group"
+    xmlns:cmt="http://www.coda.com/pim/schemas/comment"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:pimsel="http://www.coda.com/pim/schemas/selector"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster"
+    xmlns:sunlinemas="http://www.coda.com/pim/schemas/sundrylinemaster"
+    xmlns:pimcom="http://www.coda.com/pim/schemas/common"
+    targetNamespace="http://www.coda.com/pim/schemas/matching/pimmatchingselector-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/taxmaster" schemaLocation="pim/taxmaster/taxmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/matching" schemaLocation="../wsdl/pim/matching/matching.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/sundrylinemaster" schemaLocation="pim/sundrylinemaster/sundrylinemaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/invoice" schemaLocation="pim/invoice/invoice.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/group" schemaLocation="pim/group/group.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/user" schemaLocation="pim/user/user.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/debitnote" schemaLocation="pim/debitnote/debitnote.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/selector" schemaLocation="pim/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/comment" schemaLocation="pim/comment/comment.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/presenter" schemaLocation="finance/presenter/presenter.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/matchingmaster" schemaLocation="pim/matchingmaster/matchingmaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/logicalreceiptnote" schemaLocation="pim/logicalreceiptnote/logicalreceiptnote.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/documentmaster" schemaLocation="pim/documentmaster/documentmaster.xsd"/>
+    <xsd:element name="ExplodeMatchRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:InvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the matched invoice that you want to explode.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExplodeInvoicePresenterMaster" type="presmas:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the presenter
+                            master you want to use to display the
+                            exploded invoice details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExplodeLRNPresenterMaster"
+                    minOccurs="0" type="presmas:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the presenter
+                            master you want to use to display the
+                            exploded LRN details</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectFoldersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingMaster" type="matmas:MatchingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the matching
+                            master you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SkipSelection" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>When True, only document
+                            headers are retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectMatchedInvoicesToUndoResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The purchase invoices
+                            selected by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunGroupingAssistantRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingMaster" type="matmas:MatchingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the matching
+                            master you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Invoices" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The purchase invoice
+                            documents available for grouping.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LRNLines" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The LRN lines available for grouping.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SingleInvoiceSelectResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The purchase invoice
+                            documents selected for single invoice matching.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingMaster" type="matmas:MatchingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the matching
+                            master you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector defining the
+                            search criteria to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterMaster" type="presmas:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The presenter used to display
+                            the selected documents.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SingleInvoiceSelectRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the selector
+                            master you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterMaster" type="presmas:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the presenter
+                            master you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunGroupingAssistantResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Group" minOccurs="0"
+                    maxOccurs="unbounded" type="group:Group">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a group
+                            created by the grouping assistant.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GroupedInvoice" minOccurs="0"
+                    maxOccurs="unbounded" type="inv:InvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies the selected
+                            purchase invoice documents that have been grouped.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UngroupedInvoice" minOccurs="0"
+                    maxOccurs="unbounded" type="inv:InvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies any selected
+                            purchase invoices that have not been grouped.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GroupedLRNLine" minOccurs="0"
+                    maxOccurs="unbounded" type="lrn:LRNLineKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies the selected LRN
+                            lines that have been grouped.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UngroupedLRNLine" minOccurs="0"
+                    maxOccurs="unbounded" type="lrn:LRNLineKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies any selected LRN
+                            lines that have not been grouped.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectWIPInvoicesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MatchingMaster" type="matmas:MatchingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the matching
+                            master you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the selector
+                            master you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterMaster" type="presmas:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the presenter
+                            master you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectMatchedInvoicesToUndoRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the selector
+                            master you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterMaster" type="presmas:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the presenter
+                            master you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SingleInvoiceSelectWIPInvoicesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The WIP matches selected for
+                            single invoice matching.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectWIPInvoicesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The WIP matches selected for
+                            interactive matching.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SingleInvoiceSelectWIPInvoicesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the selector
+                            master you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PresenterMaster" type="presmas:Presenter">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the presenter
+                            master you want to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The documents selected by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectFoldersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceSelection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The purchase invoice
+                            documents selected by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LRNSelection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The LRN documents selected by
+                            the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ExplodeMatchResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceSelection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The purchase invoices in the
+                            exploded match.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LRNSelection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The LRNs in the exploded match.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MatchReference" type="com:typeULong">
+                    <xsd:annotation>
+                        <xsd:documentation>The match reference.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="SingleInvoiceSelectRequest">
+    <part name="SingleInvoiceSelectRequest" element="matchingws:SingleInvoiceSelectRequest"/>
+  </message>
+  <message name="ExplodeMatchResponse">
+    <part name="ExplodeMatchResponse" element="matchingws:ExplodeMatchResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="matchingws:Options"/>
+  </message>
+  <message name="RunGroupingAssistantRequest">
+    <part name="RunGroupingAssistantRequest" element="matchingws:RunGroupingAssistantRequest"/>
+  </message>
+  <message name="SelectWIPInvoicesRequest">
+    <part name="SelectWIPInvoicesRequest" element="matchingws:SelectWIPInvoicesRequest"/>
+  </message>
+  <message name="SelectWIPInvoicesResponse">
+    <part name="SelectWIPInvoicesResponse" element="matchingws:SelectWIPInvoicesResponse"/>
+  </message>
+  <message name="SingleInvoiceSelectWIPInvoicesResponse">
+    <part name="SingleInvoiceSelectWIPInvoicesResponse" element="matchingws:SingleInvoiceSelectWIPInvoicesResponse"/>
+  </message>
+  <message name="SelectMatchedInvoicesToUndoRequest">
+    <part name="SelectMatchedInvoicesToUndoRequest" element="matchingws:SelectMatchedInvoicesToUndoRequest"/>
+  </message>
+  <message name="SingleInvoiceSelectWIPInvoicesRequest">
+    <part name="SingleInvoiceSelectWIPInvoicesRequest" element="matchingws:SingleInvoiceSelectWIPInvoicesRequest"/>
+  </message>
+  <message name="ExplodeMatchRequest">
+    <part name="ExplodeMatchRequest" element="matchingws:ExplodeMatchRequest"/>
+  </message>
+  <message name="SelectResponse">
+    <part name="SelectResponse" element="matchingws:SelectResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="matchingws:OptionsResponse"/>
+  </message>
+  <message name="SelectRequest">
+    <part name="SelectRequest" element="matchingws:SelectRequest"/>
+  </message>
+  <message name="SelectFoldersRequest">
+    <part name="SelectFoldersRequest" element="matchingws:SelectFoldersRequest"/>
+  </message>
+  <message name="RunGroupingAssistantResponse">
+    <part name="RunGroupingAssistantResponse" element="matchingws:RunGroupingAssistantResponse"/>
+  </message>
+  <message name="SelectMatchedInvoicesToUndoResponse">
+    <part name="SelectMatchedInvoicesToUndoResponse" element="matchingws:SelectMatchedInvoicesToUndoResponse"/>
+  </message>
+  <message name="SingleInvoiceSelectResponse">
+    <part name="SingleInvoiceSelectResponse" element="matchingws:SingleInvoiceSelectResponse"/>
+  </message>
+  <message name="SelectFoldersResponse">
+    <part name="SelectFoldersResponse" element="matchingws:SelectFoldersResponse"/>
+  </message>
+  <portType name="PIMMatchingSelectorServicePortTypes">
+    <operation name="RunGroupingAssistant">
+      <input message="matchingws:RunGroupingAssistantRequest"/>
+      <output message="matchingws:RunGroupingAssistantResponse"/>
+    </operation>
+    <operation name="SelectMatchedInvoicesToUndo">
+      <input message="matchingws:SelectMatchedInvoicesToUndoRequest"/>
+      <output message="matchingws:SelectMatchedInvoicesToUndoResponse"/>
+    </operation>
+    <operation name="SingleInvoiceSelect">
+      <input message="matchingws:SingleInvoiceSelectRequest"/>
+      <output message="matchingws:SingleInvoiceSelectResponse"/>
+    </operation>
+    <operation name="Select">
+      <input message="matchingws:SelectRequest"/>
+      <output message="matchingws:SelectResponse"/>
+    </operation>
+    <operation name="SelectWIPInvoices">
+      <input message="matchingws:SelectWIPInvoicesRequest"/>
+      <output message="matchingws:SelectWIPInvoicesResponse"/>
+    </operation>
+    <operation name="SelectFolders">
+      <input message="matchingws:SelectFoldersRequest"/>
+      <output message="matchingws:SelectFoldersResponse"/>
+    </operation>
+    <operation name="SingleInvoiceSelectWIPInvoices">
+      <input message="matchingws:SingleInvoiceSelectWIPInvoicesRequest"/>
+      <output message="matchingws:SingleInvoiceSelectWIPInvoicesResponse"/>
+    </operation>
+    <operation name="ExplodeMatch">
+      <input message="matchingws:ExplodeMatchRequest"/>
+      <output message="matchingws:ExplodeMatchResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMMatchingSelectorServiceSOAPBinding" type="matchingws:PIMMatchingSelectorServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="RunGroupingAssistant">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingSelector/RunGroupingAssistant" style="document"/>
+      <input>
+        <soap:header message="matchingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matchingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SelectMatchedInvoicesToUndo">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingSelector/SelectMatchedInvoicesToUndo" style="document"/>
+      <input>
+        <soap:header message="matchingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matchingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SingleInvoiceSelect">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingSelector/SingleInvoiceSelect" style="document"/>
+      <input>
+        <soap:header message="matchingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matchingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Select">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingSelector/Select" style="document"/>
+      <input>
+        <soap:header message="matchingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matchingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SelectWIPInvoices">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingSelector/SelectWIPInvoices" style="document"/>
+      <input>
+        <soap:header message="matchingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matchingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SelectFolders">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingSelector/SelectFolders" style="document"/>
+      <input>
+        <soap:header message="matchingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matchingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SingleInvoiceSelectWIPInvoices">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingSelector/SingleInvoiceSelectWIPInvoices" style="document"/>
+      <input>
+        <soap:header message="matchingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matchingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ExplodeMatch">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMMatchingSelector/ExplodeMatch" style="document"/>
+      <input>
+        <soap:header message="matchingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="matchingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMMatchingSelectorService">
+    <port name="PIMMatchingSelectorServicePort" binding="matchingws:PIMMatchingSelectorServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/matching/pimmatchingselector-13.0"/>
+    </port>
+  </service>
+</definitions>

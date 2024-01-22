@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/lrnhousekeeping/pimlrnhousekeeping-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:lrnhousekeepingws="http://www.coda.com/pim/schemas/lrnhousekeeping/pimlrnhousekeeping-1.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:lrnhkeep="http://www.coda.com/pim/schemas/lrnhousekeepingmaster"
+    xmlns:lrnhousekeeping="http://www.coda.com/pim/schemas/lrnhousekeeping"
+    xmlns:selt="http://www.coda.com/efinance/schemas/selector"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:presmas="http://www.coda.com/efinance/schemas/presenter"
+    xmlns:doc="http://www.coda.com/pim/schemas/document"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:pimsel="http://www.coda.com/pim/schemas/selector"
+    targetNamespace="http://www.coda.com/pim/schemas/lrnhousekeeping/pimlrnhousekeeping-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/lrnhousekeeping" schemaLocation="../wsdl/pim/lrnhousekeeping/lrnhousekeeping.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/selector" schemaLocation="pim/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/presenter" schemaLocation="finance/presenter/presenter.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/lrnhousekeepingmaster" schemaLocation="pim/lrnhousekeepingmaster/lrnhousekeepingmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/document" schemaLocation="pim/document/document.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:element name="RunHouseKeepingRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LrnHouseKeepingMaster" type="lrnhkeep:LRNHousekeepingMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The runtime LRN house keeping master
+                                to use. </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogTitle" type="pimtypes:typePimLogtitle">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The log title to record the results
+                                or errors.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogDetailLevel" type="pimtypes:typePimLogDetailLevel">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The detail level to use for
+                            logging</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentKeyList" type="doc:DocumentKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The selected documents to run the
+                                Accruals process on.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LrnSelector" minOccurs="0" type="pimsel:Selector">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The edited selector that defines the
+                                search criteria for LRN documents to be
+                            included.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RunHouseKeepingResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Options">
+    <part name="Options" element="lrnhousekeepingws:Options"/>
+  </message>
+  <message name="RunHouseKeepingRequest">
+    <part name="RunHouseKeepingRequest" element="lrnhousekeepingws:RunHouseKeepingRequest"/>
+  </message>
+  <message name="RunHouseKeepingResponse">
+    <part name="RunHouseKeepingResponse" element="lrnhousekeepingws:RunHouseKeepingResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="lrnhousekeepingws:OptionsResponse"/>
+  </message>
+  <portType name="PIMLRNHouseKeepingServicePortTypes">
+    <operation name="RunHouseKeeping">
+      <input message="lrnhousekeepingws:RunHouseKeepingRequest"/>
+      <output message="lrnhousekeepingws:RunHouseKeepingResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMLRNHouseKeepingServiceSOAPBinding" type="lrnhousekeepingws:PIMLRNHouseKeepingServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="RunHouseKeeping">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMLRNHouseKeeping/RunHouseKeeping" style="document"/>
+      <input>
+        <soap:header message="lrnhousekeepingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="lrnhousekeepingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMLRNHouseKeepingService">
+    <port name="PIMLRNHouseKeepingServicePort" binding="lrnhousekeepingws:PIMLRNHouseKeepingServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/lrnhousekeeping/pimlrnhousekeeping-1.0"/>
+    </port>
+  </service>
+</definitions>

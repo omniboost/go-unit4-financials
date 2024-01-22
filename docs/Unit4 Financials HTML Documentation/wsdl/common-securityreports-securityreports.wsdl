@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/securityreports/securityreports-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:secrptws="http://www.coda.com/common/schemas/securityreports/securityreports-1.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:secrpt="http://www.coda.com/common/schemas/securityreports"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:cap="http://www.coda.com/common/schemas/capabilitymaster"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/securityreports/securityreports-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/securityreports" schemaLocation="../wsdl/common/securityreports/securityreports.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/capabilitymaster" schemaLocation="common/capabilitymaster/capabilitymaster.xsd"/>
+    <xsd:element name="UsersByFunctionalSecurityRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:FunctionalSecurityCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria used to generate the report.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByCapabilityResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:CapabilityCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria specified in the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Results" type="secrpt:CapabilityReport">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the results
+                            retrieved by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByCompanyResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:CompanyCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria specified in the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Results" type="secrpt:CompanyReport">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the results
+                            retrieved by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByApplicationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:ApplicationCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria used to generate the report.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByRoleResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:RoleCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria specified in the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Results" type="secrpt:RoleReport">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the results
+                            retrieved by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByMasterSecurityResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:MasterAccountCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria specified in the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Results" type="secrpt:MasterAccountReport">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the results
+                            retrieved by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByRoleRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:RoleCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria used to generate the report.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByCompanyRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:CompanyCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria used to generate the report.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByAbilityResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:AbilityCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria specified in the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Results" type="secrpt:AbilityReport">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the results
+                            retrieved by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByAccountSecurityResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:MasterAccountCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria specified in the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Results" type="secrpt:MasterAccountReport">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the results
+                            retrieved by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByCapabilityRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:CapabilityCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria used to generate the report.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAvailableAbilityVocabsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AbilityVocabList" type="secrpt:VocabList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of vocabulary items
+                            returned by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAvailableAbilityVocabsRequest">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByApplicationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:ApplicationCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria specified in the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Results" type="secrpt:ApplicationReport">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the results
+                            retrieved by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByAbilityRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:AbilityCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria used to generate the report.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByAccountSecurityRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:MasterAccountCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria used to generate the report.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByFunctionalSecurityResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:FunctionalSecurityCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria specified in the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Results" type="secrpt:FunctionalSecurityReport">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the results
+                            retrieved by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UsersByMasterSecurityRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Criteria" type="secrpt:MasterAccountCriteria">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            criteria used to generate the report.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="UsersByRoleRequest">
+    <part name="UsersByRoleRequest" element="secrptws:UsersByRoleRequest"/>
+  </message>
+  <message name="UsersByAccountSecurityResponse">
+    <part name="UsersByAccountSecurityResponse" element="secrptws:UsersByAccountSecurityResponse"/>
+  </message>
+  <message name="UsersByRoleResponse">
+    <part name="UsersByRoleResponse" element="secrptws:UsersByRoleResponse"/>
+  </message>
+  <message name="UsersByAbilityResponse">
+    <part name="UsersByAbilityResponse" element="secrptws:UsersByAbilityResponse"/>
+  </message>
+  <message name="UsersByMasterSecurityRequest">
+    <part name="UsersByMasterSecurityRequest" element="secrptws:UsersByMasterSecurityRequest"/>
+  </message>
+  <message name="UsersByCompanyResponse">
+    <part name="UsersByCompanyResponse" element="secrptws:UsersByCompanyResponse"/>
+  </message>
+  <message name="UsersByApplicationRequest">
+    <part name="UsersByApplicationRequest" element="secrptws:UsersByApplicationRequest"/>
+  </message>
+  <message name="GetAvailableAbilityVocabsResponse">
+    <part name="GetAvailableAbilityVocabsResponse" element="secrptws:GetAvailableAbilityVocabsResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="secrptws:Options"/>
+  </message>
+  <message name="UsersByFunctionalSecurityResponse">
+    <part name="UsersByFunctionalSecurityResponse" element="secrptws:UsersByFunctionalSecurityResponse"/>
+  </message>
+  <message name="UsersByCapabilityRequest">
+    <part name="UsersByCapabilityRequest" element="secrptws:UsersByCapabilityRequest"/>
+  </message>
+  <message name="UsersByMasterSecurityResponse">
+    <part name="UsersByMasterSecurityResponse" element="secrptws:UsersByMasterSecurityResponse"/>
+  </message>
+  <message name="UsersByAccountSecurityRequest">
+    <part name="UsersByAccountSecurityRequest" element="secrptws:UsersByAccountSecurityRequest"/>
+  </message>
+  <message name="UsersByCapabilityResponse">
+    <part name="UsersByCapabilityResponse" element="secrptws:UsersByCapabilityResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="secrptws:OptionsResponse"/>
+  </message>
+  <message name="UsersByCompanyRequest">
+    <part name="UsersByCompanyRequest" element="secrptws:UsersByCompanyRequest"/>
+  </message>
+  <message name="UsersByFunctionalSecurityRequest">
+    <part name="UsersByFunctionalSecurityRequest" element="secrptws:UsersByFunctionalSecurityRequest"/>
+  </message>
+  <message name="UsersByApplicationResponse">
+    <part name="UsersByApplicationResponse" element="secrptws:UsersByApplicationResponse"/>
+  </message>
+  <message name="UsersByAbilityRequest">
+    <part name="UsersByAbilityRequest" element="secrptws:UsersByAbilityRequest"/>
+  </message>
+  <message name="GetAvailableAbilityVocabsRequest">
+    <part name="GetAvailableAbilityVocabsRequest" element="secrptws:GetAvailableAbilityVocabsRequest"/>
+  </message>
+  <portType name="SecurityReportsServicePortTypes">
+    <operation name="UsersByCompany">
+      <input message="secrptws:UsersByCompanyRequest"/>
+      <output message="secrptws:UsersByCompanyResponse"/>
+    </operation>
+    <operation name="UsersByAccountSecurity">
+      <input message="secrptws:UsersByAccountSecurityRequest"/>
+      <output message="secrptws:UsersByAccountSecurityResponse"/>
+    </operation>
+    <operation name="GetAvailableAbilityVocabs">
+      <input message="secrptws:GetAvailableAbilityVocabsRequest"/>
+      <output message="secrptws:GetAvailableAbilityVocabsResponse"/>
+    </operation>
+    <operation name="UsersByAbility">
+      <input message="secrptws:UsersByAbilityRequest"/>
+      <output message="secrptws:UsersByAbilityResponse"/>
+    </operation>
+    <operation name="UsersByMasterSecurity">
+      <input message="secrptws:UsersByMasterSecurityRequest"/>
+      <output message="secrptws:UsersByMasterSecurityResponse"/>
+    </operation>
+    <operation name="UsersByCapability">
+      <input message="secrptws:UsersByCapabilityRequest"/>
+      <output message="secrptws:UsersByCapabilityResponse"/>
+    </operation>
+    <operation name="UsersByRole">
+      <input message="secrptws:UsersByRoleRequest"/>
+      <output message="secrptws:UsersByRoleResponse"/>
+    </operation>
+    <operation name="UsersByFunctionalSecurity">
+      <input message="secrptws:UsersByFunctionalSecurityRequest"/>
+      <output message="secrptws:UsersByFunctionalSecurityResponse"/>
+    </operation>
+    <operation name="UsersByApplication">
+      <input message="secrptws:UsersByApplicationRequest"/>
+      <output message="secrptws:UsersByApplicationResponse"/>
+    </operation>
+  </portType>
+  <binding name="SecurityReportsServiceSOAPBinding" type="secrptws:SecurityReportsServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="UsersByCompany">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SecurityReports/UsersByCompany" style="document"/>
+      <input>
+        <soap:header message="secrptws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="secrptws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UsersByAccountSecurity">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SecurityReports/UsersByAccountSecurity" style="document"/>
+      <input>
+        <soap:header message="secrptws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="secrptws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetAvailableAbilityVocabs">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SecurityReports/GetAvailableAbilityVocabs" style="document"/>
+      <input>
+        <soap:header message="secrptws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="secrptws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UsersByAbility">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SecurityReports/UsersByAbility" style="document"/>
+      <input>
+        <soap:header message="secrptws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="secrptws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UsersByMasterSecurity">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SecurityReports/UsersByMasterSecurity" style="document"/>
+      <input>
+        <soap:header message="secrptws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="secrptws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UsersByCapability">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SecurityReports/UsersByCapability" style="document"/>
+      <input>
+        <soap:header message="secrptws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="secrptws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UsersByRole">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SecurityReports/UsersByRole" style="document"/>
+      <input>
+        <soap:header message="secrptws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="secrptws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UsersByFunctionalSecurity">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SecurityReports/UsersByFunctionalSecurity" style="document"/>
+      <input>
+        <soap:header message="secrptws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="secrptws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UsersByApplication">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/SecurityReports/UsersByApplication" style="document"/>
+      <input>
+        <soap:header message="secrptws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="secrptws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SecurityReportsService">
+    <port name="SecurityReportsServicePort" binding="secrptws:SecurityReportsServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/securityreports/securityreports-1.0"/>
+    </port>
+  </service>
+</definitions>

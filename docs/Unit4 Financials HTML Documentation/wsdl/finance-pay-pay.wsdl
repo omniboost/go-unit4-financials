@@ -1,0 +1,3031 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/pay/pay-14.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:payws="http://www.coda.com/efinance/schemas/pay/pay-14.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:pcm="http://www.coda.com/efinance/schemas/paymaster"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:med="http://www.coda.com/efinance/schemas/media"
+    xmlns:prg="http://www.coda.com/efinance/schemas/progress"
+    xmlns:pay="http://www.coda.com/efinance/schemas/pay"
+    xmlns:bnk="http://www.coda.com/efinance/schemas/bank"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/pay/pay-14.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/paymaster" schemaLocation="finance/paymaster/paymaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/progress" schemaLocation="finance/progress/progress.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/pay" schemaLocation="../wsdl/finance/pay/pay.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/media" schemaLocation="finance/media/media.xsd"/>
+    <xsd:element name="GetProposedModifySummaryLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Change" type="pay:ModifySummariesChange">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            modifications you want to apply to the
+                            specified summary.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of columns
+                            to be retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetMediaSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of columns
+                            to be retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProgressResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            are sending the request to. This is given to
+                            you when you start the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Progress" minOccurs="0" type="prg:ProgressData">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains information about
+                            the status and progress of the process you
+                            are running.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProposedModifyDetailLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Change" type="pay:ModifyDetailsChange">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            modifications you want to apply to the
+                            specified detail line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of columns
+                            to be retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPrintMediaSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKeyNoWild">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key uniquely
+                            identifying the proposal being printed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PreNumberRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PreNumberParams" type="pay:PreNumberParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            proposal key, and the action to take if any
+                            wrongly-signed summaries or zero summaries
+                            are found in the proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetManipSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ManipSummariesKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters for you to specify which
+                            summaries to retrieve for manipulation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of columns
+                            to be retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetManipDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key consisting of
+                            a company code, user code, proposal code and
+                            payment master code uniquely identifying the
+                            proposal being manipulated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MediaSummaryID" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A system-generated number
+                            identifying the media summary to which a
+                            detail belongs.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ManipSummaryID" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A system-generated number
+                            identifying the summary to which a detail belongs.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HeaderCells" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the vocabulary items
+                            corresponding to the ValueCells columns that
+                            have been retrieved and are held in the
+                            Details element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Details" minOccurs="0" type="pay:ManipDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns the specified details
+                            for manipulation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAllocateSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Header" type="pay:AllocationHeader">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            allocation header details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Allocations" type="pay:Allocations">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            allocation details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Warning" minOccurs="0" type="com:Warning">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether any
+                            warnings have been generated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="NumberRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="NumberInformation" type="pay:NumberInformation">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            numbering details you can specify.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetModifyBankCodesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key consisting of
+                            a company code, user code, proposal code and
+                            payment master code uniquely identifying the
+                            proposal being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="com:KeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns a list of bank codes
+                            and short names.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AbortResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the specified proposal is being aborted.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the user who
+                            created the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>A code identifying the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PayMasterCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the payment
+                            master used to generate the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RecoverRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ProposalCommand">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPrintMediaSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the specified proposal is being printed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the user who
+                            created the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A code identifying the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PayMasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the payment
+                            master used to generate the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MediaSummaries" minOccurs="0" type="pay:PrintMediaSummaries">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns printing information
+                            about the media summaries in a payment proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ModifyDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MedSummKey" type="pay:ModifyMedSummKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters identifying the media summaries
+                            in which you have modified details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SummLine" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies a particular
+                            summary in a list of summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProduceStatusRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKeyNoWild">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code which
+                            uniquely identifies a proposal. Wildcards (*
+                            and ?) cannot be specified in any of the key components.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RewindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ProposalCommand">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProposalDetailResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalParams" type="pay:ProposalParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters that determine which proposal
+                            details are retrieved for output.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalDetails" minOccurs="0" type="pay:ProposalDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            proposal details retrieved for output.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetModifyMediaCodesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key consisting of
+                            a company code, user code, proposal code and
+                            payment master code uniquely identifying the
+                            proposal being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Keys" minOccurs="0" type="med:MediaKeyData">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns a list of media codes
+                            and short names.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GenerateParams" type="pay:GenerateParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters which can be specified when
+                            generating a proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DoAllocateSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Allocate" type="pay:Allocate">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            apportionment details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Warning" minOccurs="0" type="com:Warning">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether any
+                            warnings have been generated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RecoverResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the specified proposal is being recovered.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the user who
+                            created the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>A code identifying the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PayMasterCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the payment
+                            master used to generate the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthoriseResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the specified proposal is being authorised.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the user who
+                            created the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>A code identifying the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PayMasterCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the payment
+                            master used to generate the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ConfirmPrintMediaSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKeyNoWild">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key uniquely
+                            identifying the proposal to be printed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Confirmations" type="pay:ConfirmPrintMediaSummaries">
+                    <xsd:annotation>
+                        <xsd:documentation>Confirmation that the print succeeded.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ModifyDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Changes" type="pay:ModifyDetailsChanges">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters you can specify to modify
+                            particular detail lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetModifyBankCodesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ModifyProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WriteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key consisting of
+                            a company code, user code, proposal code and
+                            payment master code uniquely identifying the
+                            proposal being written.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WriteParameterList" minOccurs="0" type="pay:WriteParameterListData">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of extended parameters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDTTRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetMediaSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the specified proposal is being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the user who
+                            created the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>A code identifying the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PayMasterCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the payment
+                            master used to generate the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HeaderCells" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the vocabulary items
+                            corresponding to the ValueCells columns that
+                            have been retrieved and are held in the
+                            Summaries element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Summaries" minOccurs="0" type="pay:ManipMediaSummaries">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns the specified media summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AutoPreNumberResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the specified proposal is being
+                            automatically pre-numbered.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the user who
+                            created the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A code identifying the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PayMasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the payment
+                            master used to generate the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateManipDetailResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the specified proposal is being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the user who
+                            created the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>A code identifying the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PayMasterCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the payment
+                            master used to generate the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HeaderCells" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the vocabulary items
+                            corresponding to the ValueCells columns that
+                            have been retrieved and are held in the
+                            Detail element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Detail" minOccurs="0" type="pay:ManipDetail">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns the specified
+                            manipulated detail line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Warning" minOccurs="0" type="com:Warning">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a warning message.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetModifySummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MedSummKey" type="pay:ModifyMedSummKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            uniquely identifying the proposal being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HeaderCells" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the vocabulary items
+                            corresponding to the ValueCells columns that
+                            have been retrieved and are held in the
+                            Summaries element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Summaries" minOccurs="0" type="pay:ModifyOneSumms">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns details of the
+                            retrieved summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNumberNumbersRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:NumberGetNumbersKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters for you to specify the media
+                            summary for which you want to list the
+                            document numbers that will be assigned to
+                            its summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetEPayProposalsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:EPayProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProposalsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Proposals" minOccurs="0" type="pay:PayProposals">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of proposals found in Financials which match
+                            the criteria specified in the corresponding GetProposalRequest.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetEPayProposalsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Proposals" minOccurs="0" type="pay:EPayProposals">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains a list
+                            of proposals which match the criteria
+                            specified in the corresponding GetEPayProposalsRequest.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProgressRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, which identifies the process you
+                            started. This is given to you when you start
+                            the process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetManipDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ManipDetailsKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters for you to specify which details
+                            to retrieve for manipulation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of columns
+                            to be retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PostKey" type="pay:PostKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key which uniquely
+                            identifies the proposal being posted. This
+                            is the key from the Post request to which
+                            this response corresponds.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProposalsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalsKey" type="pay:ProposalsKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPrintSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MediaKey" type="pay:PrintMediaKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            uniquely identifying the proposal to be printed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPreNumberStatusRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKeyNoWild">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code which
+                            uniquely identifies a proposal. Wildcards (*
+                            and ?) cannot be specified in any of the key components.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="NumberResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MediaKey" type="pay:NumberMediaKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            uniquely identifying the media summary being numbered.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ValidateOnly" minOccurs="0" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the request
+                            corresponding to this response only checks
+                            that all summaries have been assigned a
+                            valid number; it does not assign numbers to summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MissedNumbers" minOccurs="0" type="pay:DocumentNumbersList">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns any document numbers
+                            missing from the specified media summary.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumberFrom" minOccurs="0" type="com:typeDocNum">
+                    <xsd:annotation>
+                        <xsd:documentation>The first number assigned to
+                            the media summary.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentNumberTo" minOccurs="0" type="com:typeDocNum">
+                    <xsd:annotation>
+                        <xsd:documentation>The last number assigned to
+                            the media summary.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNumberSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MediaKey" type="pay:NumberMediaKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters for you to specify which media
+                            summary to retrieve.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ManipulateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Changes" type="pay:ManipChanges">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            manipulation changes that have yet to be
+                            made permanent.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of columns
+                            to be retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RewindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the specified proposal is being rewound.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the user who
+                            created the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>A code identifying the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PayMasterCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the payment
+                            master used to generate the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PreNumberResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKeyNoWild">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key uniquely
+                            identifying the proposal being pre-numbered.
+                            This is the key from the PreNumber request
+                            to which this response corresponds.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SummariesCount" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The number of summaries
+                            within the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateManipDetailRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Edit" type="pay:ManipDetailEdit">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters you can edit to change the value
+                            of a detail line.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of columns
+                            to be retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateManipSummaryRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Edit" type="pay:ManipSummaryEdit">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters you can edit to change the value
+                            of a summary.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of columns
+                            to be retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ManipulateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the specified proposal is being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the user who
+                            created the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>A code identifying the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PayMasterCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the payment
+                            master used to generate the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HeaderCells" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the vocabulary items
+                            corresponding to the ValueCells columns that
+                            have been retrieved and are held in the
+                            Summary element..</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Summary" minOccurs="0" type="pay:ManipMediaSummary">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns the media summary
+                            after manipulation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GenerateKey" type="pay:GenerateKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key which uniquely
+                            identifies the proposal being generated.
+                            This is the key from the Generate request to
+                            which this response corresponds.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPreNumberStatusResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PreNumberStatus" type="pay:PreNumberStatusInfo">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether any
+                            wrongly-signed summaries or zero summaries
+                            were found in the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetModifyMediaSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ModifyGetMedSummLines">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters for you to specify which media
+                            summaries to retrieve for modifying.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of columns
+                            to be retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNumberNumbersResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MediaKey" type="pay:NumberMediaKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            uniquely identifying the proposal being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="StartDocumentNumber" type="com:typeDocNum">
+                    <xsd:annotation>
+                        <xsd:documentation>The number from which the
+                            returned numbers should start. This is a
+                            parameter you provided in the request
+                            corresponding to this response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RequestedCount" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>The number of numbers to
+                            return. This is a parameter you provided in
+                            the request corresponding to this response.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RequestedNumbers" minOccurs="0" type="pay:DocumentNumbersList">
+                    <xsd:annotation>
+                        <xsd:documentation>Lists the document numbers
+                            that will be assigned to summaries in the
+                            specified media summary.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ProduceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProduceKey" type="pay:ProduceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key uniquely
+                            identifying the proposal being produced.
+                            This is the key from the Produce request to
+                            which this response corresponds.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetModifyDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ModifyGetDetLines">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters for you to specify which details
+                            to retrieve for modifying.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of columns
+                            to be retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNumberSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKeyNoWild">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key consisting of
+                            a company code, user code, proposal code and
+                            payment master code uniquely identifying the
+                            proposal being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MediaSummaryID" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A system-generated number
+                            identifying the media summary to which a
+                            summary belongs.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SummariesInformation" minOccurs="0" type="pay:NumberSummariesInformation">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns the summaries, in the
+                            specified media summary, to be numbered.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetModifySummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ModifyGetSummLines">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters for you to specify which
+                            summaries to retrieve for modifying.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the list of columns
+                            to be retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ConfirmPrintMediaSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKeyNoWild">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetManipSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key consisting of
+                            a company code, user code, proposal code and
+                            payment master code uniquely identifying the
+                            proposal being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MediaSummaryID" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A system-generated number
+                            identifying the media summary to which a
+                            summary belongs.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FromRow" minOccurs="0" type="com:typeULong">
+                    <xsd:annotation>
+                        <xsd:documentation>The first row returned.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MaxRows" minOccurs="0" type="com:typeULong">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of rows
+                            that may be returned.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HeaderCells" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the vocabulary items
+                            corresponding to the ValueCells columns that
+                            have been retrieved and are held in the
+                            Summaries element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Summaries" minOccurs="0" type="pay:ManipSummaries">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns the specified
+                            summaries for manipulation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WriteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WriteParameterList" minOccurs="0" type="pay:WriteParameterListData">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds a list of
+                            extended parameters for use during the write
+                            stage of payment processing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetPrintSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKeyNoWild">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MediaSummaryID" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>A system-generated number
+                            identifying the media summary to which a
+                            summary belongs.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Summaries" minOccurs="0" type="pay:PrintSummaries">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns printing information
+                            about the individual summaries in a payment proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FinishResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the specified proposal is being finished.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the user who
+                            created the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>A code identifying the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PayMasterCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the payment
+                            master used to generate the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AutoPreNumberRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKeyNoWild">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code which
+                            uniquely identifies a proposal. Wildcards (*
+                            and ?) cannot be specified in any of the key components.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateManipSummaryResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the specified proposal is being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the user who
+                            created the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>A code identifying the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PayMasterCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the payment
+                            master used to generate the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HeaderCells" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the vocabulary items
+                            corresponding to the ValueCells columns that
+                            have been retrieved and are held in the
+                            Summary element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Summary" minOccurs="0" type="pay:ManipSummary">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns the specified
+                            manipulated summary.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKeyNoWild">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code which
+                            uniquely identifies a proposal. Wildcards (*
+                            and ?) cannot be specified in any of the key components.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProposedModifySummaryLineResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ModifyProposalKey" type="pay:ModifyProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key consisting of
+                            a company code, user code, proposal code and
+                            payment master code uniquely identifying the
+                            proposal being modified.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CurCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the currency used
+                            by the media summary in which you have
+                            modified summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Media" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the media used by
+                            the media summary in which you have modified summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Bank" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the bank used by
+                            the media summary in which you have modified summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CurLine" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies a particular media
+                            summary in a list of media summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HeaderCells" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the vocabulary items
+                            corresponding to the ValueCells columns that
+                            have been retrieved and are held in the
+                            ProposedSummaryLine element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposedSummaryLine" minOccurs="0" type="pay:ModifyOneSumm">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            information about a summary retrieved for modification.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LineMoved" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            modifications will result in the line being
+                            moved. For example, changing the media code
+                            will cause the summary to be moved into a
+                            different media summary.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ConfirmPrintSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MediaKey" type="pay:PrintMediaKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            uniquely identifying the proposal being printed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Confirmations" type="pay:ConfirmPrintSummaries">
+                    <xsd:annotation>
+                        <xsd:documentation>Confirmation that the print succeeded.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProduceStatusResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProduceStatus" type="pay:ProduceStatusInfo">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether any
+                            wrongly-signed summaries or zero summaries
+                            were found in the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNumberMediaSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKeyNoWild">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code which
+                            uniquely identifies a proposal. Wildcards (*
+                            and ?) cannot be specified in any of the key components.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetModifyMediaSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ModifyProposalKey" type="pay:ModifyProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            uniquely identifying the proposal being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MediaTotals" minOccurs="0" type="pay:ModifyMediaTotals">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns information about the
+                            total value of media summaries in the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HeaderCells" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the vocabulary items
+                            corresponding to the ValueCells columns that
+                            have been retrieved and are held in the
+                            MediaSummaries element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MediaSummaries" minOccurs="0" type="pay:ModifyMedSumms">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns information about the
+                            value of an individual media summary.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNumberMediaSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the specified proposal is being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the user who
+                            created the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>A code identifying the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PayMasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the payment
+                            master used to generate the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="MediaSummaries" minOccurs="0" type="pay:NumberMediaSummaries">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns numbering information
+                            about the media summaries in the specified
+                            payment proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHistoryLinesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CmpCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the company in
+                            which the specified proposal is being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the user who
+                            created the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposalCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>A code identifying the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PayMasterCode" type="com:typeCodeWild">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the payment
+                            master used to generate the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Lines" minOccurs="0" type="pay:HistoryLines">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns details about the
+                            history of the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProposalDetailRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalParams" type="pay:ProposalParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters that determine which proposal
+                            details are retrieved for output.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDTTResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DTT" minOccurs="0" type="pay:DTT">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains all the
+                            details of the payments or collections being
+                            made by the specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetAllocateSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ModifySummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ModifyProposalKey" type="pay:ModifyProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains a key consisting of
+                            a company code, user code, proposal code and
+                            payment master code uniquely identifying the
+                            proposal being modified.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CurCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the currency used
+                            by the specified media summary in which you
+                            have modified summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Media" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the media used by
+                            the specified media summary in which you
+                            have modified summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Bank" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the bank used by
+                            the specified media summary in which you
+                            have modified summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CurLine" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies a particular media
+                            summary in a list of media summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetModifyDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SummKey" type="pay:ModifySummKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            uniquely identifying the proposal being maintained.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HeaderCells" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the vocabulary items
+                            corresponding to the ValueCells columns that
+                            have been retrieved and are held in the
+                            Details element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Details" minOccurs="0" type="pay:ModifyOneDets">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns details of the
+                            retrieved detail lines.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ProduceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProduceParams" type="pay:ProduceParams">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            proposal key, and the action to take if any
+                            wrongly-signed summaries or zero summaries
+                            are found in the proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DoAllocateSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Allocate" type="pay:Allocate">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            details needed to apportion payment
+                            summaries between banks.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AbortRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ProposalCommand">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHistoryLinesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProposalKey" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FinishRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AuthoriseRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetModifyMediaCodesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="pay:ModifyProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key
+                            consisting of a company code, user code,
+                            proposal code and payment master code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ConfirmPrintSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MediaKey" type="pay:PrintMediaKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains key information
+                            uniquely identifying the proposal being printed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProposedModifyDetailLineResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="MedSummKey" type="pay:ModifyMedSummKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters identifying the media summaries
+                            in which you have modified details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SummLine" type="xsd:int">
+                    <xsd:annotation>
+                        <xsd:documentation>Identifies a particular
+                            summary in a list of summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HeaderCells" minOccurs="0" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the vocabulary items
+                            corresponding to the ValueCells columns that
+                            have been retrieved and are held in the
+                            ProposedDetailLine element.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ProposedDetailLine" minOccurs="0" type="pay:ModifyOneDet">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            information about a detail line retrieved
+                            for modification.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LineMoved" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates whether the
+                            modifications will result in the line being
+                            moved. For example, changing the due date
+                            may cause the summary to be moved into a
+                            different media summary.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ModifySummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Changes" type="pay:ModifySummariesChanges">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains the
+                            parameters you can specify to modify
+                            particular summaries.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="DoAllocateSummariesRequest">
+    <part name="DoAllocateSummariesRequest" element="payws:DoAllocateSummariesRequest"/>
+  </message>
+  <message name="GetModifyMediaSummariesRequest">
+    <part name="GetModifyMediaSummariesRequest" element="payws:GetModifyMediaSummariesRequest"/>
+  </message>
+  <message name="GetMediaSummariesRequest">
+    <part name="GetMediaSummariesRequest" element="payws:GetMediaSummariesRequest"/>
+  </message>
+  <message name="GetProposalDetailRequest">
+    <part name="GetProposalDetailRequest" element="payws:GetProposalDetailRequest"/>
+  </message>
+  <message name="RecoverRequest">
+    <part name="RecoverRequest" element="payws:RecoverRequest"/>
+  </message>
+  <message name="ModifySummariesRequest">
+    <part name="ModifySummariesRequest" element="payws:ModifySummariesRequest"/>
+  </message>
+  <message name="GenerateResponse">
+    <part name="GenerateResponse" element="payws:GenerateResponse"/>
+  </message>
+  <message name="GetPrintMediaSummariesRequest">
+    <part name="GetPrintMediaSummariesRequest" element="payws:GetPrintMediaSummariesRequest"/>
+  </message>
+  <message name="WriteResponse">
+    <part name="WriteResponse" element="payws:WriteResponse"/>
+  </message>
+  <message name="GetEPayProposalsResponse">
+    <part name="GetEPayProposalsResponse" element="payws:GetEPayProposalsResponse"/>
+  </message>
+  <message name="WriteRequest">
+    <part name="WriteRequest" element="payws:WriteRequest"/>
+  </message>
+  <message name="CalculateManipDetailRequest">
+    <part name="CalculateManipDetailRequest" element="payws:CalculateManipDetailRequest"/>
+  </message>
+  <message name="CalculateManipSummaryRequest">
+    <part name="CalculateManipSummaryRequest" element="payws:CalculateManipSummaryRequest"/>
+  </message>
+  <message name="NumberResponse">
+    <part name="NumberResponse" element="payws:NumberResponse"/>
+  </message>
+  <message name="GetProgressRequest">
+    <part name="GetProgressRequest" element="payws:GetProgressRequest"/>
+  </message>
+  <message name="ManipulateResponse">
+    <part name="ManipulateResponse" element="payws:ManipulateResponse"/>
+  </message>
+  <message name="AutoPreNumberRequest">
+    <part name="AutoPreNumberRequest" element="payws:AutoPreNumberRequest"/>
+  </message>
+  <message name="ConfirmPrintSummariesRequest">
+    <part name="ConfirmPrintSummariesRequest" element="payws:ConfirmPrintSummariesRequest"/>
+  </message>
+  <message name="GetProposalsResponse">
+    <part name="GetProposalsResponse" element="payws:GetProposalsResponse"/>
+  </message>
+  <message name="GetModifyBankCodesRequest">
+    <part name="GetModifyBankCodesRequest" element="payws:GetModifyBankCodesRequest"/>
+  </message>
+  <message name="FinishResponse">
+    <part name="FinishResponse" element="payws:FinishResponse"/>
+  </message>
+  <message name="GetManipDetailsResponse">
+    <part name="GetManipDetailsResponse" element="payws:GetManipDetailsResponse"/>
+  </message>
+  <message name="GetProgressResponse">
+    <part name="GetProgressResponse" element="payws:GetProgressResponse"/>
+  </message>
+  <message name="PreNumberRequest">
+    <part name="PreNumberRequest" element="payws:PreNumberRequest"/>
+  </message>
+  <message name="GetAllocateSummariesRequest">
+    <part name="GetAllocateSummariesRequest" element="payws:GetAllocateSummariesRequest"/>
+  </message>
+  <message name="GenerateRequest">
+    <part name="GenerateRequest" element="payws:GenerateRequest"/>
+  </message>
+  <message name="RecoverResponse">
+    <part name="RecoverResponse" element="payws:RecoverResponse"/>
+  </message>
+  <message name="GetProposalDetailResponse">
+    <part name="GetProposalDetailResponse" element="payws:GetProposalDetailResponse"/>
+  </message>
+  <message name="GetPrintSummariesResponse">
+    <part name="GetPrintSummariesResponse" element="payws:GetPrintSummariesResponse"/>
+  </message>
+  <message name="GetNumberNumbersRequest">
+    <part name="GetNumberNumbersRequest" element="payws:GetNumberNumbersRequest"/>
+  </message>
+  <message name="PreNumberResponse">
+    <part name="PreNumberResponse" element="payws:PreNumberResponse"/>
+  </message>
+  <message name="AuthoriseResponse">
+    <part name="AuthoriseResponse" element="payws:AuthoriseResponse"/>
+  </message>
+  <message name="AbortResponse">
+    <part name="AbortResponse" element="payws:AbortResponse"/>
+  </message>
+  <message name="ProduceRequest">
+    <part name="ProduceRequest" element="payws:ProduceRequest"/>
+  </message>
+  <message name="RewindResponse">
+    <part name="RewindResponse" element="payws:RewindResponse"/>
+  </message>
+  <message name="GetNumberNumbersResponse">
+    <part name="GetNumberNumbersResponse" element="payws:GetNumberNumbersResponse"/>
+  </message>
+  <message name="CalculateManipSummaryResponse">
+    <part name="CalculateManipSummaryResponse" element="payws:CalculateManipSummaryResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="payws:Options"/>
+  </message>
+  <message name="ConfirmPrintMediaSummariesResponse">
+    <part name="ConfirmPrintMediaSummariesResponse" element="payws:ConfirmPrintMediaSummariesResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="payws:OptionsResponse"/>
+  </message>
+  <message name="GetModifyMediaSummariesResponse">
+    <part name="GetModifyMediaSummariesResponse" element="payws:GetModifyMediaSummariesResponse"/>
+  </message>
+  <message name="AuthoriseRequest">
+    <part name="AuthoriseRequest" element="payws:AuthoriseRequest"/>
+  </message>
+  <message name="GetModifyMediaCodesResponse">
+    <part name="GetModifyMediaCodesResponse" element="payws:GetModifyMediaCodesResponse"/>
+  </message>
+  <message name="AbortRequest">
+    <part name="AbortRequest" element="payws:AbortRequest"/>
+  </message>
+  <message name="GetProposedModifySummaryLineResponse">
+    <part name="GetProposedModifySummaryLineResponse" element="payws:GetProposedModifySummaryLineResponse"/>
+  </message>
+  <message name="GetProduceStatusRequest">
+    <part name="GetProduceStatusRequest" element="payws:GetProduceStatusRequest"/>
+  </message>
+  <message name="GetModifyDetailsRequest">
+    <part name="GetModifyDetailsRequest" element="payws:GetModifyDetailsRequest"/>
+  </message>
+  <message name="GetHistoryLinesResponse">
+    <part name="GetHistoryLinesResponse" element="payws:GetHistoryLinesResponse"/>
+  </message>
+  <message name="RewindRequest">
+    <part name="RewindRequest" element="payws:RewindRequest"/>
+  </message>
+  <message name="GetNumberSummariesRequest">
+    <part name="GetNumberSummariesRequest" element="payws:GetNumberSummariesRequest"/>
+  </message>
+  <message name="GetProposalsRequest">
+    <part name="GetProposalsRequest" element="payws:GetProposalsRequest"/>
+  </message>
+  <message name="GetEPayProposalsRequest">
+    <part name="GetEPayProposalsRequest" element="payws:GetEPayProposalsRequest"/>
+  </message>
+  <message name="GetMediaSummariesResponse">
+    <part name="GetMediaSummariesResponse" element="payws:GetMediaSummariesResponse"/>
+  </message>
+  <message name="GetModifyDetailsResponse">
+    <part name="GetModifyDetailsResponse" element="payws:GetModifyDetailsResponse"/>
+  </message>
+  <message name="ModifyDetailsResponse">
+    <part name="ModifyDetailsResponse" element="payws:ModifyDetailsResponse"/>
+  </message>
+  <message name="GetHistoryLinesRequest">
+    <part name="GetHistoryLinesRequest" element="payws:GetHistoryLinesRequest"/>
+  </message>
+  <message name="ConfirmPrintSummariesResponse">
+    <part name="ConfirmPrintSummariesResponse" element="payws:ConfirmPrintSummariesResponse"/>
+  </message>
+  <message name="ProduceResponse">
+    <part name="ProduceResponse" element="payws:ProduceResponse"/>
+  </message>
+  <message name="ConfirmPrintMediaSummariesRequest">
+    <part name="ConfirmPrintMediaSummariesRequest" element="payws:ConfirmPrintMediaSummariesRequest"/>
+  </message>
+  <message name="ModifySummariesResponse">
+    <part name="ModifySummariesResponse" element="payws:ModifySummariesResponse"/>
+  </message>
+  <message name="GetManipSummariesResponse">
+    <part name="GetManipSummariesResponse" element="payws:GetManipSummariesResponse"/>
+  </message>
+  <message name="GetPrintSummariesRequest">
+    <part name="GetPrintSummariesRequest" element="payws:GetPrintSummariesRequest"/>
+  </message>
+  <message name="GetModifySummariesResponse">
+    <part name="GetModifySummariesResponse" element="payws:GetModifySummariesResponse"/>
+  </message>
+  <message name="GetManipSummariesRequest">
+    <part name="GetManipSummariesRequest" element="payws:GetManipSummariesRequest"/>
+  </message>
+  <message name="GetDTTResponse">
+    <part name="GetDTTResponse" element="payws:GetDTTResponse"/>
+  </message>
+  <message name="DoAllocateSummariesResponse">
+    <part name="DoAllocateSummariesResponse" element="payws:DoAllocateSummariesResponse"/>
+  </message>
+  <message name="GetAllocateSummariesResponse">
+    <part name="GetAllocateSummariesResponse" element="payws:GetAllocateSummariesResponse"/>
+  </message>
+  <message name="GetProduceStatusResponse">
+    <part name="GetProduceStatusResponse" element="payws:GetProduceStatusResponse"/>
+  </message>
+  <message name="GetModifyMediaCodesRequest">
+    <part name="GetModifyMediaCodesRequest" element="payws:GetModifyMediaCodesRequest"/>
+  </message>
+  <message name="PostRequest">
+    <part name="PostRequest" element="payws:PostRequest"/>
+  </message>
+  <message name="GetPreNumberStatusResponse">
+    <part name="GetPreNumberStatusResponse" element="payws:GetPreNumberStatusResponse"/>
+  </message>
+  <message name="GetManipDetailsRequest">
+    <part name="GetManipDetailsRequest" element="payws:GetManipDetailsRequest"/>
+  </message>
+  <message name="GetNumberSummariesResponse">
+    <part name="GetNumberSummariesResponse" element="payws:GetNumberSummariesResponse"/>
+  </message>
+  <message name="GetDTTRequest">
+    <part name="GetDTTRequest" element="payws:GetDTTRequest"/>
+  </message>
+  <message name="GetPrintMediaSummariesResponse">
+    <part name="GetPrintMediaSummariesResponse" element="payws:GetPrintMediaSummariesResponse"/>
+  </message>
+  <message name="FinishRequest">
+    <part name="FinishRequest" element="payws:FinishRequest"/>
+  </message>
+  <message name="CalculateManipDetailResponse">
+    <part name="CalculateManipDetailResponse" element="payws:CalculateManipDetailResponse"/>
+  </message>
+  <message name="GetProposedModifySummaryLineRequest">
+    <part name="GetProposedModifySummaryLineRequest" element="payws:GetProposedModifySummaryLineRequest"/>
+  </message>
+  <message name="GetProposedModifyDetailLineResponse">
+    <part name="GetProposedModifyDetailLineResponse" element="payws:GetProposedModifyDetailLineResponse"/>
+  </message>
+  <message name="NumberRequest">
+    <part name="NumberRequest" element="payws:NumberRequest"/>
+  </message>
+  <message name="ModifyDetailsRequest">
+    <part name="ModifyDetailsRequest" element="payws:ModifyDetailsRequest"/>
+  </message>
+  <message name="PostResponse">
+    <part name="PostResponse" element="payws:PostResponse"/>
+  </message>
+  <message name="GetNumberMediaSummariesResponse">
+    <part name="GetNumberMediaSummariesResponse" element="payws:GetNumberMediaSummariesResponse"/>
+  </message>
+  <message name="GetProposedModifyDetailLineRequest">
+    <part name="GetProposedModifyDetailLineRequest" element="payws:GetProposedModifyDetailLineRequest"/>
+  </message>
+  <message name="ManipulateRequest">
+    <part name="ManipulateRequest" element="payws:ManipulateRequest"/>
+  </message>
+  <message name="GetNumberMediaSummariesRequest">
+    <part name="GetNumberMediaSummariesRequest" element="payws:GetNumberMediaSummariesRequest"/>
+  </message>
+  <message name="AutoPreNumberResponse">
+    <part name="AutoPreNumberResponse" element="payws:AutoPreNumberResponse"/>
+  </message>
+  <message name="GetModifyBankCodesResponse">
+    <part name="GetModifyBankCodesResponse" element="payws:GetModifyBankCodesResponse"/>
+  </message>
+  <message name="GetPreNumberStatusRequest">
+    <part name="GetPreNumberStatusRequest" element="payws:GetPreNumberStatusRequest"/>
+  </message>
+  <message name="GetModifySummariesRequest">
+    <part name="GetModifySummariesRequest" element="payws:GetModifySummariesRequest"/>
+  </message>
+  <portType name="PayServicePortTypes">
+    <operation name="Write">
+      <input message="payws:WriteRequest"/>
+      <output message="payws:WriteResponse"/>
+    </operation>
+    <operation name="ConfirmPrintSummaries">
+      <input message="payws:ConfirmPrintSummariesRequest"/>
+      <output message="payws:ConfirmPrintSummariesResponse"/>
+    </operation>
+    <operation name="CalculateManipDetail">
+      <input message="payws:CalculateManipDetailRequest"/>
+      <output message="payws:CalculateManipDetailResponse"/>
+    </operation>
+    <operation name="Produce">
+      <input message="payws:ProduceRequest"/>
+      <output message="payws:ProduceResponse"/>
+    </operation>
+    <operation name="GetModifyMediaSummaries">
+      <input message="payws:GetModifyMediaSummariesRequest"/>
+      <output message="payws:GetModifyMediaSummariesResponse"/>
+    </operation>
+    <operation name="GetEPayProposals">
+      <input message="payws:GetEPayProposalsRequest"/>
+      <output message="payws:GetEPayProposalsResponse"/>
+    </operation>
+    <operation name="GetPreNumberStatus">
+      <input message="payws:GetPreNumberStatusRequest"/>
+      <output message="payws:GetPreNumberStatusResponse"/>
+    </operation>
+    <operation name="GetProposalDetail">
+      <input message="payws:GetProposalDetailRequest"/>
+      <output message="payws:GetProposalDetailResponse"/>
+    </operation>
+    <operation name="GetManipDetails">
+      <input message="payws:GetManipDetailsRequest"/>
+      <output message="payws:GetManipDetailsResponse"/>
+    </operation>
+    <operation name="Abort">
+      <input message="payws:AbortRequest"/>
+      <output message="payws:AbortResponse"/>
+    </operation>
+    <operation name="GetProduceStatus">
+      <input message="payws:GetProduceStatusRequest"/>
+      <output message="payws:GetProduceStatusResponse"/>
+    </operation>
+    <operation name="CalculateManipSummary">
+      <input message="payws:CalculateManipSummaryRequest"/>
+      <output message="payws:CalculateManipSummaryResponse"/>
+    </operation>
+    <operation name="GetNumberSummaries">
+      <input message="payws:GetNumberSummariesRequest"/>
+      <output message="payws:GetNumberSummariesResponse"/>
+    </operation>
+    <operation name="Number">
+      <input message="payws:NumberRequest"/>
+      <output message="payws:NumberResponse"/>
+    </operation>
+    <operation name="Authorise">
+      <input message="payws:AuthoriseRequest"/>
+      <output message="payws:AuthoriseResponse"/>
+    </operation>
+    <operation name="Generate">
+      <input message="payws:GenerateRequest"/>
+      <output message="payws:GenerateResponse"/>
+    </operation>
+    <operation name="PreNumber">
+      <input message="payws:PreNumberRequest"/>
+      <output message="payws:PreNumberResponse"/>
+    </operation>
+    <operation name="AutoPreNumber">
+      <input message="payws:AutoPreNumberRequest"/>
+      <output message="payws:AutoPreNumberResponse"/>
+    </operation>
+    <operation name="GetProposals">
+      <input message="payws:GetProposalsRequest"/>
+      <output message="payws:GetProposalsResponse"/>
+    </operation>
+    <operation name="GetProposedModifyDetailLine">
+      <input message="payws:GetProposedModifyDetailLineRequest"/>
+      <output message="payws:GetProposedModifyDetailLineResponse"/>
+    </operation>
+    <operation name="GetProgress">
+      <input message="payws:GetProgressRequest"/>
+      <output message="payws:GetProgressResponse"/>
+    </operation>
+    <operation name="Finish">
+      <input message="payws:FinishRequest"/>
+      <output message="payws:FinishResponse"/>
+    </operation>
+    <operation name="GetModifySummaries">
+      <input message="payws:GetModifySummariesRequest"/>
+      <output message="payws:GetModifySummariesResponse"/>
+    </operation>
+    <operation name="ModifyDetails">
+      <input message="payws:ModifyDetailsRequest"/>
+      <output message="payws:ModifyDetailsResponse"/>
+    </operation>
+    <operation name="GetHistoryLines">
+      <input message="payws:GetHistoryLinesRequest"/>
+      <output message="payws:GetHistoryLinesResponse"/>
+    </operation>
+    <operation name="GetModifyMediaCodes">
+      <input message="payws:GetModifyMediaCodesRequest"/>
+      <output message="payws:GetModifyMediaCodesResponse"/>
+    </operation>
+    <operation name="GetDTT">
+      <input message="payws:GetDTTRequest"/>
+      <output message="payws:GetDTTResponse"/>
+    </operation>
+    <operation name="GetModifyBankCodes">
+      <input message="payws:GetModifyBankCodesRequest"/>
+      <output message="payws:GetModifyBankCodesResponse"/>
+    </operation>
+    <operation name="Post">
+      <input message="payws:PostRequest"/>
+      <output message="payws:PostResponse"/>
+    </operation>
+    <operation name="Manipulate">
+      <input message="payws:ManipulateRequest"/>
+      <output message="payws:ManipulateResponse"/>
+    </operation>
+    <operation name="GetPrintMediaSummaries">
+      <input message="payws:GetPrintMediaSummariesRequest"/>
+      <output message="payws:GetPrintMediaSummariesResponse"/>
+    </operation>
+    <operation name="Rewind">
+      <input message="payws:RewindRequest"/>
+      <output message="payws:RewindResponse"/>
+    </operation>
+    <operation name="GetAllocateSummaries">
+      <input message="payws:GetAllocateSummariesRequest"/>
+      <output message="payws:GetAllocateSummariesResponse"/>
+    </operation>
+    <operation name="DoAllocateSummaries">
+      <input message="payws:DoAllocateSummariesRequest"/>
+      <output message="payws:DoAllocateSummariesResponse"/>
+    </operation>
+    <operation name="GetNumberNumbers">
+      <input message="payws:GetNumberNumbersRequest"/>
+      <output message="payws:GetNumberNumbersResponse"/>
+    </operation>
+    <operation name="GetProposedModifySummaryLine">
+      <input message="payws:GetProposedModifySummaryLineRequest"/>
+      <output message="payws:GetProposedModifySummaryLineResponse"/>
+    </operation>
+    <operation name="GetManipSummaries">
+      <input message="payws:GetManipSummariesRequest"/>
+      <output message="payws:GetManipSummariesResponse"/>
+    </operation>
+    <operation name="GetMediaSummaries">
+      <input message="payws:GetMediaSummariesRequest"/>
+      <output message="payws:GetMediaSummariesResponse"/>
+    </operation>
+    <operation name="ConfirmPrintMediaSummaries">
+      <input message="payws:ConfirmPrintMediaSummariesRequest"/>
+      <output message="payws:ConfirmPrintMediaSummariesResponse"/>
+    </operation>
+    <operation name="Recover">
+      <input message="payws:RecoverRequest"/>
+      <output message="payws:RecoverResponse"/>
+    </operation>
+    <operation name="ModifySummaries">
+      <input message="payws:ModifySummariesRequest"/>
+      <output message="payws:ModifySummariesResponse"/>
+    </operation>
+    <operation name="GetNumberMediaSummaries">
+      <input message="payws:GetNumberMediaSummariesRequest"/>
+      <output message="payws:GetNumberMediaSummariesResponse"/>
+    </operation>
+    <operation name="GetPrintSummaries">
+      <input message="payws:GetPrintSummariesRequest"/>
+      <output message="payws:GetPrintSummariesResponse"/>
+    </operation>
+    <operation name="GetModifyDetails">
+      <input message="payws:GetModifyDetailsRequest"/>
+      <output message="payws:GetModifyDetailsResponse"/>
+    </operation>
+  </portType>
+  <binding name="PayServiceSOAPBinding" type="payws:PayServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Write">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/Write" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ConfirmPrintSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/ConfirmPrintSummaries" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CalculateManipDetail">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/CalculateManipDetail" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Produce">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/Produce" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetModifyMediaSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetModifyMediaSummaries" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetEPayProposals">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetEPayProposals" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetPreNumberStatus">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetPreNumberStatus" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProposalDetail">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetProposalDetail" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetManipDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetManipDetails" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Abort">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/Abort" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProduceStatus">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetProduceStatus" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CalculateManipSummary">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/CalculateManipSummary" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetNumberSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetNumberSummaries" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Number">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/Number" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Authorise">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/Authorise" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Generate">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/Generate" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PreNumber">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/PreNumber" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AutoPreNumber">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/AutoPreNumber" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProposals">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetProposals" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProposedModifyDetailLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetProposedModifyDetailLine" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProgress">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetProgress" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Finish">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/Finish" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetModifySummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetModifySummaries" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ModifyDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/ModifyDetails" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetHistoryLines">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetHistoryLines" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetModifyMediaCodes">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetModifyMediaCodes" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDTT">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetDTT" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetModifyBankCodes">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetModifyBankCodes" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Post">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/Post" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Manipulate">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/Manipulate" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetPrintMediaSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetPrintMediaSummaries" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Rewind">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/Rewind" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetAllocateSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetAllocateSummaries" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DoAllocateSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/DoAllocateSummaries" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetNumberNumbers">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetNumberNumbers" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProposedModifySummaryLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetProposedModifySummaryLine" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetManipSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetManipSummaries" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetMediaSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetMediaSummaries" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ConfirmPrintMediaSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/ConfirmPrintMediaSummaries" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Recover">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/Recover" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ModifySummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/ModifySummaries" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetNumberMediaSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetNumberMediaSummaries" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetPrintSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetPrintSummaries" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetModifyDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Pay/GetModifyDetails" style="document"/>
+      <input>
+        <soap:header message="payws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="payws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PayService">
+    <port name="PayServicePort" binding="payws:PayServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/pay/pay-14.0"/>
+    </port>
+  </service>
+</definitions>

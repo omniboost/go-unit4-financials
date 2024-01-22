@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/genericbrowse/genericbrowse-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:gnbws="http://www.coda.com/common/schemas/genericbrowse/genericbrowse-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:gmb="http://www.coda.com/common/schemas/genericbrowsemaster"
+    xmlns:gnb="http://www.coda.com/common/schemas/genericbrowse"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:pre="http://www.coda.com/efinance/schemas/presenter"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/common/schemas/genericbrowse/genericbrowse-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/genericbrowsemaster" schemaLocation="common/genericbrowsemaster/genericbrowsemaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/presenter" schemaLocation="finance/presenter/presenter.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/genericbrowse" schemaLocation="../wsdl/common/genericbrowse/genericbrowse.xsd"/>
+    <xsd:element name="SelectForLedgerResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds your data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PrimaryKeyVocabs" type="pre:VocabList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of the vocabulary
+                            items that describe the primary key of the
+                            primary object of the dataview.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectForTransactionsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds your data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PrimaryKeyVocabs" type="pre:VocabList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of the vocabulary
+                            items that describe the primary key of the
+                            primary object of the dataview.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectForLinkMaintenanceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds your data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PrimaryKeyVocabs" type="gnb:VocabIdList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of the vocabulary
+                            items that describe the primary key of the
+                            primary object of the dataview.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PresenterCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the presenter
+                            master to be used to display the data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SecurityCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the data
+                            security master to be used to control data security.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunTimeSelector" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the selector master
+                            to be used to retrieve data, including any
+                            run-time changes the user made and any
+                            values the user entered in response to prompts.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExtraVocabs" minOccurs="0" type="gnb:VocabIdList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of extra vocabulary
+                            items to return in the presentation results.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectForTransactionsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PresenterCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the presenter
+                            master to be used to display the data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunTimeSelector" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the selector master
+                            to be used to retrieve data, including any
+                            run-time changes the user made and any
+                            values the user entered in response to prompts.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExtraVocabs" minOccurs="0" type="gnb:VocabIdList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of extra vocabulary
+                            items to return in the presentation results.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectForLinkMaintenanceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PresenterCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the presenter
+                            master to be used to display the data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunTimeSelector" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the selector master
+                            to be used to retrieve data, including any
+                            run-time changes the user made and any
+                            values the user entered in response to prompts.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds your data.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PrimaryKeyVocabs" type="pre:VocabList">
+                    <xsd:annotation>
+                        <xsd:documentation>         <p>
+                                Contains vocabs detailing the primary
+                                key of the          primary object
+                                (table) of the dataview that we
+                                are browsing. This is for the benefit of
+                                generic          printing.
+                                N.B. This limits generic printing to
+                                only being able          to print (or
+                                not print) documents based on the
+                                primary          key of the dataview.
+                                e.g. if your presenter is showing
+                                you more than one line with the same
+                                primary key, you           will not be
+                                able to print one but-not-the-others of
+                                these          lines on an individual
+                                basis. You will only be able to
+                                print one &apos;document&apos;
+                                containing all the line with
+                                the same primary key. Lines with other
+                                primary keys will          appear in
+                                other &apos;documents&apos;.
+                                To get round this limitation, create a
+                                new dataview with          a primary key
+                                that suits your needs.         </p>        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DataSecurityMasterCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code for the data
+                            security master that controls the data
+                            security that applies to the user. This is
+                            required to ensure that the user is not able
+                            to print or transmit lines that are filtered
+                            out when browsing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunTimeSelector" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the selector master
+                            that was used to retrieve data, including
+                            any run-time changes the user made and any
+                            values the user entered in response to
+                            prompts. (This improves performance when
+                            finding the lines to print.)</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OutputDeviceCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The output device to use to
+                            print or transmit rows.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PrintFormatCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>                    Code of
+                            the print format to be used. The print
+                            format should ..                    a) if
+                            tables are being used, have its form type
+                            set to &apos;flow&apos;.              b) if
+                            the order of printing is important, have a
+                            sort order on it.        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="EmailTemplateCode" type="com:typeGeneralCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of an e-mail
+                            template master used to provide the subject,
+                            body and signature of generated emails.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ChosenRows" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>         <p>          A
+                                selection containing the primary key
+                                cells          of the rows that need to
+                                be printed. These should
+                                correspond to the primary key of the
+                                primary object          of the dataview
+                                that this generic browse/print is
+                                based on.                    N.B.
+                                Printing only has the granularity to
+                                print dataview          lines based on
+                                the primary key of the primary object
+                                of the dataview. Therefore if your
+                                generic browse           screen displays
+                                two lines that both have the same
+                                primary key, it is not possible to print
+                                one without           the other one also
+                                being printed. To get round this,
+                                define a new dataview that has a more
+                                suitable primary          key.
+                            </p>        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DoLogging" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies whether to write a
+                            log file. If this element is set to true,
+                            then the elements LogType and LogTitle must
+                            also be set.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogTitle" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The title for the log file.
+                            This needs to be set only if the DoLogging
+                            element is set to true.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogType" type="com:typeGenericOon">
+                    <xsd:annotation>
+                        <xsd:documentation>The type of the log. This
+                            needs to be set only if the DoLogging
+                            element is set to true.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectForLedgerRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LedgerKey" type="com:Key">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to a browse ledger master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RunTimeSelector" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the selector master
+                            to be used to retrieve data, including any
+                            run-time changes the user made and any
+                            values the user entered in response to prompts.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ExtraVocabs" minOccurs="0" type="gnb:VocabIdList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of extra vocabulary
+                            items to return in the presentation results.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="PrintRequest">
+    <part name="PrintRequest" element="gnbws:PrintRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="gnbws:Options"/>
+  </message>
+  <message name="SelectForLedgerRequest">
+    <part name="SelectForLedgerRequest" element="gnbws:SelectForLedgerRequest"/>
+  </message>
+  <message name="PrintResponse">
+    <part name="PrintResponse" element="gnbws:PrintResponse"/>
+  </message>
+  <message name="SelectForLedgerResponse">
+    <part name="SelectForLedgerResponse" element="gnbws:SelectForLedgerResponse"/>
+  </message>
+  <message name="SelectForLinkMaintenanceResponse">
+    <part name="SelectForLinkMaintenanceResponse" element="gnbws:SelectForLinkMaintenanceResponse"/>
+  </message>
+  <message name="SelectForTransactionsRequest">
+    <part name="SelectForTransactionsRequest" element="gnbws:SelectForTransactionsRequest"/>
+  </message>
+  <message name="SelectResponse">
+    <part name="SelectResponse" element="gnbws:SelectResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="gnbws:OptionsResponse"/>
+  </message>
+  <message name="SelectRequest">
+    <part name="SelectRequest" element="gnbws:SelectRequest"/>
+  </message>
+  <message name="SelectForLinkMaintenanceRequest">
+    <part name="SelectForLinkMaintenanceRequest" element="gnbws:SelectForLinkMaintenanceRequest"/>
+  </message>
+  <message name="SelectForTransactionsResponse">
+    <part name="SelectForTransactionsResponse" element="gnbws:SelectForTransactionsResponse"/>
+  </message>
+  <portType name="GenericBrowseServicePortTypes">
+    <operation name="Print">
+      <input message="gnbws:PrintRequest"/>
+      <output message="gnbws:PrintResponse"/>
+    </operation>
+    <operation name="SelectForLedger">
+      <input message="gnbws:SelectForLedgerRequest"/>
+      <output message="gnbws:SelectForLedgerResponse"/>
+    </operation>
+    <operation name="SelectForTransactions">
+      <input message="gnbws:SelectForTransactionsRequest"/>
+      <output message="gnbws:SelectForTransactionsResponse"/>
+    </operation>
+    <operation name="Select">
+      <input message="gnbws:SelectRequest"/>
+      <output message="gnbws:SelectResponse"/>
+    </operation>
+    <operation name="SelectForLinkMaintenance">
+      <input message="gnbws:SelectForLinkMaintenanceRequest"/>
+      <output message="gnbws:SelectForLinkMaintenanceResponse"/>
+    </operation>
+  </portType>
+  <binding name="GenericBrowseServiceSOAPBinding" type="gnbws:GenericBrowseServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Print">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/GenericBrowse/Print" style="document"/>
+      <input>
+        <soap:header message="gnbws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="gnbws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SelectForLedger">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/GenericBrowse/SelectForLedger" style="document"/>
+      <input>
+        <soap:header message="gnbws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="gnbws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SelectForTransactions">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/GenericBrowse/SelectForTransactions" style="document"/>
+      <input>
+        <soap:header message="gnbws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="gnbws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Select">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/GenericBrowse/Select" style="document"/>
+      <input>
+        <soap:header message="gnbws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="gnbws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SelectForLinkMaintenance">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/GenericBrowse/SelectForLinkMaintenance" style="document"/>
+      <input>
+        <soap:header message="gnbws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="gnbws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="GenericBrowseService">
+    <port name="GenericBrowseServicePort" binding="gnbws:GenericBrowseServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/genericbrowse/genericbrowse-13.0"/>
+    </port>
+  </service>
+</definitions>

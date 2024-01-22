@@ -1,0 +1,1118 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/archive</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/archive</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>ArchiveDocumentsInformation</h3>
+         <p>This element holds information about archiving documents, and the state of the data
+            during an Archive process.
+         </p>
+         <h3>ArchiveMonitor</h3>
+         <p>This element holds information about the progress of the archive process.</p>
+         <h3>ArchiveRequest</h3>
+         <p>This service allows you to run and monitor Archive functions.</p>
+         <h3>ArchiveResponse</h3>
+         <p>This is the response that is returned when you run and monitor Archive functions.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/archive}ArchiveDateRange"></a><h3>ArchiveDateRange</h3>
+         <p>If TRUE specifies that missing documents will be archived.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>FromDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The start date from which missing documents are selected for archiving.</td>
+                  </tr>
+                  <tr>
+                     <td>ToDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDate" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDate">typeDate</a></td>
+                     <td>The end date from which missing documents are selected for archiving.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}ArchiveDocumentsParams"></a><h3>ArchiveDocumentsParams</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ArchiveHeaderMasterKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>A generic key consisting of the company code and the archive header master code.</td>
+                  </tr>
+                  <tr>
+                     <td>Selector</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The selector master code used as the default when starting to archive documents.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectorVocabList</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="../selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                     <td>The list of data items in the selector master, which determine the documents to be
+                        archived.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>IncludeArchives</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE specifies that old archive summary journals are to be removed along with other
+                        documents. This is only relevant when summary journals are not being created. Archive
+                        journals are not moved to the internal archive tables but are removed from the Books.
+                        
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>IncludeYearEnd</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE specifies that old year end journals are to be archived along with other documents.
+                        This is only relevant when summary journals are not being created.      
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>MissingDates</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}ArchiveDateRange" href="#{http://www.coda.com/efinance/schemas/archive}ArchiveDateRange">ArchiveDateRange</a></td>
+                     <td>If TRUE specifies that missing documents will be archived.</td>
+                  </tr>
+                  <tr>
+                     <td>Balances</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtARCBal" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtARCBal">typeCtARCBal</a></td>
+                     <td>Specifies whether Financials balances are archived, all balances are archived, or
+                        no balances are archived.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Year</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The year of the documents being archived.</td>
+                  </tr>
+                  <tr>
+                     <td>FromPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriods" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriods">typePeriods</a></td>
+                     <td>The first period from which documents are being archived.</td>
+                  </tr>
+                  <tr>
+                     <td>ToPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriods" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriods">typePeriods</a></td>
+                     <td>The last period from which documents are being archived.</td>
+                  </tr>
+                  <tr>
+                     <td>Logging</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtARCLogType" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtARCLogType">typeCtARCLogType</a></td>
+                     <td>Specifies the type of log required: Full, Accepted documents only, Rejected documents
+                        only, or no log at all.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>LogTitle</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLogTitle" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeLogTitle">typeLogTitle</a></td>
+                     <td>The title of the log, if applicable.</td>
+                  </tr>
+                  <tr>
+                     <td>ProceedOnBalanceWarning</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>If true, specifies that you want to proceed with Archive Balances, even if a warning
+                        about unarchived documents has been given.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}BalanceWarning"></a><h3>BalanceWarning</h3>
+         <p>This contains a warning that the Archive Balances process has found documents for
+            that year which have not yet been archived.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Reason</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Reason" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Reason">Reason</a></td>
+                     <td>The reason why this warning message is sent.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}ArchiveRecovery"></a><h3>ArchiveRecovery</h3>
+         <p>Contains information on whether the Archive process has failed and needs to be recovered.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>RecoveryNeeded</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtARCRecoveryNeeded" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtARCRecoveryNeeded">typeCtARCRecoveryNeeded</a></td>
+                     <td>States whether the process has crashed and needs to be recovered.</td>
+                  </tr>
+                  <tr>
+                     <td>RecoveryPermitted</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If true, indicates that the Archive process should be restarted to clean up any errors
+                        in the data following a failure.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}ArchiveDocumentsInformation"></a><h3>ArchiveDocumentsInformation</h3>
+         <p>This element holds information about archiving documents, and the state of the data
+            during an Archive process.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Params</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}ArchiveDocumentsParams" href="#{http://www.coda.com/efinance/schemas/archive}ArchiveDocumentsParams">ArchiveDocumentsParams</a></td>
+                     <td>This element contains the parameters for the archive process.</td>
+                  </tr>
+                  <tr>
+                     <td>CurrentState</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtArchiveState" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtArchiveState">typeCtArchiveState</a></td>
+                     <td>The current status of the archive process.</td>
+                  </tr>
+                  <tr>
+                     <td>ExternalArchive</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE specifies that this is an external archive.</td>
+                  </tr>
+                  <tr>
+                     <td>HasJournals</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE specifies that archive journals will be produced.</td>
+                  </tr>
+                  <tr>
+                     <td>DefaultMissingDates</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}ArchiveDateRange" href="#{http://www.coda.com/efinance/schemas/archive}ArchiveDateRange">ArchiveDateRange</a></td>
+                     <td>Contains a range of dates between which missing documents will be archived.</td>
+                  </tr>
+                  <tr>
+                     <td>SingleYear</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The year for which documents are archived, if the archive is for a single year. Leave
+                        blank to include more than a single year.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ArchiveUserCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the user initiating the archive process.</td>
+                  </tr>
+                  <tr>
+                     <td>Recovery</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}ArchiveRecovery" href="#{http://www.coda.com/efinance/schemas/archive}ArchiveRecovery">ArchiveRecovery</a></td>
+                     <td>Contains information on whether the Archive process has failed and needs to be recovered.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}ArchiveLoadUnloadSelectionParams"></a><h3>ArchiveLoadUnloadSelectionParams</h3>
+         <p>This element holds the parameters for loading or unloading archive documents.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ArchiveHeaderMasterKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>A generic key consisting of the company code and the archive header master code.</td>
+                  </tr>
+                  <tr>
+                     <td>Year</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The year of the archived documents being loaded or unloaded.</td>
+                  </tr>
+                  <tr>
+                     <td>FromPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriods" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriods">typePeriods</a></td>
+                     <td>The first period for which you want to load or unload archived documents.</td>
+                  </tr>
+                  <tr>
+                     <td>ToPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriods" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriods">typePeriods</a></td>
+                     <td>The last period for which you want to load or unload archived documents.</td>
+                  </tr>
+                  <tr>
+                     <td>DocumentCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeWild" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeWild">typeCodeWild</a></td>
+                     <td>The code of the archived documents that you want to load or unload. You can use wildcards.</td>
+                  </tr>
+                  <tr>
+                     <td>FromDocumentNumber</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNum" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNum">typeDocNum</a></td>
+                     <td>The first document number in the range of archived documents that you want to load
+                        or unload.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ToDocumentNumber</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNum" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNum">typeDocNum</a></td>
+                     <td>The last document number in the range of archived documents that you want to load
+                        or unload.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}ArchiveRunTime"></a><h3>ArchiveRunTime</h3>
+         <p>This element contains the accumulated run time since the archive process began.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Days</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The number of days the archive process has been running so far.</td>
+                  </tr>
+                  <tr>
+                     <td>Hours</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The number of hours the archive process has been running so far.</td>
+                  </tr>
+                  <tr>
+                     <td>Minutes</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}short" href="http://www.w3.org/TR/xmlschema11-2/#short">short</a></td>
+                     <td>The number of minutes the archive process has been running so far.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}ArchiveMonitor"></a><h3>ArchiveMonitor</h3>
+         <p>This element holds information about the progress of the archive process.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ArchiveHeaderMasterKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>A generic key consisting of the company code and the archive header master code.</td>
+                  </tr>
+                  <tr>
+                     <td>ExternalArchive</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE specifies that this is an external archive.</td>
+                  </tr>
+                  <tr>
+                     <td>FromPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                     <td>The first year/period for which documents are being archived.</td>
+                  </tr>
+                  <tr>
+                     <td>ToPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                     <td>The last year/period for which documents are being archived.</td>
+                  </tr>
+                  <tr>
+                     <td>LastDocumentCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the most recent document to be processed.</td>
+                  </tr>
+                  <tr>
+                     <td>LastDocumentNumber</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNum" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNum">typeDocNum</a></td>
+                     <td>The number of the most recent document to be processed.</td>
+                  </tr>
+                  <tr>
+                     <td>LastDocumentCount</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}integer" href="http://www.w3.org/TR/xmlschema11-2/#integer">integer</a></td>
+                     <td>The number of documents archived so far.</td>
+                  </tr>
+                  <tr>
+                     <td>LastJournalCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the most recent journal written.</td>
+                  </tr>
+                  <tr>
+                     <td>LastJournalNumber</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeDocNum" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeDocNum">typeDocNum</a></td>
+                     <td>The number of the most recent journal written.</td>
+                  </tr>
+                  <tr>
+                     <td>LastJournalCount</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}integer" href="http://www.w3.org/TR/xmlschema11-2/#integer">integer</a></td>
+                     <td>The number of journals written so far.</td>
+                  </tr>
+                  <tr>
+                     <td>RunTime</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}ArchiveRunTime" href="#{http://www.coda.com/efinance/schemas/archive}ArchiveRunTime">ArchiveRunTime</a></td>
+                     <td>This element contains the accumulated run time since the archive process began.</td>
+                  </tr>
+                  <tr>
+                     <td>CurrentState</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtArchiveState" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtArchiveState">typeCtArchiveState</a></td>
+                     <td>The current status of the archive process, for example 'Selecting documents'.</td>
+                  </tr>
+                  <tr>
+                     <td>Paused</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE indicates that the archive process has paused.</td>
+                  </tr>
+                  <tr>
+                     <td>LogID</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The identifier for the log containing details of the Archive process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}StartArchivingDocumentsRequest"></a><h3>StartArchivingDocumentsRequest</h3>
+         <p>The StartArchivingDocumentsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ArchiveDocumentsParams</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}ArchiveDocumentsParams" href="#{http://www.coda.com/efinance/schemas/archive}ArchiveDocumentsParams">ArchiveDocumentsParams</a></td>
+                     <td>Contains the parameters for starting the Archive Documents process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}StartArchivingDocumentsRequestVerb"></a><h3>StartArchivingDocumentsRequestVerb</h3>
+         <p>The StartArchivingDocumentsRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Starts the Archive Documents process.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}StartArchivingDocumentsRequest" href="#{http://www.coda.com/efinance/schemas/archive}StartArchivingDocumentsRequest">StartArchivingDocumentsRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}StartArchivingDocumentsResponse"></a><h3>StartArchivingDocumentsResponse</h3>
+         <p>The StartArchivingDocumentsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which you are attempting to archive documents.</td>
+                  </tr>
+                  <tr>
+                     <td>ArchiveHeaderMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the archive header master you are using to archive documents.</td>
+                  </tr>
+                  <tr>
+                     <td>BalanceWarning</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}BalanceWarning" href="#{http://www.coda.com/efinance/schemas/archive}BalanceWarning">BalanceWarning</a></td>
+                     <td>A warning that not all documents for the year have been archived. Archive Documents
+                        should be run before archiving balances.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ProgressKey</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>The key, or special reference, given to you for requesting information about the progress
+                        of Archive Documents.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}StartArchivingDocumentsResponseVerb"></a><h3>StartArchivingDocumentsResponseVerb</h3>
+         <p>The StartArchivingDocumentsResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}StartArchivingDocumentsResponse" href="#{http://www.coda.com/efinance/schemas/archive}StartArchivingDocumentsResponse">StartArchivingDocumentsResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}GetArchiveDocumentsInformationRequest"></a><h3>GetArchiveDocumentsInformationRequest</h3>
+         <p>The GetArchiveDocumentsInformationRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ArchiveHeaderMasterKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>Contains the key identifying the archive header master you want to use for archiving
+                        documents.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}GetArchiveDocumentsInformationRequestVerb"></a><h3>GetArchiveDocumentsInformationRequestVerb</h3>
+         <p>The GetArchiveDocumentsInformationRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves default parameters and current status for the Archive Documents process
+            (prior to starting Archive Documents).
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}GetArchiveDocumentsInformationRequest" href="#{http://www.coda.com/efinance/schemas/archive}GetArchiveDocumentsInformationRequest">GetArchiveDocumentsInformationRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}GetArchiveDocumentsInformationResponse"></a><h3>GetArchiveDocumentsInformationResponse</h3>
+         <p>The GetArchiveDocumentsInformationResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which the Archive process is running.</td>
+                  </tr>
+                  <tr>
+                     <td>ArchiveHeaderMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the header master being used to archive documents.</td>
+                  </tr>
+                  <tr>
+                     <td>ArchiveDocumentsInformation</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}ArchiveDocumentsInformation" href="#{http://www.coda.com/efinance/schemas/archive}ArchiveDocumentsInformation">ArchiveDocumentsInformation</a></td>
+                     <td>Contains the default parameters and current status for the Archive Documents process.
+                        The parameters can be edited if required.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}GetArchiveDocumentsInformationResponseVerb"></a><h3>GetArchiveDocumentsInformationResponseVerb</h3>
+         <p>The GetArchiveDocumentsInformationResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}GetArchiveDocumentsInformationResponse" href="#{http://www.coda.com/efinance/schemas/archive}GetArchiveDocumentsInformationResponse">GetArchiveDocumentsInformationResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}ProgressResponse"></a><h3>ProgressResponse</h3>
+         <p>The ProgressResponse type has <a title="{http://www.coda.com/efinance/schemas/progress}progressGetResponse" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}progressGetResponse">progressGetResponse</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ArchiveMonitor</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}ArchiveMonitor" href="#{http://www.coda.com/efinance/schemas/archive}ArchiveMonitor">ArchiveMonitor</a></td>
+                     <td>Contains details of the progress made by the Archive process.</td>
+                  </tr>
+                  <tr>
+                     <td>Error</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}EmbeddedReason" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}EmbeddedReason">EmbeddedReason</a></td>
+                     <td>Contains information about an error that occurred.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}ProgressResponseVerb"></a><h3>ProgressResponseVerb</h3>
+         <p>The ProgressResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}ProgressResponse" href="#{http://www.coda.com/efinance/schemas/archive}ProgressResponse">ProgressResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}RestartRequest"></a><h3>RestartRequest</h3>
+         <p>The RestartRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ArchiveHeaderMasterKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                     <td>Contains the key identifying the archive header master you want to use to restart
+                        the Archive process.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}RestartRequestVerb"></a><h3>RestartRequestVerb</h3>
+         <p>The RestartRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Restarts an Archive process which has failed. You need to send this request if the
+            response in the Recovery section of GetArchiveDocumentsInformation advises that the
+            process has     failed.    
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}RestartRequest" href="#{http://www.coda.com/efinance/schemas/archive}RestartRequest">RestartRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}RestartResponse"></a><h3>RestartResponse</h3>
+         <p>The RestartResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which you attempted to restart a failed Archive process.</td>
+                  </tr>
+                  <tr>
+                     <td>ArchiveHeaderMasterCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the archive header master you specified for the restarted Archive process.</td>
+                  </tr>
+                  <tr>
+                     <td>ProgressKey</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                     <td>The key, or special reference, given to you for requesting information about the progress
+                        of the Archive process.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}RestartResponseVerb"></a><h3>RestartResponseVerb</h3>
+         <p>The RestartResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}RestartResponse" href="#{http://www.coda.com/efinance/schemas/archive}RestartResponse">RestartResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}ArchiveRequest"></a><h3>ArchiveRequest</h3>
+         <p>The ArchiveRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to run and monitor Archive functions.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>StartArchivingDocuments</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}StartArchivingDocumentsRequestVerb" href="#{http://www.coda.com/efinance/schemas/archive}StartArchivingDocumentsRequestVerb">StartArchivingDocumentsRequestVerb</a></td>
+                     <td>Starts the Archive Documents process.</td>
+                  </tr>
+                  <tr>
+                     <td>GetArchiveDocumentsInformation</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}GetArchiveDocumentsInformationRequestVerb" href="#{http://www.coda.com/efinance/schemas/archive}GetArchiveDocumentsInformationRequestVerb">GetArchiveDocumentsInformationRequestVerb</a></td>
+                     <td>Retrieves default parameters and current status for the Archive Documents process
+                        (prior to starting Archive Documents).
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Abort</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressAbortRequestVerb" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}progressAbortRequestVerb">progressAbortRequestVerb</a></td>
+                     <td>Stops the Archive process, which cannot then be restarted.</td>
+                  </tr>
+                  <tr>
+                     <td>Pause</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressPauseRequestVerb" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}progressPauseRequestVerb">progressPauseRequestVerb</a></td>
+                     <td>Pauses the Archive process.</td>
+                  </tr>
+                  <tr>
+                     <td>Resume</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressResumeRequestVerb" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}progressResumeRequestVerb">progressResumeRequestVerb</a></td>
+                     <td>Resumes an Archive process which you have paused.</td>
+                  </tr>
+                  <tr>
+                     <td>GetProgress</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressGetRequestVerb" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}progressGetRequestVerb">progressGetRequestVerb</a></td>
+                     <td>Retrieves information on the progress of the Archive process. You need the key, or
+                        special reference, given to you for the process you started.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Restart</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}RestartRequestVerb" href="#{http://www.coda.com/efinance/schemas/archive}RestartRequestVerb">RestartRequestVerb</a></td>
+                     <td>Restarts an Archive process which has failed. You need to send this request if the
+                        response in the Recovery section of GetArchiveDocumentsInformation advises that the
+                        process         has failed.        
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/archive}ArchiveResponse"></a><h3>ArchiveResponse</h3>
+         <p>The ArchiveResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you run and monitor Archive functions.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>StartArchivingDocuments</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}StartArchivingDocumentsResponseVerb" href="#{http://www.coda.com/efinance/schemas/archive}StartArchivingDocumentsResponseVerb">StartArchivingDocumentsResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetArchiveDocumentsInformation</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}GetArchiveDocumentsInformationResponseVerb" href="#{http://www.coda.com/efinance/schemas/archive}GetArchiveDocumentsInformationResponseVerb">GetArchiveDocumentsInformationResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Abort</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressAbortResponseVerb" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}progressAbortResponseVerb">progressAbortResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Pause</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressPauseResponseVerb" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}progressPauseResponseVerb">progressPauseResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Resume</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/progress}progressResumeResponseVerb" href="../progress/progress.html#{http://www.coda.com/efinance/schemas/progress}progressResumeResponseVerb">progressResumeResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>GetProgress</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}ProgressResponseVerb" href="#{http://www.coda.com/efinance/schemas/archive}ProgressResponseVerb">ProgressResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Restart</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/archive}RestartResponseVerb" href="#{http://www.coda.com/efinance/schemas/archive}RestartResponseVerb">RestartResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

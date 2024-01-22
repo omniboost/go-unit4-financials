@@ -1,0 +1,1474 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-PIMBrowseService">
+            <h1>PIMBrowseService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/pim/schemas/browse/pimbrowse-11.3/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/pim-browse-pimbrowse.wsdl" download="">pim-browse-pimbrowse.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/pim/browse/pimbrowse-11.3</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#PIMBrowseService-EmailSnapshot">EmailSnapshot</a></li>
+               <li><a href="#PIMBrowseService-ExplodeDocument">ExplodeDocument</a></li>
+               <li><a href="#PIMBrowseService-GetBrowseTransactionsPresenter">GetBrowseTransactionsPresenter</a></li>
+               <li><a href="#PIMBrowseService-GetCategories">GetCategories</a></li>
+               <li><a href="#PIMBrowseService-GetCollationProperties">GetCollationProperties</a></li>
+               <li><a href="#PIMBrowseService-GetDocumentAttachments">GetDocumentAttachments</a></li>
+               <li><a href="#PIMBrowseService-GetDocumentChain">GetDocumentChain</a></li>
+               <li><a href="#PIMBrowseService-GetDocumentComments">GetDocumentComments</a></li>
+               <li><a href="#PIMBrowseService-GetLrnCodes">GetLrnCodes</a></li>
+               <li><a href="#PIMBrowseService-GetSelectableDataViews">GetSelectableDataViews</a></li>
+               <li><a href="#PIMBrowseService-GetSelectorMaster">GetSelectorMaster</a></li>
+               <li><a href="#PIMBrowseService-GetValidationWorkflowIds">GetValidationWorkflowIds</a></li>
+               <li><a href="#PIMBrowseService-GetWorkflowIds">GetWorkflowIds</a></li>
+               <li><a href="#PIMBrowseService-PostDocument">PostDocument</a></li>
+               <li><a href="#PIMBrowseService-Select">Select</a></li>
+               <li><a href="#PIMBrowseService-SelectSummary">SelectSummary</a></li>
+               <li><a href="#PIMBrowseService-SelectTransactions">SelectTransactions</a></li>
+               <li><a href="#PIMBrowseService-SetDocumentComments">SetDocumentComments</a></li>
+               <li><a href="#PIMBrowseService-SupplierStatistics">SupplierStatistics</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-EmailSnapshot"></a>EmailSnapshot
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>EmailSnapshotRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>TransportMasterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the message
+                                 transport master that will be used to e-mail
+                                 the snapshot.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Recipients</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}RecipientList" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}RecipientList">RecipientList</a></td>
+                              <td>The list of Coda users who
+                                 will receive the snapshot.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Subject</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextfieldb" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextfieldb">typeTextfieldb</a></td>
+                              <td>The subject that will appear
+                                 on the e-mail.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Priority</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/common}typePimBrsEmailPriority" href="pim/common/common.html#{http://www.coda.com/pim/schemas/common}typePimBrsEmailPriority">typePimBrsEmailPriority</a></td>
+                              <td>The priority that the e-mail
+                                 will take.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Content</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMultitextb" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMultitextb">typeMultitextb</a></td>
+                              <td>The message that will appear
+                                 in the e-mail.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SnapshotFilename</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The filename of the
+                                 snapshot's .html file.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Snapshot</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The snapshot data.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>EmailSnapshotResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SuccessfulRecipients</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}RecipientList" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}RecipientList">RecipientList</a></td>
+                              <td>This element contains a list
+                                 of Coda users to whom the snapshot was
+                                 e-mailed successfully.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>FailedRecipients</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}RecipientList" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}RecipientList">RecipientList</a></td>
+                              <td>This element contains a list
+                                 of Coda users to whom the snapshot was
+                                 e-mailed unsuccessfully.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-ExplodeDocument"></a>ExplodeDocument
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ExplodeDocumentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}DocumentKey" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}DocumentKey">DocumentKey</a></td>
+                              <td>Contains key information
+                                 identifying the document you want to explode.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>BrowseReportMaster</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browsereportmaster}BrowseReportMaster" href="pim/browsereportmaster/browsereportmaster.html#{http://www.coda.com/pim/schemas/browsereportmaster}BrowseReportMaster">BrowseReportMaster</a></td>
+                              <td>The browse report master to
+                                 use to govern the explosion.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LinesPresenter</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeB">typeCodeB</a></td>
+                              <td>The presenter to use to
+                                 display document line details in the
+                                 exploded view.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>MLinePresenter</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCodeB">typeCodeB</a></td>
+                              <td>The presenter to use to
+                                 display M lines (posting lines) in the
+                                 exploded view.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ExplodeDocumentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ExplodeDocument</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}DocumentExplosion" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}DocumentExplosion">DocumentExplosion</a></td>
+                              <td>This element contains the
+                                 exploded document details.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LinesPresenter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                              <td>The presenter used to display
+                                 document line details in the exploded view.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>MLinePresenter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                              <td>The presenter used to display
+                                 M lines (posting lines) in the exploded view.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}DocumentKey" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}DocumentKey">DocumentKey</a></td>
+                              <td>This element contains the
+                                 document key information supplied in the
+                                 ExplodeDocument request corresponding to
+                                 this response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DisplayKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The display version of the
+                                 document key.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-GetBrowseTransactionsPresenter"></a>GetBrowseTransactionsPresenter
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetBrowseTransactionsPresenterRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>BrowseReportMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browsereportmaster}BrowseReportMaster" href="pim/browsereportmaster/browsereportmaster.html#{http://www.coda.com/pim/schemas/browsereportmaster}BrowseReportMaster">BrowseReportMaster</a></td>
+                              <td>The browse report master that
+                                 you want to report on.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CategoryId</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The category whose presenter
+                                 master you wish to retrieve.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetBrowseTransactionsPresenterResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Presenter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/presenter}Presenter" href="finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}Presenter">Presenter</a></td>
+                              <td>This element contains the
+                                 presenter used for the category identified
+                                 in the corresponding request.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-GetCategories"></a>GetCategories
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetCategoriesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>BrowseReportMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browsereportmaster}BrowseReportMaster" href="pim/browsereportmaster/browsereportmaster.html#{http://www.coda.com/pim/schemas/browsereportmaster}BrowseReportMaster">BrowseReportMaster</a></td>
+                              <td>The browse report master that
+                                 you want to report on.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RestrictToSupported</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Indicates whether to restrict
+                                 the request to those categories that have
+                                 document mappings specified on the browse
+                                 report master.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetCategoriesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Categories</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}CategoryList" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}CategoryList">CategoryList</a></td>
+                              <td>This element contains a list
+                                 of document categories associated with the
+                                 specified browse report master.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-GetCollationProperties"></a>GetCollationProperties
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>This method has no input parameters.
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetCollationPropertiesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>GetCollationProperties</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}CollationProperties" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}CollationProperties">CollationProperties</a></td>
+                              <td>This element contains a
+                                 sequence of collatable vocabs, one for each
+                                 document type.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-GetDocumentAttachments"></a>GetDocumentAttachments
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDocumentAttachmentsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Document</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}DocumentKey" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}DocumentKey">DocumentKey</a></td>
+                              <td>Contains key information
+                                 identifying the document whose attachments
+                                 you want to retrieve.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDocumentAttachmentsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Attachments</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/attachment}AttachmentList" href="common/attachment/attachment.html#{http://www.coda.com/common/schemas/attachment}AttachmentList">AttachmentList</a></td>
+                              <td>This element contains the
+                                 attachments held on the specified document.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-GetDocumentChain"></a>GetDocumentChain
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDocumentChainRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Anchor</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}DocumentKey" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}DocumentKey">DocumentKey</a></td>
+                              <td>Contains key information
+                                 identifying the document whose chain of
+                                 documents you want to retrieve.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDocumentChainResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>GetDocumentChain</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}DocumentChainNode" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}DocumentChainNode">DocumentChainNode</a></td>
+                              <td>This element contains
+                                 document chain details, including documents
+                                 both upstream and downstream of the
+                                 specified document.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Anchor</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}DocumentKey" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}DocumentKey">DocumentKey</a></td>
+                              <td>This element contains the key
+                                 information supplied in the GetDocumentChain
+                                 request corresponding to this response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-GetDocumentComments"></a>GetDocumentComments
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetDocumentCommentsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Document</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}DocumentKey" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}DocumentKey">DocumentKey</a></td>
+                              <td>Contains key information
+                                 identifying the document whose comments you
+                                 want to retrieve.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetDocumentCommentsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Comments</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/comment}CommentList" href="pim/comment/comment.html#{http://www.coda.com/pim/schemas/comment}CommentList">CommentList</a></td>
+                              <td>This element contains the
+                                 comments held on the specified document.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-GetLrnCodes"></a>GetLrnCodes
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetLrnCodesRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Filter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The filter to use to retrieve
+                                 the document codes.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RowLimit</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The maximum number of lines
+                                 that can be retrieved.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetLrnCodesResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LrnCodes</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browsereportmaster}DocumentCodesDocumentCodeList" href="pim/browsereportmaster/browsereportmaster.html#{http://www.coda.com/pim/schemas/browsereportmaster}DocumentCodesDocumentCodeList">DocumentCodesDocumentCodeList</a></td>
+                              <td>This element contains a list
+                                 of the document master codes being used for
+                                 LRN documents.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-GetSelectableDataViews"></a>GetSelectableDataViews
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>This method has no input parameters.
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetSelectableDataViewsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>DataViews</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}DataViewList" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}DataViewList">DataViewList</a></td>
+                              <td>This element contains the
+                                 list of dataviews returned by the request
+                                 corresponding to this response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-GetSelectorMaster"></a>GetSelectorMaster
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetSelectorMasterRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>BrowseReportMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browsereportmaster}BrowseReportMaster" href="pim/browsereportmaster/browsereportmaster.html#{http://www.coda.com/pim/schemas/browsereportmaster}BrowseReportMaster">BrowseReportMaster</a></td>
+                              <td>The browse report master that
+                                 you want to report on.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>CategoryId</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextAnyDb" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextAnyDb">typeTextAnyDb</a></td>
+                              <td>The category whose selector
+                                 master you wish to retrieve.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetSelectorMasterResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelectorMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>This element contains the
+                                 selector used for the category identified in
+                                 the corresponding request.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-GetValidationWorkflowIds"></a>GetValidationWorkflowIds
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetValidationWorkflowIdsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Document</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}DocumentKey" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}DocumentKey">DocumentKey</a></td>
+                              <td>Contains key information
+                                 identifying the document whose invoice
+                                 validation workflow instance IDs you want to retrieve.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetValidationWorkflowIdsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Ids</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/workflowselection}WorkflowIds" href="common/workflowselection/workflowselection.html#{http://www.coda.com/common/schemas/workflowselection}WorkflowIds">WorkflowIds</a></td>
+                              <td>This element contains the
+                                 list of invoice validation workflow instance
+                                 IDs associated with the specified document.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DisplayKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The display version of the
+                                 document key.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-GetWorkflowIds"></a>GetWorkflowIds
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetWorkflowIdsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Document</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}DocumentKey" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}DocumentKey">DocumentKey</a></td>
+                              <td>Contains key information
+                                 identifying the document whose workflow
+                                 instance IDs you want to retrieve.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetWorkflowIdsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Ids</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/common/schemas/workflowselection}WorkflowIds" href="common/workflowselection/workflowselection.html#{http://www.coda.com/common/schemas/workflowselection}WorkflowIds">WorkflowIds</a></td>
+                              <td>This element contains the
+                                 list of workflow instance IDs associated
+                                 with the specified document.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DisplayKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The display version of the
+                                 document key.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-PostDocument"></a>PostDocument
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>PostDocumentRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>DocumentKeyList</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}DocumentKeyList" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}DocumentKeyList">DocumentKeyList</a></td>
+                              <td>Contains key information
+                                 identifying the documents to be posted.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>BrowseMasterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code of the browse report
+                                 master you want to use.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>PostDocumentResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>successCount</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeLong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLong">typeLong</a></td>
+                              <td>This element contains a count
+                                 of the number of documents that posted successfully.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>failCount</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeLong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeLong">typeLong</a></td>
+                              <td>This element contains a count
+                                 of the number of documents that failed to post.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>logTitle</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/common}typePimLogtitle" href="pim/common/common.html#{http://www.coda.com/pim/schemas/common}typePimLogtitle">typePimLogtitle</a></td>
+                              <td>This element contains the
+                                 title of the log file that recorded the
+                                 posting details.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-Select"></a>Select
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>SelType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorType" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorType">SelectorType</a></td>
+                              <td>Used internally by XL for
+                                 Invoice Matching.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>GslCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                              <td>Used internally by XL for
+                                 Invoice Matching.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RowLimit</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                              <td>Used internally by XL for
+                                 Invoice Matching.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ApplicationFilters</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}VocListDataList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}VocListDataList">VocListDataList</a></td>
+                              <td>Used internally by XL for
+                                 Invoice Matching.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>UserFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>Used internally by XL for
+                                 Invoice Matching.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Columns</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                              <td>Used internally by XL for
+                                 Invoice Matching.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Selection</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>This element contains the
+                                 selected data.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-SelectSummary"></a>SelectSummary
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectSummaryRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>BrowseReportMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browsereportmaster}BrowseReportMaster" href="pim/browsereportmaster/browsereportmaster.html#{http://www.coda.com/pim/schemas/browsereportmaster}BrowseReportMaster">BrowseReportMaster</a></td>
+                              <td>The browse report master you
+                                 want to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SupplierCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code of the supplier
+                                 whose transactions you want to browse.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>YearPeriodFrom</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                              <td>Restrict the summary to
+                                 documents with         year/period on or
+                                 after this.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>YearPeriodTo</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                              <td>Restrict the summary to
+                                 documents with         year/period on or
+                                 before this.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>PrimaryCategory</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>Use this as the primary
+                                 category. This         category will be used
+                                 to determine the set of suppliers
+                                 considered for all other         categories.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RowLimit</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                              <td>The maximum number of lines
+                                 that can be retrieved.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Selector</td>
+                              <td>0</td>
+                              <td>unbounded</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>The selector masters to use.
+                                 If supplied, these override the default
+                                 selectors on the browse report master.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectSummaryResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>DateFrom</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeHardTime" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeHardTime">typeHardTime</a></td>
+                              <td>The date of the earliest
+                                 document included in the selection (based on
+                                 document date).
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DateTo</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeHardTime" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeHardTime">typeHardTime</a></td>
+                              <td>The date of the latest
+                                 document included in the selection (based on
+                                 document date).
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>YearPeriodFrom</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                              <td>The year/period from which
+                                 the selection started.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>YearPeriodTo</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                              <td>The year/period at which the
+                                 selection ended.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Summary</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}SummaryRowList" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}SummaryRowList">SummaryRowList</a></td>
+                              <td>This element contains the
+                                 supplier summaries retrieved by the selection.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectorByCategory</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}SelectorByCategoryList" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}SelectorByCategoryList">SelectorByCategoryList</a></td>
+                              <td>The selector code for each category.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-SelectTransactions"></a>SelectTransactions
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SelectTransactionsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>BrowseReportMaster</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browsereportmaster}BrowseReportMaster" href="pim/browsereportmaster/browsereportmaster.html#{http://www.coda.com/pim/schemas/browsereportmaster}BrowseReportMaster">BrowseReportMaster</a></td>
+                              <td>The browse report master you
+                                 want to use.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SupplierCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code of the supplier
+                                 whose transactions you want to browse.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>YearPeriodFrom</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                              <td>Restrict the summary to
+                                 documents with         year/period on or
+                                 after this.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>YearPeriodTo</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typePeriod" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typePeriod">typePeriod</a></td>
+                              <td>Restrict the summary to
+                                 documents with         year/period on or
+                                 before this.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DocumentType</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The type of document that you
+                                 wish to browse.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Category</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The category of documents
+                                 that will be presented initially if supplier
+                                 summary is suppressed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RowLimit</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                              <td>The maximum number of rows to
+                                 be         returned in the summary.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Selector</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                              <td>The selector masters to use.
+                                 If supplied, these override the default
+                                 selectors on the browse report master.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SelectTransactionsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Transactions</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>This element contains the
+                                 selected transaction data.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>TransactionInfo</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}TransactionInfoList" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}TransactionInfoList">TransactionInfoList</a></td>
+                              <td>This element contains
+                                 information about each of the selected transactions.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SupplierCodeVocab</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                              <td>The vocabulary used for the
+                                 supplier code.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-SetDocumentComments"></a>SetDocumentComments
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SetDocumentCommentsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Document</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}DocumentKey" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}DocumentKey">DocumentKey</a></td>
+                              <td>Contains key information
+                                 identifying the document to which you want
+                                 to add a comment.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Comments</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/comment}CommentList" href="pim/comment/comment.html#{http://www.coda.com/pim/schemas/comment}CommentList">CommentList</a></td>
+                              <td>This element contains the
+                                 comments that you want to add to the
+                                 specified document.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>This method returns no data.
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="PIMBrowseService-SupplierStatistics"></a>SupplierStatistics
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>SupplierStatisticsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code of the company in
+                                 which the supplier exists.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SupplierCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code of the supplier
+                                 whose statistics you want to retrieve.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>SupplierStatisticsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CompanyCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The code of the company in
+                                 which the supplier exists.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SupplierCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                              <td>The supplier code.</td>
+                           </tr>
+                           <tr>
+                              <td>Statistics</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/pim/schemas/browse}SupplierStatistics" href="pim/browse/browse.html#{http://www.coda.com/pim/schemas/browse}SupplierStatistics">SupplierStatistics</a></td>
+                              <td>Contains the statistics
+                                 retrieved for this supplier.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

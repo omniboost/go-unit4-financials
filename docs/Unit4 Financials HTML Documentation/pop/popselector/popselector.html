@@ -1,0 +1,1584 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/pop/schemas/popselector</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/pop/schemas/popselector</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>POPSelectorMasterRequest</h3>
+         <p>This service allows you to maintain selector masters.</p>
+         <h3>POPSelectorMasterResponse</h3>
+         <p>This is the response that is returned when you maintain selector masters.</p>
+         <h3>POPSelectorRequest</h3>
+         <p>This service allows you to retrieve data according to selection criteria that you
+            specify
+         </p>
+         <h3>POPSelectorResponse</h3>
+         <p>This service holds the response to your request to retrieve data according to the
+            selection criteria that you specified.
+         </p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/pop/schemas/popselector}PopSelectionCount"></a><h3>PopSelectionCount</h3>
+         <p>This element holds information about the data returned by a selector.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorType" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorType">SelectorType</a></td>
+                     <td>Indicates the type of selector: the data class you are using, and the source of the
+                        data, retrieved from Books, Intray, Archive or Self.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Header</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}SelectionRow" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}SelectionRow">SelectionRow</a></td>
+                     <td>Contains vocabulary items (representing columns) for the display of data, which is
+                        determined by the display criteria in the presenter master which was specified. Only
+                        those vocabulary items included in the presenter are used in the header.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Count</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number of rows returned.</td>
+                  </tr>
+                  <tr>
+                     <td>RowLimitExceeded</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>If TRUE, specifies that the data returned is subject to a limit, since the response
+                        to your selection criteria exceeded the allowed number of rows.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}VocabKeys"></a><h3>VocabKeys</h3>
+         <p>The fields used to filter the data that was returned.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>KeyVocabs</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                     <td>The vocabulary items used in the filter list.</td>
+                  </tr>
+                  <tr>
+                     <td>KeyFields</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                     <td>The values used in the filter list.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}PopSelection"></a><h3>PopSelection</h3>
+         <p>The selection criteria.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                     <td>The selection criteria.</td>
+                  </tr>
+                  <tr>
+                     <td>KeyFields</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}VocabKeys" href="#{http://www.coda.com/pop/schemas/popselector}VocabKeys">VocabKeys</a></td>
+                     <td>The fields used to filter the data that was returned.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectCountRequest"></a><h3>SelectCountRequest</h3>
+         <p>The SelectCountRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>     The select count function.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelectionType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorType" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorType">SelectorType</a></td>
+                     <td>Specifies the source of the data from which the selection is made. The data source
+                        is determined by the combination of data class and data location.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                     <td>The search criteria to be applied.</td>
+                  </tr>
+                  <tr>
+                     <td>DocType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocumentType" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocumentType">typePopDocumentType</a></td>
+                     <td>The type of document being selected.</td>
+                  </tr>
+                  <tr>
+                     <td>Function</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopProcesses" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopProcesses">typePopProcesses</a></td>
+                     <td>The process for which the data is being selected.</td>
+                  </tr>
+                  <tr>
+                     <td>ViewName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The dataview on which this selector is based.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectForBrowseRequest"></a><h3>SelectForBrowseRequest</h3>
+         <p>The SelectForBrowseRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>     The select function.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>ProcessMaster</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/processmaster}ProcessMaster" href="../processmaster/processmaster.html#{http://www.coda.com/pop/schemas/processmaster}ProcessMaster">ProcessMaster</a></td>
+                     <td>This element holds information about process masters.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectDocType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocumentType" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocumentType">typePopDocumentType</a></td>
+                     <td>The type of document being selected.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectForBrowseRequestVerb"></a><h3>SelectForBrowseRequestVerb</h3>
+         <p>The SelectForBrowseRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves data for browsing, using the selection criteria you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectForBrowseRequest" href="#{http://www.coda.com/pop/schemas/popselector}SelectForBrowseRequest">SelectForBrowseRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectForBrowseResponse"></a><h3>SelectForBrowseResponse</h3>
+         <p>The SelectForBrowseResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}PopSelection" href="#{http://www.coda.com/pop/schemas/popselector}PopSelection">PopSelection</a></td>
+                     <td>The data returned by the selector.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectForBrowseResponseVerb"></a><h3>SelectForBrowseResponseVerb</h3>
+         <p>The SelectForBrowseResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectForBrowseResponse" href="#{http://www.coda.com/pop/schemas/popselector}SelectForBrowseResponse">SelectForBrowseResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectRequest"></a><h3>SelectRequest</h3>
+         <p>The SelectRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>     The select function.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelectionType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorType" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorType">SelectorType</a></td>
+                     <td>Specifies the source of the data from which the selection is made. The data source
+                        is determined by the combination of data class and data location.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                     <td>The search criteria to be applied.</td>
+                  </tr>
+                  <tr>
+                     <td>Columns</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                     <td>The columns representing vocabulary items that you want the server to return.</td>
+                  </tr>
+                  <tr>
+                     <td>DocType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocumentType" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocumentType">typePopDocumentType</a></td>
+                     <td>The type of document being selected.</td>
+                  </tr>
+                  <tr>
+                     <td>Function</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopProcesses" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopProcesses">typePopProcesses</a></td>
+                     <td>The process for which the data is being selected.</td>
+                  </tr>
+                  <tr>
+                     <td>ViewName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The dataview on which this selector is based.</td>
+                  </tr>
+                  <tr>
+                     <td>ManipulateByList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/presenter}ManipulateByList" href="../../finance/presenter/presenter.html#{http://www.coda.com/efinance/schemas/presenter}ManipulateByList">ManipulateByList</a></td>
+                     <td>The sort order specified on the associated presenter master.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectAssociatedDocumentsRequest"></a><h3>SelectAssociatedDocumentsRequest</h3>
+         <p>The SelectAssociatedDocumentsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>     The select associated documents function.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CurrentDocumentType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocumentType" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocumentType">typePopDocumentType</a></td>
+                     <td>         The type of the current document.        </td>
+                  </tr>
+                  <tr>
+                     <td>Columns</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selector}CellList" href="../../finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}CellList">CellList</a></td>
+                     <td>The columns representing vocabulary items that you want the server to return.</td>
+                  </tr>
+                  <tr>
+                     <td>ViewName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The dataview on which this selector is based.</td>
+                  </tr>
+                  <tr>
+                     <td>CurrentDocumentKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/document}DocumentKey" href="../document/document.html#{http://www.coda.com/pop/schemas/document}DocumentKey">DocumentKey</a></td>
+                     <td>The key that identifies the current document.</td>
+                  </tr>
+                  <tr>
+                     <td>RequiredDocumentType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocumentType" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocumentType">typePopDocumentType</a></td>
+                     <td>The type of the associated document to be selected.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectCountRequestVerb"></a><h3>SelectCountRequestVerb</h3>
+         <p>The SelectCountRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>The request to the select function.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectCountRequest" href="#{http://www.coda.com/pop/schemas/popselector}SelectCountRequest">SelectCountRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectRequestVerb"></a><h3>SelectRequestVerb</h3>
+         <p>The SelectRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves data using the selection criteria you provide.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectRequest" href="#{http://www.coda.com/pop/schemas/popselector}SelectRequest">SelectRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectAssociatedDocumentsRequestVerb"></a><h3>SelectAssociatedDocumentsRequestVerb</h3>
+         <p>The SelectAssociatedDocumentsRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>This element holds the request that you send to the database to select associated
+            documents.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectAssociatedDocumentsRequest" href="#{http://www.coda.com/pop/schemas/popselector}SelectAssociatedDocumentsRequest">SelectAssociatedDocumentsRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectCountResponse"></a><h3>SelectCountResponse</h3>
+         <p>The SelectCountResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}PopSelectionCount" href="#{http://www.coda.com/pop/schemas/popselector}PopSelectionCount">PopSelectionCount</a></td>
+                     <td>The data returned by the selector.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectCountResponseVerb"></a><h3>SelectCountResponseVerb</h3>
+         <p>The SelectCountResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectCountResponse" href="#{http://www.coda.com/pop/schemas/popselector}SelectCountResponse">SelectCountResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectResponse"></a><h3>SelectResponse</h3>
+         <p>The SelectResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}PopSelection" href="#{http://www.coda.com/pop/schemas/popselector}PopSelection">PopSelection</a></td>
+                     <td>The data returned by the selector.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectResponseVerb"></a><h3>SelectResponseVerb</h3>
+         <p>The SelectResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectResponse" href="#{http://www.coda.com/pop/schemas/popselector}SelectResponse">SelectResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectAssociatedDocumentsResponse"></a><h3>SelectAssociatedDocumentsResponse</h3>
+         <p>The SelectAssociatedDocumentsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Selection</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}PopSelection" href="#{http://www.coda.com/pop/schemas/popselector}PopSelection">PopSelection</a></td>
+                     <td>The associated documents returned by the selector.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}SelectAssociatedDocumentsResponseVerb"></a><h3>SelectAssociatedDocumentsResponseVerb</h3>
+         <p>The SelectAssociatedDocumentsResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectAssociatedDocumentsResponse" href="#{http://www.coda.com/pop/schemas/popselector}SelectAssociatedDocumentsResponse">SelectAssociatedDocumentsResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}AddCommentRequest"></a><h3>AddCommentRequest</h3>
+         <p>The AddCommentRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>     The add comment request.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Comment</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>         The comment to add to the documents        </td>
+                  </tr>
+                  <tr>
+                     <td>DocumentKeyList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/document}DocumentKeyList" href="../document/document.html#{http://www.coda.com/pop/schemas/document}DocumentKeyList">DocumentKeyList</a></td>
+                     <td>The list of keys that identify the documents to which the comments are being added.</td>
+                  </tr>
+                  <tr>
+                     <td>DocumentType</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocumentType" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocumentType">typePopDocumentType</a></td>
+                     <td>The type of document to which the comments are being added.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}AddLineCommentRequest"></a><h3>AddLineCommentRequest</h3>
+         <p>The AddLineCommentRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>     The add comment request.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Comment</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The text of the comment.</td>
+                  </tr>
+                  <tr>
+                     <td>LineKeyList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/document}ItemLineKeyList" href="../document/document.html#{http://www.coda.com/pop/schemas/document}ItemLineKeyList">ItemLineKeyList</a></td>
+                     <td>The list of keys that identify the document lines to which the comments are being
+                        added.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DocType</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocumentType" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocumentType">typePopDocumentType</a></td>
+                     <td>The type of document to which the comments are being added.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}AddCommentRequestVerb"></a><h3>AddCommentRequestVerb</h3>
+         <p>The AddCommentRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Adds a comment to a list of documents.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddCommentRequest" href="#{http://www.coda.com/pop/schemas/popselector}AddCommentRequest">AddCommentRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}AddLineCommentRequestVerb"></a><h3>AddLineCommentRequestVerb</h3>
+         <p>The AddLineCommentRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Adds a comment to a list of document lines.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddLineCommentRequest" href="#{http://www.coda.com/pop/schemas/popselector}AddLineCommentRequest">AddLineCommentRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}AddCommentResponse"></a><h3>AddCommentResponse</h3>
+         <p>The AddCommentResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/pop/schemas/popselector}AddLineCommentResponse"></a><h3>AddLineCommentResponse</h3>
+         <p>The AddLineCommentResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/pop/schemas/popselector}AddCommentResponseVerb"></a><h3>AddCommentResponseVerb</h3>
+         <p>The AddCommentResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddCommentResponse" href="#{http://www.coda.com/pop/schemas/popselector}AddCommentResponse">AddCommentResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}AddLineCommentResponseVerb"></a><h3>AddLineCommentResponseVerb</h3>
+         <p>The AddLineCommentResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddLineCommentResponse" href="#{http://www.coda.com/pop/schemas/popselector}AddLineCommentResponse">AddLineCommentResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}AddCommentRFQRequest"></a><h3>AddCommentRFQRequest</h3>
+         <p>The AddCommentRFQRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>     The add comment request.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Comment</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The text of the comment.</td>
+                  </tr>
+                  <tr>
+                     <td>RequestForQuoteKeyList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/requestforquote}RequestForQuoteKeyList" href="../requestforquote/requestforquote.html#{http://www.coda.com/pop/schemas/requestforquote}RequestForQuoteKeyList">RequestForQuoteKeyList</a></td>
+                     <td>The list of keys that identify the document to which the comments are being added.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}AddLineCommentRFQRequest"></a><h3>AddLineCommentRFQRequest</h3>
+         <p>The AddLineCommentRFQRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>     The add comment request.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Comment</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The text of the comment.</td>
+                  </tr>
+                  <tr>
+                     <td>LineKeyList</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/requestforquote}ItemLineKeyList" href="../requestforquote/requestforquote.html#{http://www.coda.com/pop/schemas/requestforquote}ItemLineKeyList">ItemLineKeyList</a></td>
+                     <td>The list of keys that identify the document lines to which the comments are being
+                        added.
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}AddCommentRFQRequestVerb"></a><h3>AddCommentRFQRequestVerb</h3>
+         <p>The AddCommentRFQRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Adds a comment to a list of documents.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddCommentRFQRequest" href="#{http://www.coda.com/pop/schemas/popselector}AddCommentRFQRequest">AddCommentRFQRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}AddLineCommentRFQRequestVerb"></a><h3>AddLineCommentRFQRequestVerb</h3>
+         <p>The AddLineCommentRFQRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Adds a comment to a list of document lines.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddLineCommentRFQRequest" href="#{http://www.coda.com/pop/schemas/popselector}AddLineCommentRFQRequest">AddLineCommentRFQRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}AddCommentRFQResponse"></a><h3>AddCommentRFQResponse</h3>
+         <p>The AddCommentRFQResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/pop/schemas/popselector}AddLineCommentRFQResponse"></a><h3>AddLineCommentRFQResponse</h3>
+         <p>The AddLineCommentRFQResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p><a name="{http://www.coda.com/pop/schemas/popselector}AddCommentRFQResponseVerb"></a><h3>AddCommentRFQResponseVerb</h3>
+         <p>The AddCommentRFQResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddCommentRFQResponse" href="#{http://www.coda.com/pop/schemas/popselector}AddCommentRFQResponse">AddCommentRFQResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}AddLineCommentRFQResponseVerb"></a><h3>AddLineCommentRFQResponseVerb</h3>
+         <p>The AddLineCommentRFQResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddLineCommentRFQResponse" href="#{http://www.coda.com/pop/schemas/popselector}AddLineCommentRFQResponse">AddLineCommentRFQResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}CopyRequest"></a><h3>CopyRequest</h3>
+         <p>The CopyRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>     The copy document request.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DocumentKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/document}DocumentKey" href="../document/document.html#{http://www.coda.com/pop/schemas/document}DocumentKey">DocumentKey</a></td>
+                     <td>The key that identifies the document to be copied.</td>
+                  </tr>
+                  <tr>
+                     <td>DocumentType</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocumentType" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocumentType">typePopDocumentType</a></td>
+                     <td>The type of document to be copied.</td>
+                  </tr>
+                  <tr>
+                     <td>DocumentNumber</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocnum" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocnum">typePopDocnum</a></td>
+                     <td>The document number for the new document, if uncontrolled numbering is used.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}CopyRequestVerb"></a><h3>CopyRequestVerb</h3>
+         <p>The CopyRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Copies a document.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}CopyRequest" href="#{http://www.coda.com/pop/schemas/popselector}CopyRequest">CopyRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}CopyResponse"></a><h3>CopyResponse</h3>
+         <p>The CopyResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DocumentKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/document}DocumentKey" href="../document/document.html#{http://www.coda.com/pop/schemas/document}DocumentKey">DocumentKey</a></td>
+                     <td>The key that identifies the new document.</td>
+                  </tr>
+                  <tr>
+                     <td>DocumentType</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocumentType" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocumentType">typePopDocumentType</a></td>
+                     <td>The type of document that was copied.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}CopyResponseVerb"></a><h3>CopyResponseVerb</h3>
+         <p>The CopyResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}CopyResponse" href="#{http://www.coda.com/pop/schemas/popselector}CopyResponse">CopyResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}ListDataViewRequest"></a><h3>ListDataViewRequest</h3>
+         <p>The ListDataViewRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p>List.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>DataViewQuery</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/dataview}PickDataViewQuery" href="../../common/dataview/dataview.html#{http://www.coda.com/common/schemas/dataview}PickDataViewQuery">PickDataViewQuery</a></td>
+                     <td>A filter that selects the dataviews to be listed.</td>
+                  </tr>
+                  <tr>
+                     <td>DocumentType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocumentType" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocumentType">typePopDocumentType</a></td>
+                     <td>The type of document for which the dataviews are listed.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}ListDataViewRequestVerb"></a><h3>ListDataViewRequestVerb</h3>
+         <p>The ListDataViewRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Lists the dataviews available for a given document type.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}ListDataViewRequest" href="#{http://www.coda.com/pop/schemas/popselector}ListDataViewRequest">ListDataViewRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}ListDataViewResponse"></a><h3>ListDataViewResponse</h3>
+         <p>The ListDataViewResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>List</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/dataview}DataViewPickList" href="../../common/dataview/dataview.html#{http://www.coda.com/common/schemas/dataview}DataViewPickList">DataViewPickList</a></td>
+                     <td>The dataviews available for the given document type.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}ListDataViewResponseVerb"></a><h3>ListDataViewResponseVerb</h3>
+         <p>The ListDataViewResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}ListDataViewResponse" href="#{http://www.coda.com/pop/schemas/popselector}ListDataViewResponse">ListDataViewResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}POPSelectorRequest"></a><h3>POPSelectorRequest</h3>
+         <p>The POPSelectorRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to retrieve data according to selection criteria that you
+            specify
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelectCount</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectCountRequestVerb" href="#{http://www.coda.com/pop/schemas/popselector}SelectCountRequestVerb">SelectCountRequestVerb</a></td>
+                     <td>         The request to the select function.        </td>
+                  </tr>
+                  <tr>
+                     <td>Select</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectRequestVerb" href="#{http://www.coda.com/pop/schemas/popselector}SelectRequestVerb">SelectRequestVerb</a></td>
+                     <td>Retrieves data using the selection criteria you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectForBrowse</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectForBrowseRequestVerb" href="#{http://www.coda.com/pop/schemas/popselector}SelectForBrowseRequestVerb">SelectForBrowseRequestVerb</a></td>
+                     <td>Retrieves data for browsing, using the selection criteria you provide.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectAssociatedDocuments</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectAssociatedDocumentsRequestVerb" href="#{http://www.coda.com/pop/schemas/popselector}SelectAssociatedDocumentsRequestVerb">SelectAssociatedDocumentsRequestVerb</a></td>
+                     <td>This element holds the request that you send to the database to select associated
+                        documents.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>AddComment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddCommentRequestVerb" href="#{http://www.coda.com/pop/schemas/popselector}AddCommentRequestVerb">AddCommentRequestVerb</a></td>
+                     <td>Adds a comment to a list of documents.</td>
+                  </tr>
+                  <tr>
+                     <td>AddLineComment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddLineCommentRequestVerb" href="#{http://www.coda.com/pop/schemas/popselector}AddLineCommentRequestVerb">AddLineCommentRequestVerb</a></td>
+                     <td>Adds a comment to a list of document lines.</td>
+                  </tr>
+                  <tr>
+                     <td>Copy</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}CopyRequestVerb" href="#{http://www.coda.com/pop/schemas/popselector}CopyRequestVerb">CopyRequestVerb</a></td>
+                     <td>Copies a document.</td>
+                  </tr>
+                  <tr>
+                     <td>ListDataView</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}ListDataViewRequestVerb" href="#{http://www.coda.com/pop/schemas/popselector}ListDataViewRequestVerb">ListDataViewRequestVerb</a></td>
+                     <td>Lists the dataviews available for a given document type.</td>
+                  </tr>
+                  <tr>
+                     <td>AddCommentRFQ</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddCommentRFQRequestVerb" href="#{http://www.coda.com/pop/schemas/popselector}AddCommentRFQRequestVerb">AddCommentRFQRequestVerb</a></td>
+                     <td>Adds a comment to a list of documents.</td>
+                  </tr>
+                  <tr>
+                     <td>AddLineCommentRFQ</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddLineCommentRFQRequestVerb" href="#{http://www.coda.com/pop/schemas/popselector}AddLineCommentRFQRequestVerb">AddLineCommentRFQRequestVerb</a></td>
+                     <td>Adds a comment to a list of document lines.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}POPSelectorResponse"></a><h3>POPSelectorResponse</h3>
+         <p>The POPSelectorResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This service holds the response to your request to retrieve data according to the
+            selection criteria that you specified.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelectCount</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectCountResponseVerb" href="#{http://www.coda.com/pop/schemas/popselector}SelectCountResponseVerb">SelectCountResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Select</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectResponseVerb" href="#{http://www.coda.com/pop/schemas/popselector}SelectResponseVerb">SelectResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectForBrowse</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectForBrowseResponseVerb" href="#{http://www.coda.com/pop/schemas/popselector}SelectForBrowseResponseVerb">SelectForBrowseResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>SelectAssociatedDocuments</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}SelectAssociatedDocumentsResponseVerb" href="#{http://www.coda.com/pop/schemas/popselector}SelectAssociatedDocumentsResponseVerb">SelectAssociatedDocumentsResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>AddComment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddCommentResponseVerb" href="#{http://www.coda.com/pop/schemas/popselector}AddCommentResponseVerb">AddCommentResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>AddLineComment</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddLineCommentResponseVerb" href="#{http://www.coda.com/pop/schemas/popselector}AddLineCommentResponseVerb">AddLineCommentResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>AddCommentRFQ</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddCommentRFQResponseVerb" href="#{http://www.coda.com/pop/schemas/popselector}AddCommentRFQResponseVerb">AddCommentRFQResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>AddLineCommentRFQ</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}AddLineCommentRFQResponseVerb" href="#{http://www.coda.com/pop/schemas/popselector}AddLineCommentRFQResponseVerb">AddLineCommentRFQResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Copy</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}CopyResponseVerb" href="#{http://www.coda.com/pop/schemas/popselector}CopyResponseVerb">CopyResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>ListDataView</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}ListDataViewResponseVerb" href="#{http://www.coda.com/pop/schemas/popselector}ListDataViewResponseVerb">ListDataViewResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}ListRequest"></a><h3>ListRequest</h3>
+         <p>The ListRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}ReqKeys" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}ReqKeys">ReqKeys</a></td>
+                     <td>A filter that selects the selector masters to be listed.</td>
+                  </tr>
+                  <tr>
+                     <td>DocType</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/common}typePopDocumentType" href="../common/common.html#{http://www.coda.com/pop/schemas/common}typePopDocumentType">typePopDocumentType</a></td>
+                     <td>The type of Procurement document to which the selector master relates.</td>
+                  </tr>
+                  <tr>
+                     <td>LineLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether the selection is made on document lines.</td>
+                  </tr>
+                  <tr>
+                     <td>HeaderLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies whether the selection is made on document headers.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}ListRequestVerb"></a><h3>ListRequestVerb</h3>
+         <p>The ListRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves key information for the specified selector masters from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}ListRequest" href="#{http://www.coda.com/pop/schemas/popselector}ListRequest">ListRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}POPSelectorMasterRequest"></a><h3>POPSelectorMasterRequest</h3>
+         <p>The POPSelectorMasterRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to maintain selector masters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>List</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/pop/schemas/popselector}ListRequestVerb" href="#{http://www.coda.com/pop/schemas/popselector}ListRequestVerb">ListRequestVerb</a></td>
+                     <td>Retrieves key information for the specified selector masters from the database.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/pop/schemas/popselector}POPSelectorMasterResponse"></a><h3>POPSelectorMasterResponse</h3>
+         <p>The POPSelectorMasterResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you maintain selector masters.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>List</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}ListResponseVerb" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}ListResponseVerb">ListResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

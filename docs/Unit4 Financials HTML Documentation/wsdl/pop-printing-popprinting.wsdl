@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/printing/popprinting-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:popprintingws="http://www.coda.com/pop/schemas/printing/popprinting-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:pri="http://www.coda.com/common/schemas/printing"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:odm="http://www.coda.com/common/schemas/outputdevice"
+    xmlns:popcom="http://www.coda.com/pop/schemas/common"
+    xmlns:document="http://www.coda.com/pop/schemas/document"
+    xmlns:tnxcom="http://www.coda.com/pop/schemas/common"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:popprinting="http://www.coda.com/pop/schemas/printing"
+    targetNamespace="http://www.coda.com/pop/schemas/printing/popprinting-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/common/schemas/printing" schemaLocation="common/printing/printing.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/common" schemaLocation="pop/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/printing" schemaLocation="../wsdl/pop/printing/printing.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/outputdevice" schemaLocation="common/outputdevice/outputdevice.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/document" schemaLocation="pop/document/document.xsd"/>
+    <xsd:element name="GetDefaultPrintFormatRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentFormatKey" type="popprinting:DocumentFormatKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key that identifies the
+                            document and format details for this session.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectBatchRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector master that
+                            selects the items in the batch.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocType" type="popcom:typePopDocumentType">
+                    <xsd:annotation>
+                        <xsd:documentation>The Procurement document type
+                            to which the batch process relates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Function" type="popcom:typePopProcesses">
+                    <xsd:annotation>
+                        <xsd:documentation>The Procurement process to
+                            which the batch process relates.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Reissuing" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies whether this is a
+                            reissuing process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintPreviewRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentFormatKey" type="popprinting:DocumentFormatKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key that identifies the
+                            document and format details for this print
+                            preview session.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintPreviewListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PreviewData" type="popprinting:PreviewData">
+                    <xsd:annotation>
+                        <xsd:documentation>The preview of the data to be printed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Errors" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies whether errors were reported.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogTitle" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>The log title.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetOutputDeviceListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentFormatKeyList" type="popprinting:DocumentFormatKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of keys that identify
+                            the documents for which you want a list of
+                            output devices. The format information in
+                            the key is not used and the list of output
+                            devices in the key is ignored.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDefaultPrintFormatResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DefaultPrintFormat" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The default print format
+                            master retrieved from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BackgroundPrintResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetOutputDeviceListResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="OutputDeviceList" type="odm:OutputDeviceMasterItemList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of the output devices
+                            specified by the documents in the list of
+                            document keys in the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectBatchResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectionResults" type="popprinting:SelectionResultList">
+                    <xsd:annotation>
+                        <xsd:documentation>The items returned by the
+                            batch selection process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PrintingOptions" type="popprinting:PrintingOptions">
+                    <xsd:annotation>
+                        <xsd:documentation>The individual criteria that
+                            apply to this printing session.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintPreviewListRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DocumentKeyList" type="document:DocumentKeyList">
+                    <xsd:annotation>
+                        <xsd:documentation>A list of document keys.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocType" type="popcom:typePopDocumentType">
+                    <xsd:annotation>
+                        <xsd:documentation>A Procurement document type.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PrintFormatCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the print format
+                            master to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PrintPreviewResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PreviewData" type="popprinting:PreviewData">
+                    <xsd:annotation>
+                        <xsd:documentation>The preview of the data to be printed.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BackgroundPrintRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProcessMasterCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>The Printing or Issuing
+                            process master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogTitle" type="com:typeLogText">
+                    <xsd:annotation>
+                        <xsd:documentation>The log title for this
+                            printing or issuing session.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LogType" type="com:typeCtOneOfN">
+                    <xsd:annotation>
+                        <xsd:documentation>The log type, that is, Printing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Reissuing" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies whether this is a
+                            reissuing process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SelectorMaster" minOccurs="0" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the selector
+                            master to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="PrintFormatCode" minOccurs="0" type="com:typeCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the print format
+                            master to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="GetDefaultPrintFormatRequest">
+    <part name="GetDefaultPrintFormatRequest" element="popprintingws:GetDefaultPrintFormatRequest"/>
+  </message>
+  <message name="PrintPreviewListResponse">
+    <part name="PrintPreviewListResponse" element="popprintingws:PrintPreviewListResponse"/>
+  </message>
+  <message name="GetOutputDeviceListResponse">
+    <part name="GetOutputDeviceListResponse" element="popprintingws:GetOutputDeviceListResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="popprintingws:Options"/>
+  </message>
+  <message name="PrintPreviewRequest">
+    <part name="PrintPreviewRequest" element="popprintingws:PrintPreviewRequest"/>
+  </message>
+  <message name="GetOutputDeviceListRequest">
+    <part name="GetOutputDeviceListRequest" element="popprintingws:GetOutputDeviceListRequest"/>
+  </message>
+  <message name="GetDefaultPrintFormatResponse">
+    <part name="GetDefaultPrintFormatResponse" element="popprintingws:GetDefaultPrintFormatResponse"/>
+  </message>
+  <message name="SelectBatchResponse">
+    <part name="SelectBatchResponse" element="popprintingws:SelectBatchResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="popprintingws:OptionsResponse"/>
+  </message>
+  <message name="BackgroundPrintResponse">
+    <part name="BackgroundPrintResponse" element="popprintingws:BackgroundPrintResponse"/>
+  </message>
+  <message name="PrintRequest">
+    <part name="PrintRequest" element="popprintingws:PrintRequest"/>
+  </message>
+  <message name="SelectBatchRequest">
+    <part name="SelectBatchRequest" element="popprintingws:SelectBatchRequest"/>
+  </message>
+  <message name="PrintPreviewResponse">
+    <part name="PrintPreviewResponse" element="popprintingws:PrintPreviewResponse"/>
+  </message>
+  <message name="PrintResponse">
+    <part name="PrintResponse" element="popprintingws:PrintResponse"/>
+  </message>
+  <message name="PrintPreviewListRequest">
+    <part name="PrintPreviewListRequest" element="popprintingws:PrintPreviewListRequest"/>
+  </message>
+  <message name="BackgroundPrintRequest">
+    <part name="BackgroundPrintRequest" element="popprintingws:BackgroundPrintRequest"/>
+  </message>
+  <portType name="POPPrintingServicePortTypes">
+    <operation name="GetDefaultPrintFormat">
+      <input message="popprintingws:GetDefaultPrintFormatRequest"/>
+      <output message="popprintingws:GetDefaultPrintFormatResponse"/>
+    </operation>
+    <operation name="Print">
+      <input message="popprintingws:PrintRequest"/>
+      <output message="popprintingws:PrintResponse"/>
+    </operation>
+    <operation name="PrintPreviewList">
+      <input message="popprintingws:PrintPreviewListRequest"/>
+      <output message="popprintingws:PrintPreviewListResponse"/>
+    </operation>
+    <operation name="PrintPreview">
+      <input message="popprintingws:PrintPreviewRequest"/>
+      <output message="popprintingws:PrintPreviewResponse"/>
+    </operation>
+    <operation name="BackgroundPrint">
+      <input message="popprintingws:BackgroundPrintRequest"/>
+      <output message="popprintingws:BackgroundPrintResponse"/>
+    </operation>
+    <operation name="SelectBatch">
+      <input message="popprintingws:SelectBatchRequest"/>
+      <output message="popprintingws:SelectBatchResponse"/>
+    </operation>
+    <operation name="GetOutputDeviceList">
+      <input message="popprintingws:GetOutputDeviceListRequest"/>
+      <output message="popprintingws:GetOutputDeviceListResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPPrintingServiceSOAPBinding" type="popprintingws:POPPrintingServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetDefaultPrintFormat">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPrinting/GetDefaultPrintFormat" style="document"/>
+      <input>
+        <soap:header message="popprintingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprintingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Print">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPrinting/Print" style="document"/>
+      <input>
+        <soap:header message="popprintingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprintingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PrintPreviewList">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPrinting/PrintPreviewList" style="document"/>
+      <input>
+        <soap:header message="popprintingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprintingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PrintPreview">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPrinting/PrintPreview" style="document"/>
+      <input>
+        <soap:header message="popprintingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprintingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="BackgroundPrint">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPrinting/BackgroundPrint" style="document"/>
+      <input>
+        <soap:header message="popprintingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprintingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SelectBatch">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPrinting/SelectBatch" style="document"/>
+      <input>
+        <soap:header message="popprintingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprintingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetOutputDeviceList">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPPrinting/GetOutputDeviceList" style="document"/>
+      <input>
+        <soap:header message="popprintingws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="popprintingws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPPrintingService">
+    <port name="POPPrintingServicePort" binding="popprintingws:POPPrintingServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/printing/popprinting-13.0"/>
+    </port>
+  </service>
+</definitions>

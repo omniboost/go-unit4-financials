@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/common/schemas/workflowapi/workflowimportexport-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:worws="http://www.coda.com/common/schemas/workflowapi/workflowimportexport-1.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:use="http://www.coda.com/common/schemas/userextension"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:wor="http://www.coda.com/common/schemas/workflowapi"
+    xmlns:atc="http://www.coda.com/common/schemas/attachment"
+    xmlns:wsd="http://www.coda.com/common/schemas/wsdl"
+    xmlns:gra="http://www.coda.com/common/schemas/graphlayout"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:spec="http://www.coda.com/common/schemas/workflow"
+    xmlns:datatypes="http://www.coda.com/common/schemas/datatypes"
+    targetNamespace="http://www.coda.com/common/schemas/workflowapi/workflowimportexport-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/common/schemas/workflow" schemaLocation="common/workflow/workflow.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/graphlayout" schemaLocation="common/graphlayout/graphlayout.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/userextension" schemaLocation="common/userextension/userextension.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/workflowapi" schemaLocation="../wsdl/common/workflowapi/workflowapi.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/common/schemas/attachment" schemaLocation="common/attachment/attachment.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/wsdl" schemaLocation="common/wsdl/wsdl.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/datatypes" schemaLocation="common/datatypes/datatypes.xsd"/>
+    <xsd:element name="WorkflowQueryRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Attachment" type="atc:Attachment">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>This element contains attachment
+                            details.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Definition" type="wor:ImportDefinition">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The details of a workflow process
+                            definition.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WorkflowImportRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Attachment" type="atc:Attachment">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>This element contains attachment
+                            details.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Definition" type="wor:ImportDefinition">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The details of a workflow process
+                            definition.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WorkflowExportResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Attachment" type="atc:Attachment">
+                    <xsd:annotation>
+                        <xsd:documentation>The attachment is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WorkflowQueryResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Information" type="wor:ImportInformation">
+                    <xsd:annotation>
+                        <xsd:documentation>The information is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WorkflowImportResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WorkflowExportRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Definition" type="wor:ExportDefinition">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The details of a workflow process
+                            definition.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="WorkflowExportResponse">
+    <part name="WorkflowExportResponse" element="worws:WorkflowExportResponse"/>
+  </message>
+  <message name="WorkflowExportRequest">
+    <part name="WorkflowExportRequest" element="worws:WorkflowExportRequest"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="worws:Options"/>
+  </message>
+  <message name="WorkflowImportResponse">
+    <part name="WorkflowImportResponse" element="worws:WorkflowImportResponse"/>
+  </message>
+  <message name="WorkflowImportRequest">
+    <part name="WorkflowImportRequest" element="worws:WorkflowImportRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="worws:OptionsResponse"/>
+  </message>
+  <message name="WorkflowQueryResponse">
+    <part name="WorkflowQueryResponse" element="worws:WorkflowQueryResponse"/>
+  </message>
+  <message name="WorkflowQueryRequest">
+    <part name="WorkflowQueryRequest" element="worws:WorkflowQueryRequest"/>
+  </message>
+  <portType name="WorkflowImportExportServicePortTypes">
+    <operation name="WorkflowQuery">
+      <input message="worws:WorkflowQueryRequest"/>
+      <output message="worws:WorkflowQueryResponse"/>
+    </operation>
+    <operation name="WorkflowImport">
+      <input message="worws:WorkflowImportRequest"/>
+      <output message="worws:WorkflowImportResponse"/>
+    </operation>
+    <operation name="WorkflowExport">
+      <input message="worws:WorkflowExportRequest"/>
+      <output message="worws:WorkflowExportResponse"/>
+    </operation>
+  </portType>
+  <binding name="WorkflowImportExportServiceSOAPBinding" type="worws:WorkflowImportExportServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="WorkflowQuery">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/WorkflowImportExport/WorkflowQuery" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="WorkflowImport">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/WorkflowImportExport/WorkflowImport" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="WorkflowExport">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/common/WorkflowImportExport/WorkflowExport" style="document"/>
+      <input>
+        <soap:header message="worws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="worws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="WorkflowImportExportService">
+    <port name="WorkflowImportExportServicePort" binding="worws:WorkflowImportExportServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/common/workflowapi/workflowimportexport-1.0"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,743 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/efinance/schemas/accountsummary</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/efinance/schemas/accountsummary</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>AccountSummaryRequest</h3>
+         <p>This service allows you to retrieve account summaries.</p>
+         <h3>AccountSummaryResponse</h3>
+         <p>This is the response that is returned when you retrieve account summaries.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/efinance/schemas/accountsummary}Key"></a><h3>Key</h3>
+         <p>This element is a key consisting of a company     code, element level, element code
+            and account summary master which     uniquely identifies an account summary. It is
+            used to specify search     criteria for the retrieval of one or     more account summaries.
+            
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the company in which you want to view the account summary information.
+                        
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ElmLevel</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmLevel" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmLevel">typeElmLevel</a></td>
+                     <td>The level of the element (1 to 8) for which you want to view the account summary information.
+                        
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>ElmCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmCode">typeElmCode</a></td>
+                     <td>The code of the element for which you want to view the account summary information.
+                        
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>AsmCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the account summary master used to display the account summary information.
+                        
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}Summary"></a><h3>Summary</h3>
+         <p>This element contains the summary data for each of the retrieved summaries.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SequenceNumber</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number assigned to each control in the account summary.      </td>
+                  </tr>
+                  <tr>
+                     <td>Value</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td>The numeric value contained within the control.      </td>
+                  </tr>
+                  <tr>
+                     <td>Status</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtCtlValuStatus" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtCtlValuStatus">typeCtCtlValuStatus</a></td>
+                     <td>The status of the control.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}SummaryList"></a><h3>SummaryList</h3>
+         <p>A list of balance summary and details summary data values retrieved from the database.
+            
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Summary</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}Summary" href="#{http://www.coda.com/efinance/schemas/accountsummary}Summary">Summary</a></td>
+                     <td>This element contains the summary data for each of the retrieved summaries.      </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}AccountSummaryContext"></a><h3>AccountSummaryContext</h3>
+         <p>This element contains the data that will be displayed in the account summary.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Element</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/elementmaster}Element" href="../elementmaster/elementmaster.html#{http://www.coda.com/efinance/schemas/elementmaster}Element">Element</a></td>
+                     <td>The element for which account summary information will be displayed.      </td>
+                  </tr>
+                  <tr>
+                     <td>LastTransactions</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/elementmaster}LastTransactions" href="../elementmaster/elementmaster.html#{http://www.coda.com/efinance/schemas/elementmaster}LastTransactions">LastTransactions</a></td>
+                     <td>The last transaction (payment or invoice) made with this element.      </td>
+                  </tr>
+                  <tr>
+                     <td>Summaries</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}SummaryList" href="#{http://www.coda.com/efinance/schemas/accountsummary}SummaryList">SummaryList</a></td>
+                     <td>A list of balance summary and details summary data values retrieved from the database.
+                        
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}ElementFinderNumberRange"></a><h3>ElementFinderNumberRange</h3>
+         <p>The subset of the list of elements to be retrieved. Use an extent of zero to list
+            all elements.    
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Begin</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The position, counting from 0, of the first element in the list to retrieve.     
+                        
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>Extent</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>The number of elements to retrieve.      </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}FindElementFilter"></a><h3>FindElementFilter</h3>
+         <p>This element contains filter criteria for finding elements. Items left blank select
+            all values.    
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>NumberRange</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}ElementFinderNumberRange" href="#{http://www.coda.com/efinance/schemas/accountsummary}ElementFinderNumberRange">ElementFinderNumberRange</a></td>
+                     <td>The subset of the list of elements to be retrieved. Use an extent of zero to list
+                        all elements.      
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the company in which the element is maintained.      </td>
+                  </tr>
+                  <tr>
+                     <td>Level</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmLevel" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmLevel">typeElmLevel</a></td>
+                     <td>The element level to which the element you want to find belongs.      </td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmCode">typeElmCode</a></td>
+                     <td>The code of the element you want to find.      </td>
+                  </tr>
+                  <tr>
+                     <td>ShortName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The short name of the element you want to find.      </td>
+                  </tr>
+                  <tr>
+                     <td>NameOrShortName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>The name or short name of the element you want to find.      </td>
+                  </tr>
+                  <tr>
+                     <td>ReturnNames</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Specifies that the element full name is displayed.      </td>
+                  </tr>
+                  <tr>
+                     <td>GroupCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCodeB">typeGeneralCodeB</a></td>
+                     <td>The element group to which the required element belongs.      </td>
+                  </tr>
+                  <tr>
+                     <td>CreditReference</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCrRef" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeCrRef">typeCrRef</a></td>
+                     <td>The credit reference assigned to the element.      </td>
+                  </tr>
+                  <tr>
+                     <td>AddressName</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeAddressName" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeAddressName">typeAddressName</a></td>
+                     <td>The address name, as defined in the name and address list of the element.      </td>
+                  </tr>
+                  <tr>
+                     <td>Address1</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeAddress" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeAddress">typeAddress</a></td>
+                     <td>Line one of an address defined in the element's address list.      </td>
+                  </tr>
+                  <tr>
+                     <td>Address2</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeAddress" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeAddress">typeAddress</a></td>
+                     <td>Line two of an address defined in the element's address list.      </td>
+                  </tr>
+                  <tr>
+                     <td>PostCode</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typePostCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typePostCode">typePostCode</a></td>
+                     <td>The postcode defined in the element's address list.      </td>
+                  </tr>
+                  <tr>
+                     <td>Country</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTextB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTextB">typeTextB</a></td>
+                     <td>The country defined in the element's address list.      </td>
+                  </tr>
+                  <tr>
+                     <td>AccNum</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBankAccNum" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeBankAccNum">typeBankAccNum</a></td>
+                     <td>The bank account number of the element you want to find.      </td>
+                  </tr>
+                  <tr>
+                     <td>Tel</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeTel" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeTel">typeTel</a></td>
+                     <td>The telephone number defined in the element's address list.      </td>
+                  </tr>
+                  <tr>
+                     <td>Language</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeLanguageb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeLanguageb">typeLanguageb</a></td>
+                     <td>The element language.</td>
+                  </tr>
+                  <tr>
+                     <td>IBAN</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeIBANB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeIBANB">typeIBANB</a></td>
+                     <td>The International Bank Account Number (IBAN) of the bank account.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}elmKeyDataElement"></a><h3>elmKeyDataElement</h3>
+         <p>Contains key information for each of the retrieved elements.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The company code of this element.      </td>
+                  </tr>
+                  <tr>
+                     <td>Level</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmLevel" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmLevel">typeElmLevel</a></td>
+                     <td>The level of this element.</td>
+                  </tr>
+                  <tr>
+                     <td>Code</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeElmCodeB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeElmCodeB">typeElmCodeB</a></td>
+                     <td>The code of this element.</td>
+                  </tr>
+                  <tr>
+                     <td>ShortName</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeShortNameB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeShortNameB">typeShortNameB</a></td>
+                     <td>The abbreviated name of this element.      </td>
+                  </tr>
+                  <tr>
+                     <td>Name</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeNameB" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeNameB">typeNameB</a></td>
+                     <td>The full name of this element.      </td>
+                  </tr>
+                  <tr>
+                     <td>DefAccSumm</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The default account summary of this element.      </td>
+                  </tr>
+                  <tr>
+                     <td>TemporaryElm</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>Is this element a temporary supplier?      </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}elmKeyData"></a><h3>elmKeyData</h3>
+         <p>This data is used when retrieving elements from the database.    </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}elmKeyDataElement" href="#{http://www.coda.com/efinance/schemas/accountsummary}elmKeyDataElement">elmKeyDataElement</a></td>
+                     <td>Contains key information for each of the retrieved elements.      </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}GetRequest"></a><h3>GetRequest</h3>
+         <p>The GetRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}Key" href="#{http://www.coda.com/efinance/schemas/accountsummary}Key">Key</a></td>
+                     <td>Contains the key identifying the account summary you want to retrieve from the database.
+                        
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}GetRequestVerb"></a><h3>GetRequestVerb</h3>
+         <p>The GetRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Retrieves the specified account summaries from the database.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}GetRequest" href="#{http://www.coda.com/efinance/schemas/accountsummary}GetRequest">GetRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}GetResponse"></a><h3>GetResponse</h3>
+         <p>The GetResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Key</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}Key" href="#{http://www.coda.com/efinance/schemas/accountsummary}Key">Key</a></td>
+                     <td>Contains key information for the listed account summaries.</td>
+                  </tr>
+                  <tr>
+                     <td>Context</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}AccountSummaryContext" href="#{http://www.coda.com/efinance/schemas/accountsummary}AccountSummaryContext">AccountSummaryContext</a></td>
+                     <td>Contains the data held in each account summary that is listed.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}GetResponseVerb"></a><h3>GetResponseVerb</h3>
+         <p>The GetResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}GetResponse" href="#{http://www.coda.com/efinance/schemas/accountsummary}GetResponse">GetResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}FindElementRequest"></a><h3>FindElementRequest</h3>
+         <p>The FindElementRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}FindElementFilter" href="#{http://www.coda.com/efinance/schemas/accountsummary}FindElementFilter">FindElementFilter</a></td>
+                     <td>Contains the filter critieria used to find elements.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}FindElementRequestVerb"></a><h3>FindElementRequestVerb</h3>
+         <p>The FindElementRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Finds elements in the database using the filter criteria that you specify.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}FindElementRequest" href="#{http://www.coda.com/efinance/schemas/accountsummary}FindElementRequest">FindElementRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}FindElementResponse"></a><h3>FindElementResponse</h3>
+         <p>The FindElementResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Filter</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}FindElementFilter" href="#{http://www.coda.com/efinance/schemas/accountsummary}FindElementFilter">FindElementFilter</a></td>
+                     <td>Contains the filter that was used to find elements.</td>
+                  </tr>
+                  <tr>
+                     <td>Keys</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}elmKeyData" href="#{http://www.coda.com/efinance/schemas/accountsummary}elmKeyData">elmKeyData</a></td>
+                     <td>Contains key information for the elements that are found.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}FindElementResponseVerb"></a><h3>FindElementResponseVerb</h3>
+         <p>The FindElementResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}FindElementResponse" href="#{http://www.coda.com/efinance/schemas/accountsummary}FindElementResponse">FindElementResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}AccountSummaryRequest"></a><h3>AccountSummaryRequest</h3>
+         <p>The AccountSummaryRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to retrieve account summaries.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Get</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}GetRequestVerb" href="#{http://www.coda.com/efinance/schemas/accountsummary}GetRequestVerb">GetRequestVerb</a></td>
+                     <td>Retrieves the specified account summaries from the database.</td>
+                  </tr>
+                  <tr>
+                     <td>FindElement</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}FindElementRequestVerb" href="#{http://www.coda.com/efinance/schemas/accountsummary}FindElementRequestVerb">FindElementRequestVerb</a></td>
+                     <td>Finds elements in the database using the filter criteria that you specify.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/efinance/schemas/accountsummary}AccountSummaryResponse"></a><h3>AccountSummaryResponse</h3>
+         <p>The AccountSummaryResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you retrieve account summaries.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Get</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}GetResponseVerb" href="#{http://www.coda.com/efinance/schemas/accountsummary}GetResponseVerb">GetResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>FindElement</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/accountsummary}FindElementResponseVerb" href="#{http://www.coda.com/efinance/schemas/accountsummary}FindElementResponseVerb">FindElementResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

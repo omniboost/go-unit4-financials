@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/selector/selector-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:selws="http://www.coda.com/efinance/schemas/selector/selector-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/selector/selector-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="../wsdl/finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:element name="SelectRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelType" type="gsl:SelectorType">
+                    <xsd:annotation>
+                        <xsd:documentation>Specifies the source of the
+                            data from which the selection is made. The
+                            data source is determined by the combination
+                            of data class and data location.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GslCode" type="com:typeGeneralCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the selector
+                            master you want to use. GslCode is used to
+                            look up hints, and also overrides the
+                            SelType above.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RowLimit" minOccurs="0" type="com:typeULong">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of rows
+                            you want your search to return</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ApplicationFilter" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>The search criteria to be
+                            applied by the application when selecting
+                            the data. These are as set up in the
+                            selector master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserFilter" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>The additional search
+                            criteria specified by the user, to be
+                            applied when selecting the data. This may
+                            be, for example, a document code or a range
+                            of codes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" type="sel:CellList">
+                    <xsd:annotation>
+                        <xsd:documentation>The columns representing
+                            vocabulary items that you want the server to return.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelType" type="gsl:DetailsLocation">
+                    <xsd:annotation>
+                        <xsd:documentation>Indicates the source of the
+                            data, which may be retrieved from Books,
+                            Intray, Archive or Self.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="GslCode" type="com:typeGeneralCodeB">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the selector
+                            master you want to use. GslCode is used to
+                            look up hints, and also overrides the
+                            SelType above.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WholeDocuments" type="xsd:boolean">
+                    <xsd:annotation>
+                        <xsd:documentation>If TRUE, specifies that you
+                            want to browse whole documents for the lines selected.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="RowLimit" minOccurs="0" type="com:typeULong">
+                    <xsd:annotation>
+                        <xsd:documentation>The maximum number of rows
+                            you want your search to return.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ApplicationFilter" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>The search criteria to be
+                            applied by the application when selecting
+                            the data. These are as set up in the
+                            selector master.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="UserFilter" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>The additional search
+                            criteria specified by the user, to be
+                            applied when selecting the data. This may
+                            be, for example, a document code or a range
+                            of codes.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="HierarchyFilter" minOccurs="0" type="gsl:VocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>The additional search
+                            criteria which will be applied to select
+                            data within specified hierarchies.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="FlexiFieldFilter" type="gsl:FlexiFieldVocListData">
+                    <xsd:annotation>
+                        <xsd:documentation>The additional search
+                            criteria which will be applied to select
+                            data from specified flexi-field masters.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" type="sel:HeaderColumnList">
+                    <xsd:annotation>
+                        <xsd:documentation>The columns representing
+                            vocabulary items that you want the server to return.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SelectionWithFlexiFields"
+                    minOccurs="0" type="sel:SelectionWithFlexiFields">
+                    <xsd:annotation>
+                        <xsd:documentation>The selected data, including
+                            flexi-fields, returned to you for browsing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Selection" minOccurs="0" type="sel:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The selected data returned to
+                            you for browsing.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="selws:OptionsResponse"/>
+  </message>
+  <message name="SelectRequest">
+    <part name="SelectRequest" element="selws:SelectRequest"/>
+  </message>
+  <message name="SelectDetailsResponse">
+    <part name="SelectDetailsResponse" element="selws:SelectDetailsResponse"/>
+  </message>
+  <message name="SelectDetailsRequest">
+    <part name="SelectDetailsRequest" element="selws:SelectDetailsRequest"/>
+  </message>
+  <message name="SelectResponse">
+    <part name="SelectResponse" element="selws:SelectResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="selws:Options"/>
+  </message>
+  <portType name="SelectorServicePortTypes">
+    <operation name="SelectDetails">
+      <input message="selws:SelectDetailsRequest"/>
+      <output message="selws:SelectDetailsResponse"/>
+    </operation>
+    <operation name="Select">
+      <input message="selws:SelectRequest"/>
+      <output message="selws:SelectResponse"/>
+    </operation>
+  </portType>
+  <binding name="SelectorServiceSOAPBinding" type="selws:SelectorServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="SelectDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Selector/SelectDetails" style="document"/>
+      <input>
+        <soap:header message="selws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="selws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Select">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/Selector/Select" style="document"/>
+      <input>
+        <soap:header message="selws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="selws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SelectorService">
+    <port name="SelectorServicePort" binding="selws:SelectorServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/selector/selector-13.0"/>
+    </port>
+  </service>
+</definitions>

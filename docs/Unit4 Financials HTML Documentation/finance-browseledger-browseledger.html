@@ -1,0 +1,448 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-BrowseLedgerService">
+            <h1>BrowseLedgerService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/browseledger/browseledger-13.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-browseledger-browseledger.wsdl" download="">finance-browseledger-browseledger.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/browseledger/browseledger-13.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#BrowseLedgerService-Get">Get</a></li>
+               <li><a href="#BrowseLedgerService-GetSelector">GetSelector</a></li>
+               <li><a href="#BrowseLedgerService-UpdateRow">UpdateRow</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="BrowseLedgerService-Get"></a>Get
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LedgerKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                              <td>A key used to identify the ledger.</td>
+                           </tr>
+                           <tr>
+                              <td>Currency</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtBlrCurrView" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtBlrCurrView">typeCtBlrCurrView</a></td>
+                              <td>The currency in which the
+                                 Browse Ledger results are to be displayed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Grouping</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browseledger}Grouping" href="finance/browseledger/browseledger.html#{http://www.coda.com/efinance/schemas/browseledger}Grouping">Grouping</a></td>
+                              <td>This element holds
+                                 information about how the Browse Ledger
+                                 results are to be grouped.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Sort</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browseledger}SortList" href="finance/browseledger/browseledger.html#{http://www.coda.com/efinance/schemas/browseledger}SortList">SortList</a></td>
+                              <td>This element holds
+                                 information about the columns used to sort
+                                 the Browse Ledger results.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedColumns</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browseledger}ColumnNumberList" href="finance/browseledger/browseledger.html#{http://www.coda.com/efinance/schemas/browseledger}ColumnNumberList">ColumnNumberList</a></td>
+                              <td>A list of column numbers
+                                 indicating which ledger columns are to be
+                                 retrieved. If this list is not given, all
+                                 columns are retrieved. A column in the
+                                 selected columns list may not be returned if
+                                 it is hidden by grouping.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>RowLimit</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeULong" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeULong">typeULong</a></td>
+                              <td>The maximum number of rows
+                                 that can be retrieved.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ElmKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/elementmaster}elmFullKey" href="finance/elementmaster/elementmaster.html#{http://www.coda.com/efinance/schemas/elementmaster}elmFullKey">elmFullKey</a></td>
+                              <td>Optionally restricts the
+                                 ledger to this element.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>The selector vocabulary used
+                                 to retrieve the ledger details.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ColumnFilter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browseledger}FilterList" href="finance/browseledger/browseledger.html#{http://www.coda.com/efinance/schemas/browseledger}FilterList">FilterList</a></td>
+                              <td>This element contains
+                                 selection criteria used in addition to the
+                                 criteria contained in the SelectFilter
+                                 element, but the selection is based on
+                                 columns in the ledger rather than selector
+                                 vocabulary. Any column filter which can be
+                                 expressed as a vocabulary-based filter, will
+                                 be moved to the SelectFilter by the server
+                                 to make the selection process more efficient.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Filter</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browseledger}Filter" href="finance/browseledger/browseledger.html#{http://www.coda.com/efinance/schemas/browseledger}Filter">Filter</a></td>
+                              <td>This element contains the
+                                 criteria used to retrieve ledger details
+                                 form the database.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LedgerOutOfDate</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                              <td>Indicates whether the
+                                 selected ledger master has changed since the
+                                 last Ledger Update. Some ledger master
+                                 changes, for example, changing a column
+                                 title, are ignored.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Selection</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>This element contains the
+                                 ledger details retrieved by Browse Ledger.
+                                 The selection contains a header row, zero or
+                                 more data rows, and a totals row.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ReferenceDate</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                              <td>The date that Browse Ledger
+                                 was run for.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BrowseLedgerService-GetSelector"></a>GetSelector
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetSelectorRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LedgerKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                              <td>A key used to identify the ledger.</td>
+                           </tr>
+                           <tr>
+                              <td>OrgCmpCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the original
+                                 company for the ledger row.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AccountCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAcCodeWild" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAcCodeWild">typeAcCodeWild</a></td>
+                              <td>The account code for the
+                                 ledger row.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ColumnNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The column number.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetSelectorResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LedgerKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                              <td>A key used to identify the ledger.</td>
+                           </tr>
+                           <tr>
+                              <td>OrgCmpCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the original
+                                 company for the ledger row.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AccountCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAcCodeWild" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAcCodeWild">typeAcCodeWild</a></td>
+                              <td>The full account code for the
+                                 ledger row.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>ColumnNumber</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The column number.</td>
+                           </tr>
+                           <tr>
+                              <td>SelectFilter</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}VocListData" href="finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}VocListData">VocListData</a></td>
+                              <td>The selector for this ledger
+                                 row and column.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BrowseLedgerService-UpdateRow"></a>UpdateRow
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UpdateRowRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LedgerKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                              <td>A key used to identify the ledger.</td>
+                           </tr>
+                           <tr>
+                              <td>OrgCmpCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the original
+                                 company for the ledger row.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AccountCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAcCodeWild" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAcCodeWild">typeAcCodeWild</a></td>
+                              <td>The full account code for the
+                                 ledger row.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Currency</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtBlrCurrView" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtBlrCurrView">typeCtBlrCurrView</a></td>
+                              <td>The currency in which the
+                                 Browse Ledger results are to be displayed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedColumns</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browseledger}ColumnNumberList" href="finance/browseledger/browseledger.html#{http://www.coda.com/efinance/schemas/browseledger}ColumnNumberList">ColumnNumberList</a></td>
+                              <td>A list of column numbers
+                                 indicating which ledger columns are to be
+                                 retrieved. If this list is not given, all
+                                 columns are retrieved. A column in the
+                                 selected columns list may not be returned if
+                                 it is hidden by grouping.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UpdateRowResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>LedgerKey</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}Key" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Key">Key</a></td>
+                              <td>A key used to identify the ledger.</td>
+                           </tr>
+                           <tr>
+                              <td>OrgCmpCode</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the original
+                                 company for the ledger row.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>AccountCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeAcCodeWild" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeAcCodeWild">typeAcCodeWild</a></td>
+                              <td>The full account code for the
+                                 ledger row.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Currency</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtBlrCurrView" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtBlrCurrView">typeCtBlrCurrView</a></td>
+                              <td>The currency in which the
+                                 Browse Ledger results are displayed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>SelectedColumns</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/browseledger}ColumnNumberList" href="finance/browseledger/browseledger.html#{http://www.coda.com/efinance/schemas/browseledger}ColumnNumberList">ColumnNumberList</a></td>
+                              <td>This element contains a list
+                                 of column numbers indicating which ledger
+                                 columns have been retrieved.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Selection</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/selector}Selection" href="finance/selector/selector.html#{http://www.coda.com/efinance/schemas/selector}Selection">Selection</a></td>
+                              <td>This element contains the
+                                 revised ledger data resulting from the
+                                 update. The selection contains a header row
+                                 and one data row (no SelectFilter or
+                                 ColumnFilter is applied to this data).
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

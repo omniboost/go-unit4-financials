@@ -1,0 +1,897 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>http://www.coda.com/eassets/schemas/cancelevents</title>
+      <link rel="stylesheet" type="text/css" href="../../style.css">
+   </head>
+   <body>
+      <h1>http://www.coda.com/eassets/schemas/cancelevents</h1>
+      <div class="root-elements">
+         <h2>Root Elements</h2>
+         <h3>CancelEvents</h3>
+         <p>This element contains parameters specifying which events should be cancelled.</p>
+         <h3>CancelEventsRequest</h3>
+         <p>This service allows you to cancel transaction events.</p>
+         <h3>CancelEventsResponse</h3>
+         <p>This is the response that is returned when you cancel events.</p>
+      </div>
+      <div class="complex-types">
+         <h2>Complex Types</h2><a name="{http://www.coda.com/eassets/schemas/cancelevents}CancelEvents"></a><h3>CancelEvents</h3>
+         <p>This element contains parameters specifying which events should be cancelled.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>SelectorCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code of the selector master that you want to use to select assets for event cancellation.
+                        Only assets selectors can be specified.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>SelectorMaster</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster" href="../../finance/selectormaster/selectormaster.html#{http://www.coda.com/efinance/schemas/selectormaster}SelectorMaster">SelectorMaster</a></td>
+                     <td>This element holds the selector master specified by SelectorCode.</td>
+                  </tr>
+                  <tr>
+                     <td>AssetCodes</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/asset}AssetKeyList" href="../asset/asset.html#{http://www.coda.com/eassets/schemas/asset}AssetKeyList">AssetKeyList</a></td>
+                     <td>This element lists the assets that meet the selection criteria and will be subject
+                        to event cancellation.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>CancelToYearPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The period up to which events will be cancelled. All events in the selected period
+                        and later will be cancelled. For example, if the current year and period is 2008/6
+                        and you specify 2008/4 in this field, then any events that took place in 2008 periods
+                        4-6 inclusive (excluding capitalisation) will be cancelled.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>UseSpecifiedPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td>When TRUE, the transaction will be posted to the year/period specified in the DocYearPeriod
+                        element. When FALSE, it will be posted to the year/period of the transaction itself.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>DocYearPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The year and period to which the cancelling transactions are posted.</td>
+                  </tr>
+                  <tr>
+                     <td>DocumentDate</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}dateTime" href="http://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a></td>
+                     <td>The date of the document which posts the cancelling financial transactions to the
+                        Financials Books.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>LogTitle</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}string" href="http://www.w3.org/TR/xmlschema11-2/#string">string</a></td>
+                     <td>The title of the log file storing details of the cancellation process. This is mandatory.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td>The code for the company in which events are being cancelled.</td>
+                  </tr>
+                  <tr>
+                     <td>RunNumber</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>A number identifying this cancellation process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}AssetList"></a><h3>AssetList</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AssetListElement</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}AssetListElement" href="#{http://www.coda.com/eassets/schemas/cancelevents}AssetListElement">AssetListElement</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}AssetListElement"></a><h3>AssetListElement</h3>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>AssetCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>BookCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>OrigLastRunYear</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>OrigLastRunPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>LastRunYear</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>LastRunPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>DepnStartYear</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>DepnStartPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>CapnYear</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>CapnPeriod</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>AssetBookStatus</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtAssetBookStatus" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtAssetBookStatus">typeCtAssetBookStatus</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>Cost</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>NetBookValue</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ResidualValue</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ResidualPercent</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>IsPercentage</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCtResidValueOrPercent" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCtResidValueOrPercent">typeCtResidValueOrPercent</a></td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>IsPostingBook</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}boolean" href="http://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}PostRequest"></a><h3>PostRequest</h3>
+         <p>The PostRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CancelEvents</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}CancelEvents" href="#{http://www.coda.com/eassets/schemas/cancelevents}CancelEvents">CancelEvents</a></td>
+                     <td>This element contains parameters specifying which events should be cancelled.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}PostRequestVerb"></a><h3>PostRequestVerb</h3>
+         <p>The PostRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Posts the cancellation events.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}PostRequest" href="#{http://www.coda.com/eassets/schemas/cancelevents}PostRequest">PostRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}PostResponse"></a><h3>PostResponse</h3>
+         <p>The PostResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsPosted</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether the PostRequest corresponding to this response was successful.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>The code for the company in which you attempted to cancel events.</td>
+                  </tr>
+                  <tr>
+                     <td>RunNumber</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>A number identifying this cancellation process.</td>
+                  </tr>
+                  <tr>
+                     <td>HasWarnings</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether any warnings have been generated.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}PostResponseVerb"></a><h3>PostResponseVerb</h3>
+         <p>The PostResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}PostResponse" href="#{http://www.coda.com/eassets/schemas/cancelevents}PostResponse">PostResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}ReviewRequest"></a><h3>ReviewRequest</h3>
+         <p>The ReviewRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CancelEvents</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}CancelEvents" href="#{http://www.coda.com/eassets/schemas/cancelevents}CancelEvents">CancelEvents</a></td>
+                     <td>This element contains parameters specifying which events should be cancelled.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}ReviewRequestVerb"></a><h3>ReviewRequestVerb</h3>
+         <p>The ReviewRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Reviews the asset transactions and financial transactions that will be generated by
+            cancelling the specified events.
+         </p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}ReviewRequest" href="#{http://www.coda.com/eassets/schemas/cancelevents}ReviewRequest">ReviewRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}ReviewResponse"></a><h3>ReviewResponse</h3>
+         <p>The ReviewResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsReviewed</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether the ReviewRequest corresponding to this response was successful.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>The code for the company in which you attempted to review the cancellation events.</td>
+                  </tr>
+                  <tr>
+                     <td>RunNumber</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>A number identifying this cancellation process.</td>
+                  </tr>
+                  <tr>
+                     <td>ReviewTransactions</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions" href="../reviewtransactions/reviewtransactions.html#{http://www.coda.com/eassets/schemas/reviewtransactions}ReviewTransactions">ReviewTransactions</a></td>
+                     <td>Contains the asset transactions and financial transactions generated by this cancellation
+                        process.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>LogKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="../../common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>Key information identifying the log in which the cancellation event details are recorded.</td>
+                  </tr>
+                  <tr>
+                     <td>HasWarnings</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether any warnings have been generated.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}ReviewResponseVerb"></a><h3>ReviewResponseVerb</h3>
+         <p>The ReviewResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}ReviewResponse" href="#{http://www.coda.com/eassets/schemas/cancelevents}ReviewResponse">ReviewResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}ReviewPostRequestVerb"></a><h3>ReviewPostRequestVerb</h3>
+         <p>The ReviewPostRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Posts the cancellation events that have been reviewed.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}ReviewPostRequest" href="#{http://www.coda.com/eassets/schemas/cancelevents}ReviewPostRequest">ReviewPostRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}ReviewPostRequest"></a><h3>ReviewPostRequest</h3>
+         <p>The ReviewPostRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CancelEvents</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}CancelEvents" href="#{http://www.coda.com/eassets/schemas/cancelevents}CancelEvents">CancelEvents</a></td>
+                     <td>This element contains parameters specifying which events should be cancelled.</td>
+                  </tr>
+                  <tr>
+                     <td>LogKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="../../common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>Key information identifying the log in which the cancellation event details are recorded.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}ReviewPostResponse"></a><h3>ReviewPostResponse</h3>
+         <p>The ReviewPostResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>IsPosted</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether the ReviewPostRequest corresponding to this response was successful.</td>
+                  </tr>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>The code for the company in which you attempted to post the reviewed cancellation
+                        events.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>RunNumber</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>A number identifying this cancellation process.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}ReviewPostResponseVerb"></a><h3>ReviewPostResponseVerb</h3>
+         <p>The ReviewPostResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}ReviewPostResponse" href="#{http://www.coda.com/eassets/schemas/cancelevents}ReviewPostResponse">ReviewPostResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}CancelReviewRequest"></a><h3>CancelReviewRequest</h3>
+         <p>The CancelReviewRequest type has <a title="{http://www.coda.com/efinance/schemas/common}Request" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Request">Request</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>CmpCode</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeCode" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeCode">typeCode</a></td>
+                     <td>The code for the company in which events are being cancelled.</td>
+                  </tr>
+                  <tr>
+                     <td>RunNumber</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                     <td>A number identifying this cancellation process.</td>
+                  </tr>
+                  <tr>
+                     <td>LogKey</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/common/schemas/logging}LogKey" href="../../common/logging/logging.html#{http://www.coda.com/common/schemas/logging}LogKey">LogKey</a></td>
+                     <td>Key information identifying the log in which the cancellation event details are recorded.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}CancelReviewRequestVerb"></a><h3>CancelReviewRequestVerb</h3>
+         <p>The CancelReviewRequestVerb type has <a title="{http://www.coda.com/efinance/schemas/common}RequestVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}RequestVerb">RequestVerb</a> as its base type.
+         </p>
+         <p>Cancels the review of the specified cancellation events.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Request</td>
+                     <td>1</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}CancelReviewRequest" href="#{http://www.coda.com/eassets/schemas/cancelevents}CancelReviewRequest">CancelReviewRequest</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}CancelReviewResponse"></a><h3>CancelReviewResponse</h3>
+         <p>The CancelReviewResponse type has <a title="{http://www.coda.com/efinance/schemas/common}Response" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}Response">Response</a> as its base type.
+         </p>
+         <p></p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>isCancelled</td>
+                     <td>1</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/efinance/schemas/common}typeBool" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeBool">typeBool</a></td>
+                     <td>Indicates whether the CancelReviewRequest corresponding to this response was successful.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}CancelReviewResponseVerb"></a><h3>CancelReviewResponseVerb</h3>
+         <p>The CancelReviewResponseVerb type has <a title="{http://www.coda.com/efinance/schemas/common}ResponseVerb" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ResponseVerb">ResponseVerb</a> as its base type.
+         </p>
+         <p>Contains the responses to your requests with this verb.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Response</td>
+                     <td>0</td>
+                     <td>unbounded</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}CancelReviewResponse" href="#{http://www.coda.com/eassets/schemas/cancelevents}CancelReviewResponse">CancelReviewResponse</a></td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}CancelEventsRequest"></a><h3>CancelEventsRequest</h3>
+         <p>The CancelEventsRequest type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceRequest" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceRequest">ServiceRequest</a> as its base type.
+         </p>
+         <p>This service allows you to cancel transaction events.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Post</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}PostRequestVerb" href="#{http://www.coda.com/eassets/schemas/cancelevents}PostRequestVerb">PostRequestVerb</a></td>
+                     <td>Posts the cancellation events.</td>
+                  </tr>
+                  <tr>
+                     <td>Review</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}ReviewRequestVerb" href="#{http://www.coda.com/eassets/schemas/cancelevents}ReviewRequestVerb">ReviewRequestVerb</a></td>
+                     <td>Reviews the asset transactions and financial transactions that will be generated by
+                        cancelling the specified events.
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>PostReview</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}ReviewPostRequestVerb" href="#{http://www.coda.com/eassets/schemas/cancelevents}ReviewPostRequestVerb">ReviewPostRequestVerb</a></td>
+                     <td>Posts the cancellation events that have been reviewed.</td>
+                  </tr>
+                  <tr>
+                     <td>CancelReview</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}CancelReviewRequestVerb" href="#{http://www.coda.com/eassets/schemas/cancelevents}CancelReviewRequestVerb">CancelReviewRequestVerb</a></td>
+                     <td>Cancels the review of the specified cancellation events.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div><a name="{http://www.coda.com/eassets/schemas/cancelevents}CancelEventsResponse"></a><h3>CancelEventsResponse</h3>
+         <p>The CancelEventsResponse type has <a title="{http://www.coda.com/efinance/schemas/common}ServiceResponse" href="../../finance/common/common.html#{http://www.coda.com/efinance/schemas/common}ServiceResponse">ServiceResponse</a> as its base type.
+         </p>
+         <p>This is the response that is returned when you cancel events.</p>
+         <div class="child-elements">
+            <h4>Child elements</h4>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Name</th>
+                     <th>Minimum</th>
+                     <th>Maximum</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Post</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}PostResponseVerb" href="#{http://www.coda.com/eassets/schemas/cancelevents}PostResponseVerb">PostResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>Review</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}ReviewResponseVerb" href="#{http://www.coda.com/eassets/schemas/cancelevents}ReviewResponseVerb">ReviewResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>PostReview</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}ReviewPostResponseVerb" href="#{http://www.coda.com/eassets/schemas/cancelevents}ReviewPostResponseVerb">ReviewPostResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+                  <tr>
+                     <td>CancelReview</td>
+                     <td>0</td>
+                     <td>1</td>
+                     <td><a title="{http://www.coda.com/eassets/schemas/cancelevents}CancelReviewResponseVerb" href="#{http://www.coda.com/eassets/schemas/cancelevents}CancelReviewResponseVerb">CancelReviewResponseVerb</a></td>
+                     <td>Contains the responses to your requests with this verb.</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/tablelink/tablelink-1.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tlkws="http://www.coda.com/efinance/schemas/tablelink/tablelink-1.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:prg="http://www.coda.com/efinance/schemas/progress"
+    xmlns:tlk="http://www.coda.com/efinance/schemas/tablelink"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/tablelink/tablelink-1.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/progress" schemaLocation="finance/progress/progress.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/tablelink" schemaLocation="../wsdl/finance/tablelink/tablelink.xsd"/>
+    <xsd:element name="DocumentLinkComStartRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="StartParams" type="tlk:DLNStartParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the parameters for
+                            starting the Table Link document line
+                            comments transfer process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DocumentLinkStartResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of Table Link.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ElementLinkStartRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="StartParams" type="tlk:ETLStartParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the parameters for
+                            starting the Table Link element transfer process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DocumentLinkDescStartRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="StartParams" type="tlk:DLNStartParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the parameters for
+                            starting the Table Link document line
+                            descriptions transfer process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DocumentLinkComStartResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of Table Link.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DocumentLinkDescStartResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of Table Link.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DocumentLinkStartRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="StartParams" type="tlk:DTLStartParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the parameters for
+                            starting the Table Link document transfer process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ElementLinkStartResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key, or special
+                            reference, given to you for requesting
+                            information about the progress of Table Link.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="ElementLinkStartRequest">
+    <part name="ElementLinkStartRequest" element="tlkws:ElementLinkStartRequest"/>
+  </message>
+  <message name="DocumentLinkDescStartResponse">
+    <part name="DocumentLinkDescStartResponse" element="tlkws:DocumentLinkDescStartResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="tlkws:OptionsResponse"/>
+  </message>
+  <message name="DocumentLinkDescStartRequest">
+    <part name="DocumentLinkDescStartRequest" element="tlkws:DocumentLinkDescStartRequest"/>
+  </message>
+  <message name="DocumentLinkStartRequest">
+    <part name="DocumentLinkStartRequest" element="tlkws:DocumentLinkStartRequest"/>
+  </message>
+  <message name="DocumentLinkComStartRequest">
+    <part name="DocumentLinkComStartRequest" element="tlkws:DocumentLinkComStartRequest"/>
+  </message>
+  <message name="DocumentLinkComStartResponse">
+    <part name="DocumentLinkComStartResponse" element="tlkws:DocumentLinkComStartResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="tlkws:Options"/>
+  </message>
+  <message name="DocumentLinkStartResponse">
+    <part name="DocumentLinkStartResponse" element="tlkws:DocumentLinkStartResponse"/>
+  </message>
+  <message name="ElementLinkStartResponse">
+    <part name="ElementLinkStartResponse" element="tlkws:ElementLinkStartResponse"/>
+  </message>
+  <portType name="TableLinkServicePortTypes">
+    <operation name="DocumentLinkStart">
+      <input message="tlkws:DocumentLinkStartRequest"/>
+      <output message="tlkws:DocumentLinkStartResponse"/>
+    </operation>
+    <operation name="DocumentLinkComStart">
+      <input message="tlkws:DocumentLinkComStartRequest"/>
+      <output message="tlkws:DocumentLinkComStartResponse"/>
+    </operation>
+    <operation name="DocumentLinkDescStart">
+      <input message="tlkws:DocumentLinkDescStartRequest"/>
+      <output message="tlkws:DocumentLinkDescStartResponse"/>
+    </operation>
+    <operation name="ElementLinkStart">
+      <input message="tlkws:ElementLinkStartRequest"/>
+      <output message="tlkws:ElementLinkStartResponse"/>
+    </operation>
+  </portType>
+  <binding name="TableLinkServiceSOAPBinding" type="tlkws:TableLinkServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="DocumentLinkStart">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/TableLink/DocumentLinkStart" style="document"/>
+      <input>
+        <soap:header message="tlkws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="tlkws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DocumentLinkComStart">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/TableLink/DocumentLinkComStart" style="document"/>
+      <input>
+        <soap:header message="tlkws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="tlkws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DocumentLinkDescStart">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/TableLink/DocumentLinkDescStart" style="document"/>
+      <input>
+        <soap:header message="tlkws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="tlkws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ElementLinkStart">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/TableLink/ElementLinkStart" style="document"/>
+      <input>
+        <soap:header message="tlkws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="tlkws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="TableLinkService">
+    <port name="TableLinkServicePort" binding="tlkws:TableLinkServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/tablelink/tablelink-1.0"/>
+    </port>
+  </service>
+</definitions>

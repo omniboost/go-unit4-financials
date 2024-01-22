@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/efinance/schemas/interestcharging/interestcharging-13.0/webservice" xmlns:intws="http://www.coda.com/efinance/schemas/interestcharging/interestcharging-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:int="http://www.coda.com/efinance/schemas/interestcharging"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:prg="http://www.coda.com/efinance/schemas/progress"
+    xmlns:gsl="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/efinance/schemas/interestcharging/interestcharging-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/progress" schemaLocation="finance/progress/progress.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/interestcharging" schemaLocation="../wsdl/finance/interestcharging/interestcharging.xsd"/>
+    <xsd:element name="PostResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This key contains information
+                            about the progress of the Post stage.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="int:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies the proposal being posted.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="HoldDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Summary" type="int:Summary">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns details of the
+                            retrieved interest charge.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="int:SummaryKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies an interest charge.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="int:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies the proposal being deleted.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Params" type="int:GenerateParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the parameters
+                            required to generate the proposals. The
+                            parameters include the interest master,
+                            selector master and proposal code.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHistoryLinesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Lines" minOccurs="0" type="int:HistoryLineList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains all the
+                            details of the actions taken on the
+                            specified proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="int:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies the proposal for which
+                            history lines are being retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="int:SummaryKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the interest charge summaries you want to
+                            retrieve from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Columns" type="sel:HeaderColumnList">
+                    <xsd:annotation>
+                        <xsd:documentation>The list of vocabulary items
+                            you want to use to display the proposal details.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="HoldDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="int:SummaryKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the summary key for
+                            the detail lines held from the interest charge.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Changes" type="int:DetailChangeList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element stores changes
+                            to individual detail lines within an
+                            interest charge.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetHistoryLinesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="int:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            identifies the proposal for which you want
+                            to retrieve history information</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RecoverRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="int:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the interest charge you want to recover.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNewProposalDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="NewProposalDetails" type="int:NewProposalDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>This element holds the
+                            details for a new proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="int:NewProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This key contains the company
+                            code and interest master code that will be
+                            used to generate the proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="int:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the interest charge summary lines you want
+                            to retrieve from the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProposalsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="com:GlobalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies an interest charge proposal</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Params" type="int:PostParams">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains parameters specified
+                            for posting the proposals.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="int:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies the proposal being updated.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetProposalsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Proposals" type="int:ProposalList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element lists all the
+                            interest charge proposals in the company.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="com:GlobalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key used to identify the
+                            interest charge proposals to be retrieved.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSummariesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Summaries" type="int:SummaryList">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns a list of interest
+                            charges contained within a proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="int:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies a proposal..</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetNewProposalDetailsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="int:NewProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This key contains the company
+                            code and interest master code that will be
+                            used to generate the proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="RecoverResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="int:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies the proposal being recovered.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDetailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Details" type="sel:SelectionWithFlexiFields">
+                    <xsd:annotation>
+                        <xsd:documentation>Returns the specified details
+                            for manipulation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="int:SummaryKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the interest charge summaries retrieved from
+                            the database.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateSummariesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="int:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element contains
+                            parameters for you to specify which proposal
+                            to retrieve for manipulation.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Changes" type="int:SummaryChangeList">
+                    <xsd:annotation>
+                        <xsd:documentation>This element stores a list of
+                            changes to an interest charge.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ProgressKey" minOccurs="0" type="prg:ProgressKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This key contains information
+                            about the progress of the Generate stage.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Key" type="int:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>This element is a key which
+                            uniquely identifies a proposal.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Key" type="int:ProposalKey">
+                    <xsd:annotation>
+                        <xsd:documentation>Contains the key identifying
+                            the interest charges you want to delete.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="intws:DeleteResponse"/>
+  </message>
+  <message name="PostRequest">
+    <part name="PostRequest" element="intws:PostRequest"/>
+  </message>
+  <message name="HoldDetailsRequest">
+    <part name="HoldDetailsRequest" element="intws:HoldDetailsRequest"/>
+  </message>
+  <message name="GenerateRequest">
+    <part name="GenerateRequest" element="intws:GenerateRequest"/>
+  </message>
+  <message name="GetProposalsRequest">
+    <part name="GetProposalsRequest" element="intws:GetProposalsRequest"/>
+  </message>
+  <message name="GetHistoryLinesResponse">
+    <part name="GetHistoryLinesResponse" element="intws:GetHistoryLinesResponse"/>
+  </message>
+  <message name="GetProposalsResponse">
+    <part name="GetProposalsResponse" element="intws:GetProposalsResponse"/>
+  </message>
+  <message name="PostResponse">
+    <part name="PostResponse" element="intws:PostResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="intws:OptionsResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="intws:DeleteRequest"/>
+  </message>
+  <message name="UpdateSummariesResponse">
+    <part name="UpdateSummariesResponse" element="intws:UpdateSummariesResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="intws:Options"/>
+  </message>
+  <message name="GetDetailsRequest">
+    <part name="GetDetailsRequest" element="intws:GetDetailsRequest"/>
+  </message>
+  <message name="GetNewProposalDetailsResponse">
+    <part name="GetNewProposalDetailsResponse" element="intws:GetNewProposalDetailsResponse"/>
+  </message>
+  <message name="GetHistoryLinesRequest">
+    <part name="GetHistoryLinesRequest" element="intws:GetHistoryLinesRequest"/>
+  </message>
+  <message name="HoldDetailsResponse">
+    <part name="HoldDetailsResponse" element="intws:HoldDetailsResponse"/>
+  </message>
+  <message name="RecoverRequest">
+    <part name="RecoverRequest" element="intws:RecoverRequest"/>
+  </message>
+  <message name="GetSummariesResponse">
+    <part name="GetSummariesResponse" element="intws:GetSummariesResponse"/>
+  </message>
+  <message name="GetSummariesRequest">
+    <part name="GetSummariesRequest" element="intws:GetSummariesRequest"/>
+  </message>
+  <message name="GenerateResponse">
+    <part name="GenerateResponse" element="intws:GenerateResponse"/>
+  </message>
+  <message name="GetDetailsResponse">
+    <part name="GetDetailsResponse" element="intws:GetDetailsResponse"/>
+  </message>
+  <message name="GetNewProposalDetailsRequest">
+    <part name="GetNewProposalDetailsRequest" element="intws:GetNewProposalDetailsRequest"/>
+  </message>
+  <message name="UpdateSummariesRequest">
+    <part name="UpdateSummariesRequest" element="intws:UpdateSummariesRequest"/>
+  </message>
+  <message name="RecoverResponse">
+    <part name="RecoverResponse" element="intws:RecoverResponse"/>
+  </message>
+  <portType name="InterestChargingServicePortTypes">
+    <operation name="Delete">
+      <input message="intws:DeleteRequest"/>
+      <output message="intws:DeleteResponse"/>
+    </operation>
+    <operation name="GetHistoryLines">
+      <input message="intws:GetHistoryLinesRequest"/>
+      <output message="intws:GetHistoryLinesResponse"/>
+    </operation>
+    <operation name="HoldDetails">
+      <input message="intws:HoldDetailsRequest"/>
+      <output message="intws:HoldDetailsResponse"/>
+    </operation>
+    <operation name="UpdateSummaries">
+      <input message="intws:UpdateSummariesRequest"/>
+      <output message="intws:UpdateSummariesResponse"/>
+    </operation>
+    <operation name="GetNewProposalDetails">
+      <input message="intws:GetNewProposalDetailsRequest"/>
+      <output message="intws:GetNewProposalDetailsResponse"/>
+    </operation>
+    <operation name="GetDetails">
+      <input message="intws:GetDetailsRequest"/>
+      <output message="intws:GetDetailsResponse"/>
+    </operation>
+    <operation name="Post">
+      <input message="intws:PostRequest"/>
+      <output message="intws:PostResponse"/>
+    </operation>
+    <operation name="Generate">
+      <input message="intws:GenerateRequest"/>
+      <output message="intws:GenerateResponse"/>
+    </operation>
+    <operation name="GetProposals">
+      <input message="intws:GetProposalsRequest"/>
+      <output message="intws:GetProposalsResponse"/>
+    </operation>
+    <operation name="Recover">
+      <input message="intws:RecoverRequest"/>
+      <output message="intws:RecoverResponse"/>
+    </operation>
+    <operation name="GetSummaries">
+      <input message="intws:GetSummariesRequest"/>
+      <output message="intws:GetSummariesResponse"/>
+    </operation>
+  </portType>
+  <binding name="InterestChargingServiceSOAPBinding" type="intws:InterestChargingServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/InterestCharging/Delete" style="document"/>
+      <input>
+        <soap:header message="intws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="intws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetHistoryLines">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/InterestCharging/GetHistoryLines" style="document"/>
+      <input>
+        <soap:header message="intws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="intws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="HoldDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/InterestCharging/HoldDetails" style="document"/>
+      <input>
+        <soap:header message="intws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="intws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdateSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/InterestCharging/UpdateSummaries" style="document"/>
+      <input>
+        <soap:header message="intws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="intws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetNewProposalDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/InterestCharging/GetNewProposalDetails" style="document"/>
+      <input>
+        <soap:header message="intws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="intws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDetails">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/InterestCharging/GetDetails" style="document"/>
+      <input>
+        <soap:header message="intws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="intws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Post">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/InterestCharging/Post" style="document"/>
+      <input>
+        <soap:header message="intws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="intws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Generate">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/InterestCharging/Generate" style="document"/>
+      <input>
+        <soap:header message="intws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="intws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProposals">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/InterestCharging/GetProposals" style="document"/>
+      <input>
+        <soap:header message="intws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="intws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Recover">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/InterestCharging/Recover" style="document"/>
+      <input>
+        <soap:header message="intws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="intws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetSummaries">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/finance/InterestCharging/GetSummaries" style="document"/>
+      <input>
+        <soap:header message="intws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="intws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="InterestChargingService">
+    <port name="InterestChargingServicePort" binding="intws:InterestChargingServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/finance/interestcharging/interestcharging-13.0"/>
+    </port>
+  </service>
+</definitions>

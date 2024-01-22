@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/accruals/pimaccrualsselector-11.3/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:accrualsws="http://www.coda.com/pim/schemas/accruals/pimaccrualsselector-11.3/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:accmas="http://www.coda.com/pim/schemas/accrualsmaster"
+    xmlns:selt="http://www.coda.com/efinance/schemas/selector"
+    xmlns:acrmas="http://www.coda.com/pim/schemas/accrualsmaster"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:accr="http://www.coda.com/pim/schemas/accruals"
+    xmlns:doc="http://www.coda.com/pim/schemas/document"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:accruals="http://www.coda.com/pim/schemas/accruals"
+    xmlns:pimcom="http://www.coda.com/pim/schemas/common"
+    xmlns:pimsel="http://www.coda.com/pim/schemas/selector"
+    targetNamespace="http://www.coda.com/pim/schemas/accruals/pimaccrualsselector-11.3/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/pim/schemas/accrualsmaster" schemaLocation="pim/accrualsmaster/accrualsmaster.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/selector" schemaLocation="pim/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/document" schemaLocation="pim/document/document.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/accruals" schemaLocation="../wsdl/pim/accruals/accruals.xsd"/>
+    <xsd:element name="SelectRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="AccrualsMaster" type="accmas:AccrualsMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The code of the accrual
+                            master to use.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="InvoiceSelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector defining the
+                            search criteria for invoice documents to be
+                            included in the accruals process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LRNSelectorMaster" type="selmas:SelectorMaster">
+                    <xsd:annotation>
+                        <xsd:documentation>The selector defining the
+                            search criteria for LRN documents to be
+                            included in the accruals process.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SelectResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceSelection" type="selt:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The invoice documents
+                            selected by the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LRNSelection" type="selt:Selection">
+                    <xsd:annotation>
+                        <xsd:documentation>The LRN documents selected by
+                            the request.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Options">
+    <part name="Options" element="accrualsws:Options"/>
+  </message>
+  <message name="SelectResponse">
+    <part name="SelectResponse" element="accrualsws:SelectResponse"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="accrualsws:OptionsResponse"/>
+  </message>
+  <message name="SelectRequest">
+    <part name="SelectRequest" element="accrualsws:SelectRequest"/>
+  </message>
+  <portType name="PIMAccrualsSelectorServicePortTypes">
+    <operation name="Select">
+      <input message="accrualsws:SelectRequest"/>
+      <output message="accrualsws:SelectResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMAccrualsSelectorServiceSOAPBinding" type="accrualsws:PIMAccrualsSelectorServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Select">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMAccrualsSelector/Select" style="document"/>
+      <input>
+        <soap:header message="accrualsws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="accrualsws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMAccrualsSelectorService">
+    <port name="PIMAccrualsSelectorServicePort" binding="accrualsws:PIMAccrualsSelectorServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/accruals/pimaccrualsselector-11.3"/>
+    </port>
+  </service>
+</definitions>

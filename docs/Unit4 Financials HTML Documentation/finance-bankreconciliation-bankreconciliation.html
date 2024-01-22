@@ -1,0 +1,659 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Web Service</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="services">
+         <div id="service-BankReconciliationService">
+            <h1>BankReconciliationService</h1>
+            <table>
+               <tbody>
+                  <tr>
+                     <th>Namespace:</th>
+                     <td>http://www.coda.com/efinance/schemas/bankreconciliation/bankreconciliation-13.0/webservice</td>
+                  </tr>
+                  <tr>
+                     <th>WSDL:</th>
+                     <td><a href="wsdl/finance-bankreconciliation-bankreconciliation.wsdl" download="">finance-bankreconciliation-bankreconciliation.wsdl</a></td>
+                  </tr>
+                  <tr>
+                     <th>Path:</th>
+                     <td>services/finance/bankreconciliation/bankreconciliation-13.0</td>
+                  </tr>
+               </tbody>
+            </table>
+            <p></p>
+            <p>The following methods are available on this endpoint:</p>
+            <ul>
+               <li><a href="#BankReconciliationService-Abort">Abort</a></li>
+               <li><a href="#BankReconciliationService-Commit">Commit</a></li>
+               <li><a href="#BankReconciliationService-GetProgress">GetProgress</a></li>
+               <li><a href="#BankReconciliationService-GetReconciliationGroups">GetReconciliationGroups</a></li>
+               <li><a href="#BankReconciliationService-GetWriteOffLimits">GetWriteOffLimits</a></li>
+               <li><a href="#BankReconciliationService-StartAssistant">StartAssistant</a></li>
+               <li><a href="#BankReconciliationService-StartBackground">StartBackground</a></li>
+               <li><a href="#BankReconciliationService-Undo">Undo</a></li>
+               <li><a href="#BankReconciliationService-ValidateParams">ValidateParams</a></li>
+            </ul>
+            <div class="operations">
+               <div class="operation">
+                  <h2><a name="BankReconciliationService-Abort"></a>Abort
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>AbortRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, which identifies the process you
+                                 want to abort. This is given to you when you
+                                 start the process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>AbortResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special reference
+                                 which identifies the process you want to abort.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BankReconciliationService-Commit"></a>Commit
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>CommitRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ReconciliationParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationParams" href="finance/bankreconciliation/bankreconciliation.html#{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationParams">ReconciliationParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 reconciling Financials document lines with
+                                 statement lines.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Groups</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationGroups" href="finance/bankreconciliation/bankreconciliation.html#{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationGroups">ReconciliationGroups</a></td>
+                              <td>This element contains details
+                                 of the reconciliation groups in the
+                                 reconciliation session.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>CommitResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Results</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/bankreconciliation}CommitGroupResults" href="finance/bankreconciliation/bankreconciliation.html#{http://www.coda.com/efinance/schemas/bankreconciliation}CommitGroupResults">CommitGroupResults</a></td>
+                              <td>This element contains the
+                                 results of the groups committed by the
+                                 CommitRequest corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogID</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A system-generated number
+                                 identifying the log file in which this
+                                 reconciliation session has been logged.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BankReconciliationService-GetProgress"></a>GetProgress
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetProgressRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, which identifies the process you
+                                 started. This is given to you when you start
+                                 the process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetProgressResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Key</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>The key, or special
+                                 reference, which identifies the process you
+                                 are sending the request to. This is given to
+                                 you when you start the process.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Progress</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressData" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressData">ProgressData</a></td>
+                              <td>Contains information about
+                                 the status and progress of the process you
+                                 are running.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Statistics</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/association}ProgressStatistics" href="finance/association/association.html#{http://www.coda.com/efinance/schemas/association}ProgressStatistics">ProgressStatistics</a></td>
+                              <td>This element contains
+                                 statistics of the lines that the Assistant
+                                 has processed so far.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BankReconciliationService-GetReconciliationGroups"></a>GetReconciliationGroups
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetReconciliationGroupsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>Contains a key that
+                                 identifies the Assistant process for which
+                                 you want to retrieve reconciliation group information.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetReconciliationGroupsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Groups</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationGroups" href="finance/bankreconciliation/bankreconciliation.html#{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationGroups">ReconciliationGroups</a></td>
+                              <td>This element contains details
+                                 of the groups in the reconciliation session.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BankReconciliationService-GetWriteOffLimits"></a>GetWriteOffLimits
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>GetWriteOffLimitsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>Params</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationWriteOffLimitParams" href="finance/bankreconciliation/bankreconciliation.html#{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationWriteOffLimitParams">ReconciliationWriteOffLimitParams</a></td>
+                              <td>This element contains the
+                                 parameters which are specified to retrieve
+                                 credit/debit write off tolerances.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>GetWriteOffLimitsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CreditWriteOffLimit</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                              <td>The maximum credit amount
+                                 that may be written off for the specified value.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>DebitWriteOffLimit</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeMoney" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeMoney">typeMoney</a></td>
+                              <td>The maximum credit amount
+                                 that may be written off for the specified value.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BankReconciliationService-StartAssistant"></a>StartAssistant
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>StartAssistantRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ReconciliationParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationParams" href="finance/bankreconciliation/bankreconciliation.html#{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationParams">ReconciliationParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 reconciling Financials document lines with
+                                 statement lines.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Folders</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/association}asoKeyFolders" href="finance/association/association.html#{http://www.coda.com/efinance/schemas/association}asoKeyFolders">asoKeyFolders</a></td>
+                              <td>This element contains details
+                                 of the folders in which the Financials
+                                 document lines and statement lines are listed.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>StartAtGroupNumber</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>The group number at which the
+                                 assistant should start creating
+                                 reconciliation groups. For example, the user
+                                 might have manually created groups 1 and 2,
+                                 and would                 therefore want the
+                                 Assistant to create new groups starting from
+                                 3.               
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>StartAssistantResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>Contains a key that
+                                 identifies the Assisted Interactive
+                                 Reconciliation process that has been started.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogID</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A system-generated number
+                                 identifying the log file in which this
+                                 reconciliation session has been logged.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BankReconciliationService-StartBackground"></a>StartBackground
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>StartBackgroundRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ReconciliationParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationParams" href="finance/bankreconciliation/bankreconciliation.html#{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationParams">ReconciliationParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 reconciling Financials document lines with
+                                 statement lines.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Selectors</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationSelectors" href="finance/bankreconciliation/bankreconciliation.html#{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationSelectors">ReconciliationSelectors</a></td>
+                              <td>This element contains the
+                                 selectors to use for selecting Financials
+                                 document lines and statement lines for the
+                                 Background Matching process.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>StartBackgroundResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ProgressKey</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/progress}ProgressKey" href="finance/progress/progress.html#{http://www.coda.com/efinance/schemas/progress}ProgressKey">ProgressKey</a></td>
+                              <td>Contains a key that
+                                 identifies the Background Reconciliation
+                                 process that has been started.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>LogID</td>
+                              <td>0</td>
+                              <td>1</td>
+                              <td><a title="{http://www.w3.org/2001/XMLSchema}int" href="http://www.w3.org/TR/xmlschema11-2/#int">int</a></td>
+                              <td>A system-generated number
+                                 identifying the log file in which this
+                                 reconciliation session has been logged.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BankReconciliationService-Undo"></a>Undo
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>UndoRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UndoReconciliationParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/bankreconciliation}UndoServiceParams" href="finance/bankreconciliation/bankreconciliation.html#{http://www.coda.com/efinance/schemas/bankreconciliation}UndoServiceParams">UndoServiceParams</a></td>
+                              <td>This element contains
+                                 parameters used by the UndoRequest,
+                                 including the company code and log title.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Groups</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/bankreconciliation}UndoReconciliationGroups" href="finance/bankreconciliation/bankreconciliation.html#{http://www.coda.com/efinance/schemas/bankreconciliation}UndoReconciliationGroups">UndoReconciliationGroups</a></td>
+                              <td>This element contains
+                                 parameters identifying the reconciliation
+                                 groups to be undone.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>UndoResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>UndoReconciliationParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/bankreconciliation}UndoServiceParams" href="finance/bankreconciliation/bankreconciliation.html#{http://www.coda.com/efinance/schemas/bankreconciliation}UndoServiceParams">UndoServiceParams</a></td>
+                              <td>This element contains the
+                                 parameters you provided in the UndoRequest
+                                 corresponding to this Response.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>Groups</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/bankreconciliation}UndoGroupResults" href="finance/bankreconciliation/bankreconciliation.html#{http://www.coda.com/efinance/schemas/bankreconciliation}UndoGroupResults">UndoGroupResults</a></td>
+                              <td>This element contains the
+                                 results of the UndoRequest corresponding to
+                                 this Response.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="operation">
+                  <h2><a name="BankReconciliationService-ValidateParams"></a>ValidateParams
+                  </h2>
+                  <p></p>
+                  <div class="input">
+                     <h3>Input Parameters</h3>ValidateParamsRequest
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>ReconciliationParams</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationParams" href="finance/bankreconciliation/bankreconciliation.html#{http://www.coda.com/efinance/schemas/bankreconciliation}ReconciliationParams">ReconciliationParams</a></td>
+                              <td>This element contains the
+                                 parameters which can be specified when
+                                 reconciling Financials document lines with
+                                 statement lines.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="output">
+                     <h3>Return Value</h3>ValidateParamsResponse
+                     <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Minimum</th>
+                           <th>Maximum</th>
+                           <th>Type</th>
+                           <th>Description</th>
+                        </tr>
+                        <tbody>
+                           <tr>
+                              <td>CmpCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the company in
+                                 which you are performing reconciliation.
+                              </td>
+                           </tr>
+                           <tr>
+                              <td>MasterCode</td>
+                              <td>1</td>
+                              <td>1</td>
+                              <td><a title="{http://www.coda.com/efinance/schemas/common}typeGeneralCode" href="finance/common/common.html#{http://www.coda.com/efinance/schemas/common}typeGeneralCode">typeGeneralCode</a></td>
+                              <td>The code of the
+                                 reconciliation master being used for the
+                                 current reconciliation session.
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

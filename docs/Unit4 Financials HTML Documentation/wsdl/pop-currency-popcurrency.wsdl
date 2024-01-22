@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pop/schemas/currency/popcurrency-11.2/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:currws="http://www.coda.com/pop/schemas/currency/popcurrency-11.2/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:poptypes="http://www.coda.com/pop/schemas/common"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:ns1="http://www.coda.com/common/schemas/domaingen"
+    xmlns:curr="http://www.coda.com/pop/schemas/currency"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    xmlns:datatypes="http://www.coda.com/common/schemas/datatypes"
+    targetNamespace="http://www.coda.com/pop/schemas/currency/popcurrency-11.2/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/pop/schemas/currency" schemaLocation="../wsdl/pop/currency/currency.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pop/schemas/common" schemaLocation="pop/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/common/schemas/datatypes" schemaLocation="common/datatypes/datatypes.xsd"/>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ConvertCurrencyRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ConvertFrom" type="com:Money">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The monetary value that you want to
+                            convert.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CurrencyTo" type="curr:CurrencyKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The key that identifies the currency
+                                to which you want to convert the
+                                monetary value.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="InputDate" minOccurs="0" type="com:typeHardb">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The input date of the document.
+                                Specify this if that date determines the
+                                exchange rate to be used.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OrderDate" minOccurs="0" type="com:typeHardb">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The document date. Specify this if
+                                that date determines the exchange rate
+                                to be used.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ConvertCurrencyResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ConvertTo" type="com:Money">
+                    <xsd:annotation>
+                        <xsd:documentation>The convertTo is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetCurrencyDataResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CurrencyData" minOccurs="0"
+                    maxOccurs="unbounded" type="curr:CurrencyRateData">
+                    <xsd:annotation>
+                        <xsd:documentation>The currencyData is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetCurrencyDataRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SourceCurrency" type="curr:CurrencyKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <documentation xmlns:ns1="http://www.coda.com/common/schemas/domaingen">
+                                <p>The currency key we want details for</p>
+                            </documentation>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="InputDate" type="com:typeHard">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The input date of the document.
+                                Specify this if that date determines the
+                                exchange rate to be used.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DocumentDate" type="com:typeHard">
+                    <xsd:annotation/>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="Options">
+    <part name="Options" element="currws:Options"/>
+  </message>
+  <message name="ConvertCurrencyResponse">
+    <part name="ConvertCurrencyResponse" element="currws:ConvertCurrencyResponse"/>
+  </message>
+  <message name="GetCurrencyDataResponse">
+    <part name="GetCurrencyDataResponse" element="currws:GetCurrencyDataResponse"/>
+  </message>
+  <message name="GetCurrencyDataRequest">
+    <part name="GetCurrencyDataRequest" element="currws:GetCurrencyDataRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="currws:OptionsResponse"/>
+  </message>
+  <message name="ConvertCurrencyRequest">
+    <part name="ConvertCurrencyRequest" element="currws:ConvertCurrencyRequest"/>
+  </message>
+  <portType name="POPCurrencyServicePortTypes">
+    <operation name="GetCurrencyData">
+      <input message="currws:GetCurrencyDataRequest"/>
+      <output message="currws:GetCurrencyDataResponse"/>
+    </operation>
+    <operation name="ConvertCurrency">
+      <input message="currws:ConvertCurrencyRequest"/>
+      <output message="currws:ConvertCurrencyResponse"/>
+    </operation>
+  </portType>
+  <binding name="POPCurrencyServiceSOAPBinding" type="currws:POPCurrencyServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetCurrencyData">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPCurrency/GetCurrencyData" style="document"/>
+      <input>
+        <soap:header message="currws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="currws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ConvertCurrency">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pop/POPCurrency/ConvertCurrency" style="document"/>
+      <input>
+        <soap:header message="currws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="currws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="POPCurrencyService">
+    <port name="POPCurrencyServicePort" binding="currws:POPCurrencyServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pop/currency/popcurrency-11.2"/>
+    </port>
+  </service>
+</definitions>

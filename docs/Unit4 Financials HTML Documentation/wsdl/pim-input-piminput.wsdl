@@ -1,0 +1,1645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://www.coda.com/pim/schemas/input/piminput-13.0/webservice" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:inpws="http://www.coda.com/pim/schemas/input/piminput-13.0/webservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:sel="http://www.coda.com/efinance/schemas/selector"
+    xmlns:com="http://www.coda.com/efinance/schemas/common"
+    xmlns:selmas="http://www.coda.com/efinance/schemas/selectormaster"
+    xmlns:pimusr="http://www.coda.com/pim/schemas/user"
+    xmlns:inv="http://www.coda.com/pim/schemas/invoice"
+    xmlns:inp="http://www.coda.com/pim/schemas/input"
+    xmlns:pimtypes="http://www.coda.com/pim/schemas/common"
+    xmlns:taxmas="http://www.coda.com/pim/schemas/taxmaster"
+    xmlns:presmas="http://www.coda.com/efinance/schemas/presenter"
+    xmlns:build="http://www.coda.com/common/schemas/funcsec"
+    targetNamespace="http://www.coda.com/pim/schemas/input/piminput-13.0/webservice"
+    attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xsd:import namespace="http://www.coda.com/pim/schemas/common" schemaLocation="pim/common/common.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/taxmaster" schemaLocation="pim/taxmaster/taxmaster.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/input" schemaLocation="../wsdl/pim/input/input.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selector" schemaLocation="finance/selector/selector.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/invoice" schemaLocation="pim/invoice/invoice.xsd"/>
+    <xsd:import namespace="http://www.coda.com/pim/schemas/user" schemaLocation="pim/user/user.xsd"/>
+    <xsd:import namespace="http://www.coda.com/efinance/schemas/common" schemaLocation="finance/common/common.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/presenter" schemaLocation="finance/presenter/presenter.xsd"/>
+    <xsd:import
+        namespace="http://www.coda.com/efinance/schemas/selectormaster" schemaLocation="finance/selectormaster/selectormaster.xsd"/>
+    <xsd:element name="GetResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the get function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="IsCurrencySettingOnSupplierRefreshAllowedRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="InitialiseInvoiceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Query" type="com:Query">
+                    <xsd:annotation>
+                        <xsd:documentation>The set of query criteria to
+                            be used to find the Invoice objects that the
+                            user is interested in.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p> The invoice to update</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WarningsAccepted" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p> Are we updating the invoice after
+                                accepting save warnings?</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ForceFullyAnalysedTaxGenValidation" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p> Force validation to be for a fully
+                                analused invoice where tax is generated
+                                from lines</p>
+                                <p> This is useful where we have
+                                &quot;morphed&quot; the invoice from
+                                header only to a fully analysed tax
+                                generating one             and we need
+                                to force validation to be appropriate to
+                                the new invoice type.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ValidationWorkflowExplodeURL" type="com:typeTextB">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p> The explode URL for validation
+                            workflows.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SecondPaymentDueDateCalculateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DueDateCalculateRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the invoice being input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BalanceTaxResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BalanceTax" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            balanceTax function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateTaxRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelInvoiceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceKey" minOccurs="0" type="inv:InvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the key identifying the
+                                purchase invoice that you want to
+                            cancel.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Reason" minOccurs="0" type="com:typeDescription">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The reason for the cancellation.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DueDateCalculateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DueDateCalculate" type="com:typeHardb">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            dueDateCalculate function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SupplierRefreshRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="IsTabOutRefresh" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Indicates whether these values are
+                                refreshed upon tab out.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckTaxResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CheckTax" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            checkTax function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DiscountValidationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="DiscountValidation" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            discountValidation function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostInvoiceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceKey" type="inv:InvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the key identifying the
+                                purchase invoice that you want to
+                            post.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateCurrenciesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="CalculateCurrencies" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            calculateCurrencies function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateInvoiceRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Add" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Indicates whether you are adding an
+                                new invoice (True), or maintaining an
+                                existing invoice (False).</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ForceFullyAnalysedTaxGenValidation" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p> Force validation to be for a fully
+                                analused invoice where tax is generated
+                                from lines</p>
+                                <p> This is useful where we have
+                                &quot;morphed&quot; the invoice from
+                                header only to a fully analysed tax
+                                generating one             and we need
+                                to force validation to be appropriate to
+                                the new invoice type.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="TaxByCodeValidationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PostInvoiceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PostInvoice" type="inp:PostResult">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            postInvoice function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="InitialiseInvoiceLineResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InitialiseInvoiceLine" type="inv:InvoiceLine">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            initialiseInvoiceLine function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Add" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the add function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WorkflowValidationFailureMsg" type="com:typeTextB">
+                    <xsd:annotation>
+                        <xsd:documentation>The
+                            workflowValidationFailureMsg is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WorkflowValidationFailureOrderNo" type="com:typeTextB">
+                    <xsd:annotation>
+                        <xsd:documentation>The
+                            workflowValidationFailureOrderNo is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Options">
+        <xsd:complexType>
+            <xsd:attribute name="bulkload" type="xsd:boolean"/>
+            <xsd:attribute name="logtitle" type="com:typeLogTitle"/>
+            <xsd:attribute name="attachments" type="com:typeAttachments" default="none"/>
+            <xsd:attribute name="locale" type="com:typeLocale"/>
+            <xsd:attribute name="origin" type="xsd:string"/>
+            <xsd:attribute name="handlingdata" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>For internal use only.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="user" type="com:typeGeneralCode"/>
+            <xsd:attribute name="company" type="com:typeGeneralCode"/>
+            <xsd:attribute name="session" type="xsd:string"/>
+            <xsd:attribute name="slot" type="xsd:nonNegativeInteger"/>
+            <xsd:attribute name="transactionid" type="xsd:string"/>
+            <xsd:attribute name="txtimeout" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDiscountDatesAndValuesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OrderSearchRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Company" type="com:typeTextB">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The company code.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Supplier" type="com:typeTextB">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the supplier element.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SupplierElementLevel" type="com:typeWordB">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The element level of the supplier
+                            element.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OrderReferencesList" type="inp:PIMInputOrderSearchOrderReferencesList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A list of order references.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AdviceNoteNumbersList" type="inp:PIMInputOrderSearchAdviceNoteNumbersList">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>A list of advice note numbers.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Department" type="com:typeTextB">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the department
+                            element.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="DepartmentElementLevel" type="com:typeWordB">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The element level of the department
+                            element.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Update" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            update function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WorkflowValidationFailureMsg" type="com:typeTextB">
+                    <xsd:annotation>
+                        <xsd:documentation>The
+                            workflowValidationFailureMsg is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WorkflowValidationFailureOrderNo" type="com:typeTextB">
+                    <xsd:annotation>
+                        <xsd:documentation>The
+                            workflowValidationFailureOrderNo is an out
+                            argument, so the server will put it here.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CalculateCurrenciesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice whose
+                                currency values you wish to
+                            calculate.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="CurrenciesDirty" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Indicates whether the currency values
+                                on the invoice have been edited.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ResetRates" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Indicates whether the currency rates
+                                should be reset.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ClearRates" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Indicates whether the currency rates
+                                should be cleared.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="NewDocumentCurrency" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Indicates whether the document
+                                currency has changed.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceKey" type="inv:InvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the Invoice object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SupplierRefreshResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SupplierRefresh" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            supplierRefresh function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSundryLineDefaultsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetSundryLineDefaults" type="inv:InvoiceLine">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getSundryLineDefaults function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LrnSearchResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LrnSearch" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            lrnSearch function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="FindResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceList" type="inv:InvoiceList">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the find function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetSundryLineDefaultsRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="SundryLine" type="inv:InvoiceLine">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the sundry line whose
+                                default values you wish to populate.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="AccountDerivationOnly" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Indicates whether the request is to
+                                derive only the sundry line account
+                            code.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SecurityCheckResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SecurityCheck" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            securityCheck function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DiscountValidationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BalancedHeaderOnlyInvoiceValidationRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BalancedHeaderOnlyInvoiceValidationResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GenerateTaxResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GenerateTax" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            generateTax function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BalanceTaxRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CancelInvoiceResponse">
+        <xsd:complexType>
+            <xsd:sequence/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="IsCurrencySettingOnSupplierRefreshAllowedResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element
+                    name="IsCurrencySettingOnSupplierRefreshAllowed" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            isCurrencySettingOnSupplierRefreshAllowed function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetDiscountDatesAndValuesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetDiscountDatesAndValues" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getDiscountDatesAndValues function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OptionsResponse">
+        <xsd:complexType>
+            <xsd:attribute name="transactioncoordinator" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceKey" type="inv:InvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>The key to the Invoice object.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BalanceLineTaxValuesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BalanceLineTaxValues" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            balanceLineTaxValues function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SecondPaymentDueDateCalculateResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SecondPaymentDueDateCalculate" type="com:typeHardb">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            secondPaymentDueDateCalculate function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CheckTaxRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetUsersForPositionHierarchyRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="HierarchyCode" type="com:typeCode">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>The code of the position
+                            hierarchy.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="SecurityCheckRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceKey" minOccurs="0" type="inv:InvoiceKey">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the key identifying the
+                                purchase invoice that you want to check
+                                security upon.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ValidateInvoiceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ValidateInvoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            validateInvoice function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="InitialiseInvoiceLineRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InvoiceLine" type="inv:InvoiceLine">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice line
+                                that you wish to initialise.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="LineType" type="pimtypes:typePimLineCategory">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Indicates whether the line is value
+                                or quantity based.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AddRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p> The invoice to add</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="WarningsAccepted" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p> Are we saving the invoice after
+                                accepting save warnings?</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ForceFullyAnalysedTaxGenValidation" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p> Force validation to be for a fully
+                                analysed invoice where tax is generated
+                                from lines</p>
+                                <p> This is useful where we have
+                                &quot;morphed&quot; the invoice from
+                                header only to a fully analysed tax
+                                generating one             and we need
+                                to force validation to be appropriate to
+                                the new invoice type.           </p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="ValidationWorkflowExplodeURL" type="com:typeTextB">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p> The explode URL for validation
+                            workflows.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="LrnSearchRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Contains the purchase invoice being
+                            input.</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="OrderNoSearch" type="com:typeBoolean">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p>Indicates whether to search by order
+                                number (True), or advice note number
+                            (False).</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="TaxByCodeValidationResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="TaxByCodeValidation" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            taxByCodeValidation function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="BalanceLineTaxValuesRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Invoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p> The invoice</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element name="InvoiceBalancingDetails" type="inp:InvoiceBalancingDetails">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                                <p> The invoice balancing details</p>                             </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="InitialiseInvoiceResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="InitialiseInvoice" type="inv:Invoice">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            initialiseInvoice function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="GetUsersForPositionHierarchyResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="GetUsersForPositionHierarchy" type="inp:UsersRestrictedToHierarchy">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            getUsersForPositionHierarchy function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="OrderSearchResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="OrderSearch" type="inp:OrderSearchResults">
+                    <xsd:annotation>
+                        <xsd:documentation>The return value of the
+                            orderSearch function.</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+  </types>
+  <message name="PostInvoiceRequest">
+    <part name="PostInvoiceRequest" element="inpws:PostInvoiceRequest"/>
+  </message>
+  <message name="GetSundryLineDefaultsRequest">
+    <part name="GetSundryLineDefaultsRequest" element="inpws:GetSundryLineDefaultsRequest"/>
+  </message>
+  <message name="GetDiscountDatesAndValuesRequest">
+    <part name="GetDiscountDatesAndValuesRequest" element="inpws:GetDiscountDatesAndValuesRequest"/>
+  </message>
+  <message name="DeleteResponse">
+    <part name="DeleteResponse" element="inpws:DeleteResponse"/>
+  </message>
+  <message name="DueDateCalculateResponse">
+    <part name="DueDateCalculateResponse" element="inpws:DueDateCalculateResponse"/>
+  </message>
+  <message name="InitialiseInvoiceLineResponse">
+    <part name="InitialiseInvoiceLineResponse" element="inpws:InitialiseInvoiceLineResponse"/>
+  </message>
+  <message name="DueDateCalculateRequest">
+    <part name="DueDateCalculateRequest" element="inpws:DueDateCalculateRequest"/>
+  </message>
+  <message name="InitialiseInvoiceLineRequest">
+    <part name="InitialiseInvoiceLineRequest" element="inpws:InitialiseInvoiceLineRequest"/>
+  </message>
+  <message name="LrnSearchRequest">
+    <part name="LrnSearchRequest" element="inpws:LrnSearchRequest"/>
+  </message>
+  <message name="CancelInvoiceRequest">
+    <part name="CancelInvoiceRequest" element="inpws:CancelInvoiceRequest"/>
+  </message>
+  <message name="BalanceLineTaxValuesRequest">
+    <part name="BalanceLineTaxValuesRequest" element="inpws:BalanceLineTaxValuesRequest"/>
+  </message>
+  <message name="GenerateTaxRequest">
+    <part name="GenerateTaxRequest" element="inpws:GenerateTaxRequest"/>
+  </message>
+  <message name="IsCurrencySettingOnSupplierRefreshAllowedResponse">
+    <part name="IsCurrencySettingOnSupplierRefreshAllowedResponse" element="inpws:IsCurrencySettingOnSupplierRefreshAllowedResponse"/>
+  </message>
+  <message name="UpdateRequest">
+    <part name="UpdateRequest" element="inpws:UpdateRequest"/>
+  </message>
+  <message name="GenerateTaxResponse">
+    <part name="GenerateTaxResponse" element="inpws:GenerateTaxResponse"/>
+  </message>
+  <message name="InitialiseInvoiceResponse">
+    <part name="InitialiseInvoiceResponse" element="inpws:InitialiseInvoiceResponse"/>
+  </message>
+  <message name="BalanceLineTaxValuesResponse">
+    <part name="BalanceLineTaxValuesResponse" element="inpws:BalanceLineTaxValuesResponse"/>
+  </message>
+  <message name="GetSundryLineDefaultsResponse">
+    <part name="GetSundryLineDefaultsResponse" element="inpws:GetSundryLineDefaultsResponse"/>
+  </message>
+  <message name="UpdateResponse">
+    <part name="UpdateResponse" element="inpws:UpdateResponse"/>
+  </message>
+  <message name="AddRequest">
+    <part name="AddRequest" element="inpws:AddRequest"/>
+  </message>
+  <message name="SecurityCheckResponse">
+    <part name="SecurityCheckResponse" element="inpws:SecurityCheckResponse"/>
+  </message>
+  <message name="GetRequest">
+    <part name="GetRequest" element="inpws:GetRequest"/>
+  </message>
+  <message name="IsCurrencySettingOnSupplierRefreshAllowedRequest">
+    <part name="IsCurrencySettingOnSupplierRefreshAllowedRequest" element="inpws:IsCurrencySettingOnSupplierRefreshAllowedRequest"/>
+  </message>
+  <message name="GetUsersForPositionHierarchyRequest">
+    <part name="GetUsersForPositionHierarchyRequest" element="inpws:GetUsersForPositionHierarchyRequest"/>
+  </message>
+  <message name="SecondPaymentDueDateCalculateResponse">
+    <part name="SecondPaymentDueDateCalculateResponse" element="inpws:SecondPaymentDueDateCalculateResponse"/>
+  </message>
+  <message name="BalanceTaxResponse">
+    <part name="BalanceTaxResponse" element="inpws:BalanceTaxResponse"/>
+  </message>
+  <message name="CancelInvoiceResponse">
+    <part name="CancelInvoiceResponse" element="inpws:CancelInvoiceResponse"/>
+  </message>
+  <message name="LrnSearchResponse">
+    <part name="LrnSearchResponse" element="inpws:LrnSearchResponse"/>
+  </message>
+  <message name="FindResponse">
+    <part name="FindResponse" element="inpws:FindResponse"/>
+  </message>
+  <message name="SecondPaymentDueDateCalculateRequest">
+    <part name="SecondPaymentDueDateCalculateRequest" element="inpws:SecondPaymentDueDateCalculateRequest"/>
+  </message>
+  <message name="CalculateCurrenciesResponse">
+    <part name="CalculateCurrenciesResponse" element="inpws:CalculateCurrenciesResponse"/>
+  </message>
+  <message name="GetDiscountDatesAndValuesResponse">
+    <part name="GetDiscountDatesAndValuesResponse" element="inpws:GetDiscountDatesAndValuesResponse"/>
+  </message>
+  <message name="BalancedHeaderOnlyInvoiceValidationResponse">
+    <part name="BalancedHeaderOnlyInvoiceValidationResponse" element="inpws:BalancedHeaderOnlyInvoiceValidationResponse"/>
+  </message>
+  <message name="FindRequest">
+    <part name="FindRequest" element="inpws:FindRequest"/>
+  </message>
+  <message name="OrderSearchResponse">
+    <part name="OrderSearchResponse" element="inpws:OrderSearchResponse"/>
+  </message>
+  <message name="DeleteRequest">
+    <part name="DeleteRequest" element="inpws:DeleteRequest"/>
+  </message>
+  <message name="SecurityCheckRequest">
+    <part name="SecurityCheckRequest" element="inpws:SecurityCheckRequest"/>
+  </message>
+  <message name="SupplierRefreshResponse">
+    <part name="SupplierRefreshResponse" element="inpws:SupplierRefreshResponse"/>
+  </message>
+  <message name="TaxByCodeValidationRequest">
+    <part name="TaxByCodeValidationRequest" element="inpws:TaxByCodeValidationRequest"/>
+  </message>
+  <message name="CheckTaxRequest">
+    <part name="CheckTaxRequest" element="inpws:CheckTaxRequest"/>
+  </message>
+  <message name="TaxByCodeValidationResponse">
+    <part name="TaxByCodeValidationResponse" element="inpws:TaxByCodeValidationResponse"/>
+  </message>
+  <message name="SupplierRefreshRequest">
+    <part name="SupplierRefreshRequest" element="inpws:SupplierRefreshRequest"/>
+  </message>
+  <message name="InitialiseInvoiceRequest">
+    <part name="InitialiseInvoiceRequest" element="inpws:InitialiseInvoiceRequest"/>
+  </message>
+  <message name="GetResponse">
+    <part name="GetResponse" element="inpws:GetResponse"/>
+  </message>
+  <message name="AddResponse">
+    <part name="AddResponse" element="inpws:AddResponse"/>
+  </message>
+  <message name="ValidateInvoiceRequest">
+    <part name="ValidateInvoiceRequest" element="inpws:ValidateInvoiceRequest"/>
+  </message>
+  <message name="CalculateCurrenciesRequest">
+    <part name="CalculateCurrenciesRequest" element="inpws:CalculateCurrenciesRequest"/>
+  </message>
+  <message name="OrderSearchRequest">
+    <part name="OrderSearchRequest" element="inpws:OrderSearchRequest"/>
+  </message>
+  <message name="PostInvoiceResponse">
+    <part name="PostInvoiceResponse" element="inpws:PostInvoiceResponse"/>
+  </message>
+  <message name="BalancedHeaderOnlyInvoiceValidationRequest">
+    <part name="BalancedHeaderOnlyInvoiceValidationRequest" element="inpws:BalancedHeaderOnlyInvoiceValidationRequest"/>
+  </message>
+  <message name="OptionsResponse">
+    <part name="OptionsResponse" element="inpws:OptionsResponse"/>
+  </message>
+  <message name="ValidateInvoiceResponse">
+    <part name="ValidateInvoiceResponse" element="inpws:ValidateInvoiceResponse"/>
+  </message>
+  <message name="DiscountValidationRequest">
+    <part name="DiscountValidationRequest" element="inpws:DiscountValidationRequest"/>
+  </message>
+  <message name="GetUsersForPositionHierarchyResponse">
+    <part name="GetUsersForPositionHierarchyResponse" element="inpws:GetUsersForPositionHierarchyResponse"/>
+  </message>
+  <message name="Options">
+    <part name="Options" element="inpws:Options"/>
+  </message>
+  <message name="DiscountValidationResponse">
+    <part name="DiscountValidationResponse" element="inpws:DiscountValidationResponse"/>
+  </message>
+  <message name="BalanceTaxRequest">
+    <part name="BalanceTaxRequest" element="inpws:BalanceTaxRequest"/>
+  </message>
+  <message name="CheckTaxResponse">
+    <part name="CheckTaxResponse" element="inpws:CheckTaxResponse"/>
+  </message>
+  <portType name="PIMInputServicePortTypes">
+    <operation name="Delete">
+      <input message="inpws:DeleteRequest"/>
+      <output message="inpws:DeleteResponse"/>
+    </operation>
+    <operation name="Add">
+      <input message="inpws:AddRequest"/>
+      <output message="inpws:AddResponse"/>
+    </operation>
+    <operation name="BalancedHeaderOnlyInvoiceValidation">
+      <input message="inpws:BalancedHeaderOnlyInvoiceValidationRequest"/>
+      <output message="inpws:BalancedHeaderOnlyInvoiceValidationResponse"/>
+    </operation>
+    <operation name="SecondPaymentDueDateCalculate">
+      <input message="inpws:SecondPaymentDueDateCalculateRequest"/>
+      <output message="inpws:SecondPaymentDueDateCalculateResponse"/>
+    </operation>
+    <operation name="OrderSearch">
+      <input message="inpws:OrderSearchRequest"/>
+      <output message="inpws:OrderSearchResponse"/>
+    </operation>
+    <operation name="DueDateCalculate">
+      <input message="inpws:DueDateCalculateRequest"/>
+      <output message="inpws:DueDateCalculateResponse"/>
+    </operation>
+    <operation name="BalanceLineTaxValues">
+      <input message="inpws:BalanceLineTaxValuesRequest"/>
+      <output message="inpws:BalanceLineTaxValuesResponse"/>
+    </operation>
+    <operation name="Update">
+      <input message="inpws:UpdateRequest"/>
+      <output message="inpws:UpdateResponse"/>
+    </operation>
+    <operation name="GenerateTax">
+      <input message="inpws:GenerateTaxRequest"/>
+      <output message="inpws:GenerateTaxResponse"/>
+    </operation>
+    <operation name="CheckTax">
+      <input message="inpws:CheckTaxRequest"/>
+      <output message="inpws:CheckTaxResponse"/>
+    </operation>
+    <operation name="SupplierRefresh">
+      <input message="inpws:SupplierRefreshRequest"/>
+      <output message="inpws:SupplierRefreshResponse"/>
+    </operation>
+    <operation name="SecurityCheck">
+      <input message="inpws:SecurityCheckRequest"/>
+      <output message="inpws:SecurityCheckResponse"/>
+    </operation>
+    <operation name="CalculateCurrencies">
+      <input message="inpws:CalculateCurrenciesRequest"/>
+      <output message="inpws:CalculateCurrenciesResponse"/>
+    </operation>
+    <operation name="BalanceTax">
+      <input message="inpws:BalanceTaxRequest"/>
+      <output message="inpws:BalanceTaxResponse"/>
+    </operation>
+    <operation name="CancelInvoice">
+      <input message="inpws:CancelInvoiceRequest"/>
+      <output message="inpws:CancelInvoiceResponse"/>
+    </operation>
+    <operation name="ValidateInvoice">
+      <input message="inpws:ValidateInvoiceRequest"/>
+      <output message="inpws:ValidateInvoiceResponse"/>
+    </operation>
+    <operation name="PostInvoice">
+      <input message="inpws:PostInvoiceRequest"/>
+      <output message="inpws:PostInvoiceResponse"/>
+    </operation>
+    <operation name="GetSundryLineDefaults">
+      <input message="inpws:GetSundryLineDefaultsRequest"/>
+      <output message="inpws:GetSundryLineDefaultsResponse"/>
+    </operation>
+    <operation name="InitialiseInvoice">
+      <input message="inpws:InitialiseInvoiceRequest"/>
+      <output message="inpws:InitialiseInvoiceResponse"/>
+    </operation>
+    <operation name="DiscountValidation">
+      <input message="inpws:DiscountValidationRequest"/>
+      <output message="inpws:DiscountValidationResponse"/>
+    </operation>
+    <operation name="LrnSearch">
+      <input message="inpws:LrnSearchRequest"/>
+      <output message="inpws:LrnSearchResponse"/>
+    </operation>
+    <operation name="Get">
+      <input message="inpws:GetRequest"/>
+      <output message="inpws:GetResponse"/>
+    </operation>
+    <operation name="Find">
+      <input message="inpws:FindRequest"/>
+      <output message="inpws:FindResponse"/>
+    </operation>
+    <operation name="GetDiscountDatesAndValues">
+      <input message="inpws:GetDiscountDatesAndValuesRequest"/>
+      <output message="inpws:GetDiscountDatesAndValuesResponse"/>
+    </operation>
+    <operation name="GetUsersForPositionHierarchy">
+      <input message="inpws:GetUsersForPositionHierarchyRequest"/>
+      <output message="inpws:GetUsersForPositionHierarchyResponse"/>
+    </operation>
+    <operation name="TaxByCodeValidation">
+      <input message="inpws:TaxByCodeValidationRequest"/>
+      <output message="inpws:TaxByCodeValidationResponse"/>
+    </operation>
+    <operation name="IsCurrencySettingOnSupplierRefreshAllowed">
+      <input message="inpws:IsCurrencySettingOnSupplierRefreshAllowedRequest"/>
+      <output message="inpws:IsCurrencySettingOnSupplierRefreshAllowedResponse"/>
+    </operation>
+    <operation name="InitialiseInvoiceLine">
+      <input message="inpws:InitialiseInvoiceLineRequest"/>
+      <output message="inpws:InitialiseInvoiceLineResponse"/>
+    </operation>
+  </portType>
+  <binding name="PIMInputServiceSOAPBinding" type="inpws:PIMInputServicePortTypes">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="Delete">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/Delete" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Add">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/Add" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="BalancedHeaderOnlyInvoiceValidation">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/BalancedHeaderOnlyInvoiceValidation" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SecondPaymentDueDateCalculate">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/SecondPaymentDueDateCalculate" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="OrderSearch">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/OrderSearch" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DueDateCalculate">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/DueDateCalculate" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="BalanceLineTaxValues">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/BalanceLineTaxValues" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Update">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/Update" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GenerateTax">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/GenerateTax" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckTax">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/CheckTax" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SupplierRefresh">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/SupplierRefresh" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SecurityCheck">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/SecurityCheck" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CalculateCurrencies">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/CalculateCurrencies" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="BalanceTax">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/BalanceTax" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CancelInvoice">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/CancelInvoice" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ValidateInvoice">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/ValidateInvoice" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="PostInvoice">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/PostInvoice" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetSundryLineDefaults">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/GetSundryLineDefaults" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="InitialiseInvoice">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/InitialiseInvoice" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="DiscountValidation">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/DiscountValidation" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LrnSearch">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/LrnSearch" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Get">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/Get" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Find">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/Find" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetDiscountDatesAndValues">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/GetDiscountDatesAndValues" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetUsersForPositionHierarchy">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/GetUsersForPositionHierarchy" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="TaxByCodeValidation">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/TaxByCodeValidation" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="IsCurrencySettingOnSupplierRefreshAllowed">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/IsCurrencySettingOnSupplierRefreshAllowed" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="InitialiseInvoiceLine">
+<documentation></documentation>
+      <soap:operation soapAction="uri-coda-webservice/14.000.0011/pim/PIMInput/InitialiseInvoiceLine" style="document"/>
+      <input>
+        <soap:header message="inpws:Options" part="Options" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:header message="inpws:OptionsResponse" part="OptionsResponse" use="literal">
+        </soap:header>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="PIMInputService">
+    <port name="PIMInputServicePort" binding="inpws:PIMInputServiceSOAPBinding">
+      <soap:address location="http://localhost:8080/coda/services/pim/input/piminput-13.0"/>
+    </port>
+  </service>
+</definitions>
