@@ -59,6 +59,8 @@ type Client struct {
 	user        string
 	password    string
 	companyCode string
+	locale string
+	session     string
 
 	// User agent for client
 	userAgent string
@@ -118,6 +120,14 @@ func (c Client) CompanyCode() string {
 
 func (c *Client) SetCompanyCode(companyCode string) {
 	c.companyCode = companyCode
+}
+
+func (c Client) Locale() string {
+	return c.locale
+}
+
+func (c *Client) SetLocale(locale string) {
+	c.locale = locale
 }
 
 func (c Client) BaseURL() (*url.URL, error) {
@@ -206,9 +216,14 @@ func (c *Client) GetEndpointURL(p string, pathParams PathParams) (url.URL, error
 func (c *Client) NewRequest(ctx context.Context, req Request) (*http.Request, error) {
 	// convert body struct to xml
 	buf := new(bytes.Buffer)
-	if req.RequestBodyInterface() != nil {
+	if req.SOAPBodyInterface() != nil {
 		soapRequest := NewRequestEnvelope()
-		soapRequest.Body.ActionBody = req.RequestBodyInterface()
+		if x, ok := req.(interface{SOAPNS() []xml.Attr}); ok {
+			soapRequest.NS = append(soapRequest.NS, x.SOAPNS()...)
+		}
+		soapRequest.Header = req.SOAPHeader()
+		soapRequest.Header.Options.Locale = c.Locale()
+		soapRequest.Body.ActionBody = req.SOAPBodyInterface()
 
 		enc := xml.NewEncoder(buf)
 		enc.Indent("", "  ")
@@ -392,6 +407,30 @@ func (c *Client) Unmarshal(r io.Reader, vv ...interface{}) error {
 	return nil
 }
 
+func (c *Client) Session() (string, error) {
+	// fetch a new token if it isn't set already
+	if c.session == "" {
+		var err error
+		c.session, err = c.NewSession()
+		if err != nil {
+			return "", err
+		}
+	}
+
+	return c.session, nil
+}
+
+func (c *Client) NewSession() (string, error) {
+	req := c.NewAuthenticateRequest()
+	resp, err := req.Do()
+	if err != nil {
+		return "", err
+	}
+
+	return resp.Session, nil
+
+}
+
 // CheckResponse checks the Client response for errors, and returns them if
 // present. A response is considered an error if it has a status code outside
 // the 200 range. Client error responses are expected to have either no response
@@ -445,7 +484,7 @@ func checkContentType(response *http.Response) error {
 	header := response.Header.Get("Content-Type")
 	contentType := strings.Split(header, ";")[0]
 	if contentType != mediaType {
-		return fmt.Errorf("Expected Content-Type \"%s\", got \"%s\"", mediaType, contentType)
+		return fmt.Errorf("%s: Expected Content-Type \"%s\", got \"%s\"", response.Status, mediaType, contentType)
 	}
 
 	return nil

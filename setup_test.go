@@ -16,12 +16,14 @@ func TestMain(m *testing.M) {
 	user := os.Getenv("FINANCIALS_USER")
 	password := os.Getenv("FINANCIALS_PASSWORD")
 	companyCode := os.Getenv("FINANCIALS_COMPANY_CODE")
+	locale := os.Getenv("FINANCIALS_LOCALE")
 	debug := os.Getenv("DEBUG")
 
 	client = financials.NewClient(nil)
 	client.SetUser(user)
 	client.SetPassword(password)
 	client.SetCompanyCode(companyCode)
+	client.SetLocale(locale)
 	if debug != "" {
 		client.SetDebug(true)
 	}

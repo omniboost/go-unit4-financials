@@ -10,12 +10,16 @@ import (
 type RequestEnvelope struct {
 	XMLName xml.Name
 
-	Header Header `xml:"Header,omitempty"`
+	NS     []xml.Attr `xml:"-"`
+	Header Header `xml:"env:Header,omitempty"`
 	Body   Body   `xml:"env:Body"`
 }
 
 func NewRequestEnvelope() RequestEnvelope {
 	return RequestEnvelope{
+		NS: []xml.Attr{
+			{Name: xml.Name{Space: "", Local: "xmlns:env"}, Value: "http://schemas.xmlsoap.org/soap/envelope/"},
+		},
 		Header: NewHeader(),
 	}
 }
@@ -23,18 +27,14 @@ func NewRequestEnvelope() RequestEnvelope {
 type ResponseEnvelope struct {
 	XMLName xml.Name
 
-	Header Header `xml:"Header,omitempty"`
-	Body   Body   `xml:"Body"`
+	Header Header     `xml:"Header,omitempty"`
+	Body   Body       `xml:"Body"`
 }
 
 func (env RequestEnvelope) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	start.Name = xml.Name{Local: "env:Envelope"}
 
-	namespaces := []xml.Attr{
-		{Name: xml.Name{Space: "", Local: "xmlns"}, Value: "http://www.coda.com/wsadapter/schemas/authenticate/authenticate-2.0/webservice"},
-		{Name: xml.Name{Space: "", Local: "xmlns:env"}, Value: "http://schemas.xmlsoap.org/soap/envelope/"},
-	}
-	for _, ns := range namespaces {
+	for _, ns := range env.NS {
 		start.Attr = append(start.Attr, ns)
 	}
 
@@ -49,6 +49,7 @@ type Body struct {
 }
 
 type Header struct {
+	Options Options `xml:"Options"`
 }
 
 func (h Header) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
@@ -61,4 +62,9 @@ func (h Header) IsEmpty() bool {
 
 func NewHeader() Header {
 	return Header{}
+}
+
+type Options struct {
+	Locale  string `xml:"locale,attr"`
+	Session string `xml:"session,attr,omitempty"`
 }

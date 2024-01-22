@@ -36,6 +36,16 @@ func (r AuthenticateRequest) SOAPAction() string {
 	return "uri-coda-webservice/{version}/wsadapter/authenticate/Authenticate"
 }
 
+func (r AuthenticateRequest) SOAPHeader() Header {
+	return Header{}
+}
+
+func (r AuthenticateRequest) SOAPNS() []xml.Attr {
+	return []xml.Attr{
+		{Name: xml.Name{Space: "", Local: "xmlns"}, Value: "http://www.coda.com/wsadapter/schemas/authenticate/authenticate-2.0/webservice"},
+	}
+}
+
 func (r AuthenticateRequest) NewQueryParams() *AuthenticateRequestQueryParams {
 	return &AuthenticateRequestQueryParams{}
 }
@@ -90,14 +100,14 @@ func (r AuthenticateRequest) NewRequestBody() AuthenticateRequestBody {
 type AuthenticateRequestBody struct {
 	XMLName xml.Name `xml:"AuthenticateRequest"`
 
-	SuppressDefaultUser string `xml:"SuppressDefaultUser"`
+	SuppressDefaultUser bool `xml:"SuppressDefaultUser"`
 }
 
 func (r *AuthenticateRequest) RequestBody() *AuthenticateRequestBody {
 	return &r.requestBody
 }
 
-func (r *AuthenticateRequest) RequestBodyInterface() interface{} {
+func (r *AuthenticateRequest) SOAPBodyInterface() interface{} {
 	return &r.requestBody
 }
 
