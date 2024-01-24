@@ -35,9 +35,9 @@ func (r EnvironmentGetRequest) SOAPAction() string {
 	return "uri-coda-webservice/{version}/finance/AppServer/GetEnvironment"
 }
 
-func (r EnvironmentGetRequest) SOAPHeader() Header {
+func (r EnvironmentGetRequest) SOAPHeader() SOAPHeader {
 	session, _ := r.client.Session()
-	return Header{
+	return SOAPHeader{
 		Options: Options{
 			Session: session,
 		},

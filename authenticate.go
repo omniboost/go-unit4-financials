@@ -36,8 +36,8 @@ func (r AuthenticateRequest) SOAPAction() string {
 	return "uri-coda-webservice/{version}/wsadapter/authenticate/Authenticate"
 }
 
-func (r AuthenticateRequest) SOAPHeader() Header {
-	return Header{}
+func (r AuthenticateRequest) SOAPHeader() SOAPHeader {
+	return SOAPHeader{}
 }
 
 func (r AuthenticateRequest) SOAPNS() []xml.Attr {

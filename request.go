@@ -7,7 +7,7 @@ type Request interface {
 	// QueryParams() QueryParams
 	PathParams() PathParams
 	SOAPBodyInterface() interface{}
-	SOAPHeader() Header
+	SOAPHeader() SOAPHeader
 	URL() (*url.URL, error)
 	SOAPAction() string
 }

@@ -1,5 +1,53 @@
 package financials
 
+import "github.com/ericlagergren/decimal"
+
+type ElementFilterListFilter struct {
+	MaxKeys   int    `xml:"com:MaxKeys"`   // The maximum number of items to be returned. The value zero has the special meaning of 'no limit'.
+	CmpCode   string `xml:"com:CmpCode"`   // The company code.
+	ShortName string `xml:"com:ShortName"` // The short name.
+	Level     int    `xml:"elem:Level"`    // The element level to which the element filter master applies.
+}
+
+type ElmReqFullKeys struct {
+	MaxKeys     int `xml:"MaxKeys"`
+	FullWildKey struct {
+		CmpCode string `xml:"CmpCode"`
+		Level   int    `xml:"Level"`
+		Code    string `xml:"Code"`
+	} `xml:"FullWildKey"`
+}
+
+type Transaction struct {
+	Header Header `xml:"Header"`
+	Lines  Lines  `xml:"Lines>Line"`
+}
+
+type Header struct {
+	Key struct {
+		CmpCode string `xml:"CmpCode"`
+		Code    string `xml:"Code"`
+	} `xml:"Key"`
+	Period          string `xml:"Period"`
+	CurCode         string `xml:"CurCode"`
+	Date            string `xml:"Date"`
+	Description     string `xml:"Description"`
+	OriginalCompany string `xml:"OriginalCompany"`
+}
+
+type Lines []Line
+
+type Line struct {
+	Number      int         `xml:"Number,omitempty"`
+	AccountCode string      `xml:"AccountCode"`
+	DocValue    decimal.Big `xml:"DocValue"`
+	LineType    string      `xml:"LineType"`
+	LineSense   string      `xml:"LineSense"`
+	Description string      `xml:"Description"`
+	DueDate     string      `xml:"DueDate,omitempty"`
+	ExtRef1     string      `xml:"ExtRef1,omitempty"`
+}
+
 // type RecordRef struct {
 // 	InternalID string `xml:"internalId,attr,omitempty"`
 // 	ExternalID string `xml:"externalId,attr,omitempty"`

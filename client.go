@@ -15,6 +15,7 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/elliotchance/pie/pie"
 	"github.com/pkg/errors"
 )
 
@@ -59,7 +60,7 @@ type Client struct {
 	user        string
 	password    string
 	companyCode string
-	locale string
+	locale      string
 	session     string
 
 	// User agent for client
@@ -218,7 +219,7 @@ func (c *Client) NewRequest(ctx context.Context, req Request) (*http.Request, er
 	buf := new(bytes.Buffer)
 	if req.SOAPBodyInterface() != nil {
 		soapRequest := NewRequestEnvelope()
-		if x, ok := req.(interface{SOAPNS() []xml.Attr}); ok {
+		if x, ok := req.(interface{ SOAPNS() []xml.Attr }); ok {
 			soapRequest.NS = append(soapRequest.NS, x.SOAPNS()...)
 		}
 		soapRequest.Header = req.SOAPHeader()
@@ -323,7 +324,7 @@ func (c *Client) Do(req *http.Request, body interface{}) (*http.Response, error)
 	}
 
 	soapResponse := &ResponseEnvelope{
-		Header: Header{},
+		Header: SOAPHeader{},
 		Body: Body{
 			ActionBody: body,
 		},
@@ -331,7 +332,7 @@ func (c *Client) Do(req *http.Request, body interface{}) (*http.Response, error)
 
 	soapError := SOAPError{Response: httpResp}
 	errResp := &ResponseEnvelope{
-		Header: Header{},
+		Header: SOAPHeader{},
 		Body: Body{
 			ActionBody: &soapError,
 		},
@@ -339,7 +340,7 @@ func (c *Client) Do(req *http.Request, body interface{}) (*http.Response, error)
 
 	soapFault := SOAPFault{Response: httpResp}
 	faultResp := &ResponseEnvelope{
-		Header: Header{},
+		Header: SOAPHeader{},
 		Body: Body{
 			ActionBody: &soapFault,
 		},
@@ -347,7 +348,7 @@ func (c *Client) Do(req *http.Request, body interface{}) (*http.Response, error)
 
 	statusResponseBody := StatusResponseBody{Response: httpResp}
 	statusResp := &ResponseEnvelope{
-		Header: Header{},
+		Header: SOAPHeader{},
 		Body: Body{
 			ActionBody: &statusResponseBody,
 		},
@@ -529,25 +530,23 @@ type SOAPFault struct {
 	Faultcode   string   `xml:"faultcode"`
 	Faultstring string   `xml:"faultstring"`
 	Detail      struct {
-		Fault struct {
-			PlatformFaults string `xml:"platformFaults,attr"`
-			Code           string `xml:"code"`
-			Message        string `xml:"message"`
-		} `xml:"any"`
-		Hostname struct {
-			Ns1 string `xml:"ns1,attr"`
-		} `xml:"hostname"`
+		Reason struct {
+			Text string `xml:"Text"`
+			Path string `xml:"Path"`
+		} `xml:"Reason"`
 	} `xml:"detail"`
 }
 
 func (f SOAPFault) Error() string {
-	l := []string{f.Faultcode, f.Faultstring, f.Detail.Fault.Code, f.Detail.Fault.Message}
+	l := []string{f.Faultcode, f.Faultstring, f.Detail.Reason.Text, f.Detail.Reason.Path}
 	ll := []string{}
 	for _, v := range l {
 		if v != "" {
 			ll = append(ll, v)
 		}
 	}
+
+	ll = pie.Strings(ll).Unique()
 
 	return strings.Join(ll, ", ")
 }
