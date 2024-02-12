@@ -129,7 +129,12 @@ func (r *ElementMasterGetRequest) NewResponseBody() *ElementMasterGetRequestResp
 }
 
 type ElementMasterGetRequestResponseBody struct {
-	XMLName xml.Name `xml:"GetEnvironmentResponse"`
+	XMLName xml.Name `xml:"GetResponse"`
+
+	CmpCode string  `xml:"CmpCode"`
+	Level   string  `xml:"Level"`
+	Code    string  `xml:"Code"`
+	Element Element `xml:"Element"`
 }
 
 func (r *ElementMasterGetRequest) URL() (*url.URL, error) {

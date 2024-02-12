@@ -109,7 +109,7 @@ type InputPostRequestBody struct {
 
 	PostOptions struct {
 		Postto string `xml:"postto,attr"`
-	} `xml:"PostOptions"`
+	} `xml:"web:PostOptions"`
 	Transaction Transaction `xml:"web:Transaction"`
 }
 

@@ -12,6 +12,7 @@ import (
 	"net/http/httputil"
 	"net/url"
 	"path"
+	"strconv"
 	"strings"
 	"text/template"
 
@@ -531,14 +532,22 @@ type SOAPFault struct {
 	Faultstring string   `xml:"faultstring"`
 	Detail      struct {
 		Reason struct {
-			Text string `xml:"Text"`
+			Text struct {
+				Code int    `xml:"Code,attr"`
+				Text string `xml:",chardata"`
+			} `xml:"Text"`
 			Path string `xml:"Path"`
 		} `xml:"Reason"`
 	} `xml:"detail"`
 }
 
 func (f SOAPFault) Error() string {
-	l := []string{f.Faultcode, f.Faultstring, f.Detail.Reason.Text, f.Detail.Reason.Path}
+	l := []string{f.Faultcode, f.Faultstring}
+	if f.Detail.Reason.Text.Code != 0 {
+		l = append(l, strconv.Itoa(f.Detail.Reason.Text.Code))
+	}
+	l = append(l, f.Detail.Reason.Text.Text, f.Detail.Reason.Path)
+
 	ll := []string{}
 	for _, v := range l {
 		if v != "" {

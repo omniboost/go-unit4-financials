@@ -2,8 +2,10 @@ package financials
 
 import (
 	"encoding/json"
+	"encoding/xml"
 	"time"
 
+	"github.com/ericlagergren/decimal"
 	"github.com/pkg/errors"
 )
 
@@ -76,7 +78,7 @@ func (dt *DateTime) MarshalJSON() ([]byte, error) {
 		return json.Marshal(nil)
 	}
 
-	return json.Marshal(dt.Time.Format("2006-01-02T15:04:05"))
+	return json.Marshal(dt.Time.Format("2006-01-02T15:04:05.999"))
 }
 
 func (dt *DateTime) UnmarshalJSON(text []byte) (err error) {
@@ -96,8 +98,12 @@ func (dt *DateTime) UnmarshalJSON(text []byte) (err error) {
 		return nil
 	}
 
-	dt.Time, err = time.Parse("2006-01-02T15:04:05", value)
+	dt.Time, err = time.Parse("2006-01-02T15:04:05.999", value)
 	return err
+}
+
+func (dt DateTime) IsEmpty() bool {
+	return dt.Time.IsZero()
 }
 
 type Bool bool
@@ -125,4 +131,21 @@ func (b *Bool) UnmarshalJSON(text []byte) (err error) {
 	}
 
 	return errors.New("FML")
+}
+
+type Decimal struct {
+	decimal.Big
+}
+
+func (d Decimal) IsEmpty() bool {
+	f, _ := d.Big.Float64()
+	return f == 0.0
+}
+
+func (d Decimal) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
+	s, err := d.Big.MarshalText()
+	if err != nil {
+		return err
+	}
+	return e.EncodeElement(s, start)
 }
