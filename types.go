@@ -64,6 +64,7 @@ type Line struct {
 	Taxes            Taxes    `xml:"Taxes>Tax,omitempty"`
 	TaxLineCode      string   `xml:"TaxLineCode,omitempty"`
 	DocTaxTurnover   Decimal  `xml:"DocTaxTurnover,omitempty"`
+	DocSumTax        Decimal  `xml:"DocSumTax,omitempty"`
 }
 
 func (l Line) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
