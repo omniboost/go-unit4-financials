@@ -122,3 +122,16 @@ type Address struct {
 	Category       string `xml:"Category"`
 	Country        string `xml:"Country"`
 }
+
+type DocSeletKey struct {
+	MaxKeys   int    `xml:"com:MaxKeys"`   // The maximum number of items to be returned. The value zero has the special meaning of 'no limit'.
+	ShortName string `xml:"com:ShortName"` // The short name.
+}
+
+type ReqKeys struct {
+	MaxKeys   int    `xml:"com:MaxKeys"`   // The maximum number of items to be returned. The value zero has the special meaning of 'no limit'.
+	Key	 struct {
+		CmpCode string `xml:"com:CmpCode,omitepty"`
+		Code string `xml:"com:Code,omitempty"`
+	} `xml:"com:Key"`
+}
