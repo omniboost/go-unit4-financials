@@ -129,9 +129,37 @@ type DocSeletKey struct {
 }
 
 type ReqKeys struct {
-	MaxKeys   int    `xml:"com:MaxKeys"`   // The maximum number of items to be returned. The value zero has the special meaning of 'no limit'.
-	Key	 struct {
+	MaxKeys int `xml:"com:MaxKeys"` // The maximum number of items to be returned. The value zero has the special meaning of 'no limit'.
+	Key     struct {
 		CmpCode string `xml:"com:CmpCode,omitepty"`
-		Code string `xml:"com:Code,omitempty"`
+		Code    string `xml:"com:Code,omitempty"`
 	} `xml:"com:Key"`
+}
+
+type TaxMaster struct {
+	TimeStamp           string `xml:"TimeStamp"`
+	CmpCode             string `xml:"CmpCode"`
+	Code                string `xml:"Code"`
+	Name                string `xml:"Name"`
+	ShortName           string `xml:"ShortName"`
+	RecoveryScope       string `xml:"RecoveryScope"`
+	Rev                 string `xml:"Rev"`
+	RecoverAcc          string `xml:"RecoverAcc"`
+	RecoverRevAcc       string `xml:"RecoverRevAcc"`
+	IrrecoverToGoods    string `xml:"IrrecoverToGoods"`
+	IrrecoverAcc        string `xml:"IrrecoverAcc"`
+	IrrecoverRevToGoods string `xml:"IrrecoverRevToGoods"`
+	IrrecoverRevAcc     string `xml:"IrrecoverRevAcc"`
+	DestCode            string `xml:"DestCode"`
+	Intercompany        string `xml:"Intercompany"`
+	IsDeferredVAT       string `xml:"IsDeferredVAT"`
+	DeferredAccount     string `xml:"DeferredAccount"`
+	CollectionAccount   string `xml:"CollectionAccount"`
+	RateInfoList        struct {
+		RateInfo struct {
+			EffectiveDate      string `xml:"EffectiveDate"`
+			Rate               string `xml:"Rate"`
+			RecoveryPercentage string `xml:"RecoveryPercentage"`
+		} `xml:"RateInfo"`
+	} `xml:"RateInfoList"`
 }

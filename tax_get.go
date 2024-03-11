@@ -130,39 +130,13 @@ func (r *TaxGetRequest) NewResponseBody() *TaxGetRequestResponseBody {
 type TaxGetRequestResponseBody struct {
 	XMLName xml.Name `xml:"GetResponse"`
 
-	Text       string `xml:",chardata"`
-	Webservice string `xml:"webservice,attr"`
-	Xmlns      string `xml:"xmlns,attr"`
-	Com        string `xml:"com,attr"`
-	CmpCode    string `xml:"CmpCode"`
-	Code       string `xml:"Code"`
-	Tax        struct {
-		TimeStamp           string `xml:"TimeStamp"`
-		CmpCode             string `xml:"CmpCode"`
-		Code                string `xml:"Code"`
-		Name                string `xml:"Name"`
-		ShortName           string `xml:"ShortName"`
-		RecoveryScope       string `xml:"RecoveryScope"`
-		Rev                 string `xml:"Rev"`
-		RecoverAcc          string `xml:"RecoverAcc"`
-		RecoverRevAcc       string `xml:"RecoverRevAcc"`
-		IrrecoverToGoods    string `xml:"IrrecoverToGoods"`
-		IrrecoverAcc        string `xml:"IrrecoverAcc"`
-		IrrecoverRevToGoods string `xml:"IrrecoverRevToGoods"`
-		IrrecoverRevAcc     string `xml:"IrrecoverRevAcc"`
-		DestCode            string `xml:"DestCode"`
-		Intercompany        string `xml:"Intercompany"`
-		IsDeferredVAT       string `xml:"IsDeferredVAT"`
-		DeferredAccount     string `xml:"DeferredAccount"`
-		CollectionAccount   string `xml:"CollectionAccount"`
-		RateInfoList        struct {
-			RateInfo struct {
-				EffectiveDate      string `xml:"EffectiveDate"`
-				Rate               string `xml:"Rate"`
-				RecoveryPercentage string `xml:"RecoveryPercentage"`
-			} `xml:"RateInfo"`
-		} `xml:"RateInfoList"`
-	} `xml:"Tax"`
+	Text       string    `xml:",chardata"`
+	Webservice string    `xml:"webservice,attr"`
+	Xmlns      string    `xml:"xmlns,attr"`
+	Com        string    `xml:"com,attr"`
+	CmpCode    string    `xml:"CmpCode"`
+	Code       string    `xml:"Code"`
+	Tax        TaxMaster `xml:"Tax"`
 }
 
 func (r *TaxGetRequest) URL() (*url.URL, error) {
