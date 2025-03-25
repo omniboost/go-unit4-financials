@@ -121,6 +121,7 @@ type Address struct {
 	PostCode       string `xml:"PostCode"`
 	Category       string `xml:"Category"`
 	Country        string `xml:"Country"`
+	Language       string `xml:"Language"`
 }
 
 type DocSeletKey struct {
