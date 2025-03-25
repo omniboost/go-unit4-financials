@@ -104,8 +104,9 @@ func (r ElementMasterAddRequest) NewRequestBody() ElementMasterAddRequestBody {
 }
 
 type ElementMasterAddRequestBody struct {
-	XMLName xml.Name `xml:"AddRequest"`
-	Element Element  `xml:"Element"`
+	XMLName        xml.Name          `xml:"AddRequest"`
+	Element        Element           `xml:"Element"`
+	FlexiFieldData *FlexiFieldMaster `xml:"FlexiFieldData"`
 }
 
 func (r *ElementMasterAddRequest) RequestBody() *ElementMasterAddRequestBody {

@@ -164,3 +164,16 @@ type TaxMaster struct {
 		} `xml:"RateInfo"`
 	} `xml:"RateInfoList"`
 }
+
+type FlexiFieldMaster struct {
+	MasterData []FlexiField `xml:"MasterData"`
+}
+type FlexiField struct {
+	Code      string            `xml:"Code"`
+	ValueList []FlexiFieldValue `xml:"ValueList>Value"`
+}
+
+type FlexiFieldValue struct {
+	ColumnName string `xml:"ColumnName"`
+	Value      string `xml:"Value"`
+}
