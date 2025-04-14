@@ -90,6 +90,11 @@ func (t Tax) IsEmpty() bool {
 	return zero.IsZero(t)
 }
 
+type AddOptions struct {
+	XMLName         xml.Name `xml:"AddOptions"`
+	TemplateCmpCode string   `xml:"templatecmpcode,attr"`
+	TemplateCode    string   `xml:"templatecode,attr"`
+}
 type Element struct {
 	XMLName          xml.Name  `xml:"Element"`
 	CmpCode          string    `xml:"CmpCode"`
