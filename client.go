@@ -12,9 +12,10 @@ import (
 	"net/http/httputil"
 	"net/url"
 	"path"
-	"strconv"
 	"strings"
 	"text/template"
+	"unicode"
+	"unicode/utf8"
 
 	"github.com/elliotchance/pie/pie"
 	"github.com/pkg/errors"
@@ -458,9 +459,11 @@ func CheckResponse(r *http.Response) error {
 		return errorResponse
 	}
 
-	err = checkContentType(r)
-	if err != nil {
-		return errors.WithStack(err)
+	// The response body isn't the expected xml. This happens when a
+	// gateway/proxy answers with text/html (or some other content type), or
+	// on a 401 without a body, instead of Unit4's SOAP response.
+	if err := checkContentType(r); err != nil {
+		return responseError(r, data)
 	}
 
 	if r.ContentLength == 0 {
@@ -490,6 +493,34 @@ func checkContentType(response *http.Response) error {
 	}
 
 	return nil
+}
+
+// responseError builds an error for a response whose Content-Type didn't
+// match what we expected. It returns the raw body when it looks like a real
+// text/plain message, and otherwise falls back to the HTTP status, so we
+// never dump a text/html error page (or binary data) into the error message.
+func responseError(r *http.Response, data []byte) error {
+	if isPlainText(data) {
+		if msg := strings.TrimSpace(string(data)); msg != "" {
+			return fmt.Errorf("%s: %s", r.Status, msg)
+		}
+	}
+
+	return errors.New(r.Status)
+}
+
+// isPlainText reports whether b is valid UTF-8 made up only of characters
+// we're happy to surface verbatim in an error message (letters, digits,
+// whitespace and common punctuation). It's what lets us tell a genuine
+// text/plain body apart from a text/html error page.
+func isPlainText(b []byte) bool {
+	s := bytes.TrimSpace(b)
+	return utf8.Valid(s) && bytes.IndexFunc(s, func(r rune) bool {
+		return !unicode.IsLetter(r) &&
+			!unicode.IsDigit(r) &&
+			!unicode.IsSpace(r) &&
+			!strings.ContainsRune(`.,!?;:'"()-_/\@#%&*+=`, r)
+	}) == -1
 }
 
 // {
@@ -533,7 +564,7 @@ type SOAPFault struct {
 	Detail      struct {
 		Reason struct {
 			Text struct {
-				Code int    `xml:"Code,attr"`
+				Code string `xml:"code,attr"`
 				Text string `xml:",chardata"`
 			} `xml:"Text"`
 			Path string `xml:"Path"`
@@ -543,9 +574,7 @@ type SOAPFault struct {
 
 func (f SOAPFault) Error() string {
 	l := []string{f.Faultcode, f.Faultstring}
-	if f.Detail.Reason.Text.Code != 0 {
-		l = append(l, strconv.Itoa(f.Detail.Reason.Text.Code))
-	}
+	l = append(l, f.Detail.Reason.Text.Code)
 	l = append(l, f.Detail.Reason.Text.Text, f.Detail.Reason.Path)
 
 	ll := []string{}
